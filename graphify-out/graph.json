@@ -54,6 +54,326 @@
       "norm_label": "trailingcomma"
     },
     {
+      "label": "Auditable.php",
+      "file_type": "code",
+      "source_file": "app/Core/Concerns/Auditable.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_concerns_auditable",
+      "community": 23,
+      "norm_label": "auditable.php"
+    },
+    {
+      "label": "auditLogs()",
+      "file_type": "code",
+      "source_file": "app/Core/Concerns/Auditable.php",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "app_core_concerns_auditable_auditlogs",
+      "community": 23,
+      "norm_label": "auditlogs()"
+    },
+    {
+      "label": "MorphMany",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "morphmany",
+      "community": 23,
+      "norm_label": "morphmany"
+    },
+    {
+      "label": "audit()",
+      "file_type": "code",
+      "source_file": "app/Core/Concerns/Auditable.php",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "app_core_concerns_auditable_audit",
+      "community": 23,
+      "norm_label": "audit()"
+    },
+    {
+      "label": "HasPublicUlid.php",
+      "file_type": "code",
+      "source_file": "app/Core/Concerns/HasPublicUlid.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_concerns_haspubliculid",
+      "community": 23,
+      "norm_label": "haspubliculid.php"
+    },
+    {
+      "label": "bootHasPublicUlid()",
+      "file_type": "code",
+      "source_file": "app/Core/Concerns/HasPublicUlid.php",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "app_core_concerns_haspubliculid_boothaspubliculid",
+      "community": 23,
+      "norm_label": "boothaspubliculid()"
+    },
+    {
+      "label": "ErrorCode.php",
+      "file_type": "code",
+      "source_file": "app/Core/Enums/ErrorCode.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_enums_errorcode",
+      "community": 104,
+      "norm_label": "errorcode.php"
+    },
+    {
+      "label": "ApiException.php",
+      "file_type": "code",
+      "source_file": "app/Core/Exceptions/ApiException.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_exceptions_apiexception",
+      "community": 104,
+      "norm_label": "apiexception.php"
+    },
+    {
+      "label": "ApiException",
+      "file_type": "code",
+      "source_file": "app/Core/Exceptions/ApiException.php",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_core_exceptions_apiexception_apiexception",
+      "community": 104,
+      "norm_label": "apiexception"
+    },
+    {
+      "label": "RuntimeException",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "runtimeexception",
+      "community": 104,
+      "norm_label": "runtimeexception"
+    },
+    {
+      "label": ".__construct()",
+      "file_type": "code",
+      "source_file": "app/Core/Exceptions/ApiException.php",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_core_exceptions_apiexception_apiexception_construct",
+      "community": 104,
+      "norm_label": ".__construct()"
+    },
+    {
+      "label": "ErrorCode",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_exceptions_apiexception_php_errorcode",
+      "community": 104,
+      "norm_label": "errorcode"
+    },
+    {
+      "label": "ApiResponse.php",
+      "file_type": "code",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_http_apiresponse",
+      "community": 104,
+      "norm_label": "apiresponse.php"
+    },
+    {
+      "label": "ApiResponse",
+      "file_type": "code",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_core_http_apiresponse_apiresponse",
+      "community": 104,
+      "norm_label": "apiresponse"
+    },
+    {
+      "label": ".success()",
+      "file_type": "code",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_core_http_apiresponse_apiresponse_success",
+      "community": 104,
+      "norm_label": ".success()"
+    },
+    {
+      "label": "JsonResponse",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "jsonresponse",
+      "community": 104,
+      "norm_label": "jsonresponse"
+    },
+    {
+      "label": ".error()",
+      "file_type": "code",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "app_core_http_apiresponse_apiresponse_error",
+      "community": 104,
+      "norm_label": ".error()"
+    },
+    {
+      "label": "ErrorCode",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_http_apiresponse_php_errorcode",
+      "community": 104,
+      "norm_label": "errorcode"
+    },
+    {
+      "label": "AuditLog.php",
+      "file_type": "code",
+      "source_file": "app/Core/Models/AuditLog.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_models_auditlog",
+      "community": 23,
+      "norm_label": "auditlog.php"
+    },
+    {
+      "label": "AuditLog",
+      "file_type": "code",
+      "source_file": "app/Core/Models/AuditLog.php",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_core_models_auditlog_auditlog",
+      "community": 23,
+      "norm_label": "auditlog"
+    },
+    {
+      "label": "Model",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "model",
+      "community": 23,
+      "norm_label": "model"
+    },
+    {
+      "label": ".casts()",
+      "file_type": "code",
+      "source_file": "app/Core/Models/AuditLog.php",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_core_models_auditlog_auditlog_casts",
+      "community": 23,
+      "norm_label": ".casts()"
+    },
+    {
+      "label": ".auditable()",
+      "file_type": "code",
+      "source_file": "app/Core/Models/AuditLog.php",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "app_core_models_auditlog_auditlog_auditable",
+      "community": 23,
+      "norm_label": ".auditable()"
+    },
+    {
+      "label": "MorphTo",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "morphto",
+      "community": 23,
+      "norm_label": "morphto"
+    },
+    {
+      "label": "Money.php",
+      "file_type": "code",
+      "source_file": "app/Core/Money/Money.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_money_money",
+      "community": 104,
+      "norm_label": "money.php"
+    },
+    {
+      "label": "Money",
+      "file_type": "code",
+      "source_file": "app/Core/Money/Money.php",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_core_money_money_money",
+      "community": 104,
+      "norm_label": "money"
+    },
+    {
+      "label": ".of()",
+      "file_type": "code",
+      "source_file": "app/Core/Money/Money.php",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "app_core_money_money_money_of",
+      "community": 104,
+      "norm_label": ".of()"
+    },
+    {
+      "label": "BrickMoney",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "brickmoney",
+      "community": 104,
+      "norm_label": "brickmoney"
+    },
+    {
+      "label": "AuditLogger.php",
+      "file_type": "code",
+      "source_file": "app/Core/Support/AuditLogger.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_support_auditlogger",
+      "community": 23,
+      "norm_label": "auditlogger.php"
+    },
+    {
+      "label": "AuditLogger",
+      "file_type": "code",
+      "source_file": "app/Core/Support/AuditLogger.php",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_core_support_auditlogger_auditlogger",
+      "community": 23,
+      "norm_label": "auditlogger"
+    },
+    {
+      "label": ".record()",
+      "file_type": "code",
+      "source_file": "app/Core/Support/AuditLogger.php",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "app_core_support_auditlogger_auditlogger_record",
+      "community": 23,
+      "norm_label": ".record()"
+    },
+    {
+      "label": "Model",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_support_auditlogger_php_model",
+      "community": 23,
+      "norm_label": "model"
+    },
+    {
       "label": "Controller.php",
       "file_type": "code",
       "source_file": "app/Http/Controllers/Controller.php",
@@ -87,7 +407,7 @@
       "label": "User",
       "file_type": "code",
       "source_file": "app/Models/User.php",
-      "source_location": "L12",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "app_models_user_user",
       "community": 4,
@@ -102,6 +422,16 @@
       "id": "authenticatable",
       "community": 4,
       "norm_label": "authenticatable"
+    },
+    {
+      "label": "Auditable",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "auditable",
+      "community": 4,
+      "norm_label": "auditable"
     },
     {
       "label": "HasApiTokens",
@@ -124,6 +454,16 @@
       "norm_label": "hasfactory"
     },
     {
+      "label": "HasPublicUlid",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "haspubliculid",
+      "community": 4,
+      "norm_label": "haspubliculid"
+    },
+    {
       "label": "Notifiable",
       "file_type": "code",
       "source_file": "",
@@ -137,7 +477,7 @@
       "label": ".casts()",
       "file_type": "code",
       "source_file": "app/Models/User.php",
-      "source_location": "L43",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "app_models_user_user_casts",
       "community": 4,
@@ -354,10 +694,20 @@
       "norm_label": "php"
     },
     {
-      "label": "laravel/framework",
+      "label": "brick/money",
       "file_type": "code",
       "source_file": "composer.json",
       "source_location": "L16",
+      "_origin": "ast",
+      "id": "composer_require_brick_money",
+      "community": 2,
+      "norm_label": "brick/money"
+    },
+    {
+      "label": "laravel/framework",
+      "file_type": "code",
+      "source_file": "composer.json",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "composer_require_laravel_framework",
       "community": 2,
@@ -367,7 +717,7 @@
       "label": "laravel/sanctum",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L17",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "composer_require_laravel_sanctum",
       "community": 2,
@@ -377,7 +727,7 @@
       "label": "laravel/tinker",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L18",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "composer_require_laravel_tinker",
       "community": 2,
@@ -387,7 +737,7 @@
       "label": "require-dev",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "composer_require_dev",
       "community": 21,
@@ -397,7 +747,7 @@
       "label": "fakerphp/faker",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "composer_require_dev_fakerphp_faker",
       "community": 21,
@@ -407,7 +757,7 @@
       "label": "larastan/larastan",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "composer_require_dev_larastan_larastan",
       "community": 21,
@@ -417,7 +767,7 @@
       "label": "laravel/pail",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "composer_require_dev_laravel_pail",
       "community": 21,
@@ -427,7 +777,7 @@
       "label": "laravel/pint",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "composer_require_dev_laravel_pint",
       "community": 21,
@@ -437,7 +787,7 @@
       "label": "laravel/sail",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "composer_require_dev_laravel_sail",
       "community": 21,
@@ -447,7 +797,7 @@
       "label": "mockery/mockery",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "composer_require_dev_mockery_mockery",
       "community": 21,
@@ -457,7 +807,7 @@
       "label": "nunomaduro/collision",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "composer_require_dev_nunomaduro_collision",
       "community": 21,
@@ -467,7 +817,7 @@
       "label": "pestphp/pest",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "composer_require_dev_pestphp_pest",
       "community": 21,
@@ -477,7 +827,7 @@
       "label": "pestphp/pest-plugin-laravel",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "composer_require_dev_pestphp_pest_plugin_laravel",
       "community": 21,
@@ -487,7 +837,7 @@
       "label": "phpunit/phpunit",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "composer_require_dev_phpunit_phpunit",
       "community": 21,
@@ -497,7 +847,7 @@
       "label": "autoload",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "composer_autoload",
       "community": 2,
@@ -507,7 +857,7 @@
       "label": "psr-4",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "composer_autoload_psr_4",
       "community": 2,
@@ -517,7 +867,7 @@
       "label": "App\\\\",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "composer_psr_4_app",
       "community": 2,
@@ -527,7 +877,7 @@
       "label": "Database\\\\Factories\\\\",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "composer_psr_4_database_factories",
       "community": 2,
@@ -537,7 +887,7 @@
       "label": "Database\\\\Seeders\\\\",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "composer_psr_4_database_seeders",
       "community": 2,
@@ -547,7 +897,7 @@
       "label": "autoload-dev",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L39",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "composer_autoload_dev",
       "community": 2,
@@ -557,7 +907,7 @@
       "label": "psr-4",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L40",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "composer_autoload_dev_psr_4",
       "community": 2,
@@ -567,7 +917,7 @@
       "label": "Tests\\\\",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L41",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "composer_psr_4_tests",
       "community": 2,
@@ -577,7 +927,7 @@
       "label": "scripts",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "composer_scripts",
       "community": 2,
@@ -587,7 +937,7 @@
       "label": "setup",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L45",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "composer_scripts_setup",
       "community": 2,
@@ -597,7 +947,7 @@
       "label": "dev",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L53",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "composer_scripts_dev",
       "community": 2,
@@ -607,7 +957,7 @@
       "label": "test",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L57",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "composer_scripts_test",
       "community": 2,
@@ -617,7 +967,7 @@
       "label": "analyse",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L61",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "composer_scripts_analyse",
       "community": 2,
@@ -627,7 +977,7 @@
       "label": "post-autoload-dump",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L62",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "composer_scripts_post_autoload_dump",
       "community": 2,
@@ -637,7 +987,7 @@
       "label": "post-update-cmd",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L66",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "composer_scripts_post_update_cmd",
       "community": 2,
@@ -647,7 +997,7 @@
       "label": "post-root-package-install",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L69",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "composer_scripts_post_root_package_install",
       "community": 2,
@@ -657,7 +1007,7 @@
       "label": "post-create-project-cmd",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L72",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "composer_scripts_post_create_project_cmd",
       "community": 2,
@@ -667,7 +1017,7 @@
       "label": "pre-package-uninstall",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L77",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "composer_scripts_pre_package_uninstall",
       "community": 2,
@@ -677,7 +1027,7 @@
       "label": "extra",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L81",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "composer_extra",
       "community": 2,
@@ -687,7 +1037,7 @@
       "label": "laravel",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L82",
+      "source_location": "L83",
       "_origin": "ast",
       "id": "composer_extra_laravel",
       "community": 2,
@@ -697,7 +1047,7 @@
       "label": "dont-discover",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L83",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "composer_laravel_dont_discover",
       "community": 2,
@@ -707,7 +1057,7 @@
       "label": "config",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L86",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "composer_config",
       "community": 2,
@@ -717,7 +1067,7 @@
       "label": "optimize-autoloader",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L87",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "composer_config_optimize_autoloader",
       "community": 2,
@@ -727,7 +1077,7 @@
       "label": "preferred-install",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L88",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "composer_config_preferred_install",
       "community": 2,
@@ -737,7 +1087,7 @@
       "label": "sort-packages",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L89",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "composer_config_sort_packages",
       "community": 2,
@@ -747,7 +1097,7 @@
       "label": "allow-plugins",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L90",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "composer_config_allow_plugins",
       "community": 2,
@@ -757,7 +1107,7 @@
       "label": "pestphp/pest-plugin",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L91",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "composer_allow_plugins_pestphp_pest_plugin",
       "community": 2,
@@ -767,7 +1117,7 @@
       "label": "php-http/discovery",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L92",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "composer_allow_plugins_php_http_discovery",
       "community": 2,
@@ -777,7 +1127,7 @@
       "label": "minimum-stability",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L95",
+      "source_location": "L96",
       "_origin": "ast",
       "id": "composer_minimum_stability",
       "community": 2,
@@ -787,7 +1137,7 @@
       "label": "prefer-stable",
       "file_type": "code",
       "source_file": "composer.json",
-      "source_location": "L96",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "composer_prefer_stable",
       "community": 2,
@@ -920,7 +1270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "database_factories_userfactory",
-      "community": 4,
+      "community": 23,
       "norm_label": "userfactory.php"
     },
     {
@@ -930,7 +1280,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "database_factories_userfactory_userfactory",
-      "community": 4,
+      "community": 23,
       "norm_label": "userfactory"
     },
     {
@@ -940,7 +1290,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "factory",
-      "community": 4,
+      "community": 23,
       "norm_label": "factory"
     },
     {
@@ -950,7 +1300,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "database_factories_userfactory_userfactory_definition",
-      "community": 4,
+      "community": 23,
       "norm_label": ".definition()"
     },
     {
@@ -960,7 +1310,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "database_factories_userfactory_userfactory_unverified",
-      "community": 4,
+      "community": 23,
       "norm_label": ".unverified()"
     },
     {
@@ -970,7 +1320,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "static",
-      "community": 4,
+      "community": 23,
       "norm_label": "static"
     },
     {
@@ -1061,6 +1411,66 @@
       "_origin": "ast",
       "id": "database_migrations_0001_01_01_000002_create_jobs_table_down",
       "community": 32,
+      "norm_label": "down()"
+    },
+    {
+      "label": "2026_07_09_175000_add_public_id_to_users_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_175000_add_public_id_to_users_table.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_175000_add_public_id_to_users_table",
+      "community": 119,
+      "norm_label": "2026_07_09_175000_add_public_id_to_users_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_175000_add_public_id_to_users_table.php",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_175000_add_public_id_to_users_table_up",
+      "community": 119,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_175000_add_public_id_to_users_table.php",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_175000_add_public_id_to_users_table_down",
+      "community": 119,
+      "norm_label": "down()"
+    },
+    {
+      "label": "2026_07_09_180000_create_audit_logs_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_180000_create_audit_logs_table.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_180000_create_audit_logs_table",
+      "community": 126,
+      "norm_label": "2026_07_09_180000_create_audit_logs_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_180000_create_audit_logs_table.php",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_180000_create_audit_logs_table_up",
+      "community": 126,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_180000_create_audit_logs_table.php",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_180000_create_audit_logs_table_down",
+      "community": 126,
       "norm_label": "down()"
     },
     {
@@ -1160,7 +1570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "package",
-      "community": 7,
+      "community": 118,
       "norm_label": "package.json"
     },
     {
@@ -1170,7 +1580,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "package_schema",
-      "community": 7,
+      "community": 118,
       "norm_label": "$schema"
     },
     {
@@ -1180,7 +1590,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "package_private",
-      "community": 7,
+      "community": 118,
       "norm_label": "private"
     },
     {
@@ -1190,7 +1600,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "package_type",
-      "community": 7,
+      "community": 118,
       "norm_label": "type"
     },
     {
@@ -1200,7 +1610,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "package_scripts",
-      "community": 7,
+      "community": 118,
       "norm_label": "scripts"
     },
     {
@@ -1210,7 +1620,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "package_scripts_build",
-      "community": 7,
+      "community": 118,
       "norm_label": "build"
     },
     {
@@ -1220,7 +1630,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "package_scripts_dev",
-      "community": 7,
+      "community": 118,
       "norm_label": "dev"
     },
     {
@@ -1230,7 +1640,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "package_scripts_lint",
-      "community": 7,
+      "community": 118,
       "norm_label": "lint"
     },
     {
@@ -1240,7 +1650,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "package_scripts_format_check",
-      "community": 7,
+      "community": 118,
       "norm_label": "format:check"
     },
     {
@@ -1250,7 +1660,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "package_scripts_test_unit",
-      "community": 7,
+      "community": 118,
       "norm_label": "test:unit"
     },
     {
@@ -1260,7 +1670,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "package_scripts_typecheck",
-      "community": 7,
+      "community": 118,
       "norm_label": "typecheck"
     },
     {
@@ -1480,7 +1890,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "package_dependencies",
-      "community": 7,
+      "community": 118,
       "norm_label": "dependencies"
     },
     {
@@ -1490,7 +1900,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "package_dependencies_pinia",
-      "community": 7,
+      "community": 118,
       "norm_label": "pinia"
     },
     {
@@ -1500,7 +1910,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "package_dependencies_vite_plugin_pwa",
-      "community": 7,
+      "community": 118,
       "norm_label": "vite-plugin-pwa"
     },
     {
@@ -1510,7 +1920,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "package_dependencies_vue",
-      "community": 7,
+      "community": 118,
       "norm_label": "vue"
     },
     {
@@ -1520,7 +1930,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "package_dependencies_vue_i18n",
-      "community": 7,
+      "community": 118,
       "norm_label": "vue-i18n"
     },
     {
@@ -1530,7 +1940,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "package_dependencies_vue_router",
-      "community": 7,
+      "community": 118,
       "norm_label": "vue-router"
     },
     {
@@ -1682,6 +2092,16 @@
       "id": "routes_web",
       "community": 116,
       "norm_label": "web.php"
+    },
+    {
+      "label": "CoreInfrastructureTest.php",
+      "file_type": "code",
+      "source_file": "tests/Feature/CoreInfrastructureTest.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_feature_coreinfrastructuretest",
+      "community": 104,
+      "norm_label": "coreinfrastructuretest.php"
     },
     {
       "label": "ExampleTest.php",
@@ -1960,7 +2380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents",
-      "community": 0,
+      "community": 5,
       "norm_label": "agents.md"
     },
     {
@@ -1970,7 +2390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "agents_omnipos_modular_saas_instrucciones_del_proyecto",
-      "community": 0,
+      "community": 5,
       "norm_label": "omnipos modular saas \u2014 instrucciones del proyecto"
     },
     {
@@ -1980,7 +2400,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "agents_fuentes_de_verdad_en_orden_de_prioridad",
-      "community": 0,
+      "community": 5,
       "norm_label": "fuentes de verdad (en orden de prioridad)"
     },
     {
@@ -1990,7 +2410,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "agents_documentaci\u00f3n_viva",
-      "community": 0,
+      "community": 5,
       "norm_label": "documentacion viva"
     },
     {
@@ -2000,7 +2420,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "agents_reglas_duras_resumen",
-      "community": 0,
+      "community": 5,
       "norm_label": "reglas duras (resumen)"
     },
     {
@@ -2010,7 +2430,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "agents_grafo_de_conocimiento",
-      "community": 0,
+      "community": 5,
       "norm_label": "grafo de conocimiento"
     },
     {
@@ -2020,7 +2440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "claude",
-      "community": 0,
+      "community": 5,
       "norm_label": "claude.md"
     },
     {
@@ -2030,7 +2450,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "claude_omnipos_modular_saas_instrucciones_del_proyecto",
-      "community": 0,
+      "community": 5,
       "norm_label": "omnipos modular saas \u2014 instrucciones del proyecto"
     },
     {
@@ -2040,7 +2460,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "claude_fuentes_de_verdad_en_orden_de_prioridad",
-      "community": 0,
+      "community": 5,
       "norm_label": "fuentes de verdad (en orden de prioridad)"
     },
     {
@@ -2050,7 +2470,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "claude_documentaci\u00f3n_viva",
-      "community": 0,
+      "community": 5,
       "norm_label": "documentacion viva"
     },
     {
@@ -2060,7 +2480,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "claude_reglas_duras_resumen",
-      "community": 0,
+      "community": 5,
       "norm_label": "reglas duras (resumen)"
     },
     {
@@ -2070,7 +2490,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "claude_grafo_de_conocimiento",
-      "community": 0,
+      "community": 5,
       "norm_label": "grafo de conocimiento"
     },
     {
@@ -2080,7 +2500,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "master_prompt_addendum",
-      "community": 0,
+      "community": 5,
       "norm_label": "master_prompt_addendum.md"
     },
     {
@@ -2470,7 +2890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_01_architecture_01_arquitectura",
-      "community": 23,
+      "community": 124,
       "norm_label": "01 \u2014 arquitectura"
     },
     {
@@ -2480,7 +2900,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_01_architecture_patr\u00f3n_monolito_modular",
-      "community": 23,
+      "community": 124,
       "norm_label": "patron: monolito modular"
     },
     {
@@ -2490,7 +2910,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "docs_01_architecture_multi_tenancy",
-      "community": 23,
+      "community": 124,
       "norm_label": "multi-tenancy"
     },
     {
@@ -2500,7 +2920,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "docs_01_architecture_capas_de_protecci\u00f3n_de_una_ruta",
-      "community": 23,
+      "community": 124,
       "norm_label": "capas de proteccion de una ruta"
     },
     {
@@ -2510,7 +2930,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "docs_01_architecture_estructura_backend",
-      "community": 23,
+      "community": 124,
       "norm_label": "estructura backend"
     },
     {
@@ -2520,7 +2940,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "docs_01_architecture_convenciones_cr\u00edticas",
-      "community": 23,
+      "community": 124,
       "norm_label": "convenciones criticas"
     },
     {
@@ -2530,7 +2950,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "docs_01_architecture_respuesta_api_est\u00e1ndar",
-      "community": 23,
+      "community": 124,
       "norm_label": "respuesta api estandar"
     },
     {
@@ -2540,7 +2960,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "docs_01_architecture_eventos_de_dominio_clave",
-      "community": 23,
+      "community": 124,
       "norm_label": "eventos de dominio clave"
     },
     {
@@ -2550,7 +2970,7 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "docs_01_architecture_decisiones_registradas",
-      "community": 23,
+      "community": 124,
       "norm_label": "decisiones registradas"
     },
     {
@@ -2710,7 +3130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_03_api_documentation",
-      "community": 129,
+      "community": 124,
       "norm_label": "03_api_documentation.md"
     },
     {
@@ -2720,7 +3140,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_03_api_documentation_03_documentaci\u00f3n_de_api",
-      "community": 129,
+      "community": 124,
       "norm_label": "03 \u2014 documentacion de api"
     },
     {
@@ -2730,7 +3150,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "docs_03_api_documentation_convenciones",
-      "community": 129,
+      "community": 124,
       "norm_label": "convenciones"
     },
     {
@@ -2740,7 +3160,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "docs_03_api_documentation_mapa_de_endpoints_previsto_por_fase",
-      "community": 129,
+      "community": 124,
       "norm_label": "mapa de endpoints previsto (por fase)"
     },
     {
@@ -2750,7 +3170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_04_frontend_structure",
-      "community": 126,
+      "community": 124,
       "norm_label": "04_frontend_structure.md"
     },
     {
@@ -2760,7 +3180,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_04_frontend_structure_04_estructura_frontend",
-      "community": 126,
+      "community": 124,
       "norm_label": "04 \u2014 estructura frontend"
     },
     {
@@ -2770,7 +3190,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_04_frontend_structure_estructura_master_prompt_5",
-      "community": 126,
+      "community": 124,
       "norm_label": "estructura (master prompt \u00a75)"
     },
     {
@@ -2780,7 +3200,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "docs_04_frontend_structure_design_system_kinetic_enterprise",
-      "community": 126,
+      "community": 124,
       "norm_label": "design system: \"kinetic enterprise\""
     },
     {
@@ -2790,7 +3210,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "docs_04_frontend_structure_pantallas_de_referencia_stitch",
-      "community": 126,
+      "community": 124,
       "norm_label": "pantallas de referencia (stitch)"
     },
     {
@@ -2800,7 +3220,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "docs_04_frontend_structure_reglas_frontend",
-      "community": 126,
+      "community": 124,
       "norm_label": "reglas frontend"
     },
     {
@@ -3000,7 +3420,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_07_printing_07_impresi\u00f3n",
-      "community": 119,
+      "community": 124,
       "norm_label": "07 \u2014 impresion"
     },
     {
@@ -3010,7 +3430,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_07_printing_alcance_master_prompt_20",
-      "community": 119,
+      "community": 124,
       "norm_label": "alcance (master prompt \u00a720)"
     },
     {
@@ -3020,7 +3440,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "docs_07_printing_estrategia_por_etapas",
-      "community": 119,
+      "community": 124,
       "norm_label": "estrategia por etapas"
     },
     {
@@ -3030,7 +3450,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "docs_07_printing_configuraci\u00f3n",
-      "community": 119,
+      "community": 124,
       "norm_label": "configuracion"
     },
     {
@@ -3040,7 +3460,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "docs_07_printing_requisitos_fiscales_del_ticket_factura_rd",
-      "community": 119,
+      "community": 124,
       "norm_label": "requisitos fiscales del ticket/factura rd"
     },
     {
@@ -3060,7 +3480,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_08_security_08_seguridad_y_auditor\u00eda",
-      "community": 118,
+      "community": 124,
       "norm_label": "08 \u2014 seguridad y auditoria"
     },
     {
@@ -3070,7 +3490,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_08_security_autenticaci\u00f3n_y_sesiones",
-      "community": 118,
+      "community": 124,
       "norm_label": "autenticacion y sesiones"
     },
     {
@@ -3080,7 +3500,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "docs_08_security_autorizaci\u00f3n_en_capas",
-      "community": 118,
+      "community": 124,
       "norm_label": "autorizacion en capas"
     },
     {
@@ -3090,7 +3510,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "docs_08_security_datos",
-      "community": 118,
+      "community": 124,
       "norm_label": "datos"
     },
     {
@@ -3100,7 +3520,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "docs_08_security_auditor\u00eda_m\u00f3dulo_audit",
-      "community": 118,
+      "community": 124,
       "norm_label": "auditoria (modulo audit)"
     },
     {
@@ -3110,7 +3530,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "docs_08_security_acciones_sensibles_con_autorizaci\u00f3n_elevada",
-      "community": 118,
+      "community": 124,
       "norm_label": "acciones sensibles con autorizacion elevada"
     },
     {
@@ -3120,7 +3540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_09_testing",
-      "community": 127,
+      "community": 124,
       "norm_label": "09_testing.md"
     },
     {
@@ -3130,7 +3550,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_09_testing_09_estrategia_de_pruebas",
-      "community": 127,
+      "community": 124,
       "norm_label": "09 \u2014 estrategia de pruebas"
     },
     {
@@ -3140,7 +3560,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_09_testing_herramientas",
-      "community": 127,
+      "community": 124,
       "norm_label": "herramientas"
     },
     {
@@ -3150,7 +3570,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "docs_09_testing_cobertura_obligatoria_backend_master_prompt_29",
-      "community": 127,
+      "community": 124,
       "norm_label": "cobertura obligatoria backend (master prompt \u00a729)"
     },
     {
@@ -3160,7 +3580,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "docs_09_testing_e2e_playwright_fase_14_sobre_app_real",
-      "community": 127,
+      "community": 124,
       "norm_label": "e2e playwright (fase 14, sobre app real)"
     },
     {
@@ -3170,7 +3590,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "docs_09_testing_regla_de_trabajo",
-      "community": 127,
+      "community": 124,
       "norm_label": "regla de trabajo"
     },
     {
@@ -3200,7 +3620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_11_todo_master",
-      "community": 0,
+      "community": 5,
       "norm_label": "11_todo_master.md"
     },
     {
@@ -3437,7 +3857,7 @@
       "label": "2026-07-09 \u2014 Planificaci\u00f3n inicial (pre-c\u00f3digo)",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L35",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_planificaci\u00f3n_inicial_pre_c\u00f3digo",
       "community": 29,
@@ -3450,7 +3870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_13_decisions",
-      "community": 0,
+      "community": 124,
       "norm_label": "13_decisions.md"
     },
     {
@@ -3460,7 +3880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_13_decisions_13_decisiones_t\u00e9cnicas_adr",
-      "community": 0,
+      "community": 124,
       "norm_label": "13 \u2014 decisiones tecnicas (adr)"
     },
     {
@@ -7109,6 +7529,549 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/Auditable.php",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "app_core_concerns_auditable",
+      "target": "app_core_concerns_auditable_audit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/Auditable.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_core_concerns_auditable",
+      "target": "app_core_concerns_auditable_auditlogs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/Auditable.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_concerns_auditable",
+      "target": "app_core_models_auditlog_auditlog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/Auditable.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_core_concerns_auditable",
+      "target": "app_core_support_auditlogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/Auditable.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_core_concerns_auditable",
+      "target": "morphmany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references_constant",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Core/Concerns/Auditable.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_core_concerns_auditable_auditlogs",
+      "target": "app_core_models_auditlog_auditlog"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/Auditable.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_core_concerns_auditable_auditlogs",
+      "target": "morphmany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/Auditable.php",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_core_concerns_auditable_audit",
+      "target": "app_core_models_auditlog_auditlog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/HasPublicUlid.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_core_concerns_haspubliculid",
+      "target": "app_core_concerns_haspubliculid_boothaspubliculid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/HasPublicUlid.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_concerns_haspubliculid",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Core/Concerns/HasPublicUlid.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_core_concerns_haspubliculid_boothaspubliculid",
+      "target": "static"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "bootstrap/app.php",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "bootstrap_app",
+      "target": "app_core_enums_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CoreInfrastructureTest.php",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_feature_coreinfrastructuretest",
+      "target": "app_core_enums_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Exceptions/ApiException.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_core_exceptions_apiexception",
+      "target": "app_core_exceptions_apiexception_apiexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Exceptions/ApiException.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_exceptions_apiexception",
+      "target": "app_core_exceptions_apiexception_php_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Exceptions/ApiException.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_core_exceptions_apiexception",
+      "target": "runtimeexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "bootstrap/app.php",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "bootstrap_app",
+      "target": "app_core_exceptions_apiexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CoreInfrastructureTest.php",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "tests_feature_coreinfrastructuretest",
+      "target": "app_core_exceptions_apiexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Exceptions/ApiException.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_core_exceptions_apiexception_apiexception",
+      "target": "app_core_exceptions_apiexception_apiexception_construct",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Exceptions/ApiException.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "field",
+      "source": "app_core_exceptions_apiexception_apiexception",
+      "target": "app_core_exceptions_apiexception_php_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Exceptions/ApiException.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_core_exceptions_apiexception_apiexception",
+      "target": "runtimeexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Exceptions/ApiException.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_core_exceptions_apiexception_apiexception_construct",
+      "target": "app_core_exceptions_apiexception_php_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_core_http_apiresponse",
+      "target": "app_core_http_apiresponse_apiresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_http_apiresponse",
+      "target": "app_core_http_apiresponse_php_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_core_http_apiresponse",
+      "target": "jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "bootstrap/app.php",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "bootstrap_app",
+      "target": "app_core_http_apiresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CoreInfrastructureTest.php",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "tests_feature_coreinfrastructuretest",
+      "target": "app_core_http_apiresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "app_core_http_apiresponse_apiresponse",
+      "target": "app_core_http_apiresponse_apiresponse_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_core_http_apiresponse_apiresponse",
+      "target": "app_core_http_apiresponse_apiresponse_success",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_core_http_apiresponse_apiresponse_success",
+      "target": "jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_core_http_apiresponse_apiresponse_error",
+      "target": "jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/ApiResponse.php",
+      "source_location": "L24",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_core_http_apiresponse_apiresponse_error",
+      "target": "app_core_http_apiresponse_php_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/AuditLog.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_core_models_auditlog",
+      "target": "app_core_models_auditlog_auditlog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/AuditLog.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_models_auditlog",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/AuditLog.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_core_models_auditlog",
+      "target": "morphto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/AuditLog.php",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "app_core_models_auditlog_auditlog",
+      "target": "app_core_models_auditlog_auditlog_auditable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/AuditLog.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_core_models_auditlog_auditlog",
+      "target": "app_core_models_auditlog_auditlog_casts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/AuditLog.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_core_models_auditlog_auditlog",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Support/AuditLogger.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_support_auditlogger",
+      "target": "app_core_models_auditlog_auditlog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Support/AuditLogger.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_core_support_auditlogger_auditlogger_record",
+      "target": "app_core_models_auditlog_auditlog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/AuditLog.php",
+      "source_location": "L26",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_core_models_auditlog_auditlog_auditable",
+      "target": "morphto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Money/Money.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_core_money_money",
+      "target": "app_core_money_money_money",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Money/Money.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_core_money_money",
+      "target": "app_core_money_money",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CoreInfrastructureTest.php",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_feature_coreinfrastructuretest",
+      "target": "app_core_money_money",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Money/Money.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_core_money_money_money",
+      "target": "app_core_money_money_money_of",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Money/Money.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_core_money_money_money_of",
+      "target": "brickmoney",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Support/AuditLogger.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_core_support_auditlogger",
+      "target": "app_core_support_auditlogger_auditlogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Support/AuditLogger.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_core_support_auditlogger",
+      "target": "app_core_support_auditlogger_php_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CoreInfrastructureTest.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "tests_feature_coreinfrastructuretest",
+      "target": "app_core_support_auditlogger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Support/AuditLogger.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_core_support_auditlogger_auditlogger",
+      "target": "app_core_support_auditlogger_auditlogger_record",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Support/AuditLogger.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_core_support_auditlogger_auditlogger_record",
+      "target": "app_core_support_auditlogger_php_model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app/Http/Controllers/Controller.php",
       "source_location": "L5",
       "weight": 1.0,
@@ -7120,7 +8083,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L12",
+      "source_location": "L14",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "app_models_user_user",
@@ -7131,7 +8094,18 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L10",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_models_user",
+      "target": "auditable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "hasapitokens",
@@ -7142,7 +8116,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L7",
+      "source_location": "L9",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "hasfactory",
@@ -7153,7 +8127,18 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L9",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_models_user",
+      "target": "haspubliculid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L11",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "notifiable",
@@ -7164,7 +8149,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L8",
+      "source_location": "L10",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "app_models_user",
@@ -7175,7 +8160,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L6",
+      "source_location": "L8",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "database_factories_userfactory",
@@ -7207,6 +8192,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CoreInfrastructureTest.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_feature_coreinfrastructuretest",
+      "target": "app_models_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/Feature/SanctumTokenTest.php",
       "source_location": "L3",
       "weight": 1.0,
@@ -7218,17 +8214,27 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L43",
+      "source_location": "L45",
       "weight": 1.0,
       "source": "app_models_user_user",
       "target": "app_models_user_user_casts",
       "confidence_score": 1.0
     },
     {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "auditable",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L12",
+      "source_location": "L14",
       "weight": 1.0,
       "source": "app_models_user_user",
       "target": "authenticatable",
@@ -7238,7 +8244,7 @@
       "relation": "mixes_in",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L15",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "app_models_user_user",
       "target": "hasapitokens",
@@ -7248,7 +8254,7 @@
       "relation": "mixes_in",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L15",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "app_models_user_user",
       "target": "hasfactory",
@@ -7258,7 +8264,17 @@
       "relation": "mixes_in",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L15",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "haspubliculid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "app_models_user_user",
       "target": "notifiable",
@@ -7425,7 +8441,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0,
       "source": "composer",
       "target": "composer_autoload",
@@ -7435,7 +8451,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0,
       "source": "composer",
       "target": "composer_autoload_dev",
@@ -7445,7 +8461,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L86",
+      "source_location": "L87",
       "weight": 1.0,
       "source": "composer",
       "target": "composer_config",
@@ -7465,7 +8481,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L81",
+      "source_location": "L82",
       "weight": 1.0,
       "source": "composer",
       "target": "composer_extra",
@@ -7495,7 +8511,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L95",
+      "source_location": "L96",
       "weight": 1.0,
       "source": "composer",
       "target": "composer_minimum_stability",
@@ -7515,7 +8531,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L96",
+      "source_location": "L97",
       "weight": 1.0,
       "source": "composer",
       "target": "composer_prefer_stable",
@@ -7535,7 +8551,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "source": "composer",
       "target": "composer_require_dev",
@@ -7555,7 +8571,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0,
       "source": "composer",
       "target": "composer_scripts",
@@ -7578,7 +8594,7 @@
       "source_location": "L16",
       "weight": 1.0,
       "source": "composer_require",
-      "target": "composer_require_laravel_framework",
+      "target": "composer_require_brick_money",
       "confidence_score": 1.0
     },
     {
@@ -7588,7 +8604,7 @@
       "source_location": "L17",
       "weight": 1.0,
       "source": "composer_require",
-      "target": "composer_require_laravel_sanctum",
+      "target": "composer_require_laravel_framework",
       "confidence_score": 1.0
     },
     {
@@ -7596,6 +8612,16 @@
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
       "source_location": "L18",
+      "weight": 1.0,
+      "source": "composer_require",
+      "target": "composer_require_laravel_sanctum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "composer.json",
+      "source_location": "L19",
       "weight": 1.0,
       "source": "composer_require",
       "target": "composer_require_laravel_tinker",
@@ -7615,7 +8641,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0,
       "source": "composer_require_dev",
       "target": "composer_require_dev_fakerphp_faker",
@@ -7625,7 +8651,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0,
       "source": "composer_require_dev",
       "target": "composer_require_dev_larastan_larastan",
@@ -7635,7 +8661,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0,
       "source": "composer_require_dev",
       "target": "composer_require_dev_laravel_pail",
@@ -7645,7 +8671,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "composer_require_dev",
       "target": "composer_require_dev_laravel_pint",
@@ -7655,7 +8681,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "composer_require_dev",
       "target": "composer_require_dev_laravel_sail",
@@ -7665,7 +8691,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0,
       "source": "composer_require_dev",
       "target": "composer_require_dev_mockery_mockery",
@@ -7675,7 +8701,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "source": "composer_require_dev",
       "target": "composer_require_dev_nunomaduro_collision",
@@ -7685,7 +8711,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "source": "composer_require_dev",
       "target": "composer_require_dev_pestphp_pest",
@@ -7695,7 +8721,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "source": "composer_require_dev",
       "target": "composer_require_dev_pestphp_pest_plugin_laravel",
@@ -7705,7 +8731,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0,
       "source": "composer_require_dev",
       "target": "composer_require_dev_phpunit_phpunit",
@@ -7715,7 +8741,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "source": "composer_autoload",
       "target": "composer_autoload_psr_4",
@@ -7725,7 +8751,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0,
       "source": "composer_autoload_psr_4",
       "target": "composer_psr_4_app",
@@ -7735,7 +8761,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0,
       "source": "composer_autoload_psr_4",
       "target": "composer_psr_4_database_factories",
@@ -7745,7 +8771,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0,
       "source": "composer_autoload_psr_4",
       "target": "composer_psr_4_database_seeders",
@@ -7755,7 +8781,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0,
       "source": "composer_autoload_dev",
       "target": "composer_autoload_dev_psr_4",
@@ -7765,7 +8791,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0,
       "source": "composer_autoload_dev_psr_4",
       "target": "composer_psr_4_tests",
@@ -7775,7 +8801,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L61",
+      "source_location": "L62",
       "weight": 1.0,
       "source": "composer_scripts",
       "target": "composer_scripts_analyse",
@@ -7785,7 +8811,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L53",
+      "source_location": "L54",
       "weight": 1.0,
       "source": "composer_scripts",
       "target": "composer_scripts_dev",
@@ -7795,7 +8821,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L62",
+      "source_location": "L63",
       "weight": 1.0,
       "source": "composer_scripts",
       "target": "composer_scripts_post_autoload_dump",
@@ -7805,7 +8831,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L72",
+      "source_location": "L73",
       "weight": 1.0,
       "source": "composer_scripts",
       "target": "composer_scripts_post_create_project_cmd",
@@ -7815,7 +8841,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L69",
+      "source_location": "L70",
       "weight": 1.0,
       "source": "composer_scripts",
       "target": "composer_scripts_post_root_package_install",
@@ -7825,7 +8851,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L66",
+      "source_location": "L67",
       "weight": 1.0,
       "source": "composer_scripts",
       "target": "composer_scripts_post_update_cmd",
@@ -7835,7 +8861,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L77",
+      "source_location": "L78",
       "weight": 1.0,
       "source": "composer_scripts",
       "target": "composer_scripts_pre_package_uninstall",
@@ -7845,7 +8871,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0,
       "source": "composer_scripts",
       "target": "composer_scripts_setup",
@@ -7855,7 +8881,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0,
       "source": "composer_scripts",
       "target": "composer_scripts_test",
@@ -7865,7 +8891,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L82",
+      "source_location": "L83",
       "weight": 1.0,
       "source": "composer_extra",
       "target": "composer_extra_laravel",
@@ -7875,7 +8901,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L83",
+      "source_location": "L84",
       "weight": 1.0,
       "source": "composer_extra_laravel",
       "target": "composer_laravel_dont_discover",
@@ -7885,7 +8911,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L90",
+      "source_location": "L91",
       "weight": 1.0,
       "source": "composer_config",
       "target": "composer_config_allow_plugins",
@@ -7895,7 +8921,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0,
       "source": "composer_config",
       "target": "composer_config_optimize_autoloader",
@@ -7905,7 +8931,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L88",
+      "source_location": "L89",
       "weight": 1.0,
       "source": "composer_config",
       "target": "composer_config_preferred_install",
@@ -7915,7 +8941,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L89",
+      "source_location": "L90",
       "weight": 1.0,
       "source": "composer_config",
       "target": "composer_config_sort_packages",
@@ -7925,7 +8951,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L91",
+      "source_location": "L92",
       "weight": 1.0,
       "source": "composer_config_allow_plugins",
       "target": "composer_allow_plugins_pestphp_pest_plugin",
@@ -7935,7 +8961,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "composer.json",
-      "source_location": "L92",
+      "source_location": "L93",
       "weight": 1.0,
       "source": "composer_config_allow_plugins",
       "target": "composer_allow_plugins_php_http_discovery",
@@ -8082,6 +9108,46 @@
       "weight": 1.0,
       "source": "database_migrations_0001_01_01_000002_create_jobs_table",
       "target": "database_migrations_0001_01_01_000002_create_jobs_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_175000_add_public_id_to_users_table.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_175000_add_public_id_to_users_table",
+      "target": "database_migrations_2026_07_09_175000_add_public_id_to_users_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_175000_add_public_id_to_users_table.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_175000_add_public_id_to_users_table",
+      "target": "database_migrations_2026_07_09_175000_add_public_id_to_users_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_180000_create_audit_logs_table.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_180000_create_audit_logs_table",
+      "target": "database_migrations_2026_07_09_180000_create_audit_logs_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_180000_create_audit_logs_table.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_180000_create_audit_logs_table",
+      "target": "database_migrations_2026_07_09_180000_create_audit_logs_table_up",
       "confidence_score": 1.0
     },
     {
@@ -10440,7 +11506,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L35",
+      "source_location": "L38",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_planificaci\u00f3n_inicial_pre_c\u00f3digo",
@@ -12658,5 +13724,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d5292716f745f96710e7b7aee38d1466bb562768"
+  "built_at_commit": "cd5e65ec89bf589afb768e3aa95da40a94c6ebf4"
 }

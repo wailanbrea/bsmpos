@@ -5,8 +5,8 @@
     "semantic_hash": ""
   },
   "app/Models/User.php": {
-    "mtime": 1783631630.9737751,
-    "ast_hash": "1c193f13b246c94005d44f03c7092dc1",
+    "mtime": 1783633020.5731888,
+    "ast_hash": "f51f5ce4bfc49bdf2888ecca2b78bbcd",
     "semantic_hash": ""
   },
   "app/Providers/AppServiceProvider.php": {
@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "bootstrap/app.php": {
-    "mtime": 1783631667.1028526,
-    "ast_hash": "51148adc94a59f5352b0386f30b33f7b",
+    "mtime": 1783632985.1778848,
+    "ast_hash": "ba9926fee1c1fefd9aa837963faf7922",
     "semantic_hash": ""
   },
   "bootstrap/providers.php": {
@@ -30,8 +30,8 @@
     "semantic_hash": ""
   },
   "composer.json": {
-    "mtime": 1783632141.404505,
-    "ast_hash": "6e70159f3c52c8b2b74c2dcf4458ea81",
+    "mtime": 1783632878.8319364,
+    "ast_hash": "072637cbb38aa373aca3e646ee5191fa",
     "semantic_hash": ""
   },
   "config/app.php": {
@@ -305,13 +305,13 @@
     "semantic_hash": ""
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783632233.4529014,
-    "ast_hash": "5fee45884b9ee582117edf8efd231188",
+    "mtime": 1783633067.0200877,
+    "ast_hash": "b2db0789763e0d3ee8d2c05913b6536d",
     "semantic_hash": ""
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783632233.4538903,
-    "ast_hash": "8fb13dcae6bdf48d3f33ca58e6baeaba",
+    "mtime": 1783633067.0200877,
+    "ast_hash": "40a467d43f13bf11c8ffcbb06f9d9618",
     "semantic_hash": ""
   },
   "docs/13_DECISIONS.md": {
@@ -482,6 +482,61 @@
   "vitest.config.ts": {
     "mtime": 1783632233.4518957,
     "ast_hash": "3765ea12281689527aeb79e5d7fd8e8e",
+    "semantic_hash": ""
+  },
+  "app/Core/Concerns/Auditable.php": {
+    "mtime": 1783633030.0108142,
+    "ast_hash": "ff87102de766dfde232f3523a1b4acd0",
+    "semantic_hash": ""
+  },
+  "app/Core/Concerns/HasPublicUlid.php": {
+    "mtime": 1783632923.7210035,
+    "ast_hash": "bface3bb130b55d3b84133c67013bac3",
+    "semantic_hash": ""
+  },
+  "app/Core/Enums/ErrorCode.php": {
+    "mtime": 1783632923.7150154,
+    "ast_hash": "8678fa4fb2f1c8dee5cb6be888f8bb3f",
+    "semantic_hash": ""
+  },
+  "app/Core/Exceptions/ApiException.php": {
+    "mtime": 1783632923.716004,
+    "ast_hash": "872e7b12062159b228f1c72abffb7c26",
+    "semantic_hash": ""
+  },
+  "app/Core/Http/ApiResponse.php": {
+    "mtime": 1783632923.717004,
+    "ast_hash": "a2819828b777b4a572137cc1e380b102",
+    "semantic_hash": ""
+  },
+  "app/Core/Models/AuditLog.php": {
+    "mtime": 1783633041.73434,
+    "ast_hash": "6111a7b19b12f19f59d5092f4f2c7644",
+    "semantic_hash": ""
+  },
+  "app/Core/Money/Money.php": {
+    "mtime": 1783632923.718005,
+    "ast_hash": "eab8b88b4ab9a92d13541c773c3913a7",
+    "semantic_hash": ""
+  },
+  "app/Core/Support/AuditLogger.php": {
+    "mtime": 1783633030.0751414,
+    "ast_hash": "5c5af2a70d2f908d7e9fcea0884f73a2",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_07_09_175000_add_public_id_to_users_table.php": {
+    "mtime": 1783633020.5761952,
+    "ast_hash": "fe36363510788d071e8090e9f58aee6c",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_07_09_180000_create_audit_logs_table.php": {
+    "mtime": 1783632923.7220032,
+    "ast_hash": "5b0fafc30c330854582a32bff75cad18",
+    "semantic_hash": ""
+  },
+  "tests/Feature/CoreInfrastructureTest.php": {
+    "mtime": 1783632965.786621,
+    "ast_hash": "64eadca3c3946a3de5e55b943fd6d354",
     "semantic_hash": ""
   }
 }
