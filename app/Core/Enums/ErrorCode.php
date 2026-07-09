@@ -17,6 +17,8 @@ enum ErrorCode: string
     case CompanyInactive = 'COMPANY_INACTIVE';
     case BranchInactive = 'BRANCH_INACTIVE';
     case PermissionDenied = 'PERMISSION_DENIED';
+    case InvalidCredentials = 'INVALID_CREDENTIALS';
+    case AccountInactive = 'ACCOUNT_INACTIVE';
     case Conflict = 'CONFLICT';
     case InternalError = 'INTERNAL_ERROR';
 }

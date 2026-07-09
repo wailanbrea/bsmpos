@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "app/Providers/AppServiceProvider.php": {
-    "mtime": 1783633543.607704,
-    "ast_hash": "ec95bf0b309fa50fa14a16ec157de902",
+    "mtime": 1783634850.4990678,
+    "ast_hash": "5fca273935147f2cf8395ade0b88bd29",
     "semantic_hash": ""
   },
   "artisan": {
@@ -290,8 +290,8 @@
     "semantic_hash": ""
   },
   "docs/08_SECURITY.md": {
-    "mtime": 1783618171.9285266,
-    "ast_hash": "10ca1746dd06be1d135cc5cebd6fbc6e",
+    "mtime": 1783634994.308284,
+    "ast_hash": "0120736c29693870d7cb67410c3ef90d",
     "semantic_hash": ""
   },
   "docs/09_TESTING.md": {
@@ -305,18 +305,18 @@
     "semantic_hash": ""
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783634569.513045,
-    "ast_hash": "c2c7ed383694d2364b2ac35d7f7a5842",
+    "mtime": 1783634994.3092842,
+    "ast_hash": "c90431c5dc06ae04c679ffd3799dbce7",
     "semantic_hash": ""
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783634569.5140445,
-    "ast_hash": "28c96e07c76c3496b61d9cc6394e196f",
+    "mtime": 1783634994.3102858,
+    "ast_hash": "8b0401bb85de2772fda1e057b4d3c12a",
     "semantic_hash": ""
   },
   "docs/13_DECISIONS.md": {
-    "mtime": 1783634569.5140445,
-    "ast_hash": "08a6d873821cf472a0da2b1b02a79ddf",
+    "mtime": 1783634994.3112843,
+    "ast_hash": "f5ab1179272d6168097aee1cbc5c0aa1",
     "semantic_hash": ""
   },
   "docs/14_KNOWN_ISSUES.md": {
@@ -495,8 +495,8 @@
     "semantic_hash": ""
   },
   "app/Core/Enums/ErrorCode.php": {
-    "mtime": 1783634417.4435716,
-    "ast_hash": "e33e695c5bd254d305e0b2e7e0c44552",
+    "mtime": 1783634850.498066,
+    "ast_hash": "f4e45ac5b2a59f88dbfc76ab97e9d343",
     "semantic_hash": ""
   },
   "app/Core/Exceptions/ApiException.php": {
@@ -692,6 +692,56 @@
   "tests/Feature/AccessControlTest.php": {
     "mtime": 1783634535.3849223,
     "ast_hash": "0f532f82fa34d3af2eb4672e135bc870",
+    "semantic_hash": ""
+  },
+  "app/Modules/Auth/Actions/LoginUserAction.php": {
+    "mtime": 1783634948.2315352,
+    "ast_hash": "bec21b1e0c213e4b0e99e989c2b50716",
+    "semantic_hash": ""
+  },
+  "app/Modules/Auth/Actions/LogoutUserAction.php": {
+    "mtime": 1783634919.3844345,
+    "ast_hash": "dc78b752ef956a9ed2b5ef0d74b0d9d1",
+    "semantic_hash": ""
+  },
+  "app/Modules/Auth/Actions/RegisterUserAction.php": {
+    "mtime": 1783634948.2305381,
+    "ast_hash": "1fdb1c1695cf3c1e047f7776bf2b74fc",
+    "semantic_hash": ""
+  },
+  "app/Modules/Auth/Http/Controllers/AuthController.php": {
+    "mtime": 1783634885.5950456,
+    "ast_hash": "c331dafa0fdb85e4360e44c222af7938",
+    "semantic_hash": ""
+  },
+  "app/Modules/Auth/Http/Requests/LoginRequest.php": {
+    "mtime": 1783634919.3824341,
+    "ast_hash": "aec305a83fe3f4f5d7593c9692ed131f",
+    "semantic_hash": ""
+  },
+  "app/Modules/Auth/Http/Requests/RegisterRequest.php": {
+    "mtime": 1783634919.3814342,
+    "ast_hash": "ee710760371b6259b018bde35d4553c3",
+    "semantic_hash": ""
+  },
+  "app/Modules/Auth/Http/Resources/UserResource.php": {
+    "mtime": 1783634892.1875188,
+    "ast_hash": "8c1879d61ea421eef47877d68dd5c91b",
+    "semantic_hash": ""
+  },
+  "app/Modules/Auth/module.json": {
+    "mtime": 1783634850.4990678,
+    "ast_hash": "2ac0e11533b24a24aa0459988293eda7",
+    "semantic_hash": ""
+  },
+  "app/Modules/Auth/routes.php": {
+    "mtime": 1783634885.5960484,
+    "ast_hash": "c1f8425cb15a916b1cfe4b7a7176a833",
+    "semantic_hash": ""
+  },
+  "tests/Feature/AuthenticationTest.php": {
+    "mtime": 1783634948.2325358,
+    "ast_hash": "26b814b11a23d5ab6bef9f611dececd5",
     "semantic_hash": ""
   }
 }

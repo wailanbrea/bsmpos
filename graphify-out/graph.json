@@ -100,7 +100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_core_concerns_belongstocompany",
-      "community": 146,
+      "community": 4,
       "norm_label": "belongstocompany.php"
     },
     {
@@ -110,7 +110,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "app_core_concerns_belongstocompany_bootbelongstocompany",
-      "community": 146,
+      "community": 4,
       "norm_label": "bootbelongstocompany()"
     },
     {
@@ -840,7 +840,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_access_actions_createroleaction",
-      "community": 0,
+      "community": 145,
       "norm_label": "createroleaction.php"
     },
     {
@@ -850,7 +850,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "app_modules_access_actions_createroleaction_createroleaction",
-      "community": 0,
+      "community": 145,
       "norm_label": "createroleaction"
     },
     {
@@ -860,7 +860,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "app_modules_access_actions_createroleaction_createroleaction_execute",
-      "community": 0,
+      "community": 145,
       "norm_label": ".execute()"
     },
     {
@@ -900,7 +900,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_access_http_controllers_rolecontroller",
-      "community": 0,
+      "community": 145,
       "norm_label": "rolecontroller.php"
     },
     {
@@ -910,7 +910,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "app_modules_access_http_controllers_rolecontroller_rolecontroller",
-      "community": 0,
+      "community": 145,
       "norm_label": "rolecontroller"
     },
     {
@@ -920,7 +920,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "app_modules_access_http_controllers_rolecontroller_rolecontroller_index",
-      "community": 0,
+      "community": 145,
       "norm_label": ".index()"
     },
     {
@@ -930,7 +930,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_modules_access_http_controllers_rolecontroller_php_jsonresponse",
-      "community": 0,
+      "community": 145,
       "norm_label": "jsonresponse"
     },
     {
@@ -940,7 +940,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "app_modules_access_http_controllers_rolecontroller_rolecontroller_store",
-      "community": 0,
+      "community": 145,
       "norm_label": ".store()"
     },
     {
@@ -1000,7 +1000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_access_http_resources_roleresource",
-      "community": 0,
+      "community": 145,
       "norm_label": "roleresource.php"
     },
     {
@@ -1010,7 +1010,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "app_modules_access_http_resources_roleresource_roleresource",
-      "community": 0,
+      "community": 145,
       "norm_label": "roleresource"
     },
     {
@@ -1020,7 +1020,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "jsonresource",
-      "community": 0,
+      "community": 145,
       "norm_label": "jsonresource"
     },
     {
@@ -1030,7 +1030,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "app_modules_access_http_resources_roleresource_roleresource_toarray",
-      "community": 0,
+      "community": 145,
       "norm_label": ".toarray()"
     },
     {
@@ -1040,7 +1040,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_modules_access_http_resources_roleresource_php_request",
-      "community": 0,
+      "community": 145,
       "norm_label": "request"
     },
     {
@@ -1210,6 +1210,336 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_access_routes",
+      "community": 145,
+      "norm_label": "routes.php"
+    },
+    {
+      "label": "LoginUserAction.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Actions/LoginUserAction.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_auth_actions_loginuseraction",
+      "community": 0,
+      "norm_label": "loginuseraction.php"
+    },
+    {
+      "label": "LoginUserAction",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Actions/LoginUserAction.php",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "app_modules_auth_actions_loginuseraction_loginuseraction",
+      "community": 0,
+      "norm_label": "loginuseraction"
+    },
+    {
+      "label": ".execute()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Actions/LoginUserAction.php",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "app_modules_auth_actions_loginuseraction_loginuseraction_execute",
+      "community": 0,
+      "norm_label": ".execute()"
+    },
+    {
+      "label": "LogoutUserAction.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Actions/LogoutUserAction.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_auth_actions_logoutuseraction",
+      "community": 0,
+      "norm_label": "logoutuseraction.php"
+    },
+    {
+      "label": "LogoutUserAction",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Actions/LogoutUserAction.php",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_modules_auth_actions_logoutuseraction_logoutuseraction",
+      "community": 0,
+      "norm_label": "logoutuseraction"
+    },
+    {
+      "label": ".execute()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Actions/LogoutUserAction.php",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_modules_auth_actions_logoutuseraction_logoutuseraction_execute",
+      "community": 0,
+      "norm_label": ".execute()"
+    },
+    {
+      "label": "RegisterUserAction.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Actions/RegisterUserAction.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_auth_actions_registeruseraction",
+      "community": 0,
+      "norm_label": "registeruseraction.php"
+    },
+    {
+      "label": "RegisterUserAction",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Actions/RegisterUserAction.php",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_modules_auth_actions_registeruseraction_registeruseraction",
+      "community": 0,
+      "norm_label": "registeruseraction"
+    },
+    {
+      "label": ".execute()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Actions/RegisterUserAction.php",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_modules_auth_actions_registeruseraction_registeruseraction_execute",
+      "community": 0,
+      "norm_label": ".execute()"
+    },
+    {
+      "label": "AuthController.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_controllers_authcontroller",
+      "community": 0,
+      "norm_label": "authcontroller.php"
+    },
+    {
+      "label": "AuthController",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_controllers_authcontroller_authcontroller",
+      "community": 0,
+      "norm_label": "authcontroller"
+    },
+    {
+      "label": ".register()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_controllers_authcontroller_authcontroller_register",
+      "community": 0,
+      "norm_label": ".register()"
+    },
+    {
+      "label": "JsonResponse",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_controllers_authcontroller_php_jsonresponse",
+      "community": 0,
+      "norm_label": "jsonresponse"
+    },
+    {
+      "label": ".login()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_controllers_authcontroller_authcontroller_login",
+      "community": 0,
+      "norm_label": ".login()"
+    },
+    {
+      "label": ".me()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_controllers_authcontroller_authcontroller_me",
+      "community": 0,
+      "norm_label": ".me()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_controllers_authcontroller_php_request",
+      "community": 0,
+      "norm_label": "request"
+    },
+    {
+      "label": ".logout()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_controllers_authcontroller_authcontroller_logout",
+      "community": 0,
+      "norm_label": ".logout()"
+    },
+    {
+      "label": ".sessionResponse()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_controllers_authcontroller_authcontroller_sessionresponse",
+      "community": 0,
+      "norm_label": ".sessionresponse()"
+    },
+    {
+      "label": "LoginRequest.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Requests/LoginRequest.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_requests_loginrequest",
+      "community": 0,
+      "norm_label": "loginrequest.php"
+    },
+    {
+      "label": "LoginRequest",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Requests/LoginRequest.php",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_requests_loginrequest_loginrequest",
+      "community": 0,
+      "norm_label": "loginrequest"
+    },
+    {
+      "label": ".authorize()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Requests/LoginRequest.php",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_requests_loginrequest_loginrequest_authorize",
+      "community": 0,
+      "norm_label": ".authorize()"
+    },
+    {
+      "label": ".rules()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Requests/LoginRequest.php",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_requests_loginrequest_loginrequest_rules",
+      "community": 0,
+      "norm_label": ".rules()"
+    },
+    {
+      "label": ".prepareForValidation()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Requests/LoginRequest.php",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_requests_loginrequest_loginrequest_prepareforvalidation",
+      "community": 0,
+      "norm_label": ".prepareforvalidation()"
+    },
+    {
+      "label": "RegisterRequest.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Requests/RegisterRequest.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_requests_registerrequest",
+      "community": 0,
+      "norm_label": "registerrequest.php"
+    },
+    {
+      "label": "RegisterRequest",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Requests/RegisterRequest.php",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_requests_registerrequest_registerrequest",
+      "community": 0,
+      "norm_label": "registerrequest"
+    },
+    {
+      "label": ".authorize()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Requests/RegisterRequest.php",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_requests_registerrequest_registerrequest_authorize",
+      "community": 0,
+      "norm_label": ".authorize()"
+    },
+    {
+      "label": ".rules()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Requests/RegisterRequest.php",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_requests_registerrequest_registerrequest_rules",
+      "community": 0,
+      "norm_label": ".rules()"
+    },
+    {
+      "label": ".prepareForValidation()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Requests/RegisterRequest.php",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_requests_registerrequest_registerrequest_prepareforvalidation",
+      "community": 0,
+      "norm_label": ".prepareforvalidation()"
+    },
+    {
+      "label": "UserResource.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_resources_userresource",
+      "community": 145,
+      "norm_label": "userresource.php"
+    },
+    {
+      "label": "UserResource",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_resources_userresource_userresource",
+      "community": 145,
+      "norm_label": "userresource"
+    },
+    {
+      "label": ".toArray()",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_resources_userresource_userresource_toarray",
+      "community": 145,
+      "norm_label": ".toarray()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_auth_http_resources_userresource_php_request",
+      "community": 145,
+      "norm_label": "request"
+    },
+    {
+      "label": "routes.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Auth/routes.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_auth_routes",
       "community": 0,
       "norm_label": "routes.php"
     },
@@ -1240,7 +1570,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "app_modules_company_actions_createcompanyaction_createcompanyaction_execute",
-      "community": 0,
+      "community": 4,
       "norm_label": ".execute()"
     },
     {
@@ -1360,7 +1690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_company_http_resources_branchresource",
-      "community": 0,
+      "community": 145,
       "norm_label": "branchresource.php"
     },
     {
@@ -1370,7 +1700,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "app_modules_company_http_resources_branchresource_branchresource",
-      "community": 0,
+      "community": 145,
       "norm_label": "branchresource"
     },
     {
@@ -1380,7 +1710,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "app_modules_company_http_resources_branchresource_branchresource_toarray",
-      "community": 0,
+      "community": 145,
       "norm_label": ".toarray()"
     },
     {
@@ -1390,7 +1720,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_modules_company_http_resources_branchresource_php_request",
-      "community": 0,
+      "community": 145,
       "norm_label": "request"
     },
     {
@@ -1400,7 +1730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_company_http_resources_companyresource",
-      "community": 0,
+      "community": 145,
       "norm_label": "companyresource.php"
     },
     {
@@ -1410,7 +1740,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "app_modules_company_http_resources_companyresource_companyresource",
-      "community": 0,
+      "community": 145,
       "norm_label": "companyresource"
     },
     {
@@ -1420,7 +1750,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "app_modules_company_http_resources_companyresource_companyresource_toarray",
-      "community": 0,
+      "community": 145,
       "norm_label": ".toarray()"
     },
     {
@@ -1430,7 +1760,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_modules_company_http_resources_companyresource_php_request",
-      "community": 0,
+      "community": 145,
       "norm_label": "request"
     },
     {
@@ -1597,7 +1927,7 @@
       "label": "AppServiceProvider",
       "file_type": "code",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L8",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "app_providers_appserviceprovider_appserviceprovider",
       "community": 28,
@@ -1617,7 +1947,7 @@
       "label": ".register()",
       "file_type": "code",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L13",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "app_providers_appserviceprovider_appserviceprovider_register",
       "community": 28,
@@ -1627,7 +1957,7 @@
       "label": ".boot()",
       "file_type": "code",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L21",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "app_providers_appserviceprovider_appserviceprovider_boot",
       "community": 28,
@@ -3334,6 +3664,16 @@
       "norm_label": "accesscompanypayload()"
     },
     {
+      "label": "AuthenticationTest.php",
+      "file_type": "code",
+      "source_file": "tests/Feature/AuthenticationTest.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_feature_authenticationtest",
+      "community": 104,
+      "norm_label": "authenticationtest.php"
+    },
+    {
       "label": "CompanyTenancyTest.php",
       "file_type": "code",
       "source_file": "tests/Feature/CompanyTenancyTest.php",
@@ -4774,10 +5114,20 @@
       "norm_label": "autorizacion en capas"
     },
     {
-      "label": "Datos",
+      "label": "Implementado en Fase 1",
       "file_type": "document",
       "source_file": "docs/08_SECURITY.md",
       "source_location": "L15",
+      "_origin": "ast",
+      "id": "docs_08_security_implementado_en_fase_1",
+      "community": 135,
+      "norm_label": "implementado en fase 1"
+    },
+    {
+      "label": "Datos",
+      "file_type": "document",
+      "source_file": "docs/08_SECURITY.md",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "docs_08_security_datos",
       "community": 135,
@@ -4787,7 +5137,7 @@
       "label": "Auditor\u00eda (m\u00f3dulo Audit)",
       "file_type": "document",
       "source_file": "docs/08_SECURITY.md",
-      "source_location": "L23",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "docs_08_security_auditor\u00eda_m\u00f3dulo_audit",
       "community": 135,
@@ -4797,7 +5147,7 @@
       "label": "Acciones sensibles con autorizaci\u00f3n elevada",
       "file_type": "document",
       "source_file": "docs/08_SECURITY.md",
-      "source_location": "L29",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "docs_08_security_acciones_sensibles_con_autorizaci\u00f3n_elevada",
       "community": 135,
@@ -4900,7 +5250,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_11_todo_master_11_todo_master",
-      "community": 145,
+      "community": 5,
       "norm_label": "11 \u2014 todo master"
     },
     {
@@ -4910,167 +5260,167 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "docs_11_todo_master_conocimiento_del_proyecto",
-      "community": 145,
+      "community": 5,
       "norm_label": "conocimiento del proyecto"
     },
     {
       "label": "FASE 0 \u2014 Base",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L13",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_0_base",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 0 \u2014 base"
     },
     {
       "label": "FASE 1 \u2014 N\u00facleo SaaS",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_1_n\u00facleo_saas",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 1 \u2014 nucleo saas"
     },
     {
       "label": "FASE 2 \u2014 M\u00f3dulos y onboarding",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_2_m\u00f3dulos_y_onboarding",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 2 \u2014 modulos y onboarding"
     },
     {
       "label": "FASE 3 \u2014 Configuraci\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L40",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_3_configuraci\u00f3n",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 3 \u2014 configuracion"
     },
     {
       "label": "FASE 4 \u2014 Clientes",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L45",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_4_clientes",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 4 \u2014 clientes"
     },
     {
       "label": "FASE 5 \u2014 Productos y servicios",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L48",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_5_productos_y_servicios",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 5 \u2014 productos y servicios"
     },
     {
       "label": "FASE 6 \u2014 Inventario avanzado",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L52",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_6_inventario_avanzado",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 6 \u2014 inventario avanzado"
     },
     {
       "label": "FASE 7 \u2014 POS Touch",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L58",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_7_pos_touch",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 7 \u2014 pos touch"
     },
     {
       "label": "FASE 8 \u2014 Caja y pagos",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L62",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_8_caja_y_pagos",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 8 \u2014 caja y pagos"
     },
     {
       "label": "FASE 9 \u2014 Facturaci\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L66",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_9_facturaci\u00f3n",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 9 \u2014 facturacion"
     },
     {
       "label": "FASE 10 \u2014 Facturaci\u00f3n electr\u00f3nica",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L71",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_10_facturaci\u00f3n_electr\u00f3nica",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 10 \u2014 facturacion electronica"
     },
     {
       "label": "FASE 11 \u2014 Impresi\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L74",
+      "source_location": "L75",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_11_impresi\u00f3n",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 11 \u2014 impresion"
     },
     {
       "label": "FASE 12 \u2014 M\u00f3dulos por negocio",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L77",
+      "source_location": "L78",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_12_m\u00f3dulos_por_negocio",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 12 \u2014 modulos por negocio"
     },
     {
       "label": "FASE 13 \u2014 Reportes",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L82",
+      "source_location": "L83",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_13_reportes",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 13 \u2014 reportes"
     },
     {
       "label": "FASE 14 \u2014 Seguridad, pruebas y deploy",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L87",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_14_seguridad_pruebas_y_deploy",
-      "community": 145,
+      "community": 5,
       "norm_label": "fase 14 \u2014 seguridad, pruebas y deploy"
     },
     {
       "label": "Backlog (post-v1)",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L92",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "docs_11_todo_master_backlog_post_v1",
-      "community": 145,
+      "community": 5,
       "norm_label": "backlog (post-v1)"
     },
     {
@@ -5104,10 +5454,20 @@
       "norm_label": "[no publicado]"
     },
     {
-      "label": "2026-07-09 \u2014 Fase 1: RBAC por compa\u00f1\u00eda",
+      "label": "2026-07-09 \u2014 Fase 1: autenticaci\u00f3n API segura",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
       "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_12_changelog_2026_07_09_fase_1_autenticaci\u00f3n_api_segura",
+      "community": 29,
+      "norm_label": "2026-07-09 \u2014 fase 1: autenticacion api segura"
+    },
+    {
+      "label": "2026-07-09 \u2014 Fase 1: RBAC por compa\u00f1\u00eda",
+      "file_type": "document",
+      "source_file": "docs/12_CHANGELOG.md",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_fase_1_rbac_por_compa\u00f1\u00eda",
       "community": 29,
@@ -5117,7 +5477,7 @@
       "label": "2026-07-09 \u2014 Fase 1: aislamiento multiempresa base",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L17",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_fase_1_aislamiento_multiempresa_base",
       "community": 29,
@@ -5127,7 +5487,7 @@
       "label": "2026-07-09 \u2014 Inicio de Fase 0: control de versiones",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L27",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_inicio_de_fase_0_control_de_versiones",
       "community": 29,
@@ -5137,7 +5497,7 @@
       "label": "2026-07-09 \u2014 Inicio de Fase 0: runtime y Laravel",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L34",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_inicio_de_fase_0_runtime_y_laravel",
       "community": 29,
@@ -5147,7 +5507,7 @@
       "label": "2026-07-09 \u2014 Planificaci\u00f3n inicial (pre-c\u00f3digo)",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L58",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_planificaci\u00f3n_inicial_pre_c\u00f3digo",
       "community": 29,
@@ -5160,7 +5520,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_13_decisions",
-      "community": 5,
+      "community": 124,
       "norm_label": "13_decisions.md"
     },
     {
@@ -5170,7 +5530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_13_decisions_13_decisiones_t\u00e9cnicas_adr",
-      "community": 5,
+      "community": 124,
       "norm_label": "13 \u2014 decisiones tecnicas (adr)"
     },
     {
@@ -9013,6 +9373,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/LoginUserAction.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_loginuseraction",
+      "target": "app_core_enums_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "bootstrap/app.php",
       "source_location": "L3",
       "weight": 1.0,
@@ -9028,6 +9399,17 @@
       "source_location": "L3",
       "weight": 1.0,
       "source": "tests_feature_accesscontroltest",
+      "target": "app_core_enums_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/AuthenticationTest.php",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_feature_authenticationtest",
       "target": "app_core_enums_errorcode",
       "confidence_score": 1.0
     },
@@ -9115,6 +9497,17 @@
       "source_location": "L8",
       "weight": 1.0,
       "source": "app_core_http_middleware_ensurepermission",
+      "target": "app_core_exceptions_apiexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/LoginUserAction.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_loginuseraction",
       "target": "app_core_exceptions_apiexception",
       "confidence_score": 1.0
     },
@@ -9229,6 +9622,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller",
+      "target": "app_core_http_apiresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
       "source_location": "L7",
       "weight": 1.0,
@@ -9298,6 +9702,39 @@
       "source_location": "L27",
       "weight": 1.0,
       "source": "app_modules_access_http_controllers_rolecontroller_rolecontroller_store",
+      "target": "app_core_http_apiresponse_apiresponse"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_logout",
+      "target": "app_core_http_apiresponse_apiresponse"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_me",
+      "target": "app_core_http_apiresponse_apiresponse"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_sessionresponse",
       "target": "app_core_http_apiresponse_apiresponse"
     },
     {
@@ -10440,6 +10877,50 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/LoginUserAction.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_loginuseraction",
+      "target": "app_models_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/RegisterUserAction.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_registeruseraction",
+      "target": "app_models_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller",
+      "target": "app_models_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_resources_userresource",
+      "target": "app_models_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
       "source_location": "L8",
       "weight": 1.0,
@@ -10488,6 +10969,17 @@
       "source_location": "L5",
       "weight": 1.0,
       "source": "tests_feature_accesscontroltest",
+      "target": "app_models_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/AuthenticationTest.php",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "tests_feature_authenticationtest",
       "target": "app_models_user",
       "confidence_score": 1.0
     },
@@ -10645,6 +11137,50 @@
       "source": "app_modules_access_actions_provisioncompanyowneraccess_provisioncompanyowneraccess_execute",
       "target": "app_models_user_user",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Auth/Actions/LoginUserAction.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_loginuseraction_loginuseraction_execute",
+      "target": "app_models_user_user"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/LogoutUserAction.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_logoutuseraction",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/LogoutUserAction.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_auth_actions_logoutuseraction_logoutuseraction_execute",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Auth/Actions/RegisterUserAction.php",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_registeruseraction_registeruseraction_execute",
+      "target": "app_models_user_user"
     },
     {
       "relation": "imports",
@@ -11216,6 +11752,48 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/LoginRequest.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_loginrequest",
+      "target": "formrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/LoginRequest.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_loginrequest_loginrequest",
+      "target": "formrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/RegisterRequest.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_registerrequest",
+      "target": "formrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/RegisterRequest.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_registerrequest_registerrequest",
+      "target": "formrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
       "source_location": "L7",
       "weight": 1.0,
@@ -11293,6 +11871,27 @@
       "source_location": "L12",
       "weight": 1.0,
       "source": "app_modules_access_http_resources_roleresource_roleresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_resources_userresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_resources_userresource_userresource",
       "target": "jsonresource",
       "confidence_score": 1.0
     },
@@ -11611,6 +12210,523 @@
       "source": "app_modules_access_support_permissioncatalog_permissioncatalog",
       "target": "app_modules_access_support_permissioncatalog_permissioncatalog_defaults",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/LoginUserAction.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_loginuseraction",
+      "target": "app_modules_auth_actions_loginuseraction_loginuseraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/LoginUserAction.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_loginuseraction_loginuseraction",
+      "target": "app_modules_auth_actions_loginuseraction_loginuseraction_execute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller",
+      "target": "app_modules_auth_actions_loginuseraction_loginuseraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_login",
+      "target": "app_modules_auth_actions_loginuseraction_loginuseraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/LogoutUserAction.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_logoutuseraction",
+      "target": "app_modules_auth_actions_logoutuseraction_logoutuseraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/LogoutUserAction.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_logoutuseraction_logoutuseraction",
+      "target": "app_modules_auth_actions_logoutuseraction_logoutuseraction_execute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller",
+      "target": "app_modules_auth_actions_logoutuseraction_logoutuseraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L42",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_logout",
+      "target": "app_modules_auth_actions_logoutuseraction_logoutuseraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/RegisterUserAction.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_registeruseraction",
+      "target": "app_modules_auth_actions_registeruseraction_registeruseraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Actions/RegisterUserAction.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_modules_auth_actions_registeruseraction_registeruseraction",
+      "target": "app_modules_auth_actions_registeruseraction_registeruseraction_execute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller",
+      "target": "app_modules_auth_actions_registeruseraction_registeruseraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_register",
+      "target": "app_modules_auth_actions_registeruseraction_registeruseraction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller",
+      "target": "app_modules_auth_http_controllers_authcontroller_authcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller",
+      "target": "app_modules_auth_http_controllers_authcontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller",
+      "target": "app_modules_auth_http_controllers_authcontroller_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller",
+      "target": "app_modules_auth_http_requests_loginrequest_loginrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller",
+      "target": "app_modules_auth_http_requests_registerrequest_registerrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller",
+      "target": "app_modules_auth_http_resources_userresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/routes.php",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_modules_auth_routes",
+      "target": "app_modules_auth_http_controllers_authcontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller",
+      "target": "app_modules_auth_http_controllers_authcontroller_authcontroller_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller",
+      "target": "app_modules_auth_http_controllers_authcontroller_authcontroller_logout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller",
+      "target": "app_modules_auth_http_controllers_authcontroller_authcontroller_me",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller",
+      "target": "app_modules_auth_http_controllers_authcontroller_authcontroller_register",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller",
+      "target": "app_modules_auth_http_controllers_authcontroller_authcontroller_sessionresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_register",
+      "target": "app_modules_auth_http_controllers_authcontroller_authcontroller_sessionresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_register",
+      "target": "app_modules_auth_http_controllers_authcontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_register",
+      "target": "app_modules_auth_http_requests_registerrequest_registerrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_login",
+      "target": "app_modules_auth_http_controllers_authcontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L42",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_logout",
+      "target": "app_modules_auth_http_controllers_authcontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_me",
+      "target": "app_modules_auth_http_controllers_authcontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L52",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_sessionresponse",
+      "target": "app_modules_auth_http_controllers_authcontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_login",
+      "target": "app_modules_auth_http_controllers_authcontroller_authcontroller_sessionresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_login",
+      "target": "app_modules_auth_http_requests_loginrequest_loginrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_me",
+      "target": "app_modules_auth_http_controllers_authcontroller_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Controllers/AuthController.php",
+      "source_location": "L42",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_auth_http_controllers_authcontroller_authcontroller_logout",
+      "target": "app_modules_auth_http_controllers_authcontroller_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/LoginRequest.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_loginrequest",
+      "target": "app_modules_auth_http_requests_loginrequest_loginrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/LoginRequest.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_loginrequest_loginrequest",
+      "target": "app_modules_auth_http_requests_loginrequest_loginrequest_authorize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/LoginRequest.php",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_loginrequest_loginrequest",
+      "target": "app_modules_auth_http_requests_loginrequest_loginrequest_prepareforvalidation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/LoginRequest.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_loginrequest_loginrequest",
+      "target": "app_modules_auth_http_requests_loginrequest_loginrequest_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/RegisterRequest.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_registerrequest",
+      "target": "app_modules_auth_http_requests_registerrequest_registerrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/RegisterRequest.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_registerrequest_registerrequest",
+      "target": "app_modules_auth_http_requests_registerrequest_registerrequest_authorize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/RegisterRequest.php",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_registerrequest_registerrequest",
+      "target": "app_modules_auth_http_requests_registerrequest_registerrequest_prepareforvalidation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Requests/RegisterRequest.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_requests_registerrequest_registerrequest",
+      "target": "app_modules_auth_http_requests_registerrequest_registerrequest_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_resources_userresource",
+      "target": "app_modules_auth_http_resources_userresource_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_resources_userresource",
+      "target": "app_modules_auth_http_resources_userresource_userresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_resources_userresource",
+      "target": "app_modules_company_http_resources_companyresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_resources_userresource_userresource",
+      "target": "app_modules_auth_http_resources_userresource_userresource_toarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_auth_http_resources_userresource_userresource_toarray",
+      "target": "app_modules_auth_http_resources_userresource_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Auth/Http/Resources/UserResource.php",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "app_modules_auth_http_resources_userresource_userresource_toarray",
+      "target": "app_modules_company_http_resources_companyresource_companyresource"
     },
     {
       "relation": "contains",
@@ -12178,7 +13294,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L8",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "app_providers_appserviceprovider",
       "target": "app_providers_appserviceprovider_appserviceprovider",
@@ -12189,7 +13305,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L6",
+      "source_location": "L9",
       "weight": 1.0,
       "source": "app_providers_appserviceprovider",
       "target": "serviceprovider",
@@ -12210,7 +13326,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L21",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "app_providers_appserviceprovider_appserviceprovider",
       "target": "app_providers_appserviceprovider_appserviceprovider_boot",
@@ -12220,7 +13336,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L13",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "app_providers_appserviceprovider_appserviceprovider",
       "target": "app_providers_appserviceprovider_appserviceprovider_register",
@@ -12230,7 +13346,7 @@
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L8",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "app_providers_appserviceprovider_appserviceprovider",
       "target": "serviceprovider",
@@ -15191,7 +16307,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/08_SECURITY.md",
-      "source_location": "L29",
+      "source_location": "L35",
       "weight": 1.0,
       "source": "docs_08_security_08_seguridad_y_auditor\u00eda",
       "target": "docs_08_security_acciones_sensibles_con_autorizaci\u00f3n_elevada",
@@ -15201,7 +16317,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/08_SECURITY.md",
-      "source_location": "L23",
+      "source_location": "L29",
       "weight": 1.0,
       "source": "docs_08_security_08_seguridad_y_auditor\u00eda",
       "target": "docs_08_security_auditor\u00eda_m\u00f3dulo_audit",
@@ -15231,10 +16347,20 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/08_SECURITY.md",
-      "source_location": "L15",
+      "source_location": "L21",
       "weight": 1.0,
       "source": "docs_08_security_08_seguridad_y_auditor\u00eda",
       "target": "docs_08_security_datos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/08_SECURITY.md",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "docs_08_security_autorizaci\u00f3n_en_capas",
+      "target": "docs_08_security_implementado_en_fase_1",
       "confidence_score": 1.0
     },
     {
@@ -15311,7 +16437,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L92",
+      "source_location": "L93",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_backlog_post_v1",
@@ -15331,7 +16457,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_0_base",
@@ -15341,7 +16467,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L71",
+      "source_location": "L72",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_10_facturaci\u00f3n_electr\u00f3nica",
@@ -15351,7 +16477,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L74",
+      "source_location": "L75",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_11_impresi\u00f3n",
@@ -15361,7 +16487,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L77",
+      "source_location": "L78",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_12_m\u00f3dulos_por_negocio",
@@ -15371,7 +16497,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L82",
+      "source_location": "L83",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_13_reportes",
@@ -15381,7 +16507,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L87",
+      "source_location": "L88",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_14_seguridad_pruebas_y_deploy",
@@ -15391,7 +16517,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_1_n\u00facleo_saas",
@@ -15401,7 +16527,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_2_m\u00f3dulos_y_onboarding",
@@ -15411,7 +16537,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_3_configuraci\u00f3n",
@@ -15421,7 +16547,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_4_clientes",
@@ -15431,7 +16557,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L48",
+      "source_location": "L49",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_5_productos_y_servicios",
@@ -15441,7 +16567,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L52",
+      "source_location": "L53",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_6_inventario_avanzado",
@@ -15451,7 +16577,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L58",
+      "source_location": "L59",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_7_pos_touch",
@@ -15461,7 +16587,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L62",
+      "source_location": "L63",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_8_caja_y_pagos",
@@ -15471,7 +16597,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L66",
+      "source_location": "L67",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_9_facturaci\u00f3n",
@@ -15501,7 +16627,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L17",
+      "source_location": "L26",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_fase_1_aislamiento_multiempresa_base",
@@ -15514,6 +16640,16 @@
       "source_location": "L7",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
+      "target": "docs_12_changelog_2026_07_09_fase_1_autenticaci\u00f3n_api_segura",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/12_CHANGELOG.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_fase_1_rbac_por_compa\u00f1\u00eda",
       "confidence_score": 1.0
     },
@@ -15521,7 +16657,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L27",
+      "source_location": "L36",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_inicio_de_fase_0_control_de_versiones",
@@ -15531,7 +16667,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L34",
+      "source_location": "L43",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_inicio_de_fase_0_runtime_y_laravel",
@@ -15541,7 +16677,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L58",
+      "source_location": "L67",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_planificaci\u00f3n_inicial_pre_c\u00f3digo",
@@ -17759,5 +18895,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0c660273803fc8e95f61cb4fe0eac35bc9c8c8a7"
+  "built_at_commit": "66214d561ae8f7718a10b263de7b2eee9c818590"
 }

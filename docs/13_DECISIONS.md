@@ -16,3 +16,4 @@
 | 012 | 2026-07-09 | Frontend **es-DO** por defecto con i18n desde el inicio; pantallas Stitch son inspiración, no espec | Las pantallas mezclan inglés/español; producto para RD debe ser consistente en español. |
 | 013 | 2026-07-09 | Design system **Kinetic Enterprise** como preset Tailwind + CSS variables, con dark mode | DESIGN.md provisto por el usuario; tokens centralizados evitan estilos duplicados. |
 | 014 | 2026-07-09 | RBAC con permisos globales por código y roles aislados por `company_id`; propietario con acceso administrativo explícito | Evita duplicar catálogos por tenant y permite validar permisos mediante middleware sin lógica de autorización en controladores. |
+| 015 | 2026-07-09 | Autenticación API por tokens Sanctum por dispositivo, no sesiones web | El POS/PWA y las terminales requieren revocación granular; login tiene límite por email/IP y los eventos de autenticación se auditan. |

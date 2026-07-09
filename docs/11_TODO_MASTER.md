@@ -8,7 +8,8 @@
 - [x] Fase 1 parcial: compañías, sucursal principal, membresías y contexto tenant por headers ULID; faltan roles/permisos y endpoints de sesión.
 - [x] Tests de aislamiento tenant: listado filtrado y denegación de empresa/sucursal ajena.
 - [x] RBAC inicial: catálogo de permisos, roles por compañía, rol propietario y middleware `permission:<código>`.
-- [x] Grafo Graphify actualizado e incorporado al grafo global como `omnipos-modular-saas` (757 nodos, 875 relaciones; reemplazo del tag existente, sin duplicados). El extractor aún omite manifiestos `module.json` sin símbolos AST.
+- [x] Sesiones API: registro, login, logout y `me` con Sanctum, rate limits, cuentas inactivas y auditoría.
+- [x] Grafo Graphify actualizado e incorporado al grafo global como `omnipos-modular-saas` (793 nodos, 948 relaciones; reemplazo del tag existente, sin duplicados). El extractor aún omite manifiestos `module.json` sin símbolos AST.
 
 ## FASE 0 — Base
 - [x] Inicializar repositorio Git local (`main`) y vincular el remoto autorizado `origin`

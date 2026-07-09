@@ -12,6 +12,12 @@
 
 `auth` → `company` → `branch` → `module:<code>` → `permission:<code>` → Policies. Ver [01_ARCHITECTURE.md](01_ARCHITECTURE.md). **Cero acceso cruzado entre empresas** (global scope + policy + tests dedicados de tenant isolation).
 
+### Implementado en Fase 1
+
+- `POST /api/v1/auth/register` usa contraseña de 12+ caracteres con mayúsculas, minúsculas, números y símbolo.
+- `POST /api/v1/auth/login` limita a 5 intentos por minuto por email/IP; el registro limita a 10 solicitudes por hora por IP.
+- Los tokens de Sanctum son por dispositivo; logout revoca solo el token presentado. Registro, login, login fallido, bloqueo y logout quedan auditados.
+
 ## Datos
 
 - Credenciales de e-CF, certificados y secretos: cifrados con Laravel Crypt; jamás en respuestas API ni logs.

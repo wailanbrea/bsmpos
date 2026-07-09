@@ -4,6 +4,15 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-09 — Fase 1: autenticación API segura
+**Agregado**
+- Módulo `Auth` con registro, login, logout y perfil actual bajo `/api/v1/auth`.
+- Tokens Sanctum por dispositivo, revocación del token actual, rate limits, reglas de contraseña y bloqueo de cuentas inactivas.
+- Auditoría de registro, login, fallo de login, bloqueo y logout.
+
+**Validado**
+- Pest: 19 pruebas / 63 aserciones; Pint, Larastan, typecheck, ESLint, Prettier, Vitest y build PWA sin errores.
+
 ### 2026-07-09 — Fase 1: RBAC por compañía
 **Agregado**
 - Tablas `permissions`, `roles`, `permission_role` y `role_user`, con restricciones únicas e índices de consulta por compañía.
