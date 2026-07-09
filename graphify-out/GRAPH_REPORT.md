@@ -1,16 +1,16 @@
 # Graph Report - Sistema de Facturacion Saas  (2026-07-09)
 
 ## Corpus Check
-- 82 files · ~149,265 words
+- 100 files · ~151,206 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 628 nodes · 617 edges · 132 communities (62 shown, 70 thin omitted)
-- Extraction: 88% EXTRACTED · 12% INFERRED · 0% AMBIGUOUS · INFERRED: 74 edges (avg confidence: 0.87)
+- 709 nodes · 773 edges · 145 communities (75 shown, 70 thin omitted)
+- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 79 edges (avg confidence: 0.87)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cd5e65ec`
+- Built from commit: `c09d3ef5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -117,21 +117,32 @@
 - [[_COMMUNITY_Touch Targets 4456px|Touch Targets 44/56px]]
 - [[_COMMUNITY_app.php|app.php]]
 - [[_COMMUNITY_08 — Seguridad y Auditoría|08 — Seguridad y Auditoría]]
+- [[_COMMUNITY_sanctum.php|sanctum.php]]
 - [[_COMMUNITY_00_PROJECT_OVERVIEW|00_PROJECT_OVERVIEW.md]]
 - [[_COMMUNITY_15 — Inventario, Lotes y Vencimientos|15 — Inventario, Lotes y Vencimientos]]
+- [[_COMMUNITY_config|config]]
 - [[_COMMUNITY_.prettierrc.json|.prettierrc.json]]
+- [[_COMMUNITY_require|require]]
+- [[_COMMUNITY_04 — Estructura Frontend|04 — Estructura Frontend]]
+- [[_COMMUNITY_08 — Seguridad y Auditoría|08 — Seguridad y Auditoría]]
+- [[_COMMUNITY_09 — Estrategia de Pruebas|09 — Estrategia de Pruebas]]
+- [[_COMMUNITY_psr-4|psr-4]]
+- [[_COMMUNITY_07 — Impresión|07 — Impresión]]
+- [[_COMMUNITY_03 — Documentación de API|03 — Documentación de API]]
+- [[_COMMUNITY_autoload-dev|autoload-dev]]
+- [[_COMMUNITY_extra|extra]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `11 — TODO MASTER` - 18 edges
-2. `02 — Esquema Inicial de Base de Datos` - 14 edges
-3. `require-dev` - 11 edges
-4. `compilerOptions` - 11 edges
-5. `scripts` - 10 edges
-6. `MASTER PROMPT — ADDENDUM (v1.1)` - 10 edges
-7. `Entrada de Mercancía Screen (Compras y Lotes)` - 10 edges
-8. `AuditLog` - 9 edges
-9. `User` - 9 edges
-10. `00 — Visión General del Proyecto: OmniPOS Modular SaaS` - 9 edges
+1. `User` - 24 edges
+2. `11 — TODO MASTER` - 18 edges
+3. `Branch` - 16 edges
+4. `Company` - 15 edges
+5. `02 — Esquema Inicial de Base de Datos` - 14 edges
+6. `require-dev` - 11 edges
+7. `compilerOptions` - 11 edges
+8. `scripts` - 10 edges
+9. `MASTER PROMPT — ADDENDUM (v1.1)` - 10 edges
+10. `Entrada de Mercancía Screen (Compras y Lotes)` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Inventory Batches (lotes y vencimientos)` --references--> `Pantalla: Dashboard Principal (Retail)`  [INFERRED]
@@ -148,39 +159,39 @@
 ## Import Cycles
 - 1-file cycle: `resources/js/app.ts -> resources/js/app.ts`
 
-## Communities (132 total, 70 thin omitted)
+## Communities (145 total, 70 thin omitted)
 
 ### Community 0 - "00_PROJECT_OVERVIEW.md"
-Cohesion: 0.20
-Nodes (10): 34. LOCALIZACIÓN FISCAL REPÚBLICA DOMINICANA, 35. FACTURACIÓN ELECTRÓNICA — CONTEXTO LEY 32-23, 36. INTEGRIDAD Y CONCURRENCIA (OBLIGATORIO), 37. CALIDAD, TOOLING Y CI (OBLIGATORIO), 38. SAAS COMERCIAL, 39. UX / FRONTEND (COMPLEMENTO), 40. MÓDULOS ADICIONALES (CATÁLOGO EXTENDIDO), 41. OPERACIÓN (+2 more)
+Cohesion: 0.11
+Nodes (13): ApiResponse, ErrorCode, JsonResponse, CompanyController, JsonResponse, Request, StoreCompanyRequest, BranchResource (+5 more)
 
 ### Community 1 - "Inventory Batches (lotes y vencimientos)"
 Cohesion: 0.06
 Nodes (39): ITBIS y Propina Legal, Multimoneda DOP/USD (exchange_rates), Secuencias NCF / e-NCF, Pantalla: Configuración de Módulos, Pantalla: Dashboard Principal (Retail), Pantalla: Entrada de Mercancía (Compras y Lotes), Pantalla: Facturas Electrónicas (e-CF), Pantalla: Inventario Avanzado (Control de Lotes) (+31 more)
 
 ### Community 2 - "composer.json"
-Cohesion: 0.05
-Nodes (42): pestphp/pest-plugin, php-http/discovery, autoload, autoload-dev, psr-4, psr-4, config, allow-plugins (+34 more)
+Cohesion: 0.20
+Nodes (10): scripts, analyse, dev, post-autoload-dump, post-create-project-cmd, post-root-package-install, post-update-cmd, pre-package-uninstall (+2 more)
 
 ### Community 3 - "MASTER PROMPT — ADDENDUM (v1.1)"
 Cohesion: 0.15
 Nodes (12): compilerOptions, esModuleInterop, isolatedModules, jsx, lib, module, moduleResolution, resolveJsonModule (+4 more)
 
 ### Community 4 - "User.php"
-Cohesion: 0.20
-Nodes (10): User, Auditable, Authenticatable, DatabaseSeeder, HasApiTokens, HasFactory, HasPublicUlid, Notifiable (+2 more)
+Cohesion: 0.06
+Nodes (28): bootBelongsToCompany(), bootHasPublicUlid(), CompanyModel, CurrentCompany, BelongsToMany, User, CreateCompanyAction, Branch (+20 more)
 
 ### Community 5 - "11 — TODO MASTER"
-Cohesion: 0.06
-Nodes (28): Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento, OmniPOS Modular SaaS — Instrucciones del proyecto, Reglas duras (resumen), Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento (+20 more)
+Cohesion: 0.05
+Nodes (38): Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento, OmniPOS Modular SaaS — Instrucciones del proyecto, Reglas duras (resumen), Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento (+30 more)
 
 ### Community 6 - "02 — Esquema Inicial de Base de Datos"
 Cohesion: 0.14
 Nodes (14): 02 — Esquema Inicial de Base de Datos, 10. Facturación electrónica (§19), 11. Módulos verticales, 12. Reportes DGII (addendum), 1. Núcleo SaaS, 2. Sistema de módulos y planes, 3. Configuración fiscal y monedas, 4. Clientes (+6 more)
 
 ### Community 7 - "devDependencies"
-Cohesion: 0.10
-Nodes (21): devDependencies, axios, concurrently, eslint, @eslint/js, eslint-plugin-vue, @intlify/devtools-types, jsdom (+13 more)
+Cohesion: 0.05
+Nodes (37): dependencies, pinia, vite-plugin-pwa, vue, vue-i18n, vue-router, devDependencies, axios (+29 more)
 
 ### Community 8 - "Entrada de Mercancía Screen (Compras y Lotes)"
 Cohesion: 0.29
@@ -243,8 +254,8 @@ Cohesion: 0.22
 Nodes (9): 00 — Visión General del Proyecto: OmniPOS Modular SaaS, Arquitectura en una línea, Documentos, Fases de desarrollo (resumen), Mercado objetivo, Módulos opcionales, Núcleo (siempre activo), Qué es (+1 more)
 
 ### Community 23 - "01 — Arquitectura"
-Cohesion: 0.13
-Nodes (12): audit(), auditLogs(), bootHasPublicUlid(), AuditLog, AuditLogger, Model, UserFactory, Factory (+4 more)
+Cohesion: 0.24
+Nodes (7): audit(), auditLogs(), AuditLog, AuditLogger, Model, MorphMany, MorphTo
 
 ### Community 24 - "05 — Sistema de Módulos"
 Cohesion: 0.22
@@ -267,35 +278,79 @@ Cohesion: 0.29
 Nodes (3): AppServiceProvider, ModuleServiceProvider, ServiceProvider
 
 ### Community 29 - "[No publicado]"
-Cohesion: 0.33
-Nodes (5): 12 — CHANGELOG, 2026-07-09 — Inicio de Fase 0: control de versiones, 2026-07-09 — Inicio de Fase 0: runtime y Laravel, 2026-07-09 — Planificación inicial (pre-código), [No publicado]
+Cohesion: 0.29
+Nodes (6): 12 — CHANGELOG, 2026-07-09 — Fase 1: aislamiento multiempresa base, 2026-07-09 — Inicio de Fase 0: control de versiones, 2026-07-09 — Inicio de Fase 0: runtime y Laravel, 2026-07-09 — Planificación inicial (pre-código), [No publicado]
 
 ### Community 104 - "app.php"
-Cohesion: 0.17
-Nodes (8): ApiException, ErrorCode, ApiResponse, ErrorCode, Money, BrickMoney, JsonResponse, RuntimeException
+Cohesion: 0.14
+Nodes (13): ApiException, ErrorCode, EnsureBranchContext, Closure, Request, Response, EnsureCompanyContext, Closure (+5 more)
 
 ### Community 118 - "08 — Seguridad y Auditoría"
-Cohesion: 0.12
-Nodes (16): dependencies, pinia, vite-plugin-pwa, vue, vue-i18n, vue-router, private, $schema (+8 more)
+Cohesion: 0.20
+Nodes (10): 01 — Arquitectura, Capas de protección de una ruta, Contexto tenant implementado (Fase 1), Convenciones críticas, Decisiones registradas, Estructura backend, Eventos de dominio clave, Multi-tenancy (+2 more)
+
+### Community 122 - "sanctum.php"
+Cohesion: 0.22
+Nodes (8): description, keywords, license, minimum-stability, name, prefer-stable, $schema, type
 
 ### Community 124 - "00_PROJECT_OVERVIEW.md"
-Cohesion: 0.05
-Nodes (36): 01 — Arquitectura, Capas de protección de una ruta, Convenciones críticas, Decisiones registradas, Estructura backend, Eventos de dominio clave, Multi-tenancy, Patrón: Monolito Modular (+28 more)
+Cohesion: 0.22
+Nodes (3): 10 — Despliegue, 13 — Decisiones Técnicas (ADR), 14 — Problemas Conocidos
 
 ### Community 125 - "15 — Inventario, Lotes y Vencimientos"
 Cohesion: 0.25
 Nodes (7): 15 — Inventario, Lotes y Vencimientos, Alertas (job diario + eventos en tiempo real), Kardex, Modelo, Métodos de salida (por producto, `outgoing_method`), Reglas de venta con vencimiento (configurables por empresa), Reportes
 
+### Community 127 - "config"
+Cohesion: 0.29
+Nodes (7): pestphp/pest-plugin, php-http/discovery, config, allow-plugins, optimize-autoloader, preferred-install, sort-packages
+
 ### Community 128 - ".prettierrc.json"
 Cohesion: 0.40
 Nodes (4): printWidth, singleQuote, tabWidth, trailingComma
+
+### Community 129 - "require"
+Cohesion: 0.33
+Nodes (6): require, brick/money, laravel/framework, laravel/sanctum, laravel/tinker, php
+
+### Community 134 - "04 — Estructura Frontend"
+Cohesion: 0.33
+Nodes (5): 04 — Estructura Frontend, Design system: "Kinetic Enterprise", Estructura (master prompt §5), Pantallas de referencia (Stitch), Reglas frontend
+
+### Community 135 - "08 — Seguridad y Auditoría"
+Cohesion: 0.33
+Nodes (6): 08 — Seguridad y Auditoría, Acciones sensibles con autorización elevada, Auditoría (módulo Audit), Autenticación y sesiones, Autorización en capas, Datos
+
+### Community 136 - "09 — Estrategia de Pruebas"
+Cohesion: 0.33
+Nodes (5): 09 — Estrategia de Pruebas, Cobertura obligatoria backend (master prompt §29), E2E Playwright (Fase 14, sobre app real), Herramientas, Regla de trabajo
+
+### Community 137 - "psr-4"
+Cohesion: 0.40
+Nodes (5): autoload, psr-4, App\\, Database\\Factories\\, Database\\Seeders\\
+
+### Community 138 - "07 — Impresión"
+Cohesion: 0.40
+Nodes (5): 07 — Impresión, Alcance (master prompt §20), Configuración, Estrategia por etapas, Requisitos fiscales del ticket/factura RD
+
+### Community 139 - "03 — Documentación de API"
+Cohesion: 0.50
+Nodes (3): 03 — Documentación de API, Convenciones, Mapa de endpoints previsto (por fase)
+
+### Community 140 - "autoload-dev"
+Cohesion: 0.67
+Nodes (3): autoload-dev, psr-4, Tests\\
+
+### Community 141 - "extra"
+Cohesion: 0.67
+Nodes (3): extra, laravel, dont-discover
 
 ## Ambiguous Edges - Review These
 - `Purchase Order Reception (PO-2023-0891)` → `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`  [AMBIGUOUS]
   Pantallas del sistema/stitch_omnipos_modular_saas/entradas_de_mercanc_a_compras_y_lotes/screen.png · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **304 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+299 more)
+- **305 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+300 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **70 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -304,15 +359,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Purchase Order Reception (PO-2023-0891)` and `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
+- **Why does `User` connect `User.php` to `app.php`, `00_PROJECT_OVERVIEW.md`?**
+  _High betweenness centrality (0.014) - this node is a cross-community bridge._
 - **Why does `02 — Esquema Inicial de Base de Datos` connect `02 — Esquema Inicial de Base de Datos` to `00_PROJECT_OVERVIEW.md`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
-- **Why does `MASTER PROMPT — ADDENDUM (v1.1)` connect `00_PROJECT_OVERVIEW.md` to `11 — TODO MASTER`?**
-  _High betweenness centrality (0.006) - this node is a cross-community bridge._
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `tabWidth` to the rest of the system?**
-  _320 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _321 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `00_PROJECT_OVERVIEW.md` be split into smaller, more focused modules?**
+  _Cohesion score 0.11375661375661375 - nodes in this community are weakly interconnected._
 - **Should `Inventory Batches (lotes y vencimientos)` be split into smaller, more focused modules?**
   _Cohesion score 0.059379217273954114 - nodes in this community are weakly interconnected._
-- **Should `composer.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.046511627906976744 - nodes in this community are weakly interconnected._
-- **Should `11 — TODO MASTER` be split into smaller, more focused modules?**
-  _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
+- **Should `User.php` be split into smaller, more focused modules?**
+  _Cohesion score 0.059227921734531994 - nodes in this community are weakly interconnected._

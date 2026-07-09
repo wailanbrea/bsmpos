@@ -3,6 +3,8 @@
 use App\Core\Enums\ErrorCode;
 use App\Core\Exceptions\ApiException;
 use App\Core\Http\ApiResponse;
+use App\Core\Http\Middleware\EnsureBranchContext;
+use App\Core\Http\Middleware\EnsureCompanyContext;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -17,7 +19,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias([
+            'company' => EnsureCompanyContext::class,
+            'branch' => EnsureBranchContext::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->render(function (ApiException $exception, Request $request) {

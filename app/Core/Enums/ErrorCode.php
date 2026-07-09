@@ -11,6 +11,11 @@ enum ErrorCode: string
     case Forbidden = 'FORBIDDEN';
     case NotFound = 'NOT_FOUND';
     case ModuleDisabled = 'MODULE_DISABLED';
+    case CompanyContextRequired = 'COMPANY_CONTEXT_REQUIRED';
+    case BranchContextRequired = 'BRANCH_CONTEXT_REQUIRED';
+    case TenantAccessDenied = 'TENANT_ACCESS_DENIED';
+    case CompanyInactive = 'COMPANY_INACTIVE';
+    case BranchInactive = 'BRANCH_INACTIVE';
     case Conflict = 'CONFLICT';
     case InternalError = 'INTERNAL_ERROR';
 }

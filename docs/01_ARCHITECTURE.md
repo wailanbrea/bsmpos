@@ -28,6 +28,13 @@ Route::middleware(['auth:sanctum', 'company', 'branch', 'module:pos', 'permissio
 5. `permission:<code>` — permiso del rol.
 6. Policies por modelo como última línea.
 
+### Contexto tenant implementado (Fase 1)
+
+- Las APIs operativas reciben `X-Company-Id` y `X-Branch-Id` como ULID público, nunca como ID interno.
+- `CurrentCompany` es un servicio `scoped`: solo vive durante la petición y conserva compañía/sucursal ya autorizadas.
+- El dueño de una compañía puede operar cualquier sucursal activa; los demás usuarios requieren asignación explícita en `branch_user`.
+- Los modelos operativos deben extender `App\Core\Models\CompanyModel`; su scope global falla cerrado si falta una compañía activa. `Company` y `Branch` quedan fuera de ese scope para poder resolver el contexto.
+
 ## Estructura backend
 
 ```

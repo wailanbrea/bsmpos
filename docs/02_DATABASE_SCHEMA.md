@@ -20,6 +20,8 @@
 
 Según master prompt §8: **business_types**, **system_modules**, **module_dependencies**, **business_type_modules**, **company_modules**, **branch_modules**, **subscription_plans** (+ límites: max_branches, max_users, max_invoices_month), **plan_modules**, **module_audit_logs**, y adicional **company_subscriptions** — id, company_id, plan_id, status (trial/active/past_due/suspended/canceled), current_period_start/end, canceled_at.
 
+Implementado en Fase 1: `companies` y `branches` poseen `public_id` ULID y soft delete. `branches` tiene `unique(company_id, code)`. Las membresías conservan timestamps, son únicas por relación y `company_user.default_branch_id` se anula si la sucursal se elimina; la validación de que esa sucursal pertenezca a la compañía se realiza en el servicio transaccional.
+
 ## 3. Configuración fiscal y monedas
 
 - **currencies** — id, code, name, symbol, decimals

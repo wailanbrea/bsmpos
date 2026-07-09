@@ -2,10 +2,12 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASE 0 en progreso — preparación del repositorio e infraestructura base.**
+**Estado global: FASE 1 en progreso — núcleo SaaS multiempresa.**
 
 ## Conocimiento del proyecto
-- [x] Grafo Graphify actualizado e incorporado al grafo global como `omnipos-modular-saas` (628 nodos, 617 relaciones; sin duplicados ni referencias colgantes). El extractor conserva una autorelación falsa en `app/Models/User.php` por una colisión de alias de importación.
+- [x] Fase 1 parcial: compañías, sucursal principal, membresías y contexto tenant por headers ULID; faltan roles/permisos y endpoints de sesión.
+- [x] Tests de aislamiento tenant: listado filtrado y denegación de empresa/sucursal ajena.
+- [x] Grafo Graphify actualizado e incorporado al grafo global como `omnipos-modular-saas` (709 nodos, 773 relaciones; reemplazo del tag existente, sin duplicados). El extractor aún omite manifiestos `module.json` sin símbolos AST.
 
 ## FASE 0 — Base
 - [x] Inicializar repositorio Git local (`main`) y vincular el remoto autorizado `origin`

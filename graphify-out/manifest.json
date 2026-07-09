@@ -5,13 +5,13 @@
     "semantic_hash": ""
   },
   "app/Models/User.php": {
-    "mtime": 1783633020.5731888,
-    "ast_hash": "f51f5ce4bfc49bdf2888ecca2b78bbcd",
+    "mtime": 1783633543.5101898,
+    "ast_hash": "92ca5771cce48599462fd19eb2c7de8e",
     "semantic_hash": ""
   },
   "app/Providers/AppServiceProvider.php": {
-    "mtime": 1773496440.0,
-    "ast_hash": "c0094f35cad6bba7636002a62186dae4",
+    "mtime": 1783633543.607704,
+    "ast_hash": "ec95bf0b309fa50fa14a16ec157de902",
     "semantic_hash": ""
   },
   "artisan": {
@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "bootstrap/app.php": {
-    "mtime": 1783632985.1778848,
-    "ast_hash": "ba9926fee1c1fefd9aa837963faf7922",
+    "mtime": 1783633415.4337783,
+    "ast_hash": "59c6ef445ab21e78751294c67c402a1c",
     "semantic_hash": ""
   },
   "bootstrap/providers.php": {
@@ -255,13 +255,13 @@
     "semantic_hash": ""
   },
   "docs/01_ARCHITECTURE.md": {
-    "mtime": 1783618011.9049666,
-    "ast_hash": "968863e7430b0720a8db8cfc1cc9597e",
+    "mtime": 1783633634.0944464,
+    "ast_hash": "e19d759684679ac25341a035e8f77558",
     "semantic_hash": ""
   },
   "docs/02_DATABASE_SCHEMA.md": {
-    "mtime": 1783618053.3824787,
-    "ast_hash": "5c0afc61e7da95b8669735ad1d60d3c5",
+    "mtime": 1783633644.2141378,
+    "ast_hash": "6d7a8feed940d412cdb52823786489e1",
     "semantic_hash": ""
   },
   "docs/03_API_DOCUMENTATION.md": {
@@ -305,13 +305,13 @@
     "semantic_hash": ""
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783633067.0200877,
-    "ast_hash": "b2db0789763e0d3ee8d2c05913b6536d",
+    "mtime": 1783633634.0954466,
+    "ast_hash": "5664c7035f6dab60c24289f3adfecfef",
     "semantic_hash": ""
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783633067.0200877,
-    "ast_hash": "40a467d43f13bf11c8ffcbb06f9d9618",
+    "mtime": 1783633634.0964463,
+    "ast_hash": "63bc3434d1f75401406e0feff5cbed97",
     "semantic_hash": ""
   },
   "docs/13_DECISIONS.md": {
@@ -405,8 +405,8 @@
     "semantic_hash": ""
   },
   "config/modules.php": {
-    "mtime": 1783631630.9767659,
-    "ast_hash": "1ec87cbb050c2775a8e829d56a978726",
+    "mtime": 1783633415.434782,
+    "ast_hash": "f60d0e231f4e84fb76da9c978a279990",
     "semantic_hash": ""
   },
   "config/sanctum.php": {
@@ -495,8 +495,8 @@
     "semantic_hash": ""
   },
   "app/Core/Enums/ErrorCode.php": {
-    "mtime": 1783632923.7150154,
-    "ast_hash": "8678fa4fb2f1c8dee5cb6be888f8bb3f",
+    "mtime": 1783633415.434782,
+    "ast_hash": "d15834d560c4c54c3659ee94a593638a",
     "semantic_hash": ""
   },
   "app/Core/Exceptions/ApiException.php": {
@@ -537,6 +537,96 @@
   "tests/Feature/CoreInfrastructureTest.php": {
     "mtime": 1783632965.786621,
     "ast_hash": "64eadca3c3946a3de5e55b943fd6d354",
+    "semantic_hash": ""
+  },
+  "app/Core/Concerns/BelongsToCompany.php": {
+    "mtime": 1783633415.437781,
+    "ast_hash": "a169ccb0e0ffa16df4b62297e03adb04",
+    "semantic_hash": ""
+  },
+  "app/Core/Http/Middleware/EnsureBranchContext.php": {
+    "mtime": 1783633538.782451,
+    "ast_hash": "e19efb7bfaa641eabdf657597823113c",
+    "semantic_hash": ""
+  },
+  "app/Core/Http/Middleware/EnsureCompanyContext.php": {
+    "mtime": 1783633415.4387782,
+    "ast_hash": "4d587003b8c407d902f0fd8e52d470ff",
+    "semantic_hash": ""
+  },
+  "app/Core/Models/CompanyModel.php": {
+    "mtime": 1783633538.7834504,
+    "ast_hash": "2064c65c747bcd63db90a3540f3dcfdd",
+    "semantic_hash": ""
+  },
+  "app/Core/Tenancy/CurrentCompany.php": {
+    "mtime": 1783633415.4367826,
+    "ast_hash": "7a16580c3942721df63c15865084a498",
+    "semantic_hash": ""
+  },
+  "app/Modules/Company/Actions/CreateCompanyAction.php": {
+    "mtime": 1783633476.015353,
+    "ast_hash": "2a035958b1528862d38259b15d0818a0",
+    "semantic_hash": ""
+  },
+  "app/Modules/Company/Http/Controllers/CompanyController.php": {
+    "mtime": 1783633476.0183537,
+    "ast_hash": "75967cfe57f790725cf229fd76a94263",
+    "semantic_hash": ""
+  },
+  "app/Modules/Company/Http/Requests/StoreCompanyRequest.php": {
+    "mtime": 1783633476.016354,
+    "ast_hash": "cd6123f65f7b5d7eb6f7754da761c057",
+    "semantic_hash": ""
+  },
+  "app/Modules/Company/Http/Resources/BranchResource.php": {
+    "mtime": 1783633543.5231953,
+    "ast_hash": "cc338722fdb29cb699dd8a6016d2ea3c",
+    "semantic_hash": ""
+  },
+  "app/Modules/Company/Http/Resources/CompanyResource.php": {
+    "mtime": 1783633543.538707,
+    "ast_hash": "ccce76761989b421ec49b7041824766f",
+    "semantic_hash": ""
+  },
+  "app/Modules/Company/Models/Branch.php": {
+    "mtime": 1783633538.7844498,
+    "ast_hash": "54e17044913480d808bc04f2e577efd9",
+    "semantic_hash": ""
+  },
+  "app/Modules/Company/Models/Company.php": {
+    "mtime": 1783633538.7834504,
+    "ast_hash": "eff26772236addc703e7f8196946b9e9",
+    "semantic_hash": ""
+  },
+  "app/Modules/Company/module.json": {
+    "mtime": 1783633476.0133524,
+    "ast_hash": "27ed8de1b7c79c53a04e7354f43e4d3b",
+    "semantic_hash": ""
+  },
+  "app/Modules/Company/routes.php": {
+    "mtime": 1783633476.019353,
+    "ast_hash": "9a29bd3cc5b9b08087794bb7b2aed6f5",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_07_09_190000_create_companies_and_branches_tables.php": {
+    "mtime": 1783633415.4397779,
+    "ast_hash": "fd74e05198b0103f034011ce794c1e19",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_07_09_190100_add_saas_fields_to_users_table.php": {
+    "mtime": 1783633415.4397779,
+    "ast_hash": "7e50588c73dac695f996b32768169f92",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_07_09_190200_create_company_user_and_branch_user_tables.php": {
+    "mtime": 1783633415.4407792,
+    "ast_hash": "c8ea4eac3044c70f437c2627fc06f50e",
+    "semantic_hash": ""
+  },
+  "tests/Feature/CompanyTenancyTest.php": {
+    "mtime": 1783633675.0612264,
+    "ast_hash": "8555f1bb7d4d09c28b206d1f95f9a6a6",
     "semantic_hash": ""
   }
 }

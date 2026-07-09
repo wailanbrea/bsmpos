@@ -4,6 +4,16 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-09 — Fase 1: aislamiento multiempresa base
+**Agregado**
+- Módulo `Company` con compañías, sucursales, membresías y ULID público para selección segura.
+- Acción transaccional que crea compañía, sucursal principal, membresías de propietario y auditoría.
+- `GET/POST /api/v1/companies`, Form Request, Resources, `CurrentCompany` y middleware `company`/`branch`.
+
+**Validado**
+- Migraciones aplicadas a la base exclusiva `omnipos`.
+- Pest: 12 pruebas / 33 aserciones; Pint, Larastan nivel 6, typecheck, ESLint, Prettier, Vitest y build PWA sin errores.
+
 ### 2026-07-09 — Inicio de Fase 0: control de versiones
 **Agregado**
 - `.gitignore` inicial para dependencias, secretos, artefactos de Laravel y estado local de herramientas.

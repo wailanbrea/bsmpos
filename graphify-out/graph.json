@@ -94,13 +94,33 @@
       "norm_label": "audit()"
     },
     {
+      "label": "BelongsToCompany.php",
+      "file_type": "code",
+      "source_file": "app/Core/Concerns/BelongsToCompany.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_concerns_belongstocompany",
+      "community": 4,
+      "norm_label": "belongstocompany.php"
+    },
+    {
+      "label": "bootBelongsToCompany()",
+      "file_type": "code",
+      "source_file": "app/Core/Concerns/BelongsToCompany.php",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "app_core_concerns_belongstocompany_bootbelongstocompany",
+      "community": 4,
+      "norm_label": "bootbelongstocompany()"
+    },
+    {
       "label": "HasPublicUlid.php",
       "file_type": "code",
       "source_file": "app/Core/Concerns/HasPublicUlid.php",
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_core_concerns_haspubliculid",
-      "community": 23,
+      "community": 4,
       "norm_label": "haspubliculid.php"
     },
     {
@@ -110,7 +130,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "app_core_concerns_haspubliculid_boothaspubliculid",
-      "community": 23,
+      "community": 4,
       "norm_label": "boothaspubliculid()"
     },
     {
@@ -180,7 +200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_core_http_apiresponse",
-      "community": 104,
+      "community": 0,
       "norm_label": "apiresponse.php"
     },
     {
@@ -190,7 +210,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "app_core_http_apiresponse_apiresponse",
-      "community": 104,
+      "community": 0,
       "norm_label": "apiresponse"
     },
     {
@@ -200,7 +220,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "app_core_http_apiresponse_apiresponse_success",
-      "community": 104,
+      "community": 0,
       "norm_label": ".success()"
     },
     {
@@ -209,8 +229,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "jsonresponse",
-      "community": 104,
+      "id": "app_core_http_apiresponse_php_jsonresponse",
+      "community": 0,
       "norm_label": "jsonresponse"
     },
     {
@@ -220,7 +240,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "app_core_http_apiresponse_apiresponse_error",
-      "community": 104,
+      "community": 0,
       "norm_label": ".error()"
     },
     {
@@ -230,8 +250,128 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_core_http_apiresponse_php_errorcode",
-      "community": 104,
+      "community": 0,
       "norm_label": "errorcode"
+    },
+    {
+      "label": "EnsureBranchContext.php",
+      "file_type": "code",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurebranchcontext",
+      "community": 104,
+      "norm_label": "ensurebranchcontext.php"
+    },
+    {
+      "label": "EnsureBranchContext",
+      "file_type": "code",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurebranchcontext_ensurebranchcontext",
+      "community": 104,
+      "norm_label": "ensurebranchcontext"
+    },
+    {
+      "label": ".handle()",
+      "file_type": "code",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurebranchcontext_ensurebranchcontext_handle",
+      "community": 104,
+      "norm_label": ".handle()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurebranchcontext_php_request",
+      "community": 104,
+      "norm_label": "request"
+    },
+    {
+      "label": "Closure",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurebranchcontext_php_closure",
+      "community": 104,
+      "norm_label": "closure"
+    },
+    {
+      "label": "Response",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurebranchcontext_php_response",
+      "community": 104,
+      "norm_label": "response"
+    },
+    {
+      "label": "EnsureCompanyContext.php",
+      "file_type": "code",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurecompanycontext",
+      "community": 104,
+      "norm_label": "ensurecompanycontext.php"
+    },
+    {
+      "label": "EnsureCompanyContext",
+      "file_type": "code",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurecompanycontext_ensurecompanycontext",
+      "community": 104,
+      "norm_label": "ensurecompanycontext"
+    },
+    {
+      "label": ".handle()",
+      "file_type": "code",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurecompanycontext_ensurecompanycontext_handle",
+      "community": 104,
+      "norm_label": ".handle()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurecompanycontext_php_request",
+      "community": 104,
+      "norm_label": "request"
+    },
+    {
+      "label": "Closure",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurecompanycontext_php_closure",
+      "community": 104,
+      "norm_label": "closure"
+    },
+    {
+      "label": "Response",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurecompanycontext_php_response",
+      "community": 104,
+      "norm_label": "response"
     },
     {
       "label": "AuditLog.php",
@@ -260,7 +400,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "model",
-      "community": 23,
+      "community": 4,
       "norm_label": "model"
     },
     {
@@ -292,6 +432,36 @@
       "id": "morphto",
       "community": 23,
       "norm_label": "morphto"
+    },
+    {
+      "label": "CompanyModel.php",
+      "file_type": "code",
+      "source_file": "app/Core/Models/CompanyModel.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_models_companymodel",
+      "community": 4,
+      "norm_label": "companymodel.php"
+    },
+    {
+      "label": "CompanyModel",
+      "file_type": "code",
+      "source_file": "app/Core/Models/CompanyModel.php",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "app_core_models_companymodel_companymodel",
+      "community": 4,
+      "norm_label": "companymodel"
+    },
+    {
+      "label": "BelongsToCompany",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "belongstocompany",
+      "community": 4,
+      "norm_label": "belongstocompany"
     },
     {
       "label": "Money.php",
@@ -374,6 +544,86 @@
       "norm_label": "model"
     },
     {
+      "label": "CurrentCompany.php",
+      "file_type": "code",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_tenancy_currentcompany",
+      "community": 4,
+      "norm_label": "currentcompany.php"
+    },
+    {
+      "label": "CurrentCompany",
+      "file_type": "code",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_core_tenancy_currentcompany_currentcompany",
+      "community": 4,
+      "norm_label": "currentcompany"
+    },
+    {
+      "label": ".setCompany()",
+      "file_type": "code",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "app_core_tenancy_currentcompany_currentcompany_setcompany",
+      "community": 4,
+      "norm_label": ".setcompany()"
+    },
+    {
+      "label": ".setBranch()",
+      "file_type": "code",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "app_core_tenancy_currentcompany_currentcompany_setbranch",
+      "community": 4,
+      "norm_label": ".setbranch()"
+    },
+    {
+      "label": ".hasCompany()",
+      "file_type": "code",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "app_core_tenancy_currentcompany_currentcompany_hascompany",
+      "community": 4,
+      "norm_label": ".hascompany()"
+    },
+    {
+      "label": ".hasBranch()",
+      "file_type": "code",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "app_core_tenancy_currentcompany_currentcompany_hasbranch",
+      "community": 4,
+      "norm_label": ".hasbranch()"
+    },
+    {
+      "label": ".company()",
+      "file_type": "code",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "app_core_tenancy_currentcompany_currentcompany_company",
+      "community": 4,
+      "norm_label": ".company()"
+    },
+    {
+      "label": ".branch()",
+      "file_type": "code",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "app_core_tenancy_currentcompany_currentcompany_branch",
+      "community": 4,
+      "norm_label": ".branch()"
+    },
+    {
       "label": "Controller.php",
       "file_type": "code",
       "source_file": "app/Http/Controllers/Controller.php",
@@ -407,7 +657,7 @@
       "label": "User",
       "file_type": "code",
       "source_file": "app/Models/User.php",
-      "source_location": "L14",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "app_models_user_user",
       "community": 4,
@@ -477,11 +727,441 @@
       "label": ".casts()",
       "file_type": "code",
       "source_file": "app/Models/User.php",
-      "source_location": "L45",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "app_models_user_user_casts",
       "community": 4,
       "norm_label": ".casts()"
+    },
+    {
+      "label": ".companies()",
+      "file_type": "code",
+      "source_file": "app/Models/User.php",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "app_models_user_user_companies",
+      "community": 4,
+      "norm_label": ".companies()"
+    },
+    {
+      "label": "BelongsToMany",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_models_user_php_belongstomany",
+      "community": 4,
+      "norm_label": "belongstomany"
+    },
+    {
+      "label": ".branches()",
+      "file_type": "code",
+      "source_file": "app/Models/User.php",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "app_models_user_user_branches",
+      "community": 4,
+      "norm_label": ".branches()"
+    },
+    {
+      "label": "CreateCompanyAction.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_company_actions_createcompanyaction",
+      "community": 4,
+      "norm_label": "createcompanyaction.php"
+    },
+    {
+      "label": "CreateCompanyAction",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_modules_company_actions_createcompanyaction_createcompanyaction",
+      "community": 4,
+      "norm_label": "createcompanyaction"
+    },
+    {
+      "label": ".execute()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_modules_company_actions_createcompanyaction_createcompanyaction_execute",
+      "community": 4,
+      "norm_label": ".execute()"
+    },
+    {
+      "label": "CompanyController.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_company_http_controllers_companycontroller",
+      "community": 0,
+      "norm_label": "companycontroller.php"
+    },
+    {
+      "label": "CompanyController",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "app_modules_company_http_controllers_companycontroller_companycontroller",
+      "community": 0,
+      "norm_label": "companycontroller"
+    },
+    {
+      "label": ".index()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "app_modules_company_http_controllers_companycontroller_companycontroller_index",
+      "community": 0,
+      "norm_label": ".index()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_company_http_controllers_companycontroller_php_request",
+      "community": 0,
+      "norm_label": "request"
+    },
+    {
+      "label": "JsonResponse",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_company_http_controllers_companycontroller_php_jsonresponse",
+      "community": 0,
+      "norm_label": "jsonresponse"
+    },
+    {
+      "label": ".store()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "app_modules_company_http_controllers_companycontroller_companycontroller_store",
+      "community": 0,
+      "norm_label": ".store()"
+    },
+    {
+      "label": "StoreCompanyRequest.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_company_http_requests_storecompanyrequest",
+      "community": 0,
+      "norm_label": "storecompanyrequest.php"
+    },
+    {
+      "label": "StoreCompanyRequest",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest",
+      "community": 0,
+      "norm_label": "storecompanyrequest"
+    },
+    {
+      "label": "FormRequest",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "formrequest",
+      "community": 0,
+      "norm_label": "formrequest"
+    },
+    {
+      "label": ".authorize()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest_authorize",
+      "community": 0,
+      "norm_label": ".authorize()"
+    },
+    {
+      "label": ".rules()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest_rules",
+      "community": 0,
+      "norm_label": ".rules()"
+    },
+    {
+      "label": ".prepareForValidation()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest_prepareforvalidation",
+      "community": 0,
+      "norm_label": ".prepareforvalidation()"
+    },
+    {
+      "label": "BranchResource.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_company_http_resources_branchresource",
+      "community": 0,
+      "norm_label": "branchresource.php"
+    },
+    {
+      "label": "BranchResource",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "app_modules_company_http_resources_branchresource_branchresource",
+      "community": 0,
+      "norm_label": "branchresource"
+    },
+    {
+      "label": "JsonResource",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "jsonresource",
+      "community": 0,
+      "norm_label": "jsonresource"
+    },
+    {
+      "label": ".toArray()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "app_modules_company_http_resources_branchresource_branchresource_toarray",
+      "community": 0,
+      "norm_label": ".toarray()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_company_http_resources_branchresource_php_request",
+      "community": 0,
+      "norm_label": "request"
+    },
+    {
+      "label": "CompanyResource.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_company_http_resources_companyresource",
+      "community": 0,
+      "norm_label": "companyresource.php"
+    },
+    {
+      "label": "CompanyResource",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "app_modules_company_http_resources_companyresource_companyresource",
+      "community": 0,
+      "norm_label": "companyresource"
+    },
+    {
+      "label": ".toArray()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "app_modules_company_http_resources_companyresource_companyresource_toarray",
+      "community": 0,
+      "norm_label": ".toarray()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_company_http_resources_companyresource_php_request",
+      "community": 0,
+      "norm_label": "request"
+    },
+    {
+      "label": "Branch.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_company_models_branch",
+      "community": 4,
+      "norm_label": "branch.php"
+    },
+    {
+      "label": "Branch",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "app_modules_company_models_branch_branch",
+      "community": 4,
+      "norm_label": "branch"
+    },
+    {
+      "label": "SoftDeletes",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "softdeletes",
+      "community": 4,
+      "norm_label": "softdeletes"
+    },
+    {
+      "label": ".casts()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "app_modules_company_models_branch_branch_casts",
+      "community": 4,
+      "norm_label": ".casts()"
+    },
+    {
+      "label": ".company()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "app_modules_company_models_branch_branch_company",
+      "community": 4,
+      "norm_label": ".company()"
+    },
+    {
+      "label": "BelongsTo",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "belongsto",
+      "community": 4,
+      "norm_label": "belongsto"
+    },
+    {
+      "label": ".users()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "app_modules_company_models_branch_branch_users",
+      "community": 4,
+      "norm_label": ".users()"
+    },
+    {
+      "label": "BelongsToMany",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_company_models_branch_php_belongstomany",
+      "community": 4,
+      "norm_label": "belongstomany"
+    },
+    {
+      "label": "Company.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_company_models_company",
+      "community": 4,
+      "norm_label": "company.php"
+    },
+    {
+      "label": "Company",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "app_modules_company_models_company_company",
+      "community": 4,
+      "norm_label": "company"
+    },
+    {
+      "label": ".casts()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "app_modules_company_models_company_company_casts",
+      "community": 4,
+      "norm_label": ".casts()"
+    },
+    {
+      "label": ".branches()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "app_modules_company_models_company_company_branches",
+      "community": 4,
+      "norm_label": ".branches()"
+    },
+    {
+      "label": "HasMany",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "hasmany",
+      "community": 4,
+      "norm_label": "hasmany"
+    },
+    {
+      "label": ".users()",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "app_modules_company_models_company_company_users",
+      "community": 4,
+      "norm_label": ".users()"
+    },
+    {
+      "label": "BelongsToMany",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_company_models_company_php_belongstomany",
+      "community": 4,
+      "norm_label": "belongstomany"
+    },
+    {
+      "label": "routes.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Company/routes.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_company_routes",
+      "community": 0,
+      "norm_label": "routes.php"
     },
     {
       "label": "AppServiceProvider.php",
@@ -497,7 +1177,7 @@
       "label": "AppServiceProvider",
       "file_type": "code",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "app_providers_appserviceprovider_appserviceprovider",
       "community": 28,
@@ -517,7 +1197,7 @@
       "label": ".register()",
       "file_type": "code",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L12",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "app_providers_appserviceprovider_appserviceprovider_register",
       "community": 28,
@@ -527,7 +1207,7 @@
       "label": ".boot()",
       "file_type": "code",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "app_providers_appserviceprovider_appserviceprovider_boot",
       "community": 28,
@@ -610,7 +1290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "composer",
-      "community": 2,
+      "community": 122,
       "norm_label": "composer.json"
     },
     {
@@ -620,7 +1300,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "composer_schema",
-      "community": 2,
+      "community": 122,
       "norm_label": "$schema"
     },
     {
@@ -630,7 +1310,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "composer_name",
-      "community": 2,
+      "community": 122,
       "norm_label": "name"
     },
     {
@@ -640,7 +1320,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "composer_type",
-      "community": 2,
+      "community": 122,
       "norm_label": "type"
     },
     {
@@ -650,7 +1330,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "composer_description",
-      "community": 2,
+      "community": 122,
       "norm_label": "description"
     },
     {
@@ -660,7 +1340,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "composer_keywords",
-      "community": 2,
+      "community": 122,
       "norm_label": "keywords"
     },
     {
@@ -670,7 +1350,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "composer_license",
-      "community": 2,
+      "community": 122,
       "norm_label": "license"
     },
     {
@@ -680,7 +1360,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "composer_require",
-      "community": 2,
+      "community": 129,
       "norm_label": "require"
     },
     {
@@ -690,7 +1370,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "composer_require_php",
-      "community": 2,
+      "community": 129,
       "norm_label": "php"
     },
     {
@@ -700,7 +1380,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "composer_require_brick_money",
-      "community": 2,
+      "community": 129,
       "norm_label": "brick/money"
     },
     {
@@ -710,7 +1390,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "composer_require_laravel_framework",
-      "community": 2,
+      "community": 129,
       "norm_label": "laravel/framework"
     },
     {
@@ -720,7 +1400,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "composer_require_laravel_sanctum",
-      "community": 2,
+      "community": 129,
       "norm_label": "laravel/sanctum"
     },
     {
@@ -730,7 +1410,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "composer_require_laravel_tinker",
-      "community": 2,
+      "community": 129,
       "norm_label": "laravel/tinker"
     },
     {
@@ -850,7 +1530,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "composer_autoload",
-      "community": 2,
+      "community": 137,
       "norm_label": "autoload"
     },
     {
@@ -860,7 +1540,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "composer_autoload_psr_4",
-      "community": 2,
+      "community": 137,
       "norm_label": "psr-4"
     },
     {
@@ -870,7 +1550,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "composer_psr_4_app",
-      "community": 2,
+      "community": 137,
       "norm_label": "app\\\\"
     },
     {
@@ -880,7 +1560,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "composer_psr_4_database_factories",
-      "community": 2,
+      "community": 137,
       "norm_label": "database\\\\factories\\\\"
     },
     {
@@ -890,7 +1570,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "composer_psr_4_database_seeders",
-      "community": 2,
+      "community": 137,
       "norm_label": "database\\\\seeders\\\\"
     },
     {
@@ -900,7 +1580,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "composer_autoload_dev",
-      "community": 2,
+      "community": 140,
       "norm_label": "autoload-dev"
     },
     {
@@ -910,7 +1590,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "composer_autoload_dev_psr_4",
-      "community": 2,
+      "community": 140,
       "norm_label": "psr-4"
     },
     {
@@ -920,7 +1600,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "composer_psr_4_tests",
-      "community": 2,
+      "community": 140,
       "norm_label": "tests\\\\"
     },
     {
@@ -1030,7 +1710,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "composer_extra",
-      "community": 2,
+      "community": 141,
       "norm_label": "extra"
     },
     {
@@ -1040,7 +1720,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "composer_extra_laravel",
-      "community": 2,
+      "community": 141,
       "norm_label": "laravel"
     },
     {
@@ -1050,7 +1730,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "composer_laravel_dont_discover",
-      "community": 2,
+      "community": 141,
       "norm_label": "dont-discover"
     },
     {
@@ -1060,7 +1740,7 @@
       "source_location": "L87",
       "_origin": "ast",
       "id": "composer_config",
-      "community": 2,
+      "community": 127,
       "norm_label": "config"
     },
     {
@@ -1070,7 +1750,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "composer_config_optimize_autoloader",
-      "community": 2,
+      "community": 127,
       "norm_label": "optimize-autoloader"
     },
     {
@@ -1080,7 +1760,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "composer_config_preferred_install",
-      "community": 2,
+      "community": 127,
       "norm_label": "preferred-install"
     },
     {
@@ -1090,7 +1770,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "composer_config_sort_packages",
-      "community": 2,
+      "community": 127,
       "norm_label": "sort-packages"
     },
     {
@@ -1100,7 +1780,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "composer_config_allow_plugins",
-      "community": 2,
+      "community": 127,
       "norm_label": "allow-plugins"
     },
     {
@@ -1110,7 +1790,7 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "composer_allow_plugins_pestphp_pest_plugin",
-      "community": 2,
+      "community": 127,
       "norm_label": "pestphp/pest-plugin"
     },
     {
@@ -1120,7 +1800,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "composer_allow_plugins_php_http_discovery",
-      "community": 2,
+      "community": 127,
       "norm_label": "php-http/discovery"
     },
     {
@@ -1130,7 +1810,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "composer_minimum_stability",
-      "community": 2,
+      "community": 122,
       "norm_label": "minimum-stability"
     },
     {
@@ -1140,7 +1820,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "composer_prefer_stable",
-      "community": 2,
+      "community": 122,
       "norm_label": "prefer-stable"
     },
     {
@@ -1240,7 +1920,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "config_sanctum",
-      "community": 122,
+      "community": 4,
       "norm_label": "sanctum.php"
     },
     {
@@ -1270,7 +1950,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "database_factories_userfactory",
-      "community": 23,
+      "community": 4,
       "norm_label": "userfactory.php"
     },
     {
@@ -1280,7 +1960,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "database_factories_userfactory_userfactory",
-      "community": 23,
+      "community": 4,
       "norm_label": "userfactory"
     },
     {
@@ -1290,7 +1970,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "factory",
-      "community": 23,
+      "community": 4,
       "norm_label": "factory"
     },
     {
@@ -1300,7 +1980,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "database_factories_userfactory_userfactory_definition",
-      "community": 23,
+      "community": 4,
       "norm_label": ".definition()"
     },
     {
@@ -1310,7 +1990,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "database_factories_userfactory_userfactory_unverified",
-      "community": 23,
+      "community": 4,
       "norm_label": ".unverified()"
     },
     {
@@ -1320,7 +2000,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "static",
-      "community": 23,
+      "community": 4,
       "norm_label": "static"
     },
     {
@@ -1474,6 +2154,96 @@
       "norm_label": "down()"
     },
     {
+      "label": "2026_07_09_190000_create_companies_and_branches_tables.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_190000_create_companies_and_branches_tables.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_190000_create_companies_and_branches_tables",
+      "community": 142,
+      "norm_label": "2026_07_09_190000_create_companies_and_branches_tables.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_190000_create_companies_and_branches_tables.php",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_190000_create_companies_and_branches_tables_up",
+      "community": 142,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_190000_create_companies_and_branches_tables.php",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_190000_create_companies_and_branches_tables_down",
+      "community": 142,
+      "norm_label": "down()"
+    },
+    {
+      "label": "2026_07_09_190100_add_saas_fields_to_users_table.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_190100_add_saas_fields_to_users_table.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_190100_add_saas_fields_to_users_table",
+      "community": 143,
+      "norm_label": "2026_07_09_190100_add_saas_fields_to_users_table.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_190100_add_saas_fields_to_users_table.php",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_190100_add_saas_fields_to_users_table_up",
+      "community": 143,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_190100_add_saas_fields_to_users_table.php",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_190100_add_saas_fields_to_users_table_down",
+      "community": 143,
+      "norm_label": "down()"
+    },
+    {
+      "label": "2026_07_09_190200_create_company_user_and_branch_user_tables.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_190200_create_company_user_and_branch_user_tables.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_190200_create_company_user_and_branch_user_tables",
+      "community": 144,
+      "norm_label": "2026_07_09_190200_create_company_user_and_branch_user_tables.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_190200_create_company_user_and_branch_user_tables.php",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_190200_create_company_user_and_branch_user_tables_up",
+      "community": 144,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_190200_create_company_user_and_branch_user_tables.php",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_190200_create_company_user_and_branch_user_tables_down",
+      "community": 144,
+      "norm_label": "down()"
+    },
+    {
       "label": "2026_07_09_211127_create_personal_access_tokens_table.php",
       "file_type": "code",
       "source_file": "database/migrations/2026_07_09_211127_create_personal_access_tokens_table.php",
@@ -1570,7 +2340,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "package",
-      "community": 118,
+      "community": 7,
       "norm_label": "package.json"
     },
     {
@@ -1580,7 +2350,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "package_schema",
-      "community": 118,
+      "community": 7,
       "norm_label": "$schema"
     },
     {
@@ -1590,7 +2360,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "package_private",
-      "community": 118,
+      "community": 7,
       "norm_label": "private"
     },
     {
@@ -1600,7 +2370,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "package_type",
-      "community": 118,
+      "community": 7,
       "norm_label": "type"
     },
     {
@@ -1610,7 +2380,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "package_scripts",
-      "community": 118,
+      "community": 7,
       "norm_label": "scripts"
     },
     {
@@ -1620,7 +2390,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "package_scripts_build",
-      "community": 118,
+      "community": 7,
       "norm_label": "build"
     },
     {
@@ -1630,7 +2400,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "package_scripts_dev",
-      "community": 118,
+      "community": 7,
       "norm_label": "dev"
     },
     {
@@ -1640,7 +2410,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "package_scripts_lint",
-      "community": 118,
+      "community": 7,
       "norm_label": "lint"
     },
     {
@@ -1650,7 +2420,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "package_scripts_format_check",
-      "community": 118,
+      "community": 7,
       "norm_label": "format:check"
     },
     {
@@ -1660,7 +2430,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "package_scripts_test_unit",
-      "community": 118,
+      "community": 7,
       "norm_label": "test:unit"
     },
     {
@@ -1670,7 +2440,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "package_scripts_typecheck",
-      "community": 118,
+      "community": 7,
       "norm_label": "typecheck"
     },
     {
@@ -1890,7 +2660,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "package_dependencies",
-      "community": 118,
+      "community": 7,
       "norm_label": "dependencies"
     },
     {
@@ -1900,7 +2670,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "package_dependencies_pinia",
-      "community": 118,
+      "community": 7,
       "norm_label": "pinia"
     },
     {
@@ -1910,7 +2680,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "package_dependencies_vite_plugin_pwa",
-      "community": 118,
+      "community": 7,
       "norm_label": "vite-plugin-pwa"
     },
     {
@@ -1920,7 +2690,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "package_dependencies_vue",
-      "community": 118,
+      "community": 7,
       "norm_label": "vue"
     },
     {
@@ -1930,7 +2700,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "package_dependencies_vue_i18n",
-      "community": 118,
+      "community": 7,
       "norm_label": "vue-i18n"
     },
     {
@@ -1940,7 +2710,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "package_dependencies_vue_router",
-      "community": 118,
+      "community": 7,
       "norm_label": "vue-router"
     },
     {
@@ -2092,6 +2862,26 @@
       "id": "routes_web",
       "community": 116,
       "norm_label": "web.php"
+    },
+    {
+      "label": "CompanyTenancyTest.php",
+      "file_type": "code",
+      "source_file": "tests/Feature/CompanyTenancyTest.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_feature_companytenancytest",
+      "community": 4,
+      "norm_label": "companytenancytest.php"
+    },
+    {
+      "label": "companyPayload()",
+      "file_type": "code",
+      "source_file": "tests/Feature/CompanyTenancyTest.php",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "tests_feature_companytenancytest_companypayload",
+      "community": 4,
+      "norm_label": "companypayload()"
     },
     {
       "label": "CoreInfrastructureTest.php",
@@ -2510,7 +3300,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "master_prompt_addendum_master_prompt_addendum_v1_1",
-      "community": 0,
+      "community": 5,
       "norm_label": "master prompt \u2014 addendum (v1.1)"
     },
     {
@@ -2520,7 +3310,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "master_prompt_addendum_34_localizaci\u00f3n_fiscal_rep\u00fablica_dominicana",
-      "community": 0,
+      "community": 5,
       "norm_label": "34. localizacion fiscal republica dominicana"
     },
     {
@@ -2530,7 +3320,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "master_prompt_addendum_35_facturaci\u00f3n_electr\u00f3nica_contexto_ley_32_23",
-      "community": 0,
+      "community": 5,
       "norm_label": "35. facturacion electronica \u2014 contexto ley 32-23"
     },
     {
@@ -2540,7 +3330,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "master_prompt_addendum_36_integridad_y_concurrencia_obligatorio",
-      "community": 0,
+      "community": 5,
       "norm_label": "36. integridad y concurrencia (obligatorio)"
     },
     {
@@ -2550,7 +3340,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "master_prompt_addendum_37_calidad_tooling_y_ci_obligatorio",
-      "community": 0,
+      "community": 5,
       "norm_label": "37. calidad, tooling y ci (obligatorio)"
     },
     {
@@ -2560,7 +3350,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "master_prompt_addendum_38_saas_comercial",
-      "community": 0,
+      "community": 5,
       "norm_label": "38. saas comercial"
     },
     {
@@ -2570,7 +3360,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "master_prompt_addendum_39_ux_frontend_complemento",
-      "community": 0,
+      "community": 5,
       "norm_label": "39. ux / frontend (complemento)"
     },
     {
@@ -2580,7 +3370,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "master_prompt_addendum_40_m\u00f3dulos_adicionales_cat\u00e1logo_extendido",
-      "community": 0,
+      "community": 5,
       "norm_label": "40. modulos adicionales (catalogo extendido)"
     },
     {
@@ -2590,7 +3380,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "master_prompt_addendum_41_operaci\u00f3n",
-      "community": 0,
+      "community": 5,
       "norm_label": "41. operacion"
     },
     {
@@ -2600,7 +3390,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "master_prompt_addendum_42_prioridad_de_fuentes",
-      "community": 0,
+      "community": 5,
       "norm_label": "42. prioridad de fuentes"
     },
     {
@@ -2890,7 +3680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_01_architecture_01_arquitectura",
-      "community": 124,
+      "community": 118,
       "norm_label": "01 \u2014 arquitectura"
     },
     {
@@ -2900,7 +3690,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_01_architecture_patr\u00f3n_monolito_modular",
-      "community": 124,
+      "community": 118,
       "norm_label": "patron: monolito modular"
     },
     {
@@ -2910,7 +3700,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "docs_01_architecture_multi_tenancy",
-      "community": 124,
+      "community": 118,
       "norm_label": "multi-tenancy"
     },
     {
@@ -2920,57 +3710,67 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "docs_01_architecture_capas_de_protecci\u00f3n_de_una_ruta",
-      "community": 124,
+      "community": 118,
       "norm_label": "capas de proteccion de una ruta"
+    },
+    {
+      "label": "Contexto tenant implementado (Fase 1)",
+      "file_type": "document",
+      "source_file": "docs/01_ARCHITECTURE.md",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "docs_01_architecture_contexto_tenant_implementado_fase_1",
+      "community": 118,
+      "norm_label": "contexto tenant implementado (fase 1)"
     },
     {
       "label": "Estructura backend",
       "file_type": "document",
       "source_file": "docs/01_ARCHITECTURE.md",
-      "source_location": "L31",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "docs_01_architecture_estructura_backend",
-      "community": 124,
+      "community": 118,
       "norm_label": "estructura backend"
     },
     {
       "label": "Convenciones cr\u00edticas",
       "file_type": "document",
       "source_file": "docs/01_ARCHITECTURE.md",
-      "source_location": "L57",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "docs_01_architecture_convenciones_cr\u00edticas",
-      "community": 124,
+      "community": 118,
       "norm_label": "convenciones criticas"
     },
     {
       "label": "Respuesta API est\u00e1ndar",
       "file_type": "document",
       "source_file": "docs/01_ARCHITECTURE.md",
-      "source_location": "L67",
+      "source_location": "L74",
       "_origin": "ast",
       "id": "docs_01_architecture_respuesta_api_est\u00e1ndar",
-      "community": 124,
+      "community": 118,
       "norm_label": "respuesta api estandar"
     },
     {
       "label": "Eventos de dominio clave",
       "file_type": "document",
       "source_file": "docs/01_ARCHITECTURE.md",
-      "source_location": "L76",
+      "source_location": "L83",
       "_origin": "ast",
       "id": "docs_01_architecture_eventos_de_dominio_clave",
-      "community": 124,
+      "community": 118,
       "norm_label": "eventos de dominio clave"
     },
     {
       "label": "Decisiones registradas",
       "file_type": "document",
       "source_file": "docs/01_ARCHITECTURE.md",
-      "source_location": "L80",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "docs_01_architecture_decisiones_registradas",
-      "community": 124,
+      "community": 118,
       "norm_label": "decisiones registradas"
     },
     {
@@ -3017,7 +3817,7 @@
       "label": "3. Configuraci\u00f3n fiscal y monedas",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L23",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "docs_02_database_schema_3_configuraci\u00f3n_fiscal_y_monedas",
       "community": 6,
@@ -3027,7 +3827,7 @@
       "label": "4. Clientes",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L33",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "docs_02_database_schema_4_clientes",
       "community": 6,
@@ -3037,7 +3837,7 @@
       "label": "5. Productos y servicios",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L37",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "docs_02_database_schema_5_productos_y_servicios",
       "community": 6,
@@ -3047,7 +3847,7 @@
       "label": "6. Inventario avanzado (\u00a715 del master prompt)",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L41",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "docs_02_database_schema_6_inventario_avanzado_15_del_master_prompt",
       "community": 6,
@@ -3057,7 +3857,7 @@
       "label": "7. POS / \u00d3rdenes",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L45",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "docs_02_database_schema_7_pos_\u00f3rdenes",
       "community": 6,
@@ -3067,7 +3867,7 @@
       "label": "8. Caja y pagos",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L51",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "docs_02_database_schema_8_caja_y_pagos",
       "community": 6,
@@ -3077,7 +3877,7 @@
       "label": "9. Facturaci\u00f3n",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L55",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "docs_02_database_schema_9_facturaci\u00f3n",
       "community": 6,
@@ -3087,7 +3887,7 @@
       "label": "10. Facturaci\u00f3n electr\u00f3nica (\u00a719)",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L61",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "docs_02_database_schema_10_facturaci\u00f3n_electr\u00f3nica_19",
       "community": 6,
@@ -3097,7 +3897,7 @@
       "label": "11. M\u00f3dulos verticales",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L65",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "docs_02_database_schema_11_m\u00f3dulos_verticales",
       "community": 6,
@@ -3107,7 +3907,7 @@
       "label": "12. Reportes DGII (addendum)",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L72",
+      "source_location": "L74",
       "_origin": "ast",
       "id": "docs_02_database_schema_12_reportes_dgii_addendum",
       "community": 6,
@@ -3117,7 +3917,7 @@
       "label": "\u00cdndices m\u00ednimos obligatorios",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L77",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "docs_02_database_schema_\u00edndices_m\u00ednimos_obligatorios",
       "community": 6,
@@ -3130,7 +3930,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_03_api_documentation",
-      "community": 124,
+      "community": 139,
       "norm_label": "03_api_documentation.md"
     },
     {
@@ -3140,7 +3940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_03_api_documentation_03_documentaci\u00f3n_de_api",
-      "community": 124,
+      "community": 139,
       "norm_label": "03 \u2014 documentacion de api"
     },
     {
@@ -3150,7 +3950,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "docs_03_api_documentation_convenciones",
-      "community": 124,
+      "community": 139,
       "norm_label": "convenciones"
     },
     {
@@ -3160,7 +3960,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "docs_03_api_documentation_mapa_de_endpoints_previsto_por_fase",
-      "community": 124,
+      "community": 139,
       "norm_label": "mapa de endpoints previsto (por fase)"
     },
     {
@@ -3170,7 +3970,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_04_frontend_structure",
-      "community": 124,
+      "community": 134,
       "norm_label": "04_frontend_structure.md"
     },
     {
@@ -3180,7 +3980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_04_frontend_structure_04_estructura_frontend",
-      "community": 124,
+      "community": 134,
       "norm_label": "04 \u2014 estructura frontend"
     },
     {
@@ -3190,7 +3990,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_04_frontend_structure_estructura_master_prompt_5",
-      "community": 124,
+      "community": 134,
       "norm_label": "estructura (master prompt \u00a75)"
     },
     {
@@ -3200,7 +4000,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "docs_04_frontend_structure_design_system_kinetic_enterprise",
-      "community": 124,
+      "community": 134,
       "norm_label": "design system: \"kinetic enterprise\""
     },
     {
@@ -3210,7 +4010,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "docs_04_frontend_structure_pantallas_de_referencia_stitch",
-      "community": 124,
+      "community": 134,
       "norm_label": "pantallas de referencia (stitch)"
     },
     {
@@ -3220,7 +4020,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "docs_04_frontend_structure_reglas_frontend",
-      "community": 124,
+      "community": 134,
       "norm_label": "reglas frontend"
     },
     {
@@ -3420,7 +4220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_07_printing_07_impresi\u00f3n",
-      "community": 124,
+      "community": 138,
       "norm_label": "07 \u2014 impresion"
     },
     {
@@ -3430,7 +4230,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_07_printing_alcance_master_prompt_20",
-      "community": 124,
+      "community": 138,
       "norm_label": "alcance (master prompt \u00a720)"
     },
     {
@@ -3440,7 +4240,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "docs_07_printing_estrategia_por_etapas",
-      "community": 124,
+      "community": 138,
       "norm_label": "estrategia por etapas"
     },
     {
@@ -3450,7 +4250,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "docs_07_printing_configuraci\u00f3n",
-      "community": 124,
+      "community": 138,
       "norm_label": "configuracion"
     },
     {
@@ -3460,7 +4260,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "docs_07_printing_requisitos_fiscales_del_ticket_factura_rd",
-      "community": 124,
+      "community": 138,
       "norm_label": "requisitos fiscales del ticket/factura rd"
     },
     {
@@ -3480,7 +4280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_08_security_08_seguridad_y_auditor\u00eda",
-      "community": 124,
+      "community": 135,
       "norm_label": "08 \u2014 seguridad y auditoria"
     },
     {
@@ -3490,7 +4290,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_08_security_autenticaci\u00f3n_y_sesiones",
-      "community": 124,
+      "community": 135,
       "norm_label": "autenticacion y sesiones"
     },
     {
@@ -3500,7 +4300,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "docs_08_security_autorizaci\u00f3n_en_capas",
-      "community": 124,
+      "community": 135,
       "norm_label": "autorizacion en capas"
     },
     {
@@ -3510,7 +4310,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "docs_08_security_datos",
-      "community": 124,
+      "community": 135,
       "norm_label": "datos"
     },
     {
@@ -3520,7 +4320,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "docs_08_security_auditor\u00eda_m\u00f3dulo_audit",
-      "community": 124,
+      "community": 135,
       "norm_label": "auditoria (modulo audit)"
     },
     {
@@ -3530,7 +4330,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "docs_08_security_acciones_sensibles_con_autorizaci\u00f3n_elevada",
-      "community": 124,
+      "community": 135,
       "norm_label": "acciones sensibles con autorizacion elevada"
     },
     {
@@ -3540,7 +4340,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_09_testing",
-      "community": 124,
+      "community": 136,
       "norm_label": "09_testing.md"
     },
     {
@@ -3550,7 +4350,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_09_testing_09_estrategia_de_pruebas",
-      "community": 124,
+      "community": 136,
       "norm_label": "09 \u2014 estrategia de pruebas"
     },
     {
@@ -3560,7 +4360,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "docs_09_testing_herramientas",
-      "community": 124,
+      "community": 136,
       "norm_label": "herramientas"
     },
     {
@@ -3570,7 +4370,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "docs_09_testing_cobertura_obligatoria_backend_master_prompt_29",
-      "community": 124,
+      "community": 136,
       "norm_label": "cobertura obligatoria backend (master prompt \u00a729)"
     },
     {
@@ -3580,7 +4380,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "docs_09_testing_e2e_playwright_fase_14_sobre_app_real",
-      "community": 124,
+      "community": 136,
       "norm_label": "e2e playwright (fase 14, sobre app real)"
     },
     {
@@ -3590,7 +4390,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "docs_09_testing_regla_de_trabajo",
-      "community": 124,
+      "community": 136,
       "norm_label": "regla de trabajo"
     },
     {
@@ -3647,7 +4447,7 @@
       "label": "FASE 0 \u2014 Base",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L10",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_0_base",
       "community": 5,
@@ -3657,7 +4457,7 @@
       "label": "FASE 1 \u2014 N\u00facleo SaaS",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L25",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_1_n\u00facleo_saas",
       "community": 5,
@@ -3667,7 +4467,7 @@
       "label": "FASE 2 \u2014 M\u00f3dulos y onboarding",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L31",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_2_m\u00f3dulos_y_onboarding",
       "community": 5,
@@ -3677,7 +4477,7 @@
       "label": "FASE 3 \u2014 Configuraci\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L37",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_3_configuraci\u00f3n",
       "community": 5,
@@ -3687,7 +4487,7 @@
       "label": "FASE 4 \u2014 Clientes",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L42",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_4_clientes",
       "community": 5,
@@ -3697,7 +4497,7 @@
       "label": "FASE 5 \u2014 Productos y servicios",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L45",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_5_productos_y_servicios",
       "community": 5,
@@ -3707,7 +4507,7 @@
       "label": "FASE 6 \u2014 Inventario avanzado",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L49",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_6_inventario_avanzado",
       "community": 5,
@@ -3717,7 +4517,7 @@
       "label": "FASE 7 \u2014 POS Touch",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L55",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_7_pos_touch",
       "community": 5,
@@ -3727,7 +4527,7 @@
       "label": "FASE 8 \u2014 Caja y pagos",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L59",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_8_caja_y_pagos",
       "community": 5,
@@ -3737,7 +4537,7 @@
       "label": "FASE 9 \u2014 Facturaci\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L63",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_9_facturaci\u00f3n",
       "community": 5,
@@ -3747,7 +4547,7 @@
       "label": "FASE 10 \u2014 Facturaci\u00f3n electr\u00f3nica",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L68",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_10_facturaci\u00f3n_electr\u00f3nica",
       "community": 5,
@@ -3757,7 +4557,7 @@
       "label": "FASE 11 \u2014 Impresi\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L71",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_11_impresi\u00f3n",
       "community": 5,
@@ -3767,7 +4567,7 @@
       "label": "FASE 12 \u2014 M\u00f3dulos por negocio",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L74",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_12_m\u00f3dulos_por_negocio",
       "community": 5,
@@ -3777,7 +4577,7 @@
       "label": "FASE 13 \u2014 Reportes",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L79",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_13_reportes",
       "community": 5,
@@ -3787,7 +4587,7 @@
       "label": "FASE 14 \u2014 Seguridad, pruebas y deploy",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L84",
+      "source_location": "L86",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_14_seguridad_pruebas_y_deploy",
       "community": 5,
@@ -3797,7 +4597,7 @@
       "label": "Backlog (post-v1)",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L89",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "docs_11_todo_master_backlog_post_v1",
       "community": 5,
@@ -3834,10 +4634,20 @@
       "norm_label": "[no publicado]"
     },
     {
-      "label": "2026-07-09 \u2014 Inicio de Fase 0: control de versiones",
+      "label": "2026-07-09 \u2014 Fase 1: aislamiento multiempresa base",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
       "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_12_changelog_2026_07_09_fase_1_aislamiento_multiempresa_base",
+      "community": 29,
+      "norm_label": "2026-07-09 \u2014 fase 1: aislamiento multiempresa base"
+    },
+    {
+      "label": "2026-07-09 \u2014 Inicio de Fase 0: control de versiones",
+      "file_type": "document",
+      "source_file": "docs/12_CHANGELOG.md",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_inicio_de_fase_0_control_de_versiones",
       "community": 29,
@@ -3847,7 +4657,7 @@
       "label": "2026-07-09 \u2014 Inicio de Fase 0: runtime y Laravel",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L14",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_inicio_de_fase_0_runtime_y_laravel",
       "community": 29,
@@ -3857,7 +4667,7 @@
       "label": "2026-07-09 \u2014 Planificaci\u00f3n inicial (pre-c\u00f3digo)",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L38",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_planificaci\u00f3n_inicial_pre_c\u00f3digo",
       "community": 29,
@@ -7614,6 +8424,49 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/BelongsToCompany.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_core_concerns_belongstocompany",
+      "target": "app_core_concerns_belongstocompany_bootbelongstocompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/BelongsToCompany.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_concerns_belongstocompany",
+      "target": "app_core_tenancy_currentcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Concerns/BelongsToCompany.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_core_concerns_belongstocompany",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Core/Concerns/BelongsToCompany.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_core_concerns_belongstocompany_bootbelongstocompany",
+      "target": "static"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app/Core/Concerns/HasPublicUlid.php",
       "source_location": "L12",
       "weight": 1.0,
@@ -7647,10 +8500,43 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext",
+      "target": "app_core_enums_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext",
+      "target": "app_core_enums_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "bootstrap/app.php",
       "source_location": "L3",
       "weight": 1.0,
       "source": "bootstrap_app",
+      "target": "app_core_enums_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CompanyTenancyTest.php",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_feature_companytenancytest",
       "target": "app_core_enums_errorcode",
       "confidence_score": 1.0
     },
@@ -7695,6 +8581,28 @@
       "weight": 1.0,
       "source": "app_core_exceptions_apiexception",
       "target": "runtimeexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext",
+      "target": "app_core_exceptions_apiexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext",
+      "target": "app_core_exceptions_apiexception",
       "confidence_score": 1.0
     },
     {
@@ -7790,7 +8698,18 @@
       "source_location": "L8",
       "weight": 1.0,
       "source": "app_core_http_apiresponse",
-      "target": "jsonresponse",
+      "target": "app_core_http_apiresponse_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_company_http_controllers_companycontroller",
+      "target": "app_core_http_apiresponse",
       "confidence_score": 1.0
     },
     {
@@ -7836,6 +8755,28 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "app_modules_company_http_controllers_companycontroller_companycontroller_index",
+      "target": "app_core_http_apiresponse_apiresponse"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "app_modules_company_http_controllers_companycontroller_companycontroller_store",
+      "target": "app_core_http_apiresponse_apiresponse"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/Core/Http/ApiResponse.php",
@@ -7843,7 +8784,7 @@
       "weight": 1.0,
       "context": "return_type",
       "source": "app_core_http_apiresponse_apiresponse_success",
-      "target": "jsonresponse",
+      "target": "app_core_http_apiresponse_php_jsonresponse",
       "confidence_score": 1.0
     },
     {
@@ -7854,7 +8795,7 @@
       "weight": 1.0,
       "context": "return_type",
       "source": "app_core_http_apiresponse_apiresponse_error",
-      "target": "jsonresponse",
+      "target": "app_core_http_apiresponse_php_jsonresponse",
       "confidence_score": 1.0
     },
     {
@@ -7867,6 +8808,288 @@
       "source": "app_core_http_apiresponse_apiresponse_error",
       "target": "app_core_http_apiresponse_php_errorcode",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext",
+      "target": "app_core_http_middleware_ensurebranchcontext_ensurebranchcontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext",
+      "target": "app_core_http_middleware_ensurebranchcontext_php_closure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext",
+      "target": "app_core_http_middleware_ensurebranchcontext_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext",
+      "target": "app_core_http_middleware_ensurebranchcontext_php_response",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext",
+      "target": "app_modules_company_models_branch_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext",
+      "target": "app_core_tenancy_currentcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "bootstrap/app.php",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "bootstrap_app",
+      "target": "app_core_http_middleware_ensurebranchcontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext_ensurebranchcontext",
+      "target": "app_core_http_middleware_ensurebranchcontext_ensurebranchcontext_handle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_core_http_middleware_ensurebranchcontext_ensurebranchcontext_handle",
+      "target": "app_core_http_middleware_ensurebranchcontext_php_closure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_core_http_middleware_ensurebranchcontext_ensurebranchcontext_handle",
+      "target": "app_core_http_middleware_ensurebranchcontext_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_core_http_middleware_ensurebranchcontext_ensurebranchcontext_handle",
+      "target": "app_core_http_middleware_ensurebranchcontext_php_response",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext_ensurebranchcontext_handle",
+      "target": "app_modules_company_models_branch_branch"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext",
+      "target": "app_core_http_middleware_ensurecompanycontext_ensurecompanycontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext",
+      "target": "app_core_http_middleware_ensurecompanycontext_php_closure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext",
+      "target": "app_core_http_middleware_ensurecompanycontext_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext",
+      "target": "app_core_http_middleware_ensurecompanycontext_php_response",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext",
+      "target": "app_modules_company_models_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext",
+      "target": "app_core_tenancy_currentcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "bootstrap/app.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "bootstrap_app",
+      "target": "app_core_http_middleware_ensurecompanycontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext_ensurecompanycontext",
+      "target": "app_core_http_middleware_ensurecompanycontext_ensurecompanycontext_handle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_core_http_middleware_ensurecompanycontext_ensurecompanycontext_handle",
+      "target": "app_core_http_middleware_ensurecompanycontext_php_closure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_core_http_middleware_ensurecompanycontext_ensurecompanycontext_handle",
+      "target": "app_core_http_middleware_ensurecompanycontext_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_core_http_middleware_ensurecompanycontext_ensurecompanycontext_handle",
+      "target": "app_core_http_middleware_ensurecompanycontext_php_response",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext_ensurecompanycontext_handle",
+      "target": "app_modules_company_models_company_company"
     },
     {
       "relation": "contains",
@@ -7953,6 +9176,69 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/CompanyModel.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_core_models_companymodel",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/CompanyModel.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_core_models_companymodel_companymodel",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch_branch",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company_company",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/Core/Models/AuditLog.php",
@@ -7961,6 +9247,37 @@
       "context": "return_type",
       "source": "app_core_models_auditlog_auditlog_auditable",
       "target": "morphto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/CompanyModel.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_core_models_companymodel",
+      "target": "app_core_models_companymodel_companymodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/CompanyModel.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_models_companymodel",
+      "target": "belongstocompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Models/CompanyModel.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_core_models_companymodel_companymodel",
+      "target": "belongstocompany",
       "confidence_score": 1.0
     },
     {
@@ -8072,6 +9389,186 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_core_tenancy_currentcompany",
+      "target": "app_core_tenancy_currentcompany_currentcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_tenancy_currentcompany",
+      "target": "app_modules_company_models_branch_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_core_tenancy_currentcompany",
+      "target": "app_modules_company_models_company_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Providers/AppServiceProvider.php",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_providers_appserviceprovider",
+      "target": "app_core_tenancy_currentcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CompanyTenancyTest.php",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "tests_feature_companytenancytest",
+      "target": "app_core_tenancy_currentcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "app_core_tenancy_currentcompany_currentcompany",
+      "target": "app_core_tenancy_currentcompany_currentcompany_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "app_core_tenancy_currentcompany_currentcompany",
+      "target": "app_core_tenancy_currentcompany_currentcompany_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "app_core_tenancy_currentcompany_currentcompany",
+      "target": "app_core_tenancy_currentcompany_currentcompany_hasbranch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "app_core_tenancy_currentcompany_currentcompany",
+      "target": "app_core_tenancy_currentcompany_currentcompany_hascompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "app_core_tenancy_currentcompany_currentcompany",
+      "target": "app_core_tenancy_currentcompany_currentcompany_setbranch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_core_tenancy_currentcompany_currentcompany",
+      "target": "app_core_tenancy_currentcompany_currentcompany_setcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "field",
+      "source": "app_core_tenancy_currentcompany_currentcompany",
+      "target": "app_modules_company_models_branch_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "field",
+      "source": "app_core_tenancy_currentcompany_currentcompany",
+      "target": "app_modules_company_models_company_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_core_tenancy_currentcompany_currentcompany_setcompany",
+      "target": "app_modules_company_models_company_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_core_tenancy_currentcompany_currentcompany_setbranch",
+      "target": "app_modules_company_models_branch_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L42",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_core_tenancy_currentcompany_currentcompany_company",
+      "target": "app_modules_company_models_company_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Tenancy/CurrentCompany.php",
+      "source_location": "L47",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_core_tenancy_currentcompany_currentcompany_branch",
+      "target": "app_modules_company_models_branch_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app/Http/Controllers/Controller.php",
       "source_location": "L5",
       "weight": 1.0,
@@ -8080,13 +9577,36 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "imports",
+      "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L14",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "app_models_user",
+      "target": "app_models_user_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "import",
+      "source": "app_models_user",
       "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_models_user",
+      "target": "app_modules_company_models_branch_branch",
       "confidence_score": 1.0
     },
     {
@@ -8105,7 +9625,18 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L12",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_models_user",
+      "target": "app_modules_company_models_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L15",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "hasapitokens",
@@ -8116,7 +9647,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L9",
+      "source_location": "L11",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "hasfactory",
@@ -8138,7 +9669,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L11",
+      "source_location": "L14",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "notifiable",
@@ -8152,18 +9683,152 @@
       "source_location": "L10",
       "weight": 1.0,
       "source": "app_models_user",
-      "target": "app_models_user",
+      "target": "database_factories_userfactory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "app_models_user_user_branches",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "app_models_user_user_casts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "app_models_user_user_companies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "auditable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "authenticatable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "hasapitokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "hasfactory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "haspubliculid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "notifiable",
       "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_company_actions_createcompanyaction",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_company_actions_createcompanyaction_createcompanyaction_execute",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
       "source_location": "L8",
       "weight": 1.0,
-      "source": "app_models_user",
-      "target": "database_factories_userfactory",
+      "source": "app_modules_company_http_controllers_companycontroller",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company",
+      "target": "app_models_user_user",
       "confidence_score": 1.0
     },
     {
@@ -8174,7 +9839,18 @@
       "source_location": "L3",
       "weight": 1.0,
       "source": "config_auth",
-      "target": "app_models_user",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "database/factories/UserFactory.php",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "database_factories_userfactory",
+      "target": "app_models_user_user",
       "confidence_score": 1.0
     },
     {
@@ -8185,7 +9861,29 @@
       "source_location": "L5",
       "weight": 1.0,
       "source": "database_seeders_databaseseeder",
-      "target": "app_models_user",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "database_seeders_databaseseeder_databaseseeder_run",
+      "target": "app_models_user_user"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CompanyTenancyTest.php",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "tests_feature_companytenancytest",
+      "target": "app_models_user_user",
       "confidence_score": 1.0
     },
     {
@@ -8196,7 +9894,7 @@
       "source_location": "L8",
       "weight": 1.0,
       "source": "tests_feature_coreinfrastructuretest",
-      "target": "app_models_user",
+      "target": "app_models_user_user",
       "confidence_score": 1.0
     },
     {
@@ -8207,77 +9905,295 @@
       "source_location": "L3",
       "weight": 1.0,
       "source": "tests_feature_sanctumtokentest",
-      "target": "app_models_user",
+      "target": "app_models_user_user",
       "confidence_score": 1.0
     },
     {
-      "relation": "method",
+      "relation": "imports",
+      "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L45",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L7",
       "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "app_models_user_user_casts",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "mixes_in",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "app_models_user_user",
+      "source": "app_modules_company_models_branch",
       "target": "auditable",
       "confidence_score": 1.0
     },
     {
-      "relation": "inherits",
+      "relation": "mixes_in",
       "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L14",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L17",
       "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "authenticatable",
+      "source": "app_modules_company_models_branch_branch",
+      "target": "auditable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company",
+      "target": "auditable",
       "confidence_score": 1.0
     },
     {
       "relation": "mixes_in",
       "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
+      "source_file": "app/Modules/Company/Models/Company.php",
       "source_location": "L17",
       "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "hasapitokens",
+      "source": "app_modules_company_models_company_company",
+      "target": "auditable",
       "confidence_score": 1.0
     },
     {
-      "relation": "mixes_in",
+      "relation": "imports",
+      "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L17",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L8",
       "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "hasfactory",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "mixes_in",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "app_models_user_user",
+      "source": "app_modules_company_models_branch",
       "target": "haspubliculid",
       "confidence_score": 1.0
     },
     {
       "relation": "mixes_in",
       "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
+      "source_file": "app/Modules/Company/Models/Branch.php",
       "source_location": "L17",
       "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "notifiable",
+      "source": "app_modules_company_models_branch_branch",
+      "target": "haspubliculid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company",
+      "target": "haspubliculid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company_company",
+      "target": "haspubliculid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L61",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_models_user_user_companies",
+      "target": "app_models_user_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L69",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_models_user_user_branches",
+      "target": "app_models_user_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_modules_company_actions_createcompanyaction",
+      "target": "app_modules_company_actions_createcompanyaction_createcompanyaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_company_actions_createcompanyaction",
+      "target": "app_modules_company_models_company_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_modules_company_actions_createcompanyaction_createcompanyaction",
+      "target": "app_modules_company_actions_createcompanyaction_createcompanyaction_execute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_company_http_controllers_companycontroller",
+      "target": "app_modules_company_actions_createcompanyaction_createcompanyaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_company_http_controllers_companycontroller_companycontroller_store",
+      "target": "app_modules_company_actions_createcompanyaction_createcompanyaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CompanyTenancyTest.php",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_feature_companytenancytest",
+      "target": "app_modules_company_actions_createcompanyaction_createcompanyaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_modules_company_actions_createcompanyaction_createcompanyaction_execute",
+      "target": "app_modules_company_models_company_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_modules_company_http_controllers_companycontroller",
+      "target": "app_modules_company_http_controllers_companycontroller_companycontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_company_http_controllers_companycontroller",
+      "target": "app_modules_company_http_controllers_companycontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_modules_company_http_controllers_companycontroller",
+      "target": "app_modules_company_http_controllers_companycontroller_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_company_http_controllers_companycontroller",
+      "target": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_modules_company_http_controllers_companycontroller",
+      "target": "app_modules_company_http_resources_companyresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/routes.php",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_modules_company_routes",
+      "target": "app_modules_company_http_controllers_companycontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_modules_company_http_controllers_companycontroller_companycontroller",
+      "target": "app_modules_company_http_controllers_companycontroller_companycontroller_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "app_modules_company_http_controllers_companycontroller_companycontroller",
+      "target": "app_modules_company_http_controllers_companycontroller_companycontroller_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_company_http_controllers_companycontroller_companycontroller_index",
+      "target": "app_modules_company_http_controllers_companycontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_company_http_controllers_companycontroller_companycontroller_index",
+      "target": "app_modules_company_http_controllers_companycontroller_php_request",
       "confidence_score": 1.0
     },
     {
@@ -8285,17 +10201,469 @@
       "context": "call",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
-      "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L20",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L22",
       "weight": 1.0,
-      "source": "database_seeders_databaseseeder_databaseseeder_run",
-      "target": "app_models_user_user"
+      "source": "app_modules_company_http_controllers_companycontroller_companycontroller_index",
+      "target": "app_modules_company_http_resources_companyresource_companyresource"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_company_http_controllers_companycontroller_companycontroller_store",
+      "target": "app_modules_company_http_controllers_companycontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_company_http_controllers_companycontroller_companycontroller_store",
+      "target": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_company_http_requests_storecompanyrequest",
+      "target": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_company_http_requests_storecompanyrequest",
+      "target": "formrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest",
+      "target": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest_authorize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest",
+      "target": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest_prepareforvalidation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest",
+      "target": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest",
+      "target": "formrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_branchresource",
+      "target": "app_modules_company_http_resources_branchresource_branchresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_branchresource",
+      "target": "app_modules_company_http_resources_branchresource_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_branchresource",
+      "target": "app_modules_company_models_branch_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_branchresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_branchresource_branchresource",
+      "target": "app_modules_company_http_resources_branchresource_branchresource_toarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_branchresource_branchresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_companyresource_companyresource_toarray",
+      "target": "app_modules_company_http_resources_branchresource_branchresource"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_companyresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_companyresource_companyresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_company_http_resources_branchresource_branchresource_toarray",
+      "target": "app_modules_company_http_resources_branchresource_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_companyresource",
+      "target": "app_modules_company_http_resources_companyresource_companyresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_companyresource",
+      "target": "app_modules_company_http_resources_companyresource_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_companyresource",
+      "target": "app_modules_company_models_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_companyresource_companyresource",
+      "target": "app_modules_company_http_resources_companyresource_companyresource_toarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_company_http_resources_companyresource_companyresource_toarray",
+      "target": "app_modules_company_http_resources_companyresource_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch",
+      "target": "app_modules_company_models_branch_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch",
+      "target": "app_modules_company_models_branch_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch",
+      "target": "belongsto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch",
+      "target": "softdeletes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch_branch",
+      "target": "app_modules_company_models_branch_branch_casts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch_branch",
+      "target": "app_modules_company_models_branch_branch_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch_branch",
+      "target": "app_modules_company_models_branch_branch_users",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch_branch",
+      "target": "softdeletes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company",
+      "target": "softdeletes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company_company",
+      "target": "softdeletes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_company_models_branch_branch_company",
+      "target": "belongsto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_company_models_branch_branch_users",
+      "target": "app_modules_company_models_branch_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company",
+      "target": "app_modules_company_models_company_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company",
+      "target": "app_modules_company_models_company_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company",
+      "target": "hasmany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company_company",
+      "target": "app_modules_company_models_company_company_branches",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company_company",
+      "target": "app_modules_company_models_company_company_casts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company_company",
+      "target": "app_modules_company_models_company_company_users",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L43",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_company_models_company_company_branches",
+      "target": "hasmany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L49",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_company_models_company_company_users",
+      "target": "app_modules_company_models_company_php_belongstomany",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "source": "app_providers_appserviceprovider",
       "target": "app_providers_appserviceprovider_appserviceprovider",
@@ -8306,7 +10674,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "source": "app_providers_appserviceprovider",
       "target": "serviceprovider",
@@ -8327,7 +10695,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0,
       "source": "app_providers_appserviceprovider_appserviceprovider",
       "target": "app_providers_appserviceprovider_appserviceprovider_boot",
@@ -8337,7 +10705,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "source": "app_providers_appserviceprovider_appserviceprovider",
       "target": "app_providers_appserviceprovider_appserviceprovider_register",
@@ -8347,7 +10715,7 @@
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "app/Providers/AppServiceProvider.php",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "source": "app_providers_appserviceprovider_appserviceprovider",
       "target": "serviceprovider",
@@ -8979,6 +11347,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CompanyTenancyTest.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "tests_feature_companytenancytest",
+      "target": "config_sanctum",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "database/factories/UserFactory.php",
@@ -9148,6 +11527,66 @@
       "weight": 1.0,
       "source": "database_migrations_2026_07_09_180000_create_audit_logs_table",
       "target": "database_migrations_2026_07_09_180000_create_audit_logs_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_190000_create_companies_and_branches_tables.php",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_190000_create_companies_and_branches_tables",
+      "target": "database_migrations_2026_07_09_190000_create_companies_and_branches_tables_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_190000_create_companies_and_branches_tables.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_190000_create_companies_and_branches_tables",
+      "target": "database_migrations_2026_07_09_190000_create_companies_and_branches_tables_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_190100_add_saas_fields_to_users_table.php",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_190100_add_saas_fields_to_users_table",
+      "target": "database_migrations_2026_07_09_190100_add_saas_fields_to_users_table_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_190100_add_saas_fields_to_users_table.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_190100_add_saas_fields_to_users_table",
+      "target": "database_migrations_2026_07_09_190100_add_saas_fields_to_users_table_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_190200_create_company_user_and_branch_user_tables.php",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_190200_create_company_user_and_branch_user_tables",
+      "target": "database_migrations_2026_07_09_190200_create_company_user_and_branch_user_tables_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_190200_create_company_user_and_branch_user_tables.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_190200_create_company_user_and_branch_user_tables",
+      "target": "database_migrations_2026_07_09_190200_create_company_user_and_branch_user_tables_up",
       "confidence_score": 1.0
     },
     {
@@ -9686,6 +12125,16 @@
       "weight": 1.0,
       "source": "resources_js_router_index",
       "target": "resources_js_modules_dashboard_pages_dashboardpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CompanyTenancyTest.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "tests_feature_companytenancytest",
+      "target": "tests_feature_companytenancytest_companypayload",
       "confidence_score": 1.0
     },
     {
@@ -10606,7 +13055,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "docs/01_ARCHITECTURE.md",
-      "source_location": "L82",
+      "source_location": "L89",
       "weight": 1.0,
       "source": "docs_01_architecture",
       "target": "docs_13_decisions",
@@ -10636,7 +13085,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/01_ARCHITECTURE.md",
-      "source_location": "L57",
+      "source_location": "L64",
       "weight": 1.0,
       "source": "docs_01_architecture_01_arquitectura",
       "target": "docs_01_architecture_convenciones_cr\u00edticas",
@@ -10646,7 +13095,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/01_ARCHITECTURE.md",
-      "source_location": "L80",
+      "source_location": "L87",
       "weight": 1.0,
       "source": "docs_01_architecture_01_arquitectura",
       "target": "docs_01_architecture_decisiones_registradas",
@@ -10656,7 +13105,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/01_ARCHITECTURE.md",
-      "source_location": "L31",
+      "source_location": "L38",
       "weight": 1.0,
       "source": "docs_01_architecture_01_arquitectura",
       "target": "docs_01_architecture_estructura_backend",
@@ -10666,7 +13115,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/01_ARCHITECTURE.md",
-      "source_location": "L76",
+      "source_location": "L83",
       "weight": 1.0,
       "source": "docs_01_architecture_01_arquitectura",
       "target": "docs_01_architecture_eventos_de_dominio_clave",
@@ -10696,10 +13145,20 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/01_ARCHITECTURE.md",
-      "source_location": "L67",
+      "source_location": "L74",
       "weight": 1.0,
       "source": "docs_01_architecture_01_arquitectura",
       "target": "docs_01_architecture_respuesta_api_est\u00e1ndar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/01_ARCHITECTURE.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "docs_01_architecture_capas_de_protecci\u00f3n_de_una_ruta",
+      "target": "docs_01_architecture_contexto_tenant_implementado_fase_1",
       "confidence_score": 1.0
     },
     {
@@ -10736,7 +13195,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L61",
+      "source_location": "L63",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_10_facturaci\u00f3n_electr\u00f3nica_19",
@@ -10746,7 +13205,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L65",
+      "source_location": "L67",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_11_m\u00f3dulos_verticales",
@@ -10756,7 +13215,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L72",
+      "source_location": "L74",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_12_reportes_dgii_addendum",
@@ -10786,7 +13245,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L23",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_3_configuraci\u00f3n_fiscal_y_monedas",
@@ -10796,7 +13255,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_4_clientes",
@@ -10806,7 +13265,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L37",
+      "source_location": "L39",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_5_productos_y_servicios",
@@ -10816,7 +13275,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L41",
+      "source_location": "L43",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_6_inventario_avanzado_15_del_master_prompt",
@@ -10826,7 +13285,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L45",
+      "source_location": "L47",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_7_pos_\u00f3rdenes",
@@ -10836,7 +13295,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L51",
+      "source_location": "L53",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_8_caja_y_pagos",
@@ -10846,7 +13305,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L55",
+      "source_location": "L57",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_9_facturaci\u00f3n",
@@ -10856,7 +13315,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L77",
+      "source_location": "L79",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_\u00edndices_m\u00ednimos_obligatorios",
@@ -11296,7 +13755,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L89",
+      "source_location": "L91",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_backlog_post_v1",
@@ -11316,7 +13775,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L10",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_0_base",
@@ -11326,7 +13785,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L68",
+      "source_location": "L70",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_10_facturaci\u00f3n_electr\u00f3nica",
@@ -11336,7 +13795,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L71",
+      "source_location": "L73",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_11_impresi\u00f3n",
@@ -11346,7 +13805,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L74",
+      "source_location": "L76",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_12_m\u00f3dulos_por_negocio",
@@ -11356,7 +13815,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L79",
+      "source_location": "L81",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_13_reportes",
@@ -11366,7 +13825,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L84",
+      "source_location": "L86",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_14_seguridad_pruebas_y_deploy",
@@ -11376,7 +13835,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L25",
+      "source_location": "L27",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_1_n\u00facleo_saas",
@@ -11386,7 +13845,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L31",
+      "source_location": "L33",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_2_m\u00f3dulos_y_onboarding",
@@ -11396,7 +13855,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L37",
+      "source_location": "L39",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_3_configuraci\u00f3n",
@@ -11406,7 +13865,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L42",
+      "source_location": "L44",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_4_clientes",
@@ -11416,7 +13875,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L45",
+      "source_location": "L47",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_5_productos_y_servicios",
@@ -11426,7 +13885,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L49",
+      "source_location": "L51",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_6_inventario_avanzado",
@@ -11436,7 +13895,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L55",
+      "source_location": "L57",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_7_pos_touch",
@@ -11446,7 +13905,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L59",
+      "source_location": "L61",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_8_caja_y_pagos",
@@ -11456,7 +13915,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L63",
+      "source_location": "L65",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_9_facturaci\u00f3n",
@@ -11489,6 +13948,16 @@
       "source_location": "L7",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
+      "target": "docs_12_changelog_2026_07_09_fase_1_aislamiento_multiempresa_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/12_CHANGELOG.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_inicio_de_fase_0_control_de_versiones",
       "confidence_score": 1.0
     },
@@ -11496,7 +13965,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L14",
+      "source_location": "L24",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_inicio_de_fase_0_runtime_y_laravel",
@@ -11506,7 +13975,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L38",
+      "source_location": "L48",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_planificaci\u00f3n_inicial_pre_c\u00f3digo",
@@ -13724,5 +16193,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "cd5e65ec89bf589afb768e3aa95da40a94c6ebf4"
+  "built_at_commit": "c09d3ef5ca45a2e725f3bad32d37aa9f42a8fbba"
 }
