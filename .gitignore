@@ -3,15 +3,20 @@
 /node_modules/
 /public/build/
 /public/hot
+/public/storage
+/.tools/
 
 # Environment and application secrets
 .env
 .env.*
 !.env.example
+/.env.backup
+/.env.production
 
 # Laravel runtime artifacts
 /bootstrap/cache/*.php
 /storage/*.key
+/storage/pail/
 /storage/logs/*
 !/storage/logs/.gitignore
 /storage/framework/cache/*
@@ -26,10 +31,12 @@
 # Tooling and local editor state
 /.playwright-cli/
 /.phpunit.result.cache
+/.phpunit.cache/
 /.idea/
 /.vscode/
 *.log
 *.local
+Thumbs.db
 
 # Graphify cache and intermediate extraction batches
 /graphify-out/cache/

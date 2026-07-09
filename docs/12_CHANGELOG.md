@@ -11,8 +11,20 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 - Normalización de espacios finales en las maquetas de referencia, sin cambios funcionales.
 - Repositorio Git local en rama `main`, vinculado al remoto autorizado `wailanbrea/sistemawebPosSaas`.
 
+### 2026-07-09 — Inicio de Fase 0: runtime y Laravel
+**Agregado**
+- PHP 8.3.32 portable en `.tools/php83`, aislado de XAMPP y del `PATH` global.
+- Laravel 12.63.0 con dependencias bloqueadas en `composer.lock`.
+- Configuración base para MySQL, locale `es_DO` y zona horaria `America/Santo_Domingo` en `.env.example`.
+- Base local `omnipos` creada con `utf8mb4` y migraciones estándar de Laravel aplicadas.
+- Grafo Graphify actualizado con el código Laravel y reemplazado en el grafo global existente (515 nodos, 489 relaciones).
+
+**Validado**
+- `php artisan test`: 2 pruebas aprobadas.
+- Navegador real mediante Playwright: página inicial de Laravel responde sin errores de consola.
+
 **Pendiente**
-- El scaffolding de Laravel requiere PHP 8.3+; el entorno local disponible es PHP 8.2.12.
+- Crear y configurar la base de datos MySQL local `omnipos`; no se ha alterado ninguna base existente.
 
 ### 2026-07-09 — Planificación inicial (pre-código)
 **Agregado**
@@ -23,4 +35,4 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 - Grafo consolidado en `graphify-out/graph.json` e incorporado una sola vez al grafo global como `omnipos-modular-saas` (231 nodos, 344 relaciones; sin duplicados ni referencias colgantes).
 
 **Pendiente**
-- Confirmación del usuario para iniciar FASE 0 (creación del proyecto Laravel + Vue).
+- Continuar Fase 0 con Sanctum, Vue 3/TypeScript, herramientas de calidad y estructura modular.

@@ -1,0 +1,402 @@
+{
+  "app/Http/Controllers/Controller.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "25a307335c0719bc9a91b3f7babd186d",
+    "semantic_hash": ""
+  },
+  "app/Models/User.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "c573009762e4772f08d1a322447f7ae5",
+    "semantic_hash": ""
+  },
+  "app/Providers/AppServiceProvider.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "c0094f35cad6bba7636002a62186dae4",
+    "semantic_hash": ""
+  },
+  "artisan": {
+    "mtime": 1773496440.0,
+    "ast_hash": "e66bb13691f6184c762c196427d8e685",
+    "semantic_hash": ""
+  },
+  "bootstrap/app.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "d98cb8343b14d080523decff545f5fc8",
+    "semantic_hash": ""
+  },
+  "bootstrap/providers.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "888c810b5a4720916f07aa05dd2c2dd3",
+    "semantic_hash": ""
+  },
+  "composer.json": {
+    "mtime": 1783630907.2009974,
+    "ast_hash": "07cc616c86ece6852e2a8f3f29868a45",
+    "semantic_hash": ""
+  },
+  "config/app.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "276578ad68424be59d0998379ae7d4cb",
+    "semantic_hash": ""
+  },
+  "config/auth.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "26354511ab860b301f2a3554bc388b91",
+    "semantic_hash": ""
+  },
+  "config/cache.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "022fdf20e95ddb79949954243e367003",
+    "semantic_hash": ""
+  },
+  "config/database.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "3cd69c7ecc842e4552e44eade546d91f",
+    "semantic_hash": ""
+  },
+  "config/filesystems.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "bde1aa1027f0448f17348dbd93f3d7ea",
+    "semantic_hash": ""
+  },
+  "config/logging.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "d8255a5c07d3da72c7c9363f0c44bddd",
+    "semantic_hash": ""
+  },
+  "config/mail.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "18601a927b48d38337ba2077426a7d60",
+    "semantic_hash": ""
+  },
+  "config/queue.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "f98ce92e7bf51db1fabaf8a30e12fc5a",
+    "semantic_hash": ""
+  },
+  "config/services.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "534a1b7af7009c373ea4ebfa18823d57",
+    "semantic_hash": ""
+  },
+  "config/session.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "6d9336e9ca1183588abbce7ff7a6f29a",
+    "semantic_hash": ""
+  },
+  "database/factories/UserFactory.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "1c9f381f9c2bc3027971a3bfdbe99164",
+    "semantic_hash": ""
+  },
+  "database/migrations/0001_01_01_000000_create_users_table.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "138280095e9d19f2ba6fb830415602e2",
+    "semantic_hash": ""
+  },
+  "database/migrations/0001_01_01_000001_create_cache_table.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "f3f38b41650112a6282c8dd1f635afb0",
+    "semantic_hash": ""
+  },
+  "database/migrations/0001_01_01_000002_create_jobs_table.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "ead9cce2650b36345454f85e8c0214a0",
+    "semantic_hash": ""
+  },
+  "database/seeders/DatabaseSeeder.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "ab1e985d74209458e33e0f4eb89fb77e",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1773496440.0,
+    "ast_hash": "07d7440dc017382991f9a7bd0151005a",
+    "semantic_hash": ""
+  },
+  "public/index.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "d8eda274115af5fd2aaa8230af329ef7",
+    "semantic_hash": ""
+  },
+  "resources/js/app.js": {
+    "mtime": 1773496440.0,
+    "ast_hash": "1ccf2b9101110f40ecaab1608a6f91cf",
+    "semantic_hash": ""
+  },
+  "resources/js/bootstrap.js": {
+    "mtime": 1773496440.0,
+    "ast_hash": "78f909acc19aea4717eddca5a87c1ba3",
+    "semantic_hash": ""
+  },
+  "resources/views/welcome.blade.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "f9f90b3bab40fd1d366e9b54466deac7",
+    "semantic_hash": ""
+  },
+  "routes/console.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "3c6ce2e6d16444282b24a9aa63885563",
+    "semantic_hash": ""
+  },
+  "routes/web.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "84625c52e743b1a4178bb27b7afb3615",
+    "semantic_hash": ""
+  },
+  "tests/Feature/ExampleTest.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "0f4d91c9c5bbcd4e2f46cf885acb7fb6",
+    "semantic_hash": ""
+  },
+  "tests/TestCase.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "7e567dc27e68d5b57bae16af07f68907",
+    "semantic_hash": ""
+  },
+  "tests/Unit/ExampleTest.php": {
+    "mtime": 1773496440.0,
+    "ast_hash": "3f679e9508c834f0ad95943455fcd836",
+    "semantic_hash": ""
+  },
+  "vite.config.js": {
+    "mtime": 1773496440.0,
+    "ast_hash": "60c40741a9c5b915a5e5542cfb23bc25",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1783629618.8910656,
+    "ast_hash": "56d2efb69d413adbdb7f17c207a08069",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1783618343.7160058,
+    "ast_hash": "56d2efb69d413adbdb7f17c207a08069",
+    "semantic_hash": ""
+  },
+  "MASTER_PROMPT_ADDENDUM.md": {
+    "mtime": 1783618324.0727484,
+    "ast_hash": "2d24caf258b8a49bc12d6d9b96d67b61",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/configuraci_n_del_sistema_m_dulos_activos/code.html": {
+    "mtime": 1783617589.6056962,
+    "ast_hash": "fc0a012ed8789091431ba97a66bc3ae2",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/dashboard_principal_perfil_retail/code.html": {
+    "mtime": 1783617589.657575,
+    "ast_hash": "cd0389699f6b99785b0a37c9cd7eb4d7",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/entradas_de_mercanc_a_compras_y_lotes/code.html": {
+    "mtime": 1783617589.7771647,
+    "ast_hash": "50ea9567f827fe946bd4b49be4647738",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/facturaci_n_electr_nica_control_de_e_cf/code.html": {
+    "mtime": 1783630551.2712257,
+    "ast_hash": "520fccd8e9e77338039b7c24f72a9633",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/inventario_avanzado_control_de_lotes/code.html": {
+    "mtime": 1783630551.2752254,
+    "ast_hash": "5c373e94f9d3946919f85328270de594",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/kardex_historial_de_movimientos_de_producto/code.html": {
+    "mtime": 1783630551.2782252,
+    "ast_hash": "c124274f9040b694102fc933be6afd61",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/kinetic_enterprise/DESIGN.md": {
+    "mtime": 1783630551.2792256,
+    "ast_hash": "841fe73873f40d2c7af18b3a663c2876",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/onboarding_activaci_n_de_m_dulos/code.html": {
+    "mtime": 1783617589.684973,
+    "ast_hash": "8145b18853c57abda5ca7faea91f8f74",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/onboarding_tipo_de_negocio/code.html": {
+    "mtime": 1783630551.282225,
+    "ast_hash": "4dbe1f423870021f1925bc8aa57dbad1",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/perfil_de_cliente_historial_y_cr_dito/code.html": {
+    "mtime": 1783617589.5779107,
+    "ast_hash": "b61ad9fc678821add5eb02f11e1f6760",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/pos_touch_perfil_restaurante/code.html": {
+    "mtime": 1783617589.7122698,
+    "ast_hash": "7ff968fcd104f01e50c06eaf038a0553",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/procesar_pago_multimoneda_y_mixto/code.html": {
+    "mtime": 1783630551.287225,
+    "ast_hash": "054d39b4abd27382e7230bdd42cab695",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/reporte_de_ventas_an_lisis_de_rendimiento/code.html": {
+    "mtime": 1783617589.63132,
+    "ast_hash": "8b11bc3dc233470fecd2182e4caac3f6",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1773496440.0,
+    "ast_hash": "c9fd29cc7c9057820aebcdcd6bbddca3",
+    "semantic_hash": ""
+  },
+  "docs/00_PROJECT_OVERVIEW.md": {
+    "mtime": 1783617989.6345642,
+    "ast_hash": "79f0dc00fb965ba08fc9634739ab1df5",
+    "semantic_hash": ""
+  },
+  "docs/01_ARCHITECTURE.md": {
+    "mtime": 1783618011.9049666,
+    "ast_hash": "968863e7430b0720a8db8cfc1cc9597e",
+    "semantic_hash": ""
+  },
+  "docs/02_DATABASE_SCHEMA.md": {
+    "mtime": 1783618053.3824787,
+    "ast_hash": "5c0afc61e7da95b8669735ad1d60d3c5",
+    "semantic_hash": ""
+  },
+  "docs/03_API_DOCUMENTATION.md": {
+    "mtime": 1783618065.8320382,
+    "ast_hash": "42b1d5cbcaf32d2e1e0f69ea09dc35bb",
+    "semantic_hash": ""
+  },
+  "docs/04_FRONTEND_STRUCTURE.md": {
+    "mtime": 1783618095.2173615,
+    "ast_hash": "5dd8aa1974f5e7ed1fa43e7b4830569d",
+    "semantic_hash": ""
+  },
+  "docs/05_MODULE_SYSTEM.md": {
+    "mtime": 1783618110.8815327,
+    "ast_hash": "ccd85859039ee1d7fd2cdda0e3133430",
+    "semantic_hash": ""
+  },
+  "docs/06_ELECTRONIC_INVOICING.md": {
+    "mtime": 1783618141.8847363,
+    "ast_hash": "1ac1a1254c22a3375e2a5ef08662f040",
+    "semantic_hash": ""
+  },
+  "docs/07_PRINTING.md": {
+    "mtime": 1783618150.8585653,
+    "ast_hash": "6c0e3023dc4d967469f2972b48e74701",
+    "semantic_hash": ""
+  },
+  "docs/08_SECURITY.md": {
+    "mtime": 1783618171.9285266,
+    "ast_hash": "10ca1746dd06be1d135cc5cebd6fbc6e",
+    "semantic_hash": ""
+  },
+  "docs/09_TESTING.md": {
+    "mtime": 1783618185.1054776,
+    "ast_hash": "5fd6ede5ed08aebe2e77cdd0dd3c8d07",
+    "semantic_hash": ""
+  },
+  "docs/10_DEPLOYMENT.md": {
+    "mtime": 1783618192.0526307,
+    "ast_hash": "358713d41634c0c89e1fbd490c2bef28",
+    "semantic_hash": ""
+  },
+  "docs/11_TODO_MASTER.md": {
+    "mtime": 1783631099.255169,
+    "ast_hash": "34be862436f6ea48aab01fe7a879e3c3",
+    "semantic_hash": ""
+  },
+  "docs/12_CHANGELOG.md": {
+    "mtime": 1783631099.2561698,
+    "ast_hash": "9e424a72bfb0dd7aec162b04fd74599e",
+    "semantic_hash": ""
+  },
+  "docs/13_DECISIONS.md": {
+    "mtime": 1783618247.776735,
+    "ast_hash": "88d08fb0580f6fb826b789f410ffd4d5",
+    "semantic_hash": ""
+  },
+  "docs/14_KNOWN_ISSUES.md": {
+    "mtime": 1783631099.2561698,
+    "ast_hash": "551f4f90861e5be42143a1045efacd8b",
+    "semantic_hash": ""
+  },
+  "docs/15_INVENTORY_AND_EXPIRATIONS.md": {
+    "mtime": 1783618267.8710105,
+    "ast_hash": "4808244d047be3036d4eebe588313359",
+    "semantic_hash": ""
+  },
+  "promt master.txt": {
+    "mtime": 1783617072.6304297,
+    "ast_hash": "33d72f73e24f72165d62965bac88c0c7",
+    "semantic_hash": ""
+  },
+  "public/robots.txt": {
+    "mtime": 1773496440.0,
+    "ast_hash": "b6216d61c03e6ce0c9aea6ca7808f7ca",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/configuraci_n_del_sistema_m_dulos_activos/screen.png": {
+    "mtime": 1783617589.6156359,
+    "ast_hash": "d4971feb48d6dac926936d5212acbe4c",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/dashboard_principal_perfil_retail/screen.png": {
+    "mtime": 1783617589.669366,
+    "ast_hash": "5315869cc1b982da240fa7f7094f5e16",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/entradas_de_mercanc_a_compras_y_lotes/screen.png": {
+    "mtime": 1783617589.7919886,
+    "ast_hash": "2ae3d59ed3d21aaa12b7cef7ffede99f",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/facturaci_n_electr_nica_control_de_e_cf/screen.png": {
+    "mtime": 1783617589.8754368,
+    "ast_hash": "dc5bc4e7fda3ead475656e5b2ba937c8",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/inventario_avanzado_control_de_lotes/screen.png": {
+    "mtime": 1783617589.56346,
+    "ast_hash": "e740ce85d3f3fb8bd3122b6e0ecf9956",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/kardex_historial_de_movimientos_de_producto/screen.png": {
+    "mtime": 1783617589.757457,
+    "ast_hash": "d2cf33b78e8530c2267d096994c15653",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/onboarding_activaci_n_de_m_dulos/screen.png": {
+    "mtime": 1783617589.6963968,
+    "ast_hash": "f0f61173bd3624e216bf872729bd2afd",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/onboarding_tipo_de_negocio/screen.png": {
+    "mtime": 1783617589.821994,
+    "ast_hash": "088057fa2f4c6e4206782dabf40e80e2",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/perfil_de_cliente_historial_y_cr_dito/screen.png": {
+    "mtime": 1783617589.590894,
+    "ast_hash": "3a90735279d90f92d7093f30f9fd3a4b",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/pos_touch_perfil_restaurante/screen.png": {
+    "mtime": 1783617589.7278402,
+    "ast_hash": "e4e7b9bd0300c9aec7441a21a8f3df54",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/procesar_pago_multimoneda_y_mixto/screen.png": {
+    "mtime": 1783617589.8490317,
+    "ast_hash": "dd0de93db0bd1487d21ee151b9bfe4de",
+    "semantic_hash": ""
+  },
+  "Pantallas del sistema/stitch_omnipos_modular_saas/reporte_de_ventas_an_lisis_de_rendimiento/screen.png": {
+    "mtime": 1783617589.6426456,
+    "ast_hash": "48dfb5dd54ad3cc6cc05fbe64ce8e577",
+    "semantic_hash": ""
+  }
+}

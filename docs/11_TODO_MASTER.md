@@ -5,11 +5,12 @@
 **Estado global: FASE 0 en progreso — preparación del repositorio e infraestructura base.**
 
 ## Conocimiento del proyecto
-- [x] Grafo Graphify consolidado e incorporado al grafo global como `omnipos-modular-saas` (231 nodos, 344 relaciones; validado sin duplicados ni referencias colgantes).
+- [x] Grafo Graphify actualizado e incorporado al grafo global como `omnipos-modular-saas` (515 nodos, 489 relaciones; sin duplicados ni referencias colgantes). El extractor conserva una autorelación falsa en `app/Models/User.php` por una colisión de alias de importación.
 
 ## FASE 0 — Base
 - [x] Inicializar repositorio Git local (`main`) y vincular el remoto autorizado `origin`
-- [ ] Crear proyecto Laravel 12 + configurar MySQL + .env(.example)
+- [x] Crear Laravel 12.63 con PHP 8.3.32 aislado y definir `.env.example` base para MySQL/es-DO/`America/Santo_Domingo`
+- [x] Crear proyecto Laravel 12 + configurar MySQL + .env(.example)
 - [ ] Sanctum, Vue 3 + TS, Tailwind (preset Kinetic Enterprise), Pinia, Router, Axios, PWA
 - [ ] Pint + Larastan + Pest; ESLint + Prettier + Vitest; Playwright configurado
 - [ ] Estructura modular backend (`app/Core`, `app/Modules/*` + ModuleServiceProvider) y frontend
