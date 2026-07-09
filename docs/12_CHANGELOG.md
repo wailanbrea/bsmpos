@@ -17,11 +17,14 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 - Laravel 12.63.0 con dependencias bloqueadas en `composer.lock`.
 - Configuración base para MySQL, locale `es_DO` y zona horaria `America/Santo_Domingo` en `.env.example`.
 - Base local `omnipos` creada con `utf8mb4` y migraciones estándar de Laravel aplicadas.
-- Grafo Graphify actualizado con el código Laravel y reemplazado en el grafo global existente (515 nodos, 489 relaciones).
+- Grafo Graphify actualizado con el código Laravel y reemplazado en el grafo global existente (534 nodos, 509 relaciones).
+- Sanctum para tokens API, su migración de tokens personales y ruta API protegida de referencia.
+- Pest 3.8, Larastan 3.10, configuración `phpstan.neon` nivel 6 y descubrimiento de módulos backend por manifiesto.
 
 **Validado**
 - `php artisan test`: 2 pruebas aprobadas.
 - Navegador real mediante Playwright: página inicial de Laravel responde sin errores de consola.
+- Pest: 3 pruebas aprobadas, incluyendo emisión de token Sanctum; Pint y Larastan sin errores.
 
 **Pendiente**
 - Crear y configurar la base de datos MySQL local `omnipos`; no se ha alterado ninguna base existente.

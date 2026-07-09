@@ -5,8 +5,8 @@
     "semantic_hash": ""
   },
   "app/Models/User.php": {
-    "mtime": 1773496440.0,
-    "ast_hash": "c573009762e4772f08d1a322447f7ae5",
+    "mtime": 1783631630.9737751,
+    "ast_hash": "1c193f13b246c94005d44f03c7092dc1",
     "semantic_hash": ""
   },
   "app/Providers/AppServiceProvider.php": {
@@ -20,23 +20,23 @@
     "semantic_hash": ""
   },
   "bootstrap/app.php": {
-    "mtime": 1773496440.0,
-    "ast_hash": "d98cb8343b14d080523decff545f5fc8",
+    "mtime": 1783631667.1028526,
+    "ast_hash": "51148adc94a59f5352b0386f30b33f7b",
     "semantic_hash": ""
   },
   "bootstrap/providers.php": {
-    "mtime": 1773496440.0,
-    "ast_hash": "888c810b5a4720916f07aa05dd2c2dd3",
+    "mtime": 1783631630.9747663,
+    "ast_hash": "52c91b4be080cc47da0b256c067d580e",
     "semantic_hash": ""
   },
   "composer.json": {
-    "mtime": 1783630907.2009974,
-    "ast_hash": "07cc616c86ece6852e2a8f3f29868a45",
+    "mtime": 1783631630.9757655,
+    "ast_hash": "1745d1f1dc688100577df2149c116a5c",
     "semantic_hash": ""
   },
   "config/app.php": {
-    "mtime": 1773496440.0,
-    "ast_hash": "276578ad68424be59d0998379ae7d4cb",
+    "mtime": 1783631702.099654,
+    "ast_hash": "861ef906183e8242f136493f456740e2",
     "semantic_hash": ""
   },
   "config/auth.php": {
@@ -305,13 +305,13 @@
     "semantic_hash": ""
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783631099.255169,
-    "ast_hash": "34be862436f6ea48aab01fe7a879e3c3",
+    "mtime": 1783631702.1006532,
+    "ast_hash": "c3507fe22b0c4a32c81906e278ec5097",
     "semantic_hash": ""
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783631099.2561698,
-    "ast_hash": "9e424a72bfb0dd7aec162b04fd74599e",
+    "mtime": 1783631702.101656,
+    "ast_hash": "6a444da4829a8b0b19099aadd47717db",
     "semantic_hash": ""
   },
   "docs/13_DECISIONS.md": {
@@ -397,6 +397,41 @@
   "Pantallas del sistema/stitch_omnipos_modular_saas/reporte_de_ventas_an_lisis_de_rendimiento/screen.png": {
     "mtime": 1783617589.6426456,
     "ast_hash": "48dfb5dd54ad3cc6cc05fbe64ce8e577",
+    "semantic_hash": ""
+  },
+  "app/Providers/ModuleServiceProvider.php": {
+    "mtime": 1783631630.9757655,
+    "ast_hash": "537b8b884996b762b56c9c484f8ef9b9",
+    "semantic_hash": ""
+  },
+  "config/modules.php": {
+    "mtime": 1783631630.9767659,
+    "ast_hash": "1ec87cbb050c2775a8e829d56a978726",
+    "semantic_hash": ""
+  },
+  "config/sanctum.php": {
+    "mtime": 1783631486.791725,
+    "ast_hash": "e3887ebee464a1b2c014cb16696a2b50",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_07_09_211127_create_personal_access_tokens_table.php": {
+    "mtime": 1783631486.790722,
+    "ast_hash": "eb77af89d184f92ec893eff344c34999",
+    "semantic_hash": ""
+  },
+  "routes/api.php": {
+    "mtime": 1783631487.025325,
+    "ast_hash": "d2b547b00ec0831b11601e6f50fb23b0",
+    "semantic_hash": ""
+  },
+  "tests/Feature/SanctumTokenTest.php": {
+    "mtime": 1783631647.8232586,
+    "ast_hash": "f8dc8f548a6f78e73a30aa576080fef4",
+    "semantic_hash": ""
+  },
+  "tests/Pest.php": {
+    "mtime": 1783631667.1218472,
+    "ast_hash": "6d38cc0c290898e2c8d0607567bc73bb",
     "semantic_hash": ""
   }
 }

@@ -25,6 +25,7 @@
 !/storage/framework/sessions/.gitignore
 /storage/framework/testing/*
 !/storage/framework/testing/.gitignore
+/storage/framework/phpstan/
 /storage/framework/views/*
 !/storage/framework/views/.gitignore
 
@@ -41,3 +42,4 @@ Thumbs.db
 # Graphify cache and intermediate extraction batches
 /graphify-out/cache/
 /graphify-out/.graphify_*
+/graphify-out/*/
