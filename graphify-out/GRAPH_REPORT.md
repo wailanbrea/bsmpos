@@ -1,16 +1,16 @@
 # Graph Report - Sistema de Facturacion Saas  (2026-07-09)
 
 ## Corpus Check
-- 61 files · ~152,752 words
+- 71 files · ~148,470 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 534 nodes · 509 edges · 124 communities (55 shown, 69 thin omitted)
-- Extraction: 85% EXTRACTED · 14% INFERRED · 0% AMBIGUOUS · INFERRED: 73 edges (avg confidence: 0.87)
+- 586 nodes · 556 edges · 134 communities (63 shown, 71 thin omitted)
+- Extraction: 87% EXTRACTED · 13% INFERRED · 0% AMBIGUOUS · INFERRED: 73 edges (avg confidence: 0.87)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `21b6de7b`
+- Built from commit: `d5292716`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,6 +47,7 @@
 - [[_COMMUNITY_No publicado|[No publicado]]]
 - [[_COMMUNITY_Pantalla Perfil de Cliente (Historial y Crédito)|Pantalla: Perfil de Cliente (Historial y Crédito)]]
 - [[_COMMUNITY_Controller.php|Controller.php]]
+- [[_COMMUNITY_app.js|app.js]]
 - [[_COMMUNITY_CLAUDE.md Project Instructions|CLAUDE.md Project Instructions]]
 - [[_COMMUNITY_00 Project Overview OmniPOS Modular SaaS|00 Project Overview: OmniPOS Modular SaaS]]
 - [[_COMMUNITY_OmniPOS Platform|OmniPOS Platform]]
@@ -116,18 +117,24 @@
 - [[_COMMUNITY_Touch Targets 4456px|Touch Targets 44/56px]]
 - [[_COMMUNITY_08 — Seguridad y Auditoría|08 — Seguridad y Auditoría]]
 - [[_COMMUNITY_07 — Impresión|07 — Impresión]]
+- [[_COMMUNITY_00_PROJECT_OVERVIEW|00_PROJECT_OVERVIEW.md]]
+- [[_COMMUNITY_15 — Inventario, Lotes y Vencimientos|15 — Inventario, Lotes y Vencimientos]]
+- [[_COMMUNITY_04 — Estructura Frontend|04 — Estructura Frontend]]
+- [[_COMMUNITY_09 — Estrategia de Pruebas|09 — Estrategia de Pruebas]]
+- [[_COMMUNITY_.prettierrc.json|.prettierrc.json]]
+- [[_COMMUNITY_03 — Documentación de API|03 — Documentación de API]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `11 — TODO MASTER` - 18 edges
 2. `02 — Esquema Inicial de Base de Datos` - 14 edges
 3. `require-dev` - 11 edges
-4. `scripts` - 10 edges
-5. `MASTER PROMPT — ADDENDUM (v1.1)` - 10 edges
-6. `Entrada de Mercancía Screen (Compras y Lotes)` - 10 edges
-7. `00 — Visión General del Proyecto: OmniPOS Modular SaaS` - 9 edges
-8. `01 — Arquitectura` - 9 edges
-9. `Dashboard Principal Perfil Retail (OmniPOS)` - 9 edges
-10. `Inventario Avanzado Control de Lotes Screen` - 9 edges
+4. `compilerOptions` - 11 edges
+5. `scripts` - 10 edges
+6. `MASTER PROMPT — ADDENDUM (v1.1)` - 10 edges
+7. `Entrada de Mercancía Screen (Compras y Lotes)` - 10 edges
+8. `00 — Visión General del Proyecto: OmniPOS Modular SaaS` - 9 edges
+9. `01 — Arquitectura` - 9 edges
+10. `Dashboard Principal Perfil Retail (OmniPOS)` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Inventory Batches (lotes y vencimientos)` --references--> `Pantalla: Dashboard Principal (Retail)`  [INFERRED]
@@ -142,13 +149,13 @@
   promt master.txt → Pantallas del sistema/stitch_omnipos_modular_saas/onboarding_activaci_n_de_m_dulos/code.html
 
 ## Import Cycles
-- None detected.
+- 1-file cycle: `resources/js/app.ts -> resources/js/app.ts`
 
-## Communities (124 total, 69 thin omitted)
+## Communities (134 total, 71 thin omitted)
 
 ### Community 0 - "00_PROJECT_OVERVIEW.md"
-Cohesion: 0.05
-Nodes (28): Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento, OmniPOS Modular SaaS — Instrucciones del proyecto, Reglas duras (resumen), Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento (+20 more)
+Cohesion: 0.08
+Nodes (21): Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento, OmniPOS Modular SaaS — Instrucciones del proyecto, Reglas duras (resumen), Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento (+13 more)
 
 ### Community 1 - "Inventory Batches (lotes y vencimientos)"
 Cohesion: 0.06
@@ -156,11 +163,11 @@ Nodes (39): ITBIS y Propina Legal, Multimoneda DOP/USD (exchange_rates), Secuenc
 
 ### Community 2 - "composer.json"
 Cohesion: 0.05
-Nodes (42): pestphp/pest-plugin, php-http/discovery, autoload, autoload-dev, psr-4, psr-4, config, allow-plugins (+34 more)
+Nodes (41): pestphp/pest-plugin, php-http/discovery, autoload, autoload-dev, psr-4, psr-4, config, allow-plugins (+33 more)
 
 ### Community 3 - "MASTER PROMPT — ADDENDUM (v1.1)"
-Cohesion: 0.20
-Nodes (10): 34. LOCALIZACIÓN FISCAL REPÚBLICA DOMINICANA, 35. FACTURACIÓN ELECTRÓNICA — CONTEXTO LEY 32-23, 36. INTEGRIDAD Y CONCURRENCIA (OBLIGATORIO), 37. CALIDAD, TOOLING Y CI (OBLIGATORIO), 38. SAAS COMERCIAL, 39. UX / FRONTEND (COMPLEMENTO), 40. MÓDULOS ADICIONALES (CATÁLOGO EXTENDIDO), 41. OPERACIÓN (+2 more)
+Cohesion: 0.15
+Nodes (12): compilerOptions, esModuleInterop, isolatedModules, jsx, lib, module, moduleResolution, resolveJsonModule (+4 more)
 
 ### Community 4 - "User.php"
 Cohesion: 0.15
@@ -175,8 +182,8 @@ Cohesion: 0.14
 Nodes (14): 02 — Esquema Inicial de Base de Datos, 10. Facturación electrónica (§19), 11. Módulos verticales, 12. Reportes DGII (addendum), 1. Núcleo SaaS, 2. Sistema de módulos y planes, 3. Configuración fiscal y monedas, 4. Clientes (+6 more)
 
 ### Community 7 - "devDependencies"
-Cohesion: 0.14
-Nodes (13): devDependencies, axios, concurrently, laravel-vite-plugin, tailwindcss, @tailwindcss/vite, vite, private (+5 more)
+Cohesion: 0.05
+Nodes (37): dependencies, pinia, vite-plugin-pwa, vue, vue-i18n, vue-router, devDependencies, axios (+29 more)
 
 ### Community 8 - "Entrada de Mercancía Screen (Compras y Lotes)"
 Cohesion: 0.29
@@ -231,8 +238,8 @@ Cohesion: 0.22
 Nodes (4): BaseTestCase, ExampleTest, TestCase, ExampleTest
 
 ### Community 21 - "scripts"
-Cohesion: 0.20
-Nodes (10): scripts, analyse, dev, post-autoload-dump, post-create-project-cmd, post-root-package-install, post-update-cmd, pre-package-uninstall (+2 more)
+Cohesion: 0.18
+Nodes (11): require-dev, fakerphp/faker, larastan/larastan, laravel/pail, laravel/pint, laravel/sail, mockery/mockery, nunomaduro/collision (+3 more)
 
 ### Community 22 - "00 — Visión General del Proyecto: OmniPOS Modular SaaS"
 Cohesion: 0.22
@@ -267,21 +274,41 @@ Cohesion: 0.33
 Nodes (5): 12 — CHANGELOG, 2026-07-09 — Inicio de Fase 0: control de versiones, 2026-07-09 — Inicio de Fase 0: runtime y Laravel, 2026-07-09 — Planificación inicial (pre-código), [No publicado]
 
 ### Community 118 - "08 — Seguridad y Auditoría"
-Cohesion: 0.15
-Nodes (11): 08 — Seguridad y Auditoría, Acciones sensibles con autorización elevada, Auditoría (módulo Audit), Autenticación y sesiones, Autorización en capas, Datos, 09 — Estrategia de Pruebas, Cobertura obligatoria backend (master prompt §29) (+3 more)
+Cohesion: 0.33
+Nodes (6): 08 — Seguridad y Auditoría, Acciones sensibles con autorización elevada, Auditoría (módulo Audit), Autenticación y sesiones, Autorización en capas, Datos
 
 ### Community 119 - "07 — Impresión"
 Cohesion: 0.40
 Nodes (5): 07 — Impresión, Alcance (master prompt §20), Configuración, Estrategia por etapas, Requisitos fiscales del ticket/factura RD
+
+### Community 125 - "15 — Inventario, Lotes y Vencimientos"
+Cohesion: 0.25
+Nodes (7): 15 — Inventario, Lotes y Vencimientos, Alertas (job diario + eventos en tiempo real), Kardex, Modelo, Métodos de salida (por producto, `outgoing_method`), Reglas de venta con vencimiento (configurables por empresa), Reportes
+
+### Community 126 - "04 — Estructura Frontend"
+Cohesion: 0.33
+Nodes (5): 04 — Estructura Frontend, Design system: "Kinetic Enterprise", Estructura (master prompt §5), Pantallas de referencia (Stitch), Reglas frontend
+
+### Community 127 - "09 — Estrategia de Pruebas"
+Cohesion: 0.33
+Nodes (5): 09 — Estrategia de Pruebas, Cobertura obligatoria backend (master prompt §29), E2E Playwright (Fase 14, sobre app real), Herramientas, Regla de trabajo
+
+### Community 128 - ".prettierrc.json"
+Cohesion: 0.40
+Nodes (4): printWidth, singleQuote, tabWidth, trailingComma
+
+### Community 129 - "03 — Documentación de API"
+Cohesion: 0.50
+Nodes (3): 03 — Documentación de API, Convenciones, Mapa de endpoints previsto (por fase)
 
 ## Ambiguous Edges - Review These
 - `Purchase Order Reception (PO-2023-0891)` → `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`  [AMBIGUOUS]
   Pantallas del sistema/stitch_omnipos_modular_saas/entradas_de_mercanc_a_compras_y_lotes/screen.png · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **263 isolated node(s):** `Controller`, `$schema`, `name`, `type`, `description` (+258 more)
+- **303 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+298 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **69 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **71 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -289,14 +316,14 @@ _Questions this graph is uniquely positioned to answer:_
 - **What is the exact relationship between `Purchase Order Reception (PO-2023-0891)` and `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
 - **Why does `11 — TODO MASTER` connect `11 — TODO MASTER` to `00_PROJECT_OVERVIEW.md`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **Why does `02 — Esquema Inicial de Base de Datos` connect `02 — Esquema Inicial de Base de Datos` to `00_PROJECT_OVERVIEW.md`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **Why does `MASTER PROMPT — ADDENDUM (v1.1)` connect `MASTER PROMPT — ADDENDUM (v1.1)` to `00_PROJECT_OVERVIEW.md`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
-- **What connects `Controller`, `$schema`, `name` to the rest of the system?**
-  _279 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
+- **What connects `singleQuote`, `printWidth`, `tabWidth` to the rest of the system?**
+  _319 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `00_PROJECT_OVERVIEW.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.05353535353535353 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08307692307692308 - nodes in this community are weakly interconnected._
 - **Should `Inventory Batches (lotes y vencimientos)` be split into smaller, more focused modules?**
   _Cohesion score 0.059379217273954114 - nodes in this community are weakly interconnected._
+- **Should `composer.json` be split into smaller, more focused modules?**
+  _Cohesion score 0.047619047619047616 - nodes in this community are weakly interconnected._

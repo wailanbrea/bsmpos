@@ -3,7 +3,13 @@
     "name": "omnipos/modular-saas",
     "type": "project",
     "description": "Plataforma SaaS modular de POS, facturación e inventario para República Dominicana.",
-    "keywords": ["laravel", "saas", "pos", "facturacion", "republica-dominicana"],
+    "keywords": [
+        "laravel",
+        "saas",
+        "pos",
+        "facturacion",
+        "republica-dominicana"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.3",

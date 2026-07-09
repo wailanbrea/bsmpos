@@ -5,7 +5,7 @@
 **Estado global: FASE 0 en progreso — preparación del repositorio e infraestructura base.**
 
 ## Conocimiento del proyecto
-- [x] Grafo Graphify actualizado e incorporado al grafo global como `omnipos-modular-saas` (534 nodos, 509 relaciones; sin duplicados ni referencias colgantes). El extractor conserva una autorelación falsa en `app/Models/User.php` por una colisión de alias de importación.
+- [x] Grafo Graphify actualizado e incorporado al grafo global como `omnipos-modular-saas` (586 nodos, 556 relaciones; sin duplicados ni referencias colgantes). El extractor conserva una autorelación falsa en `app/Models/User.php` por una colisión de alias de importación.
 
 ## FASE 0 — Base
 - [x] Inicializar repositorio Git local (`main`) y vincular el remoto autorizado `origin`
@@ -13,7 +13,8 @@
 - [x] Crear proyecto Laravel 12 + configurar MySQL + .env(.example)
 - [x] Configurar Sanctum, Pest 3.8, Pint y Larastan 3.10 (herramientas frontend pendientes)
 - [x] Registrar descubrimiento inicial de módulos backend mediante `ModuleServiceProvider` y manifiestos `module.json` (estructura frontend pendiente)
-- [ ] Sanctum, Vue 3 + TS, Tailwind (preset Kinetic Enterprise), Pinia, Router, Axios, PWA
+- [x] Sanctum, Vue 3 + TS, Tailwind (preset Kinetic Enterprise), Pinia, Router, Axios, PWA
+- [x] ESLint, Prettier, Vitest y verificación Playwright inicial (Larastan/Pest/Pint ya configurados)
 - [ ] Pint + Larastan + Pest; ESLint + Prettier + Vitest; Playwright configurado
 - [ ] Estructura modular backend (`app/Core`, `app/Modules/*` + ModuleServiceProvider) y frontend
 - [ ] API response estándar + manejo global de errores + códigos de error

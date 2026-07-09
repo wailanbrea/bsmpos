@@ -30,8 +30,8 @@
     "semantic_hash": ""
   },
   "composer.json": {
-    "mtime": 1783631630.9757655,
-    "ast_hash": "1745d1f1dc688100577df2149c116a5c",
+    "mtime": 1783632141.404505,
+    "ast_hash": "6e70159f3c52c8b2b74c2dcf4458ea81",
     "semantic_hash": ""
   },
   "config/app.php": {
@@ -110,8 +110,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1773496440.0,
-    "ast_hash": "07d7440dc017382991f9a7bd0151005a",
+    "mtime": 1783632076.2035954,
+    "ast_hash": "44a88c5613251f1054c02d09a450101f",
     "semantic_hash": ""
   },
   "public/index.php": {
@@ -130,8 +130,8 @@
     "semantic_hash": ""
   },
   "resources/views/welcome.blade.php": {
-    "mtime": 1773496440.0,
-    "ast_hash": "f9f90b3bab40fd1d366e9b54466deac7",
+    "mtime": 1783631974.6445987,
+    "ast_hash": "ff1ec0e2102f7f8695ad0c823575b12a",
     "semantic_hash": ""
   },
   "routes/console.php": {
@@ -160,8 +160,8 @@
     "semantic_hash": ""
   },
   "vite.config.js": {
-    "mtime": 1773496440.0,
-    "ast_hash": "60c40741a9c5b915a5e5542cfb23bc25",
+    "mtime": 1783631967.2773583,
+    "ast_hash": "072355b4d06d0c935210c103c4976883",
     "semantic_hash": ""
   },
   "AGENTS.md": {
@@ -305,13 +305,13 @@
     "semantic_hash": ""
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783631702.1006532,
-    "ast_hash": "c3507fe22b0c4a32c81906e278ec5097",
+    "mtime": 1783632233.4529014,
+    "ast_hash": "5fee45884b9ee582117edf8efd231188",
     "semantic_hash": ""
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783631702.101656,
-    "ast_hash": "6a444da4829a8b0b19099aadd47717db",
+    "mtime": 1783632233.4538903,
+    "ast_hash": "8fb13dcae6bdf48d3f33ca58e6baeaba",
     "semantic_hash": ""
   },
   "docs/13_DECISIONS.md": {
@@ -432,6 +432,56 @@
   "tests/Pest.php": {
     "mtime": 1783631667.1218472,
     "ast_hash": "6d38cc0c290898e2c8d0607567bc73bb",
+    "semantic_hash": ""
+  },
+  ".prettierrc.json": {
+    "mtime": 1783632003.338891,
+    "ast_hash": "ba404d218e871b65862203524906d6a4",
+    "semantic_hash": ""
+  },
+  "eslint.config.js": {
+    "mtime": 1783632162.3859382,
+    "ast_hash": "13e59fe083a8ef626dd30e2c287262ba",
+    "semantic_hash": ""
+  },
+  "resources/js/App.vue": {
+    "mtime": 1783631967.2803636,
+    "ast_hash": "4f7f56c5f33f4585d6a535e47556e5e8",
+    "semantic_hash": ""
+  },
+  "resources/js/app.ts": {
+    "mtime": 1783632003.3368888,
+    "ast_hash": "c51909469d10e87ec888216d7775caf0",
+    "semantic_hash": ""
+  },
+  "resources/js/env.d.ts": {
+    "mtime": 1783632003.3378818,
+    "ast_hash": "0352474ba2918efe13895edbc3780d94",
+    "semantic_hash": ""
+  },
+  "resources/js/modules/dashboard/pages/DashboardPage.spec.ts": {
+    "mtime": 1783632233.4518957,
+    "ast_hash": "e25ae374167adc68f4707e741fe7aed8",
+    "semantic_hash": ""
+  },
+  "resources/js/modules/dashboard/pages/DashboardPage.vue": {
+    "mtime": 1783632171.5314665,
+    "ast_hash": "ea152416feba2e134345a57bc20bf783",
+    "semantic_hash": ""
+  },
+  "resources/js/router/index.ts": {
+    "mtime": 1783631967.2813628,
+    "ast_hash": "b9f8289397359fa0cf222729a323439a",
+    "semantic_hash": ""
+  },
+  "tsconfig.json": {
+    "mtime": 1783631967.279359,
+    "ast_hash": "5b96e28b1e1bbc29064325f01cfc2073",
+    "semantic_hash": ""
+  },
+  "vitest.config.ts": {
+    "mtime": 1783632233.4518957,
+    "ast_hash": "3765ea12281689527aeb79e5d7fd8e8e",
     "semantic_hash": ""
   }
 }
