@@ -1,16 +1,16 @@
 # Graph Report - Sistema de Facturacion Saas  (2026-07-09)
 
 ## Corpus Check
-- 123 files · ~153,462 words
+- 129 files · ~156,623 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 793 nodes · 948 edges · 149 communities (79 shown, 70 thin omitted)
-- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 92 edges (avg confidence: 0.86)
+- 843 nodes · 1023 edges · 158 communities (88 shown, 70 thin omitted)
+- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 95 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `66214d56`
+- Built from commit: `07f272e9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -134,6 +134,15 @@
 - [[_COMMUNITY_11 — TODO MASTER|11 — TODO MASTER]]
 - [[_COMMUNITY_UserFactory|UserFactory]]
 - [[_COMMUNITY_DatabaseSeeder.php|DatabaseSeeder.php]]
+- [[_COMMUNITY_User.php|User.php]]
+- [[_COMMUNITY_ContextPage.vue|ContextPage.vue]]
+- [[_COMMUNITY_ApiResponse|ApiResponse]]
+- [[_COMMUNITY_AuthController.php|AuthController.php]]
+- [[_COMMUNITY_session.ts|session.ts]]
+- [[_COMMUNITY_RegisterPage.vue|RegisterPage.vue]]
+- [[_COMMUNITY_LoginPage.vue|LoginPage.vue]]
+- [[_COMMUNITY_.error|.error]]
+- [[_COMMUNITY_RegisterRequest|RegisterRequest]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `User` - 20 edges
@@ -162,11 +171,11 @@
 ## Import Cycles
 - 1-file cycle: `resources/js/app.ts -> resources/js/app.ts`
 
-## Communities (149 total, 70 thin omitted)
+## Communities (158 total, 70 thin omitted)
 
 ### Community 0 - "00_PROJECT_OVERVIEW.md"
-Cohesion: 0.06
-Nodes (18): ApiResponse, ErrorCode, JsonResponse, StoreRoleRequest, LoginUserAction, LogoutUserAction, RegisterUserAction, AuthController (+10 more)
+Cohesion: 0.16
+Nodes (4): StoreRoleRequest, LoginRequest, StoreCompanyRequest, FormRequest
 
 ### Community 1 - "Inventory Batches (lotes y vencimientos)"
 Cohesion: 0.06
@@ -181,8 +190,8 @@ Cohesion: 0.15
 Nodes (12): compilerOptions, esModuleInterop, isolatedModules, jsx, lib, module, moduleResolution, resolveJsonModule (+4 more)
 
 ### Community 4 - "User.php"
-Cohesion: 0.06
-Nodes (27): bootBelongsToCompany(), CompanyModel, CurrentCompany, BelongsToMany, User, ProvisionCompanyOwnerAccess, Permission, BelongsToMany (+19 more)
+Cohesion: 0.07
+Nodes (22): bootBelongsToCompany(), CompanyModel, CurrentCompany, CreateRoleAction, ProvisionCompanyOwnerAccess, Permission, BelongsToMany, BelongsTo (+14 more)
 
 ### Community 5 - "11 — TODO MASTER"
 Cohesion: 0.05
@@ -281,8 +290,12 @@ Cohesion: 0.29
 Nodes (3): AppServiceProvider, ModuleServiceProvider, ServiceProvider
 
 ### Community 29 - "[No publicado]"
-Cohesion: 0.22
-Nodes (8): 12 — CHANGELOG, 2026-07-09 — Fase 1: aislamiento multiempresa base, 2026-07-09 — Fase 1: autenticación API segura, 2026-07-09 — Fase 1: RBAC por compañía, 2026-07-09 — Inicio de Fase 0: control de versiones, 2026-07-09 — Inicio de Fase 0: runtime y Laravel, 2026-07-09 — Planificación inicial (pre-código), [No publicado]
+Cohesion: 0.20
+Nodes (9): 12 — CHANGELOG, 2026-07-09 — Fase 1: acceso y contexto operativo, 2026-07-09 — Fase 1: aislamiento multiempresa base, 2026-07-09 — Fase 1: autenticación API segura, 2026-07-09 — Fase 1: RBAC por compañía, 2026-07-09 — Inicio de Fase 0: control de versiones, 2026-07-09 — Inicio de Fase 0: runtime y Laravel, 2026-07-09 — Planificación inicial (pre-código) (+1 more)
+
+### Community 36 - "app.js"
+Cohesion: 0.21
+Nodes (6): i18n, useSessionStore, navigation, operatorName, session, router
 
 ### Community 104 - "app.php"
 Cohesion: 0.11
@@ -349,8 +362,8 @@ Cohesion: 0.67
 Nodes (3): extra, laravel, dont-discover
 
 ### Community 145 - "11 — TODO MASTER"
-Cohesion: 0.12
-Nodes (12): CreateRoleAction, JsonResponse, RoleController, Request, RoleResource, Request, UserResource, BranchResource (+4 more)
+Cohesion: 0.14
+Nodes (11): JsonResponse, RoleController, Request, RoleResource, Request, UserResource, BranchResource, Request (+3 more)
 
 ### Community 146 - "UserFactory"
 Cohesion: 0.32
@@ -360,12 +373,44 @@ Nodes (4): bootHasPublicUlid(), UserFactory, Factory, static
 Cohesion: 0.60
 Nodes (3): DatabaseSeeder, Seeder, WithoutModelEvents
 
+### Community 149 - "User.php"
+Cohesion: 0.16
+Nodes (8): BelongsToMany, User, LogoutUserAction, RegisterUserAction, Authenticatable, HasApiTokens, HasFactory, Notifiable
+
+### Community 150 - "ContextPage.vue"
+Cohesion: 0.13
+Nodes (13): availableBranches, branchCode, branchName, companies, companyName, errorMessage, isCreatingCompany, isLoading (+5 more)
+
+### Community 151 - "ApiResponse"
+Cohesion: 0.24
+Nodes (6): ApiResponse, JsonResponse, CreateCompanyAction, CompanyController, JsonResponse, Request
+
+### Community 152 - "AuthController.php"
+Cohesion: 0.28
+Nodes (4): LoginUserAction, AuthController, JsonResponse, Request
+
+### Community 153 - "session.ts"
+Cohesion: 0.31
+Nodes (7): api, storageKeys, ApiEnvelope, AuthSession, AuthUser, Branch, Company
+
+### Community 154 - "RegisterPage.vue"
+Cohesion: 0.22
+Nodes (8): email, errorMessage, isSubmitting, name, password, passwordConfirmation, router, session
+
+### Community 155 - "LoginPage.vue"
+Cohesion: 0.29
+Nodes (6): email, errorMessage, isSubmitting, password, router, session
+
+### Community 156 - ".error"
+Cohesion: 0.40
+Nodes (4): ErrorCode, createCompany(), submit(), submit()
+
 ## Ambiguous Edges - Review These
 - `Purchase Order Reception (PO-2023-0891)` → `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`  [AMBIGUOUS]
   Pantallas del sistema/stitch_omnipos_modular_saas/entradas_de_mercanc_a_compras_y_lotes/screen.png · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **307 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+302 more)
+- **337 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+332 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **70 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -374,15 +419,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Purchase Order Reception (PO-2023-0891)` and `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `Branch` connect `User.php` to `app.php`, `11 — TODO MASTER`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
-- **Why does `User` connect `User.php` to `00_PROJECT_OVERVIEW.md`, `DatabaseSeeder.php`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
+- **Why does `ApiResponse` connect `ApiResponse` to `AuthController.php`, `11 — TODO MASTER`, `.error`?**
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+- **Why does `createCompany()` connect `.error` to `ContextPage.vue`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Why does `Role` connect `User.php` to `11 — TODO MASTER`?**
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `User` (e.g. with `.execute()` and `.execute()`) actually correct?**
   _`User` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `singleQuote`, `printWidth`, `tabWidth` to the rest of the system?**
-  _323 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `00_PROJECT_OVERVIEW.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.061683599419448475 - nodes in this community are weakly interconnected._
+  _353 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Inventory Batches (lotes y vencimientos)` be split into smaller, more focused modules?**
   _Cohesion score 0.059379217273954114 - nodes in this community are weakly interconnected._

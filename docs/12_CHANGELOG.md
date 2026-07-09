@@ -4,6 +4,15 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-09 — Fase 1: acceso y contexto operativo
+**Agregado**
+- UI Vue para login, registro, creación inicial de compañía y pase de turno compañía/sucursal.
+- Store Pinia persistente y cliente API que envía token Sanctum y cabeceras tenant por solicitud.
+
+**Validado**
+- Playwright verificó las pantallas de acceso y registro en navegador real.
+- Pest 19/63, Pint, Larastan, typecheck, ESLint, Prettier, Vitest y build PWA sin errores.
+
 ### 2026-07-09 — Fase 1: autenticación API segura
 **Agregado**
 - Módulo `Auth` con registro, login, logout y perfil actual bajo `/api/v1/auth`.

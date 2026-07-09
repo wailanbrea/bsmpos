@@ -200,7 +200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_core_http_apiresponse",
-      "community": 0,
+      "community": 151,
       "norm_label": "apiresponse.php"
     },
     {
@@ -210,7 +210,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "app_core_http_apiresponse_apiresponse",
-      "community": 0,
+      "community": 151,
       "norm_label": "apiresponse"
     },
     {
@@ -220,7 +220,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "app_core_http_apiresponse_apiresponse_success",
-      "community": 0,
+      "community": 151,
       "norm_label": ".success()"
     },
     {
@@ -230,7 +230,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_core_http_apiresponse_php_jsonresponse",
-      "community": 0,
+      "community": 151,
       "norm_label": "jsonresponse"
     },
     {
@@ -240,7 +240,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "app_core_http_apiresponse_apiresponse_error",
-      "community": 0,
+      "community": 156,
       "norm_label": ".error()"
     },
     {
@@ -250,7 +250,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_core_http_apiresponse_php_errorcode",
-      "community": 0,
+      "community": 156,
       "norm_label": "errorcode"
     },
     {
@@ -710,7 +710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_models_user",
-      "community": 4,
+      "community": 149,
       "norm_label": "user.php"
     },
     {
@@ -720,7 +720,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "app_models_user_user",
-      "community": 4,
+      "community": 149,
       "norm_label": "user"
     },
     {
@@ -730,7 +730,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "authenticatable",
-      "community": 4,
+      "community": 149,
       "norm_label": "authenticatable"
     },
     {
@@ -750,7 +750,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "hasapitokens",
-      "community": 4,
+      "community": 149,
       "norm_label": "hasapitokens"
     },
     {
@@ -760,7 +760,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "hasfactory",
-      "community": 4,
+      "community": 149,
       "norm_label": "hasfactory"
     },
     {
@@ -780,7 +780,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "notifiable",
-      "community": 4,
+      "community": 149,
       "norm_label": "notifiable"
     },
     {
@@ -790,7 +790,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "app_models_user_user_casts",
-      "community": 4,
+      "community": 149,
       "norm_label": ".casts()"
     },
     {
@@ -800,7 +800,7 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "app_models_user_user_companies",
-      "community": 4,
+      "community": 149,
       "norm_label": ".companies()"
     },
     {
@@ -810,7 +810,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_models_user_php_belongstomany",
-      "community": 4,
+      "community": 149,
       "norm_label": "belongstomany"
     },
     {
@@ -820,7 +820,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "app_models_user_user_branches",
-      "community": 4,
+      "community": 149,
       "norm_label": ".branches()"
     },
     {
@@ -830,7 +830,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "app_models_user_user_roles",
-      "community": 4,
+      "community": 149,
       "norm_label": ".roles()"
     },
     {
@@ -840,7 +840,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_access_actions_createroleaction",
-      "community": 145,
+      "community": 4,
       "norm_label": "createroleaction.php"
     },
     {
@@ -850,7 +850,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "app_modules_access_actions_createroleaction_createroleaction",
-      "community": 145,
+      "community": 4,
       "norm_label": "createroleaction"
     },
     {
@@ -860,7 +860,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "app_modules_access_actions_createroleaction_createroleaction_execute",
-      "community": 145,
+      "community": 4,
       "norm_label": ".execute()"
     },
     {
@@ -1220,7 +1220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_auth_actions_loginuseraction",
-      "community": 0,
+      "community": 152,
       "norm_label": "loginuseraction.php"
     },
     {
@@ -1230,7 +1230,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "app_modules_auth_actions_loginuseraction_loginuseraction",
-      "community": 0,
+      "community": 152,
       "norm_label": "loginuseraction"
     },
     {
@@ -1240,7 +1240,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "app_modules_auth_actions_loginuseraction_loginuseraction_execute",
-      "community": 0,
+      "community": 152,
       "norm_label": ".execute()"
     },
     {
@@ -1250,7 +1250,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_auth_actions_logoutuseraction",
-      "community": 0,
+      "community": 149,
       "norm_label": "logoutuseraction.php"
     },
     {
@@ -1260,7 +1260,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "app_modules_auth_actions_logoutuseraction_logoutuseraction",
-      "community": 0,
+      "community": 149,
       "norm_label": "logoutuseraction"
     },
     {
@@ -1270,7 +1270,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "app_modules_auth_actions_logoutuseraction_logoutuseraction_execute",
-      "community": 0,
+      "community": 149,
       "norm_label": ".execute()"
     },
     {
@@ -1280,7 +1280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_auth_actions_registeruseraction",
-      "community": 0,
+      "community": 149,
       "norm_label": "registeruseraction.php"
     },
     {
@@ -1290,7 +1290,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "app_modules_auth_actions_registeruseraction_registeruseraction",
-      "community": 0,
+      "community": 149,
       "norm_label": "registeruseraction"
     },
     {
@@ -1300,7 +1300,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "app_modules_auth_actions_registeruseraction_registeruseraction_execute",
-      "community": 0,
+      "community": 149,
       "norm_label": ".execute()"
     },
     {
@@ -1310,7 +1310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_auth_http_controllers_authcontroller",
-      "community": 0,
+      "community": 152,
       "norm_label": "authcontroller.php"
     },
     {
@@ -1320,7 +1320,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "app_modules_auth_http_controllers_authcontroller_authcontroller",
-      "community": 0,
+      "community": 152,
       "norm_label": "authcontroller"
     },
     {
@@ -1330,7 +1330,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "app_modules_auth_http_controllers_authcontroller_authcontroller_register",
-      "community": 0,
+      "community": 152,
       "norm_label": ".register()"
     },
     {
@@ -1340,7 +1340,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_modules_auth_http_controllers_authcontroller_php_jsonresponse",
-      "community": 0,
+      "community": 152,
       "norm_label": "jsonresponse"
     },
     {
@@ -1350,7 +1350,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "app_modules_auth_http_controllers_authcontroller_authcontroller_login",
-      "community": 0,
+      "community": 152,
       "norm_label": ".login()"
     },
     {
@@ -1360,7 +1360,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "app_modules_auth_http_controllers_authcontroller_authcontroller_me",
-      "community": 0,
+      "community": 152,
       "norm_label": ".me()"
     },
     {
@@ -1370,7 +1370,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_modules_auth_http_controllers_authcontroller_php_request",
-      "community": 0,
+      "community": 152,
       "norm_label": "request"
     },
     {
@@ -1380,7 +1380,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "app_modules_auth_http_controllers_authcontroller_authcontroller_logout",
-      "community": 0,
+      "community": 152,
       "norm_label": ".logout()"
     },
     {
@@ -1390,7 +1390,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "app_modules_auth_http_controllers_authcontroller_authcontroller_sessionresponse",
-      "community": 0,
+      "community": 152,
       "norm_label": ".sessionresponse()"
     },
     {
@@ -1450,7 +1450,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_auth_http_requests_registerrequest",
-      "community": 0,
+      "community": 157,
       "norm_label": "registerrequest.php"
     },
     {
@@ -1460,7 +1460,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "app_modules_auth_http_requests_registerrequest_registerrequest",
-      "community": 0,
+      "community": 157,
       "norm_label": "registerrequest"
     },
     {
@@ -1470,7 +1470,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "app_modules_auth_http_requests_registerrequest_registerrequest_authorize",
-      "community": 0,
+      "community": 157,
       "norm_label": ".authorize()"
     },
     {
@@ -1480,7 +1480,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "app_modules_auth_http_requests_registerrequest_registerrequest_rules",
-      "community": 0,
+      "community": 157,
       "norm_label": ".rules()"
     },
     {
@@ -1490,7 +1490,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "app_modules_auth_http_requests_registerrequest_registerrequest_prepareforvalidation",
-      "community": 0,
+      "community": 157,
       "norm_label": ".prepareforvalidation()"
     },
     {
@@ -1540,7 +1540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_auth_routes",
-      "community": 0,
+      "community": 152,
       "norm_label": "routes.php"
     },
     {
@@ -1560,7 +1560,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "app_modules_company_actions_createcompanyaction_createcompanyaction",
-      "community": 0,
+      "community": 151,
       "norm_label": "createcompanyaction"
     },
     {
@@ -1570,7 +1570,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "app_modules_company_actions_createcompanyaction_createcompanyaction_execute",
-      "community": 4,
+      "community": 151,
       "norm_label": ".execute()"
     },
     {
@@ -1580,7 +1580,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_company_http_controllers_companycontroller",
-      "community": 0,
+      "community": 151,
       "norm_label": "companycontroller.php"
     },
     {
@@ -1590,7 +1590,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "app_modules_company_http_controllers_companycontroller_companycontroller",
-      "community": 0,
+      "community": 151,
       "norm_label": "companycontroller"
     },
     {
@@ -1600,7 +1600,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "app_modules_company_http_controllers_companycontroller_companycontroller_index",
-      "community": 0,
+      "community": 151,
       "norm_label": ".index()"
     },
     {
@@ -1610,7 +1610,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_modules_company_http_controllers_companycontroller_php_request",
-      "community": 0,
+      "community": 151,
       "norm_label": "request"
     },
     {
@@ -1620,7 +1620,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_modules_company_http_controllers_companycontroller_php_jsonresponse",
-      "community": 0,
+      "community": 151,
       "norm_label": "jsonresponse"
     },
     {
@@ -1630,7 +1630,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "app_modules_company_http_controllers_companycontroller_companycontroller_store",
-      "community": 0,
+      "community": 151,
       "norm_label": ".store()"
     },
     {
@@ -1910,7 +1910,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_modules_company_routes",
-      "community": 0,
+      "community": 151,
       "norm_label": "routes.php"
     },
     {
@@ -2590,7 +2590,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "config_auth",
-      "community": 4,
+      "community": 149,
       "norm_label": "auth.php"
     },
     {
@@ -3564,6 +3564,466 @@
       "norm_label": "env.d.ts"
     },
     {
+      "label": "api.ts",
+      "file_type": "code",
+      "source_file": "resources/js/lib/api.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "resources_js_lib_api",
+      "community": 153,
+      "norm_label": "api.ts"
+    },
+    {
+      "label": "storageKeys",
+      "file_type": "code",
+      "source_file": "resources/js/lib/api.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "resources_js_lib_api_storagekeys",
+      "community": 153,
+      "norm_label": "storagekeys"
+    },
+    {
+      "label": "api",
+      "file_type": "code",
+      "source_file": "resources/js/lib/api.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "resources_js_lib_api_api",
+      "community": 153,
+      "norm_label": "api"
+    },
+    {
+      "label": "ContextPage.vue",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage",
+      "community": 150,
+      "norm_label": "contextpage.vue"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_router",
+      "community": 150,
+      "norm_label": "router"
+    },
+    {
+      "label": "session",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_session",
+      "community": 150,
+      "norm_label": "session"
+    },
+    {
+      "label": "selectedCompanyId",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_selectedcompanyid",
+      "community": 150,
+      "norm_label": "selectedcompanyid"
+    },
+    {
+      "label": "selectedBranchId",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_selectedbranchid",
+      "community": 150,
+      "norm_label": "selectedbranchid"
+    },
+    {
+      "label": "companyName",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_companyname",
+      "community": 150,
+      "norm_label": "companyname"
+    },
+    {
+      "label": "branchName",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_branchname",
+      "community": 150,
+      "norm_label": "branchname"
+    },
+    {
+      "label": "branchCode",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_branchcode",
+      "community": 150,
+      "norm_label": "branchcode"
+    },
+    {
+      "label": "isLoading",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_isloading",
+      "community": 150,
+      "norm_label": "isloading"
+    },
+    {
+      "label": "isCreatingCompany",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_iscreatingcompany",
+      "community": 150,
+      "norm_label": "iscreatingcompany"
+    },
+    {
+      "label": "errorMessage",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_errormessage",
+      "community": 150,
+      "norm_label": "errormessage"
+    },
+    {
+      "label": "companies",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_companies",
+      "community": 150,
+      "norm_label": "companies"
+    },
+    {
+      "label": "selectedCompany",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_selectedcompany",
+      "community": 150,
+      "norm_label": "selectedcompany"
+    },
+    {
+      "label": "availableBranches",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_availablebranches",
+      "community": 150,
+      "norm_label": "availablebranches"
+    },
+    {
+      "label": "continueToDashboard()",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_continuetodashboard",
+      "community": 150,
+      "norm_label": "continuetodashboard()"
+    },
+    {
+      "label": "createCompany()",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_contextpage_createcompany",
+      "community": 156,
+      "norm_label": "createcompany()"
+    },
+    {
+      "label": "LoginPage.vue",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_loginpage",
+      "community": 155,
+      "norm_label": "loginpage.vue"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_loginpage_router",
+      "community": 155,
+      "norm_label": "router"
+    },
+    {
+      "label": "session",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_loginpage_session",
+      "community": 155,
+      "norm_label": "session"
+    },
+    {
+      "label": "email",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_loginpage_email",
+      "community": 155,
+      "norm_label": "email"
+    },
+    {
+      "label": "password",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_loginpage_password",
+      "community": 155,
+      "norm_label": "password"
+    },
+    {
+      "label": "isSubmitting",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_loginpage_issubmitting",
+      "community": 155,
+      "norm_label": "issubmitting"
+    },
+    {
+      "label": "errorMessage",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_loginpage_errormessage",
+      "community": 155,
+      "norm_label": "errormessage"
+    },
+    {
+      "label": "submit()",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_loginpage_submit",
+      "community": 156,
+      "norm_label": "submit()"
+    },
+    {
+      "label": "RegisterPage.vue",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_registerpage",
+      "community": 154,
+      "norm_label": "registerpage.vue"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_registerpage_router",
+      "community": 154,
+      "norm_label": "router"
+    },
+    {
+      "label": "session",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_registerpage_session",
+      "community": 154,
+      "norm_label": "session"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_registerpage_name",
+      "community": 154,
+      "norm_label": "name"
+    },
+    {
+      "label": "email",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_registerpage_email",
+      "community": 154,
+      "norm_label": "email"
+    },
+    {
+      "label": "password",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_registerpage_password",
+      "community": 154,
+      "norm_label": "password"
+    },
+    {
+      "label": "passwordConfirmation",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_registerpage_passwordconfirmation",
+      "community": 154,
+      "norm_label": "passwordconfirmation"
+    },
+    {
+      "label": "isSubmitting",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_registerpage_issubmitting",
+      "community": 154,
+      "norm_label": "issubmitting"
+    },
+    {
+      "label": "errorMessage",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_registerpage_errormessage",
+      "community": 154,
+      "norm_label": "errormessage"
+    },
+    {
+      "label": "submit()",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_pages_registerpage_submit",
+      "community": 156,
+      "norm_label": "submit()"
+    },
+    {
+      "label": "session.ts",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_stores_session",
+      "community": 153,
+      "norm_label": "session.ts"
+    },
+    {
+      "label": "storedUser()",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_stores_session_storeduser",
+      "community": 153,
+      "norm_label": "storeduser()"
+    },
+    {
+      "label": "useSessionStore",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_stores_session_usesessionstore",
+      "community": 36,
+      "norm_label": "usesessionstore"
+    },
+    {
+      "label": "types.ts",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/types.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_types",
+      "community": 153,
+      "norm_label": "types.ts"
+    },
+    {
+      "label": "Branch",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/types.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_types_branch",
+      "community": 153,
+      "norm_label": "branch"
+    },
+    {
+      "label": "Company",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/types.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_types_company",
+      "community": 153,
+      "norm_label": "company"
+    },
+    {
+      "label": "AuthUser",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/types.ts",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_types_authuser",
+      "community": 153,
+      "norm_label": "authuser"
+    },
+    {
+      "label": "ApiEnvelope",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/types.ts",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_types_apienvelope",
+      "community": 153,
+      "norm_label": "apienvelope"
+    },
+    {
+      "label": "AuthSession",
+      "file_type": "code",
+      "source_file": "resources/js/modules/auth/types.ts",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "resources_js_modules_auth_types_authsession",
+      "community": 153,
+      "norm_label": "authsession"
+    },
+    {
       "label": "DashboardPage.spec.ts",
       "file_type": "code",
       "source_file": "resources/js/modules/dashboard/pages/DashboardPage.spec.ts",
@@ -3587,11 +4047,31 @@
       "label": "navigation",
       "file_type": "code",
       "source_file": "resources/js/modules/dashboard/pages/DashboardPage.vue",
-      "source_location": "L2",
+      "source_location": "L5",
       "_origin": "ast",
       "id": "resources_js_modules_dashboard_pages_dashboardpage_navigation",
       "community": 36,
       "norm_label": "navigation"
+    },
+    {
+      "label": "session",
+      "file_type": "code",
+      "source_file": "resources/js/modules/dashboard/pages/DashboardPage.vue",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "resources_js_modules_dashboard_pages_dashboardpage_session",
+      "community": 36,
+      "norm_label": "session"
+    },
+    {
+      "label": "operatorName",
+      "file_type": "code",
+      "source_file": "resources/js/modules/dashboard/pages/DashboardPage.vue",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "resources_js_modules_dashboard_pages_dashboardpage_operatorname",
+      "community": 36,
+      "norm_label": "operatorname"
     },
     {
       "label": "index.ts",
@@ -3602,6 +4082,16 @@
       "id": "resources_js_router_index",
       "community": 36,
       "norm_label": "index.ts"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "resources/js/router/index.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "resources_js_router_index_router",
+      "community": 36,
+      "norm_label": "router"
     },
     {
       "label": "welcome.blade.php",
@@ -3740,7 +4230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_feature_sanctumtokentest",
-      "community": 4,
+      "community": 149,
       "norm_label": "sanctumtokentest.php"
     },
     {
@@ -5267,7 +5757,7 @@
       "label": "FASE 0 \u2014 Base",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L14",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_0_base",
       "community": 5,
@@ -5277,7 +5767,7 @@
       "label": "FASE 1 \u2014 N\u00facleo SaaS",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_1_n\u00facleo_saas",
       "community": 5,
@@ -5287,7 +5777,7 @@
       "label": "FASE 2 \u2014 M\u00f3dulos y onboarding",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L35",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_2_m\u00f3dulos_y_onboarding",
       "community": 5,
@@ -5297,7 +5787,7 @@
       "label": "FASE 3 \u2014 Configuraci\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L41",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_3_configuraci\u00f3n",
       "community": 5,
@@ -5307,7 +5797,7 @@
       "label": "FASE 4 \u2014 Clientes",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L46",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_4_clientes",
       "community": 5,
@@ -5317,7 +5807,7 @@
       "label": "FASE 5 \u2014 Productos y servicios",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_5_productos_y_servicios",
       "community": 5,
@@ -5327,7 +5817,7 @@
       "label": "FASE 6 \u2014 Inventario avanzado",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L53",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_6_inventario_avanzado",
       "community": 5,
@@ -5337,7 +5827,7 @@
       "label": "FASE 7 \u2014 POS Touch",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L59",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_7_pos_touch",
       "community": 5,
@@ -5347,7 +5837,7 @@
       "label": "FASE 8 \u2014 Caja y pagos",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L63",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_8_caja_y_pagos",
       "community": 5,
@@ -5357,7 +5847,7 @@
       "label": "FASE 9 \u2014 Facturaci\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L67",
+      "source_location": "L68",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_9_facturaci\u00f3n",
       "community": 5,
@@ -5367,7 +5857,7 @@
       "label": "FASE 10 \u2014 Facturaci\u00f3n electr\u00f3nica",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L72",
+      "source_location": "L73",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_10_facturaci\u00f3n_electr\u00f3nica",
       "community": 5,
@@ -5377,7 +5867,7 @@
       "label": "FASE 11 \u2014 Impresi\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L75",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_11_impresi\u00f3n",
       "community": 5,
@@ -5387,7 +5877,7 @@
       "label": "FASE 12 \u2014 M\u00f3dulos por negocio",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L78",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_12_m\u00f3dulos_por_negocio",
       "community": 5,
@@ -5397,7 +5887,7 @@
       "label": "FASE 13 \u2014 Reportes",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L83",
+      "source_location": "L84",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_13_reportes",
       "community": 5,
@@ -5407,7 +5897,7 @@
       "label": "FASE 14 \u2014 Seguridad, pruebas y deploy",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L88",
+      "source_location": "L89",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_14_seguridad_pruebas_y_deploy",
       "community": 5,
@@ -5417,7 +5907,7 @@
       "label": "Backlog (post-v1)",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L93",
+      "source_location": "L94",
       "_origin": "ast",
       "id": "docs_11_todo_master_backlog_post_v1",
       "community": 5,
@@ -5454,10 +5944,20 @@
       "norm_label": "[no publicado]"
     },
     {
-      "label": "2026-07-09 \u2014 Fase 1: autenticaci\u00f3n API segura",
+      "label": "2026-07-09 \u2014 Fase 1: acceso y contexto operativo",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
       "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_12_changelog_2026_07_09_fase_1_acceso_y_contexto_operativo",
+      "community": 29,
+      "norm_label": "2026-07-09 \u2014 fase 1: acceso y contexto operativo"
+    },
+    {
+      "label": "2026-07-09 \u2014 Fase 1: autenticaci\u00f3n API segura",
+      "file_type": "document",
+      "source_file": "docs/12_CHANGELOG.md",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_fase_1_autenticaci\u00f3n_api_segura",
       "community": 29,
@@ -5467,7 +5967,7 @@
       "label": "2026-07-09 \u2014 Fase 1: RBAC por compa\u00f1\u00eda",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L16",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_fase_1_rbac_por_compa\u00f1\u00eda",
       "community": 29,
@@ -5477,7 +5977,7 @@
       "label": "2026-07-09 \u2014 Fase 1: aislamiento multiempresa base",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L26",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_fase_1_aislamiento_multiempresa_base",
       "community": 29,
@@ -5487,7 +5987,7 @@
       "label": "2026-07-09 \u2014 Inicio de Fase 0: control de versiones",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L36",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_inicio_de_fase_0_control_de_versiones",
       "community": 29,
@@ -5497,7 +5997,7 @@
       "label": "2026-07-09 \u2014 Inicio de Fase 0: runtime y Laravel",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L43",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_inicio_de_fase_0_runtime_y_laravel",
       "community": 29,
@@ -5507,7 +6007,7 @@
       "label": "2026-07-09 \u2014 Planificaci\u00f3n inicial (pre-c\u00f3digo)",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L67",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_planificaci\u00f3n_inicial_pre_c\u00f3digo",
       "community": 29,
@@ -9791,6 +10291,39 @@
       "source": "app_core_http_apiresponse_apiresponse_error",
       "target": "app_core_http_apiresponse_php_errorcode",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage_createcompany",
+      "target": "app_core_http_apiresponse_apiresponse_error"
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_loginpage_submit",
+      "target": "app_core_http_apiresponse_apiresponse_error"
+    },
+    {
+      "relation": "indirect_call",
+      "context": "argument",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage_submit",
+      "target": "app_core_http_apiresponse_apiresponse_error"
     },
     {
       "relation": "contains",
@@ -14758,11 +15291,719 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/app.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "resources_js_app_ts_resources_js_app",
+      "target": "resources_js_router_index_router",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/lib/api.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "resources_js_lib_api",
+      "target": "resources_js_lib_api_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/lib/api.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "resources_js_lib_api",
+      "target": "resources_js_lib_api_storagekeys",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_lib_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_stores_session",
+      "target": "resources_js_lib_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_stores_session",
+      "target": "resources_js_lib_api_storagekeys",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_lib_api_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_stores_session",
+      "target": "resources_js_lib_api_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_availablebranches",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_branchcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_branchname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_companies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_companyname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_continuetodashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_createcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_errormessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_iscreatingcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_isloading",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_router",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_selectedbranchid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_selectedcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_selectedcompanyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_pages_contextpage_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_stores_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_stores_session_usesessionstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_types_apienvelope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/ContextPage.vue",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_contextpage",
+      "target": "resources_js_modules_auth_types_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/router/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "resources_js_router_index",
+      "target": "resources_js_modules_auth_pages_contextpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_loginpage",
+      "target": "resources_js_modules_auth_pages_loginpage_email",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_loginpage",
+      "target": "resources_js_modules_auth_pages_loginpage_errormessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_loginpage",
+      "target": "resources_js_modules_auth_pages_loginpage_issubmitting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_loginpage",
+      "target": "resources_js_modules_auth_pages_loginpage_password",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_loginpage",
+      "target": "resources_js_modules_auth_pages_loginpage_router",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_loginpage",
+      "target": "resources_js_modules_auth_pages_loginpage_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_loginpage",
+      "target": "resources_js_modules_auth_pages_loginpage_submit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_loginpage",
+      "target": "resources_js_modules_auth_stores_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/LoginPage.vue",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_loginpage",
+      "target": "resources_js_modules_auth_stores_session_usesessionstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/router/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "resources_js_router_index",
+      "target": "resources_js_modules_auth_pages_loginpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage",
+      "target": "resources_js_modules_auth_pages_registerpage_email",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage",
+      "target": "resources_js_modules_auth_pages_registerpage_errormessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage",
+      "target": "resources_js_modules_auth_pages_registerpage_issubmitting",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage",
+      "target": "resources_js_modules_auth_pages_registerpage_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage",
+      "target": "resources_js_modules_auth_pages_registerpage_password",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage",
+      "target": "resources_js_modules_auth_pages_registerpage_passwordconfirmation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage",
+      "target": "resources_js_modules_auth_pages_registerpage_router",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage",
+      "target": "resources_js_modules_auth_pages_registerpage_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage",
+      "target": "resources_js_modules_auth_pages_registerpage_submit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage",
+      "target": "resources_js_modules_auth_stores_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/pages/RegisterPage.vue",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_pages_registerpage",
+      "target": "resources_js_modules_auth_stores_session_usesessionstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/router/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "resources_js_router_index",
+      "target": "resources_js_modules_auth_pages_registerpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_stores_session",
+      "target": "resources_js_modules_auth_stores_session_storeduser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_stores_session",
+      "target": "resources_js_modules_auth_stores_session_usesessionstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_stores_session",
+      "target": "resources_js_modules_auth_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_stores_session",
+      "target": "resources_js_modules_auth_types_apienvelope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_stores_session",
+      "target": "resources_js_modules_auth_types_authsession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_stores_session",
+      "target": "resources_js_modules_auth_types_authuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_stores_session",
+      "target": "resources_js_modules_auth_types_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/stores/session.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_stores_session",
+      "target": "resources_js_modules_auth_types_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/dashboard/pages/DashboardPage.vue",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "resources_js_modules_dashboard_pages_dashboardpage",
+      "target": "resources_js_modules_auth_stores_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/router/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "resources_js_router_index",
+      "target": "resources_js_modules_auth_stores_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/dashboard/pages/DashboardPage.vue",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "resources_js_modules_dashboard_pages_dashboardpage",
+      "target": "resources_js_modules_auth_stores_session_usesessionstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/router/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "resources_js_router_index",
+      "target": "resources_js_modules_auth_stores_session_usesessionstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/types.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_types",
+      "target": "resources_js_modules_auth_types_apienvelope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/types.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_types",
+      "target": "resources_js_modules_auth_types_authsession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/types.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_types",
+      "target": "resources_js_modules_auth_types_authuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/types.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_types",
+      "target": "resources_js_modules_auth_types_branch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/auth/types.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "resources_js_modules_auth_types",
+      "target": "resources_js_modules_auth_types_company",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/dashboard/pages/DashboardPage.spec.ts",
-      "source_location": "L3",
+      "source_location": "L4",
       "weight": 1.0,
       "source": "resources_js_modules_dashboard_pages_dashboardpage_spec",
       "target": "resources_js_modules_dashboard_pages_dashboardpage",
@@ -14772,10 +16013,30 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/dashboard/pages/DashboardPage.vue",
-      "source_location": "L2",
+      "source_location": "L5",
       "weight": 1.0,
       "source": "resources_js_modules_dashboard_pages_dashboardpage",
       "target": "resources_js_modules_dashboard_pages_dashboardpage_navigation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/dashboard/pages/DashboardPage.vue",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "resources_js_modules_dashboard_pages_dashboardpage",
+      "target": "resources_js_modules_dashboard_pages_dashboardpage_operatorname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/dashboard/pages/DashboardPage.vue",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "resources_js_modules_dashboard_pages_dashboardpage",
+      "target": "resources_js_modules_dashboard_pages_dashboardpage_session",
       "confidence_score": 1.0
     },
     {
@@ -14787,6 +16048,16 @@
       "weight": 1.0,
       "source": "resources_js_router_index",
       "target": "resources_js_modules_dashboard_pages_dashboardpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/router/index.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "resources_js_router_index",
+      "target": "resources_js_router_index_router",
       "confidence_score": 1.0
     },
     {
@@ -16437,7 +17708,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L93",
+      "source_location": "L94",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_backlog_post_v1",
@@ -16457,7 +17728,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_0_base",
@@ -16467,7 +17738,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L72",
+      "source_location": "L73",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_10_facturaci\u00f3n_electr\u00f3nica",
@@ -16477,7 +17748,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L75",
+      "source_location": "L76",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_11_impresi\u00f3n",
@@ -16487,7 +17758,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L78",
+      "source_location": "L79",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_12_m\u00f3dulos_por_negocio",
@@ -16497,7 +17768,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L83",
+      "source_location": "L84",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_13_reportes",
@@ -16507,7 +17778,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L88",
+      "source_location": "L89",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_14_seguridad_pruebas_y_deploy",
@@ -16517,7 +17788,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L29",
+      "source_location": "L30",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_1_n\u00facleo_saas",
@@ -16527,7 +17798,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_2_m\u00f3dulos_y_onboarding",
@@ -16537,7 +17808,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_3_configuraci\u00f3n",
@@ -16547,7 +17818,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L46",
+      "source_location": "L47",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_4_clientes",
@@ -16557,7 +17828,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_5_productos_y_servicios",
@@ -16567,7 +17838,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L53",
+      "source_location": "L54",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_6_inventario_avanzado",
@@ -16577,7 +17848,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L59",
+      "source_location": "L60",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_7_pos_touch",
@@ -16587,7 +17858,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L63",
+      "source_location": "L64",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_8_caja_y_pagos",
@@ -16597,7 +17868,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L67",
+      "source_location": "L68",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_9_facturaci\u00f3n",
@@ -16627,7 +17898,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L26",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "docs_12_changelog_no_publicado",
+      "target": "docs_12_changelog_2026_07_09_fase_1_acceso_y_contexto_operativo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/12_CHANGELOG.md",
+      "source_location": "L35",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_fase_1_aislamiento_multiempresa_base",
@@ -16637,7 +17918,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L7",
+      "source_location": "L16",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_fase_1_autenticaci\u00f3n_api_segura",
@@ -16647,7 +17928,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L16",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_fase_1_rbac_por_compa\u00f1\u00eda",
@@ -16657,7 +17938,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L36",
+      "source_location": "L45",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_inicio_de_fase_0_control_de_versiones",
@@ -16667,7 +17948,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L43",
+      "source_location": "L52",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_inicio_de_fase_0_runtime_y_laravel",
@@ -16677,7 +17958,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L67",
+      "source_location": "L76",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_planificaci\u00f3n_inicial_pre_c\u00f3digo",
@@ -18895,5 +20176,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "66214d561ae8f7718a10b263de7b2eee9c818590"
+  "built_at_commit": "07f272e92d50a170eab87e71ba8e04b6412b3a0c"
 }

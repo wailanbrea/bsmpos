@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useSessionStore } from '../../auth/stores/session';
+
 const navigation = ['Resumen', 'Ventas', 'Inventario', 'Clientes', 'Configuración'];
+const session = useSessionStore();
+const operatorName = computed(() => session.user?.name ?? 'Operador');
 </script>
 
 <template>
@@ -7,8 +12,9 @@ const navigation = ['Resumen', 'Ventas', 'Inventario', 'Clientes', 'Configuraci�
         <div class="mx-auto max-w-7xl">
             <header class="mb-6 flex flex-wrap items-center justify-between gap-4">
                 <div>
-                    <p class="text-sm font-semibold tracking-wide text-[#3525cd]">OmniPOS · operación en tiempo real</p>
+                    <p class="text-sm font-semibold tracking-wide text-[#3525cd]">OmniPOS · turno activo</p>
                     <h1 class="mt-1 text-3xl font-bold tracking-tight">Panel de control</h1>
+                    <p class="mt-1 text-sm text-[#464555]">{{ operatorName }}</p>
                 </div>
                 <button
                     class="min-h-11 rounded-lg bg-[#3525cd] px-5 font-semibold text-white shadow-sm transition active:scale-[.98]"
@@ -30,7 +36,12 @@ const navigation = ['Resumen', 'Ventas', 'Inventario', 'Clientes', 'Configuraci�
                 </div>
                 <div class="border-b border-[#e4e1ee] pb-3 md:border-r md:border-b-0 md:pb-0">
                     <p class="text-xs text-[#464555]">Sucursal activa</p>
-                    <p class="font-semibold">Pendiente de selección</p>
+                    <p class="font-semibold">{{ session.branch?.name }}</p>
+                    <RouterLink
+                        to="/seleccionar-contexto"
+                        class="mt-1 inline-block text-xs font-semibold text-[#3525cd]"
+                        >Cambiar</RouterLink
+                    >
                 </div>
                 <div>
                     <p class="text-xs text-[#464555]">Caja</p>
