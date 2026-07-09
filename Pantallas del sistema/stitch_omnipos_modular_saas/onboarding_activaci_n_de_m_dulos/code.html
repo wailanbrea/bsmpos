@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OmniPOS - Módulos del Sistema (Onboarding Paso 3)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface": "#fcf8ff",
+                        "on-tertiary-container": "#ffd0cc",
+                        "inverse-primary": "#c3c0ff",
+                        "on-surface": "#1b1b24",
+                        "surface-container-high": "#eae6f4",
+                        "on-primary-container": "#dad7ff",
+                        "surface-container-highest": "#e4e1ee",
+                        "on-secondary-fixed": "#002113",
+                        "primary": "#3525cd",
+                        "on-tertiary-fixed": "#410004",
+                        "primary-container": "#4f46e5",
+                        "secondary-container": "#6cf8bb",
+                        "surface-variant": "#e4e1ee",
+                        "surface-container-low": "#f5f2ff",
+                        "on-surface-variant": "#464555",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "secondary-fixed": "#6ffbbe",
+                        "secondary": "#006c49",
+                        "surface-tint": "#4d44e3",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "outline-variant": "#c7c4d8",
+                        "tertiary": "#960014",
+                        "on-tertiary": "#ffffff",
+                        "background": "#fcf8ff",
+                        "surface-dim": "#dcd8e5",
+                        "primary-fixed": "#e2dfff",
+                        "inverse-on-surface": "#f3effc",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "surface-container": "#f0ecf9",
+                        "inverse-surface": "#302f39",
+                        "tertiary-container": "#bc1d25",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-secondary-fixed-variant": "#005236",
+                        "outline": "#777587",
+                        "surface-bright": "#fcf8ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdad7",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1b1b24",
+                        "on-secondary-container": "#00714d",
+                        "on-primary-fixed": "#0f0069"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "touch-target-relaxed": "56px",
+                        "touch-target-min": "44px",
+                        "gutter": "16px",
+                        "container-gap": "24px"
+                    },
+                    "fontFamily": {
+                        "numeric-pos": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "numeric-pos": ["28px", { "lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #6cf8bb;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #6cf8bb;
+        }
+        .toggle-checkbox:checked + .toggle-label:before {
+            transform: translateX(100%);
+            border-color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col items-center justify-center p-margin-mobile md:p-margin-desktop">
+<!-- Progress Indicator Container -->
+<div class="w-full max-w-4xl mb-container-gap">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-title-lg text-title-lg text-primary font-bold">Paso 3 de 5</h2>
+<span class="font-label-md text-label-md text-on-surface-variant">Configuración Inicial</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-4xl bg-surface-container-lowest border border-outline-variant rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Header -->
+<header class="bg-surface-container-low p-container-gap border-b border-outline-variant flex flex-col md:flex-row md:justify-between md:items-center">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Módulos del Sistema</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Seleccione las funcionalidades que mejor se adapten a la operativa de su negocio. Las recomendaciones están basadas en la industria seleccionada en el paso anterior.</p>
+</div>
+<div class="mt-4 md:mt-0 flex-shrink-0">
+<span class="inline-flex items-center gap-1 bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-md text-label-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 16px;">storefront</span>
+                    Restaurante / Retail
+                </span>
+</div>
+</header>
+<!-- Modules Grid Layout -->
+<div class="p-container-gap flex-grow grid grid-cols-1 lg:grid-cols-12 gap-container-gap bg-surface">
+<!-- Left Column: Categories -->
+<div class="lg:col-span-8 flex flex-col gap-container-gap">
+<!-- Recomendados -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Recomendados</h3>
+<span class="bg-secondary-container text-on-secondary-container font-label-md text-label-md px-2 py-0.5 rounded-full">3 Módulos</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Module Card 1 -->
+<div class="bg-surface-container-lowest border-2 border-primary/20 rounded-lg p-4 flex flex-col relative overflow-hidden transition-all duration-200 shadow-sm hover:shadow-md">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">point_of_sale</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">POS Touch</h4>
+<span class="font-label-md text-label-md text-on-surface-variant">Venta Rápida</span>
+</div>
+</div>
+<!-- Toggle -->
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out border-surface-variant checked:border-secondary-container checked:translate-x-full" id="pos_touch" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out peer-checked:bg-secondary-container" for="pos_touch"></label>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 flex-grow text-sm">Interfaz optimizada para pantallas táctiles, cobro rápido y manejo de múltiples cajas.</p>
+</div>
+<!-- Module Card 2 -->
+<div class="bg-surface-container-lowest border-2 border-primary/20 rounded-lg p-4 flex flex-col relative overflow-hidden transition-all duration-200 shadow-sm hover:shadow-md">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Mesas/Comandas</h4>
+<span class="font-label-md text-label-md text-on-surface-variant">Gestión de Salón</span>
+</div>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out border-surface-variant checked:border-secondary-container checked:translate-x-full" id="mesas" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" for="mesas"></label>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 flex-grow text-sm">Mapeo de mesas, toma de pedidos móvil y envíos directos a cocina (KDS).</p>
+</div>
+<!-- Module Card 3 -->
+<div class="bg-surface-container-lowest border-2 border-primary/20 rounded-lg p-4 flex flex-col relative overflow-hidden transition-all duration-200 shadow-sm hover:shadow-md">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Facturación Electrónica</h4>
+<span class="font-label-md text-label-md text-on-surface-variant">Cumplimiento Fiscal</span>
+</div>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out border-surface-variant checked:border-secondary-container checked:translate-x-full" id="facturacion" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" for="facturacion"></label>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 flex-grow text-sm">Emisión automática de comprobantes fiscales electrónicos conectados con la autoridad.</p>
+</div>
+</div>
+</section>
+<hr class="border-outline-variant my-2"/>
+<!-- Opcionales -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">tune</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Opcionales</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Module Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 flex flex-col relative overflow-hidden transition-all duration-200 shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Inventario Avanzado</h4>
+<span class="font-label-md text-label-md text-on-surface-variant">Recetas y Mermas</span>
+</div>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out border-surface-variant checked:border-secondary-container checked:translate-x-full" id="inventario" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" for="inventario"></label>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 flex-grow text-sm">Control de stock por ingredientes, múltiples almacenes y alertas de reabastecimiento.</p>
+</div>
+</div>
+</section>
+<hr class="border-outline-variant my-2"/>
+<!-- No Recomendados -->
+<section class="opacity-75">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">block</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">No Recomendados para su Industria</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Module Card 5 -->
+<div class="bg-surface-container border border-outline-variant rounded-lg p-4 flex flex-col relative overflow-hidden transition-all duration-200">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-outline">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface text-opacity-70">Citas</h4>
+</div>
+</div>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out border-surface-variant checked:border-secondary-container checked:translate-x-full" id="citas" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" for="citas"></label>
+</div>
+</div>
+<p class="font-body-md text-body-md text-outline mt-2 text-sm">Agenda de servicios por hora y profesional (ideal para salones, clínicas).</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Summary / Validation -->
+<div class="lg:col-span-4 flex flex-col gap-4">
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant sticky top-6">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-4">Resumen de Selección</h3>
+<ul class="space-y-3 mb-6 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-center justify-between">
+<span>POS Touch</span>
+<span class="material-symbols-outlined text-secondary" style="font-size: 20px;">check_circle</span>
+</li>
+<li class="flex items-center justify-between">
+<span>Mesas/Comandas</span>
+<span class="material-symbols-outlined text-secondary" style="font-size: 20px;">check_circle</span>
+</li>
+<li class="flex items-center justify-between">
+<span>Facturación Electrónica</span>
+<span class="material-symbols-outlined text-secondary" style="font-size: 20px;">check_circle</span>
+</li>
+</ul>
+<!-- Dependency Warning Example -->
+<div class="bg-error-container text-on-error-container p-3 rounded-lg mb-6 border border-error/20 flex gap-3 text-sm items-start hidden" id="dependency-warning">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; font-size: 20px;">warning</span>
+<div class="flex flex-col">
+<span class="font-label-lg font-bold">Dependencia Requerida</span>
+<span>'Mesas/Comandas' requiere que 'POS Touch' esté activo.</span>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary font-label-lg text-label-lg h-touch-target-min rounded-lg hover:bg-primary-fixed-dim hover:text-on-primary-fixed-variant transition-colors shadow-sm flex items-center justify-center gap-2">
+                        Continuar a Configuración
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full mt-3 bg-transparent text-primary font-label-lg text-label-lg h-touch-target-min rounded-lg border border-outline-variant hover:bg-surface-variant transition-colors flex items-center justify-center">
+                        Volver al Paso Anterior
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple logic to demonstrate dependency warning (Vanilla JS as requested)
+        document.addEventListener('DOMContentLoaded', () => {
+            const posTouchToggle = document.getElementById('pos_touch');
+            const mesasToggle = document.getElementById('mesas');
+            const warningBox = document.getElementById('dependency-warning');
+
+            posTouchToggle.addEventListener('change', (e) => {
+                if (!e.target.checked && mesasToggle.checked) {
+                    warningBox.classList.remove('hidden');
+                } else {
+                    warningBox.classList.add('hidden');
+                }
+            });
+
+            mesasToggle.addEventListener('change', (e) => {
+                if (e.target.checked && !posTouchToggle.checked) {
+                     warningBox.classList.remove('hidden');
+                } else {
+                    warningBox.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body></html>

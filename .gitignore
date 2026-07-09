@@ -1,0 +1,36 @@
+# Dependencies and generated assets
+/vendor/
+/node_modules/
+/public/build/
+/public/hot
+
+# Environment and application secrets
+.env
+.env.*
+!.env.example
+
+# Laravel runtime artifacts
+/bootstrap/cache/*.php
+/storage/*.key
+/storage/logs/*
+!/storage/logs/.gitignore
+/storage/framework/cache/*
+!/storage/framework/cache/.gitignore
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/testing/*
+!/storage/framework/testing/.gitignore
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+
+# Tooling and local editor state
+/.playwright-cli/
+/.phpunit.result.cache
+/.idea/
+/.vscode/
+*.log
+*.local
+
+# Graphify cache and intermediate extraction batches
+/graphify-out/cache/
+/graphify-out/.graphify_*

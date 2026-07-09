@@ -1,0 +1,2229 @@
+ACTÚA COMO:
+Arquitecto de software senior, desarrollador full-stack senior, especialista en Laravel, MySQL, Vue 3, TypeScript, POS, facturación, facturación electrónica, inventario avanzado, sistemas SaaS multiempresa, PWA, impresión térmica ESC/POS, seguridad, auditoría, testing y arquitectura modular mantenible.
+
+OBJETIVO GENERAL:
+Desarrollar un sistema profesional tipo POS Touch + Facturación + Caja + Clientes + Productos + Servicios + Inventario + Reportes + Facturación Electrónica, adaptable a diferentes tipos de negocios mediante módulos activables/desactivables.
+
+El sistema debe servir para:
+
+- Restaurantes.
+- Cafeterías.
+- Food trucks.
+- Colmados.
+- Minimarkets.
+- Supermercados.
+- Bodegas.
+- Almacenes.
+- Distribuidoras.
+- Tiendas.
+- Ferreterías.
+- Barberías.
+- Salones.
+- Talleres mecánicos.
+- Repuestos.
+- Servicios profesionales.
+- Cualquier negocio que venda productos o servicios y necesite facturar.
+
+REGLA CENTRAL:
+El sistema no debe construirse como un POS rígido solo para restaurantes. Debe construirse como una plataforma modular de facturación y ventas adaptable por tipo de negocio.
+
+=====================================================================
+1. REGLAS OBLIGATORIAS
+=====================================================================
+
+Antes de programar:
+
+1. Analizar estructura existente si el proyecto ya existe.
+2. No sobrescribir archivos sin revisar.
+3. No eliminar código sin autorización.
+4. Crear plan por fases.
+5. Crear documentación inicial.
+6. Crear TODO_MASTER.md.
+7. Crear CHANGELOG.md.
+8. Preguntar si falta información crítica.
+
+Durante el desarrollo:
+
+1. Trabajar módulo por módulo.
+2. No mezclar lógica de módulos.
+3. No usar float/double para dinero.
+4. Usar DECIMAL para montos.
+5. Usar Form Requests para validaciones.
+6. Usar Services/Actions para lógica.
+7. Usar Policies para permisos.
+8. Usar Resources para respuestas API.
+9. Registrar auditoría en acciones sensibles.
+10. Proteger rutas por auth, empresa, sucursal, permisos y módulos.
+11. Mantener frontend modular.
+12. Mantener menú dinámico por módulos activos.
+13. Actualizar documentación en cada cambio.
+
+Después de cada cambio:
+
+1. Ejecutar pruebas.
+2. Ejecutar formato/lint.
+3. Actualizar TODO.
+4. Actualizar CHANGELOG.
+5. Indicar archivos creados/modificados.
+6. Indicar comandos ejecutados.
+7. Indicar riesgos.
+8. Indicar próximo paso.
+
+Prohibido:
+
+- Inventar reglas fiscales específicas.
+- Colocar lógica electrónica dentro de InvoiceController.
+- Quemar reglas de módulos en frontend.
+- Usar dinero con float/double.
+- Crear controladores gigantes.
+- Duplicar lógica.
+- Exponer credenciales.
+- Saltar documentación.
+- Avanzar sin registrar cambios.
+
+=====================================================================
+2. STACK TECNOLÓGICO
+=====================================================================
+
+Backend:
+
+- Laravel 12.
+- PHP 8.3+.
+- MySQL.
+- Laravel Sanctum.
+- Laravel Policies.
+- Laravel Form Requests.
+- Laravel API Resources.
+- Laravel Jobs.
+- Laravel Queues.
+- Laravel Scheduler.
+- Laravel Events/Listeners.
+- Laravel Pint.
+- PHPUnit o Pest.
+
+Frontend:
+
+- Vue 3.
+- TypeScript.
+- Pinia.
+- Vue Router.
+- Tailwind CSS.
+- Axios.
+- PWA.
+- IndexedDB cuando aplique.
+- Componentes reutilizables.
+
+Base de datos:
+
+- MySQL.
+- DECIMAL para dinero.
+- No usar float/double.
+- Índices en campos críticos.
+- company_id en tablas multiempresa.
+- branch_id cuando aplique.
+- Auditoría en operaciones sensibles.
+
+Futuro Android:
+
+- Preparar API para app Android Kotlin.
+- Android Kotlin se usará luego para impresión Bluetooth/USB/ESC-POS y modo offline avanzado.
+- No desarrollar Android ahora salvo autorización explícita.
+
+=====================================================================
+3. ARQUITECTURA
+=====================================================================
+
+Usar Modular Monolith.
+
+Núcleo obligatorio:
+
+- Auth.
+- Company.
+- Branch.
+- UserAccess.
+- ModuleManager.
+- Setting.
+- Customer.
+- Payment.
+- CashRegister.
+- Invoice.
+- ElectronicInvoice.
+- Report básico.
+- Audit.
+- Security.
+
+Módulos opcionales:
+
+- POS.
+- Product.
+- Service.
+- Inventory.
+- AdvancedInventory.
+- Barcode.
+- Purchase.
+- Supplier.
+- Warehouse.
+- TableManagement.
+- Kitchen.
+- Delivery.
+- DigitalMenu.
+- Appointment.
+- Vehicle.
+- WorkOrder.
+- Recipe.
+- AccountsReceivable.
+- AccountsPayable.
+- Printer.
+- Loyalty.
+- Reservation.
+- Warranty.
+- SerialNumbers.
+
+REGLA:
+Los módulos opcionales deben poder activarse/desactivarse sin borrar datos históricos.
+
+=====================================================================
+4. ESTRUCTURA BACKEND
+=====================================================================
+
+Crear estructura:
+
+app/
+  Modules/
+    Auth/
+    Company/
+    Branch/
+    UserAccess/
+    ModuleManager/
+    Setting/
+    Customer/
+    Product/
+    Service/
+    Inventory/
+    AdvancedInventory/
+    Warehouse/
+    Purchase/
+    Supplier/
+    POS/
+    Order/
+    Invoice/
+    ElectronicInvoice/
+    Payment/
+    CashRegister/
+    TableManagement/
+    Delivery/
+    Kitchen/
+    DigitalMenu/
+    Appointment/
+    Vehicle/
+    WorkOrder/
+    Report/
+    Printer/
+    Audit/
+
+Cada módulo debe tener, según aplique:
+
+app/Modules/NombreModulo/
+  Actions/
+  DTOs/
+  Enums/
+  Events/
+  Exceptions/
+  Http/
+    Controllers/
+    Requests/
+    Resources/
+  Jobs/
+  Listeners/
+  Models/
+  Policies/
+  Services/
+  Support/
+  Tests/
+
+Regla:
+Controladores delgados. Lógica en Services/Actions.
+
+=====================================================================
+5. ESTRUCTURA FRONTEND
+=====================================================================
+
+Crear:
+
+resources/js/
+  app.ts
+  router/
+  stores/
+  layouts/
+    AuthLayout.vue
+    DashboardLayout.vue
+    PosLayout.vue
+    PublicDisplayLayout.vue
+  modules/
+    auth/
+    dashboard/
+    companies/
+    branches/
+    users/
+    module-manager/
+    settings/
+    customers/
+    products/
+    services/
+    inventory/
+    warehouses/
+    purchases/
+    suppliers/
+    pos/
+    orders/
+    invoices/
+    electronic-invoices/
+    payments/
+    cash-register/
+    tables/
+    delivery/
+    kitchen/
+    digital-menu/
+    appointments/
+    vehicles/
+    work-orders/
+    reports/
+    printers/
+    audit/
+  components/
+    ui/
+    forms/
+    tables/
+    modals/
+    feedback/
+    touch/
+  composables/
+  services/
+  types/
+  utils/
+
+Cada módulo frontend debe tener:
+
+- pages/
+- components/
+- services/
+- store.ts.
+- types.ts.
+- routes.ts si aplica.
+
+=====================================================================
+6. DOCUMENTACIÓN OBLIGATORIA
+=====================================================================
+
+Crear antes de programar módulos funcionales:
+
+/docs/00_PROJECT_OVERVIEW.md
+/docs/01_ARCHITECTURE.md
+/docs/02_DATABASE_SCHEMA.md
+/docs/03_API_DOCUMENTATION.md
+/docs/04_FRONTEND_STRUCTURE.md
+/docs/05_MODULE_SYSTEM.md
+/docs/06_ELECTRONIC_INVOICING.md
+/docs/07_PRINTING.md
+/docs/08_SECURITY.md
+/docs/09_TESTING.md
+/docs/10_DEPLOYMENT.md
+/docs/11_TODO_MASTER.md
+/docs/12_CHANGELOG.md
+/docs/13_DECISIONS.md
+/docs/14_KNOWN_ISSUES.md
+/docs/15_INVENTORY_AND_EXPIRATIONS.md
+
+Cada cambio debe actualizar:
+
+- TODO_MASTER.md.
+- CHANGELOG.md.
+- API_DOCUMENTATION.md si hay endpoints.
+- DATABASE_SCHEMA.md si hay tablas.
+- FRONTEND_STRUCTURE.md si hay pantallas.
+- DECISIONS.md si hay decisión técnica.
+- INVENTORY_AND_EXPIRATIONS.md si afecta inventario, lotes o vencimientos.
+
+Ningún módulo se considera terminado si no está documentado.
+
+=====================================================================
+7. TIPOS DE NEGOCIO
+=====================================================================
+
+Crear business_types.
+
+Tipos iniciales:
+
+1. Restaurante.
+2. Cafetería.
+3. Food Truck.
+4. Colmado / Minimarket.
+5. Supermercado.
+6. Bodega / Almacén.
+7. Distribuidora.
+8. Tienda general.
+9. Ferretería.
+10. Barbería / Salón.
+11. Taller mecánico.
+12. Repuestos.
+13. Servicios profesionales.
+14. Negocio personalizado.
+
+Cada tipo de negocio debe tener módulos recomendados por defecto.
+
+=====================================================================
+8. SISTEMA DE MÓDULOS
+=====================================================================
+
+Crear tablas:
+
+business_types:
+- id
+- code
+- name
+- description
+- is_active
+- created_at
+- updated_at
+
+system_modules:
+- id
+- code
+- name
+- description
+- category
+- is_core
+- is_active
+- sort_order
+- created_at
+- updated_at
+
+module_dependencies:
+- id
+- module_id
+- depends_on_module_id
+- created_at
+- updated_at
+
+business_type_modules:
+- id
+- business_type_id
+- module_id
+- enabled_by_default
+- is_recommended
+- created_at
+- updated_at
+
+company_modules:
+- id
+- company_id
+- module_id
+- is_enabled
+- enabled_at
+- disabled_at
+- enabled_by_user_id
+- disabled_by_user_id
+- settings_json
+- created_at
+- updated_at
+
+branch_modules:
+- id
+- branch_id
+- module_id
+- is_enabled
+- settings_json
+- created_at
+- updated_at
+
+subscription_plans:
+- id
+- code
+- name
+- description
+- price
+- billing_cycle
+- is_active
+- created_at
+- updated_at
+
+plan_modules:
+- id
+- plan_id
+- module_id
+- is_allowed
+- created_at
+- updated_at
+
+module_audit_logs:
+- id
+- company_id
+- branch_id nullable
+- module_id
+- action
+- old_value
+- new_value
+- user_id
+- reason
+- created_at
+
+Crear ModuleManagerService con:
+
+- isEnabled(companyId, moduleCode)
+- isEnabledForBranch(branchId, moduleCode)
+- enableModule(companyId, moduleCode)
+- disableModule(companyId, moduleCode)
+- getEnabledModules(companyId)
+- getAvailableModulesForBusinessType(businessTypeCode)
+- validateDependencies(moduleCode)
+- validatePlanAllowsModule(companyId, moduleCode)
+- applyBusinessTypePreset(companyId, businessTypeCode)
+- auditModuleChange(...)
+
+Crear middleware:
+
+EnsureModuleEnabled
+
+Uso:
+
+Route::middleware(['auth:sanctum', 'module:pos'])->group(...);
+
+Si módulo inactivo:
+- API devuelve 403.
+- Frontend muestra mensaje: “Este módulo no está activo para esta empresa.”
+
+Frontend:
+
+Crear useModuleStore con:
+- enabledModules.
+- availableModules.
+- canUse(moduleCode).
+- loadModules().
+- isCore(moduleCode).
+
+El menú se construye según:
+- Módulos activos.
+- Permisos.
+- Sucursal.
+- Plan.
+
+Crear route guards:
+- requiresAuth.
+- requiresPermission.
+- requiresModule.
+
+=====================================================================
+9. MATRIZ BASE POR TIPO DE NEGOCIO
+=====================================================================
+
+Restaurante:
+- POS Touch: sí.
+- Productos: sí.
+- Servicios: opcional.
+- Clientes: sí.
+- Caja: sí.
+- Pagos: sí.
+- Facturación: sí.
+- Facturación electrónica: sí.
+- Mesas: sí.
+- Cocina/KDS: sí.
+- Comandas: sí.
+- Delivery: sí.
+- Inventario: sí.
+- Recetas: sí.
+- Menú digital: sí.
+- Citas: no.
+- Vehículos: no.
+- Órdenes de trabajo: no.
+- Reportes: sí.
+
+Barbería / Salón:
+- POS Touch: sí.
+- Productos: opcional.
+- Servicios: sí.
+- Clientes: sí.
+- Caja: sí.
+- Pagos: sí.
+- Facturación: sí.
+- Facturación electrónica: sí.
+- Citas: sí.
+- Inventario: opcional.
+- Mesas: no.
+- Cocina/KDS: no.
+- Comandas: no.
+- Menú digital: no.
+- Delivery: no.
+- Vehículos: no.
+- Órdenes de trabajo: no.
+- Reportes: sí.
+
+Taller mecánico:
+- POS Touch: opcional.
+- Productos/Repuestos: sí.
+- Servicios: sí.
+- Clientes: sí.
+- Vehículos: sí.
+- Órdenes de trabajo: sí.
+- Cotizaciones: sí.
+- Inventario: sí.
+- Caja: sí.
+- Pagos: sí.
+- Facturación: sí.
+- Facturación electrónica: sí.
+- Mesas: no.
+- Cocina/KDS: no.
+- Menú digital: no.
+- Reportes: sí.
+
+Tienda / Ferretería / Minimarket:
+- POS Touch: sí.
+- Productos: sí.
+- Servicios: opcional.
+- Clientes: sí.
+- Inventario: sí.
+- Código de barras: sí.
+- Compras: sí.
+- Proveedores: sí.
+- Caja: sí.
+- Pagos: sí.
+- Facturación: sí.
+- Facturación electrónica: sí.
+- Mesas: no.
+- Cocina/KDS: no.
+- Menú digital: opcional.
+- Citas: no.
+- Vehículos: no.
+- Reportes: sí.
+
+Supermercado:
+- POS Touch: sí.
+- Productos: sí.
+- Clientes: sí.
+- Inventario: sí.
+- Inventario avanzado: sí.
+- Lotes: sí.
+- Fecha de vencimiento: sí.
+- Código de barras: sí.
+- Compras: sí.
+- Proveedores: sí.
+- Transferencias: sí.
+- Almacenes: sí.
+- Caja: sí.
+- Pagos: sí.
+- Facturación: sí.
+- Facturación electrónica: sí.
+- Reportes: sí.
+- Productos próximos a vencer: sí.
+- Productos vencidos: sí.
+- Mesas: no.
+- Cocina/KDS: no.
+- Citas: no.
+- Vehículos: no.
+
+Bodega / Almacén:
+- POS Touch: opcional.
+- Productos: sí.
+- Clientes: sí.
+- Inventario: sí.
+- Inventario avanzado: sí.
+- Lotes: sí.
+- Fecha de vencimiento: sí.
+- Compras: sí.
+- Proveedores: sí.
+- Transferencias: sí.
+- Almacenes: sí.
+- Código de barras: sí.
+- Caja: sí.
+- Pagos: sí.
+- Facturación: sí.
+- Facturación electrónica: sí.
+- Reportes: sí.
+- Mesas: no.
+- Cocina/KDS: no.
+- Menú digital: no.
+- Citas: no.
+- Vehículos: no.
+
+Distribuidora:
+- POS Touch: opcional.
+- Productos: sí.
+- Clientes: sí.
+- Inventario: sí.
+- Inventario avanzado: sí.
+- Lotes: sí.
+- Fecha de vencimiento: opcional.
+- Compras: sí.
+- Proveedores: sí.
+- Cuentas por cobrar: sí.
+- Cuentas por pagar: sí.
+- Transferencias: sí.
+- Almacenes: sí.
+- Facturación: sí.
+- Facturación electrónica: sí.
+- Reportes: sí.
+- Caja: sí.
+- Delivery: opcional.
+
+Servicios profesionales:
+- POS Touch: opcional.
+- Productos: no.
+- Servicios: sí.
+- Clientes: sí.
+- Cotizaciones: sí.
+- Citas: opcional.
+- Caja: sí.
+- Pagos: sí.
+- Facturación: sí.
+- Facturación electrónica: sí.
+- Inventario: no.
+- Cocina/KDS: no.
+- Mesas: no.
+- Menú digital: no.
+- Reportes: sí.
+
+=====================================================================
+10. ONBOARDING
+=====================================================================
+
+Al crear empresa nueva:
+
+Paso 1:
+Datos del negocio:
+- Nombre comercial.
+- Razón social.
+- RNC/Cédula/CIF/NIF configurable.
+- Teléfono.
+- WhatsApp.
+- Email.
+- Dirección.
+- Logo.
+
+Paso 2:
+Seleccionar tipo de negocio.
+
+Paso 3:
+Mostrar módulos:
+- Obligatorios.
+- Recomendados.
+- Opcionales.
+- No necesarios.
+
+Paso 4:
+Configuración inicial:
+- Moneda.
+- Tasa.
+- Impuesto.
+- Caja.
+- Facturación.
+- Facturación electrónica.
+- Impresión.
+
+Paso 5:
+Crear:
+- Empresa.
+- Sucursal principal.
+- Caja principal.
+- Cliente genérico.
+- Métodos de pago.
+- Categorías iniciales.
+- Secuencias internas.
+- Módulos por defecto.
+
+=====================================================================
+11. AUTH, EMPRESAS, SUCURSALES, USUARIOS Y PERMISOS
+=====================================================================
+
+Crear:
+
+- companies.
+- branches.
+- users.
+- roles.
+- permissions.
+- role_user.
+- permission_role.
+
+Funciones:
+
+- Login.
+- Logout.
+- Selección de empresa.
+- Selección de sucursal.
+- Middleware company.
+- Middleware branch.
+- Roles.
+- Permisos.
+- Auditoría de acceso.
+
+No permitir acceso cruzado entre empresas.
+
+=====================================================================
+12. CONFIGURACIÓN GENERAL
+=====================================================================
+
+Crear configuración para:
+
+- Datos de empresa.
+- Sucursales.
+- Monedas.
+- Tasa.
+- Impuestos.
+- Métodos de pago.
+- Facturación.
+- Facturación electrónica.
+- POS.
+- Inventario.
+- Impresión.
+- Seguridad.
+- Backups.
+
+=====================================================================
+13. CLIENTES
+=====================================================================
+
+Crear módulo Customer.
+
+Tablas sugeridas:
+
+customers
+customer_addresses
+customer_contacts
+customer_credit_accounts
+
+Debe soportar:
+
+- Cliente genérico.
+- Persona.
+- Empresa.
+- Datos fiscales.
+- Cédula/RNC/CIF/NIF configurable.
+- Teléfono.
+- WhatsApp.
+- Email.
+- Dirección.
+- Historial.
+- Crédito.
+- Balance.
+
+Pantallas:
+- Lista.
+- Crear.
+- Editar.
+- Perfil.
+- Historial.
+- Facturas.
+- Direcciones.
+- Datos fiscales.
+
+=====================================================================
+14. PRODUCTOS Y SERVICIOS
+=====================================================================
+
+Crear módulos Product y Service.
+
+Tablas sugeridas:
+
+categories
+products
+product_images
+product_variants
+product_modifiers
+product_modifier_options
+product_combos
+services
+service_categories
+
+Producto:
+
+- company_id.
+- branch_id opcional.
+- category_id.
+- name.
+- sku.
+- barcode.
+- type.
+- price DECIMAL.
+- cost DECIMAL.
+- tax_id.
+- image.
+- stock_enabled.
+- requires_batch.
+- requires_expiration_date.
+- requires_serial_number.
+- expiration_alert_days.
+- allow_expired_sale.
+- allow_near_expiration_sale.
+- outgoing_method.
+- is_active.
+- available_pos.
+- available_delivery.
+- available_digital_menu.
+
+Servicio:
+
+- name.
+- category.
+- price DECIMAL.
+- duration_minutes.
+- tax_id.
+- available_pos.
+- available_appointments.
+- requires_employee.
+- is_active.
+
+=====================================================================
+15. INVENTARIO SIMPLE Y AVANZADO
+=====================================================================
+
+El inventario debe servir para:
+
+- Tiendas.
+- Colmados.
+- Supermercados.
+- Bodegas.
+- Almacenes.
+- Distribuidoras.
+- Ferreterías.
+- Repuestos.
+- Restaurantes.
+- Cafeterías.
+
+Debe soportar:
+
+1. Stock por empresa.
+2. Stock por sucursal.
+3. Stock por almacén.
+4. Stock por ubicación interna.
+5. Entradas.
+6. Salidas.
+7. Ajustes.
+8. Compras.
+9. Proveedores.
+10. Transferencias.
+11. Merma.
+12. Devoluciones.
+13. Lotes.
+14. Vencimientos.
+15. Seriales.
+16. Código de barras.
+17. Unidades de medida.
+18. Costo promedio.
+19. Último costo.
+20. Margen.
+21. Stock mínimo.
+22. Stock máximo.
+23. Punto de reorden.
+24. Alertas.
+
+Métodos de salida:
+
+- Manual.
+- FIFO.
+- FEFO.
+- Costo promedio.
+
+FEFO:
+First Expired, First Out.
+Debe descontar primero el lote que vence más pronto.
+
+FIFO:
+First In, First Out.
+Debe descontar primero el lote que entró primero.
+
+Tablas sugeridas:
+
+warehouses:
+- id
+- company_id
+- branch_id
+- name
+- code
+- description
+- is_active
+- created_at
+- updated_at
+
+warehouse_locations:
+- id
+- warehouse_id
+- name
+- code
+- description
+- is_active
+- created_at
+- updated_at
+
+inventory_batches:
+- id
+- company_id
+- branch_id
+- warehouse_id nullable
+- warehouse_location_id nullable
+- product_id
+- supplier_id nullable
+- batch_number nullable
+- manufacture_date nullable
+- expiration_date nullable
+- initial_quantity DECIMAL
+- available_quantity DECIMAL
+- unit_cost DECIMAL
+- total_cost DECIMAL
+- status
+- created_by_user_id
+- created_at
+- updated_at
+
+inventory_movements:
+- id
+- company_id
+- branch_id
+- warehouse_id nullable
+- warehouse_location_id nullable
+- product_id
+- inventory_batch_id nullable
+- movement_type
+- quantity DECIMAL
+- unit_cost DECIMAL nullable
+- total_cost DECIMAL nullable
+- reason nullable
+- reference_type nullable
+- reference_id nullable
+- created_by_user_id
+- created_at
+
+inventory_alerts:
+- id
+- company_id
+- branch_id nullable
+- product_id
+- inventory_batch_id nullable
+- alert_type
+- severity
+- title
+- message
+- status
+- due_date nullable
+- resolved_at nullable
+- resolved_by_user_id nullable
+- created_at
+- updated_at
+
+product_inventory_settings:
+- id
+- product_id
+- requires_inventory
+- requires_batch
+- requires_expiration_date
+- requires_serial_number
+- expiration_alert_days
+- allow_expired_sale
+- allow_near_expiration_sale
+- stock_min DECIMAL
+- stock_max DECIMAL
+- reorder_point DECIMAL
+- outgoing_method
+- created_at
+- updated_at
+
+inventory_transfers:
+- id
+- company_id
+- from_branch_id
+- to_branch_id
+- from_warehouse_id nullable
+- to_warehouse_id nullable
+- status
+- notes nullable
+- created_by_user_id
+- received_by_user_id nullable
+- created_at
+- received_at nullable
+- updated_at
+
+inventory_transfer_items:
+- id
+- inventory_transfer_id
+- product_id
+- inventory_batch_id nullable
+- quantity DECIMAL
+- created_at
+- updated_at
+
+serial_numbers:
+- id
+- company_id
+- branch_id
+- product_id
+- inventory_batch_id nullable
+- serial_number
+- status
+- sold_at nullable
+- invoice_id nullable
+- created_at
+- updated_at
+
+suppliers:
+- id
+- company_id
+- name
+- document_number nullable
+- phone nullable
+- email nullable
+- address nullable
+- is_active
+- created_at
+- updated_at
+
+purchases:
+- id
+- company_id
+- branch_id
+- supplier_id
+- purchase_number
+- invoice_reference nullable
+- subtotal DECIMAL
+- tax_total DECIMAL
+- total DECIMAL
+- status
+- purchased_at
+- created_by_user_id
+- created_at
+- updated_at
+
+purchase_items:
+- id
+- purchase_id
+- product_id
+- quantity DECIMAL
+- unit_cost DECIMAL
+- total_cost DECIMAL
+- batch_number nullable
+- expiration_date nullable
+- created_at
+- updated_at
+
+Estados de lotes:
+
+- active.
+- near_expiration.
+- expired.
+- depleted.
+- blocked.
+- returned.
+- damaged.
+
+Alertas:
+
+- Stock bajo.
+- Sin stock.
+- Producto próximo a vencer.
+- Producto vencido.
+- Exceso de stock.
+- Rotación lenta.
+- Margen bajo.
+- Costo cambiado.
+- Precio menor que costo.
+- Lote sin vencimiento cuando el producto lo requiere.
+
+Reglas de venta con vencimiento:
+
+1. Si está vencido:
+   - Bloquear.
+   - O permitir con autorización.
+   - O permitir con advertencia.
+   Esto debe ser configurable.
+
+2. Si está próximo a vencer:
+   - Mostrar alerta.
+   - Permitir venta.
+   - Registrar auditoría.
+   - Opcional sugerir descuento.
+
+3. Si requiere lote:
+   - Descontar por FEFO/FIFO.
+   - O permitir selección manual.
+
+4. Si requiere vencimiento y no tiene lote válido:
+   - No permitir venta.
+
+Reportes inventario:
+
+- Stock actual.
+- Stock bajo.
+- Sin stock.
+- Próximos a vencer.
+- Vencidos.
+- Por lote.
+- Por proveedor.
+- Kardex.
+- Movimientos.
+- Transferencias.
+- Mermas.
+- Pérdidas por vencimiento.
+- Compras.
+- Rotación.
+- Margen.
+- Precio menor que costo.
+- Valor total inventario.
+- Inventario por almacén.
+- Inventario por sucursal.
+
+=====================================================================
+16. POS TOUCH Y ÓRDENES
+=====================================================================
+
+Crear:
+
+orders
+order_items
+order_item_modifiers
+order_item_notes
+
+Estados:
+
+- draft.
+- open.
+- sent_to_kitchen.
+- pending_payment.
+- paid.
+- canceled.
+
+Funciones:
+
+- Crear orden.
+- Agregar producto.
+- Agregar servicio.
+- Quitar producto.
+- Cambiar cantidad.
+- Agregar notas.
+- Agregar extras.
+- Calcular subtotal.
+- Calcular descuento.
+- Calcular impuesto.
+- Calcular total.
+- Guardar pedido.
+- Crear cotización.
+- Registrar venta.
+- Convertir orden en factura.
+- Enviar a cocina si módulo activo.
+- Asociar mesa si módulo activo.
+- Asociar delivery si módulo activo.
+
+Reglas:
+
+- No perder carrito al refrescar.
+- Validar caja activa.
+- Validar módulos activos.
+- Validar stock si inventario activo.
+- Validar vencimiento si producto requiere vencimiento.
+- Usar DECIMAL.
+
+=====================================================================
+17. CAJA Y PAGOS
+=====================================================================
+
+Crear:
+
+payment_methods
+payments
+cash_registers
+cash_sessions
+cash_movements
+cash_closings
+
+Métodos:
+
+- Efectivo.
+- Tarjeta.
+- Transferencia.
+- Delivery app.
+- Crédito.
+- Pago mixto.
+- Otro configurable.
+
+Caja:
+
+- Abrir.
+- Fondo inicial.
+- Entradas.
+- Salidas.
+- Registrar pago.
+- Cierre.
+- Diferencia.
+- Arqueo.
+- Historial.
+
+Reglas:
+
+- No vender si caja cerrada, salvo configuración.
+- Pago debe cubrir total.
+- Pago mixto debe cuadrar.
+- Devuelta automática.
+- Auditoría en todo movimiento.
+
+=====================================================================
+18. FACTURACIÓN
+=====================================================================
+
+Crear:
+
+invoices
+invoice_items
+invoice_taxes
+invoice_payments
+invoice_sequences
+
+Tipos:
+
+- Factura estándar.
+- Factura fiscal.
+- Consumidor final.
+- Crédito fiscal.
+- Cotización.
+- Recibo.
+- Precuenta.
+- Nota de crédito.
+- Nota de débito.
+
+Campos invoices:
+
+- id
+- company_id
+- branch_id
+- customer_id nullable
+- order_id nullable
+- invoice_number
+- document_type
+- fiscal_type nullable
+- fiscal_sequence nullable
+- electronic_status
+- subtotal DECIMAL
+- discount_total DECIMAL
+- tax_total DECIMAL
+- total DECIMAL
+- paid_total DECIMAL
+- balance_due DECIMAL
+- currency_code
+- exchange_rate DECIMAL
+- status
+- issued_at
+- canceled_at nullable
+- canceled_by_user_id nullable
+- cancel_reason nullable
+- created_by_user_id
+- created_at
+- updated_at
+
+Funciones:
+
+- Crear factura desde orden.
+- Crear factura directa.
+- Crear cotización.
+- Convertir cotización a factura.
+- Anular con permiso.
+- Reimprimir.
+- Descargar PDF.
+- Generar ticket.
+- Asociar pagos.
+- Asociar factura electrónica.
+
+=====================================================================
+19. FACTURACIÓN ELECTRÓNICA
+=====================================================================
+
+Debe ser módulo separado.
+
+No inventar normativa fiscal.
+No colocar lógica electrónica en InvoiceController.
+
+Crear interfaz:
+
+ElectronicInvoiceProviderInterface
+
+Métodos:
+
+- generatePayload(Invoice $invoice)
+- validateBeforeSend(Invoice $invoice)
+- send(Invoice $invoice)
+- checkStatus(ElectronicInvoice $electronicInvoice)
+- cancel(ElectronicInvoice $electronicInvoice)
+- downloadXml(ElectronicInvoice $electronicInvoice)
+- downloadPdf(ElectronicInvoice $electronicInvoice)
+
+Crear providers:
+
+- NullElectronicInvoiceProvider.
+- MockElectronicInvoiceProvider.
+- FutureProviderAdapter.
+
+Tablas:
+
+electronic_invoice_settings:
+- id
+- company_id
+- branch_id nullable
+- provider_code
+- environment
+- api_url_testing
+- api_url_production
+- credentials_encrypted
+- certificate_path nullable
+- certificate_password_encrypted nullable
+- is_active
+- created_at
+- updated_at
+
+electronic_invoices:
+- id
+- company_id
+- branch_id
+- invoice_id
+- provider_code
+- environment
+- status
+- track_id nullable
+- external_id nullable
+- qr_data nullable
+- xml_path nullable
+- json_path nullable
+- pdf_path nullable
+- accepted_at nullable
+- rejected_at nullable
+- canceled_at nullable
+- last_error nullable
+- created_at
+- updated_at
+
+electronic_invoice_logs:
+- id
+- electronic_invoice_id
+- action
+- request_payload nullable
+- response_payload nullable
+- status_code nullable
+- error_message nullable
+- created_at
+
+electronic_invoice_errors:
+- id
+- electronic_invoice_id
+- code nullable
+- message
+- field nullable
+- raw_error nullable
+- created_at
+
+Estados:
+
+- not_required.
+- pending.
+- queued.
+- generated.
+- sent.
+- accepted.
+- rejected.
+- canceled.
+- error.
+
+Jobs:
+
+- GenerateElectronicInvoiceJob.
+- SendElectronicInvoiceJob.
+- CheckElectronicInvoiceStatusJob.
+- CancelElectronicInvoiceJob.
+
+Criterios:
+
+- Sistema funciona sin proveedor real.
+- Mock funciona para pruebas.
+- Credenciales cifradas.
+- Logs de request/response.
+- Errores registrados.
+- Factura normal no se rompe si falla electrónica.
+
+=====================================================================
+20. IMPRESIÓN
+=====================================================================
+
+Crear módulo Printer.
+
+Debe soportar:
+
+- Ticket 58 mm.
+- Ticket 80 mm.
+- Ticket 88 mm.
+- Factura A4.
+- Comanda.
+- Precuenta.
+- Cierre caja.
+- Reporte diario.
+- Reimpresión.
+
+Métodos:
+
+- Navegador.
+- HTML/PDF.
+- ESC/POS preparado.
+- Agente local futuro.
+- Android Kotlin futuro.
+
+Configurable:
+
+- Impresora caja.
+- Impresora cocina.
+- Impresora barra.
+- Formato.
+- Copias.
+- Plantillas.
+
+=====================================================================
+21. RESTAURANTE
+=====================================================================
+
+Módulos opcionales:
+
+TableManagement:
+- Áreas.
+- Mesas.
+- Estado libre/ocupada/reservada.
+- Abrir.
+- Transferir.
+- Unir.
+- Dividir.
+- Cerrar.
+- Precuenta.
+
+Kitchen:
+- KDS.
+- Nuevo.
+- En preparación.
+- Listo.
+- Entregado.
+- Tiempo.
+- Notas.
+- Extras.
+- Reimprimir.
+
+Delivery:
+- Cliente.
+- Dirección.
+- Teléfono.
+- Referencia.
+- Repartidor.
+- Plataforma.
+- Estado.
+- Liquidación.
+
+DigitalMenu:
+- Pantallas.
+- Plantillas.
+- Productos.
+- Ofertas.
+- QR.
+- Vista fullscreen.
+- Rotación.
+
+=====================================================================
+22. BARBERÍA / SALÓN
+=====================================================================
+
+Módulo Appointment.
+
+Crear:
+
+appointments
+appointment_services
+employees opcional
+
+Funciones:
+
+- Agenda.
+- Citas por empleado.
+- Cliente.
+- Servicio.
+- Fecha.
+- Hora.
+- Duración.
+- Estado.
+- Recordatorio.
+- Facturar cita.
+
+Estados:
+
+- pendiente.
+- confirmada.
+- en_proceso.
+- completada.
+- cancelada.
+- no_asistio.
+
+=====================================================================
+23. TALLER MECÁNICO
+=====================================================================
+
+Módulos Vehicle y WorkOrder.
+
+Crear:
+
+vehicles
+work_orders
+work_order_items
+work_order_services
+work_order_parts
+work_order_photos
+
+Vehículos:
+
+- Cliente.
+- Marca.
+- Modelo.
+- Año.
+- Placa.
+- VIN/chasis.
+- Color.
+- Kilometraje.
+- Notas.
+
+Órdenes:
+
+- Cliente.
+- Vehículo.
+- Diagnóstico.
+- Servicios.
+- Repuestos.
+- Mano de obra.
+- Cotización.
+- Estado.
+- Evidencias.
+- Facturación.
+
+Estados:
+
+- recibida.
+- diagnosticando.
+- cotizada.
+- aprobada.
+- en_proceso.
+- lista.
+- entregada.
+- cancelada.
+
+=====================================================================
+24. REPORTES
+=====================================================================
+
+Crear módulo Report.
+
+Reportes base:
+
+- Ventas por fecha.
+- Ventas por producto.
+- Ventas por categoría.
+- Ventas por cajero.
+- Ventas por método pago.
+- Ventas por cliente.
+- Caja.
+- Facturas.
+- Facturas electrónicas.
+- Impuestos.
+- Descuentos.
+- Anulaciones.
+
+Inventario:
+
+- Stock actual.
+- Stock bajo.
+- Sin stock.
+- Próximos a vencer.
+- Vencidos.
+- Kardex.
+- Mermas.
+- Valor inventario.
+- Compras.
+- Proveedores.
+- Rotación.
+- Margen.
+
+Módulos:
+
+- Mesas si activo.
+- Cocina si activo.
+- Delivery si activo.
+- Citas si activo.
+- Taller si activo.
+
+Cada reporte:
+
+- Filtros.
+- Exportar PDF.
+- Exportar Excel.
+- Imprimir.
+- Ver detalle.
+
+=====================================================================
+25. AUDITORÍA Y SEGURIDAD
+=====================================================================
+
+Crear Audit.
+
+Registrar:
+
+- Login.
+- Logout.
+- Usuarios.
+- Permisos.
+- Módulos.
+- Precios.
+- Descuentos.
+- Anulaciones.
+- Cambios fiscales.
+- Facturación electrónica.
+- Caja.
+- Inventario.
+- Reimpresiones.
+- Errores críticos.
+
+Seguridad:
+
+- Sanctum.
+- Middleware empresa.
+- Middleware sucursal.
+- Middleware módulo.
+- Middleware permiso.
+- Rate limiting.
+- Policies.
+- Validaciones.
+- Cifrado.
+- Logs.
+- No acceso cruzado entre empresas.
+
+=====================================================================
+26. PWA Y OFFLINE
+=====================================================================
+
+Crear PWA.
+
+Debe soportar:
+
+- Instalación.
+- Cache de assets.
+- Indicador online/offline.
+- Catálogo cacheado.
+- Carrito persistente.
+- IndexedDB.
+- Sincronización futura.
+
+Regla:
+No permitir facturación fiscal/electrónica offline sin política clara de contingencia.
+
+=====================================================================
+27. PANTALLAS OBLIGATORIAS
+=====================================================================
+
+Auth:
+- Login.
+- Recuperar contraseña.
+- Seleccionar empresa.
+- Seleccionar sucursal.
+- Abrir caja.
+
+Dashboard:
+- Dashboard general.
+- Alertas.
+- Accesos rápidos.
+
+Configuración:
+- Empresa.
+- Sucursales.
+- Módulos.
+- Usuarios.
+- Roles.
+- Permisos.
+- Impuestos.
+- Monedas.
+- Métodos de pago.
+- Facturación.
+- Facturación electrónica.
+- Inventario.
+- Impresoras.
+- Seguridad.
+
+POS:
+- POS Touch.
+- Carrito.
+- Producto.
+- Servicio.
+- Extras.
+- Notas.
+- Pago.
+- Tipo factura.
+- Confirmación.
+
+Clientes:
+- Lista.
+- Crear.
+- Editar.
+- Perfil.
+
+Productos/Servicios:
+- Lista.
+- Crear.
+- Editar.
+- Categorías.
+- Variantes.
+- Extras.
+- Servicios.
+
+Inventario:
+- Dashboard.
+- Stock.
+- Stock bajo.
+- Sin stock.
+- Próximos a vencer.
+- Vencidos.
+- Lotes.
+- Compras.
+- Proveedores.
+- Almacenes.
+- Ubicaciones.
+- Transferencias.
+- Kardex.
+- Merma.
+- Alertas.
+
+Caja:
+- Apertura.
+- Activa.
+- Movimientos.
+- Pago.
+- Pago mixto.
+- Cierre.
+- Historial.
+
+Facturas:
+- Lista.
+- Detalle.
+- Crear.
+- PDF.
+- Ticket.
+- Anular.
+- Reimprimir.
+- Estado electrónico.
+
+Electrónica:
+- Configuración.
+- Lista.
+- Detalle.
+- Logs.
+- Errores.
+- Reintentos.
+
+Restaurante si activo:
+- Mesas.
+- Cocina.
+- Delivery.
+- Menú digital.
+
+Barbería si activo:
+- Agenda.
+- Citas.
+- Servicios por empleado.
+
+Taller si activo:
+- Vehículos.
+- Órdenes.
+- Cotizaciones.
+
+Reportes:
+- Ventas.
+- Caja.
+- Facturas.
+- Electrónicas.
+- Inventario.
+- Clientes.
+- Módulos activos.
+
+Auditoría:
+- Logs.
+- Filtros.
+- Detalle.
+
+=====================================================================
+28. FASES DE DESARROLLO
+=====================================================================
+
+FASE 0 — Base
+
+[ ] Crear Laravel.
+[ ] Configurar MySQL.
+[ ] Configurar .env.
+[ ] Instalar Sanctum.
+[ ] Instalar Vue 3 + TypeScript.
+[ ] Configurar Tailwind.
+[ ] Configurar Pinia.
+[ ] Configurar Router.
+[ ] Configurar Axios.
+[ ] Configurar PWA.
+[ ] Configurar Pint.
+[ ] Configurar pruebas.
+[ ] Crear estructura modular.
+[ ] Crear docs.
+[ ] Crear API response estándar.
+[ ] Crear manejo errores.
+[ ] Crear seeders base.
+
+FASE 1 — Núcleo SaaS
+
+[ ] Empresas.
+[ ] Sucursales.
+[ ] Usuarios.
+[ ] Roles.
+[ ] Permisos.
+[ ] Login.
+[ ] Selección empresa.
+[ ] Selección sucursal.
+[ ] Middleware company.
+[ ] Middleware branch.
+[ ] Auditoría base.
+
+FASE 2 — Módulos
+
+[ ] business_types.
+[ ] system_modules.
+[ ] dependencies.
+[ ] business_type_modules.
+[ ] company_modules.
+[ ] branch_modules.
+[ ] plans.
+[ ] ModuleManagerService.
+[ ] Middleware module.
+[ ] Frontend module store.
+[ ] Menú dinámico.
+[ ] Onboarding.
+
+FASE 3 — Configuración
+
+[ ] Empresa.
+[ ] Monedas.
+[ ] Tasa.
+[ ] Impuestos.
+[ ] Métodos pago.
+[ ] Fiscal.
+[ ] Impresión.
+[ ] POS.
+[ ] Inventario.
+
+FASE 4 — Clientes
+
+[ ] CRUD.
+[ ] Datos fiscales.
+[ ] Direcciones.
+[ ] Historial.
+[ ] Crédito.
+
+FASE 5 — Productos y servicios
+
+[ ] Categorías.
+[ ] Productos.
+[ ] Servicios.
+[ ] Variantes.
+[ ] Extras.
+[ ] Combos.
+[ ] Imágenes.
+[ ] Configuración inventario.
+
+FASE 6 — Inventario avanzado
+
+[ ] Almacenes.
+[ ] Ubicaciones.
+[ ] Proveedores.
+[ ] Compras.
+[ ] Lotes.
+[ ] Vencimientos.
+[ ] Entradas.
+[ ] Salidas.
+[ ] Ajustes.
+[ ] Transferencias.
+[ ] Kardex.
+[ ] Alertas.
+[ ] FEFO.
+[ ] FIFO.
+[ ] Bloqueo productos vencidos.
+[ ] Reportes inventario.
+
+FASE 7 — POS Touch
+
+[ ] Órdenes.
+[ ] Carrito.
+[ ] Agregar producto.
+[ ] Agregar servicio.
+[ ] Validar stock.
+[ ] Validar lote.
+[ ] Validar vencimiento.
+[ ] Totales.
+[ ] Descuentos.
+[ ] Impuestos.
+[ ] Cotización.
+[ ] Registrar venta.
+
+FASE 8 — Caja y pagos
+
+[ ] Abrir caja.
+[ ] Movimientos.
+[ ] Pago efectivo.
+[ ] Pago tarjeta.
+[ ] Transferencia.
+[ ] Pago mixto.
+[ ] Devuelta.
+[ ] Cierre.
+
+FASE 9 — Facturación
+
+[ ] Factura estándar.
+[ ] Fiscal.
+[ ] Cotización.
+[ ] Recibo.
+[ ] Precuenta.
+[ ] Nota crédito.
+[ ] Nota débito.
+[ ] PDF.
+[ ] Ticket.
+[ ] Anulación.
+
+FASE 10 — Facturación electrónica
+
+[ ] Interface.
+[ ] Mock provider.
+[ ] Settings.
+[ ] Electronic invoices.
+[ ] Logs.
+[ ] Jobs.
+[ ] Estados.
+[ ] Reintentos.
+[ ] Pantallas.
+
+FASE 11 — Impresión
+
+[ ] 58 mm.
+[ ] 80 mm.
+[ ] 88 mm.
+[ ] A4.
+[ ] Comanda.
+[ ] Precuenta.
+[ ] Cierre caja.
+[ ] Configuración.
+
+FASE 12 — Módulos por negocio
+
+Restaurante:
+[ ] Mesas.
+[ ] Cocina.
+[ ] Comandas.
+[ ] Delivery.
+[ ] Menú digital.
+
+Barbería:
+[ ] Citas.
+[ ] Agenda.
+[ ] Servicios por empleado.
+
+Taller:
+[ ] Vehículos.
+[ ] Órdenes trabajo.
+[ ] Mano de obra.
+[ ] Repuestos.
+
+FASE 13 — Reportes
+
+[ ] Ventas.
+[ ] Caja.
+[ ] Facturas.
+[ ] Electrónicas.
+[ ] Inventario.
+[ ] Vencimientos.
+[ ] Módulos opcionales.
+
+FASE 14 — Seguridad, pruebas y deploy
+
+[ ] Policies.
+[ ] Rate limiting.
+[ ] Auditoría completa.
+[ ] Tests backend.
+[ ] Tests frontend.
+[ ] Pruebas manuales.
+[ ] .env.example.
+[ ] Deployment.
+[ ] Optimización producción.
+
+=====================================================================
+29. TESTING
+=====================================================================
+
+Crear pruebas para:
+
+Backend:
+
+- Auth.
+- Empresas.
+- Sucursales.
+- Módulos.
+- Permisos.
+- Clientes.
+- Productos.
+- Servicios.
+- Inventario.
+- Lotes.
+- Vencimientos.
+- FEFO.
+- FIFO.
+- POS.
+- Pagos.
+- Caja.
+- Facturas.
+- Facturación electrónica mock.
+- Anulaciones.
+- Auditoría.
+
+Frontend:
+
+- Login.
+- Menú dinámico.
+- POS.
+- Carrito.
+- Pago.
+- Caja.
+- Inventario.
+- Vencimientos.
+- Facturas.
+- Módulos activos/inactivos.
+
+Pruebas manuales:
+
+- Venta rápida.
+- Venta con producto vencido.
+- Venta con producto próximo a vencer.
+- Venta con lote FEFO.
+- Venta sin stock.
+- Anulación y reverso de inventario.
+- Pago mixto.
+- Cierre caja.
+- Factura electrónica mock.
+- Activar/desactivar módulo.
+- Cambio de tipo de negocio.
+
+=====================================================================
+30. CRITERIOS DE ACEPTACIÓN
+=====================================================================
+
+El sistema será aceptado si:
+
+1. Permite crear empresa.
+2. Permite crear sucursal.
+3. Permite seleccionar tipo de negocio.
+4. Activa módulos recomendados.
+5. Permite activar/desactivar módulos.
+6. Oculta módulos inactivos.
+7. Protege rutas por módulo.
+8. Protege endpoints por módulo.
+9. Respeta permisos.
+10. No elimina datos al desactivar módulos.
+11. Factura productos.
+12. Factura servicios.
+13. Soporta caja.
+14. Soporta pagos.
+15. Soporta pago mixto.
+16. Genera facturas.
+17. Genera tickets.
+18. Está preparado para facturación electrónica.
+19. Soporta inventario simple.
+20. Soporta inventario avanzado.
+21. Soporta lotes.
+22. Soporta vencimientos.
+23. Genera alertas de próximos a vencer.
+24. Bloquea o advierte productos vencidos según configuración.
+25. Usa FEFO/FIFO.
+26. Usa DECIMAL para dinero.
+27. Tiene auditoría.
+28. Tiene documentación.
+29. Tiene TODO actualizado.
+30. Tiene CHANGELOG actualizado.
+31. Es modular.
+32. Puede crecer hacia Android Kotlin.
+33. Puede crecer hacia proveedor fiscal real.
+34. Puede venderse a distintos tipos de negocio.
+
+=====================================================================
+31. FORMATO OBLIGATORIO DE RESPUESTA
+=====================================================================
+
+Cada vez que trabajes, responde así:
+
+1. Objetivo del paso.
+2. Archivos analizados.
+3. Archivos creados.
+4. Archivos modificados.
+5. Código implementado.
+6. Comandos ejecutados.
+7. Pruebas realizadas.
+8. Resultado.
+9. Pendientes.
+10. Riesgos o advertencias.
+11. Documentación actualizada.
+12. TODO actualizado.
+13. Próximo paso recomendado.
+
+No avanzar al siguiente módulo sin cerrar el anterior o indicar claramente qué queda pendiente.
+
+=====================================================================
+32. PRIMERA TAREA
+=====================================================================
+
+Antes de escribir código funcional, debes entregar:
+
+1. Estructura completa de carpetas.
+2. Lista de módulos.
+3. Mapa de dependencias.
+4. Esquema inicial de base de datos.
+5. Plan de desarrollo por fases.
+6. Archivos de documentación inicial.
+7. TODO_MASTER.md inicial.
+8. CHANGELOG.md inicial.
+9. Preguntas necesarias antes de programar si falta información.
+
+Después de eso, esperar confirmación para empezar a implementar.
+
+=====================================================================
+33. REGLA FINAL
+=====================================================================
+
+Construye una plataforma modular de facturación y ventas.
+
+El núcleo es:
+
+- Facturación.
+- Caja.
+- Pagos.
+- Clientes.
+- Seguridad.
+- Auditoría.
+- Facturación electrónica preparada.
+
+Los módulos opcionales son:
+
+- Restaurante.
+- Cocina.
+- Mesas.
+- Delivery.
+- Menú digital.
+- Barbería.
+- Citas.
+- Taller.
+- Vehículos.
+- Inventario avanzado.
+- Lotes.
+- Vencimientos.
+- Supermercado.
+- Bodega.
+- Distribuidora.
+
+Todo debe ser modular, documentado, probado, mantenible y preparado para crecer.

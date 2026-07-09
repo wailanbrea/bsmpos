@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OmniPOS - Kardex de Producto</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fcf8ff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#c3c0ff",
+                        "on-primary-container": "#dad7ff",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "primary": "#3525cd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f5f2ff",
+                        "inverse-surface": "#302f39",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#ffd0cc",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-secondary-fixed": "#002113",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "surface-container-high": "#eae6f4",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#bc1d25",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#00714d",
+                        "on-background": "#1b1b24",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "background": "#fcf8ff",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dcd8e5",
+                        "outline": "#777587",
+                        "secondary-fixed-dim": "#4edea3",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#4d44e3",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#6ffbbe",
+                        "secondary-container": "#6cf8bb",
+                        "surface-variant": "#e4e1ee",
+                        "surface-container": "#f0ecf9",
+                        "tertiary-fixed": "#ffdad7",
+                        "on-primary-fixed": "#0f0069",
+                        "on-surface-variant": "#464555",
+                        "on-tertiary-fixed": "#410004",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-surface": "#1b1b24",
+                        "primary-fixed": "#e2dfff",
+                        "primary-container": "#4f46e5",
+                        "surface-container-highest": "#e4e1ee",
+                        "secondary": "#006c49",
+                        "tertiary": "#960014",
+                        "surface-bright": "#fcf8ff",
+                        "outline-variant": "#c7c4d8",
+                        "inverse-on-surface": "#f3effc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "touch-target-relaxed": "56px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "container-gap": "24px",
+                        "touch-target-min": "44px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "numeric-pos": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "numeric-pos": ["28px", { "lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Minimalist scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c7c4d8;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #777587;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md h-screen overflow-hidden flex flex-col md:flex-row">
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full w-[280px] z-40 p-4 bg-surface-container dark:bg-surface-container-low border-r border-outline-variant transition-transform">
+<div class="flex items-center gap-3 mb-8 px-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim text-[32px]">point_of_sale</span>
+<span class="text-headline-md font-headline-md text-primary dark:text-primary-fixed-dim tracking-tight">OmniPOS Admin</span>
+</div>
+<div class="flex flex-col flex-grow gap-1">
+<a class="flex items-center gap-3 px-4 h-touch-target-min text-on-surface-variant dark:text-outline hover:bg-surface-container-highest transition-all rounded-lg font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 h-touch-target-min bg-primary-container text-on-primary-container rounded-lg font-bold transition-all font-label-lg text-label-lg translate-x-1 shadow-sm" href="#">
+<span class="material-symbols-outlined" data-weight="fill">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 h-touch-target-min text-on-surface-variant dark:text-outline hover:bg-surface-container-highest transition-all rounded-lg font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">point_of_sale</span>
+<span>Sales</span>
+</a>
+<a class="flex items-center gap-3 px-4 h-touch-target-min text-on-surface-variant dark:text-outline hover:bg-surface-container-highest transition-all rounded-lg font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Customers</span>
+</a>
+<a class="flex items-center gap-3 px-4 h-touch-target-min text-on-surface-variant dark:text-outline hover:bg-surface-container-highest transition-all rounded-lg font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 h-touch-target-min text-on-surface-variant dark:text-outline hover:bg-surface-container-highest transition-all rounded-lg font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<button class="mt-4 mb-8 w-full h-touch-target-relaxed bg-primary-container text-on-primary hover:bg-primary transition-colors rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[0.98] duration-150">
+<span class="material-symbols-outlined">add</span>
+            New Transaction
+        </button>
+<div class="mt-auto border-t border-outline-variant pt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 h-touch-target-min text-on-surface-variant dark:text-outline hover:bg-surface-container-highest transition-all rounded-lg font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 h-touch-target-min text-on-surface-variant dark:text-outline hover:bg-surface-container-highest transition-all rounded-lg font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+<div class="flex items-center gap-3 px-4 py-3 mt-2 bg-surface-variant rounded-lg">
+<img alt="Store Manager" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a retail store manager in a brightly lit modern store environment. The lighting is crisp and even, highlighting a clean, efficient aesthetic suitable for a high-performance SaaS platform. The mood is confident and systematic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXCMl_P3IdwrPp5DE3gdn2vD44apbiNHrG4JNnTiLtSToOLLQArbmhS8VvA6WgvQFJWNYn81x6jyAt63b5V82RPQJzRErOY_B2X814fVdndBEF3nREFkvQRD1-3-KRc128TQ6zCXRtUYNQCmkPY32egMgBQTq5q3gTYt_zqdQ1MfQSWJEv068p9ABH8tHLfbAR1CVrpBnnrVmbhK92Qb9stFsEgAwZAKerFDrdmPki-y4hz2qi3_8nlg"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Store Manager</span>
+<span class="text-xs text-on-surface-variant">Main Branch</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- TopNavBar (Mobile) -->
+<header class="md:hidden fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-touch-target-relaxed bg-surface dark:bg-inverse-surface border-b border-surface-container-low shadow-sm">
+<div class="flex items-center gap-2">
+<span class="text-title-lg font-title-lg font-bold text-primary dark:text-primary-fixed-dim">OmniPOS</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 md:ml-[280px] h-full overflow-y-auto pt-[72px] md:pt-0 pb-[80px] md:pb-0 bg-background relative">
+<div class="p-margin-mobile md:p-margin-desktop max-w-[1600px] mx-auto flex flex-col gap-container-gap">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md mb-2">
+<span class="hover:text-primary cursor-pointer">Inventory</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="hover:text-primary cursor-pointer">Products</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Leche Entera 1L</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface hidden md:block">Kardex: Leche Entera 1L</h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface md:hidden">Kardex: Leche Entera 1L</h1>
+<p class="text-on-surface-variant font-body-md text-body-md mt-1">SKU: LCH-ENT-001 | Categoría: Lácteos | Ubicación: Pasillo 3, Estante A</p>
+</div>
+<div class="flex gap-2">
+<button class="h-touch-target-min px-4 bg-surface text-primary border border-primary hover:bg-primary-fixed transition-colors rounded-lg font-label-lg text-label-lg flex items-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                        Exportar CSV
+                    </button>
+<button class="h-touch-target-min px-4 bg-primary-container text-on-primary hover:bg-primary transition-colors rounded-lg font-label-lg text-label-lg flex items-center gap-2 shadow-sm hover:scale-[0.98] duration-150">
+<span class="material-symbols-outlined">add</span>
+                        Ajuste Manual
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<!-- Stock Actual -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Stock Actual</span>
+<span class="material-symbols-outlined text-primary">inventory</span>
+</div>
+<div>
+<span class="font-numeric-pos text-numeric-pos text-on-surface">342</span>
+<span class="text-on-surface-variant font-label-md text-label-md ml-1">unidades</span>
+</div>
+<div class="mt-2 h-1 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[70%]"></div>
+</div>
+<span class="text-xs text-on-surface-variant mt-2">Nivel óptimo (Min: 100, Max: 500)</span>
+</div>
+<!-- Costo Promedio -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Costo Promedio</span>
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+<div>
+<span class="font-numeric-pos text-numeric-pos text-on-surface">$1.15</span>
+<span class="text-on-surface-variant font-label-md text-label-md ml-1">/ un</span>
+</div>
+<div class="mt-2 flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span class="font-label-md text-label-md">-2.4% vs mes anterior</span>
+</div>
+</div>
+<!-- Rotación (Mini Chart Placeholder) -->
+<div class="bg-surface border border-outline-variant rounded-xl p-4 shadow-sm md:col-span-2 flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex items-center justify-between mb-2 relative z-10">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Rotación 30 Días</span>
+<div class="flex gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-[10px]">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Entradas
+                            </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-[10px]">
+<span class="w-2 h-2 rounded-full bg-error"></span> Salidas
+                            </span>
+</div>
+</div>
+<!-- Minimalist SVG Chart -->
+<div class="h-[60px] w-full mt-2 relative z-10">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 200 50">
+<path d="M0,40 L20,35 L40,45 L60,20 L80,30 L100,10 L120,25 L140,5 L160,15 L180,35 L200,20" fill="none" stroke="#6cf8bb" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0,20 L20,25 L40,15 L60,40 L80,30 L100,45 L120,35 L140,40 L160,25 L180,15 L200,30" fill="none" stroke="#ffdad6" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+<!-- Decorative subtle gradient background -->
+<div class="absolute inset-0 bg-gradient-to-tr from-surface-container-low to-surface-bright opacity-50 z-0"></div>
+</div>
+</div>
+<!-- Filters -->
+<div class="flex flex-col md:flex-row gap-4 items-center bg-surface p-2 rounded-xl border border-outline-variant shadow-sm">
+<div class="relative flex-grow w-full md:w-auto">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full h-touch-target-min pl-10 pr-4 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary font-body-md text-on-surface placeholder:text-outline" placeholder="Buscar por Lote, Referencia o Usuario..." type="text"/>
+</div>
+<div class="flex gap-2 w-full md:w-auto overflow-x-auto pb-1 md:pb-0 hide-scrollbar">
+<select class="h-touch-target-min bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary font-body-md text-on-surface px-4 py-2 min-w-[140px]">
+<option>Últimos 7 días</option>
+<option selected="">Últimos 30 días</option>
+<option>Este mes</option>
+<option>Mes anterior</option>
+<option>Personalizado...</option>
+</select>
+<select class="h-touch-target-min bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary font-body-md text-on-surface px-4 py-2 min-w-[160px]">
+<option>Todos los movs.</option>
+<option>Solo Ventas</option>
+<option>Solo Compras</option>
+<option>Ajustes/Mermas</option>
+</select>
+</div>
+</div>
+<!-- Data Table (Kardex) -->
+<div class="bg-surface border border-outline-variant rounded-xl shadow-sm overflow-hidden flex-grow flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[1000px]">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant whitespace-nowrap">Fecha / Hora</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant whitespace-nowrap">Tipo Movimiento</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant text-right whitespace-nowrap">Entrada</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant text-right whitespace-nowrap">Salida</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant text-right font-bold whitespace-nowrap">Saldo</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant text-right whitespace-nowrap">Costo Unit.</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant whitespace-nowrap">Lote</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant whitespace-nowrap">Referencia</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant whitespace-nowrap">Usuario</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface divide-y divide-surface-variant">
+<!-- Row 1: Compra -->
+<tr class="hover:bg-surface-container-low transition-colors h-[64px]">
+<td class="py-2 px-4">
+<div class="flex flex-col">
+<span>24 Oct 2023</span>
+<span class="text-xs text-on-surface-variant">08:15 AM</span>
+</div>
+</td>
+<td class="py-2 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">south_west</span> Compra
+                                    </span>
+</td>
+<td class="py-2 px-4 text-right text-secondary font-semibold">+ 150</td>
+<td class="py-2 px-4 text-right text-on-surface-variant">-</td>
+<td class="py-2 px-4 text-right font-bold">342</td>
+<td class="py-2 px-4 text-right font-numeric-pos text-[16px]">$1.12</td>
+<td class="py-2 px-4"><span class="font-mono text-sm bg-surface-variant px-2 py-1 rounded">LT-2310-A</span></td>
+<td class="py-2 px-4 text-primary cursor-pointer hover:underline">FAC-88902</td>
+<td class="py-2 px-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-xs font-bold">SM</div>
+<span class="text-sm">Sys Admin</span>
+</div>
+</td>
+</tr>
+<!-- Row 2: Venta -->
+<tr class="hover:bg-surface-container-low transition-colors h-[64px] bg-background">
+<td class="py-2 px-4">
+<div class="flex flex-col">
+<span>23 Oct 2023</span>
+<span class="text-xs text-on-surface-variant">14:32 PM</span>
+</div>
+</td>
+<td class="py-2 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container-highest text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">north_east</span> Venta
+                                    </span>
+</td>
+<td class="py-2 px-4 text-right text-on-surface-variant">-</td>
+<td class="py-2 px-4 text-right text-error font-semibold">- 3</td>
+<td class="py-2 px-4 text-right font-bold">192</td>
+<td class="py-2 px-4 text-right font-numeric-pos text-[16px]">$1.15</td>
+<td class="py-2 px-4"><span class="font-mono text-sm bg-surface-variant px-2 py-1 rounded">LT-2309-C</span></td>
+<td class="py-2 px-4 text-primary cursor-pointer hover:underline">TK-44512</td>
+<td class="py-2 px-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-xs font-bold">JP</div>
+<span class="text-sm">J. Perez</span>
+</div>
+</td>
+</tr>
+<!-- Row 3: Venta -->
+<tr class="hover:bg-surface-container-low transition-colors h-[64px]">
+<td class="py-2 px-4">
+<div class="flex flex-col">
+<span>23 Oct 2023</span>
+<span class="text-xs text-on-surface-variant">11:05 AM</span>
+</div>
+</td>
+<td class="py-2 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container-highest text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">north_east</span> Venta
+                                    </span>
+</td>
+<td class="py-2 px-4 text-right text-on-surface-variant">-</td>
+<td class="py-2 px-4 text-right text-error font-semibold">- 12</td>
+<td class="py-2 px-4 text-right font-bold">195</td>
+<td class="py-2 px-4 text-right font-numeric-pos text-[16px]">$1.15</td>
+<td class="py-2 px-4"><span class="font-mono text-sm bg-surface-variant px-2 py-1 rounded">LT-2309-C</span></td>
+<td class="py-2 px-4 text-primary cursor-pointer hover:underline">TK-44501</td>
+<td class="py-2 px-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-xs font-bold">JP</div>
+<span class="text-sm">J. Perez</span>
+</div>
+</td>
+</tr>
+<!-- Row 4: Merma -->
+<tr class="hover:bg-surface-container-low transition-colors h-[64px] bg-background">
+<td class="py-2 px-4">
+<div class="flex flex-col">
+<span>22 Oct 2023</span>
+<span class="text-xs text-on-surface-variant">18:45 PM</span>
+</div>
+</td>
+<td class="py-2 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">warning</span> Merma
+                                    </span>
+</td>
+<td class="py-2 px-4 text-right text-on-surface-variant">-</td>
+<td class="py-2 px-4 text-right text-error font-semibold">- 2</td>
+<td class="py-2 px-4 text-right font-bold">207</td>
+<td class="py-2 px-4 text-right font-numeric-pos text-[16px]">$1.15</td>
+<td class="py-2 px-4"><span class="font-mono text-sm bg-surface-variant px-2 py-1 rounded">LT-2309-B</span></td>
+<td class="py-2 px-4 text-on-surface-variant">Daño envase</td>
+<td class="py-2 px-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-xs font-bold">SM</div>
+<span class="text-sm">Sys Admin</span>
+</div>
+</td>
+</tr>
+<!-- Row 5: Ajuste Positivo -->
+<tr class="hover:bg-surface-container-low transition-colors h-[64px]">
+<td class="py-2 px-4">
+<div class="flex flex-col">
+<span>20 Oct 2023</span>
+<span class="text-xs text-on-surface-variant">09:00 AM</span>
+</div>
+</td>
+<td class="py-2 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-inverse-primary text-on-primary-fixed font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">sync_alt</span> Ajuste Inv.
+                                    </span>
+</td>
+<td class="py-2 px-4 text-right text-secondary font-semibold">+ 5</td>
+<td class="py-2 px-4 text-right text-on-surface-variant">-</td>
+<td class="py-2 px-4 text-right font-bold">209</td>
+<td class="py-2 px-4 text-right font-numeric-pos text-[16px]">$1.15</td>
+<td class="py-2 px-4"><span class="font-mono text-sm bg-surface-variant px-2 py-1 rounded">LT-2309-B</span></td>
+<td class="py-2 px-4 text-primary cursor-pointer hover:underline">INV-012</td>
+<td class="py-2 px-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-xs font-bold">SM</div>
+<span class="text-sm">Sys Admin</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-outline-variant flex items-center justify-between bg-surface-container-lowest">
+<span class="text-sm text-on-surface-variant">Mostrando 1 a 5 de 128 registros</span>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-surface-container-high disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary-container text-on-primary font-label-md">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface hover:bg-surface-container-high font-label-md">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface hover:bg-surface-container-high font-label-md">3</button>
+<span class="w-8 h-8 flex items-center justify-center text-on-surface-variant">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 h-touch-target-relaxed pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline w-16 h-full hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">calculate</span>
+<span class="font-label-md text-label-md text-[10px]">Terminal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline w-16 h-full hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">receipt_long</span>
+<span class="font-label-md text-label-md text-[10px]">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-6 py-1 h-12 hover:bg-surface-container-high transition-all duration-100 scale-95 shadow-sm" href="#">
+<span class="material-symbols-outlined" data-weight="fill">inventory</span>
+<span class="font-label-md text-label-md text-[10px] font-bold">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline w-16 h-full hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">menu</span>
+<span class="font-label-md text-label-md text-[10px]">Menu</span>
+</a>
+</nav>
+</body></html>

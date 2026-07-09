@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OmniPOS - Listado de Facturas Electrónicas (e-CF)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#c7c4d8",
+                    "background": "#fcf8ff",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "secondary-container": "#6cf8bb",
+                    "on-background": "#1b1b24",
+                    "surface-tint": "#4d44e3",
+                    "tertiary": "#960014",
+                    "on-secondary-fixed-variant": "#005236",
+                    "inverse-on-surface": "#f3effc",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "tertiary-fixed": "#ffdad7",
+                    "inverse-surface": "#302f39",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "primary": "#3525cd",
+                    "primary-container": "#4f46e5",
+                    "surface": "#fcf8ff",
+                    "primary-fixed": "#e2dfff",
+                    "surface-dim": "#dcd8e5",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-variant": "#e4e1ee",
+                    "on-tertiary-fixed-variant": "#930013",
+                    "inverse-primary": "#c3c0ff",
+                    "on-tertiary-container": "#ffd0cc",
+                    "tertiary-container": "#bc1d25",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#00714d",
+                    "secondary": "#006c49",
+                    "on-tertiary-fixed": "#410004",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#0f0069",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#f0ecf9",
+                    "on-surface": "#1b1b24",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "surface-container-highest": "#e4e1ee",
+                    "surface-container-high": "#eae6f4",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-secondary-fixed": "#002113",
+                    "outline": "#777587",
+                    "on-primary-container": "#dad7ff",
+                    "surface-container-low": "#f5f2ff",
+                    "surface-bright": "#fcf8ff",
+                    "on-surface-variant": "#464555"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "touch-target-min": "44px",
+                    "margin-desktop": "32px",
+                    "margin-mobile": "16px",
+                    "container-gap": "24px",
+                    "gutter": "16px",
+                    "touch-target-relaxed": "56px"
+            },
+            "fontFamily": {
+                    "numeric-pos": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "title-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "numeric-pos": ["28px", { "lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                    "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                    "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                    "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                    "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                    "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                    "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                    "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Kinetic specific styles */
+        body { background-color: #fcf8ff; color: #1b1b24; }
+        .glass-panel { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(199, 196, 216, 0.5); }
+        .kinetic-shadow { box-shadow: 0 4px 24px -4px rgba(53, 37, 205, 0.08); }
+        .kinetic-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 32px -4px rgba(53, 37, 205, 0.12); }
+
+        /* Material Icons setup */
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .material-symbols-outlined.fill {
+          font-variation-settings:
+          'FILL' 1,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+
+        /* Table Styles */
+        .table-row-hover:hover { background-color: #f5f2ff; }
+
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #dcd8e5; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c7c4d8; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col md:flex-row overflow-x-hidden">
+<!-- TopNavBar (Mobile) / Top Row Data (Hidden on Desktop Shell) -->
+<header class="md:hidden fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-touch-target-relaxed bg-surface dark:bg-inverse-surface shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="menu">menu</span>
+<span class="text-title-lg font-title-lg font-bold text-primary dark:text-primary-fixed-dim">OmniPOS</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-touch-target-min w-touch-target-min flex items-center justify-center rounded-full hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline" data-icon="storefront">storefront</span>
+</button>
+<button class="h-touch-target-min w-touch-target-min flex items-center justify-center rounded-full hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant dark:text-outline" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant ml-2" data-alt="A small circular avatar placeholder image showing a generic professional silhouette or modern geometric pattern in light colors, suited for a top navigation profile icon." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApIybU6O47rHY92kIkiK3yc_uQ-1pd092hADEu5N7X_stL6z_8r6cqsE9Hhy7-9RlRmV7x1FdPVyNrSK5YT8Vx05Ko-9sngV2dtGMbbUzgW7BSAYkmQeoMZMPO2c9DUfcozzAqo3RpfOt3Adhu14Ad68i6UwzoxTMw9G08iJR8U3LmZpNge17uOXdqw6LPd0y3JdE74xbo2JV6uAfyXeJ3lB2qIRt3QUZP6arXg720R2gbChyc00tw-Q"/>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full w-[280px] z-40 p-4 bg-surface-container dark:bg-surface-container-low border-r border-outline-variant">
+<div class="flex items-center gap-3 mb-8 px-2 mt-2">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">OmniPOS</span>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-highest rounded-xl mb-6">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot avatar image of a store manager in a brightly lit modern retail environment, conveying approachability and competence, styled in a circular frame." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZZS_3Lz_b_9ETGY2jMEVQ4yeukc14ZeyylCyIwPKmQ2-nUm6CAYFznxbmrbTjG2999bjK0hzga-r1lKMCcdkaptejLMe4Pmww7eUJRU0NVqWCgIW2h-C9tWwmUmftAmBup1abnquwSCp6ynkmeEIlHM2FIdLoDTDEbFpCQxCTaA5yREhrV7ukL6P3XXkax2fqmzEG9hCLeUjuLU5GBaWPuPbvsiCETPxQd8lSz-np1ZxBJUceKxH5zQ"/>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface">OmniPOS Admin</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Main Branch</span>
+</div>
+</div>
+<button class="w-full h-touch-target-min bg-primary-container text-on-primary-container rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-2 mb-6 hover:bg-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+            New Transaction
+        </button>
+<div class="flex flex-col gap-1 flex-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-lg text-label-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-lg text-label-lg">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-bold translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined fill" data-icon="point_of_sale" style="font-variation-settings: 'FILL' 1;">point_of_sale</span>
+<span class="font-label-lg text-label-lg">Sales</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-lg text-label-lg">Customers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-lg text-label-lg">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-lg text-label-lg">Settings</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-1 pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-lg text-label-lg">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-lg text-label-lg">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-[280px] pt-[72px] md:pt-0 pb-[80px] md:pb-0 min-h-screen flex flex-col">
+<!-- Header -->
+<div class="px-margin-mobile md:px-margin-desktop py-8 border-b border-outline-variant bg-surface-container-lowest sticky top-0 md:top-0 z-30">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background mb-1">Facturas Electrónicas (e-CF)</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Gestión y estado de comprobantes fiscales electrónicos ante la DGII.</p>
+</div>
+<div class="flex gap-3">
+<button class="h-touch-target-min px-4 rounded-lg border border-outline-variant bg-surface text-on-surface font-label-lg text-label-lg flex items-center gap-2 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+                        Sincronizar
+                    </button>
+<button class="h-touch-target-min px-6 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg flex items-center gap-2 shadow-sm hover:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                        Nueva Factura
+                    </button>
+</div>
+</div>
+</div>
+<!-- Content Canvas -->
+<div class="flex-1 p-margin-mobile md:p-margin-desktop max-w-7xl mx-auto w-full flex flex-col gap-container-gap">
+<!-- Filters Bento -->
+<div class="glass-panel rounded-xl p-6 kinetic-shadow grid grid-cols-1 md:grid-cols-4 gap-4">
+<!-- Status Filter -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Estado DGII</label>
+<div class="relative">
+<select class="w-full h-touch-target-min px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+<option value="all">Todos los Estados</option>
+<option value="accepted">Aceptada</option>
+<option value="pending">Pendiente</option>
+<option value="rejected">Rechazada</option>
+<option value="error">Error de Envío</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline">arrow_drop_down</span>
+</div>
+</div>
+<!-- Type Filter -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Tipo Comprobante</label>
+<div class="relative">
+<select class="w-full h-touch-target-min px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+<option value="all">Todos los Tipos</option>
+<option value="fiscal">Crédito Fiscal (B01)</option>
+<option value="consumer">Consumidor Final (B02)</option>
+<option value="debit">Nota de Débito (B03)</option>
+<option value="credit">Nota de Crédito (B04)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline">arrow_drop_down</span>
+</div>
+</div>
+<!-- Date Range -->
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Rango de Fechas</label>
+<div class="flex gap-2 items-center">
+<div class="relative flex-1">
+<input class="w-full h-touch-target-min px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" type="date" value="2023-10-01"/>
+</div>
+<span class="text-on-surface-variant">-</span>
+<div class="relative flex-1">
+<input class="w-full h-touch-target-min px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" type="date" value="2023-10-31"/>
+</div>
+<button class="h-touch-target-min w-touch-target-min flex items-center justify-center bg-surface-container border border-outline-variant rounded-lg hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Table Container -->
+<div class="glass-panel rounded-xl kinetic-shadow overflow-hidden flex flex-col bg-surface-container-lowest flex-1">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[900px]">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Factura / e-CF</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Cliente / RNC</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Fecha Emisión</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold text-right">Total</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold text-center">Estado DGII</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant font-body-md text-body-md">
+<!-- Row 1: Aceptada -->
+<tr class="table-row-hover transition-colors h-[72px]">
+<td class="py-3 px-6">
+<div class="flex flex-col">
+<span class="font-semibold text-on-background">INV-2023-1042</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-0.5">E310000000001</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-variant text-on-surface mt-1 w-max">B01 - Crédito Fiscal</span>
+</div>
+</td>
+<td class="py-3 px-6">
+<div class="flex flex-col">
+<span class="text-on-surface">Distribuidora Nacional SRL</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-0.5">RNC: 130-45678-9</span>
+</div>
+</td>
+<td class="py-3 px-6 text-on-surface-variant">24 Oct, 14:30</td>
+<td class="py-3 px-6 text-right font-numeric-pos text-title-lg">RD$ 45,200.00</td>
+<td class="py-3 px-6 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#E6F4EA] text-[#137333] font-label-md text-label-md font-semibold border border-[#CEEAD6]">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+                                        Aceptada
+                                    </span>
+</td>
+<td class="py-3 px-6">
+<div class="flex items-center justify-end gap-2">
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-primary transition-colors" title="Ver XML">
+<span class="material-symbols-outlined text-[20px]" data-icon="code">code</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-primary transition-colors" title="Descargar PDF">
+<span class="material-symbols-outlined text-[20px]" data-icon="picture_as_pdf">picture_as_pdf</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant transition-colors" title="Opciones">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Pendiente -->
+<tr class="table-row-hover transition-colors h-[72px]">
+<td class="py-3 px-6">
+<div class="flex flex-col">
+<span class="font-semibold text-on-background">INV-2023-1043</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-0.5">E320000000005</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-variant text-on-surface mt-1 w-max">B02 - Consumidor Final</span>
+</div>
+</td>
+<td class="py-3 px-6">
+<div class="flex flex-col">
+<span class="text-on-surface">Consumidor Final</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-0.5">Cédula: 001-XXXXXXX-X</span>
+</div>
+</td>
+<td class="py-3 px-6 text-on-surface-variant">24 Oct, 15:15</td>
+<td class="py-3 px-6 text-right font-numeric-pos text-title-lg">RD$ 2,150.50</td>
+<td class="py-3 px-6 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#FFF8E1] text-[#F57F17] font-label-md text-label-md font-semibold border border-[#FFECB3]">
+<span class="material-symbols-outlined text-[14px]" data-icon="hourglass_empty">hourglass_empty</span>
+                                        Pendiente
+                                    </span>
+</td>
+<td class="py-3 px-6">
+<div class="flex items-center justify-end gap-2">
+<button class="h-8 px-3 rounded hover:bg-surface-container-high flex items-center justify-center text-primary font-label-md text-label-md transition-colors border border-outline-variant" title="Consultar Estado DGII">
+                                            Consultar
+                                        </button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant transition-colors" title="Opciones">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Rechazada -->
+<tr class="table-row-hover transition-colors h-[72px]">
+<td class="py-3 px-6">
+<div class="flex flex-col">
+<span class="font-semibold text-on-background">INV-2023-1041</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-0.5">E310000000002</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-variant text-on-surface mt-1 w-max">B01 - Crédito Fiscal</span>
+</div>
+</td>
+<td class="py-3 px-6">
+<div class="flex flex-col">
+<span class="text-on-surface">Importaciones XYZ</span>
+<span class="font-label-md text-label-md text-error mt-0.5">RNC Inválido</span>
+</div>
+</td>
+<td class="py-3 px-6 text-on-surface-variant">23 Oct, 09:45</td>
+<td class="py-3 px-6 text-right font-numeric-pos text-title-lg">RD$ 128,000.00</td>
+<td class="py-3 px-6 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-label-md font-semibold border border-[#FFCDD2]">
+<span class="material-symbols-outlined text-[14px]" data-icon="cancel">cancel</span>
+                                        Rechazada
+                                    </span>
+</td>
+<td class="py-3 px-6">
+<div class="flex items-center justify-end gap-2">
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-error transition-colors" title="Ver Detalle Error">
+<span class="material-symbols-outlined text-[20px]" data-icon="info">info</span>
+</button>
+<button class="h-8 px-3 rounded bg-surface border border-outline-variant hover:bg-surface-container-high flex items-center justify-center text-on-surface font-label-md text-label-md transition-colors" title="Corregir">
+                                            Corregir
+                                        </button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Error de envío -->
+<tr class="table-row-hover transition-colors h-[72px]">
+<td class="py-3 px-6">
+<div class="flex flex-col">
+<span class="font-semibold text-on-background">INV-2023-1044</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-0.5">No asignado</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-variant text-on-surface mt-1 w-max">B02 - Consumidor Final</span>
+</div>
+</td>
+<td class="py-3 px-6">
+<div class="flex flex-col">
+<span class="text-on-surface">Cliente Mostrador</span>
+<span class="font-label-md text-label-md text-on-surface-variant mt-0.5">-</span>
+</div>
+</td>
+<td class="py-3 px-6 text-on-surface-variant">24 Oct, 16:05</td>
+<td class="py-3 px-6 text-right font-numeric-pos text-title-lg">RD$ 850.00</td>
+<td class="py-3 px-6 text-center">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-md text-label-md font-semibold border border-outline-variant">
+<span class="material-symbols-outlined text-[14px]" data-icon="cloud_off">cloud_off</span>
+                                        Error Red
+                                    </span>
+</td>
+<td class="py-3 px-6">
+<div class="flex items-center justify-end gap-2">
+<button class="h-8 px-3 rounded bg-surface border border-outline-variant hover:bg-surface-container-high flex items-center justify-center text-on-surface font-label-md text-label-md transition-colors" title="Reintentar Envío">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="replay">replay</span>
+                                            Reintentar
+                                        </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="bg-surface-container-low px-6 py-4 border-t border-outline-variant flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Mostrando 1-4 de 42 resultados</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center disabled:opacity-50 text-on-surface-variant" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary-container text-on-primary-container flex items-center justify-center font-label-md text-label-md">1</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high border border-outline-variant flex items-center justify-center font-label-md text-label-md text-on-surface-variant transition-colors">2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high border border-outline-variant flex items-center justify-center font-label-md text-label-md text-on-surface-variant transition-colors">3</button>
+<button class="w-8 h-8 rounded border border-outline-variant flex items-center justify-center hover:bg-surface-container-high text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 h-touch-target-relaxed pb-safe bg-surface dark:bg-inverse-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:bg-surface-container-high w-16 h-14 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calculate">calculate</span>
+<span class="font-label-md text-[10px] mt-1">Terminal</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:bg-surface-container-high w-16 h-14 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-[10px] mt-1">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline hover:bg-surface-container-high w-16 h-14 rounded-xl transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="inventory">inventory</span>
+<span class="font-label-md text-[10px] mt-1">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-5 py-1 scale-95 transition-all duration-100" href="#">
+<span class="material-symbols-outlined fill" data-icon="menu" style="font-variation-settings: 'FILL' 1;">menu</span>
+<span class="font-label-md text-[10px] mt-1 font-bold">Admin</span>
+</a>
+</nav>
+</body></html>

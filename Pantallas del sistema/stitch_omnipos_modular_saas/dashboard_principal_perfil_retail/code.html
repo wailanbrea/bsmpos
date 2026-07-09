@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OmniPOS - Dashboard</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "surface": "#fcf8ff",
+                    "on-tertiary-container": "#ffd0cc",
+                    "inverse-primary": "#c3c0ff",
+                    "on-surface": "#1b1b24",
+                    "surface-container-high": "#eae6f4",
+                    "on-primary-container": "#dad7ff",
+                    "surface-container-highest": "#e4e1ee",
+                    "on-secondary-fixed": "#002113",
+                    "primary": "#3525cd",
+                    "on-tertiary-fixed": "#410004",
+                    "primary-container": "#4f46e5",
+                    "secondary-container": "#6cf8bb",
+                    "surface-variant": "#e4e1ee",
+                    "surface-container-low": "#f5f2ff",
+                    "on-surface-variant": "#464555",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#930013",
+                    "secondary-fixed": "#6ffbbe",
+                    "secondary": "#006c49",
+                    "surface-tint": "#4d44e3",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "outline-variant": "#c7c4d8",
+                    "tertiary": "#960014",
+                    "on-tertiary": "#ffffff",
+                    "background": "#fcf8ff",
+                    "surface-dim": "#dcd8e5",
+                    "primary-fixed": "#e2dfff",
+                    "inverse-on-surface": "#f3effc",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "surface-container": "#f0ecf9",
+                    "inverse-surface": "#302f39",
+                    "tertiary-container": "#bc1d25",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-secondary-fixed-variant": "#005236",
+                    "outline": "#777587",
+                    "surface-bright": "#fcf8ff",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed": "#ffdad7",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1b1b24",
+                    "on-secondary-container": "#00714d",
+                    "on-primary-fixed": "#0f0069"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "32px",
+                    "touch-target-relaxed": "56px",
+                    "touch-target-min": "44px",
+                    "gutter": "16px",
+                    "container-gap": "24px"
+            },
+            "fontFamily": {
+                    "numeric-pos": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "numeric-pos": ["28px", { "lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                    "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                    "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                    "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                    "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                    "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                    "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                    "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                    "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-touch-target-relaxed bg-surface dark:bg-inverse-surface bg-surface-container-low dark:bg-surface-dim shadow-sm">
+<div class="flex items-center gap-4 w-[280px]">
+<span class="text-title-lg font-title-lg font-bold text-primary dark:text-primary-fixed-dim tracking-tight">OmniPOS</span>
+</div>
+<div class="flex-1 flex items-center max-w-md mx-4">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary text-body-md font-body-md text-on-surface placeholder:text-on-surface-variant transition-shadow" placeholder="Search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors text-primary dark:text-primary-fixed-dim">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full w-[280px] z-40 p-4 pt-[calc(56px+16px)] bg-surface-container dark:bg-surface-container-low border-r border-outline-variant">
+<div class="mb-8 px-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-headline-md text-headline-md">SM</div>
+<div>
+<h2 class="font-label-lg text-label-lg font-bold text-on-surface">OmniPOS Admin</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Main Branch</p>
+</div>
+</div>
+<button class="mb-6 w-full py-3 bg-primary text-on-primary rounded-lg font-label-lg text-label-lg shadow-sm hover:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">add</span>
+            New Transaction
+        </button>
+<ul class="flex flex-col gap-1 flex-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg font-bold font-label-lg text-label-lg transition-transform scale-[0.98] translate-x-1 shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant rounded-lg font-label-lg text-label-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                    Inventory
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant rounded-lg font-label-lg text-label-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="point_of_sale">point_of_sale</span>
+                    Sales
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant rounded-lg font-label-lg text-label-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                    Customers
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant rounded-lg font-label-lg text-label-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    Reports
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-outline hover:bg-surface-container-highest dark:hover:bg-surface-variant rounded-lg font-label-lg text-label-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+<div class="mt-auto pt-4 border-t border-outline-variant/30 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-md text-label-md transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container hover:text-on-error-container rounded-lg font-label-md text-label-md transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="pt-[72px] md:pl-[280px] p-margin-mobile md:p-margin-desktop min-h-screen bg-background">
+<!-- Header Actions -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-container-gap gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">Resumen General</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Supermercado Central - Hoy, 24 Oct 2023</p>
+</div>
+<button class="h-touch-target-relaxed px-8 bg-secondary text-on-secondary rounded-lg font-label-lg text-label-lg shadow-md hover:shadow-sm hover:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">point_of_sale</span>
+                Abrir POS
+            </button>
+</div>
+<!-- Summary Cards (Bento Grid Top) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-container-gap">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/50 flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="font-title-lg text-title-lg text-on-surface">Ventas de Hoy</span>
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">payments</span>
+</div>
+</div>
+<div>
+<div class="font-numeric-pos text-numeric-pos text-primary">RD$ 145,230</div>
+<div class="font-label-md text-label-md text-secondary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12% vs ayer
+                    </div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/50 flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="font-title-lg text-title-lg text-on-surface">Facturas Emitidas</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container/30 flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+</div>
+</div>
+<div>
+<div class="font-numeric-pos text-numeric-pos text-on-surface">342</div>
+<div class="font-label-md text-label-md text-on-surface-variant mt-1">Promedio: RD$ 424.64</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/50 flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="font-title-lg text-title-lg text-on-surface">Total Cobrado</span>
+<div class="w-8 h-8 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+</div>
+</div>
+<div>
+<div class="font-numeric-pos text-numeric-pos text-on-surface">RD$ 138,500</div>
+<div class="font-label-md text-label-md text-error mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">pending_actions</span> RD$ 6,730 pendiente
+                    </div>
+</div>
+</div>
+<!-- Card 4 (Alert) -->
+<div class="bg-error-container rounded-xl p-5 shadow-sm border border-error/20 flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<span class="font-title-lg text-title-lg text-on-error-container">Alertas de Inventario</span>
+<div class="w-8 h-8 rounded-full bg-error flex items-center justify-center text-on-error animate-pulse">
+<span class="material-symbols-outlined text-sm">warning</span>
+</div>
+</div>
+<div>
+<div class="font-numeric-pos text-numeric-pos text-on-error-container">12 Items</div>
+<div class="font-label-md text-label-md text-on-error-container/80 mt-1">Requieren atención inmediata</div>
+</div>
+</div>
+</div>
+<!-- Inventory Specific Widgets (Bento Grid Bottom) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Widget 1: Stock Bajo -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/50">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-title-lg text-title-lg font-semibold text-on-surface">Stock Bajo</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">Ver todos</button>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center p-3 bg-surface-container-low rounded-lg">
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">Leche Entera 1L</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Lácteos</div>
+</div>
+<div class="bg-error/10 text-error px-3 py-1 rounded-full font-label-md text-label-md font-bold">
+                            5 unid.
+                        </div>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface-container-low rounded-lg">
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">Arroz Premium 5lb</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Abarrotes</div>
+</div>
+<div class="bg-error/10 text-error px-3 py-1 rounded-full font-label-md text-label-md font-bold">
+                            12 unid.
+                        </div>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface-container-low rounded-lg">
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">Queso Cheddar</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Refrigerados</div>
+</div>
+<div class="bg-error/10 text-error px-3 py-1 rounded-full font-label-md text-label-md font-bold">
+                            3 unid.
+                        </div>
+</div>
+</div>
+</div>
+<!-- Widget 2: Próximos a Vencer -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/50">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-title-lg text-title-lg font-semibold text-on-surface">Próximos a Vencer</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">Revisar lote</button>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg">
+<div class="w-12 h-12 bg-tertiary-container/30 rounded-lg flex flex-col items-center justify-center text-tertiary">
+<span class="font-label-lg text-label-lg font-bold leading-tight">2</span>
+<span class="font-label-md text-[10px] leading-tight">días</span>
+</div>
+<div class="flex-1">
+<div class="font-label-lg text-label-lg text-on-surface">Yogurt Natural (Lote B)</div>
+<div class="font-label-md text-label-md text-on-surface-variant">45 unidades en piso</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg">
+<div class="w-12 h-12 bg-tertiary-container/30 rounded-lg flex flex-col items-center justify-center text-tertiary">
+<span class="font-label-lg text-label-lg font-bold leading-tight">5</span>
+<span class="font-label-md text-[10px] leading-tight">días</span>
+</div>
+<div class="flex-1">
+<div class="font-label-lg text-label-lg text-on-surface">Pan de Molde Blanco</div>
+<div class="font-label-md text-label-md text-on-surface-variant">120 unidades bodega</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-lg">
+<div class="w-12 h-12 bg-outline-variant/50 rounded-lg flex flex-col items-center justify-center text-on-surface-variant">
+<span class="font-label-lg text-label-lg font-bold leading-tight">8</span>
+<span class="font-label-md text-[10px] leading-tight">días</span>
+</div>
+<div class="flex-1">
+<div class="font-label-lg text-label-lg text-on-surface">Jamón Cocido Premium</div>
+<div class="font-label-md text-label-md text-on-surface-variant">30 unidades vitrina</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Widget 3: Valor del Inventario -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/50 flex flex-col justify-between">
+<div>
+<h3 class="font-title-lg text-title-lg font-semibold text-on-surface mb-2">Valor del Inventario</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Costo total de mercancía valorizada a la fecha.</p>
+<div class="font-display-lg text-display-lg text-primary tracking-tight">RD$ 4.2M</div>
+<div class="mt-6 space-y-4">
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Abarrotes</span>
+<span class="text-on-surface font-semibold">45%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Cárnicos y Lácteos</span>
+<span class="text-on-surface font-semibold">30%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 30%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Otros</span>
+<span class="text-on-surface font-semibold">25%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-tertiary-container h-2 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full py-2 border border-outline-variant rounded-lg font-label-lg text-label-lg text-primary hover:bg-surface-container transition-colors">
+                    Generar Reporte Detallado
+                </button>
+</div>
+</div>
+</main>
+</body></html>
