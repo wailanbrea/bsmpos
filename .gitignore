@@ -31,6 +31,7 @@
 
 # Tooling and local editor state
 /.playwright-cli/
+/output/playwright/
 /.phpunit.result.cache
 /.phpunit.cache/
 /.idea/
