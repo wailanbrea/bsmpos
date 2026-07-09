@@ -4,6 +4,13 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-09 — Corrección de navegación SPA
+**Corregido**
+- Las rutas directas del cliente (por ejemplo `/ingresar`) entregan el shell Vue en lugar de responder 404.
+
+**Validado**
+- Pest cubre la carga directa de ruta SPA.
+
 ### 2026-07-09 — Fase 1: acceso y contexto operativo
 **Agregado**
 - UI Vue para login, registro, creación inicial de compañía y pase de turno compañía/sucursal.

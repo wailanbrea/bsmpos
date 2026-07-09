@@ -140,8 +140,8 @@
     "semantic_hash": ""
   },
   "routes/web.php": {
-    "mtime": 1773496440.0,
-    "ast_hash": "84625c52e743b1a4178bb27b7afb3615",
+    "mtime": 1783638403.1487982,
+    "ast_hash": "7d6f4fe222536430105f1f78ca434917",
     "semantic_hash": ""
   },
   "tests/Feature/ExampleTest.php": {
@@ -310,8 +310,8 @@
     "semantic_hash": ""
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783635580.5467012,
-    "ast_hash": "0100de3dc57314462969f2e1d8d07e6d",
+    "mtime": 1783638431.2887418,
+    "ast_hash": "b1f0a40649ef77e906dcf002d2e1e353",
     "semantic_hash": ""
   },
   "docs/13_DECISIONS.md": {
@@ -777,6 +777,11 @@
   "output/playwright/register.png": {
     "mtime": 1783635560.6337385,
     "ast_hash": "830b7f83ffd0af25e2fd18422b4bb1f6",
+    "semantic_hash": ""
+  },
+  "tests/Feature/SpaRoutingTest.php": {
+    "mtime": 1783638403.1497984,
+    "ast_hash": "d5b616f46b1669d0d9c4429daf8d555d",
     "semantic_hash": ""
   }
 }

@@ -1,16 +1,16 @@
 # Graph Report - Sistema de Facturacion Saas  (2026-07-09)
 
 ## Corpus Check
-- 129 files · ~156,623 words
+- 130 files · ~155,273 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 843 nodes · 1023 edges · 158 communities (88 shown, 70 thin omitted)
+- 845 nodes · 1024 edges · 159 communities (89 shown, 70 thin omitted)
 - Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 95 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `07f272e9`
+- Built from commit: `0c3338aa`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -171,7 +171,7 @@
 ## Import Cycles
 - 1-file cycle: `resources/js/app.ts -> resources/js/app.ts`
 
-## Communities (158 total, 70 thin omitted)
+## Communities (159 total, 70 thin omitted)
 
 ### Community 0 - "00_PROJECT_OVERVIEW.md"
 Cohesion: 0.16
@@ -290,8 +290,8 @@ Cohesion: 0.29
 Nodes (3): AppServiceProvider, ModuleServiceProvider, ServiceProvider
 
 ### Community 29 - "[No publicado]"
-Cohesion: 0.20
-Nodes (9): 12 — CHANGELOG, 2026-07-09 — Fase 1: acceso y contexto operativo, 2026-07-09 — Fase 1: aislamiento multiempresa base, 2026-07-09 — Fase 1: autenticación API segura, 2026-07-09 — Fase 1: RBAC por compañía, 2026-07-09 — Inicio de Fase 0: control de versiones, 2026-07-09 — Inicio de Fase 0: runtime y Laravel, 2026-07-09 — Planificación inicial (pre-código) (+1 more)
+Cohesion: 0.18
+Nodes (10): 12 — CHANGELOG, 2026-07-09 — Corrección de navegación SPA, 2026-07-09 — Fase 1: acceso y contexto operativo, 2026-07-09 — Fase 1: aislamiento multiempresa base, 2026-07-09 — Fase 1: autenticación API segura, 2026-07-09 — Fase 1: RBAC por compañía, 2026-07-09 — Inicio de Fase 0: control de versiones, 2026-07-09 — Inicio de Fase 0: runtime y Laravel (+2 more)
 
 ### Community 36 - "app.js"
 Cohesion: 0.21
@@ -410,7 +410,7 @@ Nodes (4): ErrorCode, createCompany(), submit(), submit()
   Pantallas del sistema/stitch_omnipos_modular_saas/entradas_de_mercanc_a_compras_y_lotes/screen.png · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **337 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+332 more)
+- **338 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+333 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **70 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -428,6 +428,6 @@ _Questions this graph is uniquely positioned to answer:_
 - **Are the 3 inferred relationships involving `User` (e.g. with `.execute()` and `.execute()`) actually correct?**
   _`User` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `singleQuote`, `printWidth`, `tabWidth` to the rest of the system?**
-  _353 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _354 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Inventory Batches (lotes y vencimientos)` be split into smaller, more focused modules?**
   _Cohesion score 0.059379217273954114 - nodes in this community are weakly interconnected._
