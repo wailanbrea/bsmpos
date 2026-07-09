@@ -5,8 +5,8 @@
     "semantic_hash": ""
   },
   "app/Models/User.php": {
-    "mtime": 1783633543.5101898,
-    "ast_hash": "92ca5771cce48599462fd19eb2c7de8e",
+    "mtime": 1783634417.4455707,
+    "ast_hash": "2ac1c01cfcc1a8428cc7e3d46942ff29",
     "semantic_hash": ""
   },
   "app/Providers/AppServiceProvider.php": {
@@ -20,8 +20,8 @@
     "semantic_hash": ""
   },
   "bootstrap/app.php": {
-    "mtime": 1783633415.4337783,
-    "ast_hash": "59c6ef445ab21e78751294c67c402a1c",
+    "mtime": 1783634417.4445708,
+    "ast_hash": "7cf0f24603ee4d7410a81b5ddb32aee9",
     "semantic_hash": ""
   },
   "bootstrap/providers.php": {
@@ -260,8 +260,8 @@
     "semantic_hash": ""
   },
   "docs/02_DATABASE_SCHEMA.md": {
-    "mtime": 1783633644.2141378,
-    "ast_hash": "6d7a8feed940d412cdb52823786489e1",
+    "mtime": 1783634569.5120418,
+    "ast_hash": "8456090d1b9748fa85b96b73872233f1",
     "semantic_hash": ""
   },
   "docs/03_API_DOCUMENTATION.md": {
@@ -305,18 +305,18 @@
     "semantic_hash": ""
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783633634.0954466,
-    "ast_hash": "5664c7035f6dab60c24289f3adfecfef",
+    "mtime": 1783634569.513045,
+    "ast_hash": "c2c7ed383694d2364b2ac35d7f7a5842",
     "semantic_hash": ""
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783633634.0964463,
-    "ast_hash": "63bc3434d1f75401406e0feff5cbed97",
+    "mtime": 1783634569.5140445,
+    "ast_hash": "28c96e07c76c3496b61d9cc6394e196f",
     "semantic_hash": ""
   },
   "docs/13_DECISIONS.md": {
-    "mtime": 1783618247.776735,
-    "ast_hash": "88d08fb0580f6fb826b789f410ffd4d5",
+    "mtime": 1783634569.5140445,
+    "ast_hash": "08a6d873821cf472a0da2b1b02a79ddf",
     "semantic_hash": ""
   },
   "docs/14_KNOWN_ISSUES.md": {
@@ -495,8 +495,8 @@
     "semantic_hash": ""
   },
   "app/Core/Enums/ErrorCode.php": {
-    "mtime": 1783633415.434782,
-    "ast_hash": "d15834d560c4c54c3659ee94a593638a",
+    "mtime": 1783634417.4435716,
+    "ast_hash": "e33e695c5bd254d305e0b2e7e0c44552",
     "semantic_hash": ""
   },
   "app/Core/Exceptions/ApiException.php": {
@@ -565,8 +565,8 @@
     "semantic_hash": ""
   },
   "app/Modules/Company/Actions/CreateCompanyAction.php": {
-    "mtime": 1783633476.015353,
-    "ast_hash": "2a035958b1528862d38259b15d0818a0",
+    "mtime": 1783634469.8346555,
+    "ast_hash": "7254cb1bd95658e5e79b1f5187635fdd",
     "semantic_hash": ""
   },
   "app/Modules/Company/Http/Controllers/CompanyController.php": {
@@ -625,8 +625,73 @@
     "semantic_hash": ""
   },
   "tests/Feature/CompanyTenancyTest.php": {
-    "mtime": 1783633675.0612264,
-    "ast_hash": "8555f1bb7d4d09c28b206d1f95f9a6a6",
+    "mtime": 1783633694.2572582,
+    "ast_hash": "f37a5bc6c19486501ce0d3c7feef1e17",
+    "semantic_hash": ""
+  },
+  "app/Core/Http/Middleware/EnsurePermission.php": {
+    "mtime": 1783634417.4455707,
+    "ast_hash": "d1eb7cd16aa464064231e87b3baee0b3",
+    "semantic_hash": ""
+  },
+  "app/Modules/Access/Actions/CreateRoleAction.php": {
+    "mtime": 1783634469.8346555,
+    "ast_hash": "b3aeb00daaad66fe27d52b1127043603",
+    "semantic_hash": ""
+  },
+  "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php": {
+    "mtime": 1783634469.8336565,
+    "ast_hash": "c60fb10f296c9454d6691f53f9e7843f",
+    "semantic_hash": ""
+  },
+  "app/Modules/Access/Http/Controllers/RoleController.php": {
+    "mtime": 1783634469.8376565,
+    "ast_hash": "491fc4e4f2fd427a4117f6d5835dbce0",
+    "semantic_hash": ""
+  },
+  "app/Modules/Access/Http/Requests/StoreRoleRequest.php": {
+    "mtime": 1783634469.8356547,
+    "ast_hash": "bb319439385c4758ca382f1f2cab4c3a",
+    "semantic_hash": ""
+  },
+  "app/Modules/Access/Http/Resources/RoleResource.php": {
+    "mtime": 1783634522.2901957,
+    "ast_hash": "b37c04e57d795cb91f5928f39d038cf9",
+    "semantic_hash": ""
+  },
+  "app/Modules/Access/Models/Permission.php": {
+    "mtime": 1783634417.448574,
+    "ast_hash": "4d2c04f592d24333b4d79bd344e445fd",
+    "semantic_hash": ""
+  },
+  "app/Modules/Access/Models/Role.php": {
+    "mtime": 1783634522.3131948,
+    "ast_hash": "1627c155a524afd55567649d1ea54c0a",
+    "semantic_hash": ""
+  },
+  "app/Modules/Access/Support/PermissionCatalog.php": {
+    "mtime": 1783634469.832657,
+    "ast_hash": "329bff1b51a4c3e2321de0a957fdf499",
+    "semantic_hash": ""
+  },
+  "app/Modules/Access/module.json": {
+    "mtime": 1783634417.4475708,
+    "ast_hash": "45622f5534aa05b6ceed8f759dd7a8cd",
+    "semantic_hash": ""
+  },
+  "app/Modules/Access/routes.php": {
+    "mtime": 1783634469.8376565,
+    "ast_hash": "753981028956efe28c7fe08024b42367",
+    "semantic_hash": ""
+  },
+  "database/migrations/2026_07_09_200000_create_access_control_tables.php": {
+    "mtime": 1783634417.4465704,
+    "ast_hash": "ddfc467c44640433b5b0791b70946948",
+    "semantic_hash": ""
+  },
+  "tests/Feature/AccessControlTest.php": {
+    "mtime": 1783634535.3849223,
+    "ast_hash": "0f532f82fa34d3af2eb4672e135bc870",
     "semantic_hash": ""
   }
 }

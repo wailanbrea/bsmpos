@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Company\Actions;
 
 use App\Models\User;
+use App\Modules\Access\Actions\ProvisionCompanyOwnerAccess;
 use App\Modules\Company\Models\Company;
 use Illuminate\Support\Facades\DB;
 
@@ -42,6 +43,7 @@ final class CreateCompanyAction
                 'default_branch_id' => $branch->getKey(),
             ]);
             $branch->users()->attach($owner->getKey());
+            app(ProvisionCompanyOwnerAccess::class)->execute($company, $owner);
 
             $company->audit('company.created', [], [
                 'name' => $company->name,

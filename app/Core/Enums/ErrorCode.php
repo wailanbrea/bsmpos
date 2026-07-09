@@ -16,6 +16,7 @@ enum ErrorCode: string
     case TenantAccessDenied = 'TENANT_ACCESS_DENIED';
     case CompanyInactive = 'COMPANY_INACTIVE';
     case BranchInactive = 'BRANCH_INACTIVE';
+    case PermissionDenied = 'PERMISSION_DENIED';
     case Conflict = 'CONFLICT';
     case InternalError = 'INTERNAL_ERROR';
 }

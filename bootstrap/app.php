@@ -5,6 +5,7 @@ use App\Core\Exceptions\ApiException;
 use App\Core\Http\ApiResponse;
 use App\Core\Http\Middleware\EnsureBranchContext;
 use App\Core\Http\Middleware\EnsureCompanyContext;
+use App\Core\Http\Middleware\EnsurePermission;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -22,6 +23,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'company' => EnsureCompanyContext::class,
             'branch' => EnsureBranchContext::class,
+            'permission' => EnsurePermission::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

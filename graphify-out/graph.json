@@ -100,7 +100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_core_concerns_belongstocompany",
-      "community": 4,
+      "community": 146,
       "norm_label": "belongstocompany.php"
     },
     {
@@ -110,7 +110,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "app_core_concerns_belongstocompany_bootbelongstocompany",
-      "community": 4,
+      "community": 146,
       "norm_label": "bootbelongstocompany()"
     },
     {
@@ -120,7 +120,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_core_concerns_haspubliculid",
-      "community": 4,
+      "community": 146,
       "norm_label": "haspubliculid.php"
     },
     {
@@ -130,7 +130,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "app_core_concerns_haspubliculid_boothaspubliculid",
-      "community": 4,
+      "community": 146,
       "norm_label": "boothaspubliculid()"
     },
     {
@@ -370,6 +370,66 @@
       "source_location": "",
       "_origin": "ast",
       "id": "app_core_http_middleware_ensurecompanycontext_php_response",
+      "community": 104,
+      "norm_label": "response"
+    },
+    {
+      "label": "EnsurePermission.php",
+      "file_type": "code",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurepermission",
+      "community": 104,
+      "norm_label": "ensurepermission.php"
+    },
+    {
+      "label": "EnsurePermission",
+      "file_type": "code",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurepermission_ensurepermission",
+      "community": 104,
+      "norm_label": "ensurepermission"
+    },
+    {
+      "label": ".handle()",
+      "file_type": "code",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurepermission_ensurepermission_handle",
+      "community": 104,
+      "norm_label": ".handle()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurepermission_php_request",
+      "community": 104,
+      "norm_label": "request"
+    },
+    {
+      "label": "Closure",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurepermission_php_closure",
+      "community": 104,
+      "norm_label": "closure"
+    },
+    {
+      "label": "Response",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_core_http_middleware_ensurepermission_php_response",
       "community": 104,
       "norm_label": "response"
     },
@@ -657,7 +717,7 @@
       "label": "User",
       "file_type": "code",
       "source_file": "app/Models/User.php",
-      "source_location": "L17",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "app_models_user_user",
       "community": 4,
@@ -727,7 +787,7 @@
       "label": ".casts()",
       "file_type": "code",
       "source_file": "app/Models/User.php",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "app_models_user_user_casts",
       "community": 4,
@@ -737,7 +797,7 @@
       "label": ".companies()",
       "file_type": "code",
       "source_file": "app/Models/User.php",
-      "source_location": "L61",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "app_models_user_user_companies",
       "community": 4,
@@ -757,11 +817,401 @@
       "label": ".branches()",
       "file_type": "code",
       "source_file": "app/Models/User.php",
-      "source_location": "L69",
+      "source_location": "L70",
       "_origin": "ast",
       "id": "app_models_user_user_branches",
       "community": 4,
       "norm_label": ".branches()"
+    },
+    {
+      "label": ".roles()",
+      "file_type": "code",
+      "source_file": "app/Models/User.php",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "app_models_user_user_roles",
+      "community": 4,
+      "norm_label": ".roles()"
+    },
+    {
+      "label": "CreateRoleAction.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Actions/CreateRoleAction.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_access_actions_createroleaction",
+      "community": 0,
+      "norm_label": "createroleaction.php"
+    },
+    {
+      "label": "CreateRoleAction",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Actions/CreateRoleAction.php",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "app_modules_access_actions_createroleaction_createroleaction",
+      "community": 0,
+      "norm_label": "createroleaction"
+    },
+    {
+      "label": ".execute()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Actions/CreateRoleAction.php",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "app_modules_access_actions_createroleaction_createroleaction_execute",
+      "community": 0,
+      "norm_label": ".execute()"
+    },
+    {
+      "label": "ProvisionCompanyOwnerAccess.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_access_actions_provisioncompanyowneraccess",
+      "community": 4,
+      "norm_label": "provisioncompanyowneraccess.php"
+    },
+    {
+      "label": "ProvisionCompanyOwnerAccess",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "app_modules_access_actions_provisioncompanyowneraccess_provisioncompanyowneraccess",
+      "community": 4,
+      "norm_label": "provisioncompanyowneraccess"
+    },
+    {
+      "label": ".execute()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_modules_access_actions_provisioncompanyowneraccess_provisioncompanyowneraccess_execute",
+      "community": 4,
+      "norm_label": ".execute()"
+    },
+    {
+      "label": "RoleController.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_access_http_controllers_rolecontroller",
+      "community": 0,
+      "norm_label": "rolecontroller.php"
+    },
+    {
+      "label": "RoleController",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "app_modules_access_http_controllers_rolecontroller_rolecontroller",
+      "community": 0,
+      "norm_label": "rolecontroller"
+    },
+    {
+      "label": ".index()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_modules_access_http_controllers_rolecontroller_rolecontroller_index",
+      "community": 0,
+      "norm_label": ".index()"
+    },
+    {
+      "label": "JsonResponse",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_access_http_controllers_rolecontroller_php_jsonresponse",
+      "community": 0,
+      "norm_label": "jsonresponse"
+    },
+    {
+      "label": ".store()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "app_modules_access_http_controllers_rolecontroller_rolecontroller_store",
+      "community": 0,
+      "norm_label": ".store()"
+    },
+    {
+      "label": "StoreRoleRequest.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Http/Requests/StoreRoleRequest.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_access_http_requests_storerolerequest",
+      "community": 0,
+      "norm_label": "storerolerequest.php"
+    },
+    {
+      "label": "StoreRoleRequest",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Http/Requests/StoreRoleRequest.php",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_modules_access_http_requests_storerolerequest_storerolerequest",
+      "community": 0,
+      "norm_label": "storerolerequest"
+    },
+    {
+      "label": "FormRequest",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "formrequest",
+      "community": 0,
+      "norm_label": "formrequest"
+    },
+    {
+      "label": ".authorize()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Http/Requests/StoreRoleRequest.php",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "app_modules_access_http_requests_storerolerequest_storerolerequest_authorize",
+      "community": 0,
+      "norm_label": ".authorize()"
+    },
+    {
+      "label": ".rules()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Http/Requests/StoreRoleRequest.php",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "app_modules_access_http_requests_storerolerequest_storerolerequest_rules",
+      "community": 0,
+      "norm_label": ".rules()"
+    },
+    {
+      "label": "RoleResource.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Http/Resources/RoleResource.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_access_http_resources_roleresource",
+      "community": 0,
+      "norm_label": "roleresource.php"
+    },
+    {
+      "label": "RoleResource",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Http/Resources/RoleResource.php",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "app_modules_access_http_resources_roleresource_roleresource",
+      "community": 0,
+      "norm_label": "roleresource"
+    },
+    {
+      "label": "JsonResource",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "jsonresource",
+      "community": 0,
+      "norm_label": "jsonresource"
+    },
+    {
+      "label": ".toArray()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Http/Resources/RoleResource.php",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "app_modules_access_http_resources_roleresource_roleresource_toarray",
+      "community": 0,
+      "norm_label": ".toarray()"
+    },
+    {
+      "label": "Request",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_access_http_resources_roleresource_php_request",
+      "community": 0,
+      "norm_label": "request"
+    },
+    {
+      "label": "Permission.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Models/Permission.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_access_models_permission",
+      "community": 4,
+      "norm_label": "permission.php"
+    },
+    {
+      "label": "Permission",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Models/Permission.php",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_modules_access_models_permission_permission",
+      "community": 4,
+      "norm_label": "permission"
+    },
+    {
+      "label": ".roles()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Models/Permission.php",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "app_modules_access_models_permission_permission_roles",
+      "community": 4,
+      "norm_label": ".roles()"
+    },
+    {
+      "label": "BelongsToMany",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_access_models_permission_php_belongstomany",
+      "community": 4,
+      "norm_label": "belongstomany"
+    },
+    {
+      "label": "Role.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_access_models_role",
+      "community": 4,
+      "norm_label": "role.php"
+    },
+    {
+      "label": "Role",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_modules_access_models_role_role",
+      "community": 4,
+      "norm_label": "role"
+    },
+    {
+      "label": "SoftDeletes",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "softdeletes",
+      "community": 4,
+      "norm_label": "softdeletes"
+    },
+    {
+      "label": ".casts()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "app_modules_access_models_role_role_casts",
+      "community": 4,
+      "norm_label": ".casts()"
+    },
+    {
+      "label": ".company()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "app_modules_access_models_role_role_company",
+      "community": 4,
+      "norm_label": ".company()"
+    },
+    {
+      "label": "BelongsTo",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_access_models_role_php_belongsto",
+      "community": 4,
+      "norm_label": "belongsto"
+    },
+    {
+      "label": ".permissions()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "app_modules_access_models_role_role_permissions",
+      "community": 4,
+      "norm_label": ".permissions()"
+    },
+    {
+      "label": "BelongsToMany",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_modules_access_models_role_php_belongstomany",
+      "community": 4,
+      "norm_label": "belongstomany"
+    },
+    {
+      "label": ".users()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "app_modules_access_models_role_role_users",
+      "community": 4,
+      "norm_label": ".users()"
+    },
+    {
+      "label": "PermissionCatalog.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Support/PermissionCatalog.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_access_support_permissioncatalog",
+      "community": 4,
+      "norm_label": "permissioncatalog.php"
+    },
+    {
+      "label": "PermissionCatalog",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Support/PermissionCatalog.php",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "app_modules_access_support_permissioncatalog_permissioncatalog",
+      "community": 4,
+      "norm_label": "permissioncatalog"
+    },
+    {
+      "label": ".defaults()",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/Support/PermissionCatalog.php",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "app_modules_access_support_permissioncatalog_permissioncatalog_defaults",
+      "community": 4,
+      "norm_label": ".defaults()"
+    },
+    {
+      "label": "routes.php",
+      "file_type": "code",
+      "source_file": "app/Modules/Access/routes.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_modules_access_routes",
+      "community": 0,
+      "norm_label": "routes.php"
     },
     {
       "label": "CreateCompanyAction.php",
@@ -777,20 +1227,20 @@
       "label": "CreateCompanyAction",
       "file_type": "code",
       "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
-      "source_location": "L11",
+      "source_location": "L12",
       "_origin": "ast",
       "id": "app_modules_company_actions_createcompanyaction_createcompanyaction",
-      "community": 4,
+      "community": 0,
       "norm_label": "createcompanyaction"
     },
     {
       "label": ".execute()",
       "file_type": "code",
       "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "app_modules_company_actions_createcompanyaction_createcompanyaction_execute",
-      "community": 4,
+      "community": 0,
       "norm_label": ".execute()"
     },
     {
@@ -874,16 +1324,6 @@
       "norm_label": "storecompanyrequest"
     },
     {
-      "label": "FormRequest",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "formrequest",
-      "community": 0,
-      "norm_label": "formrequest"
-    },
-    {
       "label": ".authorize()",
       "file_type": "code",
       "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
@@ -932,16 +1372,6 @@
       "id": "app_modules_company_http_resources_branchresource_branchresource",
       "community": 0,
       "norm_label": "branchresource"
-    },
-    {
-      "label": "JsonResource",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "jsonresource",
-      "community": 0,
-      "norm_label": "jsonresource"
     },
     {
       "label": ".toArray()",
@@ -1024,16 +1454,6 @@
       "norm_label": "branch"
     },
     {
-      "label": "SoftDeletes",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "softdeletes",
-      "community": 4,
-      "norm_label": "softdeletes"
-    },
-    {
       "label": ".casts()",
       "file_type": "code",
       "source_file": "app/Modules/Company/Models/Branch.php",
@@ -1059,7 +1479,7 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "belongsto",
+      "id": "app_modules_company_models_branch_php_belongsto",
       "community": 4,
       "norm_label": "belongsto"
     },
@@ -1950,7 +2370,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "database_factories_userfactory",
-      "community": 4,
+      "community": 146,
       "norm_label": "userfactory.php"
     },
     {
@@ -1960,7 +2380,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "database_factories_userfactory_userfactory",
-      "community": 4,
+      "community": 146,
       "norm_label": "userfactory"
     },
     {
@@ -1970,7 +2390,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "factory",
-      "community": 4,
+      "community": 146,
       "norm_label": "factory"
     },
     {
@@ -1980,7 +2400,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "database_factories_userfactory_userfactory_definition",
-      "community": 4,
+      "community": 146,
       "norm_label": ".definition()"
     },
     {
@@ -1990,7 +2410,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "database_factories_userfactory_userfactory_unverified",
-      "community": 4,
+      "community": 146,
       "norm_label": ".unverified()"
     },
     {
@@ -2000,7 +2420,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "static",
-      "community": 4,
+      "community": 146,
       "norm_label": "static"
     },
     {
@@ -2244,6 +2664,36 @@
       "norm_label": "down()"
     },
     {
+      "label": "2026_07_09_200000_create_access_control_tables.php",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_200000_create_access_control_tables.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_200000_create_access_control_tables",
+      "community": 148,
+      "norm_label": "2026_07_09_200000_create_access_control_tables.php"
+    },
+    {
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_200000_create_access_control_tables.php",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_200000_create_access_control_tables_up",
+      "community": 148,
+      "norm_label": "up()"
+    },
+    {
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "database/migrations/2026_07_09_200000_create_access_control_tables.php",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "database_migrations_2026_07_09_200000_create_access_control_tables_down",
+      "community": 148,
+      "norm_label": "down()"
+    },
+    {
       "label": "2026_07_09_211127_create_personal_access_tokens_table.php",
       "file_type": "code",
       "source_file": "database/migrations/2026_07_09_211127_create_personal_access_tokens_table.php",
@@ -2280,7 +2730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "database_seeders_databaseseeder",
-      "community": 4,
+      "community": 147,
       "norm_label": "databaseseeder.php"
     },
     {
@@ -2290,7 +2740,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "database_seeders_databaseseeder_databaseseeder",
-      "community": 4,
+      "community": 147,
       "norm_label": "databaseseeder"
     },
     {
@@ -2300,7 +2750,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "seeder",
-      "community": 4,
+      "community": 147,
       "norm_label": "seeder"
     },
     {
@@ -2310,7 +2760,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "withoutmodelevents",
-      "community": 4,
+      "community": 147,
       "norm_label": "withoutmodelevents"
     },
     {
@@ -2320,7 +2770,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "database_seeders_databaseseeder_databaseseeder_run",
-      "community": 4,
+      "community": 147,
       "norm_label": ".run()"
     },
     {
@@ -2864,6 +3314,26 @@
       "norm_label": "web.php"
     },
     {
+      "label": "AccessControlTest.php",
+      "file_type": "code",
+      "source_file": "tests/Feature/AccessControlTest.php",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_feature_accesscontroltest",
+      "community": 4,
+      "norm_label": "accesscontroltest.php"
+    },
+    {
+      "label": "accessCompanyPayload()",
+      "file_type": "code",
+      "source_file": "tests/Feature/AccessControlTest.php",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "tests_feature_accesscontroltest_accesscompanypayload",
+      "community": 4,
+      "norm_label": "accesscompanypayload()"
+    },
+    {
       "label": "CompanyTenancyTest.php",
       "file_type": "code",
       "source_file": "tests/Feature/CompanyTenancyTest.php",
@@ -2877,7 +3347,7 @@
       "label": "companyPayload()",
       "file_type": "code",
       "source_file": "tests/Feature/CompanyTenancyTest.php",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "tests_feature_companytenancytest_companypayload",
       "community": 4,
@@ -3817,7 +4287,7 @@
       "label": "3. Configuraci\u00f3n fiscal y monedas",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L25",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "docs_02_database_schema_3_configuraci\u00f3n_fiscal_y_monedas",
       "community": 6,
@@ -3827,7 +4297,7 @@
       "label": "4. Clientes",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L35",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "docs_02_database_schema_4_clientes",
       "community": 6,
@@ -3837,7 +4307,7 @@
       "label": "5. Productos y servicios",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L39",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "docs_02_database_schema_5_productos_y_servicios",
       "community": 6,
@@ -3847,7 +4317,7 @@
       "label": "6. Inventario avanzado (\u00a715 del master prompt)",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L43",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "docs_02_database_schema_6_inventario_avanzado_15_del_master_prompt",
       "community": 6,
@@ -3857,7 +4327,7 @@
       "label": "7. POS / \u00d3rdenes",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L47",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "docs_02_database_schema_7_pos_\u00f3rdenes",
       "community": 6,
@@ -3867,7 +4337,7 @@
       "label": "8. Caja y pagos",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L53",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "docs_02_database_schema_8_caja_y_pagos",
       "community": 6,
@@ -3877,7 +4347,7 @@
       "label": "9. Facturaci\u00f3n",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L57",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "docs_02_database_schema_9_facturaci\u00f3n",
       "community": 6,
@@ -3887,7 +4357,7 @@
       "label": "10. Facturaci\u00f3n electr\u00f3nica (\u00a719)",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L63",
+      "source_location": "L65",
       "_origin": "ast",
       "id": "docs_02_database_schema_10_facturaci\u00f3n_electr\u00f3nica_19",
       "community": 6,
@@ -3897,7 +4367,7 @@
       "label": "11. M\u00f3dulos verticales",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L67",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "docs_02_database_schema_11_m\u00f3dulos_verticales",
       "community": 6,
@@ -3907,7 +4377,7 @@
       "label": "12. Reportes DGII (addendum)",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L74",
+      "source_location": "L76",
       "_origin": "ast",
       "id": "docs_02_database_schema_12_reportes_dgii_addendum",
       "community": 6,
@@ -3917,7 +4387,7 @@
       "label": "\u00cdndices m\u00ednimos obligatorios",
       "file_type": "document",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L79",
+      "source_location": "L81",
       "_origin": "ast",
       "id": "docs_02_database_schema_\u00edndices_m\u00ednimos_obligatorios",
       "community": 6,
@@ -4430,7 +4900,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_11_todo_master_11_todo_master",
-      "community": 5,
+      "community": 145,
       "norm_label": "11 \u2014 todo master"
     },
     {
@@ -4440,167 +4910,167 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "docs_11_todo_master_conocimiento_del_proyecto",
-      "community": 5,
+      "community": 145,
       "norm_label": "conocimiento del proyecto"
     },
     {
       "label": "FASE 0 \u2014 Base",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L12",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_0_base",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 0 \u2014 base"
     },
     {
       "label": "FASE 1 \u2014 N\u00facleo SaaS",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_1_n\u00facleo_saas",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 1 \u2014 nucleo saas"
     },
     {
       "label": "FASE 2 \u2014 M\u00f3dulos y onboarding",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_2_m\u00f3dulos_y_onboarding",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 2 \u2014 modulos y onboarding"
     },
     {
       "label": "FASE 3 \u2014 Configuraci\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L39",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_3_configuraci\u00f3n",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 3 \u2014 configuracion"
     },
     {
       "label": "FASE 4 \u2014 Clientes",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_4_clientes",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 4 \u2014 clientes"
     },
     {
       "label": "FASE 5 \u2014 Productos y servicios",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L47",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_5_productos_y_servicios",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 5 \u2014 productos y servicios"
     },
     {
       "label": "FASE 6 \u2014 Inventario avanzado",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L51",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_6_inventario_avanzado",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 6 \u2014 inventario avanzado"
     },
     {
       "label": "FASE 7 \u2014 POS Touch",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L57",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_7_pos_touch",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 7 \u2014 pos touch"
     },
     {
       "label": "FASE 8 \u2014 Caja y pagos",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L61",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_8_caja_y_pagos",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 8 \u2014 caja y pagos"
     },
     {
       "label": "FASE 9 \u2014 Facturaci\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L65",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_9_facturaci\u00f3n",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 9 \u2014 facturacion"
     },
     {
       "label": "FASE 10 \u2014 Facturaci\u00f3n electr\u00f3nica",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L70",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_10_facturaci\u00f3n_electr\u00f3nica",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 10 \u2014 facturacion electronica"
     },
     {
       "label": "FASE 11 \u2014 Impresi\u00f3n",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L73",
+      "source_location": "L74",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_11_impresi\u00f3n",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 11 \u2014 impresion"
     },
     {
       "label": "FASE 12 \u2014 M\u00f3dulos por negocio",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L76",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_12_m\u00f3dulos_por_negocio",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 12 \u2014 modulos por negocio"
     },
     {
       "label": "FASE 13 \u2014 Reportes",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L81",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_13_reportes",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 13 \u2014 reportes"
     },
     {
       "label": "FASE 14 \u2014 Seguridad, pruebas y deploy",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L86",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "docs_11_todo_master_fase_14_seguridad_pruebas_y_deploy",
-      "community": 5,
+      "community": 145,
       "norm_label": "fase 14 \u2014 seguridad, pruebas y deploy"
     },
     {
       "label": "Backlog (post-v1)",
       "file_type": "document",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L91",
+      "source_location": "L92",
       "_origin": "ast",
       "id": "docs_11_todo_master_backlog_post_v1",
-      "community": 5,
+      "community": 145,
       "norm_label": "backlog (post-v1)"
     },
     {
@@ -4634,10 +5104,20 @@
       "norm_label": "[no publicado]"
     },
     {
-      "label": "2026-07-09 \u2014 Fase 1: aislamiento multiempresa base",
+      "label": "2026-07-09 \u2014 Fase 1: RBAC por compa\u00f1\u00eda",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
       "source_location": "L7",
+      "_origin": "ast",
+      "id": "docs_12_changelog_2026_07_09_fase_1_rbac_por_compa\u00f1\u00eda",
+      "community": 29,
+      "norm_label": "2026-07-09 \u2014 fase 1: rbac por compania"
+    },
+    {
+      "label": "2026-07-09 \u2014 Fase 1: aislamiento multiempresa base",
+      "file_type": "document",
+      "source_file": "docs/12_CHANGELOG.md",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_fase_1_aislamiento_multiempresa_base",
       "community": 29,
@@ -4647,7 +5127,7 @@
       "label": "2026-07-09 \u2014 Inicio de Fase 0: control de versiones",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L17",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_inicio_de_fase_0_control_de_versiones",
       "community": 29,
@@ -4657,7 +5137,7 @@
       "label": "2026-07-09 \u2014 Inicio de Fase 0: runtime y Laravel",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L24",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_inicio_de_fase_0_runtime_y_laravel",
       "community": 29,
@@ -4667,7 +5147,7 @@
       "label": "2026-07-09 \u2014 Planificaci\u00f3n inicial (pre-c\u00f3digo)",
       "file_type": "document",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L48",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "docs_12_changelog_2026_07_09_planificaci\u00f3n_inicial_pre_c\u00f3digo",
       "community": 29,
@@ -4680,7 +5160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_13_decisions",
-      "community": 124,
+      "community": 5,
       "norm_label": "13_decisions.md"
     },
     {
@@ -4690,7 +5170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "docs_13_decisions_13_decisiones_t\u00e9cnicas_adr",
-      "community": 124,
+      "community": 5,
       "norm_label": "13 \u2014 decisiones tecnicas (adr)"
     },
     {
@@ -8522,10 +9002,32 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurepermission",
+      "target": "app_core_enums_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "bootstrap/app.php",
       "source_location": "L3",
       "weight": 1.0,
       "source": "bootstrap_app",
+      "target": "app_core_enums_errorcode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/AccessControlTest.php",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tests_feature_accesscontroltest",
       "target": "app_core_enums_errorcode",
       "confidence_score": 1.0
     },
@@ -8602,6 +9104,17 @@
       "source_location": "L8",
       "weight": 1.0,
       "source": "app_core_http_middleware_ensurecompanycontext",
+      "target": "app_core_exceptions_apiexception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurepermission",
       "target": "app_core_exceptions_apiexception",
       "confidence_score": 1.0
     },
@@ -8705,6 +9218,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller",
+      "target": "app_core_http_apiresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "app/Modules/Company/Http/Controllers/CompanyController.php",
       "source_location": "L7",
       "weight": 1.0,
@@ -8753,6 +9277,28 @@
       "source": "app_core_http_apiresponse_apiresponse",
       "target": "app_core_http_apiresponse_apiresponse_success",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller_rolecontroller_index",
+      "target": "app_core_http_apiresponse_apiresponse"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller_rolecontroller_store",
+      "target": "app_core_http_apiresponse_apiresponse"
     },
     {
       "relation": "calls",
@@ -8857,17 +9403,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "app_core_http_middleware_ensurebranchcontext",
-      "target": "app_models_user_user",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
       "source_location": "L11",
       "weight": 1.0,
       "source": "app_core_http_middleware_ensurebranchcontext",
@@ -8883,6 +9418,17 @@
       "weight": 1.0,
       "source": "app_core_http_middleware_ensurebranchcontext",
       "target": "app_core_tenancy_currentcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureBranchContext.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurebranchcontext",
+      "target": "app_models_user",
       "confidence_score": 1.0
     },
     {
@@ -8998,17 +9544,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "app_core_http_middleware_ensurecompanycontext",
-      "target": "app_models_user_user",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
       "source_location": "L11",
       "weight": 1.0,
       "source": "app_core_http_middleware_ensurecompanycontext",
@@ -9024,6 +9559,17 @@
       "weight": 1.0,
       "source": "app_core_http_middleware_ensurecompanycontext",
       "target": "app_core_tenancy_currentcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsureCompanyContext.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurecompanycontext",
+      "target": "app_models_user",
       "confidence_score": 1.0
     },
     {
@@ -9090,6 +9636,125 @@
       "weight": 1.0,
       "source": "app_core_http_middleware_ensurecompanycontext_ensurecompanycontext_handle",
       "target": "app_modules_company_models_company_company"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurepermission",
+      "target": "app_core_http_middleware_ensurepermission_ensurepermission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurepermission",
+      "target": "app_core_http_middleware_ensurepermission_php_closure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurepermission",
+      "target": "app_core_http_middleware_ensurepermission_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurepermission",
+      "target": "app_core_http_middleware_ensurepermission_php_response",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurepermission",
+      "target": "app_core_tenancy_currentcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurepermission",
+      "target": "app_models_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "bootstrap/app.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "bootstrap_app",
+      "target": "app_core_http_middleware_ensurepermission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_core_http_middleware_ensurepermission_ensurepermission",
+      "target": "app_core_http_middleware_ensurepermission_ensurepermission_handle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_core_http_middleware_ensurepermission_ensurepermission_handle",
+      "target": "app_core_http_middleware_ensurepermission_php_closure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_core_http_middleware_ensurepermission_ensurepermission_handle",
+      "target": "app_core_http_middleware_ensurepermission_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Core/Http/Middleware/EnsurePermission.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_core_http_middleware_ensurepermission_ensurepermission_handle",
+      "target": "app_core_http_middleware_ensurepermission_php_response",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -9200,6 +9865,27 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Permission.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_access_models_permission",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Permission.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_access_models_permission_permission",
+      "target": "model",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "app/Modules/Company/Models/Branch.php",
       "source_location": "L10",
       "weight": 1.0,
@@ -9278,6 +9964,27 @@
       "weight": 1.0,
       "source": "app_core_models_companymodel_companymodel",
       "target": "belongstocompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role",
+      "target": "app_core_models_companymodel_companymodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role_role",
+      "target": "app_core_models_companymodel_companymodel",
       "confidence_score": 1.0
     },
     {
@@ -9422,10 +10129,32 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/CreateRoleAction.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_createroleaction",
+      "target": "app_core_tenancy_currentcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "app/Providers/AppServiceProvider.php",
       "source_location": "L5",
       "weight": 1.0,
       "source": "app_providers_appserviceprovider",
+      "target": "app_core_tenancy_currentcompany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/AccessControlTest.php",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "tests_feature_accesscontroltest",
       "target": "app_core_tenancy_currentcompany",
       "confidence_score": 1.0
     },
@@ -9581,19 +10310,18 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "app_models_user_php_belongstomany",
       "confidence_score": 1.0
     },
     {
-      "relation": "imports",
+      "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L13",
+      "source_location": "L18",
       "weight": 1.0,
-      "context": "import",
       "source": "app_models_user",
       "target": "app_models_user_user",
       "confidence_score": 1.0
@@ -9603,7 +10331,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "app_modules_company_models_branch_branch",
@@ -9625,7 +10353,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "app_modules_company_models_company",
@@ -9636,7 +10364,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "hasapitokens",
@@ -9647,7 +10375,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L11",
+      "source_location": "L12",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "hasfactory",
@@ -9662,6 +10390,28 @@
       "weight": 1.0,
       "source": "app_models_user",
       "target": "haspubliculid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_models_user",
+      "target": "notifiable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_models_user",
+      "target": "app_modules_access_models_role",
       "confidence_score": 1.0
     },
     {
@@ -9672,7 +10422,7 @@
       "source_location": "L14",
       "weight": 1.0,
       "source": "app_models_user",
-      "target": "notifiable",
+      "target": "app_models_user",
       "confidence_score": 1.0
     },
     {
@@ -9680,122 +10430,10 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0,
       "source": "app_models_user",
       "target": "database_factories_userfactory",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L69",
-      "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "app_models_user_user_branches",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "app_models_user_user_casts",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L61",
-      "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "app_models_user_user_companies",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "mixes_in",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "auditable",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "authenticatable",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "mixes_in",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "hasapitokens",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "mixes_in",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "hasfactory",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "mixes_in",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "haspubliculid",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "mixes_in",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Models/User.php",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "app_models_user_user",
-      "target": "notifiable",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "app_modules_company_actions_createcompanyaction",
-      "target": "app_models_user_user",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
-      "source_location": "L16",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "source": "app_modules_company_actions_createcompanyaction_createcompanyaction_execute",
-      "target": "app_models_user_user",
       "confidence_score": 1.0
     },
     {
@@ -9806,7 +10444,7 @@
       "source_location": "L8",
       "weight": 1.0,
       "source": "app_modules_company_http_controllers_companycontroller",
-      "target": "app_models_user_user",
+      "target": "app_models_user",
       "confidence_score": 1.0
     },
     {
@@ -9817,18 +10455,7 @@
       "source_location": "L9",
       "weight": 1.0,
       "source": "app_modules_company_models_branch",
-      "target": "app_models_user_user",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Models/Company.php",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "app_modules_company_models_company",
-      "target": "app_models_user_user",
+      "target": "app_models_user",
       "confidence_score": 1.0
     },
     {
@@ -9839,18 +10466,7 @@
       "source_location": "L3",
       "weight": 1.0,
       "source": "config_auth",
-      "target": "app_models_user_user",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "database/factories/UserFactory.php",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "database_factories_userfactory",
-      "target": "app_models_user_user",
+      "target": "app_models_user",
       "confidence_score": 1.0
     },
     {
@@ -9861,19 +10477,19 @@
       "source_location": "L5",
       "weight": 1.0,
       "source": "database_seeders_databaseseeder",
-      "target": "app_models_user_user",
+      "target": "app_models_user",
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "imports",
+      "context": "import",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "database/seeders/DatabaseSeeder.php",
-      "source_location": "L20",
+      "source_file": "tests/Feature/AccessControlTest.php",
+      "source_location": "L5",
       "weight": 1.0,
-      "source": "database_seeders_databaseseeder_databaseseeder_run",
-      "target": "app_models_user_user"
+      "source": "tests_feature_accesscontroltest",
+      "target": "app_models_user",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -9883,7 +10499,7 @@
       "source_location": "L5",
       "weight": 1.0,
       "source": "tests_feature_companytenancytest",
-      "target": "app_models_user_user",
+      "target": "app_models_user",
       "confidence_score": 1.0
     },
     {
@@ -9894,7 +10510,7 @@
       "source_location": "L8",
       "weight": 1.0,
       "source": "tests_feature_coreinfrastructuretest",
-      "target": "app_models_user_user",
+      "target": "app_models_user",
       "confidence_score": 1.0
     },
     {
@@ -9905,7 +10521,183 @@
       "source_location": "L3",
       "weight": 1.0,
       "source": "tests_feature_sanctumtokentest",
+      "target": "app_models_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "app_models_user_user_branches",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "app_models_user_user_casts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "app_models_user_user_companies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "app_models_user_user_roles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "auditable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "authenticatable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "hasapitokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "hasfactory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "haspubliculid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "app_models_user_user",
+      "target": "notifiable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_provisioncompanyowneraccess",
       "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_access_actions_provisioncompanyowneraccess_provisioncompanyowneraccess_execute",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_company_actions_createcompanyaction",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_company_actions_createcompanyaction_createcompanyaction_execute",
+      "target": "app_models_user_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "database/seeders/DatabaseSeeder.php",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "database_seeders_databaseseeder_databaseseeder_run",
+      "target": "app_models_user_user"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role",
+      "target": "auditable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role_role",
+      "target": "auditable",
       "confidence_score": 1.0
     },
     {
@@ -9948,6 +10740,27 @@
       "weight": 1.0,
       "source": "app_modules_company_models_company_company",
       "target": "auditable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role",
+      "target": "haspubliculid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role_role",
+      "target": "haspubliculid",
       "confidence_score": 1.0
     },
     {
@@ -9996,7 +10809,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L61",
+      "source_location": "L62",
       "weight": 1.0,
       "context": "return_type",
       "source": "app_models_user_user_companies",
@@ -10007,7 +10820,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/Models/User.php",
-      "source_location": "L69",
+      "source_location": "L70",
       "weight": 1.0,
       "context": "return_type",
       "source": "app_models_user_user_branches",
@@ -10015,13 +10828,132 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Models/User.php",
+      "source_location": "L76",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_models_user_user_roles",
+      "target": "app_models_user_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_file": "app/Modules/Access/Actions/CreateRoleAction.php",
       "source_location": "L11",
       "weight": 1.0,
-      "source": "app_modules_company_actions_createcompanyaction",
-      "target": "app_modules_company_actions_createcompanyaction_createcompanyaction",
+      "source": "app_modules_access_actions_createroleaction",
+      "target": "app_modules_access_actions_createroleaction_createroleaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/CreateRoleAction.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_createroleaction",
+      "target": "app_modules_access_models_role_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/CreateRoleAction.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_createroleaction_createroleaction",
+      "target": "app_modules_access_actions_createroleaction_createroleaction_execute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller",
+      "target": "app_modules_access_actions_createroleaction_createroleaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_access_http_controllers_rolecontroller_rolecontroller_store",
+      "target": "app_modules_access_actions_createroleaction_createroleaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/CreateRoleAction.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_createroleaction_createroleaction_execute",
+      "target": "app_modules_access_models_role_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_provisioncompanyowneraccess",
+      "target": "app_modules_access_actions_provisioncompanyowneraccess_provisioncompanyowneraccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_provisioncompanyowneraccess",
+      "target": "app_modules_access_models_role_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_provisioncompanyowneraccess",
+      "target": "app_modules_company_models_company_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_provisioncompanyowneraccess",
+      "target": "app_modules_access_models_permission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_provisioncompanyowneraccess",
+      "target": "app_modules_access_support_permissioncatalog",
       "confidence_score": 1.0
     },
     {
@@ -10032,6 +10964,672 @@
       "source_location": "L8",
       "weight": 1.0,
       "source": "app_modules_company_actions_createcompanyaction",
+      "target": "app_modules_access_actions_provisioncompanyowneraccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_provisioncompanyowneraccess_provisioncompanyowneraccess",
+      "target": "app_modules_access_actions_provisioncompanyowneraccess_provisioncompanyowneraccess_execute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_provisioncompanyowneraccess_provisioncompanyowneraccess_execute",
+      "target": "app_modules_access_models_permission_permission"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_provisioncompanyowneraccess_provisioncompanyowneraccess_execute",
+      "target": "app_modules_access_models_role_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "app_modules_access_actions_provisioncompanyowneraccess_provisioncompanyowneraccess_execute",
+      "target": "app_modules_access_support_permissioncatalog_permissioncatalog"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Actions/ProvisionCompanyOwnerAccess.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_access_actions_provisioncompanyowneraccess_provisioncompanyowneraccess_execute",
+      "target": "app_modules_company_models_company_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller",
+      "target": "app_modules_access_http_controllers_rolecontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller",
+      "target": "app_modules_access_http_controllers_rolecontroller_rolecontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller",
+      "target": "app_modules_access_http_requests_storerolerequest_storerolerequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller",
+      "target": "app_modules_access_models_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller",
+      "target": "app_modules_access_http_resources_roleresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/routes.php",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_modules_access_routes",
+      "target": "app_modules_access_http_controllers_rolecontroller",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller_rolecontroller",
+      "target": "app_modules_access_http_controllers_rolecontroller_rolecontroller_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller_rolecontroller",
+      "target": "app_modules_access_http_controllers_rolecontroller_rolecontroller_store",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_access_http_controllers_rolecontroller_rolecontroller_index",
+      "target": "app_modules_access_http_controllers_rolecontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller_rolecontroller_index",
+      "target": "app_modules_access_http_resources_roleresource_roleresource"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "app_modules_access_http_controllers_rolecontroller_rolecontroller_index",
+      "target": "app_modules_access_models_role_role"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_access_http_controllers_rolecontroller_rolecontroller_store",
+      "target": "app_modules_access_http_controllers_rolecontroller_php_jsonresponse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Controllers/RoleController.php",
+      "source_location": "L23",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_access_http_controllers_rolecontroller_rolecontroller_store",
+      "target": "app_modules_access_http_requests_storerolerequest_storerolerequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Requests/StoreRoleRequest.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_access_http_requests_storerolerequest",
+      "target": "app_modules_access_http_requests_storerolerequest_storerolerequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Requests/StoreRoleRequest.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_access_http_requests_storerolerequest",
+      "target": "formrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Requests/StoreRoleRequest.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_access_http_requests_storerolerequest_storerolerequest",
+      "target": "app_modules_access_http_requests_storerolerequest_storerolerequest_authorize",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Requests/StoreRoleRequest.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_modules_access_http_requests_storerolerequest_storerolerequest",
+      "target": "app_modules_access_http_requests_storerolerequest_storerolerequest_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Requests/StoreRoleRequest.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_access_http_requests_storerolerequest_storerolerequest",
+      "target": "formrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_company_http_requests_storecompanyrequest",
+      "target": "formrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest",
+      "target": "formrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Resources/RoleResource.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_access_http_resources_roleresource",
+      "target": "app_modules_access_http_resources_roleresource_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Resources/RoleResource.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_access_http_resources_roleresource",
+      "target": "app_modules_access_http_resources_roleresource_roleresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Resources/RoleResource.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_access_http_resources_roleresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Resources/RoleResource.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_access_http_resources_roleresource",
+      "target": "app_modules_access_models_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Resources/RoleResource.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_modules_access_http_resources_roleresource_roleresource",
+      "target": "app_modules_access_http_resources_roleresource_roleresource_toarray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Resources/RoleResource.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_access_http_resources_roleresource_roleresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_branchresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_branchresource_branchresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_companyresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_company_http_resources_companyresource_companyresource",
+      "target": "jsonresource",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Http/Resources/RoleResource.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "app_modules_access_http_resources_roleresource_roleresource_toarray",
+      "target": "app_modules_access_http_resources_roleresource_php_request",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Permission.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_access_models_permission",
+      "target": "app_modules_access_models_permission_permission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Permission.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_modules_access_models_permission",
+      "target": "app_modules_access_models_permission_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/AccessControlTest.php",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tests_feature_accesscontroltest",
+      "target": "app_modules_access_models_permission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Permission.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "app_modules_access_models_permission_permission",
+      "target": "app_modules_access_models_permission_permission_roles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Permission.php",
+      "source_location": "L15",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_access_models_permission_permission_roles",
+      "target": "app_modules_access_models_permission_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role",
+      "target": "app_modules_access_models_role_php_belongsto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role",
+      "target": "app_modules_access_models_role_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role",
+      "target": "app_modules_access_models_role_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role",
+      "target": "app_modules_company_models_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role",
+      "target": "softdeletes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/AccessControlTest.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "tests_feature_accesscontroltest",
+      "target": "app_modules_access_models_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role_role",
+      "target": "app_modules_access_models_role_role_casts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role_role",
+      "target": "app_modules_access_models_role_role_company",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role_role",
+      "target": "app_modules_access_models_role_role_permissions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role_role",
+      "target": "app_modules_access_models_role_role_users",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_modules_access_models_role_role",
+      "target": "softdeletes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch",
+      "target": "softdeletes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch_branch",
+      "target": "softdeletes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company",
+      "target": "softdeletes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "mixes_in",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Company.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_modules_company_models_company_company",
+      "target": "softdeletes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L28",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_access_models_role_role_company",
+      "target": "app_modules_access_models_role_php_belongsto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L34",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_access_models_role_role_permissions",
+      "target": "app_modules_access_models_role_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Models/Role.php",
+      "source_location": "L40",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "app_modules_access_models_role_role_users",
+      "target": "app_modules_access_models_role_php_belongstomany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Support/PermissionCatalog.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_modules_access_support_permissioncatalog",
+      "target": "app_modules_access_support_permissioncatalog_permissioncatalog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Access/Support/PermissionCatalog.php",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_modules_access_support_permissioncatalog_permissioncatalog",
+      "target": "app_modules_access_support_permissioncatalog_permissioncatalog_defaults",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_modules_company_actions_createcompanyaction",
+      "target": "app_modules_company_actions_createcompanyaction_createcompanyaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_modules_company_actions_createcompanyaction",
       "target": "app_modules_company_models_company_company",
       "confidence_score": 1.0
     },
@@ -10039,7 +11637,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "app_modules_company_actions_createcompanyaction_createcompanyaction",
       "target": "app_modules_company_actions_createcompanyaction_createcompanyaction_execute",
@@ -10071,6 +11669,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/AccessControlTest.php",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tests_feature_accesscontroltest",
+      "target": "app_modules_company_actions_createcompanyaction_createcompanyaction",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/Feature/CompanyTenancyTest.php",
       "source_location": "L6",
       "weight": 1.0,
@@ -10083,7 +11692,7 @@
       "context": "return_type",
       "confidence": "EXTRACTED",
       "source_file": "app/Modules/Company/Actions/CreateCompanyAction.php",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "app_modules_company_actions_createcompanyaction_createcompanyaction_execute",
       "target": "app_modules_company_models_company_company",
@@ -10240,17 +11849,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "app_modules_company_http_requests_storecompanyrequest",
-      "target": "formrequest",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
@@ -10278,16 +11876,6 @@
       "weight": 1.0,
       "source": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest",
       "target": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest_rules",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Http/Requests/StoreCompanyRequest.php",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "app_modules_company_http_requests_storecompanyrequest_storecompanyrequest",
-      "target": "formrequest",
       "confidence_score": 1.0
     },
     {
@@ -10323,17 +11911,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "app_modules_company_http_resources_branchresource",
-      "target": "jsonresource",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
@@ -10341,16 +11918,6 @@
       "weight": 1.0,
       "source": "app_modules_company_http_resources_branchresource_branchresource",
       "target": "app_modules_company_http_resources_branchresource_branchresource_toarray",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Http/Resources/BranchResource.php",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "app_modules_company_http_resources_branchresource_branchresource",
-      "target": "jsonresource",
       "confidence_score": 1.0
     },
     {
@@ -10363,27 +11930,6 @@
       "weight": 1.0,
       "source": "app_modules_company_http_resources_companyresource_companyresource_toarray",
       "target": "app_modules_company_http_resources_branchresource_branchresource"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "app_modules_company_http_resources_companyresource",
-      "target": "jsonresource",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Http/Resources/CompanyResource.php",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "app_modules_company_http_resources_companyresource_companyresource",
-      "target": "jsonresource",
-      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -10464,32 +12010,21 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/Modules/Company/Models/Branch.php",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_modules_company_models_branch",
+      "target": "app_modules_company_models_branch_php_belongsto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/Modules/Company/Models/Branch.php",
       "source_location": "L12",
       "weight": 1.0,
       "source": "app_modules_company_models_branch",
       "target": "app_modules_company_models_branch_php_belongstomany",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Models/Branch.php",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "app_modules_company_models_branch",
-      "target": "belongsto",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Models/Branch.php",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "app_modules_company_models_branch",
-      "target": "softdeletes",
       "confidence_score": 1.0
     },
     {
@@ -10523,37 +12058,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "mixes_in",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Models/Branch.php",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "app_modules_company_models_branch_branch",
-      "target": "softdeletes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Models/Company.php",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "app_modules_company_models_company",
-      "target": "softdeletes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "mixes_in",
-      "confidence": "EXTRACTED",
-      "source_file": "app/Modules/Company/Models/Company.php",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "app_modules_company_models_company_company",
-      "target": "softdeletes",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "app/Modules/Company/Models/Branch.php",
@@ -10561,7 +12065,7 @@
       "weight": 1.0,
       "context": "return_type",
       "source": "app_modules_company_models_branch_branch_company",
-      "target": "belongsto",
+      "target": "app_modules_company_models_branch_php_belongsto",
       "confidence_score": 1.0
     },
     {
@@ -10605,6 +12109,17 @@
       "weight": 1.0,
       "source": "app_modules_company_models_company",
       "target": "hasmany",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/CompanyTenancyTest.php",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "tests_feature_companytenancytest",
+      "target": "app_modules_company_models_company",
       "confidence_score": 1.0
     },
     {
@@ -11350,8 +12865,19 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/AccessControlTest.php",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "tests_feature_accesscontroltest",
+      "target": "config_sanctum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "tests/Feature/CompanyTenancyTest.php",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0,
       "source": "tests_feature_companytenancytest",
       "target": "config_sanctum",
@@ -11587,6 +13113,26 @@
       "weight": 1.0,
       "source": "database_migrations_2026_07_09_190200_create_company_user_and_branch_user_tables",
       "target": "database_migrations_2026_07_09_190200_create_company_user_and_branch_user_tables_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_200000_create_access_control_tables.php",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_200000_create_access_control_tables",
+      "target": "database_migrations_2026_07_09_200000_create_access_control_tables_down",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "database/migrations/2026_07_09_200000_create_access_control_tables.php",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "database_migrations_2026_07_09_200000_create_access_control_tables",
+      "target": "database_migrations_2026_07_09_200000_create_access_control_tables_up",
       "confidence_score": 1.0
     },
     {
@@ -12130,8 +13676,18 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "tests/Feature/AccessControlTest.php",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "tests_feature_accesscontroltest",
+      "target": "tests_feature_accesscontroltest_accesscompanypayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "tests/Feature/CompanyTenancyTest.php",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "source": "tests_feature_companytenancytest",
       "target": "tests_feature_companytenancytest_companypayload",
@@ -13195,7 +14751,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L63",
+      "source_location": "L65",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_10_facturaci\u00f3n_electr\u00f3nica_19",
@@ -13205,7 +14761,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L67",
+      "source_location": "L69",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_11_m\u00f3dulos_verticales",
@@ -13215,7 +14771,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L74",
+      "source_location": "L76",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_12_reportes_dgii_addendum",
@@ -13245,7 +14801,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L25",
+      "source_location": "L27",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_3_configuraci\u00f3n_fiscal_y_monedas",
@@ -13255,7 +14811,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L35",
+      "source_location": "L37",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_4_clientes",
@@ -13265,7 +14821,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L39",
+      "source_location": "L41",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_5_productos_y_servicios",
@@ -13275,7 +14831,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L43",
+      "source_location": "L45",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_6_inventario_avanzado_15_del_master_prompt",
@@ -13285,7 +14841,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L47",
+      "source_location": "L49",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_7_pos_\u00f3rdenes",
@@ -13295,7 +14851,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L53",
+      "source_location": "L55",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_8_caja_y_pagos",
@@ -13305,7 +14861,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L57",
+      "source_location": "L59",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_9_facturaci\u00f3n",
@@ -13315,7 +14871,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/02_DATABASE_SCHEMA.md",
-      "source_location": "L79",
+      "source_location": "L81",
       "weight": 1.0,
       "source": "docs_02_database_schema_02_esquema_inicial_de_base_de_datos",
       "target": "docs_02_database_schema_\u00edndices_m\u00ednimos_obligatorios",
@@ -13755,7 +15311,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L91",
+      "source_location": "L92",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_backlog_post_v1",
@@ -13775,7 +15331,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_0_base",
@@ -13785,7 +15341,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L70",
+      "source_location": "L71",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_10_facturaci\u00f3n_electr\u00f3nica",
@@ -13795,7 +15351,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L73",
+      "source_location": "L74",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_11_impresi\u00f3n",
@@ -13805,7 +15361,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L76",
+      "source_location": "L77",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_12_m\u00f3dulos_por_negocio",
@@ -13815,7 +15371,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L81",
+      "source_location": "L82",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_13_reportes",
@@ -13825,7 +15381,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L86",
+      "source_location": "L87",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_14_seguridad_pruebas_y_deploy",
@@ -13835,7 +15391,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_1_n\u00facleo_saas",
@@ -13845,7 +15401,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_2_m\u00f3dulos_y_onboarding",
@@ -13855,7 +15411,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_3_configuraci\u00f3n",
@@ -13865,7 +15421,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_4_clientes",
@@ -13875,7 +15431,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L47",
+      "source_location": "L48",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_5_productos_y_servicios",
@@ -13885,7 +15441,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L51",
+      "source_location": "L52",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_6_inventario_avanzado",
@@ -13895,7 +15451,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_7_pos_touch",
@@ -13905,7 +15461,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L61",
+      "source_location": "L62",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_8_caja_y_pagos",
@@ -13915,7 +15471,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/11_TODO_MASTER.md",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0,
       "source": "docs_11_todo_master_11_todo_master",
       "target": "docs_11_todo_master_fase_9_facturaci\u00f3n",
@@ -13945,7 +15501,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L7",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_fase_1_aislamiento_multiempresa_base",
@@ -13955,7 +15511,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L17",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "docs_12_changelog_no_publicado",
+      "target": "docs_12_changelog_2026_07_09_fase_1_rbac_por_compa\u00f1\u00eda",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/12_CHANGELOG.md",
+      "source_location": "L27",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_inicio_de_fase_0_control_de_versiones",
@@ -13965,7 +15531,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L24",
+      "source_location": "L34",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_inicio_de_fase_0_runtime_y_laravel",
@@ -13975,7 +15541,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/12_CHANGELOG.md",
-      "source_location": "L48",
+      "source_location": "L58",
       "weight": 1.0,
       "source": "docs_12_changelog_no_publicado",
       "target": "docs_12_changelog_2026_07_09_planificaci\u00f3n_inicial_pre_c\u00f3digo",
@@ -16193,5 +17759,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c09d3ef5ca45a2e725f3bad32d37aa9f42a8fbba"
+  "built_at_commit": "0c660273803fc8e95f61cb4fe0eac35bc9c8c8a7"
 }

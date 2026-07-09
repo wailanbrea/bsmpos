@@ -1,16 +1,16 @@
 # Graph Report - Sistema de Facturacion Saas  (2026-07-09)
 
 ## Corpus Check
-- 100 files · ~151,206 words
+- 113 files · ~152,483 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 709 nodes · 773 edges · 145 communities (75 shown, 70 thin omitted)
-- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 79 edges (avg confidence: 0.87)
+- 757 nodes · 875 edges · 149 communities (78 shown, 71 thin omitted)
+- Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 86 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c09d3ef5`
+- Built from commit: `0c660273`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -131,18 +131,21 @@
 - [[_COMMUNITY_03 — Documentación de API|03 — Documentación de API]]
 - [[_COMMUNITY_autoload-dev|autoload-dev]]
 - [[_COMMUNITY_extra|extra]]
+- [[_COMMUNITY_11 — TODO MASTER|11 — TODO MASTER]]
+- [[_COMMUNITY_UserFactory|UserFactory]]
+- [[_COMMUNITY_DatabaseSeeder.php|DatabaseSeeder.php]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `User` - 24 edges
-2. `11 — TODO MASTER` - 18 edges
-3. `Branch` - 16 edges
-4. `Company` - 15 edges
-5. `02 — Esquema Inicial de Base de Datos` - 14 edges
-6. `require-dev` - 11 edges
-7. `compilerOptions` - 11 edges
-8. `scripts` - 10 edges
-9. `MASTER PROMPT — ADDENDUM (v1.1)` - 10 edges
-10. `Entrada de Mercancía Screen (Compras y Lotes)` - 10 edges
+1. `11 — TODO MASTER` - 18 edges
+2. `Company` - 17 edges
+3. `User` - 16 edges
+4. `Branch` - 16 edges
+5. `Role` - 14 edges
+6. `02 — Esquema Inicial de Base de Datos` - 14 edges
+7. `require-dev` - 11 edges
+8. `compilerOptions` - 11 edges
+9. `scripts` - 10 edges
+10. `MASTER PROMPT — ADDENDUM (v1.1)` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Inventory Batches (lotes y vencimientos)` --references--> `Pantalla: Dashboard Principal (Retail)`  [INFERRED]
@@ -159,11 +162,11 @@
 ## Import Cycles
 - 1-file cycle: `resources/js/app.ts -> resources/js/app.ts`
 
-## Communities (145 total, 70 thin omitted)
+## Communities (149 total, 71 thin omitted)
 
 ### Community 0 - "00_PROJECT_OVERVIEW.md"
-Cohesion: 0.11
-Nodes (13): ApiResponse, ErrorCode, JsonResponse, CompanyController, JsonResponse, Request, StoreCompanyRequest, BranchResource (+5 more)
+Cohesion: 0.07
+Nodes (20): ApiResponse, ErrorCode, JsonResponse, CreateRoleAction, JsonResponse, RoleController, StoreRoleRequest, Request (+12 more)
 
 ### Community 1 - "Inventory Batches (lotes y vencimientos)"
 Cohesion: 0.06
@@ -179,11 +182,11 @@ Nodes (12): compilerOptions, esModuleInterop, isolatedModules, jsx, lib, module,
 
 ### Community 4 - "User.php"
 Cohesion: 0.06
-Nodes (28): bootBelongsToCompany(), bootHasPublicUlid(), CompanyModel, CurrentCompany, BelongsToMany, User, CreateCompanyAction, Branch (+20 more)
+Nodes (26): CompanyModel, CurrentCompany, BelongsToMany, User, ProvisionCompanyOwnerAccess, Permission, BelongsToMany, BelongsTo (+18 more)
 
 ### Community 5 - "11 — TODO MASTER"
-Cohesion: 0.05
-Nodes (38): Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento, OmniPOS Modular SaaS — Instrucciones del proyecto, Reglas duras (resumen), Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento (+30 more)
+Cohesion: 0.08
+Nodes (21): Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento, OmniPOS Modular SaaS — Instrucciones del proyecto, Reglas duras (resumen), Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento (+13 more)
 
 ### Community 6 - "02 — Esquema Inicial de Base de Datos"
 Cohesion: 0.14
@@ -278,12 +281,12 @@ Cohesion: 0.29
 Nodes (3): AppServiceProvider, ModuleServiceProvider, ServiceProvider
 
 ### Community 29 - "[No publicado]"
-Cohesion: 0.29
-Nodes (6): 12 — CHANGELOG, 2026-07-09 — Fase 1: aislamiento multiempresa base, 2026-07-09 — Inicio de Fase 0: control de versiones, 2026-07-09 — Inicio de Fase 0: runtime y Laravel, 2026-07-09 — Planificación inicial (pre-código), [No publicado]
+Cohesion: 0.25
+Nodes (7): 12 — CHANGELOG, 2026-07-09 — Fase 1: aislamiento multiempresa base, 2026-07-09 — Fase 1: RBAC por compañía, 2026-07-09 — Inicio de Fase 0: control de versiones, 2026-07-09 — Inicio de Fase 0: runtime y Laravel, 2026-07-09 — Planificación inicial (pre-código), [No publicado]
 
 ### Community 104 - "app.php"
-Cohesion: 0.14
-Nodes (13): ApiException, ErrorCode, EnsureBranchContext, Closure, Request, Response, EnsureCompanyContext, Closure (+5 more)
+Cohesion: 0.11
+Nodes (17): ApiException, ErrorCode, EnsureBranchContext, Closure, Request, Response, EnsureCompanyContext, Closure (+9 more)
 
 ### Community 118 - "08 — Seguridad y Auditoría"
 Cohesion: 0.20
@@ -292,10 +295,6 @@ Nodes (10): 01 — Arquitectura, Capas de protección de una ruta, Contexto tena
 ### Community 122 - "sanctum.php"
 Cohesion: 0.22
 Nodes (8): description, keywords, license, minimum-stability, name, prefer-stable, $schema, type
-
-### Community 124 - "00_PROJECT_OVERVIEW.md"
-Cohesion: 0.22
-Nodes (3): 10 — Despliegue, 13 — Decisiones Técnicas (ADR), 14 — Problemas Conocidos
 
 ### Community 125 - "15 — Inventario, Lotes y Vencimientos"
 Cohesion: 0.25
@@ -345,29 +344,41 @@ Nodes (3): autoload-dev, psr-4, Tests\\
 Cohesion: 0.67
 Nodes (3): extra, laravel, dont-discover
 
+### Community 145 - "11 — TODO MASTER"
+Cohesion: 0.11
+Nodes (18): 11 — TODO MASTER, Backlog (post-v1), Conocimiento del proyecto, FASE 0 — Base, FASE 10 — Facturación electrónica, FASE 11 — Impresión, FASE 12 — Módulos por negocio, FASE 13 — Reportes (+10 more)
+
+### Community 146 - "UserFactory"
+Cohesion: 0.24
+Nodes (5): bootBelongsToCompany(), bootHasPublicUlid(), UserFactory, Factory, static
+
+### Community 147 - "DatabaseSeeder.php"
+Cohesion: 0.60
+Nodes (3): DatabaseSeeder, Seeder, WithoutModelEvents
+
 ## Ambiguous Edges - Review These
 - `Purchase Order Reception (PO-2023-0891)` → `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`  [AMBIGUOUS]
   Pantallas del sistema/stitch_omnipos_modular_saas/entradas_de_mercanc_a_compras_y_lotes/screen.png · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **305 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+300 more)
+- **306 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+301 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **70 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **71 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Purchase Order Reception (PO-2023-0891)` and `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `User` connect `User.php` to `app.php`, `00_PROJECT_OVERVIEW.md`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+- **Why does `11 — TODO MASTER` connect `11 — TODO MASTER` to `11 — TODO MASTER`?**
+  _High betweenness centrality (0.008) - this node is a cross-community bridge._
+- **Why does `Branch` connect `User.php` to `app.php`, `00_PROJECT_OVERVIEW.md`?**
+  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **Why does `02 — Esquema Inicial de Base de Datos` connect `02 — Esquema Inicial de Base de Datos` to `00_PROJECT_OVERVIEW.md`?**
-  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `printWidth`, `tabWidth` to the rest of the system?**
-  _321 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _322 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `00_PROJECT_OVERVIEW.md` be split into smaller, more focused modules?**
-  _Cohesion score 0.11375661375661375 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06938020351526364 - nodes in this community are weakly interconnected._
 - **Should `Inventory Batches (lotes y vencimientos)` be split into smaller, more focused modules?**
   _Cohesion score 0.059379217273954114 - nodes in this community are weakly interconnected._
-- **Should `User.php` be split into smaller, more focused modules?**
-  _Cohesion score 0.059227921734531994 - nodes in this community are weakly interconnected._

@@ -4,6 +4,16 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-09 — Fase 1: RBAC por compañía
+**Agregado**
+- Tablas `permissions`, `roles`, `permission_role` y `role_user`, con restricciones únicas e índices de consulta por compañía.
+- Catálogo mínimo de permisos, rol de propietario aprovisionado al crear una compañía y middleware `permission:<código>`.
+- API de roles protegida: `GET/POST /api/v1/roles`.
+
+**Validado**
+- Pest: 15 pruebas / 43 aserciones, incluyendo permiso otorgado, denegación y alta de rol.
+- Pint, Larastan, typecheck, ESLint, Prettier, Vitest y build PWA sin errores.
+
 ### 2026-07-09 — Fase 1: aislamiento multiempresa base
 **Agregado**
 - Módulo `Company` con compañías, sucursales, membresías y ULID público para selección segura.

@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Core\Concerns\Auditable;
 use App\Core\Concerns\HasPublicUlid;
+use App\Modules\Access\Models\Role;
 use App\Modules\Company\Models\Branch;
 use App\Modules\Company\Models\Company;
 use Database\Factories\UserFactory;
@@ -69,5 +70,13 @@ class User extends Authenticatable
     public function branches(): BelongsToMany
     {
         return $this->belongsToMany(Branch::class)->withTimestamps();
+    }
+
+    /** @return BelongsToMany<Role, $this> */
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class)
+            ->withPivot('company_id')
+            ->withTimestamps();
     }
 }
