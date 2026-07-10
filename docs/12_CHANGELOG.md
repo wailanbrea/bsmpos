@@ -4,6 +4,17 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Fase 13 (cierre): pantalla de Reportes y reporte de anulaciones
+**Agregado**
+- `ReportService::annulments` + `GET /reports/annulments`: facturas anuladas del período con resumen (conteo y total), base operativa del 608.
+- Pantalla de Reportes (`/reportes`, módulo `report`): 7 pestañas (ventas, por producto, por categoría, por método de pago, impuestos, caja, anulaciones), filtros de fecha, tarjetas KPI de resumen, descargas CSV de ventas y TXT DGII 606/607/608, e impresión (`print:hidden` oculta controles al imprimir). Enlazada al menú dinámico.
+- Servicio front `downloadReport` (blob) y `fetchReport` sobre el cliente `api` autenticado.
+
+**Validado**
+- Pest: 2 pruebas nuevas (anulaciones filtradas por período con resumen; permiso requerido). Suite total 145 verde.
+- Pint, Larastan, typecheck, ESLint, Prettier y build sin errores.
+- Navegador real: venta B02 (NCF B0200000001, RD$ 700) reflejada en resumen y desglose por producto; descarga CSV HTTP 200 con encabezado y datos; cambio de pestañas sin errores de consola.
+
 ### 2026-07-10 — Fase 10: Tolerancia a Fallos, Contingencia e-CF y Onboarding Fiscal Completado
 **Agregado**
 - Job asíncrono `SendElectronicInvoiceJob` con reintentos automáticos (5 intentos) y backoff exponencial (5s, 30s, 60s, 300s, 900s) para transmisión de comprobantes.

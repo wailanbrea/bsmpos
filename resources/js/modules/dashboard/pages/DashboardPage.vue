@@ -18,6 +18,7 @@ const allNavigation: NavItem[] = [
     { label: 'Inventario', to: '/inventario', module: 'inventory' },
     { label: 'Clientes', to: '/clientes', module: 'customer' },
     { label: 'Módulos', to: '/configuracion/modulos', module: 'module_manager' },
+    { label: 'Reportes', to: '/reportes', module: 'report' },
     { label: 'Configuración', to: '/configuracion/fiscal', module: 'setting' },
     { label: 'Facturación electrónica', to: '/facturacion-electronica', module: 'electronic_invoice' },
     { label: 'Auditoría', to: '/auditoria', module: 'audit' },

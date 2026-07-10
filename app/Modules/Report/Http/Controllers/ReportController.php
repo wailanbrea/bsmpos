@@ -27,6 +27,11 @@ final class ReportController
         return ApiResponse::success($this->reports->cash($currentCompany->company(), $this->filters($request, $currentCompany)));
     }
 
+    public function annulments(Request $request, CurrentCompany $currentCompany): JsonResponse
+    {
+        return ApiResponse::success($this->reports->annulments($currentCompany->company(), $this->filters($request, $currentCompany)));
+    }
+
     public function salesByProduct(Request $request, CurrentCompany $currentCompany): JsonResponse
     {
         return ApiResponse::success($this->reports->salesByProduct($currentCompany->company(), $this->filters($request, $currentCompany)));

@@ -227,6 +227,42 @@ final class ReportService
     }
 
     /**
+     * Reporte operativo de facturas anuladas en el período (base del 608).
+     *
+     * @param  array{from: string, to: string, branch_id?: string|null}  $filters
+     * @return array<string, mixed>
+     */
+    public function annulments(Company $company, array $filters): array
+    {
+        $invoices = Invoice::query()
+            ->with(['customer', 'branch'])
+            ->where('company_id', $company->getKey())
+            ->where('status', 'canceled')
+            ->whereDate('canceled_at', '>=', $filters['from'])
+            ->whereDate('canceled_at', '<=', $filters['to'])
+            ->when($filters['branch_id'] ?? null, fn (Builder $query, string $branchId): Builder => $query->where('branch_id', $branchId))
+            ->orderBy('canceled_at')
+            ->get();
+
+        return [
+            'summary' => [
+                'invoice_count' => $invoices->count(),
+                'total' => (string) $invoices->sum(fn (Invoice $invoice): float => (float) $invoice->total),
+            ],
+            'rows' => $invoices->map(static fn (Invoice $invoice): array => [
+                'id' => $invoice->public_id,
+                'canceled_at' => $invoice->canceled_at ? Carbon::parse($invoice->canceled_at)->toIso8601String() : null,
+                'invoice_number' => $invoice->invoice_number,
+                'ncf' => $invoice->ncf,
+                'reason_code' => $invoice->cancellation_reason_code,
+                'branch' => $invoice->branch?->name,
+                'customer' => $invoice->customer?->name,
+                'total' => $invoice->total,
+            ])->all(),
+        ];
+    }
+
+    /**
      * Genera el contenido TXT del Formato 608 de NCF anulados.
      *
      * @throws ApiException

@@ -19,4 +19,5 @@ Route::middleware(['auth:sanctum', 'company', 'permission:reports.view'])->group
     Route::get('reports/sales/taxes', [ReportController::class, 'salesTaxes']);
     Route::get('reports/sales/discounts', [ReportController::class, 'salesDiscounts']);
     Route::get('reports/cash', [ReportController::class, 'cash']);
+    Route::get('reports/annulments', [ReportController::class, 'annulments']);
 });

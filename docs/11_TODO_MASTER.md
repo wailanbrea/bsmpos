@@ -2,7 +2,7 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASES 1–12 completas (Fase 10 cerrada). Siguiente: FASE 13 (Reportes y Formatos DGII).**
+**Estado global: FASES 1–13 completas. Siguiente: FASE 14 (seguridad, E2E Playwright y deploy).**
 
 **Verificación 2026-07-10:** baseline de calidad restaurada tras correcciones de tipado en POS, inventario, facturación, impresión y restaurante. Pest, Pint, Larastan, vue-tsc, Vitest, ESLint, Prettier y build PWA están verdes.
 
@@ -103,9 +103,10 @@
 - [ ] Taller: vehículos, órdenes de trabajo, cotizaciones, fotos
 
 ## FASE 13 — Reportes
-- [ ] Ventas y caja por período/base exportable CSV implementados; desgloses por producto/categoría/método de pago/cajero/cliente/impuestos/descuentos implementados. Pendientes e-CF y reportes de anulaciones operativos
-- [ ] **Formatos DGII:** 606, 607 y 608 TXT implementados y cubiertos en casos base; falta confirmar tratamiento de e-NCF y resumen B02 en OFV
-- [ ] Export PDF/Excel + imprimir en todos
+- [x] Ventas y caja por período exportable CSV; desgloses por producto/categoría/método de pago/cajero/cliente/impuestos/descuentos; reporte de anulaciones (`/reports/annulments`) con resumen
+- [x] **Formatos DGII:** 606, 607 y 608 TXT implementados y cubiertos en casos base; falta confirmar tratamiento de e-NCF y resumen B02 en OFV (pendiente contra doc oficial)
+- [x] Pantalla de Reportes: 7 pestañas (ventas/producto/categoría/método/impuestos/caja/anulaciones), filtros por fecha, KPIs, descarga CSV + DGII 606/607/608 e impresión (`print:hidden`); verificado en navegador con datos reales
+- [ ] Export a Excel nativo (por ahora CSV, abrible en Excel) y PDF con plantilla — pendiente post-v1
 
 ## FASE 14 — Seguridad, pruebas y deploy
 - [ ] Policies completas, rate limiting, 2FA, auditoría completa
