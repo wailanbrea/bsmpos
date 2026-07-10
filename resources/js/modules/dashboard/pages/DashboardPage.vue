@@ -13,7 +13,7 @@ const allNavigation: NavItem[] = [
     { label: 'Resumen', to: '/' },
     { label: 'POS', to: '#', module: 'pos' },
     { label: 'Inventario', to: '#', module: 'inventory' },
-    { label: 'Clientes', to: '#', module: 'customer' },
+    { label: 'Clientes', to: '/clientes', module: 'customer' },
     { label: 'Módulos', to: '/configuracion/modulos', module: 'module_manager' },
     { label: 'Configuración', to: '/configuracion/fiscal', module: 'setting' },
     { label: 'Auditoría', to: '/auditoria', module: 'audit' },

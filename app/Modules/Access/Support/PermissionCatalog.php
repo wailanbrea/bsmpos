@@ -19,6 +19,9 @@ final class PermissionCatalog
             ['code' => 'modules.manage', 'name' => 'Gestionar módulos', 'module_code' => 'module_manager', 'description' => 'Activar o desactivar módulos y completar el onboarding.'],
             ['code' => 'settings.view', 'name' => 'Ver configuración', 'module_code' => 'setting', 'description' => 'Consultar impuestos, métodos de pago y secuencias.'],
             ['code' => 'settings.manage', 'name' => 'Gestionar configuración', 'module_code' => 'setting', 'description' => 'Editar impuestos, métodos de pago y secuencias NCF.'],
+            ['code' => 'customers.view', 'name' => 'Ver clientes', 'module_code' => 'customer', 'description' => 'Consultar el directorio de clientes.'],
+            ['code' => 'customers.manage', 'name' => 'Gestionar clientes', 'module_code' => 'customer', 'description' => 'Crear y editar clientes.'],
+            ['code' => 'customers.credit', 'name' => 'Gestionar crédito', 'module_code' => 'customer', 'description' => 'Registrar cargos y abonos de crédito.'],
         ];
     }
 }

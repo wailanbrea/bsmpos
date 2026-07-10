@@ -23,7 +23,7 @@
 | Users/Roles | `/users`, `/users/{publicId}/access`, `/roles`, `/roles/{publicId}`, `/permissions` | Roles/permisos implementados; usuarios parciales (Fase 1) |
 | Modules | `/modules`, `/modules/{code}/enable|disable`, `/business-types`, `/onboarding` | Implementado (Fase 2) |
 | Settings | `/settings/fiscal`, `/taxes`, `/payment-methods`, `/ncf-sequences` | Implementado (Fase 3) |
-| Customers | `/customers`, `/customers/{id}/history|credit|addresses` | Pendiente |
+| Customers | `/customers` (search, paginado), `/customers/{id}`, `/customers/{id}/credit` | Implementado (Fase 4) |
 | Products | `/categories`, `/products`, `/products/{id}/variants|modifiers|images` | Pendiente |
 | Services | `/service-categories`, `/services` | Pendiente |
 | Inventory | `/warehouses`, `/stock`, `/batches`, `/movements`, `/transfers`, `/adjustments`, `/kardex/{productId}`, `/alerts` | Pendiente |
@@ -66,6 +66,19 @@ Alta de método de pago: `name`, `code` (único por compañía), `requires_refer
 
 ### `GET/POST /api/v1/ncf-sequences`
 Lista o crea secuencias NCF/e-CF: `document_type_code` (del catálogo), `start_number`, `end_number` (> start), `expires_at`, `alert_threshold`. La reserva de números en venta/factura la hace `NcfSequenceService::reserve()` con `lockForUpdate` (ver [06_ELECTRONIC_INVOICING.md](06_ELECTRONIC_INVOICING.md)).
+
+## Clientes (Fase 4)
+
+`auth:sanctum` + `X-Company-Id` + `module:customer`. Lectura `customers.view`, escritura `customers.manage`, crédito `customers.credit`.
+
+### `GET /api/v1/customers?search=&page=`
+Lista clientes de la compañía (genérico primero), filtrando por nombre/RNC/teléfono; paginado (`meta.pagination`).
+
+### `POST /api/v1/customers` · `PATCH /api/v1/customers/{publicId}`
+Alta/edición: `kind` (person|company|generic), `name`, `tax_id_type` (rnc|cedula|passport|nif|none), `tax_id` (validado con dígito verificador y único por compañía), contacto, `credit_limit`, `credit_days`.
+
+### `POST /api/v1/customers/{publicId}/credit`
+Registra `type` (charge|payment|adjustment) y `amount` (>0). `charge` respeta el límite de crédito; `payment` no puede dejar balance negativo. Devuelve el cliente actualizado.
 
 ## Roles y permisos (Fase 1)
 

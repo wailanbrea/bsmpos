@@ -2,7 +2,7 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASE 3 en curso — base fiscal (monedas, impuestos, métodos de pago, NCF) completada; faltan config de POS/inventario/impresión/seguridad/backups.**
+**Estado global: FASE 4 (Clientes) completada. Fase 3 con base fiscal lista (faltan config de POS/inventario/impresión/seguridad/backups). Siguiente: FASE 5 (productos y servicios).**
 
 ## Conocimiento del proyecto
 - [x] Fase 1 completada: compañías, sucursal principal, membresías, contexto tenant, RBAC, sesiones API, Policies y auditoría base.
@@ -55,7 +55,13 @@
 - [ ] Config de POS, inventario, impresión, seguridad, backups
 
 ## FASE 4 — Clientes
-- [ ] CRUD + genérico + datos fiscales (validación RNC/cédula con dígito verificador) + direcciones + historial + crédito
+- [x] CRUD de clientes (persona/empresa/genérico) con datos fiscales, teléfono/WhatsApp/email, límite y días de crédito
+- [x] Validación de RNC (módulo 11) y cédula (Luhn) con dígito verificador (`DominicanTaxId` + regla `ValidTaxId`)
+- [x] Cliente genérico "Consumidor Final" provisionado al crear la compañía
+- [x] Crédito: cargos/abonos atómicos con `lockForUpdate`, control de límite y balance (`CustomerCreditService`)
+- [x] API (`/customers` con búsqueda y paginación, `/customers/{id}`, `/customers/{id}/credit`) + Policy + permisos `customers.view/manage/credit`
+- [x] Frontend: directorio con búsqueda y alta/edición; verificado en navegador (validación RNC, genérico, búsqueda)
+- [ ] Pendiente: direcciones y contactos múltiples desde UI; pantalla de perfil con historial de facturas (tras Fase 9)
 
 ## FASE 5 — Productos y servicios
 - [ ] Categorías, productos, variantes, modificadores, combos, imágenes, unidades, servicios

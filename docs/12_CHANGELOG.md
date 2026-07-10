@@ -4,6 +4,19 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Fase 4: módulo de clientes
+**Agregado**
+- Tablas `customers`, `customer_addresses`, `customer_contacts`, `customer_credit_accounts`.
+- Módulo `Customer`: modelo con crédito/balance, `CustomerCreditService` (cargos/abonos atómicos con `lockForUpdate`, control de límite), acciones de alta/edición, `ProvisionGenericCustomer` (Consumidor Final por compañía).
+- Validación fiscal dominicana: `DominicanTaxId` (RNC módulo 11, cédula Luhn) + regla `ValidTaxId`.
+- API `/customers` (búsqueda, paginación), `/customers/{id}`, `/customers/{id}/credit`; Policy y permisos `customers.view/manage/credit`.
+- Frontend: directorio de clientes con búsqueda en vivo y formulario de alta/edición, enlazado al menú (módulo `customer`).
+
+**Validado**
+- Pest: 7 pruebas nuevas (dígitos verificadores RNC/cédula, genérico por compañía, alta con RNC válido, rechazo de RNC inválido, crédito con límite, aislamiento tenant, permisos). Suite total 65 verde.
+- Pint, Larastan, typecheck, ESLint, Prettier, Vitest y build sin errores.
+- Navegador real (Playwright): consumidor final presente, RNC inválido rechazado con mensaje, alta de "Distribuidora XYZ SRL (RNC 131793916)", búsqueda filtrando.
+
 ### 2026-07-10 — Fase 3: base de configuración fiscal (RD)
 **Agregado**
 - Tablas: `currencies`, `company_currencies`, `exchange_rates`, `taxes`, `payment_methods`, `document_types`, `ncf_sequences`.
