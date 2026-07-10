@@ -58,7 +58,7 @@ RBAC implementado en Fase 1: `permissions` es un catálogo global por código; `
 
 ## 9. Facturación
 
-- **invoices** — todos los campos del master prompt §18 + ncf (NCF/e-NCF asignado), ncf_expires_at, document_type_code, tip_total, idempotency_key unique
+- **invoices** — todos los campos del master prompt §18 + ncf (NCF/e-NCF asignado), ncf_expires_at, document_type_code, tip_total, idempotency_key unique, `canceled_at` y `cancellation_reason_code` (1–10) para trazabilidad y Formato 608
 - **invoice_items**, **invoice_taxes**, **invoice_payments**, **invoice_sequences** (numeración interna por sucursal)
 - **credit_notes / debit_notes** → modeladas como invoices con document_type (B04/E34, E33) y `affected_invoice_id` + `affected_ncf`
 
@@ -77,6 +77,7 @@ RBAC implementado en Fase 1: `permissions` es un catálogo global por código; `
 
 - **dgii_reports** — id, company_id, type (606/607/608), period (YYYYMM), status, file_path, generated_at
 - Vistas/consultas derivadas de purchases (606), invoices (607), invoices anuladas (608)
+- **purchase_fiscal_data** — snapshot fiscal por compra: proveedor/identificación, NCF, clasificación de gasto, montos de bienes/servicios, ITBIS, retenciones, impuestos y forma de pago; fuente de datos para 606.
 
 ## Índices mínimos obligatorios
 

@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+use App\Modules\POS\Http\Controllers\CashSessionController;
+use App\Modules\POS\Http\Controllers\OrderController;
+use Illuminate\Support\Facades\Route;
+
+Route::middleware(['auth:sanctum', 'company', 'branch', 'module:pos'])->group(function (): void {
+    // Órdenes
+    Route::get('orders', [OrderController::class, 'index']);
+    Route::get('orders/{publicId}', [OrderController::class, 'show']);
+    Route::post('orders', [OrderController::class, 'store']);
+
+    // Sesiones y Turnos de Caja
+    Route::get('cash-registers', [CashSessionController::class, 'registers']);
+    // endpoint plural en vez de singular para coherencia
+    Route::get('cash-sessions/active', [CashSessionController::class, 'active']);
+    Route::post('cash-sessions/open', [CashSessionController::class, 'open']);
+    Route::post('cash-sessions/movements', [CashSessionController::class, 'movement']);
+    Route::post('cash-sessions/close', [CashSessionController::class, 'close']);
+});

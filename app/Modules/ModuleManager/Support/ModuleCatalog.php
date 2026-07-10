@@ -43,6 +43,7 @@ final class ModuleCatalog
             ['serial_numbers', 'Números de serie', 'Trazabilidad por serie.', 'inventory', false],
             ['table_management', 'Mesas', 'Áreas y mesas de restaurante.', 'restaurant', false],
             ['kitchen', 'Cocina / KDS', 'Pantalla de cocina y comandas.', 'restaurant', false],
+            ['restaurant', 'Restaurante y Cocina', 'Gestión de áreas, mesas y comandas KDS.', 'restaurant', false],
             ['delivery', 'Delivery', 'Pedidos a domicilio.', 'restaurant', false],
             ['digital_menu', 'Menú digital', 'Menú y ofertas en pantalla.', 'restaurant', false],
             ['recipe', 'Recetas', 'Insumos y consumo por venta.', 'restaurant', false],
@@ -95,6 +96,7 @@ final class ModuleCatalog
             'delivery' => ['pos'],
             'digital_menu' => ['product'],
             'recipe' => ['product', 'inventory'],
+            'restaurant' => ['pos', 'product'],
             'appointment' => ['service'],
             'vehicle' => ['customer'],
             'work_order' => ['vehicle', 'service'],
@@ -150,7 +152,7 @@ final class ModuleCatalog
 
         return [
             'restaurant' => [
-                'default' => [...$base, 'pos', 'product', 'table_management', 'kitchen'],
+                'default' => [...$base, 'pos', 'product', 'restaurant'],
                 'recommended' => ['delivery', 'digital_menu', 'inventory', 'recipe', 'service', 'electronic_invoice'],
             ],
             'cafeteria' => [

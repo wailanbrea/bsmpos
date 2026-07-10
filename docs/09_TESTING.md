@@ -46,6 +46,13 @@ Auth, empresas/sucursales (incl. **tests de aislamiento de tenant**), módulos (
 
 - Prueba de autorización por Policy: permisos de sucursal, roles, usuarios y auditoría se conceden únicamente en la compañía del recurso; no se filtran hacia otra empresa y una cuenta inactiva se deniega.
 
+## Implementado en Fase 13: reportes base
+
+- Feature tests de ventas: incluye solo facturas pagadas del tenant, excluye anuladas y registros externos, verifica exportación CSV y los desgloses por producto, categoría, método de pago, cajero y cliente.
+- Feature tests de impuestos y descuentos: agrega impuesto por línea y total de descuentos sin convertir dinero a `float`.
+- Feature tests del Formato 608: exportación TXT mensual delimitada por pipe y rechazo seguro de anulaciones sin motivo fiscal.
+- Feature tests del Formato 607: distribución de pagos mixtos por método y exclusión de facturas B02 bajo el umbral de detalle.
+
 ## Implementado en Fase 1: roles y permisos
 
 - Feature tests de catálogo por código, actualización de permisos, bloqueo del rol propietario y desactivación segura de roles sin usuarios.

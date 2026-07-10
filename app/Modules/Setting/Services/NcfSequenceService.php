@@ -20,6 +20,8 @@ final class NcfSequenceService
      */
     public function reserve(int|string $companyId, string $documentTypeCode, int|string|null $branchId = null): ReservedNcf
     {
+        $documentTypeCode = $this->canonicalDocumentTypeCode($documentTypeCode);
+
         return DB::transaction(function () use ($companyId, $documentTypeCode, $branchId): ReservedNcf {
             $query = NcfSequence::withoutGlobalScopes()
                 ->where('company_id', $companyId)
@@ -77,10 +79,19 @@ final class NcfSequenceService
      */
     public function format(string $documentTypeCode, int $number): string
     {
+        $documentTypeCode = $this->canonicalDocumentTypeCode($documentTypeCode);
         $documentType = DocumentType::query()->find($documentTypeCode);
         $width = $documentType?->is_electronic ? 10 : 8;
 
         return $documentTypeCode.str_pad((string) $number, $width, '0', STR_PAD_LEFT);
+    }
+
+    /** Normaliza códigos históricos 01–15 al código fiscal canónico B01–B15. */
+    public function canonicalDocumentTypeCode(string $documentTypeCode): string
+    {
+        return preg_match('/^\d{2}$/', $documentTypeCode) === 1
+            ? "B{$documentTypeCode}"
+            : $documentTypeCode;
     }
 
     /** Secuencias que alcanzaron su umbral de alerta o están vencidas. */

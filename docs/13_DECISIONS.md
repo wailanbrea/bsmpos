@@ -17,3 +17,4 @@
 | 013 | 2026-07-09 | Design system **Kinetic Enterprise** como preset Tailwind + CSS variables, con dark mode | DESIGN.md provisto por el usuario; tokens centralizados evitan estilos duplicados. |
 | 014 | 2026-07-09 | RBAC con permisos globales por código y roles aislados por `company_id`; propietario con acceso administrativo explícito | Evita duplicar catálogos por tenant y permite validar permisos mediante middleware sin lógica de autorización en controladores. |
 | 015 | 2026-07-09 | Autenticación API por tokens Sanctum por dispositivo, no sesiones web | El POS/PWA y las terminales requieren revocación granular; login tiene límite por email/IP y los eventos de autenticación se auditan. |
+| 016 | 2026-07-10 | Código fiscal canónico en persistencia (`B01`/`B02`/`E31`…) | El código abreviado no es un NCF completo y bloquea exportaciones fiscales. Se acepta legado solo en el borde API mientras se normalizan los datos históricos. |

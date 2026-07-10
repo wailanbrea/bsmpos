@@ -11,6 +11,11 @@ import ModuleManagementPage from '../modules/module-manager/pages/ModuleManageme
 import OnboardingPage from '../modules/module-manager/pages/OnboardingPage.vue';
 import ConfigurationPage from '../modules/settings/pages/ConfigurationPage.vue';
 import CustomerListPage from '../modules/customers/pages/CustomerListPage.vue';
+import ProductListPage from '../modules/products/pages/ProductListPage.vue';
+import InventoryPage from '../modules/inventory/pages/InventoryPage.vue';
+import PosPage from '../modules/pos/pages/PosPage.vue';
+import RestaurantLayoutPage from '../modules/restaurant/pages/RestaurantLayoutPage.vue';
+import KitchenKdsPage from '../modules/restaurant/pages/KitchenKdsPage.vue';
 import { useSessionStore } from '../modules/auth/stores/session';
 import { useModuleStore } from '../modules/module-manager/stores/modules';
 
@@ -86,6 +91,36 @@ const router = createRouter({
             name: 'customers',
             component: CustomerListPage,
             meta: { requiresAuth: true, requiresContext: true, requiresModule: 'customer' },
+        },
+        {
+            path: '/productos',
+            name: 'products',
+            component: ProductListPage,
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'product' },
+        },
+        {
+            path: '/inventario',
+            name: 'inventory',
+            component: InventoryPage,
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'inventory' },
+        },
+        {
+            path: '/pos',
+            name: 'pos',
+            component: PosPage,
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'pos' },
+        },
+        {
+            path: '/restaurant/layout',
+            name: 'restaurant-layout',
+            component: RestaurantLayoutPage,
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'restaurant' },
+        },
+        {
+            path: '/kitchen/kds',
+            name: 'kitchen-kds',
+            component: KitchenKdsPage,
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'restaurant' },
         },
     ],
 });

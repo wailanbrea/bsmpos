@@ -4,6 +4,199 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Endurecimiento de integridad de ventas (revisión pre-commit)
+**Corregido**
+- Cierre de caja: el efectivo esperado ya solo suma pagos en efectivo (tarjeta/transferencia no entran a la gaveta) y `COALESCE` evita que un cambio NULL descarte filas del SUM.
+- Correlativo de facturas/notas serializado con `lockForUpdate` sobre la compañía (dos ventas simultáneas ya no colisionan en `FAC-XXXXXX`) + uniques de respaldo en BD (`company_id+invoice_number`, `company_id+ncf`, `company_id+idempotency_key`).
+- Notas de crédito acumuladas limitadas a la cantidad facturada (antes se podía devolver más de lo vendido en notas sucesivas).
+- Anulación tras nota de crédito ya no duplica el reingreso de stock (solo restaura lo no devuelto) y reingresa al almacén que despachó la venta (`orders.warehouse_id` nuevo) en anulaciones y notas.
+- Solo se facturan órdenes `completed`: una orden pendiente ya no puede recibir NCF ni nacer "paid".
+- Totales del POS redondeados a 2 decimales en cada paso (float ya no rechaza pagos exactos con ITBIS/propina).
+- Idempotencia atómica con `Cache::lock` (reintentos concurrentes con la misma key ya no duplican la venta).
+- Sesiones de caja y órdenes anclados a la sucursal activa del contexto (antes siempre `branches()->first()`); la caja debe pertenecer a la sucursal.
+- Frontend POS/Inventario/Restaurante migrado al cliente `api` compartido: los llamados con `axios` crudo usaban claves de localStorage inexistentes (401 siempre) y `GET /taxes` inexistente (ahora `/settings/fiscal`); corregido `order_id` undefined al facturar desde el POS.
+- Interceptor 401: token revocado/expirado limpia la sesión local y regresa al login (antes quedaba "medio autenticado" con menú vacío).
+- Almacenes y proveedores exponen `public_id` (antes filtraban el autoincrement interno y rompían la validación del POS).
+
+**Agregado**
+- Provisión automática al crear compañía/sucursal: Caja Principal y Almacén Principal (sin ellos el POS no podía operar; master prompt §10 paso 5).
+
+**Validado**
+- 6 pruebas de regresión nuevas (`SalesIntegrityRegressionTest`): factura de orden pendiente rechazada, pago exacto con ITBIS+propina, tope acumulado de notas de crédito, anulación tras nota sin doble stock, cierre de caja solo-efectivo, replay de Idempotency-Key. Suite total 128 verde.
+- Navegador real (Playwright): onboarding restaurante → producto → apertura de Caja Principal provisionada → venta con devuelta → secuencia B02 creada en Configuración → segunda venta emite `FAC-000001 / NCF B0200000001`; caja esperada 2050.00 exacta; venta sin secuencia NCF falla con mensaje claro sin romper el cobro.
+
+### 2026-07-10 — Fase 13: impuestos y descuentos operativos
+**Agregado**
+- Reportes de ventas por impuesto y de facturas con descuentos, filtrados por compañía, período y sucursal.
+
+**Validado**
+- Pest cubre agregación de impuestos y descuentos; Pint y Larastan sin errores.
+
+### 2026-07-10 — Fase 13: Formato DGII 607
+**Agregado**
+- `GET /api/v1/reports/dgii/607?period=YYYY-MM` con detalle de ventas tradicionales, ITBIS, propina y distribución por forma de pago.
+- Excluye B02 menores de RD$50,000 y rechaza ventas que requieren identificación fiscal sin tenerla.
+
+**Validado**
+- Pest cubre pagos mixtos y exclusión B02 bajo el umbral; Larastan sin errores.
+
+### 2026-07-10 — Fase 13: Formato DGII 606
+**Agregado**
+- `GET /api/v1/reports/dgii/606?period=YYYY-MM` para exportar compras confirmadas en TXT delimitado por `|`.
+- Validación estricta de snapshot fiscal, RNC/cédula y NCF tradicional antes de generar el archivo.
+
+**Validado**
+- Pest cubre el encabezado y detalle 606; Pint y Larastan sin errores.
+
+### 2026-07-10 — Fase 13: base fiscal para Formato 606
+**Agregado**
+- Tabla `purchase_fiscal_data` aislada del flujo operativo de compra para conservar el snapshot requerido por 606.
+- Endpoint protegido para registrar clasificación del gasto, NCF, identificación del proveedor, impuestos, retenciones y forma de pago.
+
+**Validado**
+- Pruebas de inventario existentes, Pint y Larastan sin errores.
+
+### 2026-07-10 — Fase 13: Formato DGII 608
+**Agregado**
+- Metadatos obligatorios de anulación en factura: fecha y código de motivo DGII (1–10), validados por Form Request y auditados.
+- `GET /api/v1/reports/dgii/608?period=YYYY-MM`, que descarga el TXT mensual delimitado por `|`.
+
+**Seguridad fiscal**
+- La exportación rechaza datos incompletos, NCF no tradicionales o identificador fiscal de empresa inválido; no produce archivos que aparenten cumplimiento.
+
+**Validado**
+- Pest cubre anulación con metadatos, contenido 608 y rechazo por datos fiscales incompletos; Pint y Larastan sin errores.
+
+### 2026-07-10 — Corrección fiscal: código y formato NCF canónicos
+**Corregido**
+- La emisión POS deja de persistir códigos internos abreviados (`01`, `02`, `04`) y NCF sin serie; ahora usa `B01`, `B02`, `B04` y el comprobante completo (por ejemplo, `B0200000001`).
+- La UI e impresiones interpretan los códigos canónicos. La API mantiene compatibilidad de entrada para `01`/`02`, pero normaliza la persistencia.
+- Migración de datos para secuencias y facturas históricas con códigos abreviados.
+
+**Validado**
+- Pruebas de secuencia NCF, facturación POS e impresión; typecheck, ESLint y Prettier sin errores.
+
+### 2026-07-10 — Fase 13: reportes operativos base
+**Agregado**
+- Módulo `Report` con ventas por período, sesiones de caja cerradas y filtro opcional por sucursal.
+- Exportación CSV UTF-8 de ventas bajo el mismo filtro y permiso `reports.view`.
+- Desgloses de ventas pagadas por producto, categoría, método de pago, cajero y cliente, siempre limitados por compañía, período y sucursal opcional.
+
+**Corregido**
+- Los totales de reportes se agregan en la base de datos y se preservan como DECIMAL serializado; se elimina la conversión de dinero a `float`.
+
+**Validado**
+- Pest cubre aislamiento de tenant, exclusión de facturas anuladas, CSV y los tres desgloses; Pint y Larastan sin errores.
+
+### 2026-07-10 — Corrección de calidad transversal antes de Fase 13
+**Corregido**
+- Errores de Pint en los módulos recientes de inventario, POS, facturación, impresión y restaurante.
+- 55 hallazgos Larastan: serialización de fechas, contratos de recursos, relaciones de caja/impresión, nullability y colecciones tipadas.
+- Contrato TypeScript de POS: métodos de caja, campos fiscales de productos, datos de arqueo y representación de factura.
+- Apertura de mesa: la orden ahora toma una sucursal real de la compañía en lugar de referir un inexistente `user.company_id`.
+
+**Validado**
+- Pest: 115 pruebas / 431 aserciones; Pint, Larastan, vue-tsc, Vitest, ESLint, Prettier y build PWA sin errores.
+
+### 2026-07-10 — Fase 12: Módulo de Restaurante
+**Agregado**
+- Migración `create_restaurant_tables` con las tablas: `restaurant_areas` (sectores físicos), `restaurant_tables` (mesas, capacidad y estados) y `kitchen_orders` (comandos de cocina).
+- Modelos Eloquent backend: `RestaurantArea`, `RestaurantTable` y `KitchenOrder` mapeados con ULIDs de auditoría y relaciones.
+- Relación `table()` dinámica en el modelo `Order` del POS y trigger automático en `CreateOrderAction` para liberar la mesa física al cobrarse la orden.
+- Servicios `RestaurantService` (apertura y transferencia de cuentas con bloqueo pesimista `lockForUpdate`) y `KitchenService` (envío de comanda y cambio de estatus en preparación).
+- API routes y `RestaurantController` y `KitchenController` expuestos bajo tenant.
+- Plano de Mesas interactivo en el frontend (`RestaurantLayoutPage.vue`) con estados dinámicos, tiempos transcurridos y totales.
+- Tablero Kanban KDS en cocina (`KitchenKdsPage.vue`) con tarjetas de pedidos, alertas de demoras en color y triggers táctiles.
+- Enlaces dinámicos en la barra de navegación lateral.
+
+**Validado**
+- Pest: 6 pruebas funcionales atómicas en `POSRestaurantTest.php` validando flujos de mesas, KDS, transferencias y liberación automática. Suite completa de 115 tests en verde.
+- npm checks: compile y linter exitosos.
+
+### 2026-07-10 — Fase 11: Impresión y TicketBuilder
+**Agregado**
+- Columnas `printer_paper_width` y `printer_name` añadidas en la migración de la tabla `cash_registers`.
+- Modelo `CashRegister` actualizado con los nuevos campos en `$fillable`.
+- Helper `TicketBuilder` para formatear y concatenar comandos binarios ESC/POS estándar (negritas, alineación, fuentes dobles, corte automático de papel) adaptables a anchos de 58mm (32 cols) y 80mm/88mm (48 cols).
+- Endpoints en `PrintController` para renderizado HTML de ticket de 80mm e impresión formal Carta/A4 con reglas `@media print` de márgenes cero y eliminación de cabeceras de navegador.
+- Integración en la terminal POS de un dropdown de ancho de papel (`Ticket 80mm`, `Ticket 58mm`, `Factura A4`) persistido en `window.localStorage`.
+- Técnica SPA de impresión silenciosa y autenticada en `printTicket` que descarga el HTML a través de Axios e inyecta la impresión mediante un iframe invisible en el DOM.
+
+**Validado**
+- Pest: 4 pruebas robustas en `POSPrintTest.php` validando comandos ESC/POS para facturas, HTML de tickets de 80mm, HTML A4 e impresión de cierres de sesión de caja. Suite completa de 109 tests pasando en verde.
+- npm checks: clean compile de producción y linter impecable.
+
+### 2026-07-10 — Fase 9: Facturación y NCF tradicional
+**Agregado**
+- Tablas en migración `create_invoice_tables`: `invoices` y `invoice_items`.
+- Modelos Eloquent backend: `Invoice` e `InvoiceItem` en el nuevo dominio `App\Modules\Invoice\Models` con soporte de ULID público y relaciones.
+- Lógica de emisión fiscal en `InvoiceService` reservando NCF mediante bloqueos de concurrencia (`lockForUpdate`), anulación restituyendo stock a almacenes, y emisión de Notas de Crédito (B04) vinculadas.
+- Endpoints en `InvoiceController` expuestos bajo middleware de tenant y políticas RBAC.
+- Interfaces TypeScript actualizadas en el frontend.
+- Integración en la UI del selector fiscal (B02/B01) en la pasarela de cobro del POS, con advertencia interactiva ante RNC ausente para Crédito Fiscal.
+- Modal de visor de ticket fiscal de 80mm imitando papel térmico detallando RNC, NCF, ITBIS (18%) y Propina (10%), con gatillo de impresión.
+
+**Validado**
+- Pest: 4 pruebas de integración robustas en `POSInvoiceTest.php` validando asignación de NCF, protección por módulo, anulación auditada regresando stock y notas de crédito con FEFO. Suite completa de 105 tests pasando en verde.
+- npm checks: compile clean con `npm run lint` y `npm run build` a producción.
+
+### 2026-07-10 — Fase 8: Caja y pagos
+**Agregado**
+- Tablas en migración `create_cash_and_payment_tables`: `cash_registers`, `cash_sessions`, `cash_movements` y `payments`.
+- Modelos Eloquent backend: `CashRegister`, `CashSession`, `CashMovement` y `Payment` en el dominio `App\Modules\POS\Models`.
+- Servicio de control de turnos de caja `CashSessionService` implementando apertura con fondo, registro de ingresos/egresos y arqueos con diferencias.
+- Modificación en `CreateOrderAction` para requerir un turno de caja activo, persistir cobros mixtos y multimoneda USD, y calcular la devuelta automática.
+- Controladores y endpoints de API en `CashSessionController` para gestionar el ciclo de vida de la caja.
+- Frontend: interfaces actualizadas en `services.ts` y terminal táctil en `PosPage.vue` con restricción de apertura de caja, movimientos de efectivo, arqueos y cobros con billetes rápidos dominicanos.
+
+**Validado**
+- Pest: 4 pruebas de integración en `POSCashRegisterTest.php` validando el ciclo de caja, egresos, cobros multimoneda, cambios y aislamiento. Total 101 tests en verde.
+- npm checks: `npm run lint` y `npm run build` compilando al 100% de forma limpia.
+
+### 2026-07-10 — Fase 7: POS Touch y órdenes de venta
+**Agregado**
+- Tablas en migración `create_pos_order_tables`: `orders` y `order_items`.
+- Modelos Eloquent backend: `Order` y `OrderItem` bajo el dominio `App\Modules\POS\Models`.
+- Servicio central de idempotencia `IdempotencyService` en el core para evitar cobros/ventas duplicadas asociadas a la cabecera `Idempotency-Key` (persiste en caché por 24 horas).
+- Lógica de cálculo en `CreateOrderAction` que gestiona subtotales, neto, ITBIS (18%) y la propina de ley dominicana (10% exenta de ITBIS) para negocios gastronómicos.
+- Integración en `CreateOrderAction` con `InventoryService` para descontar existencias físicas en ventas directas (`completed`).
+- Permisos del catálogo ampliados para el POS en `PermissionCatalog.php` (`pos.view`, `pos.sell`).
+- Frontend: interfaces TypeScript actualizadas en `services.ts` y servicio local de almacenamiento IndexedDB en `indexeddb.ts` para persistencia sin conexión (offline).
+- Interfaz gráfica responsiva táctil del POS en `PosPage.vue` con buscador de productos, carrito interactivo, teclado, modal de cobro con almacén/cliente/propina y sincronizador offline automático.
+
+**Validado**
+- Pest: 5 pruebas de integración en `POSOrderTest.php` validando protección de ruta, cálculos de ITBIS/Propina, reverso de stock, prevención de duplicados con idempotencia y fallos por stock insuficiente. Total 97 tests en verde.
+- npm checks: `npm run lint` (ESLint) y `npm run build` (Vite) compilando al 100% de forma limpia.
+
+### 2026-07-10 — Fase 6: inventario avanzado y flujo de compras
+**Agregado**
+- Tablas adicionales en migración `create_inventory_and_purchase_tables`: `suppliers`, `warehouses`, `inventory_stock`, `inventory_batches`, `inventory_movements`, `purchases` y `purchase_items`.
+- Modelos Eloquent backend: `Supplier`, `Warehouse`, `InventoryStock`, `InventoryBatch`, `InventoryMovement`, `Purchase` y `PurchaseItem` bajo `App\Modules\Inventory\Models`.
+- Incorporación del trait `Auditable` para el registro automático de auditoría en los modelos principales del inventario.
+- `InventoryService` centralizado que gestiona entradas, salidas con métodos **FEFO** (fecha de expiración), **FIFO** (fecha de creación) e **Costo Promedio** transaccional con bloqueos de concurrencia `lockForUpdate()`.
+- Acción de confirmación de compras `PurchaseConfirmAction` para la carga atómica al inventario y asignación de lotes.
+- Permisos del catálogo ampliados para proveedores, almacenes, compras e inventario en `PermissionCatalog.php`.
+- Descubrimiento de rutas de API configurado a través del manifiesto `module.json` en `Inventory`.
+- Frontend: interfaces TypeScript, axios wrapper en `services.ts` y enrutador configurado con middleware de protección por módulo.
+- Interfaz gráfica responsiva `InventoryPage.vue` con pestañas interactivas para existencias agregadas con despliegue de **Kardex**, CRUD de almacenes, CRUD de proveedores y registro/confirmación de compras a proveedores con lotes.
+
+**Validado**
+- Pest: 6 pruebas de integración y funcionales en `InventoryAdvancedTest.php` validando el cálculo de costo promedio, consumo FEFO, FIFO, validación de stock insuficiente, confirmación de compras y aislamiento tenant. Total 92 tests en verde.
+- npm checks: `npm run lint` (ESLint) y `npm run build` (Vite) compilando al 100% de forma exitosa.
+
+### 2026-07-10 — Fase 5: catálogo de productos con variantes, modificadores y combos
+**Agregado**
+- Tablas adicionales en migración `create_catalog_tables`: `product_variants`, `product_modifiers`, `product_modifier_options` y `product_combos`.
+- Modelos Eloquent backend: `ProductVariant`, `ProductModifier`, `ProductModifierOption` y `ProductCombo`.
+- Relaciones Eloquent `variants()`, `modifiers()` y `combos()` en modelo `Product`.
+- Validación y persistencia atómica/transaccional en `StoreProductRequest`, `UpdateProductRequest` y `SaveProductAction`.
+- Formateo y exposición de variantes, modificadores y combos en `ProductResource`.
+- Frontend: interfaces TypeScript actualizadas en `types.ts`, payload mapeado en `services.ts`, y paneles interactivos en `ProductListPage.vue` para agregar/editar variantes, modificadores y componentes de combo.
+
+**Validado**
+- Pest: 6 pruebas avanzadas cubriendo creación/edición de variantes, modificadores y combos, reglas de no auto-ciclado y aislamiento multi-tenant en `ProductAdvancedCatalogTest.php`. Total 86 pruebas en verde.
+- npm checks: `npm run typecheck` (vue-tsc), `npm run lint` (ESLint) y `npm run format:check` (Prettier) en verde.
+
 ### 2026-07-10 — Fase 3 (cierre): settings por grupo y tasas de cambio
 **Agregado**
 - Tabla `settings` (clave-valor por compañía/sucursal/grupo). `SettingsSchema` define grupos POS/inventario/facturación/impresión/seguridad/backup con tipos y valores por defecto; `SettingsService` valida y castea (bool/int/decimal/enum).

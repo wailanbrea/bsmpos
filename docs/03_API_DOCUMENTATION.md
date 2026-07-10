@@ -9,6 +9,7 @@
 - Respuesta estándar `{ success, data, message, meta }` / error `{ success:false, error:{ code, message, details } }`.
 - Paginación: `?page=&per_page=` → `meta.pagination`. Filtros con query params documentados por endpoint. Orden: `?sort=-created_at`.
 - Idempotencia: header `Idempotency-Key` obligatorio en `POST /orders/*/pay`, `POST /invoices`.
+- Los tipos de comprobante fiscales usan códigos canónicos (`B01`, `B02`, `B04`, `E31`, …). La emisión de factura acepta temporalmente `01` y `02` por compatibilidad, pero responde y persiste el código canónico.
 - Errores por módulo inactivo: HTTP 403, `error.code = MODULE_DISABLED`.
 - Rate limiting: global + estricto en `/auth/login`.
 - Versionado: rompimientos → `/api/v2`.
@@ -32,7 +33,53 @@
 | Cash | `/cash-registers`, `/cash-sessions`, `/cash-sessions/{id}/movements|close` | Pendiente |
 | Invoices | `/invoices`, `/invoices/{id}/pdf|ticket|cancel`, `/quotes`, `/credit-notes` | Pendiente |
 | e-CF | `/electronic-invoices`, `/electronic-invoices/{id}/retry|logs`, `/electronic-invoice-settings` | Pendiente |
-| Reports | `/reports/sales|cash|inventory|taxes|dgii-606|dgii-607` | Pendiente |
+| Reports | `/reports/sales|cash|inventory|taxes|dgii-606|dgii-607|dgii-608` | Ventas/caja, CSV y desgloses implementados; DGII 608 TXT implementado, 606/607 pendientes |
+
+## Reportes operativos (Fase 13)
+
+Requieren `auth:sanctum`, contexto de compañía y `reports.view`. Los filtros opcionales son `from`, `to` (fechas inclusivas) y `branch_id` (ULID de la compañía activa).
+
+### `GET /api/v1/reports/sales`
+Devuelve facturas pagadas del período, resumen de subtotal/descuentos/impuestos/propina/total y detalle por factura. Excluye anuladas y datos de otras empresas.
+
+### `GET /api/v1/reports/sales/export.csv`
+Exporta las mismas filas de ventas filtradas en CSV UTF-8.
+
+### `GET /api/v1/reports/sales/by-product`
+Agrupa las líneas de facturas pagadas por producto (ULID, nombre, SKU, cantidad y total). No incluye facturas anuladas ni líneas de otros tenants.
+
+### `GET /api/v1/reports/sales/by-category`
+Agrupa las líneas de facturas pagadas por categoría (ULID, nombre, cantidad y total). Los productos sin categoría se consolidan como `Sin categoría`.
+
+### `GET /api/v1/reports/sales/by-payment-method`
+Agrupa los cobros asociados a órdenes con factura pagada por método y moneda. El total se calcula en moneda base neto de devuelta.
+
+### `GET /api/v1/reports/sales/by-cashier`
+Agrupa facturas pagadas por el usuario que las emitió, incluyendo cantidad de facturas y total.
+
+### `GET /api/v1/reports/sales/by-customer`
+Agrupa facturas pagadas por cliente, incluyendo cantidad de facturas y total.
+
+### `GET /api/v1/reports/sales/taxes`
+Agrupa líneas de facturas pagadas por impuesto, con base gravable y monto del impuesto. Las líneas sin impuesto se muestran explícitamente como `sin_impuesto`.
+
+### `GET /api/v1/reports/sales/discounts`
+Lista facturas pagadas con descuento y devuelve el total agregado de descuentos, preservado como DECIMAL.
+
+### `GET /api/v1/reports/cash`
+Devuelve sesiones de caja cerradas del período con total esperado, contado y diferencia.
+
+### `GET /api/v1/reports/dgii/608?period=YYYY-MM`
+Genera y descarga el TXT delimitado por `|` de NCF anulados del mes, con encabezado `608|RNC/Cédula|AAAAMM|cantidad`. Solo incluye comprobantes tradicionales con NCF completo y requiere que cada anulación tenga fecha y código de motivo DGII (1–10); ante datos incompletos responde `422 VALIDATION_FAILED` en lugar de producir un archivo fiscal inválido.
+
+### `GET /api/v1/reports/dgii/606?period=YYYY-MM`
+Genera el TXT delimitado por `|` de compras y gastos confirmados del mes. Requiere el snapshot `purchase_fiscal_data` completo por cada compra; un registro faltante o identificador/NCF inválido retorna `422 VALIDATION_FAILED`.
+
+### `GET /api/v1/reports/dgii/607?period=YYYY-MM`
+Genera el TXT delimitado por `|` de ventas tradicionales pagadas. Reporta B02 desde RD$50,000 cuando tiene identificación del cliente; distribuye pagos por método y rechaza facturas que requieren identificación sin datos fiscales.
+
+### `PUT /api/v1/purchases/{publicId}/fiscal-data`
+Registra o actualiza el snapshot fiscal de una compra para 606. Requiere `purchases.manage` y recibe identificación del proveedor, NCF, clasificación de gasto, montos de bienes/servicios, ITBIS, retenciones e indicador de forma de pago. Calcula `total_billed` e `itbis_advance`; rechaza un ITBIS llevado al costo superior al facturado.
 | Audit | `/audit-logs`, `/audit-logs/{publicId}` | Implementado (Fase 1) |
 
 ## Módulos y onboarding (Fase 2)

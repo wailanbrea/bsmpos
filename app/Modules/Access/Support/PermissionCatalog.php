@@ -22,6 +22,29 @@ final class PermissionCatalog
             ['code' => 'customers.view', 'name' => 'Ver clientes', 'module_code' => 'customer', 'description' => 'Consultar el directorio de clientes.'],
             ['code' => 'customers.manage', 'name' => 'Gestionar clientes', 'module_code' => 'customer', 'description' => 'Crear y editar clientes.'],
             ['code' => 'customers.credit', 'name' => 'Gestionar crédito', 'module_code' => 'customer', 'description' => 'Registrar cargos y abonos de crédito.'],
+            ['code' => 'products.view', 'name' => 'Ver productos', 'module_code' => 'product', 'description' => 'Consultar productos y categorías.'],
+            ['code' => 'products.manage', 'name' => 'Gestionar productos', 'module_code' => 'product', 'description' => 'Crear y editar productos y categorías.'],
+            ['code' => 'services.view', 'name' => 'Ver servicios', 'module_code' => 'service', 'description' => 'Consultar servicios.'],
+            ['code' => 'services.manage', 'name' => 'Gestionar servicios', 'module_code' => 'service', 'description' => 'Crear y editar servicios.'],
+
+            // Inventario, almacenes y compras
+            ['code' => 'suppliers.view', 'name' => 'Ver proveedores', 'module_code' => 'supplier', 'description' => 'Consultar proveedores.'],
+            ['code' => 'suppliers.manage', 'name' => 'Gestionar proveedores', 'module_code' => 'supplier', 'description' => 'Crear y editar proveedores.'],
+            ['code' => 'warehouses.view', 'name' => 'Ver almacenes', 'module_code' => 'warehouse', 'description' => 'Consultar almacenes.'],
+            ['code' => 'warehouses.manage', 'name' => 'Gestionar almacenes', 'module_code' => 'warehouse', 'description' => 'Crear y editar almacenes.'],
+            ['code' => 'purchases.view', 'name' => 'Ver compras', 'module_code' => 'purchase', 'description' => 'Consultar compras.'],
+            ['code' => 'purchases.manage', 'name' => 'Gestionar compras', 'module_code' => 'purchase', 'description' => 'Crear y editar compras.'],
+            ['code' => 'inventory.view', 'name' => 'Ver existencias', 'module_code' => 'inventory', 'description' => 'Ver existencias de productos.'],
+            ['code' => 'inventory.manage', 'name' => 'Ajustar inventario', 'module_code' => 'inventory', 'description' => 'Ajustar existencias e inventario.'],
+
+            // POS
+            ['code' => 'pos.view', 'name' => 'Ver ventas del POS', 'module_code' => 'pos', 'description' => 'Consultar órdenes y ventas.'],
+            ['code' => 'pos.sell', 'name' => 'Realizar ventas en el POS', 'module_code' => 'pos', 'description' => 'Crear y cobrar órdenes en el POS táctil.'],
+
+            // Facturación
+            ['code' => 'invoices.view', 'name' => 'Ver facturas', 'module_code' => 'invoice', 'description' => 'Consultar el historial de facturas emitidas.'],
+            ['code' => 'invoices.manage', 'name' => 'Gestionar facturas', 'module_code' => 'invoice', 'description' => 'Facturar, anular y emitir notas de crédito.'],
+            ['code' => 'reports.view', 'name' => 'Ver reportes', 'module_code' => 'report', 'description' => 'Consultar reportes operativos y exportarlos.'],
         ];
     }
 }

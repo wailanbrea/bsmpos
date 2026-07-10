@@ -11,8 +11,11 @@ interface NavItem {
 
 const allNavigation: NavItem[] = [
     { label: 'Resumen', to: '/' },
-    { label: 'POS', to: '#', module: 'pos' },
-    { label: 'Inventario', to: '#', module: 'inventory' },
+    { label: 'POS', to: '/pos', module: 'pos' },
+    { label: 'Mesas 🍽️', to: '/restaurant/layout', module: 'restaurant' },
+    { label: 'Cocina KDS 🍳', to: '/kitchen/kds', module: 'restaurant' },
+    { label: 'Productos', to: '/productos', module: 'product' },
+    { label: 'Inventario', to: '/inventario', module: 'inventory' },
     { label: 'Clientes', to: '/clientes', module: 'customer' },
     { label: 'Módulos', to: '/configuracion/modulos', module: 'module_manager' },
     { label: 'Configuración', to: '/configuracion/fiscal', module: 'setting' },
@@ -41,11 +44,13 @@ onMounted(() => {
                     <h1 class="mt-1 text-3xl font-bold tracking-tight">Panel de control</h1>
                     <p class="mt-1 text-sm text-[#464555]">{{ operatorName }}</p>
                 </div>
-                <button
-                    class="min-h-11 rounded-lg bg-[#3525cd] px-5 font-semibold text-white shadow-sm transition active:scale-[.98]"
+                <RouterLink
+                    v-if="modules.canUse('pos')"
+                    to="/pos"
+                    class="min-h-11 rounded-lg bg-[#3525cd] px-5 font-semibold text-white shadow-sm transition active:scale-[.98] flex items-center justify-center"
                 >
                     Abrir POS
-                </button>
+                </RouterLink>
             </header>
 
             <section

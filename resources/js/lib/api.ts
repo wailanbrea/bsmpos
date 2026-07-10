@@ -34,4 +34,24 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
+// Un 401 con token almacenado significa sesión revocada o expirada: limpiar el
+// estado local y volver al login evita quedar "medio autenticado" con menú vacío.
+api.interceptors.response.use(
+    (response) => response,
+    (error) => {
+        const status = axios.isAxiosError(error) ? error.response?.status : null;
+        const hadToken = localStorage.getItem(storageKeys.token) !== null;
+
+        if (status === 401 && hadToken) {
+            localStorage.removeItem(storageKeys.token);
+            localStorage.removeItem(storageKeys.companyId);
+            localStorage.removeItem(storageKeys.branchId);
+            localStorage.removeItem('omnipos.auth.user');
+            window.location.assign('/ingresar');
+        }
+
+        return Promise.reject(error);
+    },
+);
+
 export { storageKeys };

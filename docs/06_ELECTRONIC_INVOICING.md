@@ -23,7 +23,7 @@
 | B16 | E46 | Exportaciones |
 | — | E47 | Pagos al exterior |
 
-- NCF tradicional: secuencia 8 dígitos autorizada por rangos con vencimiento; **e-NCF: 10 dígitos**.
+- NCF tradicional: serie/tipo (`B01`, `B02`, …) + secuencia de 8 dígitos autorizada por rangos con vencimiento; **e-NCF: serie/tipo + 10 dígitos**. El sistema persiste el identificador completo, nunca un código interno abreviado.
 - El sistema modela esto en `document_types` + `ncf_sequences` (rango, actual, vencimiento, alerta de agotamiento) — el consumo de secuencia es transaccional con lock.
 
 ## Flujo e-CF (a implementar detrás de la interface)
