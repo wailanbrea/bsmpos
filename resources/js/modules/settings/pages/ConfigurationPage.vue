@@ -2,14 +2,26 @@
 import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import { createNcfSequence, createTax, fetchFiscalSettings, fetchNcfSequences } from '../services';
-import type { FiscalSettings, NcfSequence } from '../types';
+import {
+    createExchangeRate,
+    createNcfSequence,
+    createTax,
+    fetchExchangeRates,
+    fetchFiscalSettings,
+    fetchNcfSequences,
+} from '../services';
+import SettingsGroupCard from '../components/SettingsGroupCard.vue';
+import type { ExchangeRate, FiscalSettings, NcfSequence } from '../types';
 
 const settings = ref<FiscalSettings | null>(null);
 const sequences = ref<NcfSequence[]>([]);
+const rates = ref<ExchangeRate[]>([]);
 const loading = ref(true);
 const error = ref<string | null>(null);
 const savingSeq = ref(false);
+const savingRate = ref(false);
+
+const rateForm = ref({ currency_code: 'USD', rate: 60.5, effective_date: '' });
 
 const seqForm = ref({
     document_type_code: 'B02',
@@ -32,10 +44,28 @@ async function load(): Promise<void> {
     try {
         settings.value = await fetchFiscalSettings();
         sequences.value = await fetchNcfSequences();
+        rates.value = await fetchExchangeRates();
     } catch (exception) {
         error.value = message(exception);
     } finally {
         loading.value = false;
+    }
+}
+
+async function addRate(): Promise<void> {
+    savingRate.value = true;
+    error.value = null;
+    try {
+        await createExchangeRate({
+            currency_code: rateForm.value.currency_code,
+            rate: Number(rateForm.value.rate),
+            effective_date: rateForm.value.effective_date,
+        });
+        rates.value = await fetchExchangeRates();
+    } catch (exception) {
+        error.value = message(exception);
+    } finally {
+        savingRate.value = false;
     }
 }
 
@@ -205,6 +235,85 @@ onMounted(() => {
                             {{ savingSeq ? 'Guardando…' : 'Agregar secuencia' }}
                         </button>
                     </form>
+                </section>
+
+                <section>
+                    <h2 class="mb-3 text-sm font-bold uppercase tracking-[.12em] text-[#464555]">Tasas de cambio</h2>
+                    <div class="overflow-x-auto rounded-2xl border border-[#c7c4d8] bg-white">
+                        <table class="w-full text-left text-sm">
+                            <thead class="border-b border-[#e4e1ee] text-xs uppercase tracking-wider text-[#464555]">
+                                <tr>
+                                    <th class="p-3">Moneda</th>
+                                    <th class="p-3">Tasa (RD$)</th>
+                                    <th class="p-3">Vigente desde</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-if="rates.length === 0">
+                                    <td class="p-4 text-[#464555]" colspan="3">Sin tasas registradas.</td>
+                                </tr>
+                                <tr
+                                    v-for="rate in rates"
+                                    :key="`${rate.currency_code}-${rate.effective_date}`"
+                                    class="border-b border-[#f0ecf9]"
+                                >
+                                    <td class="p-3 font-mono font-semibold">{{ rate.currency_code }}</td>
+                                    <td class="p-3">{{ Number(rate.rate) }}</td>
+                                    <td class="p-3">{{ rate.effective_date }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <form
+                        class="mt-4 grid gap-3 rounded-2xl border border-[#c7c4d8] bg-white p-4 shadow-sm sm:grid-cols-4"
+                        @submit.prevent="addRate"
+                    >
+                        <label class="grid gap-1 text-xs font-semibold"
+                            >Moneda
+                            <select
+                                v-model="rateForm.currency_code"
+                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                            >
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                            </select>
+                        </label>
+                        <label class="grid gap-1 text-xs font-semibold"
+                            >Tasa
+                            <input
+                                v-model="rateForm.rate"
+                                type="number"
+                                step="0.0001"
+                                min="0"
+                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                            />
+                        </label>
+                        <label class="grid gap-1 text-xs font-semibold"
+                            >Vigente desde
+                            <input
+                                v-model="rateForm.effective_date"
+                                type="date"
+                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                            />
+                        </label>
+                        <button
+                            type="submit"
+                            :disabled="savingRate"
+                            class="min-h-11 self-end rounded-lg bg-[#3525cd] px-4 text-sm font-bold text-white shadow-sm disabled:opacity-60"
+                        >
+                            {{ savingRate ? 'Guardando…' : 'Registrar' }}
+                        </button>
+                    </form>
+                </section>
+
+                <section>
+                    <h2 class="mb-3 text-sm font-bold uppercase tracking-[.12em] text-[#464555]">
+                        Preferencias operativas
+                    </h2>
+                    <div class="grid gap-4 md:grid-cols-2">
+                        <SettingsGroupCard group="pos" title="Punto de venta" />
+                        <SettingsGroupCard group="inventory" title="Inventario" />
+                    </div>
                 </section>
             </div>
         </div>

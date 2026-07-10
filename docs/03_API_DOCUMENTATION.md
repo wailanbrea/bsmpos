@@ -22,7 +22,7 @@
 | Branches | `/branches`, `/branches/{publicId}` | Implementado (Fase 1) |
 | Users/Roles | `/users`, `/users/{publicId}/access`, `/roles`, `/roles/{publicId}`, `/permissions` | Roles/permisos implementados; usuarios parciales (Fase 1) |
 | Modules | `/modules`, `/modules/{code}/enable|disable`, `/business-types`, `/onboarding` | Implementado (Fase 2) |
-| Settings | `/settings/fiscal`, `/taxes`, `/payment-methods`, `/ncf-sequences` | Implementado (Fase 3) |
+| Settings | `/settings/fiscal`, `/settings/{group}`, `/taxes`, `/payment-methods`, `/ncf-sequences`, `/exchange-rates` | Implementado (Fase 3) |
 | Customers | `/customers` (search, paginado), `/customers/{id}`, `/customers/{id}/credit` | Implementado (Fase 4) |
 | Products | `/categories`, `/products`, `/products/{id}/variants|modifiers|images` | Pendiente |
 | Services | `/service-categories`, `/services` | Pendiente |
@@ -66,6 +66,12 @@ Alta de método de pago: `name`, `code` (único por compañía), `requires_refer
 
 ### `GET/POST /api/v1/ncf-sequences`
 Lista o crea secuencias NCF/e-CF: `document_type_code` (del catálogo), `start_number`, `end_number` (> start), `expires_at`, `alert_threshold`. La reserva de números en venta/factura la hace `NcfSequenceService::reserve()` con `lockForUpdate` (ver [06_ELECTRONIC_INVOICING.md](06_ELECTRONIC_INVOICING.md)).
+
+### `GET/PUT /api/v1/settings/{group}`
+Configuración por grupo (`pos`, `inventory`, `invoice`, `printing`, `security`, `backup`). GET devuelve `schema` (tipo/opciones/default por clave) y `values` efectivos. PUT recibe `{ values: {...} }`; solo se aceptan claves del esquema y los `enum` se validan. Grupo inexistente → 404.
+
+### `GET/POST /api/v1/exchange-rates`
+Histórico de tasas de cambio. POST recibe `currency_code` (USD/EUR/DOP), `rate` (>0) y `effective_date` (upsert por moneda+fecha). GET lista las 50 más recientes.
 
 ## Clientes (Fase 4)
 

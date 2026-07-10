@@ -2,7 +2,7 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASE 4 (Clientes) completada. Fase 3 con base fiscal lista (faltan config de POS/inventario/impresión/seguridad/backups). Siguiente: FASE 5 (productos y servicios).**
+**Estado global: FASES 1–4 completas (Fase 3 cerrada). Siguiente: FASE 5 (productos y servicios).**
 
 ## Conocimiento del proyecto
 - [x] Fase 1 completada: compañías, sucursal principal, membresías, contexto tenant, RBAC, sesiones API, Policies y auditoría base.
@@ -51,8 +51,8 @@
 - [x] Monedas (catálogo global DOP/USD/EUR + monedas por compañía + tabla de tasas) e impuestos (ITBIS 18/16/exento, propina 10%) y métodos de pago provisionados por compañía al crearla
 - [x] Tipos de comprobante DGII (B01/B02/B03/B04/B14/B15 + E31/E32/E33/E34/E44/E45) y secuencias NCF/e-NCF con `NcfSequenceService::reserve()` (lockForUpdate, vencimiento, agotamiento, alertas) — probado
 - [x] API de configuración fiscal (`/settings/fiscal`, `/taxes`, `/payment-methods`, `/ncf-sequences`) + pantalla de Configuración; verificado en navegador
-- [ ] Tasas de cambio editables (registro histórico) desde UI
-- [ ] Config de POS, inventario, impresión, seguridad, backups
+- [x] Tasas de cambio editables con registro histórico (API `/exchange-rates` + tabla y alta en UI); verificado en navegador
+- [x] Configuración por grupos POS/inventario/facturación/impresión/seguridad/backup (tabla `settings` clave-valor, `SettingsSchema` con tipos y defaults, `SettingsService`, API `GET/PUT /settings/{group}`, tarjetas de preferencias en UI renderizadas desde el esquema); persistencia verificada en navegador
 
 ## FASE 4 — Clientes
 - [x] CRUD de clientes (persona/empresa/genérico) con datos fiscales, teléfono/WhatsApp/email, límite y días de crédito

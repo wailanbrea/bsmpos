@@ -4,6 +4,17 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Fase 3 (cierre): settings por grupo y tasas de cambio
+**Agregado**
+- Tabla `settings` (clave-valor por compañía/sucursal/grupo). `SettingsSchema` define grupos POS/inventario/facturación/impresión/seguridad/backup con tipos y valores por defecto; `SettingsService` valida y castea (bool/int/decimal/enum).
+- API `GET/PUT /settings/{group}` (esquema + valores efectivos) y `GET/POST /exchange-rates` (histórico de tasas por moneda y fecha).
+- Frontend: sección de tasas de cambio (tabla + alta) y "Preferencias operativas" con tarjetas de grupo renderizadas desde el esquema (checkbox/select/número) en la pantalla de Configuración.
+
+**Validado**
+- Pest: 6 pruebas nuevas (defaults por grupo, persistencia tipada, enum inválido, grupo inexistente, alta/listado de tasas, permisos). Suite total 71 verde.
+- Pint, Larastan, typecheck, ESLint, Prettier, Vitest y build sin errores.
+- Navegador real (Playwright): edición de "método de salida" a FIFO persiste tras recargar; alta de tasa USD 60.5 con fecha 2026-07-13; consola sin errores.
+
 ### 2026-07-10 — Fase 4: módulo de clientes
 **Agregado**
 - Tablas `customers`, `customer_addresses`, `customer_contacts`, `customer_credit_accounts`.
