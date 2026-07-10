@@ -305,14 +305,14 @@
     "semantic_hash": "358713d41634c0c89e1fbd490c2bef28"
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783700729.1735888,
-    "ast_hash": "0c74ae3822096bb935a7c31099bd3aaf",
-    "semantic_hash": "0c74ae3822096bb935a7c31099bd3aaf"
+    "mtime": 1783715903.477764,
+    "ast_hash": "cd0a471a509abc96c34ef48494e6c2e9",
+    "semantic_hash": "cd0a471a509abc96c34ef48494e6c2e9"
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783714929.8193543,
-    "ast_hash": "f0de95318b1b00119faf3170c9ad7eb4",
-    "semantic_hash": "f0de95318b1b00119faf3170c9ad7eb4"
+    "mtime": 1783715886.8122358,
+    "ast_hash": "7f033e3419a975190d13a5a69315c169",
+    "semantic_hash": "7f033e3419a975190d13a5a69315c169"
   },
   "docs/13_DECISIONS.md": {
     "mtime": 1783665742.328457,
@@ -465,14 +465,14 @@
     "semantic_hash": "9300e734d77b1a5201b1fa36c0dca93a"
   },
   "resources/js/modules/dashboard/pages/DashboardPage.vue": {
-    "mtime": 1783699404.4435463,
-    "ast_hash": "905157f27ad168876bd634bb87a09588",
-    "semantic_hash": "905157f27ad168876bd634bb87a09588"
+    "mtime": 1783715604.575716,
+    "ast_hash": "0c663c051a2905f50213d8de33ba255e",
+    "semantic_hash": "0c663c051a2905f50213d8de33ba255e"
   },
   "resources/js/router/index.ts": {
-    "mtime": 1783699404.442546,
-    "ast_hash": "381d2cd19437a043edbcc393d1f56bb1",
-    "semantic_hash": "381d2cd19437a043edbcc393d1f56bb1"
+    "mtime": 1783715602.7078831,
+    "ast_hash": "cded6895578aca00fe88aea2bedf658c",
+    "semantic_hash": "cded6895578aca00fe88aea2bedf658c"
   },
   "tsconfig.json": {
     "mtime": 1783631967.279359,
@@ -1730,9 +1730,9 @@
     "semantic_hash": "60f7062dc5ac3e7c0288801601c8c647"
   },
   "app/Modules/Report/Http/Controllers/ReportController.php": {
-    "mtime": 1783667144.3997936,
-    "ast_hash": "c3ee9f180654668407d9226c08471ab8",
-    "semantic_hash": "c3ee9f180654668407d9226c08471ab8"
+    "mtime": 1783715515.6566043,
+    "ast_hash": "52721d3aaf429e7a61617a38030c39f3",
+    "semantic_hash": "52721d3aaf429e7a61617a38030c39f3"
   },
   "app/Modules/Report/Http/Requests/ExportDgii608Request.php": {
     "mtime": 1783666061.5820668,
@@ -1740,9 +1740,9 @@
     "semantic_hash": "1c818fd4371298e96d51460a05041f78"
   },
   "app/Modules/Report/Services/ReportService.php": {
-    "mtime": 1783667235.588298,
-    "ast_hash": "2721cd452a4d38dc06abac99bfb392b2",
-    "semantic_hash": "2721cd452a4d38dc06abac99bfb392b2"
+    "mtime": 1783715492.6922307,
+    "ast_hash": "866969fc39d5b8e4309a07de187c87dd",
+    "semantic_hash": "866969fc39d5b8e4309a07de187c87dd"
   },
   "app/Modules/Report/module.json": {
     "mtime": 1783664517.9563918,
@@ -1750,9 +1750,9 @@
     "semantic_hash": "962842ec0f5188072028265d7b0b154e"
   },
   "app/Modules/Report/routes.php": {
-    "mtime": 1783667144.4007924,
-    "ast_hash": "415808555a1a3782aa72da1fc37b50b2",
-    "semantic_hash": "415808555a1a3782aa72da1fc37b50b2"
+    "mtime": 1783715517.3882298,
+    "ast_hash": "a85bedc8c6662c68bb2936befbdd8e44",
+    "semantic_hash": "a85bedc8c6662c68bb2936befbdd8e44"
   },
   "app/Modules/Restaurant/Http/Controllers/KitchenController.php": {
     "mtime": 1783664099.0529275,
@@ -2108,5 +2108,20 @@
     "mtime": 1783714414.7378838,
     "ast_hash": "4a01ca93fdc3640e4db1fcb3f93d390c",
     "semantic_hash": "4a01ca93fdc3640e4db1fcb3f93d390c"
+  },
+  "resources/js/modules/reports/pages/ReportsPage.vue": {
+    "mtime": 1783715674.6269364,
+    "ast_hash": "49e8f6217a8c8399cdffc183ff26a568",
+    "semantic_hash": "49e8f6217a8c8399cdffc183ff26a568"
+  },
+  "resources/js/modules/reports/services.ts": {
+    "mtime": 1783715530.3459418,
+    "ast_hash": "c361ba74211c4f38a19727476bea463d",
+    "semantic_hash": "c361ba74211c4f38a19727476bea463d"
+  },
+  "tests/Feature/ReportAnnulmentsTest.php": {
+    "mtime": 1783715624.01273,
+    "ast_hash": "4ac1106b81a972cef00de6267308eb7b",
+    "semantic_hash": "4ac1106b81a972cef00de6267308eb7b"
   }
 }
