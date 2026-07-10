@@ -10,9 +10,9 @@
     "semantic_hash": "e9b890d5d529e453961755ec8eeb24f7"
   },
   "app/Providers/AppServiceProvider.php": {
-    "mtime": 1783644029.9804509,
-    "ast_hash": "d870128daa25a8a1785416e7c83301c7",
-    "semantic_hash": "d870128daa25a8a1785416e7c83301c7"
+    "mtime": 1783649290.148289,
+    "ast_hash": "33e89519e36664bc41887758486c09d3",
+    "semantic_hash": "33e89519e36664bc41887758486c09d3"
   },
   "artisan": {
     "mtime": 1773496440.0,
@@ -265,9 +265,9 @@
     "semantic_hash": "71871adc6c0076f962752c1b4ae56acd"
   },
   "docs/03_API_DOCUMENTATION.md": {
-    "mtime": 1783648842.8249717,
-    "ast_hash": "14c26bbc860f7de64027cb9fb5a74a89",
-    "semantic_hash": "14c26bbc860f7de64027cb9fb5a74a89"
+    "mtime": 1783649960.5206845,
+    "ast_hash": "b1d0d9aaa51cce36d7a69864b0dff752",
+    "semantic_hash": "b1d0d9aaa51cce36d7a69864b0dff752"
   },
   "docs/04_FRONTEND_STRUCTURE.md": {
     "mtime": 1783643243.0475843,
@@ -305,14 +305,14 @@
     "semantic_hash": "358713d41634c0c89e1fbd490c2bef28"
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783648811.907555,
-    "ast_hash": "62f5c227d8efed1a6aa3d0f74163299b",
-    "semantic_hash": "62f5c227d8efed1a6aa3d0f74163299b"
+    "mtime": 1783649931.524976,
+    "ast_hash": "0dd082fdbe3e35a67945feab93c9b2d9",
+    "semantic_hash": "0dd082fdbe3e35a67945feab93c9b2d9"
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783648826.9581227,
-    "ast_hash": "c149fff11cb7da77dbf83b3a5e0b7c67",
-    "semantic_hash": "c149fff11cb7da77dbf83b3a5e0b7c67"
+    "mtime": 1783649944.2155495,
+    "ast_hash": "17136a49081642a9492ef85a26dd4451",
+    "semantic_hash": "17136a49081642a9492ef85a26dd4451"
   },
   "docs/13_DECISIONS.md": {
     "mtime": 1783634994.3112843,
@@ -465,14 +465,14 @@
     "semantic_hash": "9300e734d77b1a5201b1fa36c0dca93a"
   },
   "resources/js/modules/dashboard/pages/DashboardPage.vue": {
-    "mtime": 1783648666.9844408,
-    "ast_hash": "b5c9bf7454509f48f18bfdb1eed57344",
-    "semantic_hash": "b5c9bf7454509f48f18bfdb1eed57344"
+    "mtime": 1783649571.3293278,
+    "ast_hash": "7d955a704dae436a799fc34e9d9bee68",
+    "semantic_hash": "7d955a704dae436a799fc34e9d9bee68"
   },
   "resources/js/router/index.ts": {
-    "mtime": 1783648660.839979,
-    "ast_hash": "8f401baa9ddeaec108ebca03527bb354",
-    "semantic_hash": "8f401baa9ddeaec108ebca03527bb354"
+    "mtime": 1783649566.165577,
+    "ast_hash": "8cc31235e109d329d82e55e31c0cd725",
+    "semantic_hash": "8cc31235e109d329d82e55e31c0cd725"
   },
   "tsconfig.json": {
     "mtime": 1783631967.279359,
@@ -565,9 +565,9 @@
     "semantic_hash": "7a16580c3942721df63c15865084a498"
   },
   "app/Modules/Company/Actions/CreateCompanyAction.php": {
-    "mtime": 1783648347.3103483,
-    "ast_hash": "aad135cc043cd7399b0386d6fd4af031",
-    "semantic_hash": "aad135cc043cd7399b0386d6fd4af031"
+    "mtime": 1783649245.0725808,
+    "ast_hash": "c8c2ace1517626a624829c45f925aa62",
+    "semantic_hash": "c8c2ace1517626a624829c45f925aa62"
   },
   "app/Modules/Company/Http/Controllers/CompanyController.php": {
     "mtime": 1783644021.3060682,
@@ -670,9 +670,9 @@
     "semantic_hash": "1627c155a524afd55567649d1ea54c0a"
   },
   "app/Modules/Access/Support/PermissionCatalog.php": {
-    "mtime": 1783648416.9098063,
-    "ast_hash": "34107990da6f43fea46d66477cdcbfc2",
-    "semantic_hash": "34107990da6f43fea46d66477cdcbfc2"
+    "mtime": 1783649265.1971896,
+    "ast_hash": "44d37e62251ae0eaa8dccbffceb60272",
+    "semantic_hash": "44d37e62251ae0eaa8dccbffceb60272"
   },
   "app/Modules/Access/module.json": {
     "mtime": 1783634417.4475708,
@@ -1258,5 +1258,120 @@
     "mtime": 1783648531.6629152,
     "ast_hash": "318835d4c0747ad61e9b1ce2c5985a58",
     "semantic_hash": "318835d4c0747ad61e9b1ce2c5985a58"
+  },
+  "app/Modules/Customer/Actions/CreateCustomerAction.php": {
+    "mtime": 1783649334.596734,
+    "ast_hash": "f2598b6ca973c733396301b067d3404c",
+    "semantic_hash": "f2598b6ca973c733396301b067d3404c"
+  },
+  "app/Modules/Customer/Actions/ProvisionGenericCustomer.php": {
+    "mtime": 1783649232.2007499,
+    "ast_hash": "3c518a50d1c00b64e59515031e2c0174",
+    "semantic_hash": "3c518a50d1c00b64e59515031e2c0174"
+  },
+  "app/Modules/Customer/Actions/UpdateCustomerAction.php": {
+    "mtime": 1783649341.520639,
+    "ast_hash": "6492f0039697e78ed103e5037f692232",
+    "semantic_hash": "6492f0039697e78ed103e5037f692232"
+  },
+  "app/Modules/Customer/Http/Controllers/CustomerController.php": {
+    "mtime": 1783649387.3166723,
+    "ast_hash": "55785322da4c1bcbb7eb2010475f6afe",
+    "semantic_hash": "55785322da4c1bcbb7eb2010475f6afe"
+  },
+  "app/Modules/Customer/Http/Requests/RecordCreditRequest.php": {
+    "mtime": 1783649317.9750512,
+    "ast_hash": "780396e75cd23eaa154e4e30d26a0294",
+    "semantic_hash": "780396e75cd23eaa154e4e30d26a0294"
+  },
+  "app/Modules/Customer/Http/Requests/StoreCustomerRequest.php": {
+    "mtime": 1783649301.1381798,
+    "ast_hash": "37af59c9650870a983d6e6477028d3c0",
+    "semantic_hash": "37af59c9650870a983d6e6477028d3c0"
+  },
+  "app/Modules/Customer/Http/Requests/UpdateCustomerRequest.php": {
+    "mtime": 1783649311.323538,
+    "ast_hash": "336229e367b125db30f03dc4f0b54638",
+    "semantic_hash": "336229e367b125db30f03dc4f0b54638"
+  },
+  "app/Modules/Customer/Http/Resources/CustomerResource.php": {
+    "mtime": 1783649325.8376517,
+    "ast_hash": "2e905b206306bb4e02efe354b8b4d443",
+    "semantic_hash": "2e905b206306bb4e02efe354b8b4d443"
+  },
+  "app/Modules/Customer/Models/Customer.php": {
+    "mtime": 1783649189.2927701,
+    "ast_hash": "baf7f5466f496b32de6ed95e5834912c",
+    "semantic_hash": "baf7f5466f496b32de6ed95e5834912c"
+  },
+  "app/Modules/Customer/Models/CustomerAddress.php": {
+    "mtime": 1783649195.1771965,
+    "ast_hash": "bae12c0899b88ad848dbca67916e247b",
+    "semantic_hash": "bae12c0899b88ad848dbca67916e247b"
+  },
+  "app/Modules/Customer/Models/CustomerContact.php": {
+    "mtime": 1783649200.099908,
+    "ast_hash": "6330b00f1266a36adef5a135a8bb3349",
+    "semantic_hash": "6330b00f1266a36adef5a135a8bb3349"
+  },
+  "app/Modules/Customer/Models/CustomerCreditMovement.php": {
+    "mtime": 1783649206.9150703,
+    "ast_hash": "fd8e4316be6871fa80a4e5c4c18c9b1c",
+    "semantic_hash": "fd8e4316be6871fa80a4e5c4c18c9b1c"
+  },
+  "app/Modules/Customer/Policies/CustomerPolicy.php": {
+    "mtime": 1783649256.5355637,
+    "ast_hash": "8a5304680dd11be68bbfbec655cc7c6a",
+    "semantic_hash": "8a5304680dd11be68bbfbec655cc7c6a"
+  },
+  "app/Modules/Customer/Rules/ValidTaxId.php": {
+    "mtime": 1783649178.4600334,
+    "ast_hash": "5f11c703e0e41a2ad4704fbed074e7d1",
+    "semantic_hash": "5f11c703e0e41a2ad4704fbed074e7d1"
+  },
+  "app/Modules/Customer/Services/CustomerCreditService.php": {
+    "mtime": 1783649224.9529426,
+    "ast_hash": "7d78335f3b73dc949b8e9815db29c25e",
+    "semantic_hash": "7d78335f3b73dc949b8e9815db29c25e"
+  },
+  "app/Modules/Customer/Support/DominicanTaxId.php": {
+    "mtime": 1783649169.9683661,
+    "ast_hash": "e983271e5ca33b5c4b0d2e15b5fe0105",
+    "semantic_hash": "e983271e5ca33b5c4b0d2e15b5fe0105"
+  },
+  "app/Modules/Customer/module.json": {
+    "mtime": 1783649391.884226,
+    "ast_hash": "a804afeafbf25df16539d5bc0aa6ef44",
+    "semantic_hash": "a804afeafbf25df16539d5bc0aa6ef44"
+  },
+  "app/Modules/Customer/routes.php": {
+    "mtime": 1783649368.3295286,
+    "ast_hash": "5f75d1b2563d119df5cac34c3e93936e",
+    "semantic_hash": "5f75d1b2563d119df5cac34c3e93936e"
+  },
+  "database/migrations/2026_07_12_090000_create_customer_tables.php": {
+    "mtime": 1783649152.648011,
+    "ast_hash": "f1aed90b2e32dec50814a76dc9ada2b2",
+    "semantic_hash": "f1aed90b2e32dec50814a76dc9ada2b2"
+  },
+  "resources/js/modules/customers/pages/CustomerListPage.vue": {
+    "mtime": 1783649615.2484703,
+    "ast_hash": "c9f1450c4141622a84f7cfbe2ca30e6e",
+    "semantic_hash": "c9f1450c4141622a84f7cfbe2ca30e6e"
+  },
+  "resources/js/modules/customers/services.ts": {
+    "mtime": 1783649582.026409,
+    "ast_hash": "55cf1048400e4480972ca413eba14c29",
+    "semantic_hash": "55cf1048400e4480972ca413eba14c29"
+  },
+  "resources/js/modules/customers/types.ts": {
+    "mtime": 1783649503.194421,
+    "ast_hash": "2b2b672a22c0b447784d3fdea59a96c8",
+    "semantic_hash": "2b2b672a22c0b447784d3fdea59a96c8"
+  },
+  "tests/Feature/CustomerManagementTest.php": {
+    "mtime": 1783649463.587487,
+    "ast_hash": "a159b9feda34d8c977277654ecbb3f5c",
+    "semantic_hash": "a159b9feda34d8c977277654ecbb3f5c"
   }
 }
