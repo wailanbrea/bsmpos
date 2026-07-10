@@ -25,6 +25,10 @@ final class CompleteOnboardingRequest extends FormRequest
             'business_type' => ['required', 'string', Rule::in($businessTypeCodes)],
             'modules' => ['sometimes', 'array'],
             'modules.*' => ['string', Rule::in($moduleCodes)],
+            'tax_id' => ['nullable', 'string', 'max:20'],
+            'currency_code' => ['nullable', 'string', 'in:DOP,USD'],
+            'default_tax_rate' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'cash_register_name' => ['nullable', 'string', 'max:100'],
         ];
     }
 }

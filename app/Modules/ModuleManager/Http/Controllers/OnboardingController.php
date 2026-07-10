@@ -25,7 +25,16 @@ final class OnboardingController
         /** @var list<string> $extraModules */
         $extraModules = $request->validated('modules', []);
 
-        $action->execute($company, $request->validated('business_type'), $extraModules, $user);
+        $action->execute(
+            $company,
+            $request->validated('business_type'),
+            $extraModules,
+            $user,
+            $request->validated('tax_id'),
+            $request->validated('currency_code'),
+            $request->validated('default_tax_rate') !== null ? (float) $request->validated('default_tax_rate') : null,
+            $request->validated('cash_register_name')
+        );
 
         return ApiResponse::success([
             'enabled' => $this->modules->getEnabledModules($company->getKey()),

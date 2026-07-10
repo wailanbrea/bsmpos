@@ -26,7 +26,7 @@
 - NCF tradicional: serie/tipo (`B01`, `B02`, …) + secuencia de 8 dígitos autorizada por rangos con vencimiento; **e-NCF: serie/tipo + 10 dígitos**. El sistema persiste el identificador completo, nunca un código interno abreviado.
 - El sistema modela esto en `document_types` + `ncf_sequences` (rango, actual, vencimiento, alerta de agotamiento) — el consumo de secuencia es transaccional con lock.
 
-## Flujo e-CF (a implementar detrás de la interface)
+## Flujo e-CF (base implementada detrás de la interface)
 
 1. Factura emitida → estado electrónico `pending` → `GenerateElectronicInvoiceJob` construye el **XML según formato DGII** para el tipo (E31/E32/…).
 2. Firma con certificado digital (XMLDSig) → `SendElectronicInvoiceJob` envía a DGII (o PSFE) → `track_id`.

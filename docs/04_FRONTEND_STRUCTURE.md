@@ -56,3 +56,7 @@ Estos tokens se implementan como **CSS variables + preset de Tailwind** (`tailwi
 - Carrito del POS persistido en IndexedDB (no se pierde al refrescar).
 - PWA: instalable, assets cacheados, indicador online/offline, catálogo cacheado.
 - Componentes de `components/ui` documentados y reutilizados — prohibido duplicar tablas/modales por módulo.
+
+## Implementado en Fase 10
+
+- `modules/electronic-invoices/pages/ElectronicInvoicePage.vue`: ruta `/facturacion-electronica` protegida por módulo, para configurar Null/Mock provider, consultar estados e-CF y reintentar errores.

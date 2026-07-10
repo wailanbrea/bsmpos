@@ -27,7 +27,9 @@ final class ModuleCatalog
             ['payment', 'Pagos', 'Registro de pagos.', 'core', true],
             ['cash_register', 'Caja', 'Apertura, cierre y arqueo de caja.', 'core', true],
             ['invoice', 'Facturación', 'Facturas, cotizaciones y notas.', 'core', true],
-            ['electronic_invoice', 'Facturación electrónica', 'Comprobantes fiscales electrónicos (e-CF).', 'core', true],
+            // e-CF es activable: el sistema factura con NCF tradicional sin él,
+            // y se enciende cuando la empresa esté lista para emisión electrónica.
+            ['electronic_invoice', 'Facturación electrónica', 'Comprobantes fiscales electrónicos (e-CF).', 'fiscal', false],
             ['report', 'Reportes', 'Reportes de ventas, caja e inventario.', 'core', true],
             ['audit', 'Auditoría', 'Bitácora de acciones sensibles.', 'core', true],
             // Opcionales
@@ -97,6 +99,7 @@ final class ModuleCatalog
             'digital_menu' => ['product'],
             'recipe' => ['product', 'inventory'],
             'restaurant' => ['pos', 'product'],
+            'electronic_invoice' => ['invoice'],
             'appointment' => ['service'],
             'vehicle' => ['customer'],
             'work_order' => ['vehicle', 'service'],

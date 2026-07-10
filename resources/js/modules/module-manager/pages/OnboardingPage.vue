@@ -69,6 +69,11 @@ function toggle(code: string): void {
     chosen.value = new Set(chosen.value);
 }
 
+const taxId = ref('');
+const currencyCode = ref('DOP');
+const defaultTaxRate = ref(18);
+const cashRegisterName = ref('Caja Principal');
+
 async function finish(): Promise<void> {
     if (!selectedType.value) {
         return;
@@ -77,7 +82,14 @@ async function finish(): Promise<void> {
     saving.value = true;
     error.value = null;
     try {
-        const enabled = await completeOnboarding(selectedType.value, [...chosen.value]);
+        const enabled = await completeOnboarding(
+            selectedType.value,
+            [...chosen.value],
+            taxId.value,
+            currencyCode.value,
+            defaultTaxRate.value,
+            cashRegisterName.value,
+        );
         store.setEnabled(enabled);
         store.hasBusinessType = true;
         await router.push('/');
@@ -98,16 +110,24 @@ onMounted(() => {
         <div class="mx-auto max-w-4xl">
             <header class="border-b border-[#c7c4d8] pb-6">
                 <p class="text-xs font-bold uppercase tracking-[.14em] text-[#3525cd]">
-                    Configuración inicial · Paso {{ step }} de 2
+                    Configuración inicial · Paso {{ step }} de 3
                 </p>
                 <h1 class="mt-2 text-3xl font-bold tracking-tight">
-                    {{ step === 1 ? '¿Cuál es tu tipo de negocio?' : `Módulos para ${selectedTypeName}` }}
+                    {{
+                        step === 1
+                            ? '¿Cuál es tu tipo de negocio?'
+                            : step === 2
+                              ? `Módulos para ${selectedTypeName}`
+                              : 'Ajustes Operativos y Fiscales'
+                    }}
                 </h1>
                 <p class="mt-2 text-sm text-[#464555]">
                     {{
                         step === 1
                             ? 'Activaremos automáticamente los módulos recomendados según tu giro.'
-                            : 'Confirma los módulos recomendados y agrega los opcionales que necesites.'
+                            : step === 2
+                              ? 'Confirma los módulos recomendados y agrega los opcionales que necesites.'
+                              : 'Configura el RNC, la moneda de cuenta, los impuestos y tu primera caja registradora.'
                     }}
                 </p>
             </header>
@@ -133,7 +153,7 @@ onMounted(() => {
                 </button>
             </section>
 
-            <section v-else class="mt-6">
+            <section v-else-if="step === 2" class="mt-6">
                 <div class="rounded-2xl border border-[#c7c4d8] bg-[#f5f2ff] p-4">
                     <p class="text-sm font-bold text-[#006c49]">Se activarán por defecto</p>
                     <p class="mt-1 text-sm text-[#464555]">
@@ -188,6 +208,80 @@ onMounted(() => {
                         @click="step = 1"
                     >
                         ← Cambiar tipo
+                    </button>
+                    <button
+                        type="button"
+                        class="min-h-11 rounded-lg bg-[#3525cd] px-6 text-sm font-bold text-white shadow-sm"
+                        @click="step = 3"
+                    >
+                        Siguiente: Ajustes fiscales →
+                    </button>
+                </div>
+            </section>
+
+            <!-- PASO 3: AJUSTES FISCALES Y OPERATIVOS -->
+            <section v-else class="mt-6 space-y-6">
+                <div class="grid gap-6 sm:grid-cols-2">
+                    <div>
+                        <label class="block text-xs font-bold text-[#464555] uppercase mb-1"
+                            >RNC / Cédula (Opcional)</label
+                        >
+                        <input
+                            v-model="taxId"
+                            type="text"
+                            placeholder="Ej: 131793916"
+                            class="w-full min-h-12 rounded-xl border border-[#c7c4d8] px-3 focus:ring-[#3525cd]"
+                        />
+                        <p class="text-[10px] text-gray-400 mt-1">
+                            Identificación tributaria para comprobantes fiscales dominicanos.
+                        </p>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-[#464555] uppercase mb-1">Moneda por defecto</label>
+                        <select
+                            v-model="currencyCode"
+                            class="w-full min-h-12 rounded-xl border border-[#c7c4d8] px-3 focus:ring-[#3525cd]"
+                        >
+                            <option value="DOP">DOP - Pesos Dominicanos</option>
+                            <option value="USD">USD - Dólares Estadounidenses</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-[#464555] uppercase mb-1"
+                            >Tasa ITBIS por defecto (%)</label
+                        >
+                        <select
+                            v-model="defaultTaxRate"
+                            class="w-full min-h-12 rounded-xl border border-[#c7c4d8] px-3 focus:ring-[#3525cd]"
+                        >
+                            <option :value="18">18% (ITBIS estándar)</option>
+                            <option :value="16">16% (Reducido)</option>
+                            <option :value="0">0% (Exento)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-[#464555] uppercase mb-1">Nombre Primera Caja</label>
+                        <input
+                            v-model="cashRegisterName"
+                            type="text"
+                            class="w-full min-h-12 rounded-xl border border-[#c7c4d8] px-3 focus:ring-[#3525cd]"
+                        />
+                        <p class="text-[10px] text-gray-400 mt-1">
+                            Habilita una caja registradora lista para abrir turnos de inmediato.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex items-center justify-between gap-4">
+                    <button
+                        type="button"
+                        class="min-h-11 rounded-lg px-4 text-sm font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
+                        @click="step = 2"
+                    >
+                        ← Volver a módulos
                     </button>
                     <button
                         type="button"

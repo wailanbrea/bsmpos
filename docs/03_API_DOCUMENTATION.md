@@ -32,7 +32,7 @@
 | POS | `/orders`, `/orders/{id}/items|send-kitchen|pay` | Pendiente |
 | Cash | `/cash-registers`, `/cash-sessions`, `/cash-sessions/{id}/movements|close` | Pendiente |
 | Invoices | `/invoices`, `/invoices/{id}/pdf|ticket|cancel`, `/quotes`, `/credit-notes` | Pendiente |
-| e-CF | `/electronic-invoices`, `/electronic-invoices/{id}/retry|logs`, `/electronic-invoice-settings` | Pendiente |
+| e-CF | `/electronic-invoices`, `/electronic-invoices/{id}/retry|logs`, `/electronic-invoices/settings` | Implementado con providers Null/Mock; provider DGII/PSFE pendiente |
 | Reports | `/reports/sales|cash|inventory|taxes|dgii-606|dgii-607|dgii-608` | Ventas/caja, CSV y desgloses implementados; DGII 608 TXT implementado, 606/607 pendientes |
 
 ## Reportes operativos (Fase 13)
@@ -97,6 +97,24 @@ Devuelve `business_types`. Con `business_type` añade `modules` (catálogo con `
 
 ### `POST /api/v1/onboarding`
 Body: `business_type` (requerido) y `modules` (opcional, extra a activar). Aplica el preset (habilita defaults ordenados por dependencias), fija el tipo de negocio de la compañía y activa los módulos extra. Devuelve `enabled` y `business_type`.
+
+Además, el onboarding precarga los ajustes operativos por giro (propina, inventario, comprobante e impresión).
+
+## Facturación electrónica (Fase 10)
+
+Requiere `auth:sanctum`, compañía activa y módulo `electronic_invoice` habilitado. Consulta: `einvoice.view`; configuración y reintento: `einvoice.manage`.
+
+### `GET /api/v1/electronic-invoices` · `GET /api/v1/electronic-invoices/{publicId}/logs`
+
+Lista comprobantes e-CF de la compañía y sus intentos, sin exponer credenciales.
+
+### `GET/PUT /api/v1/electronic-invoices/settings`
+
+Consulta o actualiza `provider_code` (`null|mock`), ambiente (`test|cert|prod`) y activación.
+
+### `POST /api/v1/electronic-invoices/{publicId}/retry`
+
+Reintenta un registro rechazado o en error; nunca altera la factura interna si el provider falla.
 
 ## Configuración fiscal (Fase 3)
 

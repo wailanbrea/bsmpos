@@ -16,6 +16,7 @@ import InventoryPage from '../modules/inventory/pages/InventoryPage.vue';
 import PosPage from '../modules/pos/pages/PosPage.vue';
 import RestaurantLayoutPage from '../modules/restaurant/pages/RestaurantLayoutPage.vue';
 import KitchenKdsPage from '../modules/restaurant/pages/KitchenKdsPage.vue';
+import ElectronicInvoicePage from '../modules/electronic-invoices/pages/ElectronicInvoicePage.vue';
 import { useSessionStore } from '../modules/auth/stores/session';
 import { useModuleStore } from '../modules/module-manager/stores/modules';
 
@@ -121,6 +122,12 @@ const router = createRouter({
             name: 'kitchen-kds',
             component: KitchenKdsPage,
             meta: { requiresAuth: true, requiresContext: true, requiresModule: 'restaurant' },
+        },
+        {
+            path: '/facturacion-electronica',
+            name: 'electronic-invoices',
+            component: ElectronicInvoicePage,
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'electronic_invoice' },
         },
     ],
 });

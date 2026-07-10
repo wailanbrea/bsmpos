@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Modules\Company\Models\Company;
 use App\Modules\Inventory\Models\Warehouse;
 use App\Modules\Inventory\Services\InventoryService;
+use App\Modules\Invoice\Events\InvoiceIssued;
 use App\Modules\Invoice\Models\Invoice;
 use App\Modules\POS\Models\Order;
 use App\Modules\Setting\Services\NcfSequenceService;
@@ -101,7 +102,13 @@ final class InvoiceService
                 ]);
             }
 
-            return $invoice->load(['items.product', 'customer', 'branch']);
+            $invoice = $invoice->load(['items.product', 'customer', 'branch']);
+
+            // El módulo e-CF (si está activo) reacciona a este evento; la
+            // factura interna nunca depende del resultado electrónico.
+            InvoiceIssued::dispatch($invoice);
+
+            return $invoice;
         });
     }
 

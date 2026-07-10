@@ -44,6 +44,10 @@ final class PermissionCatalog
             // Facturación
             ['code' => 'invoices.view', 'name' => 'Ver facturas', 'module_code' => 'invoice', 'description' => 'Consultar el historial de facturas emitidas.'],
             ['code' => 'invoices.manage', 'name' => 'Gestionar facturas', 'module_code' => 'invoice', 'description' => 'Facturar, anular y emitir notas de crédito.'],
+
+            // Facturación electrónica (e-CF)
+            ['code' => 'einvoice.view', 'name' => 'Ver comprobantes electrónicos', 'module_code' => 'electronic_invoice', 'description' => 'Consultar comprobantes e-CF, estados y bitácora.'],
+            ['code' => 'einvoice.manage', 'name' => 'Gestionar e-CF', 'module_code' => 'electronic_invoice', 'description' => 'Configurar el proveedor y reintentar transmisiones.'],
             ['code' => 'reports.view', 'name' => 'Ver reportes', 'module_code' => 'report', 'description' => 'Consultar reportes operativos y exportarlos.'],
         ];
     }

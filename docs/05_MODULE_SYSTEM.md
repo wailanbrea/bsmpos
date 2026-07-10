@@ -15,7 +15,6 @@
 | payment | Pagos |
 | cash_register | Caja |
 | invoice | Facturación |
-| electronic_invoice | Facturación electrónica (activable por empresa pero núcleo instalado) |
 | report | Reportes básicos |
 | audit | Auditoría |
 
@@ -47,6 +46,7 @@
 | loyalty | Fidelización | customer |
 | reservation | Reservas | table_management |
 | warranty | Garantías | invoice |
+| electronic_invoice | Facturación electrónica | invoice |
 | expense | Gastos | — |
 | employee | Empleados/comisiones | — |
 | notification | Notificaciones (email/WhatsApp) | — |

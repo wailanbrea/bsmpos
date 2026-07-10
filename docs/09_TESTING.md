@@ -53,6 +53,11 @@ Auth, empresas/sucursales (incl. **tests de aislamiento de tenant**), módulos (
 - Feature tests del Formato 608: exportación TXT mensual delimitada por pipe y rechazo seguro de anulaciones sin motivo fiscal.
 - Feature tests del Formato 607: distribución de pagos mixtos por método y exclusión de facturas B02 bajo el umbral de detalle.
 
+## Implementado en Fase 10: e-CF y onboarding operativo
+
+- Feature tests del módulo e-CF: módulo inactivo, provider Mock, settings inactivos, reintento y permisos.
+- Feature tests de presets por giro: restaurante, ferretería, supermercado, barbería y food truck.
+
 ## Implementado en Fase 1: roles y permisos
 
 - Feature tests de catálogo por código, actualización de permisos, bloqueo del rol propietario y desactivación segura de roles sin usuarios.

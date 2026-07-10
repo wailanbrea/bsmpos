@@ -2,7 +2,7 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASES 1–9, 11 y 12 completas (Fase 12 cerrada). Siguiente: FASE 13 (Reportes y Formatos DGII).**
+**Estado global: FASES 1–12 completas (Fase 10 cerrada). Siguiente: FASE 13 (Reportes y Formatos DGII).**
 
 **Verificación 2026-07-10:** baseline de calidad restaurada tras correcciones de tipado en POS, inventario, facturación, impresión y restaurante. Pest, Pint, Larastan, vue-tsc, Vitest, ESLint, Prettier y build PWA están verdes.
 
@@ -15,7 +15,7 @@
 - [x] Auditoría mínima: consulta por tenant con permiso, filtros, valores sensibles redactados y pantalla de bitácora.
 - [x] Gestión de sucursales: listado, creación, actualización, asignación del administrador y protección de sucursal principal.
 - [x] Gestión de acceso de usuarios existentes: membresías, sucursales, roles y sucursal predeterminada aislados por compañía.
-- [x] CRUD seguro de roles personalizados y catálogo de permisos por código; roles del sistema y asignados protegidos.
+- [x] CRUD seguro de roles personalizados and catálogo de permisos por código; roles del sistema y asignados protegidos.
 - [x] UI inicial de roles y permisos conectada al API, con estados operativos y protección visual de roles del sistema.
 - [x] UI de usuarios por compañía: asignación de cuentas existentes a sucursales y roles, sucursal predeterminada y protección visual del propietario.
 - [x] UI de sucursales: listado, creación y actualización con estado activo y protección visual de la sucursal principal.
@@ -47,7 +47,8 @@
 - [x] ModuleManagerService + middleware `module:` + cache por compañía (dependencias, plan, aislamiento tenant probados)
 - [x] useModuleStore + guard `requiresModule` + redirección a onboarding + menú dinámico
 - [x] Onboarding (tipo de negocio + activación de módulos con preset); verificado en navegador real con Playwright
-- [ ] Pendiente Fase 3: pasos de datos fiscales y configuración inicial del onboarding (moneda, impuestos, caja)
+- [x] Presets operativos por giro al completar onboarding (propina, inventario, comprobante e impresión), probados
+- [x] UI guiada para completar datos fiscales, moneda, impuestos y caja dentro del onboarding
 
 ## FASE 3 — Configuración
 - [x] Monedas (catálogo global DOP/USD/EUR + monedas por compañía + tabla de tasas) e impuestos (ITBIS 18/16/exento, propina 10%) y métodos de pago provisionados por compañía al crearla
@@ -90,7 +91,8 @@
 - [x] PDF + ticket; anulación con permiso y reverso; reimpresión auditada
 
 ## FASE 10 — Facturación electrónica
-- [ ] Interface + Null/Mock providers + settings cifrados + tablas + jobs + estados + reintentos + contingencia + pantallas
+- [x] Interface + Null/Mock providers, settings cifrados, tablas, evento de emisión, estados, reintento, colas asíncronas de reintento con backoff exponencial, contingencia e-CF y pantalla de control e-CF y onboarding fiscal completados y validados.
+
 
 ## FASE 11 — Impresión
 - [x] Plantillas 58/80/88mm + A4 + comanda + precuenta + cierre; TicketBuilder ESC/POS-ready; config por terminal

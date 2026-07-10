@@ -4,6 +4,27 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Fase 10: Tolerancia a Fallos, Contingencia e-CF y Onboarding Fiscal Completado
+**Agregado**
+- Job asíncrono `SendElectronicInvoiceJob` con reintentos automáticos (5 intentos) y backoff exponencial (5s, 30s, 60s, 300s, 900s) para transmisión de comprobantes.
+- Soporte para estado `contingency` (contingencia fiscal de 24h) ante caídas de comunicación o timeouts de red del WebService de la DGII/PSFE.
+- Migración `add_attempts_to_electronic_invoices` para rastrear intentos de envío directamente en base de datos.
+- UI guiada Paso 3 en Onboarding Wizard para parametrización inicial de RNC, moneda, tasas de ITBIS predeterminadas y creación automática de la primera caja registradora.
+- Pruebas de integración Pest `POSElectronicInvoiceContingencyTest` y `OnboardingFiscalSetupTest`.
+
+**Corregido**
+- Transmisión síncrona original migrada a encolado asíncrono no-bloqueante al emitir la factura.
+- Solucionada excepción de clave única `taxes.code` no nula durante la inicialización de tasas de impuesto en onboarding.
+- El nombre de caja del onboarding ahora **renombra la caja principal ya provisionada** (al crear la sucursal) en vez de crear una segunda caja duplicada; el ITBIS del onboarding usa `firstOrCreate` para no duplicar el ITBIS ya provisionado. Verificado en navegador: restaurante queda con una sola caja, propina legal ON, FEFO y bloqueo de vencidos, y e-CF activable/activo.
+
+### 2026-07-10 — Fase 10: base e-CF y presets operativos
+**Agregado**
+- Módulo opcional `electronic_invoice`, tablas, evento de emisión, contrato de provider, Null/Mock providers, bitácora, API y pantalla de control e-CF.
+- Presets de ajustes operativos por tipo de negocio al completar onboarding.
+
+**Validado**
+- Pest cubre providers e-CF, reintento, permiso, módulo inactivo y presets; Pint, Larastan, typecheck, ESLint, Prettier y build PWA sin errores.
+
 ### 2026-07-10 — Endurecimiento de integridad de ventas (revisión pre-commit)
 **Corregido**
 - Cierre de caja: el efectivo esperado ya solo suma pagos en efectivo (tarjeta/transferencia no entran a la gaveta) y `COALESCE` evita que un cambio NULL descarte filas del SUM.
