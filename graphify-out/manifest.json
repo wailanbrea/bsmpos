@@ -105,9 +105,9 @@
     "semantic_hash": "ead9cce2650b36345454f85e8c0214a0"
   },
   "database/seeders/DatabaseSeeder.php": {
-    "mtime": 1783647039.2784197,
-    "ast_hash": "3b923ec0f2414ec32ae3f57e495cf170",
-    "semantic_hash": "3b923ec0f2414ec32ae3f57e495cf170"
+    "mtime": 1783648322.7078612,
+    "ast_hash": "49493a1d14c38955e4b53fea96fb90e7",
+    "semantic_hash": "49493a1d14c38955e4b53fea96fb90e7"
   },
   "package.json": {
     "mtime": 1783632076.2035954,
@@ -265,9 +265,9 @@
     "semantic_hash": "71871adc6c0076f962752c1b4ae56acd"
   },
   "docs/03_API_DOCUMENTATION.md": {
-    "mtime": 1783647887.1590586,
-    "ast_hash": "abbf3aca83ff46062f356727c4f80964",
-    "semantic_hash": "abbf3aca83ff46062f356727c4f80964"
+    "mtime": 1783648842.8249717,
+    "ast_hash": "14c26bbc860f7de64027cb9fb5a74a89",
+    "semantic_hash": "14c26bbc860f7de64027cb9fb5a74a89"
   },
   "docs/04_FRONTEND_STRUCTURE.md": {
     "mtime": 1783643243.0475843,
@@ -305,14 +305,14 @@
     "semantic_hash": "358713d41634c0c89e1fbd490c2bef28"
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783647846.6100447,
-    "ast_hash": "bf17ab0c5a28482a7170ba02829d4bb5",
-    "semantic_hash": "bf17ab0c5a28482a7170ba02829d4bb5"
+    "mtime": 1783648811.907555,
+    "ast_hash": "62f5c227d8efed1a6aa3d0f74163299b",
+    "semantic_hash": "62f5c227d8efed1a6aa3d0f74163299b"
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783647864.8087685,
-    "ast_hash": "4b0121a03e8b6a09e1d912ba4cd7de0c",
-    "semantic_hash": "4b0121a03e8b6a09e1d912ba4cd7de0c"
+    "mtime": 1783648826.9581227,
+    "ast_hash": "c149fff11cb7da77dbf83b3a5e0b7c67",
+    "semantic_hash": "c149fff11cb7da77dbf83b3a5e0b7c67"
   },
   "docs/13_DECISIONS.md": {
     "mtime": 1783634994.3112843,
@@ -465,14 +465,14 @@
     "semantic_hash": "9300e734d77b1a5201b1fa36c0dca93a"
   },
   "resources/js/modules/dashboard/pages/DashboardPage.vue": {
-    "mtime": 1783647569.2021396,
-    "ast_hash": "08acf4befd574144071eb781d11aeb48",
-    "semantic_hash": "08acf4befd574144071eb781d11aeb48"
+    "mtime": 1783648666.9844408,
+    "ast_hash": "b5c9bf7454509f48f18bfdb1eed57344",
+    "semantic_hash": "b5c9bf7454509f48f18bfdb1eed57344"
   },
   "resources/js/router/index.ts": {
-    "mtime": 1783647527.9725564,
-    "ast_hash": "58cccac4ceb69f439b4cfe9b5ea09d24",
-    "semantic_hash": "58cccac4ceb69f439b4cfe9b5ea09d24"
+    "mtime": 1783648660.839979,
+    "ast_hash": "8f401baa9ddeaec108ebca03527bb354",
+    "semantic_hash": "8f401baa9ddeaec108ebca03527bb354"
   },
   "tsconfig.json": {
     "mtime": 1783631967.279359,
@@ -565,9 +565,9 @@
     "semantic_hash": "7a16580c3942721df63c15865084a498"
   },
   "app/Modules/Company/Actions/CreateCompanyAction.php": {
-    "mtime": 1783634469.8346555,
-    "ast_hash": "7254cb1bd95658e5e79b1f5187635fdd",
-    "semantic_hash": "7254cb1bd95658e5e79b1f5187635fdd"
+    "mtime": 1783648347.3103483,
+    "ast_hash": "aad135cc043cd7399b0386d6fd4af031",
+    "semantic_hash": "aad135cc043cd7399b0386d6fd4af031"
   },
   "app/Modules/Company/Http/Controllers/CompanyController.php": {
     "mtime": 1783644021.3060682,
@@ -670,9 +670,9 @@
     "semantic_hash": "1627c155a524afd55567649d1ea54c0a"
   },
   "app/Modules/Access/Support/PermissionCatalog.php": {
-    "mtime": 1783647173.092564,
-    "ast_hash": "2bb86770574e7554d328631076c6973b",
-    "semantic_hash": "2bb86770574e7554d328631076c6973b"
+    "mtime": 1783648416.9098063,
+    "ast_hash": "34107990da6f43fea46d66477cdcbfc2",
+    "semantic_hash": "34107990da6f43fea46d66477cdcbfc2"
   },
   "app/Modules/Access/module.json": {
     "mtime": 1783634417.4475708,
@@ -1118,5 +1118,145 @@
     "mtime": 1783641832.0689974,
     "ast_hash": "d3e8a75b01d60f7d69a7d39d391de0fd",
     "semantic_hash": "d3e8a75b01d60f7d69a7d39d391de0fd"
+  },
+  "app/Modules/Setting/Actions/ProvisionCompanyConfiguration.php": {
+    "mtime": 1783648553.449583,
+    "ast_hash": "514cb1b53ca58a74291b50970e374c9e",
+    "semantic_hash": "514cb1b53ca58a74291b50970e374c9e"
+  },
+  "app/Modules/Setting/DTOs/ReservedNcf.php": {
+    "mtime": 1783648288.202217,
+    "ast_hash": "6d518143803ca9f7911a213a762292d2",
+    "semantic_hash": "6d518143803ca9f7911a213a762292d2"
+  },
+  "app/Modules/Setting/Exceptions/NcfSequenceException.php": {
+    "mtime": 1783648281.558265,
+    "ast_hash": "6bc027bf7081ab992f4a2732df07a008",
+    "semantic_hash": "6bc027bf7081ab992f4a2732df07a008"
+  },
+  "app/Modules/Setting/Http/Controllers/NcfSequenceController.php": {
+    "mtime": 1783648501.570458,
+    "ast_hash": "8aa4563297b33f7ad41b184658a31fcc",
+    "semantic_hash": "8aa4563297b33f7ad41b184658a31fcc"
+  },
+  "app/Modules/Setting/Http/Controllers/SettingController.php": {
+    "mtime": 1783648491.0798023,
+    "ast_hash": "77cbff40221bd75b230e663f24baa1f0",
+    "semantic_hash": "77cbff40221bd75b230e663f24baa1f0"
+  },
+  "app/Modules/Setting/Http/Requests/StoreNcfSequenceRequest.php": {
+    "mtime": 1783648475.0241518,
+    "ast_hash": "a2eadc19d8809a373071338ab299ddc7",
+    "semantic_hash": "a2eadc19d8809a373071338ab299ddc7"
+  },
+  "app/Modules/Setting/Http/Requests/StorePaymentMethodRequest.php": {
+    "mtime": 1783648467.958763,
+    "ast_hash": "2d7daccc401ba62faf965d2940898cad",
+    "semantic_hash": "2d7daccc401ba62faf965d2940898cad"
+  },
+  "app/Modules/Setting/Http/Requests/StoreTaxRequest.php": {
+    "mtime": 1783648453.601061,
+    "ast_hash": "279273ed6e5165a2049daec6f0b4b4e1",
+    "semantic_hash": "279273ed6e5165a2049daec6f0b4b4e1"
+  },
+  "app/Modules/Setting/Http/Requests/UpdateTaxRequest.php": {
+    "mtime": 1783648460.9987292,
+    "ast_hash": "9edfffc94ea71bf1c00e1aeb5ad2fcb1",
+    "semantic_hash": "9edfffc94ea71bf1c00e1aeb5ad2fcb1"
+  },
+  "app/Modules/Setting/Http/Resources/NcfSequenceResource.php": {
+    "mtime": 1783648444.4274502,
+    "ast_hash": "de2c4fc4ea0d38d5f00ec30bff1887b1",
+    "semantic_hash": "de2c4fc4ea0d38d5f00ec30bff1887b1"
+  },
+  "app/Modules/Setting/Http/Resources/PaymentMethodResource.php": {
+    "mtime": 1783648437.6594355,
+    "ast_hash": "8312dafce4f594fb51616dc41f0fbd85",
+    "semantic_hash": "8312dafce4f594fb51616dc41f0fbd85"
+  },
+  "app/Modules/Setting/Http/Resources/TaxResource.php": {
+    "mtime": 1783648431.4559336,
+    "ast_hash": "52ac7a24c6b229d092022156eb2f10aa",
+    "semantic_hash": "52ac7a24c6b229d092022156eb2f10aa"
+  },
+  "app/Modules/Setting/Models/DocumentType.php": {
+    "mtime": 1783648234.2179952,
+    "ast_hash": "564d62b69917088051c4eaaad80c0c19",
+    "semantic_hash": "564d62b69917088051c4eaaad80c0c19"
+  },
+  "app/Modules/Setting/Models/NcfSequence.php": {
+    "mtime": 1783648872.5319035,
+    "ast_hash": "c8dd30f58da87d7529c90426bc50c0d8",
+    "semantic_hash": "c8dd30f58da87d7529c90426bc50c0d8"
+  },
+  "app/Modules/Setting/Models/PaymentMethod.php": {
+    "mtime": 1783648227.9688551,
+    "ast_hash": "be34c7742f671c25b3c51b7ebbe79875",
+    "semantic_hash": "be34c7742f671c25b3c51b7ebbe79875"
+  },
+  "app/Modules/Setting/Models/Tax.php": {
+    "mtime": 1783648220.325192,
+    "ast_hash": "d6ccf6633c3e97ffb01e2c728bcd5b9e",
+    "semantic_hash": "d6ccf6633c3e97ffb01e2c728bcd5b9e"
+  },
+  "app/Modules/Setting/Services/NcfSequenceService.php": {
+    "mtime": 1783648306.6796057,
+    "ast_hash": "c856937ff61651146789ac4cb61dfc41",
+    "semantic_hash": "c856937ff61651146789ac4cb61dfc41"
+  },
+  "app/Modules/Setting/Support/FiscalCatalog.php": {
+    "mtime": 1783648270.656581,
+    "ast_hash": "8fbf11e9b134916bf2087b1ddddb44c7",
+    "semantic_hash": "8fbf11e9b134916bf2087b1ddddb44c7"
+  },
+  "app/Modules/Setting/module.json": {
+    "mtime": 1783648514.8605795,
+    "ast_hash": "3ce0a1680096f1b6b3154a47e6db6ce3",
+    "semantic_hash": "3ce0a1680096f1b6b3154a47e6db6ce3"
+  },
+  "app/Modules/Setting/routes.php": {
+    "mtime": 1783648509.849416,
+    "ast_hash": "ac4ee245b8708c9a46f3f06e55f7bb4f",
+    "semantic_hash": "ac4ee245b8708c9a46f3f06e55f7bb4f"
+  },
+  "database/migrations/2026_07_11_090000_create_configuration_tables.php": {
+    "mtime": 1783648208.8027766,
+    "ast_hash": "a1b29b28ae869285fd6b046407d41e59",
+    "semantic_hash": "a1b29b28ae869285fd6b046407d41e59"
+  },
+  "database/seeders/ConfigurationSeeder.php": {
+    "mtime": 1783648316.837224,
+    "ast_hash": "3119d1c9fb6109961221837c980567ac",
+    "semantic_hash": "3119d1c9fb6109961221837c980567ac"
+  },
+  "resources/js/modules/settings/pages/ConfigurationPage.vue": {
+    "mtime": 1783648675.9852922,
+    "ast_hash": "67a1152d49667797214517bca8b1e989",
+    "semantic_hash": "67a1152d49667797214517bca8b1e989"
+  },
+  "resources/js/modules/settings/services.ts": {
+    "mtime": 1783648614.0069973,
+    "ast_hash": "1453c4f708fc8f7018f38b7374735504",
+    "semantic_hash": "1453c4f708fc8f7018f38b7374735504"
+  },
+  "resources/js/modules/settings/types.ts": {
+    "mtime": 1783648605.7221792,
+    "ast_hash": "c664bf7c5efffa1e7a5435233f9c427f",
+    "semantic_hash": "c664bf7c5efffa1e7a5435233f9c427f"
+  },
+  "tests/Feature/CompanyConfigurationTest.php": {
+    "mtime": 1783648553.9094439,
+    "ast_hash": "1aa0ab4bdfd0ca6e0dafa051a94976dd",
+    "semantic_hash": "1aa0ab4bdfd0ca6e0dafa051a94976dd"
+  },
+  "tests/Feature/NcfSequenceTest.php": {
+    "mtime": 1783648388.758474,
+    "ast_hash": "121d5ca41e5cba2df830c0543c401aa4",
+    "semantic_hash": "121d5ca41e5cba2df830c0543c401aa4"
+  },
+  "tests/Feature/SettingApiTest.php": {
+    "mtime": 1783648531.6629152,
+    "ast_hash": "318835d4c0747ad61e9b1ce2c5985a58",
+    "semantic_hash": "318835d4c0747ad61e9b1ce2c5985a58"
   }
 }
