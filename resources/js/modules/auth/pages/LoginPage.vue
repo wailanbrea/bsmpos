@@ -8,6 +8,8 @@ const router = useRouter();
 const session = useSessionStore();
 const email = ref('');
 const password = ref('');
+const code = ref('');
+const needsCode = ref(false);
 const isSubmitting = ref(false);
 const errorMessage = ref<string | null>(null);
 
@@ -16,12 +18,28 @@ async function submit(): Promise<void> {
     errorMessage.value = null;
 
     try {
-        await session.login({ email: email.value, password: password.value, device_name: 'OmniPOS Web' });
+        await session.login({
+            email: email.value,
+            password: password.value,
+            device_name: 'OmniPOS Web',
+            code: needsCode.value ? code.value : undefined,
+        });
         await router.push({ name: session.hasContext ? 'dashboard' : 'context' });
     } catch (error) {
-        errorMessage.value = axios.isAxiosError(error)
-            ? (error.response?.data?.error?.message ?? 'No se pudo iniciar sesión. Verifica tus datos.')
-            : 'No se pudo iniciar sesión. Intenta de nuevo.';
+        const errorCode = axios.isAxiosError(error) ? error.response?.data?.error?.code : null;
+
+        // El backend pide el segundo factor: revelar el campo de código.
+        if (errorCode === 'TWO_FACTOR_REQUIRED' || errorCode === 'TWO_FACTOR_INVALID') {
+            needsCode.value = true;
+            errorMessage.value =
+                errorCode === 'TWO_FACTOR_INVALID'
+                    ? 'El código de verificación no es válido.'
+                    : 'Ingresa el código de tu app de verificación en dos pasos.';
+        } else {
+            errorMessage.value = axios.isAxiosError(error)
+                ? (error.response?.data?.error?.message ?? 'No se pudo iniciar sesión. Verifica tus datos.')
+                : 'No se pudo iniciar sesión. Intenta de nuevo.';
+        }
     } finally {
         isSubmitting.value = false;
     }
@@ -57,6 +75,19 @@ async function submit(): Promise<void> {
                     autocomplete="current-password"
                     required
                 />
+
+                <template v-if="needsCode">
+                    <label class="field-label" for="code">Código de verificación (2FA)</label>
+                    <input
+                        id="code"
+                        v-model.trim="code"
+                        class="field-control"
+                        inputmode="numeric"
+                        maxlength="6"
+                        autocomplete="one-time-code"
+                        placeholder="123456"
+                    />
+                </template>
 
                 <button class="primary-action" type="submit" :disabled="isSubmitting">
                     {{ isSubmitting ? 'Verificando acceso…' : 'Iniciar sesión' }}

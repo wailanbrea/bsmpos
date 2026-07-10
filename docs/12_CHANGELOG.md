@@ -4,6 +4,16 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Fase 14: UI de 2FA (pantalla de Seguridad + reto en login)
+**Agregado**
+- Pantalla `/seguridad` (nivel cuenta, sin gate de módulo): estado del 2FA; asistente de activación (clave de configuración agrupada de 4 en 4 + enlace `otpauth://` para la app autenticadora) → confirmar con código de 6 dígitos → desactivar exigiendo código.
+- Login con reto de segundo factor: al recibir `TWO_FACTOR_REQUIRED`/`TWO_FACTOR_INVALID` se revela el campo "Código de verificación (2FA)" y se reenvía con `code`; `session.login` acepta `code` opcional.
+- Ítem "Seguridad" en el menú (siempre visible, no depende de módulo).
+
+**Validado**
+- typecheck, ESLint, Prettier y build sin errores; suite backend 149 verde (sin cambios de backend).
+- Navegador real: activar 2FA en `/seguridad` (clave `UCWB DLEU…`, URI otpauth correcto) → confirmar con código → chip "Activa"; logout → login sin código muestra el reto → login con código TOTP válido entra a `/seleccionar-contexto`.
+
 ### 2026-07-10 — Fase 14: 2FA TOTP y guía de despliegue
 **Agregado**
 - `App\Core\Security\TotpService` (RFC 6238, sin dependencias): secreto Base32, HMAC-SHA1, ventana ±1 período, `codeAt` y `provisioningUri`.

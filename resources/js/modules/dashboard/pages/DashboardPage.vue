@@ -25,6 +25,7 @@ const allNavigation: NavItem[] = [
     { label: 'Roles', to: '/roles', module: 'user_access' },
     { label: 'Usuarios', to: '/usuarios', module: 'user_access' },
     { label: 'Sucursales', to: '/sucursales', module: 'company' },
+    { label: 'Seguridad', to: '/seguridad' },
 ];
 
 const session = useSessionStore();

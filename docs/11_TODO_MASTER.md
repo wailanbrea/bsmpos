@@ -113,7 +113,7 @@
 - [x] Rate limiting en `/auth/login` y `/auth/register`; Policies por recurso ya presentes; auditoría de eventos sensibles (incl. 2FA)
 - [x] `.env.example` completo (locale es-DO, colas en `database`) + guía de despliegue de producción (`docs/10`: Nginx/PHP-FPM/Redis, worker de colas para e-CF, backups, checklist)
 - [ ] Suite **Playwright E2E** de los 10 flujos como test runner dedicado (hoy verificados manualmente con Playwright MCP cada fase) — pendiente
-- [ ] UI de 2FA (activar/QR/desactivar) en un área de seguridad del perfil — pendiente
+- [x] UI de 2FA en `/seguridad`: asistente activar (clave manual agrupada + enlace `otpauth://`) → confirmar con código → desactivar con código; campo de código 2FA en el login que aparece ante `TWO_FACTOR_REQUIRED`. Verificado en navegador (activar → reto en login → acceso con código válido). (QR gráfico opcional a futuro; hoy clave manual, soportada por toda app autenticadora)
 - [ ] CI GitHub Actions (lint+estático+tests+build) — pendiente
 
 ## Backlog (post-v1)

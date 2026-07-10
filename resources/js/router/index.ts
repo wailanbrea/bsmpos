@@ -18,6 +18,7 @@ import RestaurantLayoutPage from '../modules/restaurant/pages/RestaurantLayoutPa
 import KitchenKdsPage from '../modules/restaurant/pages/KitchenKdsPage.vue';
 import ElectronicInvoicePage from '../modules/electronic-invoices/pages/ElectronicInvoicePage.vue';
 import ReportsPage from '../modules/reports/pages/ReportsPage.vue';
+import SecurityPage from '../modules/security/pages/SecurityPage.vue';
 import { useSessionStore } from '../modules/auth/stores/session';
 import { useModuleStore } from '../modules/module-manager/stores/modules';
 
@@ -135,6 +136,12 @@ const router = createRouter({
             name: 'reports',
             component: ReportsPage,
             meta: { requiresAuth: true, requiresContext: true, requiresModule: 'report' },
+        },
+        {
+            path: '/seguridad',
+            name: 'security',
+            component: SecurityPage,
+            meta: { requiresAuth: true, requiresContext: true },
         },
     ],
 });

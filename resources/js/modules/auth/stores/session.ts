@@ -74,7 +74,12 @@ export const useSessionStore = defineStore('session', () => {
         localStorage.removeItem(storageKeys.branchId);
     }
 
-    async function login(payload: { email: string; password: string; device_name: string }): Promise<void> {
+    async function login(payload: {
+        email: string;
+        password: string;
+        device_name: string;
+        code?: string;
+    }): Promise<void> {
         const response = await api.post<ApiEnvelope<AuthSession>>('/auth/login', payload);
         applySession(response.data.data);
     }
