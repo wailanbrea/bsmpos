@@ -9,6 +9,7 @@ import UserManagementPage from '../modules/access/pages/UserManagementPage.vue';
 import BranchManagementPage from '../modules/company/pages/BranchManagementPage.vue';
 import ModuleManagementPage from '../modules/module-manager/pages/ModuleManagementPage.vue';
 import OnboardingPage from '../modules/module-manager/pages/OnboardingPage.vue';
+import ConfigurationPage from '../modules/settings/pages/ConfigurationPage.vue';
 import { useSessionStore } from '../modules/auth/stores/session';
 import { useModuleStore } from '../modules/module-manager/stores/modules';
 
@@ -71,6 +72,12 @@ const router = createRouter({
             path: '/configuracion/modulos',
             name: 'modules',
             component: ModuleManagementPage,
+            meta: { requiresAuth: true, requiresContext: true },
+        },
+        {
+            path: '/configuracion/fiscal',
+            name: 'settings-fiscal',
+            component: ConfigurationPage,
             meta: { requiresAuth: true, requiresContext: true },
         },
     ],

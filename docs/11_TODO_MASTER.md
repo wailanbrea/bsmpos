@@ -2,7 +2,7 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASE 2 completada — listo para FASE 3 (configuración general).**
+**Estado global: FASE 3 en curso — base fiscal (monedas, impuestos, métodos de pago, NCF) completada; faltan config de POS/inventario/impresión/seguridad/backups.**
 
 ## Conocimiento del proyecto
 - [x] Fase 1 completada: compañías, sucursal principal, membresías, contexto tenant, RBAC, sesiones API, Policies y auditoría base.
@@ -48,9 +48,11 @@
 - [ ] Pendiente Fase 3: pasos de datos fiscales y configuración inicial del onboarding (moneda, impuestos, caja)
 
 ## FASE 3 — Configuración
-- [ ] Empresa, monedas + tasas, impuestos (ITBIS 18/16/exento, propina 10%), métodos de pago
-- [ ] Secuencias NCF/e-NCF por tipo con vencimiento y alertas
-- [ ] Config impresión, POS, inventario, seguridad, backups
+- [x] Monedas (catálogo global DOP/USD/EUR + monedas por compañía + tabla de tasas) e impuestos (ITBIS 18/16/exento, propina 10%) y métodos de pago provisionados por compañía al crearla
+- [x] Tipos de comprobante DGII (B01/B02/B03/B04/B14/B15 + E31/E32/E33/E34/E44/E45) y secuencias NCF/e-NCF con `NcfSequenceService::reserve()` (lockForUpdate, vencimiento, agotamiento, alertas) — probado
+- [x] API de configuración fiscal (`/settings/fiscal`, `/taxes`, `/payment-methods`, `/ncf-sequences`) + pantalla de Configuración; verificado en navegador
+- [ ] Tasas de cambio editables (registro histórico) desde UI
+- [ ] Config de POS, inventario, impresión, seguridad, backups
 
 ## FASE 4 — Clientes
 - [ ] CRUD + genérico + datos fiscales (validación RNC/cédula con dígito verificador) + direcciones + historial + crédito

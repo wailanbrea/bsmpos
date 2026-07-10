@@ -22,7 +22,7 @@
 | Branches | `/branches`, `/branches/{publicId}` | Implementado (Fase 1) |
 | Users/Roles | `/users`, `/users/{publicId}/access`, `/roles`, `/roles/{publicId}`, `/permissions` | Roles/permisos implementados; usuarios parciales (Fase 1) |
 | Modules | `/modules`, `/modules/{code}/enable|disable`, `/business-types`, `/onboarding` | Implementado (Fase 2) |
-| Settings | `/settings/{group}` | Pendiente |
+| Settings | `/settings/fiscal`, `/taxes`, `/payment-methods`, `/ncf-sequences` | Implementado (Fase 3) |
 | Customers | `/customers`, `/customers/{id}/history|credit|addresses` | Pendiente |
 | Products | `/categories`, `/products`, `/products/{id}/variants|modifiers|images` | Pendiente |
 | Services | `/service-categories`, `/services` | Pendiente |
@@ -50,6 +50,22 @@ Devuelve `business_types`. Con `business_type` añade `modules` (catálogo con `
 
 ### `POST /api/v1/onboarding`
 Body: `business_type` (requerido) y `modules` (opcional, extra a activar). Aplica el preset (habilita defaults ordenados por dependencias), fija el tipo de negocio de la compañía y activa los módulos extra. Devuelve `enabled` y `business_type`.
+
+## Configuración fiscal (Fase 3)
+
+`auth:sanctum` + `X-Company-Id`. Lectura con `settings.view`; escritura con `settings.manage`.
+
+### `GET /api/v1/settings/fiscal`
+Devuelve `taxes`, `payment_methods` (de la compañía), `document_types` (catálogo global NCF/e-CF) y la moneda base.
+
+### `POST /api/v1/taxes` · `PATCH /api/v1/taxes/{publicId}`
+Alta/edición de impuestos: `name`, `code` (único por compañía, `[a-z0-9_]`), `rate` (0–100), `type` (percentage|fixed), `scope` (product|service|both), `is_inclusive`, `is_retention`. La edición admite además `is_active`.
+
+### `POST /api/v1/payment-methods`
+Alta de método de pago: `name`, `code` (único por compañía), `requires_reference`.
+
+### `GET/POST /api/v1/ncf-sequences`
+Lista o crea secuencias NCF/e-CF: `document_type_code` (del catálogo), `start_number`, `end_number` (> start), `expires_at`, `alert_threshold`. La reserva de números en venta/factura la hace `NcfSequenceService::reserve()` con `lockForUpdate` (ver [06_ELECTRONIC_INVOICING.md](06_ELECTRONIC_INVOICING.md)).
 
 ## Roles y permisos (Fase 1)
 

@@ -15,6 +15,7 @@ const allNavigation: NavItem[] = [
     { label: 'Inventario', to: '#', module: 'inventory' },
     { label: 'Clientes', to: '#', module: 'customer' },
     { label: 'Módulos', to: '/configuracion/modulos', module: 'module_manager' },
+    { label: 'Configuración', to: '/configuracion/fiscal', module: 'setting' },
     { label: 'Auditoría', to: '/auditoria', module: 'audit' },
     { label: 'Roles', to: '/roles', module: 'user_access' },
     { label: 'Usuarios', to: '/usuarios', module: 'user_access' },

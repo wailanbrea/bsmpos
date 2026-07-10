@@ -4,6 +4,20 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Fase 3: base de configuración fiscal (RD)
+**Agregado**
+- Tablas: `currencies`, `company_currencies`, `exchange_rates`, `taxes`, `payment_methods`, `document_types`, `ncf_sequences`.
+- `FiscalCatalog` (monedas DOP/USD/EUR, tipos de comprobante NCF/e-CF, impuestos y métodos de pago por defecto) + `ConfigurationSeeder` (catálogos globales).
+- `ProvisionCompanyConfiguration`: al crear una compañía se provisionan moneda base, ITBIS 18/16/exento, propina legal 10% y métodos de pago (efectivo/tarjeta/transferencia/crédito).
+- `NcfSequenceService::reserve()`: reserva atómica de NCF/e-NCF con `lockForUpdate()`, formato de 8 (NCF) o 10 dígitos (e-NCF), control de vencimiento, agotamiento y alertas.
+- API bajo `/api/v1`: `GET /settings/fiscal`, `POST /taxes`, `PATCH /taxes/{id}`, `POST /payment-methods`, `GET/POST /ncf-sequences` (permisos `settings.view`/`settings.manage`).
+- Frontend: pantalla de Configuración fiscal (impuestos, métodos de pago, secuencias NCF con alta) enlazada al menú dinámico (módulo `setting`).
+
+**Validado**
+- Pest: 12 pruebas nuevas (NCF: consecutivos únicos, e-NCF 10 dígitos, agotamiento, vencimiento, inexistente, aislamiento, alertas; provisión por compañía; API de configuración y permisos). Suite total 58 verde.
+- Pint, Larastan, typecheck, ESLint, Prettier, Vitest y build sin errores.
+- Navegador real (Playwright): pantalla de Configuración renderiza, selector con los 12 tipos DGII, alta de secuencia B02 (1–1000) visible en tabla, consola sin errores.
+
 ### 2026-07-10 — Fase 2: sistema de módulos y onboarding
 **Agregado**
 - Tablas del sistema de módulos: `business_types`, `system_modules`, `module_dependencies`, `business_type_modules`, `subscription_plans`, `plan_modules`, `company_subscriptions`, `company_modules`, `branch_modules`, `module_audit_logs`.
