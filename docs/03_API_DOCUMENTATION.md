@@ -21,7 +21,7 @@
 | Companies | `/companies`, `/onboarding` | Pendiente |
 | Branches | `/branches`, `/branches/{publicId}` | Implementado (Fase 1) |
 | Users/Roles | `/users`, `/users/{publicId}/access`, `/roles`, `/roles/{publicId}`, `/permissions` | Roles/permisos implementados; usuarios parciales (Fase 1) |
-| Modules | `/modules`, `/modules/{code}/enable|disable`, `/business-types` | Pendiente |
+| Modules | `/modules`, `/modules/{code}/enable|disable`, `/business-types`, `/onboarding` | Implementado (Fase 2) |
 | Settings | `/settings/{group}` | Pendiente |
 | Customers | `/customers`, `/customers/{id}/history|credit|addresses` | Pendiente |
 | Products | `/categories`, `/products`, `/products/{id}/variants|modifiers|images` | Pendiente |
@@ -34,6 +34,22 @@
 | e-CF | `/electronic-invoices`, `/electronic-invoices/{id}/retry|logs`, `/electronic-invoice-settings` | Pendiente |
 | Reports | `/reports/sales|cash|inventory|taxes|dgii-606|dgii-607` | Pendiente |
 | Audit | `/audit-logs`, `/audit-logs/{publicId}` | Implementado (Fase 1) |
+
+## Módulos y onboarding (Fase 2)
+
+Todas requieren `auth:sanctum` + contexto de compañía (`X-Company-Id`). Consultar requiere `modules.view`; activar/desactivar y onboarding requieren `modules.manage`. `GET /business-types` solo requiere compañía.
+
+### `GET /api/v1/modules`
+Lista el catálogo de módulos con `is_core` e `is_enabled` para la compañía, el arreglo `enabled` (incluye núcleo) y `business_type` (bool si ya se eligió tipo de negocio).
+
+### `POST /api/v1/modules/{code}/enable` · `POST /api/v1/modules/{code}/disable`
+Activa/desactiva un módulo opcional; body opcional `reason`. Errores: `CONFLICT` 409 con `details.requires` (dependencias faltantes) o `details.dependent` (al desactivar un módulo del que otro depende), `FORBIDDEN` 403 (plan no lo permite), núcleo no desactivable. Devuelve el nuevo arreglo `enabled`.
+
+### `GET /api/v1/business-types[?business_type=<code>]`
+Devuelve `business_types`. Con `business_type` añade `modules` (catálogo con `enabled_by_default`/`is_recommended` según el preset).
+
+### `POST /api/v1/onboarding`
+Body: `business_type` (requerido) y `modules` (opcional, extra a activar). Aplica el preset (habilita defaults ordenados por dependencias), fija el tipo de negocio de la compañía y activa los módulos extra. Devuelve `enabled` y `business_type`.
 
 ## Roles y permisos (Fase 1)
 

@@ -4,6 +4,20 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Fase 2: sistema de módulos y onboarding
+**Agregado**
+- Tablas del sistema de módulos: `business_types`, `system_modules`, `module_dependencies`, `business_type_modules`, `subscription_plans`, `plan_modules`, `company_subscriptions`, `company_modules`, `branch_modules`, `module_audit_logs`.
+- `ModuleCatalog` como fuente de verdad (40 módulos, 14 tipos de negocio, 24 dependencias, presets §9) proyectada por `ModuleSystemSeeder`; 3 planes con límites.
+- `ModuleManagerService`: núcleo siempre activo, validación de dependencias y plan, aplicación de presets ordenada por dependencias, auditoría de cambios y caché por compañía.
+- Middleware `module:<código>` (403 `MODULE_DISABLED`) registrado como alias.
+- API bajo `/api/v1`: `GET /modules`, `POST /modules/{code}/enable|disable`, `GET /business-types`, `POST /onboarding`, protegidas por `modules.view`/`modules.manage`.
+- Frontend: `useModuleStore`, guard `requiresModule` con redirección a onboarding, menú dinámico por módulos activos, pantalla de gestión de módulos y wizard de onboarding (tipo de negocio → módulos).
+
+**Validado**
+- Pest: 13 pruebas nuevas (servicio + API): núcleo, dependencias, presets, desactivación con dependientes, aislamiento tenant, permisos. Suite total 46 verde.
+- Pint, Larastan, typecheck, ESLint, Prettier, Vitest y build PWA sin errores.
+- Navegador real (Playwright): registro → compañía → onboarding con preset de colmado → menú dinámico (POS/Inventario/Clientes) → bloqueo de desactivación de Inventario por dependiente activo.
+
 ### 2026-07-09 — Fase 1: Policies de recursos SaaS
 **Agregado**
 - Policies explícitas para compañía, sucursal, rol y bitácora; los controladores las aplican además de los middleware de ruta.

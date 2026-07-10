@@ -2,7 +2,7 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASE 1 completada — listo para FASE 2 (módulos y onboarding).**
+**Estado global: FASE 2 completada — listo para FASE 3 (configuración general).**
 
 ## Conocimiento del proyecto
 - [x] Fase 1 completada: compañías, sucursal principal, membresías, contexto tenant, RBAC, sesiones API, Policies y auditoría base.
@@ -41,10 +41,11 @@
 - [x] Auditoría base (audit_logs + trait + pantalla mínima)
 
 ## FASE 2 — Módulos y onboarding
-- [ ] business_types, system_modules, dependencies, presets por tipo, company/branch_modules, planes + suscripciones
-- [ ] ModuleManagerService + middleware `module:` + cache
-- [ ] useModuleStore + guards + menú dinámico
-- [ ] Onboarding 5 pasos (pantallas de referencia Stitch)
+- [x] business_types, system_modules, dependencies, presets por tipo, company/branch_modules, planes + suscripciones (tablas + catálogo en código + seeder)
+- [x] ModuleManagerService + middleware `module:` + cache por compañía (dependencias, plan, aislamiento tenant probados)
+- [x] useModuleStore + guard `requiresModule` + redirección a onboarding + menú dinámico
+- [x] Onboarding (tipo de negocio + activación de módulos con preset); verificado en navegador real con Playwright
+- [ ] Pendiente Fase 3: pasos de datos fiscales y configuración inicial del onboarding (moneda, impuestos, caja)
 
 ## FASE 3 — Configuración
 - [ ] Empresa, monedas + tasas, impuestos (ITBIS 18/16/exento, propina 10%), métodos de pago

@@ -7,7 +7,10 @@ import AuditLogPage from '../modules/audit/pages/AuditLogPage.vue';
 import RoleManagementPage from '../modules/access/pages/RoleManagementPage.vue';
 import UserManagementPage from '../modules/access/pages/UserManagementPage.vue';
 import BranchManagementPage from '../modules/company/pages/BranchManagementPage.vue';
+import ModuleManagementPage from '../modules/module-manager/pages/ModuleManagementPage.vue';
+import OnboardingPage from '../modules/module-manager/pages/OnboardingPage.vue';
 import { useSessionStore } from '../modules/auth/stores/session';
+import { useModuleStore } from '../modules/module-manager/stores/modules';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -58,10 +61,22 @@ const router = createRouter({
             component: BranchManagementPage,
             meta: { requiresAuth: true, requiresContext: true },
         },
+        {
+            path: '/configuracion/inicial',
+            name: 'onboarding',
+            component: OnboardingPage,
+            meta: { requiresAuth: true, requiresContext: true },
+        },
+        {
+            path: '/configuracion/modulos',
+            name: 'modules',
+            component: ModuleManagementPage,
+            meta: { requiresAuth: true, requiresContext: true },
+        },
     ],
 });
 
-router.beforeEach((to) => {
+router.beforeEach(async (to) => {
     const session = useSessionStore();
 
     if (to.meta.requiresAuth && !session.isAuthenticated) {
@@ -74,6 +89,25 @@ router.beforeEach((to) => {
 
     if (to.meta.requiresContext && !session.hasContext) {
         return { name: 'context' };
+    }
+
+    if (to.meta.requiresContext && session.hasContext) {
+        const modules = useModuleStore();
+        modules.ensureCompany(session.company?.id ?? null);
+
+        try {
+            await modules.loadModules();
+        } catch {
+            return true;
+        }
+
+        if (!modules.hasBusinessType && to.name !== 'onboarding') {
+            return { name: 'onboarding' };
+        }
+
+        if (typeof to.meta.requiresModule === 'string' && !modules.canUse(to.meta.requiresModule)) {
+            return { name: 'dashboard' };
+        }
     }
 
     return true;

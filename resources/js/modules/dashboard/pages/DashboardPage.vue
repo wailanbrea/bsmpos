@@ -1,20 +1,34 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useSessionStore } from '../../auth/stores/session';
+import { useModuleStore } from '../../module-manager/stores/modules';
 
-const navigation = [
+interface NavItem {
+    label: string;
+    to: string;
+    module?: string;
+}
+
+const allNavigation: NavItem[] = [
     { label: 'Resumen', to: '/' },
-    { label: 'Ventas', to: '#' },
-    { label: 'Inventario', to: '#' },
-    { label: 'Clientes', to: '#' },
-    { label: 'Configuración', to: '#' },
-    { label: 'Auditoría', to: '/auditoria' },
-    { label: 'Roles', to: '/roles' },
-    { label: 'Usuarios', to: '/usuarios' },
-    { label: 'Sucursales', to: '/sucursales' },
+    { label: 'POS', to: '#', module: 'pos' },
+    { label: 'Inventario', to: '#', module: 'inventory' },
+    { label: 'Clientes', to: '#', module: 'customer' },
+    { label: 'Módulos', to: '/configuracion/modulos', module: 'module_manager' },
+    { label: 'Auditoría', to: '/auditoria', module: 'audit' },
+    { label: 'Roles', to: '/roles', module: 'user_access' },
+    { label: 'Usuarios', to: '/usuarios', module: 'user_access' },
+    { label: 'Sucursales', to: '/sucursales', module: 'company' },
 ];
+
 const session = useSessionStore();
+const modules = useModuleStore();
 const operatorName = computed(() => session.user?.name ?? 'Operador');
+const navigation = computed(() => allNavigation.filter((item) => !item.module || modules.canUse(item.module)));
+
+onMounted(() => {
+    void modules.loadModules();
+});
 </script>
 
 <template>
