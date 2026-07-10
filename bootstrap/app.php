@@ -5,6 +5,7 @@ use App\Core\Exceptions\ApiException;
 use App\Core\Http\ApiResponse;
 use App\Core\Http\Middleware\EnsureBranchContext;
 use App\Core\Http\Middleware\EnsureCompanyContext;
+use App\Core\Http\Middleware\EnsureModuleEnabled;
 use App\Core\Http\Middleware\EnsurePermission;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -24,6 +25,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'company' => EnsureCompanyContext::class,
             'branch' => EnsureBranchContext::class,
             'permission' => EnsurePermission::class,
+            'module' => EnsureModuleEnabled::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
