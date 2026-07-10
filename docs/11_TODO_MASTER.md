@@ -2,14 +2,21 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASE 1 en progreso — núcleo SaaS multiempresa.**
+**Estado global: FASE 1 completada — listo para FASE 2 (módulos y onboarding).**
 
 ## Conocimiento del proyecto
-- [x] Fase 1 parcial: compañías, sucursal principal, membresías y contexto tenant por headers ULID; faltan roles/permisos y endpoints de sesión.
+- [x] Fase 1 completada: compañías, sucursal principal, membresías, contexto tenant, RBAC, sesiones API, Policies y auditoría base.
 - [x] Tests de aislamiento tenant: listado filtrado y denegación de empresa/sucursal ajena.
 - [x] RBAC inicial: catálogo de permisos, roles por compañía, rol propietario y middleware `permission:<código>`.
 - [x] Sesiones API: registro, login, logout y `me` con Sanctum, rate limits, cuentas inactivas y auditoría.
 - [x] UI de acceso y contexto: login, registro, creación inicial de compañía y selección persistente de compañía/sucursal.
+- [x] Auditoría mínima: consulta por tenant con permiso, filtros, valores sensibles redactados y pantalla de bitácora.
+- [x] Gestión de sucursales: listado, creación, actualización, asignación del administrador y protección de sucursal principal.
+- [x] Gestión de acceso de usuarios existentes: membresías, sucursales, roles y sucursal predeterminada aislados por compañía.
+- [x] CRUD seguro de roles personalizados y catálogo de permisos por código; roles del sistema y asignados protegidos.
+- [x] UI inicial de roles y permisos conectada al API, con estados operativos y protección visual de roles del sistema.
+- [x] UI de usuarios por compañía: asignación de cuentas existentes a sucursales y roles, sucursal predeterminada y protección visual del propietario.
+- [x] UI de sucursales: listado, creación y actualización con estado activo y protección visual de la sucursal principal.
 - [x] Grafo Graphify actualizado e incorporado al grafo global como `omnipos-modular-saas` (793 nodos, 948 relaciones; reemplazo del tag existente, sin duplicados). El extractor aún omite manifiestos `module.json` sin símbolos AST.
 
 ## FASE 0 — Base
@@ -28,10 +35,10 @@
 - [ ] CI GitHub Actions (si hay repo git — **crear repo git**)
 
 ## FASE 1 — Núcleo SaaS
-- [ ] Empresas, sucursales, usuarios, roles, permisos (tablas + CRUD + policies)
-- [ ] Login / logout / me; selección empresa y sucursal; middleware company/branch
-- [ ] Tests de aislamiento de tenant
-- [ ] Auditoría base (audit_logs + trait + pantalla mínima)
+- [x] Empresas, sucursales, usuarios, roles, permisos (tablas + CRUD + policies)
+- [x] Login / logout / me; selección empresa y sucursal; middleware company/branch
+- [x] Tests de aislamiento de tenant
+- [x] Auditoría base (audit_logs + trait + pantalla mínima)
 
 ## FASE 2 — Módulos y onboarding
 - [ ] business_types, system_modules, dependencies, presets por tipo, company/branch_modules, planes + suscripciones

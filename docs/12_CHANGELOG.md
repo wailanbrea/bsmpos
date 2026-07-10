@@ -4,9 +4,79 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-09 — Fase 1: Policies de recursos SaaS
+**Agregado**
+- Policies explícitas para compañía, sucursal, rol y bitácora; los controladores las aplican además de los middleware de ruta.
+- Método único de autorización por compañía para membresía, propietario y permisos, reutilizado por middleware y Policies.
+
+**Corregido**
+- La consulta de roles durante una decisión de Policy deja de depender del global scope del contexto y se limita explícitamente al tenant del recurso.
+
+**Validado**
+- Pest cubre permisos por recurso, denegación entre compañías y cuenta inactiva; la suite completa de calidad se ejecuta al cierre.
+
+### 2026-07-09 — Fase 1: interfaz de sucursales
+**Agregado**
+- Ruta `/sucursales` para listar, crear y actualizar puntos de operación de la empresa activa.
+- Formulario con nombre, código, teléfono, dirección y estado; la sucursal principal se identifica y no puede desactivarse desde la UI.
+
+**Validado**
+- Vitest cubre la protección visual de la sucursal principal. Navegador real verificó alta de sucursal secundaria y la protección de la principal sin errores de consola.
+- Typecheck, ESLint, Prettier y build se ejecutaron al cierre del cambio.
+
+### 2026-07-09 — Fase 1: interfaz de usuarios por compañía
+**Agregado**
+- Ruta `/usuarios` para provisionar una cuenta existente o modificar su acceso en la empresa activa.
+- Selección de sucursales activas, sucursal predeterminada y roles; no permite enviar una asignación sin sucursal.
+- El propietario se distingue y queda deshabilitado en la UI, consistente con el bloqueo del API.
+- Los roles del sistema se excluyen de la UI y el servicio los rechaza para impedir escalamiento de privilegios.
+
+**Validado**
+- Vitest cubre la carga de datos y la validación de sucursal; Pest cubre el rechazo de roles del sistema.
+- Navegador real verificó la ruta con sesión y contexto tenant, incluida la exclusión del rol propietario. Typecheck, ESLint, Prettier y build se ejecutaron al cierre del cambio.
+
+### 2026-07-09 — Fase 1: interfaz de roles y permisos
+**Agregado**
+- Ruta `/roles` con listado, editor de permisos por código, creación, edición y desactivación de roles personalizados.
+- Estados de carga/error y controles deshabilitados para roles del sistema, consistentes con Kinetic Enterprise.
+
+### 2026-07-09 — Fase 1: CRUD seguro de roles
+**Agregado**
+- Catálogo API de permisos por código y actualización/desactivación lógica de roles personalizados.
+- El contrato de roles usa `permission_codes`, sin exponer IDs internos; se impide alterar roles del sistema o desactivar roles asignados.
+
+**Validado**
+- Pest cubre permisos públicos, actualización, auditoría, propietario del sistema y desactivación segura.
+
+### 2026-07-09 — Fase 1: acceso de usuarios por compañía
+**Agregado**
+- Listado y provisión de cuentas ya registradas, con sincronización de sucursales, roles y sucursal predeterminada por compañía.
+- Protección contra referencias de otro tenant, preservación de accesos externos, bloqueo de edición del propietario y auditoría de cambios.
+
+**Validado**
+- Pest cubre provisión, aislamiento multicompañía, datos ajenos y regla de propietario.
+
+### 2026-07-09 — Fase 1: administración de sucursales
+**Agregado**
+- Endpoints de listado, creación y actualización de sucursales bajo compañía activa y permiso `company.manage`.
+- Validación de código único por compañía, auditoría de altas/cambios, asignación automática del administrador y bloqueo de desactivación de la sucursal principal.
+
+**Validado**
+- Pest cubre aislamiento de tenant, permisos, auditoría, actualización y la regla de sucursal principal.
+
+### 2026-07-09 — Fase 1: bitácora de auditoría consultable
+**Agregado**
+- Módulo `Audit` con endpoints paginados de listado y detalle, protegidos por compañía y `audit.view`.
+- ULID público e índices de consulta para `audit_logs`; los valores potencialmente secretos se redactan antes de exponerlos.
+- Pantalla `/auditoria` con filtros de módulo/fecha, estados de carga, vacío y error, paginación y detalle del evento.
+
+**Validado**
+- Pest cubre aislamiento de tenant, autorización heredada de `audit.view`, redacción y filtros. La verificación completa de calidad y navegador se registra al cierre de este cambio.
+
 ### 2026-07-09 — Corrección de navegación SPA
 **Corregido**
 - Las rutas directas del cliente (por ejemplo `/ingresar`) entregan el shell Vue en lugar de responder 404.
+- El fallback de la SPA excluye `/api/*`, por lo que un endpoint API inexistente ya no devuelve HTML con HTTP 200 ni oculta errores de autorización.
 
 **Validado**
 - Pest cubre la carga directa de ruta SPA.

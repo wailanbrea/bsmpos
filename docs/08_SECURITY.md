@@ -17,6 +17,31 @@
 - `POST /api/v1/auth/register` usa contraseña de 12+ caracteres con mayúsculas, minúsculas, números y símbolo.
 - `POST /api/v1/auth/login` limita a 5 intentos por minuto por email/IP; el registro limita a 10 solicitudes por hora por IP.
 - Los tokens de Sanctum son por dispositivo; logout revoca solo el token presentado. Registro, login, login fallido, bloqueo y logout quedan auditados.
+- Policies de compañía, sucursal, rol y auditoría se registran explícitamente y se invocan desde los controladores. El middleware `permission:` y las Policies usan la misma comprobación de membresía, propietario y permiso por compañía.
+- La evaluación de roles para Policies ignora el global scope de consulta y filtra explícitamente por la compañía del recurso, evitando que el contexto de una solicitud altere una decisión de autorización sobre otro recurso.
+
+### Implementado en Fase 1: bitácora consultable
+
+- `GET /api/v1/audit-logs` y `GET /api/v1/audit-logs/{publicId}` requieren `audit.view` y contexto de compañía; las consultas aplican el filtro de tenant explícitamente.
+- Los eventos se exponen mediante ULID público. Los campos cuyo nombre contiene `password`, `token`, `secret`, `certificate` o `private_key` se redactan recursivamente antes de responder.
+- Los índices compuestos de la bitácora cubren los filtros operativos compañía/usuario/fecha y compañía/acción/fecha.
+
+### Implementado en Fase 1: gestión de sucursales
+
+- Las rutas de sucursales exigen compañía seleccionada y `company.manage`; el ULID de ruta siempre se resuelve dentro del tenant actual.
+- La sucursal principal no se puede desactivar y no existe borrado físico por API, preservando el contexto operativo y trazabilidad histórica.
+
+### Implementado en Fase 1: acceso de usuarios
+
+- Solo `access.users.manage` puede conceder o modificar acceso de cuentas existentes; cada rol y sucursal se resuelve dentro de la compañía seleccionada.
+- La sincronización afecta exclusivamente pivotes de la compañía activa, por lo que modificar usuarios en un tenant no desprende sus sucursales ni roles de otros tenants.
+- El propietario queda fuera de esta mutación y los roles del sistema no se pueden asignar por este endpoint, evitando pérdida o escalamiento accidental de control administrativo. Cada provisión o cambio se audita con ULIDs públicos.
+
+### Implementado en Fase 1: roles y permisos
+
+- El catálogo de permisos expone códigos estables y no claves internas; los roles se crean y actualizan con esos códigos.
+- Los roles del sistema, incluido el propietario, no se pueden modificar ni desactivar. Un rol personalizado asignado tampoco se puede desactivar hasta reasignar sus usuarios.
+- Alta, actualización y desactivación de roles dejan registros de auditoría con permisos antes/después.
 
 ## Datos
 

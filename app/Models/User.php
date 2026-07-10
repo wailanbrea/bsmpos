@@ -79,4 +79,26 @@ class User extends Authenticatable
             ->withPivot('company_id')
             ->withTimestamps();
     }
+
+    public function belongsToCompany(int|string $companyId): bool
+    {
+        return $this->is_active !== false && $this->companies()->whereKey($companyId)->exists();
+    }
+
+    public function hasCompanyPermission(int|string $companyId, string $permission): bool
+    {
+        if (! $this->belongsToCompany($companyId)) {
+            return false;
+        }
+
+        if ($this->companies()->whereKey($companyId)->wherePivot('is_owner', true)->exists()) {
+            return true;
+        }
+
+        return $this->roles()
+            ->withoutGlobalScopes()
+            ->wherePivot('company_id', $companyId)
+            ->whereHas('permissions', fn ($query) => $query->where('code', $permission))
+            ->exists();
+    }
 }

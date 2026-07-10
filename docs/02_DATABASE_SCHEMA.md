@@ -22,7 +22,7 @@ Según master prompt §8: **business_types**, **system_modules**, **module_depen
 
 Implementado en Fase 1: `companies` y `branches` poseen `public_id` ULID y soft delete. `branches` tiene `unique(company_id, code)`. Las membresías conservan timestamps, son únicas por relación y `company_user.default_branch_id` se anula si la sucursal se elimina; la validación de que esa sucursal pertenezca a la compañía se realiza en el servicio transaccional.
 
-RBAC implementado en Fase 1: `permissions` es un catálogo global por código; `roles` pertenece a una sola compañía y se expone con ULID; `permission_role` y `role_user` son relaciones únicas con timestamps. Los roles operativos usan el scope de compañía.
+RBAC implementado en Fase 1: `permissions` es un catálogo global por código; `roles` pertenece a una sola compañía y se expone con ULID; `permission_role` y `role_user` son relaciones únicas con timestamps. Los roles operativos usan el scope de compañía. `audit_logs` también expone `public_id` ULID y dispone de índices compuestos por compañía/usuario/fecha y compañía/acción/fecha para la consulta de bitácora.
 
 ## 3. Configuración fiscal y monedas
 

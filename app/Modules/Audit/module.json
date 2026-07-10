@@ -1,0 +1,7 @@
+{
+    "code": "audit",
+    "name": "Auditoría",
+    "category": "core",
+    "is_core": true,
+    "dependencies": []
+}

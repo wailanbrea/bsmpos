@@ -2,7 +2,17 @@
 import { computed } from 'vue';
 import { useSessionStore } from '../../auth/stores/session';
 
-const navigation = ['Resumen', 'Ventas', 'Inventario', 'Clientes', 'Configuración'];
+const navigation = [
+    { label: 'Resumen', to: '/' },
+    { label: 'Ventas', to: '#' },
+    { label: 'Inventario', to: '#' },
+    { label: 'Clientes', to: '#' },
+    { label: 'Configuración', to: '#' },
+    { label: 'Auditoría', to: '/auditoria' },
+    { label: 'Roles', to: '/roles' },
+    { label: 'Usuarios', to: '/usuarios' },
+    { label: 'Sucursales', to: '/sucursales' },
+];
 const session = useSessionStore();
 const operatorName = computed(() => session.user?.name ?? 'Operador');
 </script>
@@ -52,13 +62,14 @@ const operatorName = computed(() => session.user?.name ?? 'Operador');
             <div class="grid gap-6 lg:grid-cols-[220px_1fr]">
                 <nav class="rounded-2xl bg-[#302f39] p-3 text-[#f3effc]" aria-label="Navegación principal">
                     <p class="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-[#c3c0ff]">Módulos</p>
-                    <a
+                    <RouterLink
                         v-for="item in navigation"
-                        :key="item"
-                        href="#"
+                        :key="item.label"
+                        :to="item.to"
                         class="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium hover:bg-white/10 focus:bg-white/10"
-                        >{{ item }}</a
                     >
+                        {{ item.label }}
+                    </RouterLink>
                 </nav>
                 <section
                     class="rounded-2xl border border-dashed border-[#c7c4d8] bg-[#f5f2ff] p-8"

@@ -3,6 +3,10 @@ import DashboardPage from '../modules/dashboard/pages/DashboardPage.vue';
 import ContextPage from '../modules/auth/pages/ContextPage.vue';
 import LoginPage from '../modules/auth/pages/LoginPage.vue';
 import RegisterPage from '../modules/auth/pages/RegisterPage.vue';
+import AuditLogPage from '../modules/audit/pages/AuditLogPage.vue';
+import RoleManagementPage from '../modules/access/pages/RoleManagementPage.vue';
+import UserManagementPage from '../modules/access/pages/UserManagementPage.vue';
+import BranchManagementPage from '../modules/company/pages/BranchManagementPage.vue';
 import { useSessionStore } from '../modules/auth/stores/session';
 
 const router = createRouter({
@@ -29,6 +33,30 @@ const router = createRouter({
             name: 'context',
             component: ContextPage,
             meta: { requiresAuth: true },
+        },
+        {
+            path: '/auditoria',
+            name: 'audit-log',
+            component: AuditLogPage,
+            meta: { requiresAuth: true, requiresContext: true },
+        },
+        {
+            path: '/roles',
+            name: 'roles',
+            component: RoleManagementPage,
+            meta: { requiresAuth: true, requiresContext: true },
+        },
+        {
+            path: '/usuarios',
+            name: 'users',
+            component: UserManagementPage,
+            meta: { requiresAuth: true, requiresContext: true },
+        },
+        {
+            path: '/sucursales',
+            name: 'branches',
+            component: BranchManagementPage,
+            meta: { requiresAuth: true, requiresContext: true },
         },
     ],
 });

@@ -67,13 +67,12 @@ it('allows only a member with the required role permission', function (): void {
 it('lets the company owner create a tenant-scoped role through the API', function (): void {
     $owner = User::factory()->create();
     $company = app(CreateCompanyAction::class)->execute($owner, accessCompanyPayload());
-    $permissionId = Permission::query()->where('code', 'audit.view')->sole()->getKey();
     Sanctum::actingAs($owner);
 
     $this->postJson('/api/v1/roles', [
         'code' => 'audit-reader',
         'name' => 'Lector de auditoría',
-        'permission_ids' => [$permissionId],
+        'permission_codes' => ['audit.view'],
     ], ['X-Company-Id' => $company->public_id])
         ->assertCreated()
         ->assertJsonPath('data.code', 'audit-reader')

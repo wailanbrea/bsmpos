@@ -28,15 +28,7 @@ final class EnsurePermission
         }
 
         $companyId = $currentCompany->company()->getKey();
-        $isOwner = $user->companies()
-            ->whereKey($companyId)
-            ->wherePivot('is_owner', true)
-            ->exists();
-
-        if (! $isOwner && ! $user->roles()
-            ->wherePivot('company_id', $companyId)
-            ->whereHas('permissions', fn ($query) => $query->where('code', $permission))
-            ->exists()) {
+        if (! $user->hasCompanyPermission($companyId, $permission)) {
             throw new ApiException(ErrorCode::PermissionDenied, 'No tiene el permiso requerido para esta acción.', 403);
         }
 

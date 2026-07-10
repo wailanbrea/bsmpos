@@ -2,9 +2,18 @@
 
 namespace App\Providers;
 
+use App\Core\Models\AuditLog;
 use App\Core\Tenancy\CurrentCompany;
+use App\Modules\Access\Models\Role;
+use App\Modules\Access\Policies\RolePolicy;
+use App\Modules\Audit\Policies\AuditLogPolicy;
+use App\Modules\Company\Models\Branch;
+use App\Modules\Company\Models\Company;
+use App\Modules\Company\Policies\BranchPolicy;
+use App\Modules\Company\Policies\CompanyPolicy;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -24,6 +33,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Gate::policy(AuditLog::class, AuditLogPolicy::class);
+        Gate::policy(Branch::class, BranchPolicy::class);
+        Gate::policy(Company::class, CompanyPolicy::class);
+        Gate::policy(Role::class, RolePolicy::class);
+
         RateLimiter::for('login', fn (Request $request): Limit => Limit::perMinute(5)
             ->by(Str::lower((string) $request->input('email')).'|'.$request->ip()));
 

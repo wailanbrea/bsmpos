@@ -41,6 +41,13 @@ Estos tokens se implementan como **CSS variables + preset de Tailwind** (`tailwi
 
 **Son inspiración, no ley:** al implementarlas se debe mejorar accesibilidad (contraste, focus, aria), estados vacíos/carga/error, i18n (textos mezclan inglés/español — el sistema será **es-DO** por defecto con arquitectura i18n), y responsive real.
 
+## Implementado en Fase 1
+
+- `modules/audit/pages/AuditLogPage.vue`: ruta `/auditoria` protegida por autenticación y contexto tenant. Incluye filtros por módulo y fecha, carga skeleton, error recuperable, estado vacío, paginación y panel de detalle. La autorización definitiva se mantiene en el API mediante `audit.view`.
+- `modules/access/pages/RoleManagementPage.vue`: ruta `/roles` para listar, crear, editar y desactivar roles, con matriz de permisos, estados de carga/error y bloqueo visual de roles del sistema.
+- `modules/access/pages/UserManagementPage.vue`: ruta `/usuarios` para provisionar cuentas existentes y actualizar, de forma aislada por empresa, sus sucursales, sucursal predeterminada y roles. Muestra carga, error recuperable, estado vacío y deshabilita el propietario, cuya administración está protegida también por el API.
+- `modules/company/pages/BranchManagementPage.vue`: ruta `/sucursales` para listar, crear y editar puntos de operación. Incluye carga, vacío, error recuperable y bloquea visualmente la desactivación de la sucursal principal, regla que el API también aplica.
+
 ## Reglas frontend
 
 - Menú lateral 100% dinámico: módulos activos + permisos + sucursal + plan (`useModuleStore.canUse()`).

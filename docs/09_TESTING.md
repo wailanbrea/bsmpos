@@ -27,6 +27,29 @@ Auth, empresas/sucursales (incl. **tests de aislamiento de tenant**), módulos (
 9. Activar/desactivar módulo → menú y rutas reaccionan (403 y ocultamiento).
 10. Sin stock: venta bloqueada si inventario activo.
 
+## Implementado en Fase 1: auditoría
+
+- Feature tests de listado aislado por compañía, detalle por ULID, redacción de datos sensibles y validación de filtros.
+
+## Implementado en Fase 1: usuarios por compañía
+
+- Feature tests de provisión de cuenta existente, sincronización aislada entre compañías, roles/sucursales ajenos y bloqueo de mutación del propietario.
+- Prueba Vitest de la pantalla de usuarios: carga del contrato y validación local de sucursal obligatoria antes de enviar la asignación.
+- Playwright CLI verificó la ruta `/usuarios` con sesión, contexto tenant y propietario no editable; tras el endurecimiento, el rol del sistema no se ofrece como asignable.
+
+## Implementado en Fase 1: sucursales
+
+- Prueba Vitest de la pantalla de sucursales: la principal se presenta como tal y no permite desactivación desde el formulario.
+- Playwright CLI verificó la creación de una sucursal secundaria y la edición de la principal con el control de activación bloqueado, sin errores de consola.
+
+## Implementado en Fase 1: Policies de recursos
+
+- Prueba de autorización por Policy: permisos de sucursal, roles, usuarios y auditoría se conceden únicamente en la compañía del recurso; no se filtran hacia otra empresa y una cuenta inactiva se deniega.
+
+## Implementado en Fase 1: roles y permisos
+
+- Feature tests de catálogo por código, actualización de permisos, bloqueo del rol propietario y desactivación segura de roles sin usuarios.
+
 ## Regla de trabajo
 
 Cada módulo cierra con sus pruebas verdes + lint + verificación en navegador real (skill `depurar-web` / Playwright MCP) antes de pasar al siguiente. Los comandos y resultados se reportan en el formato obligatorio (§31 del master prompt).
