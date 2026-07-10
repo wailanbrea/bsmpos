@@ -19,7 +19,7 @@
 - [x] UI inicial de roles y permisos conectada al API, con estados operativos y protección visual de roles del sistema.
 - [x] UI de usuarios por compañía: asignación de cuentas existentes a sucursales y roles, sucursal predeterminada y protección visual del propietario.
 - [x] UI de sucursales: listado, creación y actualización con estado activo y protección visual de la sucursal principal.
-- [x] Grafo Graphify actualizado con el código de Fases 2–13 mediante extracción AST incremental (2206 nodos, 4149 relaciones). La capa semántica de docs/imágenes no se re-extrajo estas sesiones (se conservan sus nodos previos); refrescar con un `/graphify` completo cuando convenga. El extractor aún omite manifiestos `module.json` sin símbolos AST.
+- [x] Grafo Graphify actualizado con el código de Fases 2–13 + módulo e-CF mediante extracción AST incremental (2334 nodos, 4397 relaciones). La capa semántica de docs/imágenes no se re-extrajo estas sesiones (se conservan sus nodos previos); refrescar con un `/graphify` completo cuando convenga. El extractor aún omite manifiestos `module.json` sin símbolos AST.
 
 ## FASE 0 — Base
 - [x] Inicializar repositorio Git local (`main`) y vincular el remoto autorizado `origin`

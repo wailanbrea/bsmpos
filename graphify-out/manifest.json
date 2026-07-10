@@ -10,9 +10,9 @@
     "semantic_hash": "e9b890d5d529e453961755ec8eeb24f7"
   },
   "app/Providers/AppServiceProvider.php": {
-    "mtime": 1783651100.6530483,
-    "ast_hash": "e5ce9ded6e03ab9fee9ecf12bbc195d4",
-    "semantic_hash": "e5ce9ded6e03ab9fee9ecf12bbc195d4"
+    "mtime": 1783699303.834637,
+    "ast_hash": "483b0ee479f7ab0959a22a80303ca6e9",
+    "semantic_hash": "483b0ee479f7ab0959a22a80303ca6e9"
   },
   "artisan": {
     "mtime": 1773496440.0,
@@ -265,24 +265,24 @@
     "semantic_hash": "2c9b9a4533c3812d375841ede9fa4983"
   },
   "docs/03_API_DOCUMENTATION.md": {
-    "mtime": 1783667268.8323026,
-    "ast_hash": "a3e96337e97c6bb5689430019d369d9c",
-    "semantic_hash": "a3e96337e97c6bb5689430019d369d9c"
+    "mtime": 1783699474.400065,
+    "ast_hash": "1f641c990ed23ad04add4ace32f3acce",
+    "semantic_hash": "1f641c990ed23ad04add4ace32f3acce"
   },
   "docs/04_FRONTEND_STRUCTURE.md": {
-    "mtime": 1783643243.0475843,
-    "ast_hash": "d0f5de920e8163441934f0349756abdb",
-    "semantic_hash": "d0f5de920e8163441934f0349756abdb"
+    "mtime": 1783699459.3415117,
+    "ast_hash": "d8fc44a3799fc4a2e28386cc5b532c60",
+    "semantic_hash": "d8fc44a3799fc4a2e28386cc5b532c60"
   },
   "docs/05_MODULE_SYSTEM.md": {
-    "mtime": 1783618110.8815327,
-    "ast_hash": "ccd85859039ee1d7fd2cdda0e3133430",
-    "semantic_hash": "ccd85859039ee1d7fd2cdda0e3133430"
+    "mtime": 1783699459.3405097,
+    "ast_hash": "1ccff57ce7bc7681193728c2834fbc0e",
+    "semantic_hash": "1ccff57ce7bc7681193728c2834fbc0e"
   },
   "docs/06_ELECTRONIC_INVOICING.md": {
-    "mtime": 1783665742.326457,
-    "ast_hash": "1b27b1fb13ba544910dc7da826166f1b",
-    "semantic_hash": "1b27b1fb13ba544910dc7da826166f1b"
+    "mtime": 1783699474.4020643,
+    "ast_hash": "60b9f36e1e24f2d493cf14a9f124011d",
+    "semantic_hash": "60b9f36e1e24f2d493cf14a9f124011d"
   },
   "docs/07_PRINTING.md": {
     "mtime": 1783618150.8585653,
@@ -295,9 +295,9 @@
     "semantic_hash": "229a31b32f84a187841c337bb68f7faf"
   },
   "docs/09_TESTING.md": {
-    "mtime": 1783667268.8353026,
-    "ast_hash": "b392a3b515874faf4fba21777affda47",
-    "semantic_hash": "b392a3b515874faf4fba21777affda47"
+    "mtime": 1783699639.9776795,
+    "ast_hash": "e689fdf1c4dfcd3999979fdbb2c80b8f",
+    "semantic_hash": "e689fdf1c4dfcd3999979fdbb2c80b8f"
   },
   "docs/10_DEPLOYMENT.md": {
     "mtime": 1783618192.0526307,
@@ -305,14 +305,14 @@
     "semantic_hash": "358713d41634c0c89e1fbd490c2bef28"
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783667268.8363035,
-    "ast_hash": "d7a0472b901200115fc2102bbc847f0e",
-    "semantic_hash": "d7a0472b901200115fc2102bbc847f0e"
+    "mtime": 1783700729.1735888,
+    "ast_hash": "0c74ae3822096bb935a7c31099bd3aaf",
+    "semantic_hash": "0c74ae3822096bb935a7c31099bd3aaf"
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783697774.3040712,
-    "ast_hash": "b78493cb3d021f49fbaa8ee3f3661d67",
-    "semantic_hash": "b78493cb3d021f49fbaa8ee3f3661d67"
+    "mtime": 1783714929.8193543,
+    "ast_hash": "f0de95318b1b00119faf3170c9ad7eb4",
+    "semantic_hash": "f0de95318b1b00119faf3170c9ad7eb4"
   },
   "docs/13_DECISIONS.md": {
     "mtime": 1783665742.328457,
@@ -465,14 +465,14 @@
     "semantic_hash": "9300e734d77b1a5201b1fa36c0dca93a"
   },
   "resources/js/modules/dashboard/pages/DashboardPage.vue": {
-    "mtime": 1783662910.89864,
-    "ast_hash": "81562e57eefbb3866a373ea5509a05a1",
-    "semantic_hash": "81562e57eefbb3866a373ea5509a05a1"
+    "mtime": 1783699404.4435463,
+    "ast_hash": "905157f27ad168876bd634bb87a09588",
+    "semantic_hash": "905157f27ad168876bd634bb87a09588"
   },
   "resources/js/router/index.ts": {
-    "mtime": 1783662905.593764,
-    "ast_hash": "b9cd8369f9de62ca617e5aaab8636057",
-    "semantic_hash": "b9cd8369f9de62ca617e5aaab8636057"
+    "mtime": 1783699404.442546,
+    "ast_hash": "381d2cd19437a043edbcc393d1f56bb1",
+    "semantic_hash": "381d2cd19437a043edbcc393d1f56bb1"
   },
   "tsconfig.json": {
     "mtime": 1783631967.279359,
@@ -670,9 +670,9 @@
     "semantic_hash": "1627c155a524afd55567649d1ea54c0a"
   },
   "app/Modules/Access/Support/PermissionCatalog.php": {
-    "mtime": 1783664517.9553857,
-    "ast_hash": "ffa640e0818224b537c9c2eab9bf4867",
-    "semantic_hash": "ffa640e0818224b537c9c2eab9bf4867"
+    "mtime": 1783698354.7771213,
+    "ast_hash": "2ed1de5da17d6e0bbb1af851c7865774",
+    "semantic_hash": "2ed1de5da17d6e0bbb1af851c7865774"
   },
   "app/Modules/Access/module.json": {
     "mtime": 1783634417.4475708,
@@ -920,9 +920,9 @@
     "semantic_hash": "ab07964afef6f29fb6e04651f8a45e76"
   },
   "app/Modules/ModuleManager/Actions/CompleteOnboardingAction.php": {
-    "mtime": 1783647217.1920578,
-    "ast_hash": "db1c74d57e9d76821e32de996d104ae8",
-    "semantic_hash": "db1c74d57e9d76821e32de996d104ae8"
+    "mtime": 1783714508.520807,
+    "ast_hash": "407a5ade2d080f4639753523e4a60c5d",
+    "semantic_hash": "407a5ade2d080f4639753523e4a60c5d"
   },
   "app/Modules/ModuleManager/Exceptions/ModuleException.php": {
     "mtime": 1783647138.7514217,
@@ -935,14 +935,14 @@
     "semantic_hash": "caedf9f268ee102c8c060752706390b2"
   },
   "app/Modules/ModuleManager/Http/Controllers/OnboardingController.php": {
-    "mtime": 1783647239.0798814,
-    "ast_hash": "fe087664a839cb1fd552e834748fef34",
-    "semantic_hash": "fe087664a839cb1fd552e834748fef34"
+    "mtime": 1783700468.8493855,
+    "ast_hash": "b0cbc042f84a2308ea3fccf40a86a9a0",
+    "semantic_hash": "b0cbc042f84a2308ea3fccf40a86a9a0"
   },
   "app/Modules/ModuleManager/Http/Requests/CompleteOnboardingRequest.php": {
-    "mtime": 1783647196.8627365,
-    "ast_hash": "32d689f03996fd0ac6f82fe3a2350e26",
-    "semantic_hash": "32d689f03996fd0ac6f82fe3a2350e26"
+    "mtime": 1783700459.9907882,
+    "ast_hash": "39987b84e44987e6c93a022d403fea72",
+    "semantic_hash": "39987b84e44987e6c93a022d403fea72"
   },
   "app/Modules/ModuleManager/Http/Requests/ToggleModuleRequest.php": {
     "mtime": 1783647188.5932155,
@@ -985,9 +985,9 @@
     "semantic_hash": "60f0bc31e63e8a519cc63ff6d4d6566a"
   },
   "app/Modules/ModuleManager/Support/ModuleCatalog.php": {
-    "mtime": 1783662856.659793,
-    "ast_hash": "78c8fc05896f064f92f3e81e512db48a",
-    "semantic_hash": "78c8fc05896f064f92f3e81e512db48a"
+    "mtime": 1783698136.585627,
+    "ast_hash": "6a28ac546168cb25877e68d42dccf63f",
+    "semantic_hash": "6a28ac546168cb25877e68d42dccf63f"
   },
   "app/Modules/ModuleManager/module.json": {
     "mtime": 1783646987.93581,
@@ -1065,14 +1065,14 @@
     "semantic_hash": "18be0b6bdbce0173f6da73d6dcee62ee"
   },
   "resources/js/modules/module-manager/pages/OnboardingPage.vue": {
-    "mtime": 1783647569.251645,
-    "ast_hash": "c5a5aca15b662c517961bed60f253a7f",
-    "semantic_hash": "c5a5aca15b662c517961bed60f253a7f"
+    "mtime": 1783714564.4692895,
+    "ast_hash": "b6c1ac3c82f52093c1804d926b29cec1",
+    "semantic_hash": "b6c1ac3c82f52093c1804d926b29cec1"
   },
   "resources/js/modules/module-manager/services.ts": {
-    "mtime": 1783647376.7271924,
-    "ast_hash": "a78afd0c5083cb785f410d0563f6389f",
-    "semantic_hash": "a78afd0c5083cb785f410d0563f6389f"
+    "mtime": 1783714564.4782891,
+    "ast_hash": "87ee462aa89c1aaaebd8502bda179405",
+    "semantic_hash": "87ee462aa89c1aaaebd8502bda179405"
   },
   "resources/js/modules/module-manager/stores/modules.ts": {
     "mtime": 1783647521.3416438,
@@ -1555,9 +1555,9 @@
     "semantic_hash": "e9e03f0895208208cac3e9c8aa12e456"
   },
   "app/Modules/Invoice/Services/InvoiceService.php": {
-    "mtime": 1783695664.67278,
-    "ast_hash": "b5b885e65e4604f0a8cfad6463e96dbf",
-    "semantic_hash": "b5b885e65e4604f0a8cfad6463e96dbf"
+    "mtime": 1783698298.1387043,
+    "ast_hash": "642cbe4ee412e559248cd933cdffd407",
+    "semantic_hash": "642cbe4ee412e559248cd933cdffd407"
   },
   "app/Modules/Invoice/Support/TicketBuilder.php": {
     "mtime": 1783663757.4224465,
@@ -2003,5 +2003,110 @@
     "mtime": 1783651204.8942893,
     "ast_hash": "3b8dbb1bdf458e0475bfbb12c4313e21",
     "semantic_hash": "3b8dbb1bdf458e0475bfbb12c4313e21"
+  },
+  "app/Modules/ElectronicInvoice/Contracts/ElectronicInvoiceProviderInterface.php": {
+    "mtime": 1783698178.9424033,
+    "ast_hash": "64ea973fb8760a052273c498dcf7a65e",
+    "semantic_hash": "64ea973fb8760a052273c498dcf7a65e"
+  },
+  "app/Modules/ElectronicInvoice/Http/Controllers/ElectronicInvoiceController.php": {
+    "mtime": 1783699331.95464,
+    "ast_hash": "ca675d922ba0602ec6239528bd8208b3",
+    "semantic_hash": "ca675d922ba0602ec6239528bd8208b3"
+  },
+  "app/Modules/ElectronicInvoice/Jobs/SendElectronicInvoiceJob.php": {
+    "mtime": 1783714413.883994,
+    "ast_hash": "876fea4c4ba033b25611c03b8ec60317",
+    "semantic_hash": "876fea4c4ba033b25611c03b8ec60317"
+  },
+  "app/Modules/ElectronicInvoice/Listeners/ProcessIssuedInvoice.php": {
+    "mtime": 1783698281.5568376,
+    "ast_hash": "5cddc647e1aecfa2109309f4a6748f53",
+    "semantic_hash": "5cddc647e1aecfa2109309f4a6748f53"
+  },
+  "app/Modules/ElectronicInvoice/Models/ElectronicInvoice.php": {
+    "mtime": 1783700371.3855522,
+    "ast_hash": "e9d789580715ee8c061c097dbb45ddd9",
+    "semantic_hash": "e9d789580715ee8c061c097dbb45ddd9"
+  },
+  "app/Modules/ElectronicInvoice/Models/ElectronicInvoiceLog.php": {
+    "mtime": 1783698232.4899006,
+    "ast_hash": "ae18643feccfa51cb7ecacfb140bbcdc",
+    "semantic_hash": "ae18643feccfa51cb7ecacfb140bbcdc"
+  },
+  "app/Modules/ElectronicInvoice/Models/ElectronicInvoiceSetting.php": {
+    "mtime": 1783699331.9556406,
+    "ast_hash": "130f1016a55d21ef32c036644466cfab",
+    "semantic_hash": "130f1016a55d21ef32c036644466cfab"
+  },
+  "app/Modules/ElectronicInvoice/Providers/MockElectronicInvoiceProvider.php": {
+    "mtime": 1783714413.9305127,
+    "ast_hash": "4abc3a0b053faf6bda23af1fba35389f",
+    "semantic_hash": "4abc3a0b053faf6bda23af1fba35389f"
+  },
+  "app/Modules/ElectronicInvoice/Providers/NullElectronicInvoiceProvider.php": {
+    "mtime": 1783698192.5209649,
+    "ast_hash": "2c19a6de68bf5bf3909f51a5c533577f",
+    "semantic_hash": "2c19a6de68bf5bf3909f51a5c533577f"
+  },
+  "app/Modules/ElectronicInvoice/Services/ElectronicInvoiceService.php": {
+    "mtime": 1783714414.0040286,
+    "ast_hash": "de786aba48084458e0e1a3852772782b",
+    "semantic_hash": "de786aba48084458e0e1a3852772782b"
+  },
+  "app/Modules/ElectronicInvoice/module.json": {
+    "mtime": 1783698340.7785573,
+    "ast_hash": "29b7cfad712c61a95531309f36ceb668",
+    "semantic_hash": "29b7cfad712c61a95531309f36ceb668"
+  },
+  "app/Modules/ElectronicInvoice/routes.php": {
+    "mtime": 1783698340.2576146,
+    "ast_hash": "2bd61039623712f9218370f4dcbab319",
+    "semantic_hash": "2bd61039623712f9218370f4dcbab319"
+  },
+  "app/Modules/Invoice/Events/InvoiceIssued.php": {
+    "mtime": 1783698278.7939322,
+    "ast_hash": "f47f9bdf21784c87b6ab8ce6791b4fac",
+    "semantic_hash": "f47f9bdf21784c87b6ab8ce6791b4fac"
+  },
+  "app/Modules/Setting/Support/BusinessTypeSettingsPresets.php": {
+    "mtime": 1783698382.1143854,
+    "ast_hash": "173954cb3934464ec7bbf975d06cfb8f",
+    "semantic_hash": "173954cb3934464ec7bbf975d06cfb8f"
+  },
+  "database/migrations/2026_08_24_090000_create_electronic_invoice_tables.php": {
+    "mtime": 1783698158.9922388,
+    "ast_hash": "f28effb21c7a0d6b17d1b5dfdab3d049",
+    "semantic_hash": "f28effb21c7a0d6b17d1b5dfdab3d049"
+  },
+  "database/migrations/2026_08_25_100000_add_attempts_to_electronic_invoices.php": {
+    "mtime": 1783700366.045956,
+    "ast_hash": "cb1e2af2ba4024133624d49e200184eb",
+    "semantic_hash": "cb1e2af2ba4024133624d49e200184eb"
+  },
+  "resources/js/modules/electronic-invoices/pages/ElectronicInvoicePage.vue": {
+    "mtime": 1783699369.7417936,
+    "ast_hash": "3418e29b5f7b55cb6e9c110f160513ae",
+    "semantic_hash": "3418e29b5f7b55cb6e9c110f160513ae"
+  },
+  "tests/Feature/ElectronicInvoiceTest.php": {
+    "mtime": 1783714414.5638516,
+    "ast_hash": "5f7c298e07501cd2118c2d07b1d12305",
+    "semantic_hash": "5f7c298e07501cd2118c2d07b1d12305"
+  },
+  "tests/Feature/OnboardingFiscalSetupTest.php": {
+    "mtime": 1783714414.6173687,
+    "ast_hash": "b1530f7dcd30ff99528689113c0cc95c",
+    "semantic_hash": "b1530f7dcd30ff99528689113c0cc95c"
+  },
+  "tests/Feature/OnboardingSettingsPresetTest.php": {
+    "mtime": 1783698496.0306382,
+    "ast_hash": "3dba5a1f503ca2c871b088ea75842a25",
+    "semantic_hash": "3dba5a1f503ca2c871b088ea75842a25"
+  },
+  "tests/Feature/POSElectronicInvoiceContingencyTest.php": {
+    "mtime": 1783714414.7378838,
+    "ast_hash": "4a01ca93fdc3640e4db1fcb3f93d390c",
+    "semantic_hash": "4a01ca93fdc3640e4db1fcb3f93d390c"
   }
 }
