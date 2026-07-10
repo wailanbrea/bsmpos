@@ -4,6 +4,19 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Fase 14: 2FA TOTP y guía de despliegue
+**Agregado**
+- `App\Core\Security\TotpService` (RFC 6238, sin dependencias): secreto Base32, HMAC-SHA1, ventana ±1 período, `codeAt` y `provisioningUri`.
+- Columnas `two_factor_secret` (cifrado) y `two_factor_confirmed_at` en `users`; `User::hasTwoFactorEnabled()`, secreto oculto en respuestas.
+- Endpoints `GET/POST /auth/2fa` (status/enable/confirm/disable): activación en dos pasos (secreto → confirmar con código), desactivación exige código.
+- Reto de 2FA en el login: con 2FA activo, `POST /auth/login` requiere `code` (`TWO_FACTOR_REQUIRED` sin él, `TWO_FACTOR_INVALID` si es incorrecto); eventos `auth.2fa_*` auditados.
+- `docs/10_DEPLOYMENT.md`: guía de producción (Nginx/PHP-FPM 8.3/MySQL/Redis, worker de colas obligatorio para e-CF, cron scheduler, backups, optimización, checklist). `docs/08` y `docs/03` actualizados.
+
+**Validado**
+- Pest: 4 pruebas nuevas (TOTP determinista; enable/confirm/challenge/disable; reto en login; sin reto sin 2FA). Suite total 149 verde.
+- Pint, Larastan, typecheck, ESLint, Prettier sin errores.
+- Servidor en vivo: login sin código → `TWO_FACTOR_REQUIRED`; código inválido → `TWO_FACTOR_INVALID`; código TOTP válido → token emitido.
+
 ### 2026-07-10 — Fase 13 (cierre): pantalla de Reportes y reporte de anulaciones
 **Agregado**
 - `ReportService::annulments` + `GET /reports/annulments`: facturas anuladas del período con resumen (conteo y total), base operativa del 608.

@@ -109,9 +109,12 @@
 - [ ] Export a Excel nativo (por ahora CSV, abrible en Excel) y PDF con plantilla — pendiente post-v1
 
 ## FASE 14 — Seguridad, pruebas y deploy
-- [ ] Policies completas, rate limiting, 2FA, auditoría completa
-- [ ] Suite Pest completa + Vitest + **Playwright E2E (10 flujos de 09_TESTING.md)**
-- [ ] .env.example, guía deploy, optimización producción
+- [x] 2FA TOTP (RFC 6238 sin dependencias, `TotpService`): enable/confirm/disable + reto en login (`TWO_FACTOR_REQUIRED`/`INVALID`), secreto cifrado y auditado; probado (Pest) y verificado en servidor en vivo
+- [x] Rate limiting en `/auth/login` y `/auth/register`; Policies por recurso ya presentes; auditoría de eventos sensibles (incl. 2FA)
+- [x] `.env.example` completo (locale es-DO, colas en `database`) + guía de despliegue de producción (`docs/10`: Nginx/PHP-FPM/Redis, worker de colas para e-CF, backups, checklist)
+- [ ] Suite **Playwright E2E** de los 10 flujos como test runner dedicado (hoy verificados manualmente con Playwright MCP cada fase) — pendiente
+- [ ] UI de 2FA (activar/QR/desactivar) en un área de seguridad del perfil — pendiente
+- [ ] CI GitHub Actions (lint+estático+tests+build) — pendiente
 
 ## Backlog (post-v1)
 - [ ] Cuentas por cobrar/pagar completas, fidelización, reservas, garantías, gastos, notificaciones WhatsApp, panel super-admin SaaS, provider e-CF real (DGII directo o PSFE), agente local de impresión, app Android Kotlin

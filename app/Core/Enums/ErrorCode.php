@@ -19,6 +19,8 @@ enum ErrorCode: string
     case PermissionDenied = 'PERMISSION_DENIED';
     case InvalidCredentials = 'INVALID_CREDENTIALS';
     case AccountInactive = 'ACCOUNT_INACTIVE';
+    case TwoFactorRequired = 'TWO_FACTOR_REQUIRED';
+    case TwoFactorInvalid = 'TWO_FACTOR_INVALID';
     case Conflict = 'CONFLICT';
     case InternalError = 'INTERNAL_ERROR';
 }

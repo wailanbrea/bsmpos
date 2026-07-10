@@ -18,7 +18,7 @@
 
 | Módulo | Prefijo | Estado |
 |---|---|---|
-| Auth | `/auth/login`, `/auth/logout`, `/auth/me`, `/auth/select-company`, `/auth/select-branch` | Pendiente |
+| Auth | `/auth/register`, `/auth/login`, `/auth/logout`, `/auth/me`, `/auth/2fa` (enable/confirm/disable) | Implementado |
 | Companies | `/companies`, `/onboarding` | Pendiente |
 | Branches | `/branches`, `/branches/{publicId}` | Implementado (Fase 1) |
 | Users/Roles | `/users`, `/users/{publicId}/access`, `/roles`, `/roles/{publicId}`, `/permissions` | Roles/permisos implementados; usuarios parciales (Fase 1) |
@@ -150,6 +150,25 @@ Alta/edición: `kind` (person|company|generic), `name`, `tax_id_type` (rnc|cedul
 
 ### `POST /api/v1/customers/{publicId}/credit`
 Registra `type` (charge|payment|adjustment) y `amount` (>0). `charge` respeta el límite de crédito; `payment` no puede dejar balance negativo. Devuelve el cliente actualizado.
+
+## Verificación en dos pasos (Fase 14)
+
+Todas bajo `auth:sanctum` salvo el reto en el propio login.
+
+### `POST /api/v1/auth/login`
+Además de `email`/`password` acepta `code` (TOTP). Si el usuario tiene 2FA activo: sin `code` → 422 `TWO_FACTOR_REQUIRED`; con código inválido → 422 `TWO_FACTOR_INVALID`; con código válido → token.
+
+### `GET /api/v1/auth/2fa`
+Devuelve `{ enabled }`.
+
+### `POST /api/v1/auth/2fa/enable`
+Genera un secreto (aún no activo) y devuelve `secret` + `otpauth_uri` para el QR.
+
+### `POST /api/v1/auth/2fa/confirm`
+Body `code`; activa el 2FA si el código es válido.
+
+### `POST /api/v1/auth/2fa/disable`
+Body `code`; desactiva el 2FA solo con un código válido.
 
 ## Roles y permisos (Fase 1)
 

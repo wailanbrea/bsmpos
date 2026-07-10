@@ -5,7 +5,7 @@
 - Laravel Sanctum (tokens por dispositivo/terminal, revocables individualmente).
 - Rate limiting estricto en login; lockout progresivo por intentos fallidos.
 - Política de contraseñas (mínimo 8, complejidad configurable); hash bcrypt/argon2id.
-- 2FA TOTP opcional por usuario (obligatorio configurable para roles admin).
+- **2FA TOTP** opcional por usuario (RFC 6238, `App\Core\Security\TotpService`, sin dependencias externas): `POST /auth/2fa/enable` genera un secreto cifrado y su URI `otpauth://` para el QR; `POST /auth/2fa/confirm` lo activa solo tras validar un código (evita bloqueos por QR no escaneado); una vez activo, el login exige `code` (respuestas `TWO_FACTOR_REQUIRED` / `TWO_FACTOR_INVALID`); `POST /auth/2fa/disable` requiere un código válido. El secreto va cifrado (cast `encrypted`) y oculto en las respuestas. Los eventos `auth.2fa_enabled/disabled/failed` se auditan.
 - PIN corto de cajero para cambio rápido de usuario en el POS (encima de sesión de terminal autenticada, no la sustituye).
 
 ## Autorización en capas

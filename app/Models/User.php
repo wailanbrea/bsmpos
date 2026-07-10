@@ -40,6 +40,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_secret',
     ];
 
     /**
@@ -55,7 +56,15 @@ class User extends Authenticatable
             'is_super_admin' => 'boolean',
             'is_active' => 'boolean',
             'last_login_at' => 'immutable_datetime',
+            'two_factor_secret' => 'encrypted',
+            'two_factor_confirmed_at' => 'immutable_datetime',
         ];
+    }
+
+    /** El 2FA solo está activo cuando el secreto fue confirmado con un código válido. */
+    public function hasTwoFactorEnabled(): bool
+    {
+        return $this->two_factor_secret !== null && $this->two_factor_confirmed_at !== null;
     }
 
     /** @return BelongsToMany<Company, $this> */
