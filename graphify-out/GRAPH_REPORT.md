@@ -1,160 +1,171 @@
-# Graph Report - Sistema de Facturacion Saas  (2026-07-09)
+# Graph Report - .  (2026-07-09)
 
 ## Corpus Check
-- 130 files · ~155,273 words
+- 0 files · ~0 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 845 nodes · 1024 edges · 159 communities (89 shown, 70 thin omitted)
-- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 95 edges (avg confidence: 0.86)
+- 1207 nodes · 1861 edges · 176 communities (100 shown, 76 thin omitted)
+- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 140 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
-## Graph Freshness
-- Built from commit: `0c3338aa`
-- Run `git rev-parse HEAD` and compare to check if the graph is stale.
-- Run `graphify update .` after code changes (no API cost).
-
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_00_PROJECT_OVERVIEW|00_PROJECT_OVERVIEW.md]]
-- [[_COMMUNITY_Inventory Batches (lotes y vencimientos)|Inventory Batches (lotes y vencimientos)]]
-- [[_COMMUNITY_composer.json|composer.json]]
-- [[_COMMUNITY_MASTER PROMPT — ADDENDUM (v1.1)|MASTER PROMPT — ADDENDUM (v1.1)]]
-- [[_COMMUNITY_User.php|User.php]]
-- [[_COMMUNITY_11 — TODO MASTER|11 — TODO MASTER]]
-- [[_COMMUNITY_02 — Esquema Inicial de Base de Datos|02 — Esquema Inicial de Base de Datos]]
-- [[_COMMUNITY_devDependencies|devDependencies]]
-- [[_COMMUNITY_Entrada de Mercancía Screen (Compras y Lotes)|Entrada de Mercancía Screen (Compras y Lotes)]]
-- [[_COMMUNITY_Kardex Product Movement History Screen|Kardex Product Movement History Screen]]
-- [[_COMMUNITY_Customer Profile Screen (History & Credit)|Customer Profile Screen (History & Credit)]]
-- [[_COMMUNITY_System Configuration Active Modules Screen|System Configuration Active Modules Screen]]
-- [[_COMMUNITY_Dashboard Principal Perfil Retail (OmniPOS)|Dashboard Principal Perfil Retail (OmniPOS)]]
-- [[_COMMUNITY_Facturación Electrónica Control de e-CF Screen|Facturación Electrónica Control de e-CF Screen]]
-- [[_COMMUNITY_Inventario Avanzado Control de Lotes Screen|Inventario Avanzado Control de Lotes Screen]]
-- [[_COMMUNITY_Onboarding Module Activation Screen (Paso 3 de 5)|Onboarding Module Activation Screen (Paso 3 de 5)]]
-- [[_COMMUNITY_POS Touch Screen - Restaurant Profile (OmniPOS)|POS Touch Screen - Restaurant Profile (OmniPOS)]]
-- [[_COMMUNITY_Procesar Pago Multimoneda y Mixto Screen|Procesar Pago Multimoneda y Mixto Screen]]
-- [[_COMMUNITY_Reporte de Ventas  Análisis de Rendimiento Screen|Reporte de Ventas / Análisis de Rendimiento Screen]]
-- [[_COMMUNITY_Onboarding Business Type Selection Screen|Onboarding Business Type Selection Screen]]
-- [[_COMMUNITY_TestCase|TestCase]]
-- [[_COMMUNITY_scripts|scripts]]
-- [[_COMMUNITY_00 — Visión General del Proyecto OmniPOS Modular SaaS|00 — Visión General del Proyecto: OmniPOS Modular SaaS]]
-- [[_COMMUNITY_01 — Arquitectura|01 — Arquitectura]]
-- [[_COMMUNITY_05 — Sistema de Módulos|05 — Sistema de Módulos]]
-- [[_COMMUNITY_README|README.md]]
-- [[_COMMUNITY_DESIGN|DESIGN.md]]
-- [[_COMMUNITY_06 — Facturación Electrónica (e-CF DGII, República Dominicana)|06 — Facturación Electrónica (e-CF DGII, República Dominicana)]]
-- [[_COMMUNITY_AppServiceProvider|AppServiceProvider]]
-- [[_COMMUNITY_No publicado|[No publicado]]]
-- [[_COMMUNITY_Pantalla Perfil de Cliente (Historial y Crédito)|Pantalla: Perfil de Cliente (Historial y Crédito)]]
-- [[_COMMUNITY_Controller.php|Controller.php]]
-- [[_COMMUNITY_app.js|app.js]]
-- [[_COMMUNITY_CLAUDE.md Project Instructions|CLAUDE.md Project Instructions]]
-- [[_COMMUNITY_00 Project Overview OmniPOS Modular SaaS|00 Project Overview: OmniPOS Modular SaaS]]
-- [[_COMMUNITY_OmniPOS Platform|OmniPOS Platform]]
-- [[_COMMUNITY_01 Architecture|01 Architecture]]
-- [[_COMMUNITY_BelongsToCompany Global Scope|BelongsToCompany Global Scope]]
-- [[_COMMUNITY_Domain Events (OrderPaid, InvoiceIssued, ModuleToggled, ...)|Domain Events (OrderPaid, InvoiceIssued, ModuleToggled, ...)]]
-- [[_COMMUNITY_Idempotency-Key on salepaymentinvoice endpoints|Idempotency-Key on sale/payment/invoice endpoints]]
-- [[_COMMUNITY_Modular Monolith Pattern|Modular Monolith Pattern]]
-- [[_COMMUNITY_Money as DECIMAL(14,2)|Money as DECIMAL(14,2)]]
-- [[_COMMUNITY_Multi-tenancy by company_id column|Multi-tenancy by company_id column]]
-- [[_COMMUNITY_Public ULID (public_id)|Public ULID (public_id)]]
-- [[_COMMUNITY_Layered Route Protection (authcompanybranchmodulepermissionpolicy)|Layered Route Protection (auth/company/branch/module/permission/policy)]]
-- [[_COMMUNITY_Sequence generation with lockForUpdate|Sequence generation with lockForUpdate]]
-- [[_COMMUNITY_02 Database Schema|02 Database Schema]]
-- [[_COMMUNITY_CreditDebit notes modeled as invoices|Credit/Debit notes modeled as invoices]]
-- [[_COMMUNITY_dgii_reports (606607608)|dgii_reports (606/607/608)]]
-- [[_COMMUNITY_electronic_invoices tables (settingslogserrorscontingencies)|electronic_invoices tables (settings/logs/errors/contingencies)]]
-- [[_COMMUNITY_inventory_batches  inventory_movements  inventory_stock|inventory_batches / inventory_movements / inventory_stock]]
-- [[_COMMUNITY_invoices table|invoices table]]
-- [[_COMMUNITY_ncf_sequences table|ncf_sequences table]]
-- [[_COMMUNITY_03 API Documentation|03 API Documentation]]
-- [[_COMMUNITY_04 Frontend Structure|04 Frontend Structure]]
-- [[_COMMUNITY_Kinetic Enterprise Design System|Kinetic Enterprise Design System]]
-- [[_COMMUNITY_PWA offline support (IndexedDB cart, cached catalog)|PWA offline support (IndexedDB cart, cached catalog)]]
-- [[_COMMUNITY_useModuleStore (frontend module gating)|useModuleStore (frontend module gating)]]
-- [[_COMMUNITY_05 Module System|05 Module System]]
-- [[_COMMUNITY_Business type module presets|Business type module presets]]
-- [[_COMMUNITY_EnsureModuleEnabled middleware (modulecode)|EnsureModuleEnabled middleware (module:<code>)]]
-- [[_COMMUNITY_Module dependency map|Module dependency map]]
-- [[_COMMUNITY_06 Electronic Invoicing (e-CF DGII)|06 Electronic Invoicing (e-CF DGII)]]
-- [[_COMMUNITY_e-CF Contingency Mode|e-CF Contingency Mode]]
-- [[_COMMUNITY_e-CF (Electronic Fiscal Receipt, DGII)|e-CF (Electronic Fiscal Receipt, DGII)]]
-- [[_COMMUNITY_e-CF Jobs (GenerateSendCheckStatus)|e-CF Jobs (Generate/Send/CheckStatus)]]
-- [[_COMMUNITY_Ley 32-23 (DR Electronic Invoicing Law)|Ley 32-23 (DR Electronic Invoicing Law)]]
-- [[_COMMUNITY_MockElectronicInvoiceProvider|MockElectronicInvoiceProvider]]
-- [[_COMMUNITY_NullElectronicInvoiceProvider|NullElectronicInvoiceProvider]]
-- [[_COMMUNITY_ElectronicInvoiceProviderInterface|ElectronicInvoiceProviderInterface]]
-- [[_COMMUNITY_07 Printing|07 Printing]]
-- [[_COMMUNITY_TicketBuilder (medium-agnostic ticket layer)|TicketBuilder (medium-agnostic ticket layer)]]
-- [[_COMMUNITY_08 Security and Audit|08 Security and Audit]]
-- [[_COMMUNITY_Audit module (audit_logs, beforeafter diffs)|Audit module (audit_logs, before/after diffs)]]
-- [[_COMMUNITY_Elevated authorization for sensitive actions (supervisor PIN)|Elevated authorization for sensitive actions (supervisor PIN)]]
-- [[_COMMUNITY_Sanctum token authentication|Sanctum token authentication]]
-- [[_COMMUNITY_09 Testing Strategy|09 Testing Strategy]]
-- [[_COMMUNITY_Pest test framework|Pest test framework]]
-- [[_COMMUNITY_Playwright E2E suite (10 critical flows)|Playwright E2E suite (10 critical flows)]]
-- [[_COMMUNITY_10 Deployment|10 Deployment]]
-- [[_COMMUNITY_11 TODO Master (phased plan)|11 TODO Master (phased plan)]]
-- [[_COMMUNITY_12 Changelog|12 Changelog]]
-- [[_COMMUNITY_13 Technical Decisions (ADR)|13 Technical Decisions (ADR)]]
-- [[_COMMUNITY_14 Known Issues|14 Known Issues]]
-- [[_COMMUNITY_15 Inventory, Batches and Expirations|15 Inventory, Batches and Expirations]]
-- [[_COMMUNITY_Expiration sale rules (blockedsupervisorwarned)|Expiration sale rules (blocked/supervisor/warned)]]
-- [[_COMMUNITY_FEFO outgoing method|FEFO outgoing method]]
-- [[_COMMUNITY_FIFO outgoing method|FIFO outgoing method]]
-- [[_COMMUNITY_InventoryService (transactional stock mutations)|InventoryService (transactional stock mutations)]]
-- [[_COMMUNITY_Kardex (product movement history)|Kardex (product movement history)]]
-- [[_COMMUNITY_Master Prompt Addendum v1.1|Master Prompt Addendum v1.1]]
-- [[_COMMUNITY_Modo Contingencia e-CF|Modo Contingencia e-CF]]
-- [[_COMMUNITY_Reportes DGII 606607608|Reportes DGII 606/607/608]]
-- [[_COMMUNITY_Idempotency-Key en ventas|Idempotency-Key en ventas]]
-- [[_COMMUNITY_Ley 32-23 (Facturación Electrónica RD)|Ley 32-23 (Facturación Electrónica RD)]]
-- [[_COMMUNITY_Secuencias con lockForUpdate|Secuencias con lockForUpdate]]
-- [[_COMMUNITY_Localización Fiscal República Dominicana|Localización Fiscal República Dominicana]]
-- [[_COMMUNITY_SaaS Comercial (company_subscriptions)|SaaS Comercial (company_subscriptions)]]
-- [[_COMMUNITY_Prioridad de Fuentes|Prioridad de Fuentes]]
-- [[_COMMUNITY_Touch Targets 4456px|Touch Targets 44/56px]]
-- [[_COMMUNITY_app.php|app.php]]
-- [[_COMMUNITY_08 — Seguridad y Auditoría|08 — Seguridad y Auditoría]]
-- [[_COMMUNITY_sanctum.php|sanctum.php]]
-- [[_COMMUNITY_00_PROJECT_OVERVIEW|00_PROJECT_OVERVIEW.md]]
-- [[_COMMUNITY_15 — Inventario, Lotes y Vencimientos|15 — Inventario, Lotes y Vencimientos]]
-- [[_COMMUNITY_config|config]]
-- [[_COMMUNITY_.prettierrc.json|.prettierrc.json]]
-- [[_COMMUNITY_require|require]]
-- [[_COMMUNITY_04 — Estructura Frontend|04 — Estructura Frontend]]
-- [[_COMMUNITY_08 — Seguridad y Auditoría|08 — Seguridad y Auditoría]]
-- [[_COMMUNITY_09 — Estrategia de Pruebas|09 — Estrategia de Pruebas]]
-- [[_COMMUNITY_psr-4|psr-4]]
-- [[_COMMUNITY_07 — Impresión|07 — Impresión]]
-- [[_COMMUNITY_03 — Documentación de API|03 — Documentación de API]]
-- [[_COMMUNITY_autoload-dev|autoload-dev]]
-- [[_COMMUNITY_extra|extra]]
-- [[_COMMUNITY_11 — TODO MASTER|11 — TODO MASTER]]
-- [[_COMMUNITY_UserFactory|UserFactory]]
-- [[_COMMUNITY_DatabaseSeeder.php|DatabaseSeeder.php]]
-- [[_COMMUNITY_User.php|User.php]]
-- [[_COMMUNITY_ContextPage.vue|ContextPage.vue]]
-- [[_COMMUNITY_ApiResponse|ApiResponse]]
-- [[_COMMUNITY_AuthController.php|AuthController.php]]
-- [[_COMMUNITY_session.ts|session.ts]]
-- [[_COMMUNITY_RegisterPage.vue|RegisterPage.vue]]
-- [[_COMMUNITY_LoginPage.vue|LoginPage.vue]]
-- [[_COMMUNITY_.error|.error]]
-- [[_COMMUNITY_RegisterRequest|RegisterRequest]]
+- [[_COMMUNITY_Community 0|Community 0]]
+- [[_COMMUNITY_Community 1|Community 1]]
+- [[_COMMUNITY_Community 2|Community 2]]
+- [[_COMMUNITY_Community 3|Community 3]]
+- [[_COMMUNITY_Community 4|Community 4]]
+- [[_COMMUNITY_Community 5|Community 5]]
+- [[_COMMUNITY_Community 6|Community 6]]
+- [[_COMMUNITY_Community 7|Community 7]]
+- [[_COMMUNITY_Community 8|Community 8]]
+- [[_COMMUNITY_Community 9|Community 9]]
+- [[_COMMUNITY_Community 10|Community 10]]
+- [[_COMMUNITY_Community 11|Community 11]]
+- [[_COMMUNITY_Community 12|Community 12]]
+- [[_COMMUNITY_Community 13|Community 13]]
+- [[_COMMUNITY_Community 14|Community 14]]
+- [[_COMMUNITY_Community 15|Community 15]]
+- [[_COMMUNITY_Community 16|Community 16]]
+- [[_COMMUNITY_Community 17|Community 17]]
+- [[_COMMUNITY_Community 18|Community 18]]
+- [[_COMMUNITY_Community 19|Community 19]]
+- [[_COMMUNITY_Community 20|Community 20]]
+- [[_COMMUNITY_Community 21|Community 21]]
+- [[_COMMUNITY_Community 22|Community 22]]
+- [[_COMMUNITY_Community 23|Community 23]]
+- [[_COMMUNITY_Community 24|Community 24]]
+- [[_COMMUNITY_Community 25|Community 25]]
+- [[_COMMUNITY_Community 26|Community 26]]
+- [[_COMMUNITY_Community 27|Community 27]]
+- [[_COMMUNITY_Community 28|Community 28]]
+- [[_COMMUNITY_Community 29|Community 29]]
+- [[_COMMUNITY_Community 30|Community 30]]
+- [[_COMMUNITY_Community 31|Community 31]]
+- [[_COMMUNITY_Community 32|Community 32]]
+- [[_COMMUNITY_Community 33|Community 33]]
+- [[_COMMUNITY_Community 34|Community 34]]
+- [[_COMMUNITY_Community 35|Community 35]]
+- [[_COMMUNITY_Community 36|Community 36]]
+- [[_COMMUNITY_Community 37|Community 37]]
+- [[_COMMUNITY_Community 38|Community 38]]
+- [[_COMMUNITY_Community 39|Community 39]]
+- [[_COMMUNITY_Community 40|Community 40]]
+- [[_COMMUNITY_Community 41|Community 41]]
+- [[_COMMUNITY_Community 42|Community 42]]
+- [[_COMMUNITY_Community 43|Community 43]]
+- [[_COMMUNITY_Community 44|Community 44]]
+- [[_COMMUNITY_Community 45|Community 45]]
+- [[_COMMUNITY_Community 46|Community 46]]
+- [[_COMMUNITY_Community 47|Community 47]]
+- [[_COMMUNITY_Community 48|Community 48]]
+- [[_COMMUNITY_Community 49|Community 49]]
+- [[_COMMUNITY_Community 50|Community 50]]
+- [[_COMMUNITY_Community 51|Community 51]]
+- [[_COMMUNITY_Community 52|Community 52]]
+- [[_COMMUNITY_Community 53|Community 53]]
+- [[_COMMUNITY_Community 54|Community 54]]
+- [[_COMMUNITY_Community 55|Community 55]]
+- [[_COMMUNITY_Community 56|Community 56]]
+- [[_COMMUNITY_Community 57|Community 57]]
+- [[_COMMUNITY_Community 58|Community 58]]
+- [[_COMMUNITY_Community 59|Community 59]]
+- [[_COMMUNITY_Community 60|Community 60]]
+- [[_COMMUNITY_Community 61|Community 61]]
+- [[_COMMUNITY_Community 62|Community 62]]
+- [[_COMMUNITY_Community 63|Community 63]]
+- [[_COMMUNITY_Community 64|Community 64]]
+- [[_COMMUNITY_Community 65|Community 65]]
+- [[_COMMUNITY_Community 66|Community 66]]
+- [[_COMMUNITY_Community 67|Community 67]]
+- [[_COMMUNITY_Community 68|Community 68]]
+- [[_COMMUNITY_Community 69|Community 69]]
+- [[_COMMUNITY_Community 70|Community 70]]
+- [[_COMMUNITY_Community 71|Community 71]]
+- [[_COMMUNITY_Community 72|Community 72]]
+- [[_COMMUNITY_Community 73|Community 73]]
+- [[_COMMUNITY_Community 74|Community 74]]
+- [[_COMMUNITY_Community 75|Community 75]]
+- [[_COMMUNITY_Community 76|Community 76]]
+- [[_COMMUNITY_Community 89|Community 89]]
+- [[_COMMUNITY_Community 90|Community 90]]
+- [[_COMMUNITY_Community 92|Community 92]]
+- [[_COMMUNITY_Community 93|Community 93]]
+- [[_COMMUNITY_Community 94|Community 94]]
+- [[_COMMUNITY_Community 95|Community 95]]
+- [[_COMMUNITY_Community 96|Community 96]]
+- [[_COMMUNITY_Community 97|Community 97]]
+- [[_COMMUNITY_Community 98|Community 98]]
+- [[_COMMUNITY_Community 99|Community 99]]
+- [[_COMMUNITY_Community 100|Community 100]]
+- [[_COMMUNITY_Community 101|Community 101]]
+- [[_COMMUNITY_Community 102|Community 102]]
+- [[_COMMUNITY_Community 103|Community 103]]
+- [[_COMMUNITY_Community 104|Community 104]]
+- [[_COMMUNITY_Community 105|Community 105]]
+- [[_COMMUNITY_Community 106|Community 106]]
+- [[_COMMUNITY_Community 107|Community 107]]
+- [[_COMMUNITY_Community 108|Community 108]]
+- [[_COMMUNITY_Community 109|Community 109]]
+- [[_COMMUNITY_Community 110|Community 110]]
+- [[_COMMUNITY_Community 111|Community 111]]
+- [[_COMMUNITY_Community 112|Community 112]]
+- [[_COMMUNITY_Community 113|Community 113]]
+- [[_COMMUNITY_Community 114|Community 114]]
+- [[_COMMUNITY_Community 115|Community 115]]
+- [[_COMMUNITY_Community 116|Community 116]]
+- [[_COMMUNITY_Community 117|Community 117]]
+- [[_COMMUNITY_Community 118|Community 118]]
+- [[_COMMUNITY_Community 119|Community 119]]
+- [[_COMMUNITY_Community 120|Community 120]]
+- [[_COMMUNITY_Community 121|Community 121]]
+- [[_COMMUNITY_Community 122|Community 122]]
+- [[_COMMUNITY_Community 123|Community 123]]
+- [[_COMMUNITY_Community 124|Community 124]]
+- [[_COMMUNITY_Community 125|Community 125]]
+- [[_COMMUNITY_Community 126|Community 126]]
+- [[_COMMUNITY_Community 127|Community 127]]
+- [[_COMMUNITY_Community 128|Community 128]]
+- [[_COMMUNITY_Community 129|Community 129]]
+- [[_COMMUNITY_Community 130|Community 130]]
+- [[_COMMUNITY_Community 131|Community 131]]
+- [[_COMMUNITY_Community 132|Community 132]]
+- [[_COMMUNITY_Community 133|Community 133]]
+- [[_COMMUNITY_Community 134|Community 134]]
+- [[_COMMUNITY_Community 135|Community 135]]
+- [[_COMMUNITY_Community 136|Community 136]]
+- [[_COMMUNITY_Community 137|Community 137]]
+- [[_COMMUNITY_Community 138|Community 138]]
+- [[_COMMUNITY_Community 139|Community 139]]
+- [[_COMMUNITY_Community 140|Community 140]]
+- [[_COMMUNITY_Community 141|Community 141]]
+- [[_COMMUNITY_Community 142|Community 142]]
+- [[_COMMUNITY_Community 143|Community 143]]
+- [[_COMMUNITY_Community 144|Community 144]]
+- [[_COMMUNITY_Community 145|Community 145]]
+- [[_COMMUNITY_Community 146|Community 146]]
+- [[_COMMUNITY_Community 147|Community 147]]
+- [[_COMMUNITY_Community 148|Community 148]]
+- [[_COMMUNITY_Community 149|Community 149]]
+- [[_COMMUNITY_Community 150|Community 150]]
+- [[_COMMUNITY_Community 151|Community 151]]
+- [[_COMMUNITY_Community 152|Community 152]]
+- [[_COMMUNITY_Community 153|Community 153]]
+- [[_COMMUNITY_Community 154|Community 154]]
+- [[_COMMUNITY_Community 155|Community 155]]
+- [[_COMMUNITY_Community 156|Community 156]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `User` - 20 edges
-2. `11 — TODO MASTER` - 18 edges
-3. `Company` - 17 edges
-4. `Branch` - 16 edges
-5. `Role` - 14 edges
-6. `02 — Esquema Inicial de Base de Datos` - 14 edges
-7. `require-dev` - 11 edges
-8. `compilerOptions` - 11 edges
-9. `ApiResponse` - 10 edges
-10. `scripts` - 10 edges
+1. `User` - 58 edges
+2. `CurrentCompany` - 33 edges
+3. `Company` - 33 edges
+4. `ModuleManagerService` - 28 edges
+5. `ApiException` - 26 edges
+6. `ApiResponse` - 26 edges
+7. `Branch` - 26 edges
+8. `Role` - 25 edges
+9. `11 — TODO MASTER` - 18 edges
+10. `AuditLog` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Inventory Batches (lotes y vencimientos)` --references--> `Pantalla: Dashboard Principal (Retail)`  [INFERRED]
@@ -169,265 +180,305 @@
   promt master.txt → Pantallas del sistema/stitch_omnipos_modular_saas/onboarding_activaci_n_de_m_dulos/code.html
 
 ## Import Cycles
-- 1-file cycle: `resources/js/app.ts -> resources/js/app.ts`
+- None detected.
 
-## Communities (159 total, 70 thin omitted)
+## Communities (176 total, 76 thin omitted)
 
-### Community 0 - "00_PROJECT_OVERVIEW.md"
-Cohesion: 0.16
-Nodes (4): StoreRoleRequest, LoginRequest, StoreCompanyRequest, FormRequest
-
-### Community 1 - "Inventory Batches (lotes y vencimientos)"
-Cohesion: 0.06
-Nodes (39): ITBIS y Propina Legal, Multimoneda DOP/USD (exchange_rates), Secuencias NCF / e-NCF, Pantalla: Configuración de Módulos, Pantalla: Dashboard Principal (Retail), Pantalla: Entrada de Mercancía (Compras y Lotes), Pantalla: Facturas Electrónicas (e-CF), Pantalla: Inventario Avanzado (Control de Lotes) (+31 more)
-
-### Community 2 - "composer.json"
-Cohesion: 0.20
-Nodes (10): scripts, analyse, dev, post-autoload-dump, post-create-project-cmd, post-root-package-install, post-update-cmd, pre-package-uninstall (+2 more)
-
-### Community 3 - "MASTER PROMPT — ADDENDUM (v1.1)"
-Cohesion: 0.15
-Nodes (12): compilerOptions, esModuleInterop, isolatedModules, jsx, lib, module, moduleResolution, resolveJsonModule (+4 more)
-
-### Community 4 - "User.php"
-Cohesion: 0.07
-Nodes (22): bootBelongsToCompany(), CompanyModel, CurrentCompany, CreateRoleAction, ProvisionCompanyOwnerAccess, Permission, BelongsToMany, BelongsTo (+14 more)
-
-### Community 5 - "11 — TODO MASTER"
+### Community 0 - "Community 0"
 Cohesion: 0.05
 Nodes (38): Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento, OmniPOS Modular SaaS — Instrucciones del proyecto, Reglas duras (resumen), Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento (+30 more)
 
-### Community 6 - "02 — Esquema Inicial de Base de Datos"
-Cohesion: 0.14
-Nodes (14): 02 — Esquema Inicial de Base de Datos, 10. Facturación electrónica (§19), 11. Módulos verticales, 12. Reportes DGII (addendum), 1. Núcleo SaaS, 2. Sistema de módulos y planes, 3. Configuración fiscal y monedas, 4. Clientes (+6 more)
+### Community 1 - "Community 1"
+Cohesion: 0.08
+Nodes (36): busy, categories, categoryLabels, error, message(), store, toggle(), businessTypes (+28 more)
 
-### Community 7 - "devDependencies"
+### Community 2 - "Community 2"
+Cohesion: 0.08
+Nodes (13): EnsureModuleEnabled, Closure, Request, Response, CompleteOnboardingAction, ModuleController, JsonResponse, Request (+5 more)
+
+### Community 3 - "Community 3"
+Cohesion: 0.06
+Nodes (39): ITBIS y Propina Legal, Multimoneda DOP/USD (exchange_rates), Secuencias NCF / e-NCF, Pantalla: Configuración de Módulos, Pantalla: Dashboard Principal (Retail), Pantalla: Entrada de Mercancía (Compras y Lotes), Pantalla: Facturas Electrónicas (e-CF), Pantalla: Inventario Avanzado (Control de Lotes) (+31 more)
+
+### Community 4 - "Community 4"
+Cohesion: 0.09
+Nodes (13): authorizeApi(), User, ProvisionCompanyOwnerAccess, PermissionCatalog, AuditLogPolicy, Company, BelongsToMany, CompanyPolicy (+5 more)
+
+### Community 5 - "Community 5"
+Cohesion: 0.13
+Nodes (4): CreateCompanyAction, Auditable, HasPublicUlid, SoftDeletes
+
+### Community 6 - "Community 6"
+Cohesion: 0.08
+Nodes (18): CompanyUserResource, Request, PermissionResource, Request, Request, RoleResource, AuditLogResource, Request (+10 more)
+
+### Community 7 - "Community 7"
 Cohesion: 0.05
 Nodes (37): dependencies, pinia, vite-plugin-pwa, vue, vue-i18n, vue-router, devDependencies, axios (+29 more)
 
-### Community 8 - "Entrada de Mercancía Screen (Compras y Lotes)"
-Cohesion: 0.29
-Nodes (11): Entrada de Mercancía Screen (Compras y Lotes), OmniPOS Admin Sidebar Navigation (Inventory module active), Barcode Product Scanning (Escanear Producto), Batch/Lot Tracking with Expiration Dates (Lote, Vencimiento), Document Info Form (Proveedor, Almacén Destino, Fecha de Entrada), Draft vs Confirm Workflow (Borrador badge, Guardar Borrador, Confirmar Entrada Afecta Stock), Editable Line Items Table (Cant., Costo Unit., manual row add, row delete), Multi-Warehouse Destination Selection (Bodega Principal) (+3 more)
-
-### Community 9 - "Kardex Product Movement History Screen"
-Cohesion: 0.25
-Nodes (11): Kardex Product Movement History Screen, OmniPOS Admin Sidebar Navigation, CSV Export Button, Lot and Reference Traceability, Manual Adjustment Action (Ajuste Manual), Movement Type Badges, Movements Table, 30-Day Rotation Sparkline Chart (+3 more)
-
-### Community 10 - "Customer Profile Screen (History & Credit)"
-Cohesion: 0.24
-Nodes (11): Customer Profile Screen (History & Credit), Abonar Cuenta (Account Payment) Primary Action, Shipping and Billing Addresses Card, OmniPOS Admin Sidebar Navigation, Credit KPI Cards (Pending Balance, Available Limit, YTD Purchases), Credit Limit Usage Progress Bar, Credit Sales Workflow (Sell on Credit, Collect Later), Customer 360 Detail View (+3 more)
-
-### Community 11 - "System Configuration Active Modules Screen"
-Cohesion: 0.24
-Nodes (10): Dual Navigation Layout (top nav + sidebar), Guardar Cambios Save Button, Inventario Avanzado Module, Mesas y Comandas Module, Modular SaaS Architecture (feature flags per tenant), Module Dependency Badge (Requiere Inventario Base), Module Toggle Cards, POS Touch Module (+2 more)
-
-### Community 12 - "Dashboard Principal Perfil Retail (OmniPOS)"
-Cohesion: 0.33
-Nodes (10): Dashboard Principal Perfil Retail (OmniPOS), Abrir POS Quick Action Button, Alert Color Coding (red urgency for inventory alerts and pending collections), KPI Cards (Ventas de Hoy, Facturas Emitidas, Total Cobrado, Alertas de Inventario), Dominican Peso (RD$) Currency Localization, Retail/Supermarket Business Profile (Supermercado Central), Proximos a Vencer Panel (expiring lots with days-remaining badges), Sidebar Navigation (Dashboard, Inventory, Sales, Customers, Reports, Settings) (+2 more)
-
-### Community 13 - "Facturación Electrónica Control de e-CF Screen"
-Cohesion: 0.27
-Nodes (10): Facturación Electrónica Control de e-CF Screen, Contextual Action Buttons per Status, DGII e-CF Compliance (Dominican Republic), DGII Status Chip, e-CF Invoice Table, Filter Bar (Estado DGII, Tipo Comprobante, Rango de Fechas), NCF Type Badge (B01/B02), RNC Inválido Inline Validation Error (+2 more)
-
-### Community 14 - "Inventario Avanzado Control de Lotes Screen"
-Cohesion: 0.36
-Nodes (10): Inventario Avanzado Control de Lotes Screen, Alerts Counter Button (Alertas 3), Batch/Lot Control with Expirations, Branch and Warehouse Filters, Expandable Product Table, Expiration Badge (Prox. Vencer), Low Stock Highlight (Red Arrow on Quantity), Sidebar Navigation (OmniPOS Modules) (+2 more)
-
-### Community 15 - "Onboarding Module Activation Screen (Paso 3 de 5)"
-Cohesion: 0.29
-Nodes (10): Onboarding Module Activation Screen (Paso 3 de 5), Business Type Badge (Restaurante / Retail context chip), Facturacion Electronica Module (fiscal compliance, e-CF for DGII), Modular SaaS Architecture (per-tenant feature activation), Module Toggle Cards (icon, name, subtitle, description, on/off switch), Optional Modules Section (Inventario Avanzado toggled off), Recommended Modules Section (industry-based, 3 pre-activated modules), Restaurant-Oriented Modules (POS Touch, Mesas/Comandas with KDS) (+2 more)
-
-### Community 16 - "POS Touch Screen - Restaurant Profile (OmniPOS)"
-Cohesion: 0.38
-Nodes (10): POS Touch Screen - Restaurant Profile (OmniPOS), Category Sidebar (Food, Drinks, Dessert, Snacks), Dominican Peso (RD$) Currency Formatting, ITBIS 18% Tax Calculation, Line Item Modifiers and Quantity Steppers, Order Actions (Guardar Pedido, Imprimir Comanda, Registrar Venta), Order Panel (Order #4092 with Line Items), Product Grid with Photo Cards (+2 more)
-
-### Community 17 - "Procesar Pago Multimoneda y Mixto Screen"
-Cohesion: 0.33
-Nodes (10): Procesar Pago Multimoneda y Mixto Screen, Change Calculation (Monto Recibido / Devuelta), Finalizar y Facturar Primary Action Button, Dominican Tax Breakdown (ITBIS 18% and Propina Legal 10%), Mixed Payments Applied List (Pagos Aplicados / Falta por Pagar), Multi-Currency USD Payment with Exchange Rate (Tasa: 60.50), NCF Comprobante Type Selector (Consumidor Final / Credito Fiscal), Numeric Keypad (+2 more)
-
-### Community 18 - "Reporte de Ventas / Análisis de Rendimiento Screen"
-Cohesion: 0.33
-Nodes (10): Reporte de Ventas / Análisis de Rendimiento Screen, Export Actions (Exportar PDF / Exportar Excel), KPI Summary Cards (Venta Total, Margen, Ticket Promedio, Transacciones), Métodos de Pago Donut Chart, Period-over-Period Trend Indicators (vs mes anterior), Registro de Ventas Transaction Table, Table Search and Filters (Buscar ticket o cliente, Filtros), Sidebar Navigation (Dashboard, Inventory, Sales, Customers, Reports, Settings) (+2 more)
-
-### Community 19 - "Onboarding Business Type Selection Screen"
-Cohesion: 0.28
-Nodes (9): Onboarding Business Type Selection Screen, Business Type Cards Grid, Dominican Republic Context (RD$ currency), Industry Vertical Options (Restaurante, Cafeteria, Supermercado, Retail, Barberia/Salon, Taller Mecanico, Servicios Profesionales), Business Type Drives Modular Feature Configuration, OmniPOS SaaS Onboarding Flow, Selected Card State (indigo border, filled icon, checkmark badge), Wizard Navigation Footer (Atras / Siguiente buttons) (+1 more)
-
-### Community 20 - "TestCase"
-Cohesion: 0.22
-Nodes (4): BaseTestCase, ExampleTest, TestCase, ExampleTest
-
-### Community 21 - "scripts"
-Cohesion: 0.18
-Nodes (11): require-dev, fakerphp/faker, larastan/larastan, laravel/pail, laravel/pint, laravel/sail, mockery/mockery, nunomaduro/collision (+3 more)
-
-### Community 22 - "00 — Visión General del Proyecto: OmniPOS Modular SaaS"
-Cohesion: 0.22
-Nodes (9): 00 — Visión General del Proyecto: OmniPOS Modular SaaS, Arquitectura en una línea, Documentos, Fases de desarrollo (resumen), Mercado objetivo, Módulos opcionales, Núcleo (siempre activo), Qué es (+1 more)
-
-### Community 23 - "01 — Arquitectura"
-Cohesion: 0.24
-Nodes (7): audit(), auditLogs(), AuditLog, AuditLogger, Model, MorphMany, MorphTo
-
-### Community 24 - "05 — Sistema de Módulos"
-Cohesion: 0.22
-Nodes (9): 05 — Sistema de Módulos, Catálogo de módulos, Core (no desactivables), Mapa de dependencias (regla), Matriz por tipo de negocio, Middleware y frontend, ModuleManagerService, Opcionales (+1 more)
-
-### Community 25 - "README.md"
-Cohesion: 0.22
-Nodes (8): About Laravel, Code of Conduct, Contributing, Laravel Sponsors, Learning Laravel, License, Premium Partners, Security Vulnerabilities
-
-### Community 26 - "DESIGN.md"
-Cohesion: 0.25
-Nodes (7): Brand & Style, Colors, Components, Elevation & Depth, Layout & Spacing, Shapes, Typography
-
-### Community 27 - "06 — Facturación Electrónica (e-CF DGII, República Dominicana)"
-Cohesion: 0.29
-Nodes (7): 06 — Facturación Electrónica (e-CF DGII, República Dominicana), Contexto legal (investigado 2026-07), Criterios de aceptación del módulo, Diseño en el sistema, Flujo e-CF (a implementar detrás de la interface), Fuentes, Tipos de comprobante
-
-### Community 28 - "AppServiceProvider"
-Cohesion: 0.29
-Nodes (3): AppServiceProvider, ModuleServiceProvider, ServiceProvider
-
-### Community 29 - "[No publicado]"
-Cohesion: 0.18
-Nodes (10): 12 — CHANGELOG, 2026-07-09 — Corrección de navegación SPA, 2026-07-09 — Fase 1: acceso y contexto operativo, 2026-07-09 — Fase 1: aislamiento multiempresa base, 2026-07-09 — Fase 1: autenticación API segura, 2026-07-09 — Fase 1: RBAC por compañía, 2026-07-09 — Inicio de Fase 0: control de versiones, 2026-07-09 — Inicio de Fase 0: runtime y Laravel (+2 more)
-
-### Community 36 - "app.js"
-Cohesion: 0.21
-Nodes (6): i18n, useSessionStore, navigation, operatorName, session, router
-
-### Community 104 - "app.php"
+### Community 8 - "Community 8"
 Cohesion: 0.11
-Nodes (17): ApiException, ErrorCode, EnsureBranchContext, Closure, Request, Response, EnsureCompanyContext, Closure (+9 more)
+Nodes (16): ApiException, ErrorCode, EnsureBranchContext, Closure, Request, Response, EnsureCompanyContext, Closure (+8 more)
 
-### Community 118 - "08 — Seguridad y Auditoría"
-Cohesion: 0.20
-Nodes (10): 01 — Arquitectura, Capas de protección de una ruta, Contexto tenant implementado (Fase 1), Convenciones críticas, Decisiones registradas, Estructura backend, Eventos de dominio clave, Multi-tenancy (+2 more)
+### Community 9 - "Community 9"
+Cohesion: 0.10
+Nodes (10): CreateBranchAction, UpdateBranchAction, BranchController, JsonResponse, Request, UpdateBranchRequest, Branch, BelongsTo (+2 more)
 
-### Community 122 - "sanctum.php"
+### Community 10 - "Community 10"
+Cohesion: 0.11
+Nodes (20): api, storageKeys, availableBranches, branchCode, branchName, companies, companyName, errorMessage (+12 more)
+
+### Community 11 - "Community 11"
+Cohesion: 0.11
+Nodes (22): branches, editing, emptyForm(), ensureDefaultBranch(), error, form, load(), loading (+14 more)
+
+### Community 12 - "Community 12"
+Cohesion: 0.10
+Nodes (15): i18n, email, errorMessage, isSubmitting, password, router, session, useSessionStore (+7 more)
+
+### Community 13 - "Community 13"
+Cohesion: 0.13
+Nodes (8): BelongsToMany, SubscriptionPlan, BelongsToMany, SystemModule, DatabaseSeeder, ModuleSystemSeeder, Seeder, WithoutModelEvents
+
+### Community 14 - "Community 14"
+Cohesion: 0.13
+Nodes (7): DeactivateRoleAction, Permission, BelongsToMany, BelongsTo, BelongsToMany, Role, RolePolicy
+
+### Community 15 - "Community 15"
+Cohesion: 0.15
+Nodes (10): audit(), auditLogs(), AuditLog, BelongsTo, Money, AuditLogger, Model, BrickMoney (+2 more)
+
+### Community 16 - "Community 16"
+Cohesion: 0.14
+Nodes (14): AuditLogResponse, errorMessage, filters, hasFilters, isLoading, loadLogs(), logs, pagination (+6 more)
+
+### Community 17 - "Community 17"
+Cohesion: 0.15
+Nodes (15): branches, BranchForm, editing, emptyForm(), error, form, load(), loading (+7 more)
+
+### Community 18 - "Community 18"
+Cohesion: 0.19
+Nodes (6): ApiResponse, ErrorCode, JsonResponse, AuditLogController, JsonResponse, ListAuditLogsRequest
+
+### Community 19 - "Community 19"
 Cohesion: 0.22
-Nodes (8): description, keywords, license, minimum-stability, name, prefer-stable, $schema, type
+Nodes (5): LoginUserAction, RegisterUserAction, AuthController, JsonResponse, Request
 
-### Community 124 - "00_PROJECT_OVERVIEW.md"
+### Community 20 - "Community 20"
+Cohesion: 0.23
+Nodes (7): CompanyModel, CompanyModule, BelongsTo, CompanySubscription, BelongsTo, BelongsToCompany, Model
+
+### Community 21 - "Community 21"
+Cohesion: 0.28
+Nodes (5): CurrentCompany, SynchronizeCompanyUserAccessAction, CompanyUserController, BelongsToMany, JsonResponse
+
+### Community 23 - "Community 23"
+Cohesion: 0.14
+Nodes (14): 02 — Esquema Inicial de Base de Datos, 10. Facturación electrónica (§19), 11. Módulos verticales, 12. Reportes DGII (addendum), 1. Núcleo SaaS, 2. Sistema de módulos y planes, 3. Configuración fiscal y monedas, 4. Clientes (+6 more)
+
+### Community 24 - "Community 24"
+Cohesion: 0.22
+Nodes (13): deactivate(), editing, error, form, load(), loading, message(), permissions (+5 more)
+
+### Community 25 - "Community 25"
+Cohesion: 0.24
+Nodes (7): PermissionController, JsonResponse, Request, CompanyController, JsonResponse, Request, AuthorizesApiRequest
+
+### Community 26 - "Community 26"
+Cohesion: 0.19
+Nodes (4): StoreRoleRequest, UpdateCompanyUserAccessRequest, CompleteOnboardingRequest, FormRequest
+
+### Community 27 - "Community 27"
 Cohesion: 0.22
 Nodes (3): 10 — Despliegue, 13 — Decisiones Técnicas (ADR), 14 — Problemas Conocidos
 
-### Community 125 - "15 — Inventario, Lotes y Vencimientos"
+### Community 28 - "Community 28"
+Cohesion: 0.15
+Nodes (12): compilerOptions, esModuleInterop, isolatedModules, jsx, lib, module, moduleResolution, resolveJsonModule (+4 more)
+
+### Community 29 - "Community 29"
+Cohesion: 0.29
+Nodes (11): Entrada de Mercancía Screen (Compras y Lotes), OmniPOS Admin Sidebar Navigation (Inventory module active), Barcode Product Scanning (Escanear Producto), Batch/Lot Tracking with Expiration Dates (Lote, Vencimiento), Document Info Form (Proveedor, Almacén Destino, Fecha de Entrada), Draft vs Confirm Workflow (Borrador badge, Guardar Borrador, Confirmar Entrada Afecta Stock), Editable Line Items Table (Cant., Costo Unit., manual row add, row delete), Multi-Warehouse Destination Selection (Bodega Principal) (+3 more)
+
+### Community 30 - "Community 30"
+Cohesion: 0.25
+Nodes (11): Kardex Product Movement History Screen, OmniPOS Admin Sidebar Navigation, CSV Export Button, Lot and Reference Traceability, Manual Adjustment Action (Ajuste Manual), Movement Type Badges, Movements Table, 30-Day Rotation Sparkline Chart (+3 more)
+
+### Community 31 - "Community 31"
+Cohesion: 0.24
+Nodes (11): Customer Profile Screen (History & Credit), Abonar Cuenta (Account Payment) Primary Action, Shipping and Billing Addresses Card, OmniPOS Admin Sidebar Navigation, Credit KPI Cards (Pending Balance, Available Limit, YTD Purchases), Credit Limit Usage Progress Bar, Credit Sales Workflow (Sell on Credit, Collect Later), Customer 360 Detail View (+3 more)
+
+### Community 32 - "Community 32"
+Cohesion: 0.36
+Nodes (5): CreateRoleAction, UpdateRoleAction, JsonResponse, Request, RoleController
+
+### Community 33 - "Community 33"
+Cohesion: 0.22
+Nodes (4): BaseTestCase, ExampleTest, TestCase, ExampleTest
+
+### Community 34 - "Community 34"
+Cohesion: 0.18
+Nodes (11): require-dev, fakerphp/faker, larastan/larastan, laravel/pail, laravel/pint, laravel/sail, mockery/mockery, nunomaduro/collision (+3 more)
+
+### Community 35 - "Community 35"
+Cohesion: 0.18
+Nodes (10): 12 — CHANGELOG, 2026-07-09 — Corrección de navegación SPA, 2026-07-09 — Fase 1: acceso y contexto operativo, 2026-07-09 — Fase 1: aislamiento multiempresa base, 2026-07-09 — Fase 1: autenticación API segura, 2026-07-09 — Fase 1: RBAC por compañía, 2026-07-09 — Inicio de Fase 0: control de versiones, 2026-07-09 — Inicio de Fase 0: runtime y Laravel (+2 more)
+
+### Community 36 - "Community 36"
+Cohesion: 0.24
+Nodes (10): Dual Navigation Layout (top nav + sidebar), Guardar Cambios Save Button, Inventario Avanzado Module, Mesas y Comandas Module, Modular SaaS Architecture (feature flags per tenant), Module Dependency Badge (Requiere Inventario Base), Module Toggle Cards, POS Touch Module (+2 more)
+
+### Community 37 - "Community 37"
+Cohesion: 0.33
+Nodes (10): Dashboard Principal Perfil Retail (OmniPOS), Abrir POS Quick Action Button, Alert Color Coding (red urgency for inventory alerts and pending collections), KPI Cards (Ventas de Hoy, Facturas Emitidas, Total Cobrado, Alertas de Inventario), Dominican Peso (RD$) Currency Localization, Retail/Supermarket Business Profile (Supermercado Central), Proximos a Vencer Panel (expiring lots with days-remaining badges), Sidebar Navigation (Dashboard, Inventory, Sales, Customers, Reports, Settings) (+2 more)
+
+### Community 38 - "Community 38"
+Cohesion: 0.27
+Nodes (10): Facturación Electrónica Control de e-CF Screen, Contextual Action Buttons per Status, DGII e-CF Compliance (Dominican Republic), DGII Status Chip, e-CF Invoice Table, Filter Bar (Estado DGII, Tipo Comprobante, Rango de Fechas), NCF Type Badge (B01/B02), RNC Inválido Inline Validation Error (+2 more)
+
+### Community 39 - "Community 39"
+Cohesion: 0.36
+Nodes (10): Inventario Avanzado Control de Lotes Screen, Alerts Counter Button (Alertas 3), Batch/Lot Control with Expirations, Branch and Warehouse Filters, Expandable Product Table, Expiration Badge (Prox. Vencer), Low Stock Highlight (Red Arrow on Quantity), Sidebar Navigation (OmniPOS Modules) (+2 more)
+
+### Community 40 - "Community 40"
+Cohesion: 0.29
+Nodes (10): Onboarding Module Activation Screen (Paso 3 de 5), Business Type Badge (Restaurante / Retail context chip), Facturacion Electronica Module (fiscal compliance, e-CF for DGII), Modular SaaS Architecture (per-tenant feature activation), Module Toggle Cards (icon, name, subtitle, description, on/off switch), Optional Modules Section (Inventario Avanzado toggled off), Recommended Modules Section (industry-based, 3 pre-activated modules), Restaurant-Oriented Modules (POS Touch, Mesas/Comandas with KDS) (+2 more)
+
+### Community 41 - "Community 41"
+Cohesion: 0.38
+Nodes (10): POS Touch Screen - Restaurant Profile (OmniPOS), Category Sidebar (Food, Drinks, Dessert, Snacks), Dominican Peso (RD$) Currency Formatting, ITBIS 18% Tax Calculation, Line Item Modifiers and Quantity Steppers, Order Actions (Guardar Pedido, Imprimir Comanda, Registrar Venta), Order Panel (Order #4092 with Line Items), Product Grid with Photo Cards (+2 more)
+
+### Community 42 - "Community 42"
+Cohesion: 0.33
+Nodes (10): Procesar Pago Multimoneda y Mixto Screen, Change Calculation (Monto Recibido / Devuelta), Finalizar y Facturar Primary Action Button, Dominican Tax Breakdown (ITBIS 18% and Propina Legal 10%), Mixed Payments Applied List (Pagos Aplicados / Falta por Pagar), Multi-Currency USD Payment with Exchange Rate (Tasa: 60.50), NCF Comprobante Type Selector (Consumidor Final / Credito Fiscal), Numeric Keypad (+2 more)
+
+### Community 43 - "Community 43"
+Cohesion: 0.33
+Nodes (10): Reporte de Ventas / Análisis de Rendimiento Screen, Export Actions (Exportar PDF / Exportar Excel), KPI Summary Cards (Venta Total, Margen, Ticket Promedio, Transacciones), Métodos de Pago Donut Chart, Period-over-Period Trend Indicators (vs mes anterior), Registro de Ventas Transaction Table, Table Search and Filters (Buscar ticket o cliente, Filtros), Sidebar Navigation (Dashboard, Inventory, Sales, Customers, Reports, Settings) (+2 more)
+
+### Community 44 - "Community 44"
+Cohesion: 0.20
+Nodes (10): scripts, analyse, dev, post-autoload-dump, post-create-project-cmd, post-root-package-install, post-update-cmd, pre-package-uninstall (+2 more)
+
+### Community 45 - "Community 45"
+Cohesion: 0.20
+Nodes (10): 01 — Arquitectura, Capas de protección de una ruta, Contexto tenant implementado (Fase 1), Convenciones críticas, Decisiones registradas, Estructura backend, Eventos de dominio clave, Multi-tenancy (+2 more)
+
+### Community 46 - "Community 46"
+Cohesion: 0.20
+Nodes (8): email, errorMessage, isSubmitting, name, password, passwordConfirmation, router, session
+
+### Community 47 - "Community 47"
+Cohesion: 0.28
+Nodes (9): Onboarding Business Type Selection Screen, Business Type Cards Grid, Dominican Republic Context (RD$ currency), Industry Vertical Options (Restaurante, Cafeteria, Supermercado, Retail, Barberia/Salon, Taller Mecanico, Servicios Profesionales), Business Type Drives Modular Feature Configuration, OmniPOS SaaS Onboarding Flow, Selected Card State (indigo border, filled icon, checkmark badge), Wizard Navigation Footer (Atras / Siguiente buttons) (+1 more)
+
+### Community 48 - "Community 48"
+Cohesion: 0.28
+Nodes (5): bootBelongsToCompany(), bootHasPublicUlid(), UserFactory, Factory, static
+
+### Community 49 - "Community 49"
+Cohesion: 0.28
+Nodes (3): AppServiceProvider, ModuleServiceProvider, ServiceProvider
+
+### Community 50 - "Community 50"
+Cohesion: 0.22
+Nodes (8): description, keywords, license, minimum-stability, name, prefer-stable, $schema, type
+
+### Community 51 - "Community 51"
+Cohesion: 0.22
+Nodes (9): 00 — Visión General del Proyecto: OmniPOS Modular SaaS, Arquitectura en una línea, Documentos, Fases de desarrollo (resumen), Mercado objetivo, Módulos opcionales, Núcleo (siempre activo), Qué es (+1 more)
+
+### Community 52 - "Community 52"
+Cohesion: 0.22
+Nodes (9): 05 — Sistema de Módulos, Catálogo de módulos, Core (no desactivables), Mapa de dependencias (regla), Matriz por tipo de negocio, Middleware y frontend, ModuleManagerService, Opcionales (+1 more)
+
+### Community 53 - "Community 53"
+Cohesion: 0.22
+Nodes (8): About Laravel, Code of Conduct, Contributing, Laravel Sponsors, Learning Laravel, License, Premium Partners, Security Vulnerabilities
+
+### Community 54 - "Community 54"
 Cohesion: 0.25
 Nodes (7): 15 — Inventario, Lotes y Vencimientos, Alertas (job diario + eventos en tiempo real), Kardex, Modelo, Métodos de salida (por producto, `outgoing_method`), Reglas de venta con vencimiento (configurables por empresa), Reportes
 
-### Community 127 - "config"
+### Community 55 - "Community 55"
+Cohesion: 0.25
+Nodes (7): Brand & Style, Colors, Components, Elevation & Depth, Layout & Spacing, Shapes, Typography
+
+### Community 56 - "Community 56"
 Cohesion: 0.29
 Nodes (7): pestphp/pest-plugin, php-http/discovery, config, allow-plugins, optimize-autoloader, preferred-install, sort-packages
 
-### Community 128 - ".prettierrc.json"
-Cohesion: 0.40
-Nodes (4): printWidth, singleQuote, tabWidth, trailingComma
+### Community 57 - "Community 57"
+Cohesion: 0.29
+Nodes (7): 06 — Facturación Electrónica (e-CF DGII, República Dominicana), Contexto legal (investigado 2026-07), Criterios de aceptación del módulo, Diseño en el sistema, Flujo e-CF (a implementar detrás de la interface), Fuentes, Tipos de comprobante
 
-### Community 129 - "require"
-Cohesion: 0.33
-Nodes (6): require, brick/money, laravel/framework, laravel/sanctum, laravel/tinker, php
-
-### Community 134 - "04 — Estructura Frontend"
-Cohesion: 0.33
-Nodes (5): 04 — Estructura Frontend, Design system: "Kinetic Enterprise", Estructura (master prompt §5), Pantallas de referencia (Stitch), Reglas frontend
-
-### Community 135 - "08 — Seguridad y Auditoría"
+### Community 58 - "Community 58"
 Cohesion: 0.29
 Nodes (7): 08 — Seguridad y Auditoría, Acciones sensibles con autorización elevada, Auditoría (módulo Audit), Autenticación y sesiones, Autorización en capas, Datos, Implementado en Fase 1
 
-### Community 136 - "09 — Estrategia de Pruebas"
+### Community 60 - "Community 60"
+Cohesion: 0.33
+Nodes (5): category, code, dependencies, is_core, name
+
+### Community 61 - "Community 61"
+Cohesion: 0.33
+Nodes (6): require, brick/money, laravel/framework, laravel/sanctum, laravel/tinker, php
+
+### Community 62 - "Community 62"
+Cohesion: 0.33
+Nodes (5): 04 — Estructura Frontend, Design system: "Kinetic Enterprise", Estructura (master prompt §5), Pantallas de referencia (Stitch), Reglas frontend
+
+### Community 63 - "Community 63"
 Cohesion: 0.33
 Nodes (5): 09 — Estrategia de Pruebas, Cobertura obligatoria backend (master prompt §29), E2E Playwright (Fase 14, sobre app real), Herramientas, Regla de trabajo
 
-### Community 137 - "psr-4"
+### Community 69 - "Community 69"
 Cohesion: 0.40
 Nodes (5): autoload, psr-4, App\\, Database\\Factories\\, Database\\Seeders\\
 
-### Community 138 - "07 — Impresión"
+### Community 70 - "Community 70"
 Cohesion: 0.40
 Nodes (5): 07 — Impresión, Alcance (master prompt §20), Configuración, Estrategia por etapas, Requisitos fiscales del ticket/factura RD
 
-### Community 139 - "03 — Documentación de API"
+### Community 71 - "Community 71"
+Cohesion: 0.40
+Nodes (4): printWidth, singleQuote, tabWidth, trailingComma
+
+### Community 73 - "Community 73"
 Cohesion: 0.50
 Nodes (3): 03 — Documentación de API, Convenciones, Mapa de endpoints previsto (por fase)
 
-### Community 140 - "autoload-dev"
+### Community 75 - "Community 75"
 Cohesion: 0.67
 Nodes (3): autoload-dev, psr-4, Tests\\
 
-### Community 141 - "extra"
+### Community 76 - "Community 76"
 Cohesion: 0.67
 Nodes (3): extra, laravel, dont-discover
-
-### Community 145 - "11 — TODO MASTER"
-Cohesion: 0.14
-Nodes (11): JsonResponse, RoleController, Request, RoleResource, Request, UserResource, BranchResource, Request (+3 more)
-
-### Community 146 - "UserFactory"
-Cohesion: 0.32
-Nodes (4): bootHasPublicUlid(), UserFactory, Factory, static
-
-### Community 147 - "DatabaseSeeder.php"
-Cohesion: 0.60
-Nodes (3): DatabaseSeeder, Seeder, WithoutModelEvents
-
-### Community 149 - "User.php"
-Cohesion: 0.16
-Nodes (8): BelongsToMany, User, LogoutUserAction, RegisterUserAction, Authenticatable, HasApiTokens, HasFactory, Notifiable
-
-### Community 150 - "ContextPage.vue"
-Cohesion: 0.13
-Nodes (13): availableBranches, branchCode, branchName, companies, companyName, errorMessage, isCreatingCompany, isLoading (+5 more)
-
-### Community 151 - "ApiResponse"
-Cohesion: 0.24
-Nodes (6): ApiResponse, JsonResponse, CreateCompanyAction, CompanyController, JsonResponse, Request
-
-### Community 152 - "AuthController.php"
-Cohesion: 0.28
-Nodes (4): LoginUserAction, AuthController, JsonResponse, Request
-
-### Community 153 - "session.ts"
-Cohesion: 0.31
-Nodes (7): api, storageKeys, ApiEnvelope, AuthSession, AuthUser, Branch, Company
-
-### Community 154 - "RegisterPage.vue"
-Cohesion: 0.22
-Nodes (8): email, errorMessage, isSubmitting, name, password, passwordConfirmation, router, session
-
-### Community 155 - "LoginPage.vue"
-Cohesion: 0.29
-Nodes (6): email, errorMessage, isSubmitting, password, router, session
-
-### Community 156 - ".error"
-Cohesion: 0.40
-Nodes (4): ErrorCode, createCompany(), submit(), submit()
 
 ## Ambiguous Edges - Review These
 - `Purchase Order Reception (PO-2023-0891)` → `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`  [AMBIGUOUS]
   Pantallas del sistema/stitch_omnipos_modular_saas/entradas_de_mercanc_a_compras_y_lotes/screen.png · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **338 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+333 more)
+- **400 isolated node(s):** `Fuentes de verdad (en orden de prioridad)`, `Documentación viva`, `Reglas duras (resumen)`, `Grafo de conocimiento`, `Fuentes de verdad (en orden de prioridad)` (+395 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **70 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **76 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Purchase Order Reception (PO-2023-0891)` and `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `ApiResponse` connect `ApiResponse` to `AuthController.php`, `11 — TODO MASTER`, `.error`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
-- **Why does `createCompany()` connect `.error` to `ContextPage.vue`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **Why does `Role` connect `User.php` to `11 — TODO MASTER`?**
-  _High betweenness centrality (0.010) - this node is a cross-community bridge._
-- **Are the 3 inferred relationships involving `User` (e.g. with `.execute()` and `.execute()`) actually correct?**
-  _`User` has 3 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `singleQuote`, `printWidth`, `tabWidth` to the rest of the system?**
-  _354 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Inventory Batches (lotes y vencimientos)` be split into smaller, more focused modules?**
-  _Cohesion score 0.059379217273954114 - nodes in this community are weakly interconnected._
+- **Why does `CurrentCompany` connect `Community 21` to `Community 32`, `Community 2`, `Community 4`, `Community 5`, `Community 9`, `Community 18`, `Community 25`?**
+  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+- **Why does `User` connect `Community 4` to `Community 2`, `Community 5`, `Community 6`, `Community 9`, `Community 74`, `Community 13`, `Community 14`, `Community 19`, `Community 21`, `Community 22`, `Community 59`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **Why does `ApiResponse` connect `Community 18` to `Community 32`, `Community 2`, `Community 9`, `Community 19`, `Community 21`, `Community 25`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+- **Are the 2 inferred relationships involving `User` (e.g. with `.execute()` and `.execute()`) actually correct?**
+  _`User` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **What connects `Fuentes de verdad (en orden de prioridad)`, `Documentación viva`, `Reglas duras (resumen)` to the rest of the system?**
+  _416 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Community 0` be split into smaller, more focused modules?**
+  _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._

@@ -17,7 +17,7 @@
 - [x] UI inicial de roles y permisos conectada al API, con estados operativos y protección visual de roles del sistema.
 - [x] UI de usuarios por compañía: asignación de cuentas existentes a sucursales y roles, sucursal predeterminada y protección visual del propietario.
 - [x] UI de sucursales: listado, creación y actualización con estado activo y protección visual de la sucursal principal.
-- [x] Grafo Graphify actualizado e incorporado al grafo global como `omnipos-modular-saas` (793 nodos, 948 relaciones; reemplazo del tag existente, sin duplicados). El extractor aún omite manifiestos `module.json` sin símbolos AST.
+- [x] Grafo Graphify actualizado con el código de Fase 2 mediante extracción AST incremental (1207 nodos, 1861 relaciones). La capa semántica de docs/imágenes no se re-extrajo esta sesión (se conservan sus nodos previos); refrescar con un `/graphify` completo cuando convenga. El extractor aún omite manifiestos `module.json` sin símbolos AST.
 
 ## FASE 0 — Base
 - [x] Inicializar repositorio Git local (`main`) y vincular el remoto autorizado `origin`
