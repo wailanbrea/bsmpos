@@ -295,9 +295,9 @@
     "semantic_hash": "debd5d65186a864d3e0380dd3d0bd7ca"
   },
   "docs/09_TESTING.md": {
-    "mtime": 1783751855.303685,
-    "ast_hash": "560b63154e5ccc92f7df782d996d5c59",
-    "semantic_hash": "560b63154e5ccc92f7df782d996d5c59"
+    "mtime": 1783773265.7915003,
+    "ast_hash": "d48451fdca088926103ecab7444fbd0c",
+    "semantic_hash": "d48451fdca088926103ecab7444fbd0c"
   },
   "docs/10_DEPLOYMENT.md": {
     "mtime": 1783724558.4581525,
@@ -305,14 +305,14 @@
     "semantic_hash": "feea908c2e1c97bcf28dd1612f5c6f1a"
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783772606.0388455,
-    "ast_hash": "7f0b7cbaa66e5526ef5a177bc13ed1bc",
-    "semantic_hash": "7f0b7cbaa66e5526ef5a177bc13ed1bc"
+    "mtime": 1783773285.7406206,
+    "ast_hash": "af7f51a5f431e34641adc309b781f318",
+    "semantic_hash": "af7f51a5f431e34641adc309b781f318"
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783772596.7109356,
-    "ast_hash": "56edf0f955b8dcf7498aa91349071fa9",
-    "semantic_hash": "56edf0f955b8dcf7498aa91349071fa9"
+    "mtime": 1783773296.1173255,
+    "ast_hash": "901503d2e02a14901972749de02c5754",
+    "semantic_hash": "901503d2e02a14901972749de02c5754"
   },
   "docs/13_DECISIONS.md": {
     "mtime": 1783724558.461153,
@@ -2155,9 +2155,9 @@
     "semantic_hash": "a1fe41539c55ca4c6ee159b530ff99ba"
   },
   "database/seeders/DemoSeeder.php": {
-    "mtime": 1783751242.5336044,
-    "ast_hash": "e0db21ec8ac44dea93755a950741638b",
-    "semantic_hash": "e0db21ec8ac44dea93755a950741638b"
+    "mtime": 1783772941.7328858,
+    "ast_hash": "50016e9a167e0b11b4e56fd35703a524",
+    "semantic_hash": "50016e9a167e0b11b4e56fd35703a524"
   },
   "playwright.config.ts": {
     "mtime": 1783724196.3184867,
@@ -2488,5 +2488,15 @@
     "mtime": 1783772323.0829816,
     "ast_hash": "532a8e8c1256d7889f380d14ffcd8c64",
     "semantic_hash": "532a8e8c1256d7889f380d14ffcd8c64"
+  },
+  "tests/e2e/appointments.spec.ts": {
+    "mtime": 1783773030.5765448,
+    "ast_hash": "9ddda5a27f2b48eddc287370cf96c397",
+    "semantic_hash": "9ddda5a27f2b48eddc287370cf96c397"
+  },
+  "tests/e2e/work-orders.spec.ts": {
+    "mtime": 1783773042.944725,
+    "ast_hash": "5c8a2f33a0392911a82e8e633d00b875",
+    "semantic_hash": "5c8a2f33a0392911a82e8e633d00b875"
   }
 }
