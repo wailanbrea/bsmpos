@@ -19,6 +19,8 @@ import KitchenKdsPage from '../modules/restaurant/pages/KitchenKdsPage.vue';
 import ElectronicInvoicePage from '../modules/electronic-invoices/pages/ElectronicInvoicePage.vue';
 import ReportsPage from '../modules/reports/pages/ReportsPage.vue';
 import SecurityPage from '../modules/security/pages/SecurityPage.vue';
+import AgendaPage from '../modules/appointments/pages/AgendaPage.vue';
+import EmployeeListPage from '../modules/employees/pages/EmployeeListPage.vue';
 import { useSessionStore } from '../modules/auth/stores/session';
 import { useModuleStore } from '../modules/module-manager/stores/modules';
 
@@ -142,6 +144,18 @@ const router = createRouter({
             name: 'security',
             component: SecurityPage,
             meta: { requiresAuth: true, requiresContext: true },
+        },
+        {
+            path: '/agenda',
+            name: 'agenda',
+            component: AgendaPage,
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'appointment' },
+        },
+        {
+            path: '/empleados',
+            name: 'employees',
+            component: EmployeeListPage,
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'employee' },
         },
     ],
 });

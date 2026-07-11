@@ -4,6 +4,17 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-11 — Fase 12: vertical Barbería / Salón (empleados + citas)
+**Agregado**
+- Módulo activable **`employee`**: empleados con cargo, contacto y % de comisión (tabla `employees`, CRUD `GET/POST/PATCH /employees`, permisos `employees.view/manage`).
+- Módulo activable **`appointment`** (dep. `service`): agenda de citas (tablas `appointments`, `appointment_services`). `GET /appointments` con filtros por fecha/empleado/estado, `POST /appointments` (snapshot de servicios + total con ITBIS calculado en DECIMAL vía bcmath), `GET /appointments/{id}`, `PATCH /appointments/{id}/status` con transiciones validadas (pendiente→confirmada→en_proceso→completada; cancelada/no_asistio). Permisos `appointments.view/manage`.
+- Frontend: pantallas **Agenda** (`/agenda`) y **Empleados** (`/empleados`), gated por módulo, con ítems de menú. Design system Kinetic.
+- El preset de negocio `barbershop` ya activaba `service`, `appointment` y `employee` en el onboarding; ahora esos módulos tienen implementación real.
+
+**Validado**
+- `AppointmentModuleTest` (6 casos): empleado con comisión, cita con total+ITBIS (RD$ 354), transiciones válidas e inválidas (409), filtros de agenda por fecha/empleado, bloqueo por módulo desactivado y aislamiento por compañía. Suite backend **156 verde**; Pint y Larastan limpios; typecheck/ESLint/Prettier/build verdes.
+- Navegador real (usuario demo con módulos activados): crear cita RD$ 413 (350 + 18%), transición Pendiente→Confirmada, pantalla de Empleados; 0 errores de consola.
+
 ### 2026-07-10 — Fase 14: E2E de venta sin stock + fix de feedback en POS
 **Corregido**
 - **POS:** un cobro fallido durante un turno activo (stock insuficiente, fallo de emisión fiscal o cualquier error del servidor) no mostraba ningún mensaje al cajero — el único banner de error vivía dentro del formulario de apertura de caja (`v-if="!activeSession"`). Ahora el modal "Detalles del Cobro" muestra el error (`role="alert"`), así el cajero ve el motivo del rechazo.

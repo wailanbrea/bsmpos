@@ -27,6 +27,12 @@ final class PermissionCatalog
             ['code' => 'services.view', 'name' => 'Ver servicios', 'module_code' => 'service', 'description' => 'Consultar servicios.'],
             ['code' => 'services.manage', 'name' => 'Gestionar servicios', 'module_code' => 'service', 'description' => 'Crear y editar servicios.'],
 
+            // Empleados y citas (barbería / salón)
+            ['code' => 'employees.view', 'name' => 'Ver empleados', 'module_code' => 'employee', 'description' => 'Consultar empleados y comisiones.'],
+            ['code' => 'employees.manage', 'name' => 'Gestionar empleados', 'module_code' => 'employee', 'description' => 'Crear y editar empleados y sus comisiones.'],
+            ['code' => 'appointments.view', 'name' => 'Ver citas', 'module_code' => 'appointment', 'description' => 'Consultar la agenda de citas.'],
+            ['code' => 'appointments.manage', 'name' => 'Gestionar citas', 'module_code' => 'appointment', 'description' => 'Agendar citas y cambiar su estado.'],
+
             // Inventario, almacenes y compras
             ['code' => 'suppliers.view', 'name' => 'Ver proveedores', 'module_code' => 'supplier', 'description' => 'Consultar proveedores.'],
             ['code' => 'suppliers.manage', 'name' => 'Gestionar proveedores', 'module_code' => 'supplier', 'description' => 'Crear y editar proveedores.'],

@@ -99,7 +99,7 @@
 
 ## FASE 12 — Módulos por negocio
 - [x] Restaurante: mesas/áreas, KDS, comandas, delivery, menú digital
-- [ ] Barbería: citas, agenda, empleados, comisiones
+- [x] Barbería / Salón: módulos activables **`employee`** (empleados con % de comisión) y **`appointment`** (citas). Agenda por fecha/empleado, alta de cita con servicios (total con ITBIS vía bcmath), ciclo de estados pendiente→confirmada→en_proceso→completada con transiciones validadas (cancelada/no_asistio); rutas gated por `module:`+permiso, aislamiento por compañía. Cubierto por `AppointmentModuleTest` (6 casos) y verificado en navegador real (crear cita RD$413, transición de estado, 0 errores de consola). Pendiente futuro: facturar cita → factura fiscal (hoy los servicios se cobran por POS).
 - [ ] Taller: vehículos, órdenes de trabajo, cotizaciones, fotos
 
 ## FASE 13 — Reportes
