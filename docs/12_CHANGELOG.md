@@ -4,6 +4,13 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Fase 14: E2E de módulos y endurecimiento de CI
+**Agregado**
+- Escenarios E2E `modules.spec.ts`: desactivar y reactivar un módulo opcional (Código de barras) verificando el `role="switch"`/`aria-checked`, y comprobación de que un módulo del núcleo no se puede desactivar. Suite E2E ahora en 15 escenarios verdes.
+
+**Cambiado**
+- `phpunit.xml` fija un `APP_KEY` de pruebas para que la suite backend (incl. cifrado del secreto 2FA) pase en CI sin depender de un `.env`.
+
 ### 2026-07-10 — Fase 14: pago mixto y multimoneda E2E
 **Agregado**
 - Segundo recorrido POS automatizado: tarjeta DOP RD$58 con referencia + efectivo USD 1.00 a tasa vigente RD$60, total exacto RD$118, B02 y descuento de stock.
