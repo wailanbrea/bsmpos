@@ -7,10 +7,13 @@ namespace Database\Seeders;
 use App\Core\Tenancy\CurrentCompany;
 use App\Models\User;
 use App\Modules\Company\Actions\CreateCompanyAction;
+use App\Modules\Employee\Models\Employee;
 use App\Modules\Inventory\Models\Warehouse;
 use App\Modules\Inventory\Services\InventoryService;
 use App\Modules\ModuleManager\Actions\CompleteOnboardingAction;
+use App\Modules\ModuleManager\Services\ModuleManagerService;
 use App\Modules\Product\Models\Product;
+use App\Modules\Service\Models\Service;
 use App\Modules\Setting\Models\ExchangeRate;
 use App\Modules\Setting\Models\NcfSequence;
 use App\Modules\Setting\Models\Tax;
@@ -146,6 +149,34 @@ class DemoSeeder extends Seeder
             'current_number' => 0,
             'expires_at' => now()->addYear(),
             'alert_threshold' => 10,
+            'is_active' => true,
+        ]);
+
+        // Verticales Barbería y Taller: módulos activables + un servicio y un
+        // empleado para los recorridos E2E de agenda de citas y órdenes de taller.
+        // (service antes que appointment; vehicle antes que work_order por deps.)
+        $modules = app(ModuleManagerService::class);
+        foreach (['service', 'employee', 'vehicle', 'appointment', 'work_order'] as $code) {
+            $modules->enableModule($company, $code, $owner);
+        }
+
+        Service::query()->create([
+            'company_id' => $company->getKey(),
+            'tax_id' => $tax->getKey(),
+            'name' => 'Servicio general',
+            'price' => 300.00,
+            'duration_minutes' => 30,
+            'available_pos' => false,
+            'available_appointments' => true,
+            'requires_employee' => true,
+            'is_active' => true,
+        ]);
+
+        Employee::query()->create([
+            'company_id' => $company->getKey(),
+            'name' => 'Pedro Técnico',
+            'position' => 'Técnico',
+            'commission_rate' => 40,
             'is_active' => true,
         ]);
     }

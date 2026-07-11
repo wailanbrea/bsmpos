@@ -4,6 +4,12 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-11 — E2E de los verticales Barbería y Taller
+**Agregado**
+- `appointments.spec.ts`: agenda una cita (empleado + servicio) verificando el total con ITBIS (RD$ 354) y la transición Pendiente→Confirmada.
+- `work-orders.spec.ts`: registra un vehículo, crea una orden de trabajo con servicio + mano de obra (RD$ 854) y avanza Recibida→Diagnosticando.
+- `DemoSeeder` activa los módulos `service/employee/vehicle/appointment/work_order` y siembra un servicio y un empleado para estos recorridos. Suite E2E ahora en **18 escenarios verdes**.
+
 ### 2026-07-11 — Export nativo Excel/PDF de reportes + seeder base global
 **Agregado**
 - **Excel nativo (.xlsx)** y **PDF** del reporte de ventas con escritores propios sin dependencias: `App\Core\Support\XlsxWriter` (paquete OOXML vía `ZipArchive`, celdas numéricas detectadas) y `App\Core\Support\PdfTableDocument` (PDF 1.4, tabla A4 paginada, Helvetica/WinAnsi). Endpoints `GET /reports/sales/export.xlsx` y `.pdf`; botones **Excel** y **PDF** junto a Exportar CSV en la pantalla de Reportes.
