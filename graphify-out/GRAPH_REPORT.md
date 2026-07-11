@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2505 nodes · 4834 edges · 283 communities (178 shown, 105 thin omitted)
+- 2506 nodes · 4834 edges · 283 communities (179 shown, 104 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 295 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
@@ -172,9 +172,9 @@
 - [[_COMMUNITY_Community 160|Community 160]]
 - [[_COMMUNITY_Community 161|Community 161]]
 - [[_COMMUNITY_Community 162|Community 162]]
-- [[_COMMUNITY_Community 163|Community 163]]
+- [[_COMMUNITY_Community 192|Community 192]]
 - [[_COMMUNITY_Community 193|Community 193]]
-- [[_COMMUNITY_Community 194|Community 194]]
+- [[_COMMUNITY_Community 195|Community 195]]
 - [[_COMMUNITY_Community 196|Community 196]]
 - [[_COMMUNITY_Community 197|Community 197]]
 - [[_COMMUNITY_Community 198|Community 198]]
@@ -243,7 +243,6 @@
 - [[_COMMUNITY_Community 261|Community 261]]
 - [[_COMMUNITY_Community 262|Community 262]]
 - [[_COMMUNITY_Community 263|Community 263]]
-- [[_COMMUNITY_Community 264|Community 264]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `CurrentCompany` - 128 edges
@@ -272,7 +271,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (283 total, 105 thin omitted)
+## Communities (283 total, 104 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
@@ -359,44 +358,44 @@ Cohesion: 0.15
 Nodes (7): InvoiceIssued, Invoice, BelongsTo, HasMany, InvoiceService, Dispatchable, makeInvoice()
 
 ### Community 23 - "Community 23"
+Cohesion: 0.16
+Nodes (8): JsonResponse, Request, PurchaseController, UpsertPurchaseFiscalDataRequest, BelongsTo, HasMany, HasOne, Purchase
+
+### Community 24 - "Community 24"
 Cohesion: 0.11
 Nodes (19): storageKeys, availableBranches, branchCode, branchName, companies, companyName, errorMessage, isCreatingCompany (+11 more)
 
-### Community 24 - "Community 24"
+### Community 25 - "Community 25"
 Cohesion: 0.10
 Nodes (7): CreateBranchAction, UpdateBranchRequest, Branch, BelongsTo, BelongsToMany, BranchPolicy, ProvisionDefaultWarehouse
 
-### Community 25 - "Community 25"
+### Community 26 - "Community 26"
 Cohesion: 0.13
 Nodes (10): SendElectronicInvoiceJob, ProcessIssuedInvoice, ElectronicInvoiceSetting, ElectronicInvoiceService, ElectronicInvoiceProviderInterface, Attribute, InteractsWithQueue, Queueable (+2 more)
 
-### Community 26 - "Community 26"
+### Community 27 - "Community 27"
 Cohesion: 0.23
 Nodes (5): JsonResponse, Request, ReportController, ExportDgii608Request, StreamedResponse
 
-### Community 27 - "Community 27"
+### Community 28 - "Community 28"
 Cohesion: 0.12
 Nodes (21): branches, editing, emptyForm(), ensureDefaultBranch(), error, form, load(), loading (+13 more)
 
-### Community 28 - "Community 28"
+### Community 29 - "Community 29"
 Cohesion: 0.11
 Nodes (15): categories, editing, emptyForm(), error, form, load(), loading, message() (+7 more)
 
-### Community 29 - "Community 29"
+### Community 30 - "Community 30"
 Cohesion: 0.16
 Nodes (11): SynchronizeCompanyUserAccessAction, CompanyUserController, BelongsToMany, JsonResponse, PermissionController, JsonResponse, Request, CompanyController (+3 more)
 
-### Community 30 - "Community 30"
+### Community 31 - "Community 31"
 Cohesion: 0.16
 Nodes (19): customers, editing, emptyForm(), error, form, load(), loading, message() (+11 more)
 
-### Community 31 - "Community 31"
+### Community 32 - "Community 32"
 Cohesion: 0.14
 Nodes (7): Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento, OmniPOS Modular SaaS — Instrucciones del proyecto, Reglas duras (resumen), 13 — Decisiones Técnicas (ADR), 14 — Problemas Conocidos
-
-### Community 32 - "Community 32"
-Cohesion: 0.20
-Nodes (7): JsonResponse, Request, PurchaseController, BelongsTo, HasMany, HasOne, Purchase
 
 ### Community 33 - "Community 33"
 Cohesion: 0.09
@@ -468,7 +467,7 @@ Nodes (6): ProvisionCompanyConfiguration, FiscalCatalog, ConfigurationSeeder, Da
 
 ### Community 50 - "Community 50"
 Cohesion: 0.21
-Nodes (8): EnsureBranchContext, Closure, Request, Response, EnsurePermission, Closure, Request, Response
+Nodes (8): EnsureCompanyContext, Closure, Request, Response, EnsurePermission, Closure, Request, Response
 
 ### Community 51 - "Community 51"
 Cohesion: 0.21
@@ -728,7 +727,7 @@ Nodes (7): 06 — Facturación Electrónica (e-CF DGII, República Dominicana), 
 
 ### Community 118 - "Community 118"
 Cohesion: 0.53
-Nodes (4): EnsureCompanyContext, Closure, Request, Response
+Nodes (4): EnsureBranchContext, Closure, Request, Response
 
 ### Community 120 - "Community 120"
 Cohesion: 0.33
@@ -766,27 +765,27 @@ Nodes (5): 07 — Impresión, Alcance (master prompt §20), Configuración, Estr
 Cohesion: 0.40
 Nodes (4): printWidth, singleQuote, tabWidth, trailingComma
 
-### Community 158 - "Community 158"
+### Community 157 - "Community 157"
 Cohesion: 0.50
 Nodes (4): Facturación electrónica (Fase 10), `GET /api/v1/electronic-invoices` · `GET /api/v1/electronic-invoices/{publicId}/logs`, `GET/PUT /api/v1/electronic-invoices/settings`, `POST /api/v1/electronic-invoices/{publicId}/retry`
 
-### Community 159 - "Community 159"
+### Community 158 - "Community 158"
 Cohesion: 0.50
 Nodes (4): `GET /api/v1/branches`, `PATCH /api/v1/branches/{publicId}`, `POST /api/v1/branches`, Sucursales (Fase 1)
 
-### Community 160 - "Community 160"
+### Community 159 - "Community 159"
 Cohesion: 0.50
 Nodes (4): `GET /api/v1/users`, `PATCH /api/v1/users/{publicId}/access`, `POST /api/v1/users`, Usuarios por compañía (Fase 1)
 
-### Community 161 - "Community 161"
+### Community 160 - "Community 160"
 Cohesion: 0.50
 Nodes (4): checkOfflineQueue(), loadData(), submitOrder(), syncOfflineOrders()
 
-### Community 162 - "Community 162"
+### Community 161 - "Community 161"
 Cohesion: 0.67
 Nodes (3): autoload-dev, psr-4, Tests\\
 
-### Community 163 - "Community 163"
+### Community 162 - "Community 162"
 Cohesion: 0.67
 Nodes (3): extra, laravel, dont-discover
 
@@ -797,18 +796,18 @@ Nodes (3): extra, laravel, dont-discover
 ## Knowledge Gaps
 - **676 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+671 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **105 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **104 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Purchase Order Reception (PO-2023-0891)` and `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `CurrentCompany` connect `Community 16` to `Community 1`, `Community 3`, `Community 11`, `Community 24`, `Community 26`, `Community 29`, `Community 32`, `Community 36`, `Community 37`, `Community 45`, `Community 48`, `Community 59`, `Community 63`, `Community 64`, `Community 69`, `Community 70`, `Community 82`, `Community 92`, `Community 104`, `Community 110`, `Community 114`, `Community 119`, `Community 124`?**
+- **Why does `CurrentCompany` connect `Community 16` to `Community 1`, `Community 3`, `Community 11`, `Community 23`, `Community 25`, `Community 27`, `Community 30`, `Community 36`, `Community 37`, `Community 45`, `Community 48`, `Community 59`, `Community 63`, `Community 64`, `Community 69`, `Community 70`, `Community 82`, `Community 92`, `Community 104`, `Community 110`, `Community 114`, `Community 119`, `Community 124`?**
   _High betweenness centrality (0.041) - this node is a cross-community bridge._
-- **Why does `Company` connect `Community 11` to `Community 0`, `Community 1`, `Community 3`, `Community 38`, `Community 10`, `Community 43`, `Community 44`, `Community 14`, `Community 16`, `Community 17`, `Community 18`, `Community 19`, `Community 49`, `Community 53`, `Community 118`, `Community 22`, `Community 56`?**
+- **Why does `Company` connect `Community 11` to `Community 0`, `Community 1`, `Community 3`, `Community 38`, `Community 10`, `Community 43`, `Community 44`, `Community 14`, `Community 16`, `Community 17`, `Community 50`, `Community 19`, `Community 18`, `Community 53`, `Community 22`, `Community 49`, `Community 56`?**
   _High betweenness centrality (0.029) - this node is a cross-community bridge._
-- **Why does `User` connect `Community 10` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 14`, `Community 17`, `Community 18`, `Community 19`, `Community 22`, `Community 24`, `Community 29`, `Community 38`, `Community 43`, `Community 44`, `Community 53`, `Community 56`, `Community 65`, `Community 81`, `Community 112`?**
+- **Why does `User` connect `Community 10` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 14`, `Community 17`, `Community 18`, `Community 19`, `Community 22`, `Community 25`, `Community 30`, `Community 38`, `Community 43`, `Community 44`, `Community 53`, `Community 56`, `Community 65`, `Community 81`, `Community 112`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Are the 95 inferred relationships involving `ApiResponse` (e.g. with `.index()` and `.store()`) actually correct?**
   _`ApiResponse` has 95 INFERRED edges - model-reasoned connections that need verification._
