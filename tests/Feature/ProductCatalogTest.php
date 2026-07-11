@@ -4,6 +4,7 @@ use App\Models\User;
 use App\Modules\Company\Actions\CreateCompanyAction;
 use App\Modules\ModuleManager\Services\ModuleManagerService;
 use App\Modules\Product\Models\Product;
+use App\Modules\Setting\Models\Tax;
 use Database\Seeders\ModuleSystemSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Sanctum\Sanctum;
@@ -79,6 +80,26 @@ it('updates a product price with audit', function (): void {
 
     $this->patchJson("/api/v1/products/{$id}", ['price' => 12.5], $this->headers)
         ->assertOk()->assertJsonPath('data.price', '12.50');
+});
+
+it('exposes the product tax as a public identifier for POS clients', function (): void {
+    $tax = Tax::withoutGlobalScopes()
+        ->where('company_id', $this->company->getKey())
+        ->where('code', 'itbis_18')
+        ->sole();
+
+    Product::query()->create([
+        'company_id' => $this->company->getKey(),
+        'tax_id' => $tax->getKey(),
+        'name' => 'Producto gravado',
+        'price' => 100,
+    ]);
+
+    Sanctum::actingAs($this->owner);
+
+    $this->getJson('/api/v1/products', $this->headers)
+        ->assertOk()
+        ->assertJsonPath('data.0.tax_id', $tax->public_id);
 });
 
 it('does not list products from other companies', function (): void {

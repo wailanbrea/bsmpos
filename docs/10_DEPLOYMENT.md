@@ -77,9 +77,15 @@ stopwaitsecs=3600
 - Índices ya definidos en migraciones (`company_id`, `company_id+ncf` único, `product_id+expiration_date` para FEFO, etc.).
 - Assets con hash y Service Worker (PWA) generados por `npm run build`.
 
-## CI (recomendado, GitHub Actions)
+## CI (GitHub Actions)
 
-En cada push: `pint --test`, `phpstan`, `pest`, `vue-tsc`, `eslint`, `prettier --check`, `vitest`, `vite build`. Playwright E2E en pipeline nightly/pre-release contra un entorno efímero. Ver [09_TESTING.md](09_TESTING.md).
+El workflow [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) se ejecuta en cada `push` y `pull_request`, con tres gates independientes:
+
+- **Backend:** Pint en modo verificación, Larastan y Pest.
+- **Frontend:** typecheck, ESLint, Prettier, Vitest y build de Vite.
+- **E2E:** compila assets, instala Chromium y ejecuta Playwright contra una SQLite efímera. En fallo conserva reporte, trazas y capturas durante siete días.
+
+El workflow no usa secretos ni servicios externos; la implementación real de e-CF se valida separadamente cuando exista proveedor y entorno de certificación.
 
 ## Checklist de puesta en marcha
 

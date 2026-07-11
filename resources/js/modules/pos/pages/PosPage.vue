@@ -4,6 +4,7 @@ import { PosService } from '../services';
 import type { PosOrderItem, PosPayment, PosOrder } from '../services';
 import { IndexedDBService } from '../indexeddb';
 import { fetchProducts } from '../../products/services';
+import { fetchExchangeRates } from '../../settings/services';
 import type { Product } from '../../products/types';
 import { api } from '../../../lib/api';
 
@@ -120,7 +121,7 @@ watch(paperWidth, (val) => {
 const paymentsList = ref<PosPayment[]>([
     { payment_method_code: 'cash', currency_code: 'DOP', exchange_rate: 1.0, amount: 0 },
 ]);
-const usdExchangeRate = ref(59.0); // Tasa USD estándar
+const exchangeRates = ref<Record<string, number>>({ DOP: 1 });
 
 // Cola offline
 const offlineQueueCount = ref(0);
@@ -170,6 +171,13 @@ async function loadData() {
             name: t.name,
             rate: Number(t.rate),
         }));
+
+        const today = new Date().toISOString().slice(0, 10);
+        for (const rate of await fetchExchangeRates()) {
+            if (rate.effective_date <= today && exchangeRates.value[rate.currency_code] === undefined) {
+                exchangeRates.value[rate.currency_code] = Number(rate.rate);
+            }
+        }
 
         // Cargar carrito persistido
         cart.value = (await IndexedDBService.getCart()) as PosOrderItem[];
@@ -420,11 +428,15 @@ function removePaymentLine(idx: number) {
 
 function onCurrencyChange(idx: number) {
     const p = paymentsList.value[idx];
-    if (p.currency_code === 'USD') {
-        p.exchange_rate = usdExchangeRate.value;
-    } else {
-        p.exchange_rate = 1.0;
+    const rate = exchangeRates.value[p.currency_code || 'DOP'];
+    if (rate === undefined) {
+        p.exchange_rate = 0;
+        errorMsg.value = `No hay una tasa vigente configurada para ${p.currency_code}.`;
+
+        return;
     }
+
+    p.exchange_rate = rate;
 }
 
 // Billetes rápidos dominicanos para autocompletar pago
@@ -945,6 +957,7 @@ const filteredProducts = computed(() => {
                                     <label class="block text-[10px] font-bold text-gray-400">Método</label>
                                     <select
                                         v-model="pay.payment_method_code"
+                                        :aria-label="`Método de pago ${pIdx + 1}`"
                                         class="w-full min-h-9 rounded border border-gray-300 px-2 text-xs"
                                     >
                                         <option value="cash">Efectivo</option>
@@ -957,6 +970,7 @@ const filteredProducts = computed(() => {
                                     <label class="block text-[10px] font-bold text-gray-400">Moneda</label>
                                     <select
                                         v-model="pay.currency_code"
+                                        :aria-label="`Moneda de pago ${pIdx + 1}`"
                                         class="w-full min-h-9 rounded border border-gray-300 px-2 text-xs"
                                         @change="onCurrencyChange(pIdx)"
                                     >
@@ -968,6 +982,7 @@ const filteredProducts = computed(() => {
                                     <label class="block text-[10px] font-bold text-gray-400">Monto Entregado</label>
                                     <input
                                         v-model="pay.amount"
+                                        :aria-label="`Monto de pago ${pIdx + 1}`"
                                         type="number"
                                         class="w-full min-h-9 rounded border border-gray-300 px-2 text-xs text-right"
                                         min="0"
@@ -984,6 +999,7 @@ const filteredProducts = computed(() => {
                                 <input
                                     v-if="pay.payment_method_code === 'card' || pay.payment_method_code === 'transfer'"
                                     v-model="pay.reference"
+                                    :aria-label="`Referencia de pago ${pIdx + 1}`"
                                     type="text"
                                     placeholder="Nº trans/tarjeta ref..."
                                     class="w-full min-h-8 rounded border border-gray-300 px-2 text-[10px] mt-1"
@@ -1182,134 +1198,130 @@ const filteredProducts = computed(() => {
                     </button>
                 </footer>
             </div>
-            <!-- MODAL DE TICKET DE FACTURA (IMPRESIÓN) -->
+        </div>
+
+        <!-- MODAL DE TICKET DE FACTURA (IMPRESIÓN) -->
+        <div
+            v-if="showInvoicePrintModal"
+            class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 animate-fade-in"
+            aria-modal="true"
+            role="dialog"
+        >
             <div
-                v-if="showInvoicePrintModal"
-                class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 animate-fade-in"
-                aria-modal="true"
-                role="dialog"
+                class="bg-white rounded-2xl max-w-sm w-full shadow-xl border border-[#c7c4d8] overflow-hidden flex flex-col max-h-[90vh]"
             >
+                <header class="p-4 border-b border-[#e4e1ee] bg-[#fcfbfe] flex justify-between items-center">
+                    <h3 class="text-sm font-bold text-gray-800">Comprobante Emitido</h3>
+                    <button class="text-xs" @click="showInvoicePrintModal = false">✕</button>
+                </header>
+
+                <!-- Ticket Térmico de 80mm -->
                 <div
-                    class="bg-white rounded-2xl max-w-sm w-full shadow-xl border border-[#c7c4d8] overflow-hidden flex flex-col max-h-[90vh]"
+                    id="printable-ticket"
+                    class="p-6 overflow-y-auto flex-1 font-mono text-[11px] text-gray-800 space-y-4"
                 >
-                    <header class="p-4 border-b border-[#e4e1ee] bg-[#fcfbfe] flex justify-between items-center">
-                        <h3 class="text-sm font-bold text-gray-800">Comprobante Emitido</h3>
-                        <button class="text-xs" @click="showInvoicePrintModal = false">✕</button>
-                    </header>
+                    <div class="text-center space-y-1">
+                        <p class="font-bold text-sm uppercase">
+                            {{ invoiceResult?.branch_name || 'Mi Sucursal SaaS' }}
+                        </p>
+                        <p>RNC: {{ invoiceResult?.customer_rnc || 'NO FISCAL' }}</p>
+                        <p class="border-b border-dashed border-gray-400 pb-2">Tel: 809-555-0199</p>
+                    </div>
 
-                    <!-- Ticket Térmico de 80mm -->
-                    <div
-                        id="printable-ticket"
-                        class="p-6 overflow-y-auto flex-1 font-mono text-[11px] text-gray-800 space-y-4"
-                    >
-                        <div class="text-center space-y-1">
-                            <p class="font-bold text-sm uppercase">
-                                {{ invoiceResult?.branch_name || 'Mi Sucursal SaaS' }}
-                            </p>
-                            <p>RNC: {{ invoiceResult?.customer_rnc || 'NO FISCAL' }}</p>
-                            <p class="border-b border-dashed border-gray-400 pb-2">Tel: 809-555-0199</p>
+                    <div class="space-y-1">
+                        <p>
+                            Factura: <span class="font-bold">{{ invoiceResult?.invoice_number }}</span>
+                        </p>
+                        <p>
+                            NCF: <span class="font-bold text-xs">{{ invoiceResult?.ncf || 'B0200000000' }}</span>
+                        </p>
+                        <p v-if="invoiceResult?.ncf_expires_at">Vence: {{ invoiceResult?.ncf_expires_at }}</p>
+                        <p>
+                            Tipo:
+                            {{
+                                invoiceResult?.document_type_code === 'B01'
+                                    ? 'Crédito Fiscal (B01)'
+                                    : 'Consumidor Final (B02)'
+                            }}
+                        </p>
+                        <p>
+                            Fecha:
+                            {{
+                                invoiceResult?.created_at
+                                    ? new Date(invoiceResult.created_at).toLocaleString('es-DO')
+                                    : ''
+                            }}
+                        </p>
+                        <p>Cliente: {{ invoiceResult?.customer_name }}</p>
+                        <p class="border-b border-dashed border-gray-400 pb-2"></p>
+                    </div>
+
+                    <!-- Items -->
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b border-dashed border-gray-400">
+                                <th class="pb-1">Cant/Desc</th>
+                                <th class="text-right pb-1">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in invoiceResult?.items" :key="item.product_id">
+                                <td class="py-1">
+                                    {{ Number(item.quantity).toFixed(0) }} x {{ item.product_name }} @{{
+                                        Number(item.price).toFixed(2)
+                                    }}
+                                    <span v-if="item.batch_number" class="block text-[9px] text-gray-500"
+                                        >Lote: {{ item.batch_number }}</span
+                                    >
+                                </td>
+                                <td class="text-right py-1">RD$ {{ Number(item.total).toFixed(2) }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="border-t border-dashed border-gray-400 pt-2 space-y-1">
+                        <div class="flex justify-between">
+                            <span>Subtotal:</span>
+                            <span>RD$ {{ Number(invoiceResult?.subtotal).toFixed(2) }}</span>
                         </div>
-
-                        <div class="space-y-1">
-                            <p>
-                                Factura: <span class="font-bold">{{ invoiceResult?.invoice_number }}</span>
-                            </p>
-                            <p>
-                                NCF: <span class="font-bold text-xs">{{ invoiceResult?.ncf || 'B0200000000' }}</span>
-                            </p>
-                            <p v-if="invoiceResult?.ncf_expires_at">Vence: {{ invoiceResult?.ncf_expires_at }}</p>
-                            <p>
-                                Tipo:
-                                {{
-                                    invoiceResult?.document_type_code === 'B01'
-                                        ? 'Crédito Fiscal (B01)'
-                                        : 'Consumidor Final (B02)'
-                                }}
-                            </p>
-                            <p>
-                                Fecha:
-                                {{
-                                    invoiceResult?.created_at
-                                        ? new Date(invoiceResult.created_at).toLocaleString('es-DO')
-                                        : ''
-                                }}
-                            </p>
-                            <p>Cliente: {{ invoiceResult?.customer_name }}</p>
-                            <p class="border-b border-dashed border-gray-400 pb-2"></p>
+                        <div v-if="Number(invoiceResult?.discount_total) > 0" class="flex justify-between text-red-600">
+                            <span>Descuento:</span>
+                            <span>-RD$ {{ Number(invoiceResult?.discount_total).toFixed(2) }}</span>
                         </div>
-
-                        <!-- Items -->
-                        <table class="w-full text-left">
-                            <thead>
-                                <tr class="border-b border-dashed border-gray-400">
-                                    <th class="pb-1">Cant/Desc</th>
-                                    <th class="text-right pb-1">Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="item in invoiceResult?.items" :key="item.product_id">
-                                    <td class="py-1">
-                                        {{ Number(item.quantity).toFixed(0) }} x {{ item.product_name }} @{{
-                                            Number(item.price).toFixed(2)
-                                        }}
-                                        <span v-if="item.batch_number" class="block text-[9px] text-gray-500"
-                                            >Lote: {{ item.batch_number }}</span
-                                        >
-                                    </td>
-                                    <td class="text-right py-1">RD$ {{ Number(item.total).toFixed(2) }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="border-t border-dashed border-gray-400 pt-2 space-y-1">
-                            <div class="flex justify-between">
-                                <span>Subtotal:</span>
-                                <span>RD$ {{ Number(invoiceResult?.subtotal).toFixed(2) }}</span>
-                            </div>
-                            <div
-                                v-if="Number(invoiceResult?.discount_total) > 0"
-                                class="flex justify-between text-red-600"
-                            >
-                                <span>Descuento:</span>
-                                <span>-RD$ {{ Number(invoiceResult?.discount_total).toFixed(2) }}</span>
-                            </div>
-                            <div class="flex justify-between">
-                                <span>ITBIS (18%):</span>
-                                <span>RD$ {{ Number(invoiceResult?.tax_total).toFixed(2) }}</span>
-                            </div>
-                            <div v-if="Number(invoiceResult?.tip_total) > 0" class="flex justify-between">
-                                <span>Propina Legal (10%):</span>
-                                <span>RD$ {{ Number(invoiceResult?.tip_total).toFixed(2) }}</span>
-                            </div>
-                            <div
-                                class="flex justify-between font-bold text-xs pt-1 border-t border-dashed border-gray-400"
-                            >
-                                <span>TOTAL:</span>
-                                <span>RD$ {{ Number(invoiceResult?.total).toFixed(2) }}</span>
-                            </div>
+                        <div class="flex justify-between">
+                            <span>ITBIS (18%):</span>
+                            <span>RD$ {{ Number(invoiceResult?.tax_total).toFixed(2) }}</span>
                         </div>
-
-                        <div class="text-center pt-4 space-y-1">
-                            <p class="font-bold">¡GRACIAS POR SU COMPRA!</p>
-                            <p>OmniPOS Modular SaaS</p>
+                        <div v-if="Number(invoiceResult?.tip_total) > 0" class="flex justify-between">
+                            <span>Propina Legal (10%):</span>
+                            <span>RD$ {{ Number(invoiceResult?.tip_total).toFixed(2) }}</span>
+                        </div>
+                        <div class="flex justify-between font-bold text-xs pt-1 border-t border-dashed border-gray-400">
+                            <span>TOTAL:</span>
+                            <span>RD$ {{ Number(invoiceResult?.total).toFixed(2) }}</span>
                         </div>
                     </div>
 
-                    <footer class="p-4 border-t border-[#e4e1ee] bg-gray-50 flex justify-end gap-2">
-                        <button
-                            class="min-h-9 rounded-lg border border-gray-300 bg-white px-4 text-xs font-semibold"
-                            @click="showInvoicePrintModal = false"
-                        >
-                            Cerrar
-                        </button>
-                        <button
-                            class="min-h-9 rounded-lg bg-[#3525cd] text-white px-4 text-xs font-bold"
-                            @click="printTicket"
-                        >
-                            🖨️ Imprimir Ticket
-                        </button>
-                    </footer>
+                    <div class="text-center pt-4 space-y-1">
+                        <p class="font-bold">¡GRACIAS POR SU COMPRA!</p>
+                        <p>OmniPOS Modular SaaS</p>
+                    </div>
                 </div>
+
+                <footer class="p-4 border-t border-[#e4e1ee] bg-gray-50 flex justify-end gap-2">
+                    <button
+                        class="min-h-9 rounded-lg border border-gray-300 bg-white px-4 text-xs font-semibold"
+                        @click="showInvoicePrintModal = false"
+                    >
+                        Cerrar
+                    </button>
+                    <button
+                        class="min-h-9 rounded-lg bg-[#3525cd] text-white px-4 text-xs font-bold"
+                        @click="printTicket"
+                    >
+                        🖨️ Imprimir Ticket
+                    </button>
+                </footer>
             </div>
         </div>
     </main>

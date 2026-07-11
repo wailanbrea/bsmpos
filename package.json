@@ -8,11 +8,15 @@
         "lint": "eslint resources/js --max-warnings=0",
         "format:check": "prettier --check \"resources/**/*.{ts,vue,css}\" \"*.{json,js,ts}\"",
         "test:unit": "vitest run",
+        "test:e2e": "playwright test",
+        "test:e2e:ui": "playwright test --ui",
+        "test:e2e:build": "vite build && playwright test",
         "typecheck": "vue-tsc --noEmit"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
         "@intlify/devtools-types": "^11.4.6",
+        "@playwright/test": "^1.61.1",
         "@tailwindcss/vite": "^4.0.0",
         "@typescript-eslint/eslint-plugin": "^8.63.0",
         "@typescript-eslint/parser": "^8.63.0",

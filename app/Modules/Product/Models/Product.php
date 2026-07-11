@@ -7,6 +7,7 @@ namespace App\Modules\Product\Models;
 use App\Core\Concerns\Auditable;
 use App\Core\Concerns\BelongsToCompany;
 use App\Core\Concerns\HasPublicUlid;
+use App\Modules\Setting\Models\Tax;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -53,6 +54,12 @@ final class Product extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /** @return BelongsTo<Tax, $this> */
+    public function tax(): BelongsTo
+    {
+        return $this->belongsTo(Tax::class);
     }
 
     /** @return HasOne<ProductInventorySetting, $this> */

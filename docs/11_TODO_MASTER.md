@@ -34,7 +34,7 @@
 - [x] API response estándar + manejo de excepciones API + códigos de error
 - [x] Auditable, soporte Money/DECIMAL y ULID público (BelongsToCompany se implementa con el contexto tenant en Fase 1)
 - [ ] Seeders base (monedas, unidades, impuestos RD, document_types NCF/e-CF, permisos)
-- [ ] CI GitHub Actions (si hay repo git — **crear repo git**)
+- [x] CI GitHub Actions (`.github/workflows/ci.yml`: calidad backend, frontend y E2E)
 
 ## FASE 1 — Núcleo SaaS
 - [x] Empresas, sucursales, usuarios, roles, permisos (tablas + CRUD + policies)
@@ -112,9 +112,9 @@
 - [x] 2FA TOTP (RFC 6238 sin dependencias, `TotpService`): enable/confirm/disable + reto en login (`TWO_FACTOR_REQUIRED`/`INVALID`), secreto cifrado y auditado; probado (Pest) y verificado en servidor en vivo
 - [x] Rate limiting en `/auth/login` y `/auth/register`; Policies por recurso ya presentes; auditoría de eventos sensibles (incl. 2FA)
 - [x] `.env.example` completo (locale es-DO, colas en `database`) + guía de despliegue de producción (`docs/10`: Nginx/PHP-FPM/Redis, worker de colas para e-CF, backups, checklist)
-- [ ] Suite **Playwright E2E** de los 10 flujos como test runner dedicado (hoy verificados manualmente con Playwright MCP cada fase) — pendiente
+- [ ] Suite **Playwright E2E** de los 10 flujos de negocio como test runner dedicado. Base estabilizada: 13 escenarios, incluido POS fiscal y pago mixto/multimoneda (tarjeta DOP + efectivo USD); faltan restaurante, compras/FEFO, vencimientos, cierre de caja, e-CF Mock, módulos y sin stock.
 - [x] UI de 2FA en `/seguridad`: asistente activar (clave manual agrupada + enlace `otpauth://`) → confirmar con código → desactivar con código; campo de código 2FA en el login que aparece ante `TWO_FACTOR_REQUIRED`. Verificado en navegador (activar → reto en login → acceso con código válido). (QR gráfico opcional a futuro; hoy clave manual, soportada por toda app autenticadora)
-- [ ] CI GitHub Actions (lint+estático+tests+build) — pendiente
+- [x] CI GitHub Actions: Pint, Larastan, Pest, typecheck, ESLint, Prettier, Vitest, build y Playwright Chromium con artefactos de fallo.
 
 ## Backlog (post-v1)
 - [ ] Cuentas por cobrar/pagar completas, fidelización, reservas, garantías, gastos, notificaciones WhatsApp, panel super-admin SaaS, provider e-CF real (DGII directo o PSFE), agente local de impresión, app Android Kotlin

@@ -23,7 +23,7 @@ final class ProductResource extends JsonResource
             'category_id' => $this->category_id,
             'category' => $this->whenLoaded('category', fn () => $this->category?->name),
             'unit_id' => $this->unit_id,
-            'tax_id' => $this->tax_id,
+            'tax_id' => $this->tax?->public_id,
             'price' => $this->price,
             'cost' => $this->cost,
             'track_inventory' => $this->track_inventory,

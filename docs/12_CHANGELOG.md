@@ -4,6 +4,43 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Fase 14: pago mixto y multimoneda E2E
+**Agregado**
+- Segundo recorrido POS automatizado: tarjeta DOP RD$58 con referencia + efectivo USD 1.00 a tasa vigente RD$60, total exacto RD$118, B02 y descuento de stock.
+- Etiquetas accesibles por línea de pago para método, moneda, monto y referencia; permiten operar y probar cobros mixtos sin depender de la posición visual de los controles.
+- Producto E2E adicional aislado para que cada venta POS valide sus existencias sin depender del escenario anterior.
+
+**Corregido**
+- El POS ya no usa una tasa USD fija: carga la última tasa vigente configurada por compañía y bloquea el cobro en una moneda sin tasa vigente.
+
+**Validado**
+- Playwright Chromium verificó la tasa visible, el payload de cobros enviado, la factura, el ticket y el stock final.
+
+### 2026-07-10 — Fase 14: venta POS E2E y correcciones fiscales de interfaz
+**Agregado**
+- `pos-sale.spec.ts`: abre Caja Demo, vende el producto con ITBIS, cobra RD$200, valida devuelta RD$82, emisión B02, ticket e inventario reducido de 25 a 24.
+- Datos E2E deterministas para producto inventariable, stock y secuencia NCF B02.
+
+**Corregido**
+- El catálogo de productos expone el `tax_id` público, consistente con la configuración fiscal pública; el POS vuelve a asociar correctamente ITBIS sin consultas N+1.
+- El modal de comprobante emitido dejó de estar anidado en el modal de cierre de caja, por lo que se muestra inmediatamente tras facturar.
+
+**Validado**
+- Chromium completó apertura de caja → orden → pago → factura `B0200000001` → ticket → consulta de existencias.
+
+### 2026-07-10 — Fase 14: runner E2E estable e integración continua
+**Agregado**
+- Workflow GitHub Actions con gates de calidad backend, frontend y navegador; el job E2E prepara SQLite aislada, construye assets, instala Chromium y publica artefactos Playwright si falla.
+- Documentación del alcance real de la suite E2E y de los flujos de negocio que quedan por automatizar.
+
+**Corregido**
+- Playwright ya no reutiliza un servidor PHP implícitamente: evita ejecutar contra una base E2E obsoleta. La reutilización requiere `PLAYWRIGHT_REUSE_SERVER=true`.
+- Cache E2E en memoria para que los escenarios no se contaminen entre sí mediante el rate limiter; los límites permanecen cubiertos por las pruebas backend.
+- Aserciones 2FA delimitadas a chips de estado exactos, evitando colisiones con texto auxiliar y botones.
+
+**Validado**
+- `npm run test:e2e`: 11 escenarios Chromium aprobados, incluido activar → reto de login → acceso TOTP → desactivar.
+
 ### 2026-07-10 — Fase 14: UI de 2FA (pantalla de Seguridad + reto en login)
 **Agregado**
 - Pantalla `/seguridad` (nivel cuenta, sin gate de módulo): estado del 2FA; asistente de activación (clave de configuración agrupada de 4 en 4 + enlace `otpauth://` para la app autenticadora) → confirmar con código de 6 dígitos → desactivar exigiendo código.

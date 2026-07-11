@@ -31,7 +31,7 @@ final class ProductController
         }
 
         $query = Product::query()
-            ->with('category')
+            ->with(['category', 'tax'])
             ->where('company_id', $currentCompany->company()->getKey());
 
         if (is_string($search = $request->query('search')) && $search !== '') {
@@ -67,7 +67,7 @@ final class ProductController
 
         $product = $action->execute($currentCompany->company(), $request->validated());
 
-        return ApiResponse::success(new ProductResource($product->load(['category', 'variants', 'modifiers.options', 'combos.child'])), 'Producto creado.', 201);
+        return ApiResponse::success(new ProductResource($product->load(['category', 'tax', 'variants', 'modifiers.options', 'combos.child'])), 'Producto creado.', 201);
     }
 
     public function update(string $publicId, UpdateProductRequest $request, SaveProductAction $action, CurrentCompany $currentCompany): JsonResponse
@@ -78,7 +78,7 @@ final class ProductController
         $this->authorizeApi($user, 'update', $product);
         $product = $action->execute($currentCompany->company(), $request->validated(), $product);
 
-        return ApiResponse::success(new ProductResource($product->load(['category', 'variants', 'modifiers.options', 'combos.child'])), 'Producto actualizado.');
+        return ApiResponse::success(new ProductResource($product->load(['category', 'tax', 'variants', 'modifiers.options', 'combos.child'])), 'Producto actualizado.');
     }
 
     private function findProduct(string $publicId, CurrentCompany $currentCompany): Product

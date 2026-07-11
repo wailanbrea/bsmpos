@@ -33,6 +33,12 @@
 /.playwright-cli/
 /.playwright-mcp/
 /output/playwright/
+
+# Playwright E2E artifacts and su base de datos aislada
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/database/e2e.sqlite
 /.phpunit.result.cache
 /.phpunit.cache/
 /.idea/

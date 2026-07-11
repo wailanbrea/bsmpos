@@ -17,8 +17,8 @@ Auth, empresas/sucursales (incl. **tests de aislamiento de tenant**), módulos (
 ## E2E Playwright (Fase 14, sobre app real)
 
 1. Onboarding completo: crear empresa → tipo de negocio → módulos recomendados → configuración inicial.
-2. Venta rápida POS: producto → cobrar efectivo → devuelta → ticket.
-3. Venta con pago mixto y multimoneda.
+2. [x] Venta rápida POS: producto → apertura de caja → cobrar efectivo → devuelta → ticket B02 → inventario. Automatizado con `pos-sale.spec.ts`.
+3. [x] Venta con pago mixto y multimoneda: tarjeta DOP + efectivo USD, tasa visible, referencia de tarjeta, factura e inventario. Automatizado con `pos-sale.spec.ts`.
 4. Flujo restaurante: mesa → orden → cocina → precuenta → pago.
 5. Inventario: compra con lote y vencimiento → venta FEFO → kardex refleja movimientos.
 6. Producto vencido: bloqueo/advertencia según configuración.
@@ -26,6 +26,12 @@ Auth, empresas/sucursales (incl. **tests de aislamiento de tenant**), módulos (
 8. e-CF mock: emitir → aceptada; forzar rechazo → corregir → reintentar.
 9. Activar/desactivar módulo → menú y rutas reaccionan (403 y ocultamiento).
 10. Sin stock: venta bloqueada si inventario activo.
+
+### Runner base implementado
+
+`npm run test:e2e` ejecuta Chromium contra una SQLite exclusiva que se recrea en cada corrida. Sus 13 escenarios actuales cubren acceso, credenciales inválidas, selección de contexto, cierre de sesión, navegación y gates de módulo, configuración fiscal, POS accesible, e-CF desactivado, el ciclo completo de 2FA TOTP, venta POS fiscal con caja/efectivo/cambio/B02/ticket/inventario y pago mixto tarjeta DOP + efectivo USD. El runner no reutiliza servidores por defecto, para no mezclar bases E2E de ejecuciones previas; `PLAYWRIGHT_REUSE_SERVER=true` es solo para depuración local.
+
+Los flujos de negocio restantes enumerados arriba siguen siendo cobertura pendiente del runner. La suite base no los sustituye.
 
 ## Implementado en Fase 1: auditoría
 
