@@ -5,8 +5,8 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2638 nodes · 5101 edges · 290 communities (181 shown, 109 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 298 edges (avg confidence: 0.82)
+- 2780 nodes · 5417 edges · 281 communities (184 shown, 97 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 304 edges (avg confidence: 0.82)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -166,19 +166,17 @@
 - [[_COMMUNITY_Community 153|Community 153]]
 - [[_COMMUNITY_Community 154|Community 154]]
 - [[_COMMUNITY_Community 155|Community 155]]
-- [[_COMMUNITY_Community 156|Community 156]]
-- [[_COMMUNITY_Community 157|Community 157]]
-- [[_COMMUNITY_Community 158|Community 158]]
-- [[_COMMUNITY_Community 159|Community 159]]
-- [[_COMMUNITY_Community 160|Community 160]]
-- [[_COMMUNITY_Community 161|Community 161]]
-- [[_COMMUNITY_Community 162|Community 162]]
-- [[_COMMUNITY_Community 163|Community 163]]
-- [[_COMMUNITY_Community 164|Community 164]]
-- [[_COMMUNITY_Community 165|Community 165]]
-- [[_COMMUNITY_Community 166|Community 166]]
+- [[_COMMUNITY_Community 189|Community 189]]
+- [[_COMMUNITY_Community 190|Community 190]]
+- [[_COMMUNITY_Community 192|Community 192]]
+- [[_COMMUNITY_Community 193|Community 193]]
+- [[_COMMUNITY_Community 194|Community 194]]
+- [[_COMMUNITY_Community 195|Community 195]]
+- [[_COMMUNITY_Community 196|Community 196]]
+- [[_COMMUNITY_Community 197|Community 197]]
 - [[_COMMUNITY_Community 198|Community 198]]
 - [[_COMMUNITY_Community 199|Community 199]]
+- [[_COMMUNITY_Community 200|Community 200]]
 - [[_COMMUNITY_Community 201|Community 201]]
 - [[_COMMUNITY_Community 202|Community 202]]
 - [[_COMMUNITY_Community 203|Community 203]]
@@ -239,15 +237,6 @@
 - [[_COMMUNITY_Community 258|Community 258]]
 - [[_COMMUNITY_Community 259|Community 259]]
 - [[_COMMUNITY_Community 260|Community 260]]
-- [[_COMMUNITY_Community 261|Community 261]]
-- [[_COMMUNITY_Community 262|Community 262]]
-- [[_COMMUNITY_Community 263|Community 263]]
-- [[_COMMUNITY_Community 264|Community 264]]
-- [[_COMMUNITY_Community 265|Community 265]]
-- [[_COMMUNITY_Community 266|Community 266]]
-- [[_COMMUNITY_Community 267|Community 267]]
-- [[_COMMUNITY_Community 268|Community 268]]
-- [[_COMMUNITY_Community 269|Community 269]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `CurrentCompany` - 128 edges
@@ -276,323 +265,315 @@
 ## Import Cycles
 - None detected.
 
-## Communities (290 total, 109 thin omitted)
+## Communities (281 total, 97 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.07
-Nodes (25): CompanyModel, CustomerAddress, CustomerContact, CustomerCreditMovement, ElectronicInvoiceLog, CompanySubscription, BelongsTo, Category (+17 more)
+Nodes (26): CompanyModel, Appointment, BelongsTo, CustomerAddress, CustomerContact, CustomerCreditMovement, ElectronicInvoiceLog, Employee (+18 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.04
 Nodes (45): activeSession, ActiveSessionData, applyTip, cart, changeDueDop, closeCountedAmount, customers, documentTypeCode (+37 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.07
-Nodes (12): EnsureBranchContext, Closure, Request, Response, EnsureCompanyContext, Closure, Request, Response (+4 more)
+Cohesion: 0.06
+Nodes (21): InventoryBatch, BelongsTo, InventoryMovement, BelongsTo, InventoryStock, BelongsTo, SaveProductAction, Request (+13 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.12
-Nodes (4): CreateCompanyAction, CashRegister, BelongsTo, HasMany
+Cohesion: 0.07
+Nodes (48): appointments, changeStatus(), customers, employees, emptyForm(), error, filterDate, filterEmployee (+40 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.07
-Nodes (13): TotpService, LoginUserAction, LogoutUserAction, RegisterUserAction, AuthController, JsonResponse, Request, JsonResponse (+5 more)
-
-### Community 5 - "Community 5"
-Cohesion: 0.04
-Nodes (46): 12 — CHANGELOG, 2026-07-09 — Corrección de navegación SPA, 2026-07-09 — Fase 1: acceso de usuarios por compañía, 2026-07-09 — Fase 1: acceso y contexto operativo, 2026-07-09 — Fase 1: administración de sucursales, 2026-07-09 — Fase 1: aislamiento multiempresa base, 2026-07-09 — Fase 1: autenticación API segura, 2026-07-09 — Fase 1: bitácora de auditoría consultable (+38 more)
+Cohesion: 0.06
+Nodes (16): BelongsTo, PurchaseItem, InvoiceItem, BelongsTo, OrderItem, BelongsTo, JsonResponse, SettingController (+8 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.07
-Nodes (40): busy, categories, categoryLabels, error, message(), store, toggle(), businessTypes (+32 more)
+Nodes (13): TotpService, LoginUserAction, LogoutUserAction, RegisterUserAction, AuthController, JsonResponse, Request, JsonResponse (+5 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.08
-Nodes (40): error, labels, load(), loading, props, save(), saved, saving (+32 more)
+Cohesion: 0.04
+Nodes (46): 12 — CHANGELOG, 2026-07-09 — Corrección de navegación SPA, 2026-07-09 — Fase 1: acceso de usuarios por compañía, 2026-07-09 — Fase 1: acceso y contexto operativo, 2026-07-09 — Fase 1: administración de sucursales, 2026-07-09 — Fase 1: aislamiento multiempresa base, 2026-07-09 — Fase 1: autenticación API segura, 2026-07-09 — Fase 1: bitácora de auditoría consultable (+38 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.07
-Nodes (16): CreateRoleAction, DeactivateRoleAction, UpdateRoleAction, JsonResponse, Request, RoleController, StoreRoleRequest, UpdateRoleRequest (+8 more)
+Cohesion: 0.08
+Nodes (17): PurchaseConfirmAction, JsonResponse, Request, PurchaseController, JsonResponse, Request, SupplierController, UpsertPurchaseFiscalDataRequest (+9 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.05
-Nodes (41): dependencies, pinia, vite-plugin-pwa, vue, vue-i18n, vue-router, devDependencies, axios (+33 more)
+Cohesion: 0.07
+Nodes (40): busy, categories, categoryLabels, error, message(), store, toggle(), businessTypes (+32 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.08
-Nodes (11): Closure, ValidTaxId, DominicanTaxId, TicketBuilder, JsonResponse, Request, SettingsGroupController, SettingsService (+3 more)
+Nodes (40): error, labels, load(), loading, props, save(), saved, saving (+32 more)
 
 ### Community 11 - "Community 11"
+Cohesion: 0.05
+Nodes (41): dependencies, pinia, vite-plugin-pwa, vue, vue-i18n, vue-router, devDependencies, axios (+33 more)
+
+### Community 12 - "Community 12"
 Cohesion: 0.06
 Nodes (39): ITBIS y Propina Legal, Multimoneda DOP/USD (exchange_rates), Secuencias NCF / e-NCF, Pantalla: Configuración de Módulos, Pantalla: Dashboard Principal (Retail), Pantalla: Entrada de Mercancía (Compras y Lotes), Pantalla: Facturas Electrónicas (e-CF), Pantalla: Inventario Avanzado (Control de Lotes) (+31 more)
 
-### Community 12 - "Community 12"
-Cohesion: 0.09
-Nodes (10): authorizeApi(), BelongsToMany, User, AuditLogPolicy, CompanyPolicy, ProductPolicy, Authenticatable, HasApiTokens (+2 more)
-
 ### Community 13 - "Community 13"
-Cohesion: 0.09
-Nodes (10): ApiException, ErrorCode, ModuleException, BelongsTo, ProductCombo, ReservedNcf, NcfSequenceException, DocumentType (+2 more)
+Cohesion: 0.08
+Nodes (28): i18n, allNavigation, modules, navigation, NavItem, operatorName, session, customers (+20 more)
 
 ### Community 14 - "Community 14"
-Cohesion: 0.09
-Nodes (12): CreateBranchAction, UpdateBranchAction, BranchController, JsonResponse, Request, UpdateBranchRequest, Branch, BelongsTo (+4 more)
+Cohesion: 0.11
+Nodes (8): OnboardingController, CompanyModule, BelongsTo, BelongsToMany, SystemModule, ModuleManagerService, ModuleCatalog, ModuleSystemSeeder
 
 ### Community 15 - "Community 15"
-Cohesion: 0.12
-Nodes (6): Company, BelongsToMany, HasMany, SaveProductAction, ReportService, Builder
+Cohesion: 0.08
+Nodes (10): ApiException, ErrorCode, ModuleException, BelongsTo, ProductCombo, ReservedNcf, NcfSequenceException, DocumentType (+2 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.09
-Nodes (24): api, storageKeys, availableBranches, branchCode, branchName, companies, companyName, errorMessage (+16 more)
+Cohesion: 0.07
+Nodes (11): CreateBranchAction, UpdateBranchRequest, Branch, BelongsTo, BelongsToMany, BranchPolicy, ProvisionDefaultWarehouse, ProvisionDefaultCashRegister (+3 more)
 
 ### Community 17 - "Community 17"
-Cohesion: 0.13
-Nodes (7): EnsureModuleEnabled, Closure, Request, Response, OnboardingController, ModuleManagerService, ModuleCatalog
+Cohesion: 0.07
+Nodes (9): StoreRoleRequest, UpdateCompanyUserAccessRequest, ListAuditLogsRequest, StoreCompanyRequest, CompleteOnboardingRequest, ToggleModuleRequest, StoreProductRequest, StoreExchangeRateRequest (+1 more)
 
 ### Community 18 - "Community 18"
+Cohesion: 0.10
+Nodes (30): changeStatus(), emptyForm(), error, filterStatus, form, load(), loading, message() (+22 more)
+
+### Community 19 - "Community 19"
+Cohesion: 0.11
+Nodes (12): EnsureBranchContext, Closure, Request, Response, EnsureCompanyContext, Closure, Request, Response (+4 more)
+
+### Community 20 - "Community 20"
+Cohesion: 0.11
+Nodes (14): ApiResponse, ErrorCode, JsonResponse, ModuleController, JsonResponse, Request, ExchangeRateController, JsonResponse (+6 more)
+
+### Community 21 - "Community 21"
+Cohesion: 0.12
+Nodes (11): CreateWorkOrderAction, CurrentCompany, JsonResponse, Request, WorkOrderController, StoreWorkOrderRequest, UpdateWorkOrderStatusRequest, Request (+3 more)
+
+### Community 22 - "Community 22"
 Cohesion: 0.09
 Nodes (11): cancel(), checkStatus(), generatePayload(), send(), validateBeforeSend(), ElectronicInvoice, BelongsTo, HasMany (+3 more)
 
-### Community 19 - "Community 19"
+### Community 23 - "Community 23"
 Cohesion: 0.08
 Nodes (27): activeTab, availableProducts, errorMsg, filteredProductsDropdown, kardexMovements, kardexProductName, loading, newPurchase (+19 more)
 
-### Community 20 - "Community 20"
-Cohesion: 0.08
-Nodes (8): CompleteOnboardingRequest, StoreProductRequest, UpdateProductRequest, StoreServiceRequest, StoreExchangeRateRequest, StorePaymentMethodRequest, StoreTaxRequest, FormRequest
+### Community 24 - "Community 24"
+Cohesion: 0.20
+Nodes (7): CurrentCompany, JsonResponse, JsonResponse, Request, ReportController, ExportDgii608Request, StreamedResponse
 
-### Community 21 - "Community 21"
+### Community 25 - "Community 25"
+Cohesion: 0.13
+Nodes (5): Company, BelongsToMany, HasMany, ReportService, Builder
+
+### Community 26 - "Community 26"
+Cohesion: 0.11
+Nodes (9): authorizeApi(), BelongsToMany, User, AuditLogPolicy, CompanyPolicy, Authenticatable, HasApiTokens, HasFactory (+1 more)
+
+### Community 28 - "Community 28"
 Cohesion: 0.14
-Nodes (10): ApiResponse, ErrorCode, JsonResponse, ExchangeRateController, JsonResponse, Request, NcfSequenceController, JsonResponse (+2 more)
+Nodes (10): IdempotencyService, Closure, CreateOrderAction, OrderController, JsonResponse, Request, Order, BelongsTo (+2 more)
 
-### Community 22 - "Community 22"
+### Community 29 - "Community 29"
+Cohesion: 0.14
+Nodes (13): CreateRoleAction, DeactivateRoleAction, UpdateRoleAction, PermissionController, JsonResponse, Request, JsonResponse, Request (+5 more)
+
+### Community 30 - "Community 30"
 Cohesion: 0.10
 Nodes (21): activeTab, download(), downloading, error, from, load(), loading, message() (+13 more)
 
-### Community 23 - "Community 23"
-Cohesion: 0.14
-Nodes (10): SendElectronicInvoiceJob, ProcessIssuedInvoice, ElectronicInvoiceService, ElectronicInvoiceProviderInterface, InvoiceIssued, Dispatchable, InteractsWithQueue, Queueable (+2 more)
-
-### Community 24 - "Community 24"
-Cohesion: 0.14
-Nodes (8): Order, BelongsTo, HasMany, HasOne, JsonResponse, Request, RestaurantController, RestaurantService
-
-### Community 25 - "Community 25"
-Cohesion: 0.11
-Nodes (22): branches, editing, emptyForm(), ensureDefaultBranch(), error, form, load(), loading (+14 more)
-
-### Community 26 - "Community 26"
-Cohesion: 0.17
-Nodes (8): JsonResponse, Request, PurchaseController, BelongsTo, HasMany, HasOne, Purchase, PurchaseFiscalDataService
-
-### Community 27 - "Community 27"
-Cohesion: 0.14
-Nodes (5): Product, Tax, BelongsTo, HasMany, HasOne
-
-### Community 28 - "Community 28"
-Cohesion: 0.23
-Nodes (5): JsonResponse, Request, ReportController, ExportDgii608Request, StreamedResponse
-
-### Community 29 - "Community 29"
-Cohesion: 0.12
-Nodes (22): appointments, changeStatus(), customers, employees, emptyForm(), error, filterDate, filterEmployee (+14 more)
-
-### Community 30 - "Community 30"
-Cohesion: 0.11
-Nodes (15): categories, editing, emptyForm(), error, form, load(), loading, message() (+7 more)
-
 ### Community 31 - "Community 31"
-Cohesion: 0.16
-Nodes (10): SynchronizeCompanyUserAccessAction, CompanyUserController, BelongsToMany, JsonResponse, PermissionController, JsonResponse, Request, AuditLogController (+2 more)
+Cohesion: 0.11
+Nodes (8): ProvisionCompanyOwnerAccess, Permission, BelongsToMany, BelongsTo, BelongsToMany, Role, RolePolicy, PermissionCatalog
 
 ### Community 32 - "Community 32"
 Cohesion: 0.16
-Nodes (19): customers, editing, emptyForm(), error, form, load(), loading, message() (+11 more)
+Nodes (9): CreateAppointmentAction, AppointmentController, CurrentCompany, JsonResponse, Request, StoreAppointmentRequest, UpdateAppointmentStatusRequest, AppointmentResource (+1 more)
 
 ### Community 33 - "Community 33"
 Cohesion: 0.14
-Nodes (20): begin(), busy, confirm(), confirmCode, disable(), disableCode, enabled, error (+12 more)
+Nodes (10): SendElectronicInvoiceJob, ProcessIssuedInvoice, ElectronicInvoiceService, ElectronicInvoiceProviderInterface, InvoiceIssued, Dispatchable, InteractsWithQueue, Queueable (+2 more)
 
 ### Community 34 - "Community 34"
 Cohesion: 0.14
-Nodes (7): Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento, OmniPOS Modular SaaS — Instrucciones del proyecto, Reglas duras (resumen), 13 — Decisiones Técnicas (ADR), 14 — Problemas Conocidos
+Nodes (9): CurrentCompany, JsonResponse, Request, VehicleController, StoreVehicleRequest, UpdateVehicleRequest, Request, VehicleResource (+1 more)
 
 ### Community 35 - "Community 35"
-Cohesion: 0.12
-Nodes (7): CashMovement, BelongsTo, CashSession, BelongsTo, HasMany, Payment, BelongsTo
+Cohesion: 0.11
+Nodes (22): branches, editing, emptyForm(), ensureDefaultBranch(), error, form, load(), loading (+14 more)
 
 ### Community 36 - "Community 36"
-Cohesion: 0.20
-Nodes (8): EmployeeController, CurrentCompany, JsonResponse, Request, UpdateEmployeeRequest, EmployeeResource, Request, Employee
+Cohesion: 0.11
+Nodes (19): availableBranches, branchCode, branchName, companies, companyName, errorMessage, isCreatingCompany, isLoading (+11 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.09
-Nodes (21): 08 — Seguridad y Auditoría, Acciones sensibles con autorización elevada, Auditoría (módulo Audit), Autenticación y sesiones, Autorización en capas, Datos, Implementado en Fase 1, Implementado en Fase 1: acceso de usuarios (+13 more)
+Cohesion: 0.11
+Nodes (15): categories, editing, emptyForm(), error, form, load(), loading, message() (+7 more)
 
 ### Community 38 - "Community 38"
-Cohesion: 0.10
-Nodes (17): code, email, errorMessage, isSubmitting, needsCode, password, router, session (+9 more)
+Cohesion: 0.16
+Nodes (8): EmployeeController, CurrentCompany, JsonResponse, Request, StoreEmployeeRequest, UpdateEmployeeRequest, EmployeeResource, Request
 
 ### Community 39 - "Community 39"
-Cohesion: 0.18
-Nodes (17): employees, emptyForm(), error, form, load(), loading, message(), reset() (+9 more)
+Cohesion: 0.16
+Nodes (19): customers, editing, emptyForm(), error, form, load(), loading, message() (+11 more)
 
 ### Community 40 - "Community 40"
 Cohesion: 0.14
-Nodes (5): CreateCustomerAction, UpdateCustomerAction, Customer, HasMany, CustomerPolicy
+Nodes (20): begin(), busy, confirm(), confirmCode, disable(), disableCode, enabled, error (+12 more)
 
 ### Community 41 - "Community 41"
+Cohesion: 0.14
+Nodes (7): Documentación viva, Fuentes de verdad (en orden de prioridad), Grafo de conocimiento, OmniPOS Modular SaaS — Instrucciones del proyecto, Reglas duras (resumen), 13 — Decisiones Técnicas (ADR), 14 — Problemas Conocidos
+
+### Community 42 - "Community 42"
+Cohesion: 0.09
+Nodes (21): 08 — Seguridad y Auditoría, Acciones sensibles con autorización elevada, Auditoría (módulo Audit), Autenticación y sesiones, Autorización en capas, Datos, Implementado en Fase 1, Implementado en Fase 1: acceso de usuarios (+13 more)
+
+### Community 43 - "Community 43"
+Cohesion: 0.17
+Nodes (6): CustomerController, JsonResponse, Request, RecordCreditRequest, StoreCustomerRequest, CustomerCreditService
+
+### Community 44 - "Community 44"
 Cohesion: 0.22
 Nodes (11): RFC-6238, globalSetup(), APP_ENV_VARS, DEMO_USER, E2E_DATABASE, phpBinary(), loginAsDemo(), selectContext() (+3 more)
 
-### Community 42 - "Community 42"
+### Community 45 - "Community 45"
+Cohesion: 0.15
+Nodes (5): CreateCustomerAction, UpdateCustomerAction, Customer, HasMany, CustomerPolicy
+
+### Community 46 - "Community 46"
+Cohesion: 0.12
+Nodes (6): UpdateCustomerRequest, Closure, ValidTaxId, DominicanTaxId, StoreSupplierRequest, ValidationRule
+
+### Community 47 - "Community 47"
 Cohesion: 0.19
 Nodes (5): Invoice, BelongsTo, HasMany, InvoiceService, makeInvoice()
 
-### Community 43 - "Community 43"
+### Community 48 - "Community 48"
+Cohesion: 0.16
+Nodes (3): TicketBuilder, SettingsSchema, self
+
+### Community 49 - "Community 49"
+Cohesion: 0.16
+Nodes (5): CashMovement, BelongsTo, CashSession, BelongsTo, HasMany
+
+### Community 50 - "Community 50"
 Cohesion: 0.11
 Nodes (18): 11 — TODO MASTER, Backlog (post-v1), Conocimiento del proyecto, FASE 0 — Base, FASE 10 — Facturación electrónica, FASE 11 — Impresión, FASE 12 — Módulos por negocio, FASE 13 — Reportes (+10 more)
 
-### Community 44 - "Community 44"
+### Community 51 - "Community 51"
+Cohesion: 0.14
+Nodes (15): api, storageKeys, PosOrder, PosOrderItem, PosPayment, PosService, errorMsg, getMinutesElapsed() (+7 more)
+
+### Community 52 - "Community 52"
 Cohesion: 0.14
 Nodes (14): AuditLogResponse, errorMessage, filters, hasFilters, isLoading, loadLogs(), logs, pagination (+6 more)
 
-### Community 45 - "Community 45"
+### Community 53 - "Community 53"
 Cohesion: 0.15
 Nodes (15): branches, BranchForm, editing, emptyForm(), error, form, load(), loading (+7 more)
 
-### Community 46 - "Community 46"
-Cohesion: 0.16
-Nodes (6): CreateAppointmentAction, Appointment, BelongsTo, AppointmentServiceLine, BelongsTo, Company
-
-### Community 47 - "Community 47"
-Cohesion: 0.15
-Nodes (8): NcfSequence, BelongsTo, ConfigurationSeeder, DatabaseSeeder, DemoSeeder, Seeder, makeSequence(), WithoutModelEvents
-
-### Community 48 - "Community 48"
+### Community 54 - "Community 54"
 Cohesion: 0.12
 Nodes (12): Area, areas, availableTablesForTransfer, destinationTableId, errorMsg, executeTransfer(), loading, loadLayout() (+4 more)
 
-### Community 49 - "Community 49"
-Cohesion: 0.23
-Nodes (6): IdempotencyService, Closure, CreateOrderAction, OrderController, JsonResponse, Request
-
-### Community 50 - "Community 50"
-Cohesion: 0.29
-Nodes (5): AppointmentController, CurrentCompany, JsonResponse, Request, StoreAppointmentRequest
-
-### Community 51 - "Community 51"
-Cohesion: 0.25
-Nodes (9): Request, ProductController, Request, ProductResource, CurrentCompany, JsonResponse, SaveProductAction, StoreProductRequest (+1 more)
-
-### Community 52 - "Community 52"
-Cohesion: 0.30
-Nodes (5): CurrentCompany, CustomerController, JsonResponse, Request, CustomerCreditService
-
-### Community 53 - "Community 53"
+### Community 55 - "Community 55"
 Cohesion: 0.34
 Nodes (4): JsonResponse, Request, Response, PrintController
 
-### Community 54 - "Community 54"
+### Community 56 - "Community 56"
+Cohesion: 0.19
+Nodes (6): JsonResponse, Request, ServiceController, StoreServiceRequest, Request, ServiceResource
+
+### Community 57 - "Community 57"
 Cohesion: 0.17
 Nodes (14): EInvoice, EInvoiceSettings, error, load(), loading, message(), records, retry() (+6 more)
 
-### Community 55 - "Community 55"
+### Community 58 - "Community 58"
 Cohesion: 0.21
 Nodes (8): audit(), auditLogs(), AuditLog, BelongsTo, AuditLogger, Model, MorphMany, MorphTo
 
-### Community 56 - "Community 56"
+### Community 59 - "Community 59"
+Cohesion: 0.15
+Nodes (3): ProvisionGenericCustomer, ProvisionCompanyConfiguration, FiscalCatalog
+
+### Community 60 - "Community 60"
+Cohesion: 0.21
+Nodes (3): CompleteOnboardingAction, SettingsService, BusinessTypeSettingsPresets
+
+### Community 61 - "Community 61"
+Cohesion: 0.31
+Nodes (4): CashSessionController, JsonResponse, Request, CashSessionService
+
+### Community 62 - "Community 62"
+Cohesion: 0.27
+Nodes (4): JsonResponse, Request, RestaurantController, RestaurantService
+
+### Community 63 - "Community 63"
 Cohesion: 0.14
 Nodes (14): 02 — Esquema Inicial de Base de Datos, 10. Facturación electrónica (§19), 11. Módulos verticales, 12. Reportes DGII (addendum), 1. Núcleo SaaS, 2. Sistema de módulos y planes, 3. Configuración fiscal y monedas, 4. Clientes (+6 more)
 
-### Community 57 - "Community 57"
+### Community 64 - "Community 64"
 Cohesion: 0.14
 Nodes (13): 09 — Estrategia de Pruebas, Cobertura obligatoria backend (master prompt §29), E2E Playwright (Fase 14, sobre app real), Herramientas, Implementado en Fase 10: e-CF y onboarding operativo, Implementado en Fase 13: reportes base, Implementado en Fase 1: auditoría, Implementado en Fase 1: Policies de recursos (+5 more)
 
-### Community 58 - "Community 58"
-Cohesion: 0.15
-Nodes (8): i18n, allNavigation, modules, navigation, NavItem, operatorName, session, router
-
-### Community 59 - "Community 59"
+### Community 65 - "Community 65"
 Cohesion: 0.22
 Nodes (13): deactivate(), editing, error, form, load(), loading, message(), permissions (+5 more)
 
-### Community 60 - "Community 60"
-Cohesion: 0.27
-Nodes (5): JsonResponse, Request, SupplierController, StoreSupplierRequest, Supplier
-
-### Community 61 - "Community 61"
-Cohesion: 0.21
-Nodes (5): BelongsToMany, SubscriptionPlan, BelongsToMany, SystemModule, ModuleSystemSeeder
-
-### Community 62 - "Community 62"
+### Community 66 - "Community 66"
 Cohesion: 0.15
 Nodes (13): `GET /api/v1/reports/cash`, `GET /api/v1/reports/dgii/606?period=YYYY-MM`, `GET /api/v1/reports/dgii/607?period=YYYY-MM`, `GET /api/v1/reports/dgii/608?period=YYYY-MM`, `GET /api/v1/reports/sales`, `GET /api/v1/reports/sales/by-customer`, `GET /api/v1/reports/sales/by-payment-method`, `GET /api/v1/reports/sales/by-product` (+5 more)
 
-### Community 63 - "Community 63"
+### Community 67 - "Community 67"
 Cohesion: 0.22
 Nodes (10): createProduct(), toPayload(), updateProduct(), Category, Product, ProductCombo, ProductForm, ProductModifier (+2 more)
 
-### Community 64 - "Community 64"
+### Community 68 - "Community 68"
 Cohesion: 0.15
 Nodes (12): compilerOptions, esModuleInterop, isolatedModules, jsx, lib, module, moduleResolution, resolveJsonModule (+4 more)
 
-### Community 65 - "Community 65"
-Cohesion: 0.29
-Nodes (3): ElectronicInvoiceController, JsonResponse, Request
-
-### Community 66 - "Community 66"
-Cohesion: 0.21
-Nodes (4): InventoryBatch, BelongsTo, InventoryStock, BelongsTo
-
-### Community 67 - "Community 67"
-Cohesion: 0.38
-Nodes (3): InvoiceController, JsonResponse, Request
-
-### Community 68 - "Community 68"
-Cohesion: 0.24
-Nodes (4): ModuleController, JsonResponse, Request, JsonResponse
-
 ### Community 69 - "Community 69"
-Cohesion: 0.39
-Nodes (4): CashSessionController, JsonResponse, Request, CashSessionService
+Cohesion: 0.23
+Nodes (6): Request, UserResource, BranchResource, Request, CompanyResource, Request
 
 ### Community 70 - "Community 70"
 Cohesion: 0.29
-Nodes (4): KitchenController, JsonResponse, Request, KitchenService
+Nodes (3): ElectronicInvoiceController, JsonResponse, Request
 
 ### Community 71 - "Community 71"
+Cohesion: 0.38
+Nodes (3): InvoiceController, JsonResponse, Request
+
+### Community 72 - "Community 72"
+Cohesion: 0.29
+Nodes (4): KitchenController, JsonResponse, Request, KitchenService
+
+### Community 73 - "Community 73"
 Cohesion: 0.29
 Nodes (11): Entrada de Mercancía Screen (Compras y Lotes), OmniPOS Admin Sidebar Navigation (Inventory module active), Barcode Product Scanning (Escanear Producto), Batch/Lot Tracking with Expiration Dates (Lote, Vencimiento), Document Info Form (Proveedor, Almacén Destino, Fecha de Entrada), Draft vs Confirm Workflow (Borrador badge, Guardar Borrador, Confirmar Entrada Afecta Stock), Editable Line Items Table (Cant., Costo Unit., manual row add, row delete), Multi-Warehouse Destination Selection (Bodega Principal) (+3 more)
 
-### Community 72 - "Community 72"
+### Community 74 - "Community 74"
 Cohesion: 0.25
 Nodes (11): Kardex Product Movement History Screen, OmniPOS Admin Sidebar Navigation, CSV Export Button, Lot and Reference Traceability, Manual Adjustment Action (Ajuste Manual), Movement Type Badges, Movements Table, 30-Day Rotation Sparkline Chart (+3 more)
 
-### Community 73 - "Community 73"
+### Community 75 - "Community 75"
 Cohesion: 0.24
 Nodes (11): Customer Profile Screen (History & Credit), Abonar Cuenta (Account Payment) Primary Action, Shipping and Billing Addresses Card, OmniPOS Admin Sidebar Navigation, Credit KPI Cards (Pending Balance, Available Limit, YTD Purchases), Credit Limit Usage Progress Bar, Credit Sales Workflow (Sell on Credit, Collect Later), Customer 360 Detail View (+3 more)
 
-### Community 74 - "Community 74"
-Cohesion: 0.25
-Nodes (4): CompanyController, JsonResponse, Request, StoreCompanyRequest
-
-### Community 75 - "Community 75"
+### Community 76 - "Community 76"
 Cohesion: 0.35
 Nodes (5): JsonResponse, Request, WarehouseController, BelongsTo, Warehouse
 
-### Community 76 - "Community 76"
+### Community 77 - "Community 77"
 Cohesion: 0.22
 Nodes (4): BaseTestCase, ExampleTest, TestCase, ExampleTest
 
-### Community 77 - "Community 77"
+### Community 78 - "Community 78"
 Cohesion: 0.18
 Nodes (11): require-dev, fakerphp/faker, larastan/larastan, laravel/pail, laravel/pint, laravel/sail, mockery/mockery, nunomaduro/collision (+3 more)
-
-### Community 78 - "Community 78"
-Cohesion: 0.27
-Nodes (9): AgendaFilters, fetchCustomerOptions(), fetchServiceOptions(), Appointment, AppointmentForm, AppointmentServiceLine, AppointmentStatus, CustomerOption (+1 more)
 
 ### Community 79 - "Community 79"
 Cohesion: 0.24
@@ -627,108 +608,120 @@ Cohesion: 0.33
 Nodes (10): Reporte de Ventas / Análisis de Rendimiento Screen, Export Actions (Exportar PDF / Exportar Excel), KPI Summary Cards (Venta Total, Margen, Ticket Promedio, Transacciones), Métodos de Pago Donut Chart, Period-over-Period Trend Indicators (vs mes anterior), Registro de Ventas Transaction Table, Table Search and Filters (Buscar ticket o cliente, Filtros), Sidebar Navigation (Dashboard, Inventory, Sales, Customers, Reports, Settings) (+2 more)
 
 ### Community 87 - "Community 87"
-Cohesion: 0.22
-Nodes (3): ProvisionCompanyOwnerAccess, PermissionCatalog, ProvisionGenericCustomer
+Cohesion: 0.24
+Nodes (5): bootBelongsToCompany(), bootHasPublicUlid(), UserFactory, Factory, static
+
+### Community 88 - "Community 88"
+Cohesion: 0.42
+Nodes (4): SynchronizeCompanyUserAccessAction, CompanyUserController, BelongsToMany, JsonResponse
 
 ### Community 89 - "Community 89"
-Cohesion: 0.20
-Nodes (10): scripts, analyse, dev, post-autoload-dump, post-create-project-cmd, post-root-package-install, post-update-cmd, pre-package-uninstall (+2 more)
-
-### Community 90 - "Community 90"
-Cohesion: 0.20
-Nodes (10): 01 — Arquitectura, Capas de protección de una ruta, Contexto tenant implementado (Fase 1), Convenciones críticas, Decisiones registradas, Estructura backend, Eventos de dominio clave, Multi-tenancy (+2 more)
+Cohesion: 0.29
+Nodes (5): CompanyUserResource, Request, PermissionResource, Request, JsonResource
 
 ### Community 91 - "Community 91"
 Cohesion: 0.20
-Nodes (10): 03 — Documentación de API, Auditoría (Fase 1), Clientes (Fase 4), Convenciones, `GET /api/v1/audit-logs`, `GET /api/v1/audit-logs/{publicId}`, `GET /api/v1/customers?search=&page=`, Mapa de endpoints previsto (por fase) (+2 more)
+Nodes (10): scripts, analyse, dev, post-autoload-dump, post-create-project-cmd, post-root-package-install, post-update-cmd, pre-package-uninstall (+2 more)
 
 ### Community 92 - "Community 92"
 Cohesion: 0.20
-Nodes (10): 34. LOCALIZACIÓN FISCAL REPÚBLICA DOMINICANA, 35. FACTURACIÓN ELECTRÓNICA — CONTEXTO LEY 32-23, 36. INTEGRIDAD Y CONCURRENCIA (OBLIGATORIO), 37. CALIDAD, TOOLING Y CI (OBLIGATORIO), 38. SAAS COMERCIAL, 39. UX / FRONTEND (COMPLEMENTO), 40. MÓDULOS ADICIONALES (CATÁLOGO EXTENDIDO), 41. OPERACIÓN (+2 more)
+Nodes (10): 01 — Arquitectura, Capas de protección de una ruta, Contexto tenant implementado (Fase 1), Convenciones críticas, Decisiones registradas, Estructura backend, Eventos de dominio clave, Multi-tenancy (+2 more)
 
 ### Community 93 - "Community 93"
-Cohesion: 0.24
-Nodes (9): errorMsg, getMinutesElapsed(), getTimeColor(), items, KitchenItem, loading, loadKds(), successMsg (+1 more)
+Cohesion: 0.20
+Nodes (10): 03 — Documentación de API, Auditoría (Fase 1), Clientes (Fase 4), Convenciones, `GET /api/v1/audit-logs`, `GET /api/v1/audit-logs/{publicId}`, `GET /api/v1/customers?search=&page=`, Mapa de endpoints previsto (por fase) (+2 more)
 
 ### Community 94 - "Community 94"
+Cohesion: 0.20
+Nodes (10): 34. LOCALIZACIÓN FISCAL REPÚBLICA DOMINICANA, 35. FACTURACIÓN ELECTRÓNICA — CONTEXTO LEY 32-23, 36. INTEGRIDAD Y CONCURRENCIA (OBLIGATORIO), 37. CALIDAD, TOOLING Y CI (OBLIGATORIO), 38. SAAS COMERCIAL, 39. UX / FRONTEND (COMPLEMENTO), 40. MÓDULOS ADICIONALES (CATÁLOGO EXTENDIDO), 41. OPERACIÓN (+2 more)
+
+### Community 95 - "Community 95"
+Cohesion: 0.20
+Nodes (8): code, email, errorMessage, isSubmitting, needsCode, password, router, session
+
+### Community 96 - "Community 96"
+Cohesion: 0.20
+Nodes (8): email, errorMessage, isSubmitting, name, password, passwordConfirmation, router, session
+
+### Community 97 - "Community 97"
 Cohesion: 0.28
 Nodes (9): Onboarding Business Type Selection Screen, Business Type Cards Grid, Dominican Republic Context (RD$ currency), Industry Vertical Options (Restaurante, Cafeteria, Supermercado, Retail, Barberia/Salon, Taller Mecanico, Servicios Profesionales), Business Type Drives Modular Feature Configuration, OmniPOS SaaS Onboarding Flow, Selected Card State (indigo border, filled icon, checkmark badge), Wizard Navigation Footer (Atras / Siguiente buttons) (+1 more)
 
-### Community 95 - "Community 95"
-Cohesion: 0.28
-Nodes (5): bootBelongsToCompany(), bootHasPublicUlid(), UserFactory, Factory, static
-
-### Community 96 - "Community 96"
-Cohesion: 0.33
-Nodes (5): PermissionResource, Request, BranchResource, Request, JsonResource
-
 ### Community 98 - "Community 98"
+Cohesion: 0.39
+Nodes (4): UpdateBranchAction, BranchController, JsonResponse, Request
+
+### Community 99 - "Community 99"
 Cohesion: 0.28
 Nodes (3): AppServiceProvider, ModuleServiceProvider, ServiceProvider
 
-### Community 99 - "Community 99"
+### Community 100 - "Community 100"
 Cohesion: 0.22
 Nodes (8): description, keywords, license, minimum-stability, name, prefer-stable, $schema, type
 
-### Community 100 - "Community 100"
+### Community 101 - "Community 101"
 Cohesion: 0.22
 Nodes (9): 00 — Visión General del Proyecto: OmniPOS Modular SaaS, Arquitectura en una línea, Documentos, Fases de desarrollo (resumen), Mercado objetivo, Módulos opcionales, Núcleo (siempre activo), Qué es (+1 more)
 
-### Community 101 - "Community 101"
+### Community 102 - "Community 102"
 Cohesion: 0.22
 Nodes (9): 05 — Sistema de Módulos, Catálogo de módulos, Core (no desactivables), Mapa de dependencias (regla), Matriz por tipo de negocio, Middleware y frontend, ModuleManagerService, Opcionales (+1 more)
 
-### Community 102 - "Community 102"
+### Community 103 - "Community 103"
 Cohesion: 0.22
 Nodes (8): About Laravel, Code of Conduct, Contributing, Laravel Sponsors, Learning Laravel, License, Premium Partners, Security Vulnerabilities
 
-### Community 103 - "Community 103"
+### Community 104 - "Community 104"
 Cohesion: 0.22
 Nodes (9): confirmPurchase(), getErrorMessage(), handleCreatePurchase(), handleCreateSupplier(), handleCreateWarehouse(), handleWarehouseFilterChange(), loadData(), viewKardex() (+1 more)
 
-### Community 105 - "Community 105"
+### Community 106 - "Community 106"
 Cohesion: 0.25
 Nodes (8): 1) Orientarte con Graphify (por bash, NO es un MCP), 2) Verificar en navegador con Playwright MCP (herramientas `browser_*`), Bucle de trabajo, Cómo trabajar sin perderte (Graphify + Playwright), Documentación viva, Fuentes de verdad (en orden de prioridad), OmniPOS Modular SaaS — Instrucciones del proyecto, Reglas duras (resumen)
 
-### Community 106 - "Community 106"
+### Community 107 - "Community 107"
 Cohesion: 0.32
 Nodes (3): AuditLogResource, Request, AuditValuesSanitizer
-
-### Community 107 - "Community 107"
-Cohesion: 0.36
-Nodes (4): Request, UserResource, CompanyResource, Request
 
 ### Community 108 - "Community 108"
 Cohesion: 0.25
 Nodes (8): pestphp/pest-plugin, php-http/discovery, config, allow-plugins, optimize-autoloader, platform-check, preferred-install, sort-packages
 
 ### Community 109 - "Community 109"
-Cohesion: 0.25
-Nodes (7): 04 — Estructura Frontend, Design system: "Kinetic Enterprise", Estructura (master prompt §5), Implementado en Fase 1, Implementado en Fase 10, Pantallas de referencia (Stitch), Reglas frontend
+Cohesion: 0.32
+Nodes (5): ConfigurationSeeder, DatabaseSeeder, DemoSeeder, Seeder, WithoutModelEvents
 
 ### Community 110 - "Community 110"
 Cohesion: 0.25
-Nodes (7): 15 — Inventario, Lotes y Vencimientos, Alertas (job diario + eventos en tiempo real), Kardex, Modelo, Métodos de salida (por producto, `outgoing_method`), Reglas de venta con vencimiento (configurables por empresa), Reportes
+Nodes (7): 04 — Estructura Frontend, Design system: "Kinetic Enterprise", Estructura (master prompt §5), Implementado en Fase 1, Implementado en Fase 10, Pantallas de referencia (Stitch), Reglas frontend
 
 ### Community 111 - "Community 111"
+Cohesion: 0.25
+Nodes (7): 15 — Inventario, Lotes y Vencimientos, Alertas (job diario + eventos en tiempo real), Kardex, Modelo, Métodos de salida (por producto, `outgoing_method`), Reglas de venta con vencimiento (configurables por empresa), Reportes
+
+### Community 112 - "Community 112"
 Cohesion: 0.25
 Nodes (7): Brand & Style, Colors, Components, Elevation & Depth, Layout & Spacing, Shapes, Typography
 
 ### Community 113 - "Community 113"
+Cohesion: 0.43
+Nodes (4): EnsureModuleEnabled, Closure, Request, Response
+
+### Community 114 - "Community 114"
 Cohesion: 0.48
 Nodes (3): JsonResponse, Request, StockController
 
-### Community 116 - "Community 116"
+### Community 115 - "Community 115"
 Cohesion: 0.48
 Nodes (3): CategoryController, JsonResponse, Request
 
-### Community 117 - "Community 117"
+### Community 116 - "Community 116"
 Cohesion: 0.38
 Nodes (3): BelongsTo, HasMany, ProductModifier
 
 ### Community 118 - "Community 118"
-Cohesion: 0.43
-Nodes (3): JsonResponse, Request, ServiceController
+Cohesion: 0.33
+Nodes (3): NcfSequence, BelongsTo, makeSequence()
 
 ### Community 119 - "Community 119"
 Cohesion: 0.29
@@ -738,7 +731,7 @@ Nodes (7): Configuración fiscal (Fase 3), `GET /api/v1/settings/fiscal`, `GET/P
 Cohesion: 0.29
 Nodes (7): 06 — Facturación Electrónica (e-CF DGII, República Dominicana), Contexto legal (investigado 2026-07), Criterios de aceptación del módulo, Diseño en el sistema, Flujo e-CF (base implementada detrás de la interface), Fuentes, Tipos de comprobante
 
-### Community 121 - "Community 121"
+### Community 123 - "Community 123"
 Cohesion: 0.33
 Nodes (5): category, code, dependencies, is_core, name
 
@@ -770,27 +763,27 @@ Nodes (5): 07 — Impresión, Alcance (master prompt §20), Configuración, Estr
 Cohesion: 0.40
 Nodes (4): printWidth, singleQuote, tabWidth, trailingComma
 
-### Community 161 - "Community 161"
+### Community 150 - "Community 150"
 Cohesion: 0.50
 Nodes (4): Facturación electrónica (Fase 10), `GET /api/v1/electronic-invoices` · `GET /api/v1/electronic-invoices/{publicId}/logs`, `GET/PUT /api/v1/electronic-invoices/settings`, `POST /api/v1/electronic-invoices/{publicId}/retry`
 
-### Community 162 - "Community 162"
+### Community 151 - "Community 151"
 Cohesion: 0.50
 Nodes (4): `GET /api/v1/branches`, `PATCH /api/v1/branches/{publicId}`, `POST /api/v1/branches`, Sucursales (Fase 1)
 
-### Community 163 - "Community 163"
+### Community 152 - "Community 152"
 Cohesion: 0.50
 Nodes (4): `GET /api/v1/users`, `PATCH /api/v1/users/{publicId}/access`, `POST /api/v1/users`, Usuarios por compañía (Fase 1)
 
-### Community 164 - "Community 164"
+### Community 153 - "Community 153"
 Cohesion: 0.50
 Nodes (4): checkOfflineQueue(), loadData(), submitOrder(), syncOfflineOrders()
 
-### Community 165 - "Community 165"
+### Community 154 - "Community 154"
 Cohesion: 0.67
 Nodes (3): autoload-dev, psr-4, Tests\\
 
-### Community 166 - "Community 166"
+### Community 155 - "Community 155"
 Cohesion: 0.67
 Nodes (3): extra, laravel, dont-discover
 
@@ -799,24 +792,24 @@ Nodes (3): extra, laravel, dont-discover
   Pantallas del sistema/stitch_omnipos_modular_saas/entradas_de_mercanc_a_compras_y_lotes/screen.png · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **697 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+692 more)
+- **719 isolated node(s):** `singleQuote`, `printWidth`, `tabWidth`, `trailingComma`, `Controller` (+714 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **109 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **97 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Purchase Order Reception (PO-2023-0891)` and `Reception Summary Panel (Subtotal, Impuestos IVA 19%, Flete/Otros, Total)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `CurrentCompany` connect `Community 52` to `Community 2`, `Community 8`, `Community 10`, `Community 14`, `Community 15`, `Community 21`, `Community 24`, `Community 26`, `Community 28`, `Community 31`, `Community 49`, `Community 53`, `Community 60`, `Community 65`, `Community 67`, `Community 68`, `Community 69`, `Community 70`, `Community 75`, `Community 113`, `Community 116`, `Community 118`?**
-  _High betweenness centrality (0.045) - this node is a cross-community bridge._
-- **Why does `User` connect `Community 12` to `Community 0`, `Community 128`, `Community 2`, `Community 3`, `Community 4`, `Community 8`, `Community 14`, `Community 17`, `Community 24`, `Community 27`, `Community 31`, `Community 35`, `Community 40`, `Community 42`, `Community 66`, `Community 70`, `Community 87`, `Community 97`, `Community 112`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
-- **Why does `Company` connect `Community 15` to `Community 0`, `Community 97`, `Community 2`, `Community 3`, `Community 40`, `Community 42`, `Community 10`, `Community 12`, `Community 112`, `Community 17`, `Community 52`, `Community 87`, `Community 88`, `Community 27`?**
+- **Why does `CurrentCompany` connect `Community 24` to `Community 4`, `Community 5`, `Community 8`, `Community 16`, `Community 20`, `Community 25`, `Community 28`, `Community 29`, `Community 43`, `Community 55`, `Community 56`, `Community 61`, `Community 62`, `Community 70`, `Community 71`, `Community 72`, `Community 76`, `Community 88`, `Community 98`, `Community 114`, `Community 115`, `Community 122`?**
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
+- **Why does `User` connect `Community 26` to `Community 0`, `Community 2`, `Community 5`, `Community 6`, `Community 8`, `Community 14`, `Community 16`, `Community 19`, `Community 25`, `Community 27`, `Community 31`, `Community 45`, `Community 47`, `Community 49`, `Community 59`, `Community 60`, `Community 62`, `Community 72`, `Community 88`, `Community 89`, `Community 90`?**
   _High betweenness centrality (0.030) - this node is a cross-community bridge._
+- **Why does `Invoice` connect `Community 47` to `Community 0`, `Community 33`, `Community 5`, `Community 71`, `Community 19`, `Community 22`, `Community 55`, `Community 25`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
 - **Are the 95 inferred relationships involving `ApiResponse` (e.g. with `.index()` and `.store()`) actually correct?**
   _`ApiResponse` has 95 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `User` (e.g. with `.execute()` and `.execute()`) actually correct?**
   _`User` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 3 inferred relationships involving `Company` (e.g. with `.handle()` and `.createCreditNote()`) actually correct?**
-  _`Company` has 3 INFERRED edges - model-reasoned connections that need verification._
+- **What connects `singleQuote`, `printWidth`, `tabWidth` to the rest of the system?**
+  _735 weakly-connected nodes found - possible documentation gaps or missing edges._
