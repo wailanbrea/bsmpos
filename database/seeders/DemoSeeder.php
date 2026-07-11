@@ -114,6 +114,20 @@ class DemoSeeder extends Seeder
 
         app(InventoryService::class)->addStock($warehouse, $mixedPaymentProduct, 25.0, 50.0, user: $owner);
 
+        // Producto inventariable adrede SIN existencias: el recorrido E2E valida
+        // que el POS bloquea la venta cuando no hay stock (regla dura §addendum).
+        Product::query()->create([
+            'company_id' => $company->getKey(),
+            'tax_id' => $tax->getKey(),
+            'name' => 'Botellón de Agua 20 L',
+            'sku' => 'E2E-AGUA-001',
+            'price' => 100.00,
+            'cost' => 40.00,
+            'track_inventory' => true,
+            'is_active' => true,
+            'available_pos' => true,
+        ]);
+
         ExchangeRate::query()->create([
             'company_id' => $company->getKey(),
             'currency_code' => 'USD',

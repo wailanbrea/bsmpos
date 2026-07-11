@@ -29,7 +29,7 @@ Auth, empresas/sucursales (incl. **tests de aislamiento de tenant**), módulos (
 
 ### Runner base implementado
 
-`npm run test:e2e` ejecuta Chromium contra una SQLite exclusiva que se recrea en cada corrida. Sus 15 escenarios actuales cubren acceso, credenciales inválidas, selección de contexto, cierre de sesión, navegación y gates de módulo, configuración fiscal, POS accesible, e-CF desactivado, el ciclo completo de 2FA TOTP, venta POS fiscal con caja/efectivo/cambio/B02/ticket/inventario, pago mixto tarjeta DOP + efectivo USD, y la activación/desactivación de un módulo opcional con protección del núcleo. El runner no reutiliza servidores por defecto, para no mezclar bases E2E de ejecuciones previas; `PLAYWRIGHT_REUSE_SERVER=true` es solo para depuración local.
+`npm run test:e2e` ejecuta Chromium contra una SQLite exclusiva que se recrea en cada corrida. Sus 16 escenarios actuales cubren acceso, credenciales inválidas, selección de contexto, cierre de sesión, navegación y gates de módulo, configuración fiscal, POS accesible, e-CF desactivado, el ciclo completo de 2FA TOTP, venta POS fiscal con caja/efectivo/cambio/B02/ticket/inventario, pago mixto tarjeta DOP + efectivo USD, la activación/desactivación de un módulo opcional con protección del núcleo, y el bloqueo de venta de un producto sin stock con su mensaje de error en el POS. El runner no reutiliza servidores por defecto, para no mezclar bases E2E de ejecuciones previas; `PLAYWRIGHT_REUSE_SERVER=true` es solo para depuración local.
 
 Los flujos de negocio restantes enumerados arriba siguen siendo cobertura pendiente del runner. La suite base no los sustituye.
 

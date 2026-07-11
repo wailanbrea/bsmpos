@@ -865,6 +865,15 @@ const filteredProducts = computed(() => {
                 </header>
 
                 <div class="p-6 space-y-4 overflow-y-auto flex-1">
+                    <!-- Error del cobro (p. ej. stock insuficiente o fallo fiscal) -->
+                    <div
+                        v-if="errorMsg"
+                        class="p-3 bg-red-100 text-red-700 text-xs rounded-xl font-semibold"
+                        role="alert"
+                    >
+                        {{ errorMsg }}
+                    </div>
+
                     <!-- Cliente y Almacén -->
                     <div class="grid grid-cols-2 gap-3">
                         <div>

@@ -4,6 +4,13 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-10 — Fase 14: E2E de venta sin stock + fix de feedback en POS
+**Corregido**
+- **POS:** un cobro fallido durante un turno activo (stock insuficiente, fallo de emisión fiscal o cualquier error del servidor) no mostraba ningún mensaje al cajero — el único banner de error vivía dentro del formulario de apertura de caja (`v-if="!activeSession"`). Ahora el modal "Detalles del Cobro" muestra el error (`role="alert"`), así el cajero ve el motivo del rechazo.
+
+**Agregado**
+- Escenario E2E `pos-no-stock.spec.ts`: el POS bloquea la venta de un producto inventariable agotado (backend responde 400 "Stock insuficiente", la interfaz muestra el error y no emite comprobante), y arquea la caja para no dejar turno abierto. `DemoSeeder` siembra "Botellón de Agua 20 L" sin existencias. Suite E2E en 16 escenarios verdes.
+
 ### 2026-07-10 — Fase 14: E2E de módulos y endurecimiento de CI
 **Agregado**
 - Escenarios E2E `modules.spec.ts`: desactivar y reactivar un módulo opcional (Código de barras) verificando el `role="switch"`/`aria-checked`, y comprobación de que un módulo del núcleo no se puede desactivar. Suite E2E ahora en 15 escenarios verdes.
