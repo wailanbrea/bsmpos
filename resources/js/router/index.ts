@@ -21,6 +21,8 @@ import ReportsPage from '../modules/reports/pages/ReportsPage.vue';
 import SecurityPage from '../modules/security/pages/SecurityPage.vue';
 import AgendaPage from '../modules/appointments/pages/AgendaPage.vue';
 import EmployeeListPage from '../modules/employees/pages/EmployeeListPage.vue';
+import VehicleListPage from '../modules/vehicles/pages/VehicleListPage.vue';
+import WorkOrderListPage from '../modules/work-orders/pages/WorkOrderListPage.vue';
 import { useSessionStore } from '../modules/auth/stores/session';
 import { useModuleStore } from '../modules/module-manager/stores/modules';
 
@@ -156,6 +158,18 @@ const router = createRouter({
             name: 'employees',
             component: EmployeeListPage,
             meta: { requiresAuth: true, requiresContext: true, requiresModule: 'employee' },
+        },
+        {
+            path: '/vehiculos',
+            name: 'vehicles',
+            component: VehicleListPage,
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'vehicle' },
+        },
+        {
+            path: '/ordenes-trabajo',
+            name: 'work-orders',
+            component: WorkOrderListPage,
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'work_order' },
         },
     ],
 });

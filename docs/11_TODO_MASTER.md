@@ -2,7 +2,7 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASES 1–14 completas (candidato v1). Seguridad (2FA), suite E2E Playwright (16 escenarios) y CI GitHub Actions operativos. Pendientes: backlog post-v1 (verticales barbería/taller, provider e-CF real, E2E por-vertical) y un seeder base global de Fase 0 (hoy los catálogos se provisionan por compañía).**
+**Estado global: FASES 1–14 completas (candidato v1), incluidos los verticales Barbería (empleados + citas) y Taller (vehículos + órdenes de trabajo). Seguridad (2FA), suite E2E Playwright (16 escenarios) y CI GitHub Actions operativos; 162 pruebas backend verdes. Pendientes: backlog post-v1 (provider e-CF real, cotizaciones/fotos de taller, facturar cita/orden, export Excel/PDF nativo, E2E por-vertical) y un seeder base global de Fase 0.**
 
 **Verificación 2026-07-10:** baseline de calidad restaurada tras correcciones de tipado en POS, inventario, facturación, impresión y restaurante. Pest, Pint, Larastan, vue-tsc, Vitest, ESLint, Prettier y build PWA están verdes.
 
@@ -100,7 +100,7 @@
 ## FASE 12 — Módulos por negocio
 - [x] Restaurante: mesas/áreas, KDS, comandas, delivery, menú digital
 - [x] Barbería / Salón: módulos activables **`employee`** (empleados con % de comisión) y **`appointment`** (citas). Agenda por fecha/empleado, alta de cita con servicios (total con ITBIS vía bcmath), ciclo de estados pendiente→confirmada→en_proceso→completada con transiciones validadas (cancelada/no_asistio); rutas gated por `module:`+permiso, aislamiento por compañía. Cubierto por `AppointmentModuleTest` (6 casos) y verificado en navegador real (crear cita RD$413, transición de estado, 0 errores de consola). Pendiente futuro: facturar cita → factura fiscal (hoy los servicios se cobran por POS).
-- [ ] Taller: vehículos, órdenes de trabajo, cotizaciones, fotos
+- [x] Taller mecánico: módulos activables **`vehicle`** (vehículos de clientes: marca/modelo/año/placa/VIN/color/kilometraje) y **`work_order`** (órdenes de trabajo). Órdenes con diagnóstico, servicios (total con ITBIS vía bcmath), repuestos (cantidad × precio) y mano de obra; ciclo de estados recibida→diagnosticando→cotizada→aprobada→en_proceso→lista→entregada (+ cancelada) con transiciones validadas; rutas gated por `module:`+permiso, aislamiento por compañía. Cubierto por `WorkshopModuleTest` (6 casos, total RD$ 1554) y verificado en navegador real (registrar vehículo Toyota Hilux y crear orden, POST 201). Pendiente futuro: cotizaciones (módulo `quotation`), fotos/evidencias y facturar orden → factura fiscal (hoy vía POS).
 
 ## FASE 13 — Reportes
 - [x] Ventas y caja por período exportable CSV; desgloses por producto/categoría/método de pago/cajero/cliente/impuestos/descuentos; reporte de anulaciones (`/reports/annulments`) con resumen

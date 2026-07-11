@@ -19,6 +19,8 @@ const allNavigation: NavItem[] = [
     { label: 'Clientes', to: '/clientes', module: 'customer' },
     { label: 'Agenda 💈', to: '/agenda', module: 'appointment' },
     { label: 'Empleados', to: '/empleados', module: 'employee' },
+    { label: 'Vehículos 🚗', to: '/vehiculos', module: 'vehicle' },
+    { label: 'Órdenes 🔧', to: '/ordenes-trabajo', module: 'work_order' },
     { label: 'Módulos', to: '/configuracion/modulos', module: 'module_manager' },
     { label: 'Reportes', to: '/reportes', module: 'report' },
     { label: 'Configuración', to: '/configuracion/fiscal', module: 'setting' },

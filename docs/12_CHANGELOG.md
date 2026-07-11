@@ -4,6 +4,17 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-11 — Fase 12: vertical Taller mecánico (vehículos + órdenes de trabajo)
+**Agregado**
+- Módulo activable **`vehicle`** (dep. `customer`): vehículos de clientes (tabla `vehicles`) con marca, modelo, año, placa, VIN, color, kilometraje. CRUD `GET/POST/PATCH /vehicles` con búsqueda; permisos `vehicles.view/manage`.
+- Módulo activable **`work_order`** (dep. `vehicle` + `service`): órdenes de taller (tablas `work_orders`, `work_order_services`, `work_order_parts`). `GET /work-orders` con filtros por estado/vehículo, `POST /work-orders` (diagnóstico + servicios con ITBIS + repuestos cantidad×precio + mano de obra, total en DECIMAL vía bcmath), `GET /work-orders/{id}`, `PATCH /work-orders/{id}/status` con transiciones validadas (recibida→diagnosticando→cotizada→aprobada→en_proceso→lista→entregada; cancelada). Permisos `work_orders.view/manage`.
+- Frontend: pantallas **Vehículos** (`/vehiculos`) y **Órdenes de trabajo** (`/ordenes-trabajo`) con repuestos dinámicos y transiciones de estado, gated por módulo, con ítems de menú. Design system Kinetic.
+- El preset de negocio `mechanic` ya activaba `service`, `vehicle`, `work_order`; ahora tienen implementación real.
+
+**Validado**
+- `WorkshopModuleTest` (6 casos): registrar vehículo, orden con total servicios+ITBIS+repuestos+mano de obra (RD$ 1554), transiciones válidas e inválidas (409), filtros por estado/vehículo, bloqueo por módulo desactivado y aislamiento por compañía. Suite backend **162 verde**; Pint y Larastan limpios; typecheck/ESLint/Prettier/build verdes.
+- Navegador real: registrar vehículo Toyota Hilux (POST 201, aparece en lista) y crear orden de trabajo (POST 201) desde las pantallas nuevas.
+
 ### 2026-07-11 — Fase 12: vertical Barbería / Salón (empleados + citas)
 **Agregado**
 - Módulo activable **`employee`**: empleados con cargo, contacto y % de comisión (tabla `employees`, CRUD `GET/POST/PATCH /employees`, permisos `employees.view/manage`).

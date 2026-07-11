@@ -33,6 +33,12 @@ final class PermissionCatalog
             ['code' => 'appointments.view', 'name' => 'Ver citas', 'module_code' => 'appointment', 'description' => 'Consultar la agenda de citas.'],
             ['code' => 'appointments.manage', 'name' => 'Gestionar citas', 'module_code' => 'appointment', 'description' => 'Agendar citas y cambiar su estado.'],
 
+            // Taller mecánico (vehículos y órdenes de trabajo)
+            ['code' => 'vehicles.view', 'name' => 'Ver vehículos', 'module_code' => 'vehicle', 'description' => 'Consultar vehículos de clientes.'],
+            ['code' => 'vehicles.manage', 'name' => 'Gestionar vehículos', 'module_code' => 'vehicle', 'description' => 'Registrar y editar vehículos.'],
+            ['code' => 'work_orders.view', 'name' => 'Ver órdenes de trabajo', 'module_code' => 'work_order', 'description' => 'Consultar órdenes de taller.'],
+            ['code' => 'work_orders.manage', 'name' => 'Gestionar órdenes de trabajo', 'module_code' => 'work_order', 'description' => 'Crear órdenes de taller y cambiar su estado.'],
+
             // Inventario, almacenes y compras
             ['code' => 'suppliers.view', 'name' => 'Ver proveedores', 'module_code' => 'supplier', 'description' => 'Consultar proveedores.'],
             ['code' => 'suppliers.manage', 'name' => 'Gestionar proveedores', 'module_code' => 'supplier', 'description' => 'Crear y editar proveedores.'],
