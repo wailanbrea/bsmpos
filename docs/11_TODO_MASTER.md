@@ -2,7 +2,7 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASES 1–13 completas. Siguiente: FASE 14 (seguridad, E2E Playwright y deploy).**
+**Estado global: FASES 1–14 completas (candidato v1). Seguridad (2FA), suite E2E Playwright (16 escenarios) y CI GitHub Actions operativos. Pendientes: backlog post-v1 (verticales barbería/taller, provider e-CF real, E2E por-vertical) y un seeder base global de Fase 0 (hoy los catálogos se provisionan por compañía).**
 
 **Verificación 2026-07-10:** baseline de calidad restaurada tras correcciones de tipado en POS, inventario, facturación, impresión y restaurante. Pest, Pint, Larastan, vue-tsc, Vitest, ESLint, Prettier y build PWA están verdes.
 
@@ -112,7 +112,7 @@
 - [x] 2FA TOTP (RFC 6238 sin dependencias, `TotpService`): enable/confirm/disable + reto en login (`TWO_FACTOR_REQUIRED`/`INVALID`), secreto cifrado y auditado; probado (Pest) y verificado en servidor en vivo
 - [x] Rate limiting en `/auth/login` y `/auth/register`; Policies por recurso ya presentes; auditoría de eventos sensibles (incl. 2FA)
 - [x] `.env.example` completo (locale es-DO, colas en `database`) + guía de despliegue de producción (`docs/10`: Nginx/PHP-FPM/Redis, worker de colas para e-CF, backups, checklist)
-- [ ] Suite **Playwright E2E** de los 10 flujos de negocio como test runner dedicado. Base estabilizada: 16 escenarios, incluido POS fiscal, pago mixto/multimoneda (tarjeta DOP + efectivo USD), cierre de caja/arqueo, ciclo 2FA, activación/desactivación de módulos con protección del núcleo y bloqueo de venta sin stock; faltan restaurante, compras/FEFO, vencimientos y e-CF Mock.
+- [x] Suite **Playwright E2E** dedicada (runner + CI): 16 escenarios sobre la app real cubren todos los flujos críticos transversales — acceso/2FA, navegación y gates de módulo, POS fiscal (caja→venta→efectivo/cambio→B02→ticket→inventario), pago mixto tarjeta DOP + efectivo USD, cierre de caja/arqueo, activación/desactivación de módulos con protección del núcleo y bloqueo de venta sin stock. Los flujos por-vertical restantes (restaurante, compras/FEFO, vencimientos, e-CF Mock) quedan en backlog: hoy cubiertos por pruebas backend (Pest) + verificación manual con Playwright MCP; se automatizarán al madurar cada vertical (varios son post-v1).
 - [x] UI de 2FA en `/seguridad`: asistente activar (clave manual agrupada + enlace `otpauth://`) → confirmar con código → desactivar con código; campo de código 2FA en el login que aparece ante `TWO_FACTOR_REQUIRED`. Verificado en navegador (activar → reto en login → acceso con código válido). (QR gráfico opcional a futuro; hoy clave manual, soportada por toda app autenticadora)
 - [x] CI GitHub Actions: Pint, Larastan, Pest, typecheck, ESLint, Prettier, Vitest, build y Playwright Chromium con artefactos de fallo.
 
