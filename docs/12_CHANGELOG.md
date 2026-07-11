@@ -4,6 +4,14 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-11 — Export nativo Excel/PDF de reportes + seeder base global
+**Agregado**
+- **Excel nativo (.xlsx)** y **PDF** del reporte de ventas con escritores propios sin dependencias: `App\Core\Support\XlsxWriter` (paquete OOXML vía `ZipArchive`, celdas numéricas detectadas) y `App\Core\Support\PdfTableDocument` (PDF 1.4, tabla A4 paginada, Helvetica/WinAnsi). Endpoints `GET /reports/sales/export.xlsx` y `.pdf`; botones **Excel** y **PDF** junto a Exportar CSV en la pantalla de Reportes.
+- `ConfigurationSeeder` ahora también siembra el **catálogo de permisos** global (además de monedas y tipos de comprobante), cerrando el ítem de seeder base de Fase 0.
+
+**Validado**
+- `ReportExportTest` (4 casos): firma ZIP `PK` del .xlsx, cabecera `%PDF-` del PDF, endpoints por HTTP real con content-types correctos, y el seed global de permisos. Suite backend **166 verde**; Pint y Larastan limpios; typecheck/ESLint/Prettier/build verdes.
+
 ### 2026-07-11 — Fase 12: vertical Taller mecánico (vehículos + órdenes de trabajo)
 **Agregado**
 - Módulo activable **`vehicle`** (dep. `customer`): vehículos de clientes (tabla `vehicles`) con marca, modelo, año, placa, VIN, color, kilometraje. CRUD `GET/POST/PATCH /vehicles` con búsqueda; permisos `vehicles.view/manage`.

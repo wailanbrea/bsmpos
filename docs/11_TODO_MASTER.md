@@ -2,7 +2,7 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASES 1–14 completas (candidato v1), incluidos los verticales Barbería (empleados + citas) y Taller (vehículos + órdenes de trabajo). Seguridad (2FA), suite E2E Playwright (16 escenarios) y CI GitHub Actions operativos; 162 pruebas backend verdes. Pendientes: backlog post-v1 (provider e-CF real, cotizaciones/fotos de taller, facturar cita/orden, export Excel/PDF nativo, E2E por-vertical) y un seeder base global de Fase 0.**
+**Estado global: FASES 1–14 completas (candidato v1), incluidos los verticales Barbería (empleados + citas) y Taller (vehículos + órdenes de trabajo). Seguridad (2FA), suite E2E Playwright (16 escenarios) y CI GitHub Actions operativos; 162 pruebas backend verdes. Export nativo Excel/PDF y seeder base global cerrados. Pendientes: backlog post-v1 (provider e-CF real con credenciales DGII, cotizaciones/fotos de taller, facturar cita/orden → factura fiscal, E2E por-vertical).**
 
 **Verificación 2026-07-10:** baseline de calidad restaurada tras correcciones de tipado en POS, inventario, facturación, impresión y restaurante. Pest, Pint, Larastan, vue-tsc, Vitest, ESLint, Prettier y build PWA están verdes.
 
@@ -33,7 +33,7 @@
 - [x] Estructura modular backend (`app/Core`, `app/Modules/*` + ModuleServiceProvider) y frontend
 - [x] API response estándar + manejo de excepciones API + códigos de error
 - [x] Auditable, soporte Money/DECIMAL y ULID público (BelongsToCompany se implementa con el contexto tenant en Fase 1)
-- [ ] Seeders base (monedas, unidades, impuestos RD, document_types NCF/e-CF, permisos)
+- [x] Seeder base global (`ConfigurationSeeder`): monedas, tipos de comprobante DGII (NCF/e-CF) y **catálogo de permisos** sembrados globalmente en `migrate:fresh --seed`. Impuestos, unidades y métodos de pago son por-compañía (tablas con `company_id`) y se provisionan al crear cada empresa por diseño multi-tenant.
 - [x] CI GitHub Actions (`.github/workflows/ci.yml`: calidad backend, frontend y E2E)
 
 ## FASE 1 — Núcleo SaaS
@@ -106,7 +106,7 @@
 - [x] Ventas y caja por período exportable CSV; desgloses por producto/categoría/método de pago/cajero/cliente/impuestos/descuentos; reporte de anulaciones (`/reports/annulments`) con resumen
 - [x] **Formatos DGII:** 606, 607 y 608 TXT implementados y cubiertos en casos base; falta confirmar tratamiento de e-NCF y resumen B02 en OFV (pendiente contra doc oficial)
 - [x] Pantalla de Reportes: 7 pestañas (ventas/producto/categoría/método/impuestos/caja/anulaciones), filtros por fecha, KPIs, descarga CSV + DGII 606/607/608 e impresión (`print:hidden`); verificado en navegador con datos reales
-- [ ] Export a Excel nativo (por ahora CSV, abrible en Excel) y PDF con plantilla — pendiente post-v1
+- [x] Export **Excel nativo (.xlsx)** y **PDF** del reporte de ventas mediante escritores propios sin dependencias (`App\Core\Support\XlsxWriter` con `ZipArchive`; `App\Core\Support\PdfTableDocument`, tabla A4 paginada Helvetica/WinAnsi). Endpoints `/reports/sales/export.xlsx|.pdf` con content-types correctos y botones Excel/PDF en la pantalla de Reportes. Cubierto por `ReportExportTest` (firma ZIP `PK`, cabecera `%PDF`, HTTP real).
 
 ## FASE 14 — Seguridad, pruebas y deploy
 - [x] 2FA TOTP (RFC 6238 sin dependencias, `TotpService`): enable/confirm/disable + reto en login (`TWO_FACTOR_REQUIRED`/`INVALID`), secreto cifrado y auditado; probado (Pest) y verificado en servidor en vivo

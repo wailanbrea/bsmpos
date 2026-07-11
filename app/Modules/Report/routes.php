@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:sanctum', 'company', 'permission:reports.view'])->group(function (): void {
     Route::get('reports/sales', [ReportController::class, 'sales']);
     Route::get('reports/sales/export.csv', [ReportController::class, 'exportSalesCsv']);
+    Route::get('reports/sales/export.xlsx', [ReportController::class, 'exportSalesXlsx']);
+    Route::get('reports/sales/export.pdf', [ReportController::class, 'exportSalesPdf']);
     Route::get('reports/dgii/608', [ReportController::class, 'exportDgii608']);
     Route::get('reports/dgii/606', [ReportController::class, 'exportDgii606']);
     Route::get('reports/dgii/607', [ReportController::class, 'exportDgii607']);

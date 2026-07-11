@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace App\Modules\Report\Http\Controllers;
 
 use App\Core\Http\ApiResponse;
+use App\Core\Support\PdfTableDocument;
+use App\Core\Support\XlsxWriter;
 use App\Core\Tenancy\CurrentCompany;
 use App\Modules\Company\Models\Branch;
 use App\Modules\Report\Http\Requests\ExportDgii608Request;
 use App\Modules\Report\Services\ReportService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 final class ReportController
@@ -78,7 +81,55 @@ final class ReportController
                 fputcsv($stream, [$row['issued_at'], $row['invoice_number'], $row['ncf'], $row['document_type_code'], $row['branch'], $row['customer'], $row['total']]);
             }
             fclose($stream);
-        }, 'ventas-'.$request->query('from', now()->toDateString()).'-'.$request->query('to', now()->toDateString()).'.csv', ['Content-Type' => 'text/csv; charset=UTF-8']);
+        }, $this->salesFilename($request).'.csv', ['Content-Type' => 'text/csv; charset=UTF-8']);
+    }
+
+    public function exportSalesXlsx(Request $request, CurrentCompany $currentCompany): Response
+    {
+        $report = $this->reports->sales($currentCompany->company(), $this->filters($request, $currentCompany));
+        [$headers, $rows] = $this->salesTable($report);
+
+        return response(XlsxWriter::build($headers, $rows, 'Ventas'), 200, [
+            'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'Content-Disposition' => 'attachment; filename="'.$this->salesFilename($request).'.xlsx"',
+        ]);
+    }
+
+    public function exportSalesPdf(Request $request, CurrentCompany $currentCompany): Response
+    {
+        $report = $this->reports->sales($currentCompany->company(), $this->filters($request, $currentCompany));
+        [$headers, $rows] = $this->salesTable($report);
+        $title = 'Reporte de ventas '.$request->query('from', now()->toDateString()).' a '.$request->query('to', now()->toDateString());
+
+        return response(PdfTableDocument::build($title, $headers, $rows), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'attachment; filename="'.$this->salesFilename($request).'.pdf"',
+        ]);
+    }
+
+    /**
+     * @param  array{rows: list<array<string, mixed>>}  $report
+     * @return array{0: list<string>, 1: list<list<string>>}
+     */
+    private function salesTable(array $report): array
+    {
+        $headers = ['Fecha', 'Factura', 'NCF', 'Tipo', 'Sucursal', 'Cliente', 'Total'];
+        $rows = array_map(static fn (array $row): array => [
+            (string) $row['issued_at'],
+            (string) $row['invoice_number'],
+            (string) $row['ncf'],
+            (string) $row['document_type_code'],
+            (string) $row['branch'],
+            (string) $row['customer'],
+            (string) $row['total'],
+        ], $report['rows']);
+
+        return [$headers, $rows];
+    }
+
+    private function salesFilename(Request $request): string
+    {
+        return 'ventas-'.$request->query('from', now()->toDateString()).'-'.$request->query('to', now()->toDateString());
     }
 
     public function exportDgii608(ExportDgii608Request $request, CurrentCompany $currentCompany): StreamedResponse

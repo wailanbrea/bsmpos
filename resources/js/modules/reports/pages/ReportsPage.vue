@@ -155,15 +155,15 @@ async function load(): Promise<void> {
     }
 }
 
-async function download(kind: 'csv' | '606' | '607' | '608'): Promise<void> {
+async function download(kind: 'csv' | 'xlsx' | 'pdf' | '606' | '607' | '608'): Promise<void> {
     downloading.value = kind;
     error.value = null;
     try {
-        if (kind === 'csv') {
+        if (kind === 'csv' || kind === 'xlsx' || kind === 'pdf') {
             await downloadReport(
-                'sales/export.csv',
+                `sales/export.${kind}`,
                 { from: from.value, to: to.value },
-                `ventas-${from.value}-${to.value}.csv`,
+                `ventas-${from.value}-${to.value}.${kind}`,
             );
         } else {
             await downloadReport(`dgii/${kind}`, { period: period.value }, `${kind}-${period.value}.txt`);
@@ -232,6 +232,22 @@ onMounted(() => {
                         @click="download('csv')"
                     >
                         Exportar CSV
+                    </button>
+                    <button
+                        type="button"
+                        :disabled="downloading === 'xlsx'"
+                        class="min-h-11 rounded-lg border border-[#006c49] px-3 text-sm font-bold text-[#006c49] disabled:opacity-60"
+                        @click="download('xlsx')"
+                    >
+                        Excel
+                    </button>
+                    <button
+                        type="button"
+                        :disabled="downloading === 'pdf'"
+                        class="min-h-11 rounded-lg border border-[#ba1a1a] px-3 text-sm font-bold text-[#ba1a1a] disabled:opacity-60"
+                        @click="download('pdf')"
+                    >
+                        PDF
                     </button>
                     <button
                         v-for="fmt in ['606', '607', '608']"
