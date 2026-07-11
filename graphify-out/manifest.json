@@ -305,14 +305,14 @@
     "semantic_hash": "feea908c2e1c97bcf28dd1612f5c6f1a"
   },
   "docs/11_TODO_MASTER.md": {
-    "mtime": 1783751836.9078093,
-    "ast_hash": "abc86a9b95b977cdeac198591a6d8d42",
-    "semantic_hash": "abc86a9b95b977cdeac198591a6d8d42"
+    "mtime": 1783753776.8618672,
+    "ast_hash": "865e5d82d1dbac1d1b433ed63e5d58c0",
+    "semantic_hash": "865e5d82d1dbac1d1b433ed63e5d58c0"
   },
   "docs/12_CHANGELOG.md": {
-    "mtime": 1783751846.6546035,
-    "ast_hash": "b441585c2d2f1a4b41b773da666772fd",
-    "semantic_hash": "b441585c2d2f1a4b41b773da666772fd"
+    "mtime": 1783753811.746898,
+    "ast_hash": "4022a057d4afd0c94361bd55eb8f3b09",
+    "semantic_hash": "4022a057d4afd0c94361bd55eb8f3b09"
   },
   "docs/13_DECISIONS.md": {
     "mtime": 1783724558.461153,
@@ -465,14 +465,14 @@
     "semantic_hash": "9300e734d77b1a5201b1fa36c0dca93a"
   },
   "resources/js/modules/dashboard/pages/DashboardPage.vue": {
-    "mtime": 1783718962.707237,
-    "ast_hash": "586fe0b3a8ce71efd0a1dbb586632599",
-    "semantic_hash": "586fe0b3a8ce71efd0a1dbb586632599"
+    "mtime": 1783753475.5856974,
+    "ast_hash": "858605748eb14bd307dc3c5cbc06fba9",
+    "semantic_hash": "858605748eb14bd307dc3c5cbc06fba9"
   },
   "resources/js/router/index.ts": {
-    "mtime": 1783718960.6546297,
-    "ast_hash": "0c0f8ccafe26652c15fa1ed9f267681e",
-    "semantic_hash": "0c0f8ccafe26652c15fa1ed9f267681e"
+    "mtime": 1783753468.8957448,
+    "ast_hash": "6112ca624d343f0bd723199e95f40d65",
+    "semantic_hash": "6112ca624d343f0bd723199e95f40d65"
   },
   "tsconfig.json": {
     "mtime": 1783631967.279359,
@@ -670,9 +670,9 @@
     "semantic_hash": "1627c155a524afd55567649d1ea54c0a"
   },
   "app/Modules/Access/Support/PermissionCatalog.php": {
-    "mtime": 1783698354.7771213,
-    "ast_hash": "2ed1de5da17d6e0bbb1af851c7865774",
-    "semantic_hash": "2ed1de5da17d6e0bbb1af851c7865774"
+    "mtime": 1783753001.0795877,
+    "ast_hash": "e54ac1f7c8b44f99d396573dec89675e",
+    "semantic_hash": "e54ac1f7c8b44f99d396573dec89675e"
   },
   "app/Modules/Access/module.json": {
     "mtime": 1783634417.4475708,
@@ -2218,5 +2218,130 @@
     "mtime": 1783751718.1078534,
     "ast_hash": "b6b4fb351818cdcb421eed19d7f4a7ae",
     "semantic_hash": "b6b4fb351818cdcb421eed19d7f4a7ae"
+  },
+  "app/Modules/Appointment/Actions/CreateAppointmentAction.php": {
+    "mtime": 1783752930.3034377,
+    "ast_hash": "26c12d6542c094723264fed9e14d2afe",
+    "semantic_hash": "26c12d6542c094723264fed9e14d2afe"
+  },
+  "app/Modules/Appointment/Http/Controllers/AppointmentController.php": {
+    "mtime": 1783752981.7449055,
+    "ast_hash": "dfefcbb17a15686d3c71d5a1422af99b",
+    "semantic_hash": "dfefcbb17a15686d3c71d5a1422af99b"
+  },
+  "app/Modules/Appointment/Http/Requests/StoreAppointmentRequest.php": {
+    "mtime": 1783752951.9422026,
+    "ast_hash": "0c35e14ee931278d931a27f8ef96f550",
+    "semantic_hash": "0c35e14ee931278d931a27f8ef96f550"
+  },
+  "app/Modules/Appointment/Http/Requests/UpdateAppointmentStatusRequest.php": {
+    "mtime": 1783752959.7981954,
+    "ast_hash": "85cf012d2de271a34bf2a7c620995e10",
+    "semantic_hash": "85cf012d2de271a34bf2a7c620995e10"
+  },
+  "app/Modules/Appointment/Http/Resources/AppointmentResource.php": {
+    "mtime": 1783753304.635264,
+    "ast_hash": "5eb783593c754d0ba96ffcba8cc511e3",
+    "semantic_hash": "5eb783593c754d0ba96ffcba8cc511e3"
+  },
+  "app/Modules/Appointment/Models/Appointment.php": {
+    "mtime": 1783753299.5993037,
+    "ast_hash": "5406d68e480dd69ffc2cd62e858cf258",
+    "semantic_hash": "5406d68e480dd69ffc2cd62e858cf258"
+  },
+  "app/Modules/Appointment/Models/AppointmentServiceLine.php": {
+    "mtime": 1783752811.722736,
+    "ast_hash": "e718b52d6e9fea302f1be18a9b9bcba7",
+    "semantic_hash": "e718b52d6e9fea302f1be18a9b9bcba7"
+  },
+  "app/Modules/Appointment/module.json": {
+    "mtime": 1783752992.4933672,
+    "ast_hash": "35a13b439f8ce5f0cddb5406a67e3b82",
+    "semantic_hash": "35a13b439f8ce5f0cddb5406a67e3b82"
+  },
+  "app/Modules/Appointment/routes.php": {
+    "mtime": 1783752988.904489,
+    "ast_hash": "51cd770f5a9a34aa76b1c01e0a089c77",
+    "semantic_hash": "51cd770f5a9a34aa76b1c01e0a089c77"
+  },
+  "app/Modules/Employee/Http/Controllers/EmployeeController.php": {
+    "mtime": 1783752899.6376219,
+    "ast_hash": "e752accd329f85f5260fd64151f58434",
+    "semantic_hash": "e752accd329f85f5260fd64151f58434"
+  },
+  "app/Modules/Employee/Http/Requests/StoreEmployeeRequest.php": {
+    "mtime": 1783752831.9329858,
+    "ast_hash": "4372608c1d87309d5af21a0c413eb9a9",
+    "semantic_hash": "4372608c1d87309d5af21a0c413eb9a9"
+  },
+  "app/Modules/Employee/Http/Requests/UpdateEmployeeRequest.php": {
+    "mtime": 1783752837.7419226,
+    "ast_hash": "a6163d37b26867a23743110d97c176ae",
+    "semantic_hash": "a6163d37b26867a23743110d97c176ae"
+  },
+  "app/Modules/Employee/Http/Resources/EmployeeResource.php": {
+    "mtime": 1783752824.1300297,
+    "ast_hash": "555b872ba001f21fe4f3963849864663",
+    "semantic_hash": "555b872ba001f21fe4f3963849864663"
+  },
+  "app/Modules/Employee/Models/Employee.php": {
+    "mtime": 1783752782.2009425,
+    "ast_hash": "cdf8fa2653d39eaf6378cff2bac367ad",
+    "semantic_hash": "cdf8fa2653d39eaf6378cff2bac367ad"
+  },
+  "app/Modules/Employee/module.json": {
+    "mtime": 1783752870.7950404,
+    "ast_hash": "7489f5e2ec253ae1393e64299f74595c",
+    "semantic_hash": "7489f5e2ec253ae1393e64299f74595c"
+  },
+  "app/Modules/Employee/routes.php": {
+    "mtime": 1783752866.1716785,
+    "ast_hash": "a8d5de9ccff990589604a2ea561ae3cc",
+    "semantic_hash": "a8d5de9ccff990589604a2ea561ae3cc"
+  },
+  "database/migrations/2026_09_01_090000_create_employees_table.php": {
+    "mtime": 1783752739.3100927,
+    "ast_hash": "d6734a512326bd4d4e1f94a6833468ba",
+    "semantic_hash": "d6734a512326bd4d4e1f94a6833468ba"
+  },
+  "database/migrations/2026_09_02_090000_create_appointment_tables.php": {
+    "mtime": 1783752773.7086391,
+    "ast_hash": "ee7b28308be73579133e62be6f2bd3e8",
+    "semantic_hash": "ee7b28308be73579133e62be6f2bd3e8"
+  },
+  "resources/js/modules/appointments/pages/AgendaPage.vue": {
+    "mtime": 1783753525.0258062,
+    "ast_hash": "2cff5b86ee560805e78942ca15e655f8",
+    "semantic_hash": "2cff5b86ee560805e78942ca15e655f8"
+  },
+  "resources/js/modules/appointments/services.ts": {
+    "mtime": 1783753376.306884,
+    "ast_hash": "52b8e41fad69345b5d5f39f36eed0603",
+    "semantic_hash": "52b8e41fad69345b5d5f39f36eed0603"
+  },
+  "resources/js/modules/appointments/types.ts": {
+    "mtime": 1783753525.0478108,
+    "ast_hash": "cc7af36f1179011722bedc8b4d3d32ec",
+    "semantic_hash": "cc7af36f1179011722bedc8b4d3d32ec"
+  },
+  "resources/js/modules/employees/pages/EmployeeListPage.vue": {
+    "mtime": 1783753525.0769198,
+    "ast_hash": "ec36dc8690bcef0d3c681e361a1a2f3c",
+    "semantic_hash": "ec36dc8690bcef0d3c681e361a1a2f3c"
+  },
+  "resources/js/modules/employees/services.ts": {
+    "mtime": 1783753355.7528644,
+    "ast_hash": "b6d7f63b47faab6bd76a59ce23e3990b",
+    "semantic_hash": "b6d7f63b47faab6bd76a59ce23e3990b"
+  },
+  "resources/js/modules/employees/types.ts": {
+    "mtime": 1783753348.7471488,
+    "ast_hash": "9122f143023dc759e347c88ceae50c9c",
+    "semantic_hash": "9122f143023dc759e347c88ceae50c9c"
+  },
+  "tests/Feature/AppointmentModuleTest.php": {
+    "mtime": 1783753144.9572382,
+    "ast_hash": "57ebdc077c2485535f99a7280374ac73",
+    "semantic_hash": "57ebdc077c2485535f99a7280374ac73"
   }
 }
