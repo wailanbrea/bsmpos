@@ -838,29 +838,35 @@ const filteredProducts = computed(() => {
 
                     <!-- Grid de productos -->
                     <div class="flex-1 overflow-y-auto">
-                        <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
+                        <div
+                            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3"
+                        >
                             <button
                                 v-for="p in filteredProducts"
                                 :key="p.id"
-                                class="bg-white border border-[#e4e1ee] hover:border-[#3525cd] hover:shadow-md rounded-2xl overflow-hidden flex flex-col text-left min-h-[160px] transition active:scale-[0.98]"
+                                class="bg-white border border-[#e4e1ee] hover:border-[#3525cd] hover:shadow-md rounded-2xl overflow-hidden flex flex-col text-left transition active:scale-[0.98]"
                                 @click="addToCart(p)"
                             >
-                                <div class="w-full h-24 bg-[#f5f2ff] flex items-center justify-center overflow-hidden">
+                                <div
+                                    class="w-full aspect-square bg-[#f5f2ff] flex items-center justify-center overflow-hidden"
+                                >
                                     <img
                                         v-if="p.image_url"
                                         :src="p.image_url"
                                         :alt="p.name"
                                         class="h-full w-full object-cover"
                                     />
-                                    <span v-else class="text-3xl text-[#c7c4d8]" aria-hidden="true">🖼️</span>
+                                    <span v-else class="text-4xl text-[#c7c4d8]" aria-hidden="true">🖼️</span>
                                 </div>
                                 <div class="p-3 flex flex-col justify-between flex-1 w-full">
                                     <span class="font-semibold text-base text-[#302f39] line-clamp-2 leading-snug">{{
                                         p.name
                                     }}</span>
                                     <div class="mt-2 w-full flex justify-between items-end gap-2">
-                                        <span class="text-xs text-gray-500 font-mono">SKU: {{ p.sku || 'N/A' }}</span>
-                                        <span class="font-bold text-lg text-[#3525cd] whitespace-nowrap"
+                                        <span class="min-w-0 truncate text-xs text-gray-500 font-mono">{{
+                                            p.sku || 'N/A'
+                                        }}</span>
+                                        <span class="flex-none font-bold text-lg text-[#3525cd] whitespace-nowrap"
                                             >RD$ {{ Number(p.price).toFixed(2) }}</span
                                         >
                                     </div>

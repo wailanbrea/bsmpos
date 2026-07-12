@@ -137,6 +137,11 @@ it('uploads and removes a product image', function (): void {
     expect($product->image_path)->not->toBeNull();
     Storage::disk('public')->assertExists($product->image_path);
 
+    // La imagen se normaliza a un cuadrado estándar de catálogo (600×600).
+    $stored = imagecreatefromstring(Storage::disk('public')->get($product->image_path));
+    expect(imagesx($stored))->toBe(600)->and(imagesy($stored))->toBe(600);
+    imagedestroy($stored);
+
     // Un archivo que no es imagen se rechaza.
     $this->post(
         "/api/v1/products/{$id}/image",

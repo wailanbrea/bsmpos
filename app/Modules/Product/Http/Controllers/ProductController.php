@@ -8,6 +8,7 @@ use App\Core\Authorization\AuthorizesApiRequest;
 use App\Core\Enums\ErrorCode;
 use App\Core\Exceptions\ApiException;
 use App\Core\Http\ApiResponse;
+use App\Core\Support\SquareImage;
 use App\Core\Tenancy\CurrentCompany;
 use App\Models\User;
 use App\Modules\Product\Actions\SaveProductAction;
@@ -96,12 +97,18 @@ final class ProductController
             throw new ApiException(ErrorCode::PermissionDenied, 'No tiene permiso para gestionar productos.', 403);
         }
 
-        $validated = $request->validate([
+        $request->validate([
             'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ]);
 
+        $file = $request->file('image');
+
+        // Normalizar a un cuadrado estándar de catálogo (recorte centrado 600px).
+        $square = SquareImage::fit((string) $file->getRealPath(), (string) $file->getMimeType());
+        $path = 'products/'.$product->public_id.'-'.substr(md5($square['binary']), 0, 8).'.'.$square['extension'];
+
         $old = $product->image_path;
-        $path = $validated['image']->store('products', 'public');
+        Storage::disk('public')->put($path, $square['binary']);
         $product->update(['image_path' => $path]);
 
         if (is_string($old) && $old !== '') {

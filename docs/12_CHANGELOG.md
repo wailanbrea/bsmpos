@@ -7,7 +7,8 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 ### 2026-07-12 — Imágenes de producto (subir, listar, POS)
 **Agregado**
 - Los productos ahora pueden tener **imagen**. Backend: endpoints `POST /products/{id}/image` (multipart, campo `image`, jpg/png/webp ≤ 2 MB) y `DELETE /products/{id}/image`, con almacenamiento en el disco `public` (`products/`), borrado del archivo anterior y auditoría (`product.image_updated` / `product.image_removed`). `ProductResource` expone `image_url`.
-- Frontend: la pantalla **Productos** tiene un campo de imagen con vista previa, "Subir/Cambiar imagen" y "Quitar imagen"; el listado muestra **miniatura** por fila; las **tarjetas del POS** muestran la imagen (o un placeholder 🖼️ si no tiene).
+- **Normalización tipo catálogo:** al subir, la imagen se recorta al centro y se reescala a un **cuadrado estándar de 600×600** con GD (sin dependencias, `App\Core\Support\SquareImage`), de modo que todas las fotos quedan uniformes sin importar su proporción original.
+- Frontend: la pantalla **Productos** tiene un campo de imagen con vista previa, "Subir/Cambiar imagen" y "Quitar imagen"; el listado muestra **miniatura** por fila; las **tarjetas del POS** muestran la imagen en un contenedor **cuadrado** (o un placeholder 🖼️ si no tiene), y la grilla usa más columnas (hasta 6) para una densidad de catálogo.
 - `ProductForm`/servicios: `uploadProductImage` y `deleteProductImage`; la imagen se sube tras guardar el producto (usa su id).
 
 **Corregido**
@@ -17,7 +18,7 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 - Ejecutar **`php artisan storage:link`** una vez para servir las imágenes desde `public/storage`.
 
 **Validado**
-- `ProductCatalogTest` cubre subir (con `image_url` no nulo y archivo persistido), rechazo de no-imagen y eliminación (archivo borrado). 8 pruebas del módulo verdes; Pint/Larastan limpios; typecheck/ESLint/Prettier/build verdes. Verificado en navegador: subida real (200 OK) de una imagen al Café, miniatura en el listado y en la tarjeta del POS.
+- `ProductCatalogTest` cubre subir (con `image_url` no nulo, archivo persistido y **dimensiones normalizadas a 600×600**), rechazo de no-imagen y eliminación (archivo borrado). 8 pruebas del módulo verdes; Pint/Larastan limpios; typecheck/ESLint/Prettier/build verdes. Verificado en navegador: subida real (200 OK) de una imagen **ancha (800×300)** al Chocolate que el sistema recorta a cuadrado y el POS muestra tipo catálogo (imágenes cuadradas uniformes, SKU truncado).
 
 ### 2026-07-11 — Guía de Uso: 4 giros adicionales
 **Agregado**
