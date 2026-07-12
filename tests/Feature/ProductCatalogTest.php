@@ -7,6 +7,8 @@ use App\Modules\Product\Models\Product;
 use App\Modules\Setting\Models\Tax;
 use Database\Seeders\ModuleSystemSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\Sanctum;
 
 uses(RefreshDatabase::class);
@@ -113,6 +115,41 @@ it('does not list products from other companies', function (): void {
     $response = $this->getJson('/api/v1/products', $this->headers)->assertOk();
 
     expect(collect($response->json('data'))->pluck('name'))->not->toContain('Ajeno');
+});
+
+it('uploads and removes a product image', function (): void {
+    Storage::fake('public');
+    Sanctum::actingAs($this->owner);
+
+    $id = $this->postJson('/api/v1/products', ['name' => 'Café', 'price' => 100], $this->headers)
+        ->assertCreated()->json('data.id');
+
+    // Subir imagen: responde con la URL pública y persiste el archivo.
+    $response = $this->post(
+        "/api/v1/products/{$id}/image",
+        ['image' => UploadedFile::fake()->image('cafe.png', 300, 300)],
+        $this->headers,
+    )->assertOk();
+
+    expect($response->json('data.image_url'))->not->toBeNull();
+
+    $product = Product::query()->where('company_id', $this->company->getKey())->where('public_id', $id)->sole();
+    expect($product->image_path)->not->toBeNull();
+    Storage::disk('public')->assertExists($product->image_path);
+
+    // Un archivo que no es imagen se rechaza.
+    $this->post(
+        "/api/v1/products/{$id}/image",
+        ['image' => UploadedFile::fake()->create('nota.pdf', 10, 'application/pdf')],
+        $this->headers,
+    )->assertUnprocessable();
+
+    // Eliminar imagen: borra el archivo y limpia image_path.
+    $stored = $product->image_path;
+    $this->deleteJson("/api/v1/products/{$id}/image", [], $this->headers)
+        ->assertOk()->assertJsonPath('data.image_url', null);
+
+    Storage::disk('public')->assertMissing($stored);
 });
 
 it('forbids managing products without the permission', function (): void {

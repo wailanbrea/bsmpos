@@ -12,4 +12,6 @@ Route::middleware(['auth:sanctum', 'company', 'module:product'])->group(function
     Route::get('products', [ProductController::class, 'index']);
     Route::post('products', [ProductController::class, 'store']);
     Route::patch('products/{publicId}', [ProductController::class, 'update']);
+    Route::post('products/{publicId}/image', [ProductController::class, 'uploadImage']);
+    Route::delete('products/{publicId}/image', [ProductController::class, 'deleteImage']);
 });

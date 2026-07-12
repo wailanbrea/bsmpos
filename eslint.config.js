@@ -32,5 +32,11 @@ export default [
                 parser: tseslint.parser,
             },
         },
+        rules: {
+            // typescript-eslint desactiva no-undef solo en .ts; en .vue lo
+            // reactivaría js.configs.recommended y marcaría globals del navegador
+            // (localStorage, File, URL…). vue-tsc ya verifica identificadores.
+            'no-undef': 'off',
+        },
     },
 ];

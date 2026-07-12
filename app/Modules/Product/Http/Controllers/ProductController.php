@@ -17,6 +17,7 @@ use App\Modules\Product\Http\Resources\ProductResource;
 use App\Modules\Product\Models\Product;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 final class ProductController
 {
@@ -79,6 +80,57 @@ final class ProductController
         $product = $action->execute($currentCompany->company(), $request->validated(), $product);
 
         return ApiResponse::success(new ProductResource($product->load(['category', 'tax', 'variants', 'modifiers.options', 'combos.child'])), 'Producto actualizado.');
+    }
+
+    /**
+     * Sube (o reemplaza) la imagen de un producto. Multipart, campo `image`.
+     * La imagen se guarda en el disco público bajo `products/` y se elimina la
+     * anterior. Requiere `products.manage`.
+     */
+    public function uploadImage(string $publicId, Request $request, CurrentCompany $currentCompany): JsonResponse
+    {
+        $product = $this->findProduct($publicId, $currentCompany);
+        /** @var User $user */
+        $user = $request->user();
+        if (! $user->hasCompanyPermission($currentCompany->company()->getKey(), 'products.manage')) {
+            throw new ApiException(ErrorCode::PermissionDenied, 'No tiene permiso para gestionar productos.', 403);
+        }
+
+        $validated = $request->validate([
+            'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+        ]);
+
+        $old = $product->image_path;
+        $path = $validated['image']->store('products', 'public');
+        $product->update(['image_path' => $path]);
+
+        if (is_string($old) && $old !== '') {
+            Storage::disk('public')->delete($old);
+        }
+
+        $product->audit('product.image_updated', [], ['image_path' => $path]);
+
+        return ApiResponse::success(new ProductResource($product->load(['category', 'tax'])), 'Imagen actualizada.');
+    }
+
+    /** Elimina la imagen de un producto. Requiere `products.manage`. */
+    public function deleteImage(string $publicId, Request $request, CurrentCompany $currentCompany): JsonResponse
+    {
+        $product = $this->findProduct($publicId, $currentCompany);
+        /** @var User $user */
+        $user = $request->user();
+        if (! $user->hasCompanyPermission($currentCompany->company()->getKey(), 'products.manage')) {
+            throw new ApiException(ErrorCode::PermissionDenied, 'No tiene permiso para gestionar productos.', 403);
+        }
+
+        $old = $product->image_path;
+        if (is_string($old) && $old !== '') {
+            Storage::disk('public')->delete($old);
+        }
+        $product->update(['image_path' => null]);
+        $product->audit('product.image_removed', [], []);
+
+        return ApiResponse::success(new ProductResource($product->load(['category', 'tax'])), 'Imagen eliminada.');
     }
 
     private function findProduct(string $publicId, CurrentCompany $currentCompany): Product

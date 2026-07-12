@@ -7,6 +7,7 @@ namespace App\Modules\Product\Http\Resources;
 use App\Modules\Product\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 /** @mixin Product */
 final class ProductResource extends JsonResource
@@ -26,6 +27,7 @@ final class ProductResource extends JsonResource
             'tax_id' => $this->tax?->public_id,
             'price' => $this->price,
             'cost' => $this->cost,
+            'image_url' => $this->image_path !== null ? Storage::disk('public')->url($this->image_path) : null,
             'track_inventory' => $this->track_inventory,
             'is_active' => $this->is_active,
             'available_pos' => $this->available_pos,

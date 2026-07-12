@@ -2,7 +2,14 @@
 import axios from 'axios';
 import { computed, onMounted, ref, watch } from 'vue';
 import { RouterLink } from 'vue-router';
-import { createProduct, fetchCategories, fetchProducts, updateProduct } from '../services';
+import {
+    createProduct,
+    deleteProductImage,
+    fetchCategories,
+    fetchProducts,
+    updateProduct,
+    uploadProductImage,
+} from '../services';
 import type { Category, Product, ProductForm } from '../types';
 
 const products = ref<Product[]>([]);
@@ -14,6 +21,49 @@ const error = ref<string | null>(null);
 const selected = ref<Product | null>(null);
 const form = ref<ProductForm>(emptyForm());
 const editing = computed(() => selected.value !== null);
+
+// Imagen del producto: archivo elegido pendiente de subir y vista previa.
+const imageFile = ref<File | null>(null);
+const imagePreview = ref<string | null>(null);
+const imageInput = ref<HTMLInputElement | null>(null);
+
+function onImagePick(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0] ?? null;
+    if (!file) return;
+
+    if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
+        error.value = 'La imagen debe ser JPG, PNG o WEBP.';
+        input.value = '';
+        return;
+    }
+    if (file.size > 2 * 1024 * 1024) {
+        error.value = 'La imagen no puede superar 2 MB.';
+        input.value = '';
+        return;
+    }
+
+    error.value = null;
+    imageFile.value = file;
+    imagePreview.value = URL.createObjectURL(file);
+}
+
+async function removeImage(): Promise<void> {
+    // Si el producto ya tenía imagen guardada, la elimina en el servidor.
+    if (selected.value?.image_url && !imageFile.value) {
+        try {
+            await deleteProductImage(selected.value.id);
+            selected.value = { ...selected.value, image_url: null };
+            await load();
+        } catch (exception) {
+            error.value = message(exception);
+            return;
+        }
+    }
+    imageFile.value = null;
+    imagePreview.value = null;
+    if (imageInput.value) imageInput.value.value = '';
+}
 
 let searchTimer: ReturnType<typeof window.setTimeout> | undefined;
 
@@ -36,6 +86,9 @@ function emptyForm(): ProductForm {
 function select(product: Product | null): void {
     selected.value = product;
     error.value = null;
+    imageFile.value = null;
+    imagePreview.value = product?.image_url ?? null;
+    if (imageInput.value) imageInput.value.value = '';
     form.value = product
         ? {
               name: product.name,
@@ -149,11 +202,15 @@ async function save(): Promise<void> {
     saving.value = true;
     error.value = null;
     try {
-        if (selected.value) {
-            await updateProduct(selected.value.id, form.value);
-        } else {
-            await createProduct(form.value);
+        const saved = selected.value
+            ? await updateProduct(selected.value.id, form.value)
+            : await createProduct(form.value);
+
+        // La imagen se sube tras guardar (necesita el id del producto).
+        if (imageFile.value) {
+            await uploadProductImage(saved.id, imageFile.value);
         }
+
         await load();
         select(null);
     } catch (exception) {
@@ -222,14 +279,29 @@ onMounted(() => {
                         :class="selected?.id === product.id ? 'border-[#3525cd] bg-[#f5f2ff]' : 'border-[#e4e1ee]'"
                         @click="select(product)"
                     >
-                        <span>
-                            <span class="block font-bold">{{ product.name }}</span>
-                            <span class="mt-1 block text-sm text-[#464555]">
-                                <span v-if="product.sku" class="font-mono">{{ product.sku }}</span>
-                                <span v-if="product.category"> · {{ product.category }}</span>
+                        <span class="flex min-w-0 items-center gap-3">
+                            <span
+                                class="flex h-12 w-12 flex-none items-center justify-center overflow-hidden rounded-lg border border-[#e4e1ee] bg-[#f5f2ff]"
+                            >
+                                <img
+                                    v-if="product.image_url"
+                                    :src="product.image_url"
+                                    :alt="product.name"
+                                    class="h-full w-full object-cover"
+                                />
+                                <span v-else class="text-lg text-[#c7c4d8]" aria-hidden="true">🖼️</span>
+                            </span>
+                            <span class="min-w-0">
+                                <span class="block truncate font-bold">{{ product.name }}</span>
+                                <span class="mt-1 block text-sm text-[#464555]">
+                                    <span v-if="product.sku" class="font-mono">{{ product.sku }}</span>
+                                    <span v-if="product.category"> · {{ product.category }}</span>
+                                </span>
                             </span>
                         </span>
-                        <span class="font-numeric text-lg font-bold text-[#3525cd]">RD$ {{ product.price }}</span>
+                        <span class="font-numeric flex-none text-lg font-bold text-[#3525cd]"
+                            >RD$ {{ product.price }}</span
+                        >
                     </button>
                 </section>
 
@@ -238,6 +310,47 @@ onMounted(() => {
                         {{ editing ? 'Editar producto' : 'Nuevo producto' }}
                     </p>
                     <div class="mt-4 grid gap-4">
+                        <div class="grid gap-2 text-sm font-semibold">
+                            Imagen
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="flex h-20 w-20 flex-none items-center justify-center overflow-hidden rounded-xl border border-[#c7c4d8] bg-[#f5f2ff]"
+                                >
+                                    <img
+                                        v-if="imagePreview"
+                                        :src="imagePreview"
+                                        alt="Vista previa del producto"
+                                        class="h-full w-full object-cover"
+                                    />
+                                    <span v-else class="text-2xl text-[#c7c4d8]" aria-hidden="true">🖼️</span>
+                                </div>
+                                <div class="flex flex-col gap-2">
+                                    <input
+                                        ref="imageInput"
+                                        type="file"
+                                        accept="image/jpeg,image/png,image/webp"
+                                        class="hidden"
+                                        @change="onImagePick"
+                                    />
+                                    <button
+                                        type="button"
+                                        class="min-h-11 rounded-lg border border-[#c7c4d8] px-4 text-base font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
+                                        @click="imageInput?.click()"
+                                    >
+                                        {{ imagePreview ? 'Cambiar imagen' : 'Subir imagen' }}
+                                    </button>
+                                    <button
+                                        v-if="imagePreview"
+                                        type="button"
+                                        class="min-h-11 rounded-lg px-4 text-sm font-bold text-[#ba1a1a] hover:bg-[#ffdad6]"
+                                        @click="removeImage"
+                                    >
+                                        Quitar imagen
+                                    </button>
+                                    <span class="text-xs font-normal text-[#464555]">JPG, PNG o WEBP · máx. 2 MB</span>
+                                </div>
+                            </div>
+                        </div>
                         <label class="grid gap-2 text-sm font-semibold"
                             >Nombre
                             <input

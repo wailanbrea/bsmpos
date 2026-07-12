@@ -46,3 +46,17 @@ export async function updateProduct(id: string, form: ProductForm): Promise<Prod
     const response = await api.patch<ApiEnvelope<Product>>(`/products/${id}`, toPayload(form));
     return response.data.data;
 }
+
+export async function uploadProductImage(id: string, file: File): Promise<Product> {
+    const data = new FormData();
+    data.append('image', file);
+    const response = await api.post<ApiEnvelope<Product>>(`/products/${id}/image`, data, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return response.data.data;
+}
+
+export async function deleteProductImage(id: string): Promise<Product> {
+    const response = await api.delete<ApiEnvelope<Product>>(`/products/${id}/image`);
+    return response.data.data;
+}

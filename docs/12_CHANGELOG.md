@@ -4,6 +4,21 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-12 — Imágenes de producto (subir, listar, POS)
+**Agregado**
+- Los productos ahora pueden tener **imagen**. Backend: endpoints `POST /products/{id}/image` (multipart, campo `image`, jpg/png/webp ≤ 2 MB) y `DELETE /products/{id}/image`, con almacenamiento en el disco `public` (`products/`), borrado del archivo anterior y auditoría (`product.image_updated` / `product.image_removed`). `ProductResource` expone `image_url`.
+- Frontend: la pantalla **Productos** tiene un campo de imagen con vista previa, "Subir/Cambiar imagen" y "Quitar imagen"; el listado muestra **miniatura** por fila; las **tarjetas del POS** muestran la imagen (o un placeholder 🖼️ si no tiene).
+- `ProductForm`/servicios: `uploadProductImage` y `deleteProductImage`; la imagen se sube tras guardar el producto (usa su id).
+
+**Corregido**
+- ESLint marcaba `no-undef` en archivos `.vue` para globals del navegador (`localStorage`, `File`, `URL`…) porque `typescript-eslint` solo lo desactiva en `.ts`. Se desactiva `no-undef` para `**/*.vue` (vue-tsc ya valida identificadores). Esto además corrige un lint latente introducido al aislar el carrito.
+
+**Requiere despliegue**
+- Ejecutar **`php artisan storage:link`** una vez para servir las imágenes desde `public/storage`.
+
+**Validado**
+- `ProductCatalogTest` cubre subir (con `image_url` no nulo y archivo persistido), rechazo de no-imagen y eliminación (archivo borrado). 8 pruebas del módulo verdes; Pint/Larastan limpios; typecheck/ESLint/Prettier/build verdes. Verificado en navegador: subida real (200 OK) de una imagen al Café, miniatura en el listado y en la tarjeta del POS.
+
 ### 2026-07-11 — Guía de Uso: 4 giros adicionales
 **Agregado**
 - Guías con imágenes reales para **Minimarket** (ciclo POS completo con comprobante FAC-000003), **Cafetería** (barra rápida), **Distribuidora** (clientes con crédito + compras; documenta que no trae POS por defecto) y **Servicios profesionales** (documenta honestamente que su pantalla de servicios/cotizaciones es backlog). Índice `README.md` actualizado a los 9 giros.

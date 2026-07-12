@@ -18,6 +18,7 @@ export interface Product {
     tax_id: string | null;
     price: string;
     cost: string;
+    image_url: string | null;
     track_inventory: boolean;
     is_active: boolean;
     available_pos: boolean;
