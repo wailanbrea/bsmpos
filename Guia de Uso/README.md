@@ -13,11 +13,20 @@ comprobante o el cierre del flujo.
 
 | Giro | Guía | Módulos que verás | Cuándo usarla |
 |------|------|-------------------|----------------|
+| 🏪 Colmado / Minimarket | [Minimarket/GUIA.md](Minimarket/GUIA.md) | Productos, Inventario, POS | Venta al detalle rápida con inventario |
 | 💈 Salón / Barbería | [Salon-Barberia/GUIA.md](Salon-Barberia/GUIA.md) | Empleados, Agenda de citas, POS | Servicios por cita con barbero/estilista y comisión |
 | 🔧 Ferretería | [Ferreteria/GUIA.md](Ferreteria/GUIA.md) | Productos, Inventario, POS, Reportes | Venta al detalle de materiales con control de existencias |
 | 🍽️ Restaurante | [Restaurante/GUIA.md](Restaurante/GUIA.md) | Mesas, Cocina (KDS), POS | Servicio en mesa, comandas a cocina |
 | 🚗 Taller mecánico | [Taller/GUIA.md](Taller/GUIA.md) | Vehículos, Órdenes de trabajo | Diagnóstico, servicios, repuestos y mano de obra por vehículo |
 | 🛒 Supermercado | [Supermercado/GUIA.md](Supermercado/GUIA.md) | Inventario avanzado (lotes/vencimientos), POS | Venta al detalle con control de lotes y caducidad (FEFO) |
+| ☕ Cafetería | [Cafeteria/GUIA.md](Cafeteria/GUIA.md) | POS, Productos, Inventario | Barra rápida para llevar |
+| 🚚 Distribuidora | [Distribuidora/GUIA.md](Distribuidora/GUIA.md) | Clientes con crédito, Inventario, Compras | Venta al por mayor a crédito y compras a proveedores |
+| 💼 Servicios profesionales | [Servicios-Profesionales/GUIA.md](Servicios-Profesionales/GUIA.md) | Clientes, Servicios, Cotizaciones | Consultoría/asesoría por servicios y cotizaciones |
+
+> Las tres últimas guías documentan giros con menor recorrido de interfaz hoy:
+> Cafetería es POS puro; Distribuidora y Servicios profesionales tienen partes
+> en desarrollo (cuentas por cobrar/pagar y pantalla de cotizaciones), indicadas
+> claramente en cada guía.
 
 ## Cuentas de demostración
 
