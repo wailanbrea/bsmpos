@@ -37,30 +37,34 @@ export class IndexedDBService {
         });
     }
 
-    // Carrito
-    static async saveCart(items: unknown[]): Promise<void> {
+    // Carrito. Se segmenta por `scope` (compañía + sucursal) para que el
+    // carrito de una empresa NUNCA aparezca al operar otra: cada contexto
+    // guarda su propio registro y solo se toca el suyo.
+    private static cartKey(scope: string): string {
+        return `cart:${scope}`;
+    }
+
+    static async saveCart(items: unknown[], scope: string): Promise<void> {
         const db = await this.init();
+        const key = this.cartKey(scope);
         return new Promise((resolve, reject) => {
             const transaction = db.transaction('cart', 'readwrite');
             const store = transaction.objectStore('cart');
 
-            // Limpiar previo y guardar
-            const clearReq = store.clear();
-            clearReq.onsuccess = () => {
-                const addReq = store.put({ id: 'current_cart', items });
-                addReq.onsuccess = () => resolve();
-                addReq.onerror = () => reject(addReq.error);
-            };
-            clearReq.onerror = () => reject(clearReq.error);
+            // Un carrito vacío borra su registro; así no se acumulan claves.
+            const request = items.length === 0 ? store.delete(key) : store.put({ id: key, items });
+            request.onsuccess = () => resolve();
+            request.onerror = () => reject(request.error);
         });
     }
 
-    static async getCart(): Promise<unknown[]> {
+    static async getCart(scope: string): Promise<unknown[]> {
         const db = await this.init();
+        const key = this.cartKey(scope);
         return new Promise((resolve) => {
             const transaction = db.transaction('cart', 'readonly');
             const store = transaction.objectStore('cart');
-            const request = store.get('current_cart');
+            const request = store.get(key);
 
             request.onsuccess = () => {
                 resolve(request.result ? request.result.items : []);

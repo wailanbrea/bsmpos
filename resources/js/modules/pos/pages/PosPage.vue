@@ -6,7 +6,15 @@ import { IndexedDBService } from '../indexeddb';
 import { fetchProducts } from '../../products/services';
 import { fetchExchangeRates } from '../../settings/services';
 import type { Product } from '../../products/types';
-import { api } from '../../../lib/api';
+import { api, storageKeys } from '../../../lib/api';
+
+// Clave de contexto (compañía + sucursal) para aislar el carrito persistido:
+// evita que el carrito de una empresa aparezca al operar otra.
+function cartScope(): string {
+    const company = localStorage.getItem(storageKeys.companyId) ?? 'none';
+    const branch = localStorage.getItem(storageKeys.branchId) ?? 'none';
+    return `${company}:${branch}`;
+}
 
 interface LocalCustomer {
     id: string;
@@ -193,7 +201,7 @@ async function loadData() {
         }
 
         // Cargar carrito persistido
-        cart.value = (await IndexedDBService.getCart()) as PosOrderItem[];
+        cart.value = (await IndexedDBService.getCart(cartScope())) as PosOrderItem[];
 
         // Verificar cola offline
         await checkOfflineQueue();
@@ -362,7 +370,7 @@ onMounted(() => {
 watch(
     cart,
     async (newCart) => {
-        await IndexedDBService.saveCart(JSON.parse(JSON.stringify(newCart)));
+        await IndexedDBService.saveCart(JSON.parse(JSON.stringify(newCart)), cartScope());
     },
     { deep: true },
 );

@@ -4,6 +4,13 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-11 — Aislar el carrito del POS por empresa/sucursal
+**Corregido**
+- El carrito del POS se persistía en IndexedDB bajo una clave fija (`current_cart`) global: al cambiar de compañía aparecían los ítems del carrito de la empresa anterior (riesgo de vender productos de otro tenant). Ahora cada carrito se guarda por **contexto** (`cart:<companyId>:<branchId>`) en `IndexedDBService`, y `PosPage` pasa ese scope al leer/guardar. Un carrito vacío borra su registro para no acumular claves.
+
+**Validado**
+- En navegador: con "Caja de tornillos" en el carrito de la Ferretería, el POS del Supermercado abre **vacío**; al volver a la Ferretería su carrito **se conserva**. typecheck/ESLint/Prettier/build verdes.
+
 ### 2026-07-11 — Guía de Uso con imágenes + POS resiliente sin módulo Productos
 **Agregado**
 - Carpeta **`Guia de Uso/`** con guía operativa por giro, capturas reales del sistema y ciclo completo de cada uno: índice (`README.md`), acceso común (`_comun/`) y guías de **Salón/Barbería**, **Ferretería**, **Restaurante**, **Taller** y **Supermercado**, cada una con su subcarpeta `img/`.
