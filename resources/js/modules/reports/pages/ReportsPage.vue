@@ -208,27 +208,27 @@ onMounted(() => {
             </header>
 
             <div class="mt-6 flex flex-wrap items-end gap-4 print:hidden">
-                <label class="grid gap-1 text-xs font-semibold"
+                <label class="grid gap-1 text-sm font-semibold"
                     >Desde
                     <input
                         v-model="from"
                         type="date"
-                        class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                        class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                     />
                 </label>
-                <label class="grid gap-1 text-xs font-semibold"
+                <label class="grid gap-1 text-sm font-semibold"
                     >Hasta
                     <input
                         v-model="to"
                         type="date"
-                        class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                        class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                     />
                 </label>
                 <div class="ml-auto flex flex-wrap gap-2">
                     <button
                         type="button"
                         :disabled="downloading === 'csv'"
-                        class="min-h-11 rounded-lg border border-[#3525cd] px-3 text-sm font-bold text-[#3525cd] disabled:opacity-60"
+                        class="min-h-12 rounded-lg border border-[#3525cd] px-4 text-base font-bold text-[#3525cd] disabled:opacity-60"
                         @click="download('csv')"
                     >
                         Exportar CSV
@@ -236,7 +236,7 @@ onMounted(() => {
                     <button
                         type="button"
                         :disabled="downloading === 'xlsx'"
-                        class="min-h-11 rounded-lg border border-[#006c49] px-3 text-sm font-bold text-[#006c49] disabled:opacity-60"
+                        class="min-h-12 rounded-lg border border-[#006c49] px-4 text-base font-bold text-[#006c49] disabled:opacity-60"
                         @click="download('xlsx')"
                     >
                         Excel
@@ -244,7 +244,7 @@ onMounted(() => {
                     <button
                         type="button"
                         :disabled="downloading === 'pdf'"
-                        class="min-h-11 rounded-lg border border-[#ba1a1a] px-3 text-sm font-bold text-[#ba1a1a] disabled:opacity-60"
+                        class="min-h-12 rounded-lg border border-[#ba1a1a] px-4 text-base font-bold text-[#ba1a1a] disabled:opacity-60"
                         @click="download('pdf')"
                     >
                         PDF
@@ -254,14 +254,14 @@ onMounted(() => {
                         :key="fmt"
                         type="button"
                         :disabled="downloading === fmt"
-                        class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm font-bold text-[#464555] disabled:opacity-60"
+                        class="min-h-12 rounded-lg border border-[#c7c4d8] px-4 text-base font-bold text-[#464555] disabled:opacity-60"
                         @click="download(fmt as '606' | '607' | '608')"
                     >
                         DGII {{ fmt }}
                     </button>
                     <button
                         type="button"
-                        class="min-h-11 rounded-lg bg-[#3525cd] px-3 text-sm font-bold text-white shadow-sm"
+                        class="min-h-12 rounded-lg bg-[#3525cd] px-4 text-base font-bold text-white shadow-sm"
                         @click="printReport"
                     >
                         Imprimir
@@ -278,7 +278,7 @@ onMounted(() => {
                     v-for="tab in tabs"
                     :key="tab.key"
                     type="button"
-                    class="min-h-11 rounded-t-lg px-4 text-sm font-semibold"
+                    class="min-h-12 rounded-t-lg px-4 text-base font-semibold"
                     :class="
                         activeTab.key === tab.key
                             ? 'bg-white text-[#3525cd] shadow-sm'
@@ -315,8 +315,8 @@ onMounted(() => {
 
             <div v-if="loading" class="mt-6 h-64 animate-pulse rounded-2xl bg-[#e4e1ee]" />
             <div v-else class="mt-6 overflow-x-auto rounded-2xl border border-[#c7c4d8] bg-white">
-                <table class="w-full text-left text-sm">
-                    <thead class="border-b border-[#e4e1ee] text-xs uppercase tracking-wider text-[#464555]">
+                <table class="w-full text-left text-base">
+                    <thead class="border-b border-[#e4e1ee] text-sm uppercase tracking-wider text-[#464555]">
                         <tr>
                             <th v-for="col in activeTab.columns" :key="col.key" class="p-3">{{ col.label }}</th>
                         </tr>

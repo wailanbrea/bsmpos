@@ -54,7 +54,7 @@ onMounted(() => {
                 <RouterLink
                     v-if="modules.canUse('pos')"
                     to="/pos"
-                    class="min-h-11 rounded-lg bg-[#3525cd] px-5 font-semibold text-white shadow-sm transition active:scale-[.98] flex items-center justify-center"
+                    class="min-h-12 rounded-lg bg-[#3525cd] px-5 font-semibold text-white shadow-sm transition active:scale-[.98] flex items-center justify-center"
                 >
                     Abrir POS
                 </RouterLink>
@@ -93,7 +93,7 @@ onMounted(() => {
                         v-for="item in navigation"
                         :key="item.label"
                         :to="item.to"
-                        class="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium hover:bg-white/10 focus:bg-white/10"
+                        class="flex min-h-12 items-center rounded-lg px-3 text-base font-medium hover:bg-white/10 focus:bg-white/10"
                     >
                         {{ item.label }}
                     </RouterLink>

@@ -6,6 +6,10 @@
 
 **Verificación 2026-07-10:** baseline de calidad restaurada tras correcciones de tipado en POS, inventario, facturación, impresión y restaurante. Pest, Pint, Larastan, vue-tsc, Vitest, ESLint, Prettier y build PWA están verdes.
 
+**Demos por giro (2026-07-11):** `php artisan db:seed --class=DemoVerticalsSeeder` crea 8 empresas demo (contraseña `Password123!`): Restaurante El Fogón (`demo.restaurante@`), Barbería La Navaja (`demo.barberia@`), Taller AutoMax (`demo.taller@`), Cafetería Aroma (`demo.cafeteria@`), Supermercado La Económica (`demo.super@`), Ferretería El Tornillo (`demo.ferreteria@`), Distribuidora del Cibao (`demo.distribuidora@`), Consultores Pro (`demo.servicios@`) — todos `@omnipos.test`. El minimarket es `demo@omnipos.test` (DemoSeeder). 9 verticales verificados en navegador.
+
+**Verificación 2026-07-11 (navegador real):** recorrido Playwright de las 17 pantallas del menú + login/registro/contexto con venta de humo POS (B02, caja e inventario cuadran) sin errores de consola/red. Corregidos 2 bugs de layout: colapso del panel de login/registro en pantallas anchas (`app.css`) y desborde del formulario de vehículos (`w-full min-w-0`). Detalle menor pendiente: impuesto "ITBIS 18%" aparece duplicado (códigos `ITBIS18` e `itbis_18`) en compañías creadas con onboarding.
+
 ## Conocimiento del proyecto
 - [x] Fase 1 completada: compañías, sucursal principal, membresías, contexto tenant, RBAC, sesiones API, Policies y auditoría base.
 - [x] Tests de aislamiento tenant: listado filtrado y denegación de empresa/sucursal ajena.

@@ -114,7 +114,7 @@ onMounted(() => {
                     Módulo
                     <input
                         v-model.trim="filters.module"
-                        class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 font-normal outline-none transition focus:border-[#3525cd] focus:ring-2 focus:ring-[#4f46e5]/20"
+                        class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal outline-none transition focus:border-[#3525cd] focus:ring-2 focus:ring-[#4f46e5]/20"
                         name="module"
                         placeholder="Ej.: access, company"
                         autocomplete="off"
@@ -124,7 +124,7 @@ onMounted(() => {
                     Desde
                     <input
                         v-model="filters.from"
-                        class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 font-normal outline-none transition focus:border-[#3525cd] focus:ring-2 focus:ring-[#4f46e5]/20"
+                        class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal outline-none transition focus:border-[#3525cd] focus:ring-2 focus:ring-[#4f46e5]/20"
                         name="from"
                         type="date"
                     />
@@ -133,21 +133,21 @@ onMounted(() => {
                     Hasta
                     <input
                         v-model="filters.to"
-                        class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 font-normal outline-none transition focus:border-[#3525cd] focus:ring-2 focus:ring-[#4f46e5]/20"
+                        class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal outline-none transition focus:border-[#3525cd] focus:ring-2 focus:ring-[#4f46e5]/20"
                         name="to"
                         type="date"
                     />
                 </label>
                 <div class="flex gap-2">
                     <button
-                        class="min-h-11 rounded-lg bg-[#3525cd] px-5 text-sm font-bold text-white shadow-[0_4px_10px_rgb(53_37_205_/_22%)] transition hover:bg-[#4f46e5] active:scale-[.98]"
+                        class="min-h-12 rounded-lg bg-[#3525cd] px-5 text-base font-bold text-white shadow-[0_4px_10px_rgb(53_37_205_/_22%)] transition hover:bg-[#4f46e5] active:scale-[.98]"
                         type="submit"
                     >
                         Filtrar
                     </button>
                     <button
                         v-if="hasFilters"
-                        class="min-h-11 rounded-lg px-3 text-sm font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
+                        class="min-h-11 rounded-lg px-3 text-base font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
                         type="button"
                         @click="resetFilters"
                     >
@@ -168,7 +168,7 @@ onMounted(() => {
                     <h2 class="font-bold">No se pudo consultar la bitácora</h2>
                     <p class="mt-1 text-sm">{{ errorMessage }}</p>
                     <button
-                        class="mt-4 min-h-11 rounded-lg border border-current px-4 text-sm font-bold"
+                        class="mt-4 min-h-12 rounded-lg border border-current px-4 text-base font-bold"
                         type="button"
                         @click="loadLogs()"
                     >
@@ -275,7 +275,7 @@ onMounted(() => {
                 aria-label="Paginación"
             >
                 <button
-                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-4 text-sm font-bold disabled:cursor-not-allowed disabled:opacity-45"
+                    class="min-h-12 rounded-lg border border-[#c7c4d8] px-4 text-base font-bold disabled:cursor-not-allowed disabled:opacity-45"
                     type="button"
                     :disabled="pagination.current_page === 1"
                     @click="loadLogs(pagination.current_page - 1)"
@@ -286,7 +286,7 @@ onMounted(() => {
                     >Página {{ pagination.current_page }} de {{ pagination.last_page }}</span
                 >
                 <button
-                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-4 text-sm font-bold disabled:cursor-not-allowed disabled:opacity-45"
+                    class="min-h-12 rounded-lg border border-[#c7c4d8] px-4 text-base font-bold disabled:cursor-not-allowed disabled:opacity-45"
                     type="button"
                     :disabled="pagination.current_page === pagination.last_page"
                     @click="loadLogs(pagination.current_page + 1)"

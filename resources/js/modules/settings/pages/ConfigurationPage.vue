@@ -194,7 +194,7 @@ onMounted(() => {
                             >Comprobante
                             <select
                                 v-model="seqForm.document_type_code"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                             >
                                 <option v-for="dt in documentTypes" :key="dt.code" :value="dt.code">
                                     {{ dt.code }} — {{ dt.name }}
@@ -207,7 +207,7 @@ onMounted(() => {
                                 v-model="seqForm.start_number"
                                 type="number"
                                 min="1"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                             />
                         </label>
                         <label class="grid gap-1 text-xs font-semibold"
@@ -216,7 +216,7 @@ onMounted(() => {
                                 v-model="seqForm.end_number"
                                 type="number"
                                 min="2"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                             />
                         </label>
                         <label class="grid gap-1 text-xs font-semibold"
@@ -224,13 +224,13 @@ onMounted(() => {
                             <input
                                 v-model="seqForm.expires_at"
                                 type="date"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                             />
                         </label>
                         <button
                             type="submit"
                             :disabled="savingSeq"
-                            class="min-h-11 rounded-lg bg-[#3525cd] px-4 text-sm font-bold text-white shadow-sm disabled:opacity-60 sm:col-span-5"
+                            class="min-h-12 rounded-lg bg-[#3525cd] px-4 text-base font-bold text-white shadow-sm disabled:opacity-60 sm:col-span-5"
                         >
                             {{ savingSeq ? 'Guardando…' : 'Agregar secuencia' }}
                         </button>
@@ -272,7 +272,7 @@ onMounted(() => {
                             >Moneda
                             <select
                                 v-model="rateForm.currency_code"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                             >
                                 <option value="USD">USD</option>
                                 <option value="EUR">EUR</option>
@@ -285,7 +285,7 @@ onMounted(() => {
                                 type="number"
                                 step="0.0001"
                                 min="0"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                             />
                         </label>
                         <label class="grid gap-1 text-xs font-semibold"
@@ -293,13 +293,13 @@ onMounted(() => {
                             <input
                                 v-model="rateForm.effective_date"
                                 type="date"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                             />
                         </label>
                         <button
                             type="submit"
                             :disabled="savingRate"
-                            class="min-h-11 self-end rounded-lg bg-[#3525cd] px-4 text-sm font-bold text-white shadow-sm disabled:opacity-60"
+                            class="min-h-12 self-end rounded-lg bg-[#3525cd] px-4 text-base font-bold text-white shadow-sm disabled:opacity-60"
                         >
                             {{ savingRate ? 'Guardando…' : 'Registrar' }}
                         </button>

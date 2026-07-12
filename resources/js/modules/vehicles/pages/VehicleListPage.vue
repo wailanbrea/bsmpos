@@ -116,7 +116,7 @@ onMounted(async () => {
                             </div>
                             <button
                                 type="button"
-                                class="min-h-11 rounded-lg px-4 text-sm font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
+                                class="min-h-11 rounded-lg px-4 text-base font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
                                 @click="edit(vehicle)"
                             >
                                 Editar
@@ -140,7 +140,7 @@ onMounted(async () => {
                                 v-model="form.customer_id"
                                 :disabled="!!selected"
                                 required
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 disabled:opacity-60"
+                                class="min-h-12 w-full rounded-lg border border-[#c7c4d8] px-3 text-base disabled:opacity-60"
                             >
                                 <option value="" disabled>Selecciona…</option>
                                 <option v-for="customer in customers" :key="customer.id" :value="customer.id">
@@ -154,14 +154,14 @@ onMounted(async () => {
                                 <input
                                     v-model.trim="form.brand"
                                     required
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                    class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                                 />
                             </label>
                             <label class="grid gap-1 text-sm font-semibold"
                                 >Modelo
                                 <input
                                     v-model.trim="form.model"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                    class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                                 />
                             </label>
                             <label class="grid gap-1 text-sm font-semibold"
@@ -169,21 +169,21 @@ onMounted(async () => {
                                 <input
                                     v-model="form.year"
                                     type="number"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                    class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                                 />
                             </label>
                             <label class="grid gap-1 text-sm font-semibold"
                                 >Placa
                                 <input
                                     v-model.trim="form.plate"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                    class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                                 />
                             </label>
                             <label class="grid gap-1 text-sm font-semibold"
                                 >Color
                                 <input
                                     v-model.trim="form.color"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                    class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                                 />
                             </label>
                             <label class="grid gap-1 text-sm font-semibold"
@@ -191,7 +191,7 @@ onMounted(async () => {
                                 <input
                                     v-model="form.mileage"
                                     type="number"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                    class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                                 />
                             </label>
                         </div>
@@ -199,14 +199,14 @@ onMounted(async () => {
                             <button
                                 type="submit"
                                 :disabled="saving || !form.brand || !form.customer_id"
-                                class="min-h-11 flex-1 rounded-lg bg-[#3525cd] px-4 text-sm font-bold text-white disabled:opacity-60"
+                                class="min-h-12 flex-1 rounded-lg bg-[#3525cd] px-4 text-base font-bold text-white disabled:opacity-60"
                             >
                                 {{ saving ? 'Guardando…' : 'Guardar' }}
                             </button>
                             <button
                                 v-if="selected"
                                 type="button"
-                                class="min-h-11 rounded-lg px-4 text-sm font-bold text-[#464555] hover:bg-[#f0ecf9]"
+                                class="min-h-11 rounded-lg px-4 text-base font-bold text-[#464555] hover:bg-[#f0ecf9]"
                                 @click="reset"
                             >
                                 Cancelar

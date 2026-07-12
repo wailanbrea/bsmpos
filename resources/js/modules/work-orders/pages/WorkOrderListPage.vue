@@ -132,7 +132,7 @@ onMounted(async () => {
                         >Estado
                         <select
                             v-model="filterStatus"
-                            class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                            class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                             @change="load"
                         >
                             <option value="">Todos</option>
@@ -188,7 +188,7 @@ onMounted(async () => {
                             <select
                                 v-model="form.vehicle_id"
                                 required
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                             >
                                 <option value="" disabled>Selecciona…</option>
                                 <option v-for="vehicle in vehicles" :key="vehicle.id" :value="vehicle.id">
@@ -233,19 +233,19 @@ onMounted(async () => {
                                 <input
                                     v-model.trim="part.name"
                                     placeholder="Repuesto"
-                                    class="min-h-11 flex-1 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                    class="min-h-12 flex-1 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                                 />
                                 <input
                                     v-model="part.quantity"
                                     type="number"
                                     min="0"
-                                    class="min-h-11 w-14 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                    class="min-h-12 w-16 rounded-lg border border-[#c7c4d8] px-2 text-base font-normal"
                                 />
                                 <input
                                     v-model="part.price"
                                     type="number"
                                     min="0"
-                                    class="min-h-11 w-20 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                    class="min-h-12 w-24 rounded-lg border border-[#c7c4d8] px-2 text-base font-normal"
                                 />
                                 <button
                                     type="button"
@@ -263,13 +263,13 @@ onMounted(async () => {
                                 type="number"
                                 min="0"
                                 step="0.01"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                             />
                         </label>
                         <button
                             type="submit"
                             :disabled="saving || !form.vehicle_id"
-                            class="min-h-11 w-full rounded-lg bg-[#3525cd] px-4 text-sm font-bold text-white disabled:opacity-60"
+                            class="min-h-12 w-full rounded-lg bg-[#3525cd] px-4 text-base font-bold text-white disabled:opacity-60"
                         >
                             {{ saving ? 'Creando…' : 'Crear orden' }}
                         </button>

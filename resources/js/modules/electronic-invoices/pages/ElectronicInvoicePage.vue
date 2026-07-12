@@ -133,7 +133,7 @@ onMounted(() => {
                             >Proveedor
                             <select
                                 v-model="settings.provider_code"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                             >
                                 <option value="mock">Simulador (pruebas)</option>
                                 <option value="null">Ninguno (solo NCF)</option>
@@ -143,7 +143,7 @@ onMounted(() => {
                             >Ambiente
                             <select
                                 v-model="settings.environment"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                             >
                                 <option value="test">Pruebas</option>
                                 <option value="cert">Certificación</option>
@@ -157,7 +157,7 @@ onMounted(() => {
                         <button
                             type="button"
                             :disabled="savingSettings"
-                            class="min-h-11 self-end rounded-lg bg-[#3525cd] px-4 text-sm font-bold text-white shadow-sm disabled:opacity-60"
+                            class="min-h-12 self-end rounded-lg bg-[#3525cd] px-4 text-base font-bold text-white shadow-sm disabled:opacity-60"
                             @click="saveSettings"
                         >
                             {{ savingSettings ? 'Guardando…' : 'Guardar' }}

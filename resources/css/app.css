@@ -223,7 +223,7 @@
             grid-template-columns: minmax(0, 1fr) minmax(360px, 42%);
         }
         .auth-panel {
-            padding: 64px max(64px, calc((100vw - 1120px) / 2));
+            padding: 64px max(64px, calc((100% - 520px) / 2));
         }
         .auth-aside {
             display: flex;
@@ -246,6 +246,9 @@
         color: #1b1b24;
         background: #fcf8ff;
         font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        text-rendering: optimizelegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
     body {

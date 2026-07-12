@@ -89,7 +89,7 @@ onMounted(() => {
                 <select
                     v-else-if="field.type === 'enum'"
                     v-model="values[key]"
-                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                    class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                 >
                     <option v-for="option in field.options" :key="option" :value="option">{{ option }}</option>
                 </select>
@@ -103,7 +103,7 @@ onMounted(() => {
             <button
                 type="button"
                 :disabled="saving"
-                class="mt-2 min-h-11 rounded-lg bg-[#3525cd] px-4 text-sm font-bold text-white shadow-sm disabled:opacity-60"
+                class="mt-2 min-h-12 rounded-lg bg-[#3525cd] px-4 text-base font-bold text-white shadow-sm disabled:opacity-60"
                 @click="save"
             >
                 {{ saving ? 'Guardando…' : 'Guardar' }}

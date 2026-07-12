@@ -134,7 +134,7 @@ onMounted(() => {
                     <button
                         type="button"
                         :disabled="busy"
-                        class="min-h-11 rounded-lg bg-[#3525cd] px-5 text-sm font-bold text-white shadow-sm disabled:opacity-60"
+                        class="min-h-12 rounded-lg bg-[#3525cd] px-5 text-base font-bold text-white shadow-sm disabled:opacity-60"
                         @click="begin"
                     >
                         {{ busy ? 'Generando…' : 'Activar 2FA' }}
@@ -169,14 +169,14 @@ onMounted(() => {
                         <button
                             type="button"
                             :disabled="busy || confirmCode.length < 6"
-                            class="min-h-11 rounded-lg bg-[#006c49] px-5 text-sm font-bold text-white shadow-sm disabled:opacity-60"
+                            class="min-h-12 rounded-lg bg-[#006c49] px-5 text-base font-bold text-white shadow-sm disabled:opacity-60"
                             @click="confirm"
                         >
                             {{ busy ? 'Confirmando…' : 'Confirmar y activar' }}
                         </button>
                         <button
                             type="button"
-                            class="min-h-11 rounded-lg px-4 text-sm font-bold text-[#464555] hover:bg-[#f0ecf9]"
+                            class="min-h-11 rounded-lg px-4 text-base font-bold text-[#464555] hover:bg-[#f0ecf9]"
                             @click="cancelSetup"
                         >
                             Cancelar

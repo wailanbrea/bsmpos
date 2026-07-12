@@ -129,10 +129,10 @@ onMounted(() => {
                             v-model="search"
                             type="search"
                             placeholder="Buscar por nombre, RNC o teléfono…"
-                            class="min-h-11 flex-1 rounded-lg border border-[#c7c4d8] px-3 text-sm"
+                            class="min-h-12 flex-1 rounded-lg border border-[#c7c4d8] px-3 text-base"
                         />
                         <button
-                            class="min-h-11 rounded-lg px-3 text-sm font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
+                            class="min-h-11 rounded-lg px-3 text-base font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
                             @click="select(null)"
                         >
                             Nuevo cliente
@@ -183,7 +183,7 @@ onMounted(() => {
                                 >Tipo
                                 <select
                                     v-model="form.kind"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                    class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                                 >
                                     <option value="person">Persona</option>
                                     <option value="company">Empresa</option>
@@ -195,7 +195,7 @@ onMounted(() => {
                                     v-model.trim="form.name"
                                     required
                                     maxlength="150"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 font-normal"
+                                    class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                                 />
                             </label>
                         </div>
@@ -204,7 +204,7 @@ onMounted(() => {
                                 >Documento
                                 <select
                                     v-model="form.tax_id_type"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-2 font-normal"
+                                    class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                                 >
                                     <option value="none">Ninguno</option>
                                     <option value="rnc">RNC</option>
@@ -217,7 +217,7 @@ onMounted(() => {
                                 <input
                                     v-model.trim="form.tax_id"
                                     maxlength="30"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 font-mono font-normal"
+                                    class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 font-mono text-base font-normal"
                                 />
                             </label>
                         </div>
@@ -228,7 +228,7 @@ onMounted(() => {
                                     v-model.trim="form.phone"
                                     type="tel"
                                     maxlength="30"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 font-normal"
+                                    class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                                 />
                             </label>
                             <label class="grid gap-2 text-sm font-semibold"
@@ -237,7 +237,7 @@ onMounted(() => {
                                     v-model.trim="form.whatsapp"
                                     type="tel"
                                     maxlength="30"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 font-normal"
+                                    class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                                 />
                             </label>
                         </div>
@@ -247,7 +247,7 @@ onMounted(() => {
                                 v-model.trim="form.email"
                                 type="email"
                                 maxlength="255"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 font-normal"
+                                class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                             />
                         </label>
                         <div class="grid gap-4 sm:grid-cols-2">
@@ -258,7 +258,7 @@ onMounted(() => {
                                     type="number"
                                     min="0"
                                     step="0.01"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 font-normal"
+                                    class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                                 />
                             </label>
                             <label class="grid gap-2 text-sm font-semibold"
@@ -268,13 +268,13 @@ onMounted(() => {
                                     type="number"
                                     min="0"
                                     max="365"
-                                    class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 font-normal"
+                                    class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal"
                                 />
                             </label>
                         </div>
                     </div>
                     <button
-                        class="mt-6 min-h-11 rounded-lg bg-[#3525cd] px-5 text-sm font-bold text-white shadow-sm disabled:opacity-60"
+                        class="mt-6 min-h-12 rounded-lg bg-[#3525cd] px-5 text-base font-bold text-white shadow-sm disabled:opacity-60"
                         :disabled="saving"
                         type="submit"
                     >

@@ -110,7 +110,7 @@ onMounted(() => void load());
                             </div>
                             <button
                                 type="button"
-                                class="min-h-11 rounded-lg px-4 text-sm font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
+                                class="min-h-11 rounded-lg px-4 text-base font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
                                 @click="edit(employee)"
                             >
                                 Editar
@@ -133,19 +133,22 @@ onMounted(() => void load());
                             <input
                                 v-model.trim="form.name"
                                 required
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                             />
                         </label>
                         <label class="grid gap-1 text-sm font-semibold"
                             >Cargo
                             <input
                                 v-model.trim="form.position"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                             />
                         </label>
                         <label class="grid gap-1 text-sm font-semibold"
                             >Teléfono
-                            <input v-model.trim="form.phone" class="min-h-11 rounded-lg border border-[#c7c4d8] px-3" />
+                            <input
+                                v-model.trim="form.phone"
+                                class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
+                            />
                         </label>
                         <label class="grid gap-1 text-sm font-semibold"
                             >Comisión (%)
@@ -155,7 +158,7 @@ onMounted(() => void load());
                                 min="0"
                                 max="100"
                                 step="0.01"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                             />
                         </label>
                         <label class="flex items-center gap-2 text-sm font-semibold">
@@ -165,14 +168,14 @@ onMounted(() => void load());
                             <button
                                 type="submit"
                                 :disabled="saving || !form.name"
-                                class="min-h-11 flex-1 rounded-lg bg-[#3525cd] px-4 text-sm font-bold text-white disabled:opacity-60"
+                                class="min-h-12 flex-1 rounded-lg bg-[#3525cd] px-4 text-base font-bold text-white disabled:opacity-60"
                             >
                                 {{ saving ? 'Guardando…' : 'Guardar' }}
                             </button>
                             <button
                                 v-if="selected"
                                 type="button"
-                                class="min-h-11 rounded-lg px-4 text-sm font-bold text-[#464555] hover:bg-[#f0ecf9]"
+                                class="min-h-11 rounded-lg px-4 text-base font-bold text-[#464555] hover:bg-[#f0ecf9]"
                                 @click="reset"
                             >
                                 Cancelar

@@ -264,7 +264,7 @@ const filteredProductsDropdown = computed(() => {
                 </div>
                 <div class="flex items-center gap-3">
                     <button
-                        class="min-h-11 rounded-lg border border-[#c7c4d8] bg-white px-4 font-semibold text-[#302f39] shadow-sm hover:bg-[#f5f2ff] transition"
+                        class="min-h-12 rounded-lg border border-[#c7c4d8] bg-white px-4 text-base font-semibold text-[#302f39] shadow-sm hover:bg-[#f5f2ff] transition"
                         @click="loadData"
                     >
                         Refrescar
@@ -318,7 +318,7 @@ const filteredProductsDropdown = computed(() => {
                         <select
                             id="warehouse-filter"
                             v-model="selectedWarehouseFilter"
-                            class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:border-[#3525cd] focus:ring-1 focus:ring-[#3525cd]"
+                            class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:border-[#3525cd] focus:ring-1 focus:ring-[#3525cd]"
                             @change="handleWarehouseFilterChange"
                         >
                             <option value="">Todos los Almacenes</option>
@@ -392,7 +392,7 @@ const filteredProductsDropdown = computed(() => {
                             <label class="block text-xs font-semibold text-[#464555] mb-1">Proveedor *</label>
                             <select
                                 v-model="newPurchase.supplier_id"
-                                class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:ring-[#3525cd]"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:ring-[#3525cd]"
                             >
                                 <option value="">Selecciona un Proveedor</option>
                                 <option v-for="s in suppliers" :key="s.id" :value="s.id">{{ s.name }}</option>
@@ -402,7 +402,7 @@ const filteredProductsDropdown = computed(() => {
                             <label class="block text-xs font-semibold text-[#464555] mb-1">Almacén Destino *</label>
                             <select
                                 v-model="newPurchase.warehouse_id"
-                                class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:ring-[#3525cd]"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:ring-[#3525cd]"
                             >
                                 <option value="">Selecciona un Almacén</option>
                                 <option v-for="w in warehouses" :key="w.id" :value="w.id">{{ w.name }}</option>
@@ -419,7 +419,7 @@ const filteredProductsDropdown = computed(() => {
                                 v-model="newPurchase.purchase_number"
                                 type="text"
                                 placeholder="Ej: FAC-4091"
-                                class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:ring-[#3525cd]"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:ring-[#3525cd]"
                             />
                         </div>
                         <div>
@@ -427,7 +427,7 @@ const filteredProductsDropdown = computed(() => {
                             <input
                                 v-model="newPurchase.purchase_date"
                                 type="date"
-                                class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:ring-[#3525cd]"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:ring-[#3525cd]"
                             />
                         </div>
                     </div>
@@ -450,7 +450,7 @@ const filteredProductsDropdown = computed(() => {
                             v-model="searchProductQuery"
                             type="text"
                             placeholder="Busca por nombre o SKU de producto..."
-                            class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:ring-[#3525cd]"
+                            class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:ring-[#3525cd]"
                             @focus="showProductDropdown = true"
                         />
                         <div
@@ -533,7 +533,7 @@ const filteredProductsDropdown = computed(() => {
                     </div>
 
                     <button
-                        class="w-full min-h-11 rounded-lg bg-[#3525cd] px-5 font-semibold text-white shadow-sm hover:bg-[#271aa3] transition active:scale-[.98]"
+                        class="w-full min-h-12 rounded-lg bg-[#3525cd] px-5 font-semibold text-white shadow-sm hover:bg-[#271aa3] transition active:scale-[.98]"
                         @click="handleCreatePurchase"
                     >
                         Guardar Compra en Borrador
@@ -597,7 +597,7 @@ const filteredProductsDropdown = computed(() => {
                                 type="text"
                                 placeholder="Ej: Depósito Central"
                                 required
-                                class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:ring-[#3525cd]"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:ring-[#3525cd]"
                             />
                         </div>
                         <div>
@@ -607,7 +607,7 @@ const filteredProductsDropdown = computed(() => {
                                 type="text"
                                 placeholder="Ej: ALM-CEN"
                                 required
-                                class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:ring-[#3525cd]"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:ring-[#3525cd]"
                             />
                         </div>
                         <div class="flex items-center gap-2 py-2">
@@ -623,7 +623,7 @@ const filteredProductsDropdown = computed(() => {
                         </div>
                         <button
                             type="submit"
-                            class="w-full min-h-11 rounded-lg bg-[#3525cd] px-5 font-semibold text-white shadow-sm hover:bg-[#271aa3] transition"
+                            class="w-full min-h-12 rounded-lg bg-[#3525cd] px-5 font-semibold text-white shadow-sm hover:bg-[#271aa3] transition"
                         >
                             Guardar Almacén
                         </button>
@@ -683,7 +683,7 @@ const filteredProductsDropdown = computed(() => {
                                 type="text"
                                 placeholder="Ej: Distribuidora Nacional SRL"
                                 required
-                                class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:ring-[#3525cd]"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:ring-[#3525cd]"
                             />
                         </div>
                         <div>
@@ -692,7 +692,7 @@ const filteredProductsDropdown = computed(() => {
                                 v-model="newSupplier.tax_id"
                                 type="text"
                                 placeholder="Ej: 131793916"
-                                class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:ring-[#3525cd]"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:ring-[#3525cd]"
                             />
                         </div>
                         <div>
@@ -701,7 +701,7 @@ const filteredProductsDropdown = computed(() => {
                                 v-model="newSupplier.phone"
                                 type="text"
                                 placeholder="Ej: 809-555-0199"
-                                class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:ring-[#3525cd]"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:ring-[#3525cd]"
                             />
                         </div>
                         <div>
@@ -710,7 +710,7 @@ const filteredProductsDropdown = computed(() => {
                                 v-model="newSupplier.email"
                                 type="email"
                                 placeholder="proveedor@empresa.com.do"
-                                class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:ring-[#3525cd]"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base focus:ring-[#3525cd]"
                             />
                         </div>
                         <div>
@@ -723,7 +723,7 @@ const filteredProductsDropdown = computed(() => {
                         </div>
                         <button
                             type="submit"
-                            class="w-full min-h-11 rounded-lg bg-[#3525cd] px-5 font-semibold text-white shadow-sm hover:bg-[#271aa3] transition"
+                            class="w-full min-h-12 rounded-lg bg-[#3525cd] px-5 font-semibold text-white shadow-sm hover:bg-[#271aa3] transition"
                         >
                             Guardar Proveedor
                         </button>
@@ -840,7 +840,7 @@ const filteredProductsDropdown = computed(() => {
                 <!-- Footer Modal -->
                 <footer class="p-4 border-t border-[#e4e1ee] flex justify-end bg-gray-50">
                     <button
-                        class="min-h-11 rounded-lg bg-[#302f39] px-5 font-semibold text-white transition hover:bg-[#201f26]"
+                        class="min-h-12 rounded-lg bg-[#302f39] px-5 font-semibold text-white transition hover:bg-[#201f26]"
                         @click="showKardexModal = false"
                     >
                         Cerrar

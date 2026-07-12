@@ -4,6 +4,44 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-11 — Demos por tipo de negocio (`DemoVerticalsSeeder`)
+**Agregado**
+- `database/seeders/DemoVerticalsSeeder.php`: crea tres empresas demo adicionales con onboarding completo por giro, RNC válido propio, caja renombrada y secuencia NCF B02 (1–500). Idempotente (se salta cada demo si su usuario existe); contraseña común `Password123!`:
+  - **Restaurante El Fogón** (`demo.restaurante@omnipos.test`, giro `restaurant`): 4 platos POS sin inventario y plano de mesas (Salón S1–S4, Terraza T1–T2).
+  - **Barbería La Navaja** (`demo.barberia@omnipos.test`, giro `barbershop`): 3 servicios, 2 barberos con comisión, cliente y 2 citas (hoy confirmada Corte+Barba RD$767; mañana pendiente Tinte RD$1,416) vía `CreateAppointmentAction`.
+  - **Taller AutoMax** (`demo.taller@omnipos.test`, giro `mechanic`): 2 servicios, repuesto con stock (10 uds), mecánico, cliente con Toyota Corolla 2019 y orden de trabajo en `diagnosticando` (RD$1,794 = mano de obra 500 + servicio con ITBIS 944 + repuesto 350) vía `CreateWorkOrderAction`.
+  - **Cafetería Aroma** (`demo.cafeteria@omnipos.test`, giro `cafeteria`): barra rápida, 2 bebidas sin inventario + 2 productos con stock.
+  - **Supermercado La Económica** (`demo.super@omnipos.test`, giro `supermarket`): 5 productos con inventario avanzado, lotes y vencimientos (FEFO) — leche/pan/aceite con fecha de vencimiento.
+  - **Ferretería El Tornillo** (`demo.ferreteria@omnipos.test`, giro `hardware_store`): 5 materiales con stock (cemento, pintura, martillo, tornillos, PVC).
+  - **Distribuidora del Cibao** (`demo.distribuidora@omnipos.test`, giro `distributor`): 3 productos al por mayor + cliente empresa con crédito (RD$50,000, 30 días).
+  - **Consultores Pro** (`demo.servicios@omnipos.test`, giro `professional_services`): 3 servicios profesionales + cliente empresa (sin POS, orientado a cotizaciones).
+- El minimarket demo existente (`demo@omnipos.test`, DemoSeeder) completa **9 verticales** en total.
+
+**Validado**
+- Pint y Larastan limpios sobre el seeder; verificación en navegador real de los tres demos: menú dinámico por giro (Mesas/KDS solo en restaurante; Agenda/Empleados en barbería; Vehículos/Órdenes en taller), plano de mesas con 6 mesas disponibles, agenda con cita y total ITBIS correcto, y orden de taller con total RD$1,794 y transiciones válidas.
+
+### 2026-07-11 — POS accesible para adultos mayores + modernización Kinetic
+**Cambiado**
+- **Modal "Detalles del Cobro"** rediseñado a estándar táctil Kinetic (`PosPage.vue`): modal más ancho (max-w-2xl), título 24px, labels 14px, selects/inputs de 48px con texto 16px, monto entregado 18px bold, botones de billetes rápidos de 48px en grid, cambio/devuelta destacado en píldora verde con cifra 24px, botón "Confirmar e Imprimir" verde de alta visibilidad (56px, texto 18px) según patrón "Pay button" del design system. Tipo de venta y comprobante ahora con labels propios en grid (antes selects sin etiqueta apretados en una fila).
+- **Resto del POS**: apertura de caja (campos 56px), cabecera oscura (texto 14-16px, botones 44px), carrito (nombre/precio 16px, botones ± de 44×44, total general 30px), botón "Completar Venta" verde 56px, tarjetas de producto (nombre 16px, precio 18px), buscador 52px; modales de movimiento/cierre/ticket con títulos 20px, campos 48px y botones 48px; vista previa del ticket a 13px.
+- Base global (`app.css`): antialiasing y `optimizeLegibility` para todas las pantallas.
+- **Pase de accesibilidad al resto de módulos** (17 archivos): todos los inputs/selects de formularios pasan a 48px de alto con texto 16px (antes 44px con 14px o el default), botones primarios/secundarios a 48px con texto 16px, fechas y filtros de Reportes a 48px, pestañas de Reportes a 16px, tabla de Reportes a 16px con cabecera 14px, navegación del panel a 16px. Afecta: reportes, clientes, productos, inventario, agenda, empleados, vehículos, órdenes, auditoría, roles, usuarios, sucursales, e-CF, onboarding, configuración, seguridad y dashboard.
+
+**Corregido**
+- Select de comprobante del POS enviaba `01`/`02` en vez de `B01`/`B02` al elegir manualmente: rompía la validación de RNC para B01 y el código canónico enviado al backend. Valores corregidos a `B01`/`B02`.
+
+**Validado**
+- Venta real en navegador con el nuevo modal: FAC-000002, NCF B0200000002, RD$ 236 (2 × Café), efectivo RD$ 500, devuelta RD$ 264, caja 618→854. ESLint, vue-tsc, Prettier y build verdes.
+
+### 2026-07-11 — Fixes de layout en auth y formulario de vehículos (revisión en navegador)
+**Corregido**
+- `resources/css/app.css`: el padding de escritorio de `.auth-panel` usaba `100vw` (viewport completo) siendo el panel solo la columna izquierda del grid; en pantallas ≥ ~1250px el contenido de login/registro colapsaba a una columna de ~45px. Ahora el cálculo usa el ancho del propio panel (`calc((100% - 520px) / 2)`).
+- `VehicleListPage.vue`: los inputs del grid de 2 columnas de "Nuevo vehículo" desbordaban la tarjeta (ancho intrínseco > celda); se añadió `w-full min-w-0`.
+
+**Validado**
+- Revisión con Playwright de las 17 pantallas del menú + login/registro/contexto/onboarding con venta de humo en POS (FAC-000001, NCF B0200000001, RD$ 118, caja 500→618, stock 25→24) sin errores de consola ni respuestas 4xx/5xx. ESLint, vue-tsc, Prettier y build verdes.
+- Hallazgo operativo (entorno local, no de código): la BD tenía 4 migraciones pendientes de los verticales (`employees`, `appointment_tables`, `vehicles`, `work_order_tables`) que causaban 500 en `/api/v1/employees` y `/api/v1/appointments`; se aplicaron con `php artisan migrate`. El `DemoSeeder` había fallado silenciosamente en el empleado demo por ese motivo (artisan devolvió éxito) — vigilar en el futuro.
+
 ### 2026-07-11 — E2E de los verticales Barbería y Taller
 **Agregado**
 - `appointments.spec.ts`: agenda una cita (empleado + servicio) verificando el total con ITBIS (RD$ 354) y la transición Pendiente→Confirmada.

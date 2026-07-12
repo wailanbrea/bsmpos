@@ -137,7 +137,7 @@ onMounted(() => {
                     <div class="flex items-center justify-between gap-3 px-2 pb-3">
                         <h2 class="font-bold">Accesos configurados</h2>
                         <button
-                            class="min-h-11 rounded-lg px-3 text-sm font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
+                            class="min-h-11 rounded-lg px-3 text-base font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
                             @click="reset()"
                         >
                             Asignar acceso
@@ -186,7 +186,7 @@ onMounted(() => {
                             type="email"
                             required
                             autocomplete="email"
-                            class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 font-normal disabled:bg-[#f0ecf9]"
+                            class="min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base font-normal disabled:bg-[#f0ecf9]"
                             :disabled="editing"
                         />
                     </label>
@@ -223,7 +223,7 @@ onMounted(() => {
                         <select
                             v-model="form.default_branch_id"
                             required
-                            class="min-h-11 rounded-lg border border-[#c7c4d8] bg-white px-3 font-normal"
+                            class="min-h-12 rounded-lg border border-[#c7c4d8] bg-white px-3 text-base font-normal"
                         >
                             <option value="" disabled>Selecciona una sucursal</option>
                             <option
@@ -257,7 +257,7 @@ onMounted(() => {
                     </fieldset>
 
                     <button
-                        class="mt-6 min-h-11 rounded-lg bg-[#3525cd] px-5 text-sm font-bold text-white shadow-sm disabled:opacity-60"
+                        class="mt-6 min-h-12 rounded-lg bg-[#3525cd] px-5 text-base font-bold text-white shadow-sm disabled:opacity-60"
                         :disabled="saving"
                         type="submit"
                     >

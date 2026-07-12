@@ -146,7 +146,7 @@ onMounted(async () => {
                             <input
                                 v-model="filterDate"
                                 type="date"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                                 @change="loadAgenda"
                             />
                         </label>
@@ -154,7 +154,7 @@ onMounted(async () => {
                             >Empleado
                             <select
                                 v-model="filterEmployee"
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                                 @change="loadAgenda"
                             >
                                 <option value="">Todos</option>
@@ -218,12 +218,15 @@ onMounted(async () => {
                                 v-model="form.scheduled_at"
                                 type="datetime-local"
                                 required
-                                class="min-h-11 rounded-lg border border-[#c7c4d8] px-3"
+                                class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
                             />
                         </label>
                         <label class="grid gap-1 text-sm font-semibold"
                             >Cliente
-                            <select v-model="form.customer_id" class="min-h-11 rounded-lg border border-[#c7c4d8] px-3">
+                            <select
+                                v-model="form.customer_id"
+                                class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
+                            >
                                 <option value="">Sin cliente</option>
                                 <option v-for="customer in customers" :key="customer.id" :value="customer.id">
                                     {{ customer.name }}
@@ -232,7 +235,10 @@ onMounted(async () => {
                         </label>
                         <label class="grid gap-1 text-sm font-semibold"
                             >Empleado
-                            <select v-model="form.employee_id" class="min-h-11 rounded-lg border border-[#c7c4d8] px-3">
+                            <select
+                                v-model="form.employee_id"
+                                class="min-h-12 w-full min-w-0 rounded-lg border border-[#c7c4d8] px-3 text-base"
+                            >
                                 <option value="">Sin asignar</option>
                                 <option v-for="employee in employees" :key="employee.id" :value="employee.id">
                                     {{ employee.name }}
@@ -257,7 +263,7 @@ onMounted(async () => {
                         <button
                             type="submit"
                             :disabled="saving || !form.service_ids.length"
-                            class="min-h-11 w-full rounded-lg bg-[#3525cd] px-4 text-sm font-bold text-white disabled:opacity-60"
+                            class="min-h-12 w-full rounded-lg bg-[#3525cd] px-4 text-base font-bold text-white disabled:opacity-60"
                         >
                             {{ saving ? 'Agendando…' : 'Agendar cita' }}
                         </button>

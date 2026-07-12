@@ -204,14 +204,14 @@ onMounted(() => {
                 <div class="mt-8 flex items-center justify-between gap-4">
                     <button
                         type="button"
-                        class="min-h-11 rounded-lg px-4 text-sm font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
+                        class="min-h-11 rounded-lg px-4 text-base font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
                         @click="step = 1"
                     >
                         ← Cambiar tipo
                     </button>
                     <button
                         type="button"
-                        class="min-h-11 rounded-lg bg-[#3525cd] px-6 text-sm font-bold text-white shadow-sm"
+                        class="min-h-12 rounded-lg bg-[#3525cd] px-6 text-base font-bold text-white shadow-sm"
                         @click="step = 3"
                     >
                         Siguiente: Ajustes fiscales →
@@ -278,14 +278,14 @@ onMounted(() => {
                 <div class="mt-8 flex items-center justify-between gap-4">
                     <button
                         type="button"
-                        class="min-h-11 rounded-lg px-4 text-sm font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
+                        class="min-h-11 rounded-lg px-4 text-base font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
                         @click="step = 2"
                     >
                         ← Volver a módulos
                     </button>
                     <button
                         type="button"
-                        class="min-h-11 rounded-lg bg-[#006c49] px-6 text-sm font-bold text-white shadow-sm disabled:opacity-60"
+                        class="min-h-12 rounded-lg bg-[#006c49] px-6 text-base font-bold text-white shadow-sm disabled:opacity-60"
                         :disabled="saving"
                         @click="finish"
                     >

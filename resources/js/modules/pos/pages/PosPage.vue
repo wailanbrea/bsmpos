@@ -588,20 +588,20 @@ const filteredProducts = computed(() => {
                 <div class="text-center space-y-2">
                     <span class="text-4xl">🔑</span>
                     <h2 class="text-2xl font-bold tracking-tight text-[#302f39]">Apertura de Caja</h2>
-                    <p class="text-xs text-[#464555]">Registra la caja física y el fondo para iniciar turno.</p>
+                    <p class="text-base text-[#464555]">Registra la caja física y el fondo para iniciar turno.</p>
                 </div>
 
-                <div v-if="errorMsg" class="p-3 bg-red-100 text-red-700 text-xs rounded-xl font-semibold">
+                <div v-if="errorMsg" class="p-4 bg-[#ffdad6] text-[#93000a] text-base rounded-xl font-semibold">
                     {{ errorMsg }}
                 </div>
-                <div v-if="successMsg" class="p-3 bg-green-100 text-green-700 text-xs rounded-xl font-semibold">
+                <div v-if="successMsg" class="p-4 bg-[#e7f6ee] text-[#006c49] text-base rounded-xl font-semibold">
                     {{ successMsg }}
                 </div>
 
                 <!-- Historial de último arqueo cerrado -->
                 <div
                     v-if="lastClosedSummary"
-                    class="p-4 bg-gray-50 rounded-2xl border border-gray-200 text-xs space-y-1"
+                    class="p-4 bg-gray-50 rounded-2xl border border-gray-200 text-base space-y-1"
                 >
                     <p class="font-bold text-gray-700">Resultado del Arqueo Anterior:</p>
                     <p>
@@ -629,10 +629,10 @@ const filteredProducts = computed(() => {
 
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-xs font-bold text-[#464555] uppercase mb-1">Caja Registradora</label>
+                        <label class="block text-sm font-semibold text-[#464555] mb-1.5">Caja Registradora</label>
                         <select
                             v-model="openRegisterId"
-                            class="w-full min-h-12 rounded-xl border border-[#c7c4d8] px-3 focus:ring-[#3525cd]"
+                            class="w-full min-h-14 rounded-xl border border-[#c7c4d8] px-4 text-base focus:ring-[#3525cd]"
                         >
                             <option v-for="r in registers" :key="r.id" :value="r.id">
                                 {{ r.name }} ({{ r.code }})
@@ -641,18 +641,18 @@ const filteredProducts = computed(() => {
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-[#464555] uppercase mb-1">Fondo Inicial DOP</label>
+                        <label class="block text-sm font-semibold text-[#464555] mb-1.5">Fondo Inicial DOP</label>
                         <input
                             v-model="openOpeningAmount"
                             type="number"
-                            class="w-full min-h-12 rounded-xl border border-[#c7c4d8] px-3 focus:ring-[#3525cd]"
+                            class="w-full min-h-14 rounded-xl border border-[#c7c4d8] px-4 text-lg font-bold focus:ring-[#3525cd]"
                             min="0"
                         />
                     </div>
 
                     <button
                         :disabled="loading"
-                        class="w-full min-h-12 rounded-xl bg-[#3525cd] hover:bg-[#271aa3] text-white font-bold transition disabled:bg-gray-300"
+                        class="w-full min-h-14 rounded-xl bg-[#3525cd] hover:bg-[#271aa3] text-white text-lg font-bold transition active:scale-[.99] disabled:bg-gray-300"
                         @click="handleOpenSession"
                     >
                         Abrir Caja e Iniciar Ventas
@@ -666,37 +666,37 @@ const filteredProducts = computed(() => {
             <!-- Barra de estado superior -->
             <header class="bg-[#302f39] text-[#f3effc] p-4 flex flex-wrap justify-between items-center gap-3">
                 <div class="flex items-center gap-3">
-                    <span class="font-bold tracking-wider text-sm">OMNIPOS · {{ activeSession.register_name }}</span>
+                    <span class="font-bold tracking-wider text-base">OMNIPOS · {{ activeSession.register_name }}</span>
                     <span
                         :class="[
-                            'px-2 py-0.5 rounded text-[10px] font-bold uppercase',
+                            'px-2.5 py-1 rounded-full text-xs font-bold uppercase',
                             isOnline ? 'bg-green-600 text-white' : 'bg-orange-600 text-white',
                         ]"
                     >
                         {{ isOnline ? 'En línea' : 'Sin conexión' }}
                     </span>
-                    <span class="text-xs text-gray-300">| Cajero: {{ activeSession.opened_by }}</span>
-                    <span class="text-xs font-bold text-green-400">
+                    <span class="text-sm text-gray-300">| Cajero: {{ activeSession.opened_by }}</span>
+                    <span class="text-sm font-bold text-green-400">
                         Caja DOP: {{ Number(activeSession.expected_amount).toFixed(2) }}
                     </span>
                 </div>
                 <div class="flex items-center gap-2">
                     <select
                         v-model="paperWidth"
-                        class="text-xs bg-white/10 text-[#f3effc] border-0 rounded px-2 py-1.5 focus:ring-0 cursor-pointer font-semibold outline-none"
+                        class="text-sm min-h-11 bg-white/10 text-[#f3effc] border-0 rounded-lg px-3 focus:ring-0 cursor-pointer font-semibold outline-none"
                     >
                         <option class="text-black" value="80mm">🖨️ Ticket 80mm</option>
                         <option class="text-black" value="58mm">🖨️ Ticket 58mm</option>
                         <option class="text-black" value="A4">📄 Factura A4 (Carta)</option>
                     </select>
                     <button
-                        class="text-xs bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded transition font-semibold"
+                        class="text-sm min-h-11 bg-white/10 hover:bg-white/20 px-4 rounded-lg transition font-semibold"
                         @click="showMovementModal = true"
                     >
                         💸 Movimiento Caja
                     </button>
                     <button
-                        class="text-xs bg-red-600/80 hover:bg-red-600 px-3 py-1.5 rounded transition font-semibold"
+                        class="text-sm min-h-11 bg-red-600/80 hover:bg-red-600 px-4 rounded-lg transition font-semibold"
                         @click="showCloseSessionModal = true"
                     >
                         🔒 Cerrar Caja
@@ -716,9 +716,9 @@ const filteredProducts = computed(() => {
                             v-if="cart.length === 0"
                             class="h-full flex flex-col items-center justify-center text-[#464555] p-8"
                         >
-                            <span class="text-4xl mb-2">🛒</span>
-                            <p class="text-sm font-semibold">El carrito está vacío.</p>
-                            <p class="text-xs text-gray-400 mt-1">Presiona un producto para agregarlo.</p>
+                            <span class="text-5xl mb-3">🛒</span>
+                            <p class="text-lg font-semibold">El carrito está vacío.</p>
+                            <p class="text-base text-gray-400 mt-1">Presiona un producto para agregarlo.</p>
                         </div>
 
                         <div
@@ -726,9 +726,9 @@ const filteredProducts = computed(() => {
                             :key="item.product_id"
                             class="border border-[#e4e1ee] rounded-xl p-3 bg-[#fcfbfe] flex flex-col gap-2"
                         >
-                            <div class="flex justify-between items-start">
-                                <span class="font-semibold text-sm">{{ item.product_name }}</span>
-                                <span class="font-bold text-sm"
+                            <div class="flex justify-between items-start gap-2">
+                                <span class="font-semibold text-base">{{ item.product_name }}</span>
+                                <span class="font-bold text-base whitespace-nowrap"
                                     >RD$ {{ Number(item.price * item.quantity - item.discount).toFixed(2) }}</span
                                 >
                             </div>
@@ -738,28 +738,28 @@ const filteredProducts = computed(() => {
                                     class="flex items-center border border-[#c7c4d8] rounded-lg overflow-hidden bg-white"
                                 >
                                     <button
-                                        class="min-w-9 min-h-9 flex items-center justify-center font-bold text-gray-500 hover:bg-gray-100"
+                                        class="min-w-11 min-h-11 flex items-center justify-center text-xl font-bold text-[#464555] hover:bg-gray-100 active:bg-gray-200"
+                                        :aria-label="`Restar uno a ${item.product_name}`"
                                         @click="updateQty(idx, -1)"
                                     >
-                                        -
+                                        −
                                     </button>
-                                    <span class="px-3 font-semibold text-sm min-w-8 text-center">{{
-                                        item.quantity
-                                    }}</span>
+                                    <span class="px-3 font-bold text-lg min-w-10 text-center">{{ item.quantity }}</span>
                                     <button
-                                        class="min-w-9 min-h-9 flex items-center justify-center font-bold text-gray-500 hover:bg-gray-100"
+                                        class="min-w-11 min-h-11 flex items-center justify-center text-xl font-bold text-[#464555] hover:bg-gray-100 active:bg-gray-200"
+                                        :aria-label="`Sumar uno a ${item.product_name}`"
                                         @click="updateQty(idx, 1)"
                                     >
                                         +
                                     </button>
                                 </div>
                                 <!-- Input Descuento -->
-                                <div class="flex items-center gap-1">
-                                    <label class="text-[10px] uppercase font-bold text-gray-400">Desc. RD$</label>
+                                <div class="flex items-center gap-2">
+                                    <label class="text-sm font-semibold text-[#464555]">Desc. RD$</label>
                                     <input
                                         type="number"
                                         :value="item.discount"
-                                        class="w-20 min-h-9 rounded border border-[#c7c4d8] px-2 text-sm text-right"
+                                        class="w-24 min-h-11 rounded-lg border border-[#c7c4d8] px-2 text-base text-right"
                                         min="0"
                                         @input="updateDiscount(idx, ($event.target as HTMLInputElement).value)"
                                     />
@@ -770,37 +770,35 @@ const filteredProducts = computed(() => {
 
                     <!-- Resumen de montos -->
                     <div class="border-t border-[#e4e1ee] bg-[#fcfbfe] p-4 space-y-2">
-                        <div class="flex justify-between text-xs text-[#464555]">
+                        <div class="flex justify-between text-base text-[#464555]">
                             <span>Subtotal:</span>
                             <span>RD$ {{ totals.subtotal.toFixed(2) }}</span>
                         </div>
-                        <div v-if="totals.discount > 0" class="flex justify-between text-xs text-red-600">
+                        <div v-if="totals.discount > 0" class="flex justify-between text-base text-[#ba1a1a]">
                             <span>Descuento:</span>
                             <span>- RD$ {{ totals.discount.toFixed(2) }}</span>
                         </div>
-                        <div class="flex justify-between text-xs text-[#464555]">
+                        <div class="flex justify-between text-base text-[#464555]">
                             <span>ITBIS total:</span>
                             <span>RD$ {{ totals.taxAmount.toFixed(2) }}</span>
                         </div>
-                        <div v-if="totals.tip > 0" class="flex justify-between text-xs text-green-700">
+                        <div v-if="totals.tip > 0" class="flex justify-between text-base text-[#006c49]">
                             <span>Propina legal (10%):</span>
                             <span>RD$ {{ totals.tip.toFixed(2) }}</span>
                         </div>
-                        <div
-                            class="flex justify-between text-lg font-bold border-t border-[#e4e1ee] pt-2 text-[#302f39]"
-                        >
-                            <span>Total General:</span>
-                            <span>RD$ {{ totals.total.toFixed(2) }}</span>
+                        <div class="flex justify-between items-center border-t border-[#e4e1ee] pt-2 text-[#302f39]">
+                            <span class="text-lg font-bold">Total General:</span>
+                            <span class="text-3xl font-bold tracking-wide">RD$ {{ totals.total.toFixed(2) }}</span>
                         </div>
 
                         <!-- Botón de Cobro -->
                         <button
                             :disabled="cart.length === 0"
-                            class="w-full min-h-12 mt-2 rounded-xl bg-[#3525cd] disabled:bg-gray-300 px-5 font-bold text-white shadow-sm hover:bg-[#271aa3] transition active:scale-[.98] flex items-center justify-center gap-2"
+                            class="w-full min-h-14 mt-2 rounded-xl bg-[#006c49] disabled:bg-gray-300 px-5 font-bold text-white text-lg shadow-sm hover:bg-[#005236] transition active:scale-[.98] flex items-center justify-center gap-3"
                             @click="showPayModal = true"
                         >
                             <span>Completar Venta</span>
-                            <span class="text-sm font-normal">RD$ {{ totals.total.toFixed(2) }}</span>
+                            <span class="text-base font-semibold opacity-90">RD$ {{ totals.total.toFixed(2) }}</span>
                         </button>
                     </div>
                 </section>
@@ -813,7 +811,7 @@ const filteredProducts = computed(() => {
                             v-model="searchQuery"
                             type="text"
                             placeholder="Busca productos por nombre, SKU o código..."
-                            class="w-full min-h-11 rounded-xl border border-[#c7c4d8] bg-white px-4 text-sm focus:border-[#3525cd] focus:ring-1 focus:ring-[#3525cd]"
+                            class="w-full min-h-13 rounded-xl border border-[#c7c4d8] bg-white px-4 text-base focus:border-[#3525cd] focus:ring-1 focus:ring-[#3525cd]"
                         />
                     </div>
 
@@ -823,13 +821,15 @@ const filteredProducts = computed(() => {
                             <button
                                 v-for="p in filteredProducts"
                                 :key="p.id"
-                                class="bg-white border border-[#e4e1ee] hover:border-[#3525cd] hover:shadow-md rounded-2xl p-4 flex flex-col justify-between items-start text-left min-h-[120px] transition active:scale-[0.98]"
+                                class="bg-white border border-[#e4e1ee] hover:border-[#3525cd] hover:shadow-md rounded-2xl p-4 flex flex-col justify-between items-start text-left min-h-[132px] transition active:scale-[0.98]"
                                 @click="addToCart(p)"
                             >
-                                <span class="font-semibold text-sm text-[#302f39] line-clamp-2">{{ p.name }}</span>
-                                <div class="mt-2 w-full flex justify-between items-end">
+                                <span class="font-semibold text-base text-[#302f39] line-clamp-2 leading-snug">{{
+                                    p.name
+                                }}</span>
+                                <div class="mt-2 w-full flex justify-between items-end gap-2">
                                     <span class="text-xs text-gray-500 font-mono">SKU: {{ p.sku || 'N/A' }}</span>
-                                    <span class="font-bold text-sm text-[#3525cd]"
+                                    <span class="font-bold text-lg text-[#3525cd] whitespace-nowrap"
                                         >RD$ {{ Number(p.price).toFixed(2) }}</span
                                     >
                                 </div>
@@ -852,35 +852,36 @@ const filteredProducts = computed(() => {
             role="dialog"
         >
             <div
-                class="bg-white rounded-2xl max-w-lg w-full flex flex-col overflow-hidden shadow-xl border border-[#c7c4d8] max-h-[90vh]"
+                class="bg-white rounded-2xl max-w-2xl w-full flex flex-col overflow-hidden shadow-xl border border-[#c7c4d8] max-h-[92vh]"
             >
-                <header class="p-5 border-b border-[#e4e1ee] bg-[#fcfbfe] flex justify-between items-center">
-                    <h2 class="text-lg font-bold text-[#302f39]">Detalles del Cobro</h2>
+                <header class="px-6 py-5 border-b border-[#e4e1ee] bg-[#fcfbfe] flex justify-between items-center">
+                    <h2 class="text-2xl font-bold tracking-tight text-[#302f39]">Detalles del Cobro</h2>
                     <button
-                        class="min-h-9 min-w-9 hover:bg-gray-100 rounded-lg flex items-center justify-center"
+                        class="min-h-11 min-w-11 hover:bg-gray-100 rounded-lg flex items-center justify-center text-lg text-[#464555]"
+                        aria-label="Cerrar"
                         @click="showPayModal = false"
                     >
                         ✕
                     </button>
                 </header>
 
-                <div class="p-6 space-y-4 overflow-y-auto flex-1">
+                <div class="p-6 space-y-5 overflow-y-auto flex-1">
                     <!-- Error del cobro (p. ej. stock insuficiente o fallo fiscal) -->
                     <div
                         v-if="errorMsg"
-                        class="p-3 bg-red-100 text-red-700 text-xs rounded-xl font-semibold"
+                        class="p-4 bg-[#ffdad6] text-[#93000a] text-base rounded-xl font-semibold"
                         role="alert"
                     >
                         {{ errorMsg }}
                     </div>
 
                     <!-- Cliente y Almacén -->
-                    <div class="grid grid-cols-2 gap-3">
+                    <div class="grid sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-bold text-[#464555] mb-1">Cliente *</label>
+                            <label class="block text-sm font-semibold text-[#464555] mb-1.5">Cliente *</label>
                             <select
                                 v-model="selectedCustomerId"
-                                class="w-full min-h-10 rounded-lg border border-[#c7c4d8] px-3 text-sm"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-4 text-base"
                             >
                                 <option v-for="c in customers" :key="c.id" :value="c.id">{{ c.name }}</option>
                             </select>
@@ -888,16 +889,16 @@ const filteredProducts = computed(() => {
                                 v-if="
                                     orderStatus === 'completed' && documentTypeCode === 'B01' && !selectedCustomerHasRnc
                                 "
-                                class="text-[10px] text-red-600 font-semibold mt-1"
+                                class="text-sm text-[#ba1a1a] font-semibold mt-1.5"
                             >
                                 ⚠️ El cliente no posee RNC registrado.
                             </p>
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-[#464555] mb-1">Almacén *</label>
+                            <label class="block text-sm font-semibold text-[#464555] mb-1.5">Almacén *</label>
                             <select
                                 v-model="selectedWarehouseId"
-                                class="w-full min-h-10 rounded-lg border border-[#c7c4d8] px-3 text-sm"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-4 text-base"
                             >
                                 <option v-for="w in warehouses" :key="w.id" :value="w.id">{{ w.name }}</option>
                             </select>
@@ -905,43 +906,49 @@ const filteredProducts = computed(() => {
                     </div>
 
                     <!-- Tipo y Propina -->
-                    <div class="flex justify-between items-center gap-3">
-                        <div class="flex items-center gap-2">
-                            <input
-                                id="pay-tip-checkbox"
-                                v-model="applyTip"
-                                type="checkbox"
-                                class="h-5 w-5 rounded border-[#c7c4d8] text-[#3525cd]"
-                            />
-                            <label for="pay-tip-checkbox" class="text-xs font-semibold text-[#464555]">
-                                Aplicar 10% Propina de Ley
-                            </label>
-                        </div>
-                        <div class="flex gap-2">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-[#464555] mb-1.5">Tipo de venta</label>
                             <select
                                 v-model="orderStatus"
-                                class="min-h-10 rounded-lg border border-[#c7c4d8] px-2 text-xs"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-4 text-base"
                             >
                                 <option value="completed">Venta Directa (Completada)</option>
                                 <option value="pending">Orden Pendiente (Mesa)</option>
                             </select>
+                        </div>
+                        <div v-if="orderStatus === 'completed'">
+                            <label class="block text-sm font-semibold text-[#464555] mb-1.5">Comprobante</label>
                             <select
-                                v-if="orderStatus === 'completed'"
                                 v-model="documentTypeCode"
-                                class="min-h-10 rounded-lg border border-[#c7c4d8] px-2 text-xs bg-[#f4f2ff] font-semibold text-[#3525cd]"
+                                class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-4 text-base bg-[#f4f2ff] font-semibold text-[#3525cd]"
                             >
-                                <option value="02">B02 - Consumidor Final</option>
-                                <option value="01">B01 - Crédito Fiscal</option>
+                                <option value="B02">B02 - Consumidor Final</option>
+                                <option value="B01">B01 - Crédito Fiscal</option>
                             </select>
                         </div>
                     </div>
+                    <label
+                        for="pay-tip-checkbox"
+                        class="flex items-center gap-3 min-h-12 rounded-xl border border-[#e4e1ee] bg-[#fcfbfe] px-4 cursor-pointer select-none"
+                    >
+                        <input
+                            id="pay-tip-checkbox"
+                            v-model="applyTip"
+                            type="checkbox"
+                            class="h-6 w-6 rounded border-[#c7c4d8] text-[#3525cd]"
+                        />
+                        <span class="text-base font-semibold text-[#464555]">Aplicar 10% Propina de Ley</span>
+                    </label>
 
                     <!-- SECCIÓN DE PAGOS MIXTOS (Solo si es completada) -->
-                    <div v-if="orderStatus === 'completed'" class="border-t border-[#e4e1ee] pt-3 space-y-3">
+                    <div v-if="orderStatus === 'completed'" class="border-t border-[#e4e1ee] pt-4 space-y-3">
                         <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold text-gray-700 uppercase">Detalle de Cobros</span>
+                            <span class="text-sm font-bold text-[#464555] uppercase tracking-wide">
+                                Detalle de Cobros
+                            </span>
                             <button
-                                class="text-[10px] bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded px-2 py-1 font-semibold"
+                                class="min-h-11 text-sm bg-white hover:bg-[#f0ecf9] border border-[#c7c4d8] rounded-lg px-4 font-bold text-[#3525cd]"
                                 @click="addPaymentLine"
                             >
                                 ＋ Agregar Pago
@@ -951,23 +958,24 @@ const filteredProducts = computed(() => {
                         <div
                             v-for="(pay, pIdx) in paymentsList"
                             :key="pIdx"
-                            class="p-3 bg-gray-50 border border-gray-200 rounded-xl space-y-2 relative"
+                            class="p-4 bg-[#fcfbfe] border border-[#e4e1ee] rounded-xl space-y-3 relative"
                         >
                             <button
                                 v-if="paymentsList.length > 1"
-                                class="absolute top-2 right-2 text-red-500 hover:text-red-700 text-sm"
+                                class="absolute top-2 right-2 min-h-9 min-w-9 rounded-lg flex items-center justify-center text-[#ba1a1a] hover:bg-[#ffdad6]"
+                                :aria-label="`Quitar pago ${pIdx + 1}`"
                                 @click="removePaymentLine(pIdx)"
                             >
                                 ✕
                             </button>
 
-                            <div class="grid grid-cols-3 gap-2">
+                            <div class="grid sm:grid-cols-3 gap-3">
                                 <div>
-                                    <label class="block text-[10px] font-bold text-gray-400">Método</label>
+                                    <label class="block text-sm font-semibold text-[#464555] mb-1.5">Método</label>
                                     <select
                                         v-model="pay.payment_method_code"
                                         :aria-label="`Método de pago ${pIdx + 1}`"
-                                        class="w-full min-h-9 rounded border border-gray-300 px-2 text-xs"
+                                        class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base"
                                     >
                                         <option value="cash">Efectivo</option>
                                         <option value="card">Tarjeta</option>
@@ -976,11 +984,11 @@ const filteredProducts = computed(() => {
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="block text-[10px] font-bold text-gray-400">Moneda</label>
+                                    <label class="block text-sm font-semibold text-[#464555] mb-1.5">Moneda</label>
                                     <select
                                         v-model="pay.currency_code"
                                         :aria-label="`Moneda de pago ${pIdx + 1}`"
-                                        class="w-full min-h-9 rounded border border-gray-300 px-2 text-xs"
+                                        class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-base"
                                         @change="onCurrencyChange(pIdx)"
                                     >
                                         <option value="DOP">Pesos DOP</option>
@@ -988,20 +996,22 @@ const filteredProducts = computed(() => {
                                     </select>
                                 </div>
                                 <div>
-                                    <label class="block text-[10px] font-bold text-gray-400">Monto Entregado</label>
+                                    <label class="block text-sm font-semibold text-[#464555] mb-1.5">
+                                        Monto Entregado
+                                    </label>
                                     <input
                                         v-model="pay.amount"
                                         :aria-label="`Monto de pago ${pIdx + 1}`"
                                         type="number"
-                                        class="w-full min-h-9 rounded border border-gray-300 px-2 text-xs text-right"
+                                        class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-3 text-lg font-bold text-right"
                                         min="0"
                                     />
                                 </div>
                             </div>
 
                             <!-- Inputs adicionales para tarjetas o USD -->
-                            <div class="flex justify-between items-center gap-3 text-[10px]">
-                                <span v-if="pay.currency_code === 'USD'" class="text-gray-500">
+                            <div class="space-y-2 text-sm">
+                                <span v-if="pay.currency_code === 'USD'" class="block text-[#464555]">
                                     Tasa: DOP {{ pay.exchange_rate }} (Total: DOP
                                     {{ Number(pay.amount * (pay.exchange_rate || 1.0)).toFixed(2) }})
                                 </span>
@@ -1011,19 +1021,19 @@ const filteredProducts = computed(() => {
                                     :aria-label="`Referencia de pago ${pIdx + 1}`"
                                     type="text"
                                     placeholder="Nº trans/tarjeta ref..."
-                                    class="w-full min-h-8 rounded border border-gray-300 px-2 text-[10px] mt-1"
+                                    class="w-full min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-base"
                                 />
                             </div>
 
                             <!-- Botones rápidos de billetes DOP en efectivo -->
                             <div
                                 v-if="pay.payment_method_code === 'cash' && pay.currency_code === 'DOP'"
-                                class="flex gap-1 pt-1"
+                                class="grid grid-cols-4 gap-2 pt-1"
                             >
                                 <button
                                     v-for="bills in [200, 500, 1000, 2000]"
                                     :key="bills"
-                                    class="text-[9px] bg-white border border-gray-300 hover:bg-gray-100 rounded px-1.5 py-0.5 font-bold"
+                                    class="min-h-12 text-base bg-white border border-[#c7c4d8] hover:border-[#3525cd] hover:bg-[#f4f2ff] rounded-lg font-bold text-[#302f39] transition active:scale-[.97]"
                                     @click="quickCashAmount(pIdx, bills)"
                                 >
                                     RD$ {{ bills }}
@@ -1033,35 +1043,40 @@ const filteredProducts = computed(() => {
                     </div>
 
                     <!-- Resumen del Cobro -->
-                    <div class="border-t border-[#e4e1ee] pt-3 text-xs space-y-1">
-                        <div class="flex justify-between">
-                            <span>Total a pagar:</span>
-                            <span class="font-bold">RD$ {{ totals.total.toFixed(2) }}</span>
+                    <div class="border-t border-[#e4e1ee] pt-4 space-y-2">
+                        <div class="flex justify-between items-center text-lg">
+                            <span class="text-[#464555]">Total a pagar:</span>
+                            <span class="font-bold text-2xl tracking-wide text-[#302f39]">
+                                RD$ {{ totals.total.toFixed(2) }}
+                            </span>
                         </div>
-                        <div v-if="orderStatus === 'completed'" class="flex justify-between text-blue-700">
+                        <div
+                            v-if="orderStatus === 'completed'"
+                            class="flex justify-between items-center text-base text-[#1d4ed8]"
+                        >
                             <span>Total entregado (DOP equiv):</span>
-                            <span class="font-bold">RD$ {{ totalPaidDop.toFixed(2) }}</span>
+                            <span class="font-bold text-lg">RD$ {{ totalPaidDop.toFixed(2) }}</span>
                         </div>
                         <div
                             v-if="orderStatus === 'completed' && changeDueDop > 0"
-                            class="flex justify-between text-green-700 text-sm font-bold"
+                            class="flex justify-between items-center rounded-xl bg-[#e7f6ee] px-4 py-3 text-[#006c49] font-bold"
                         >
-                            <span>Cambio / Devuelta:</span>
-                            <span>RD$ {{ changeDueDop.toFixed(2) }}</span>
+                            <span class="text-lg">Cambio / Devuelta:</span>
+                            <span class="text-2xl tracking-wide">RD$ {{ changeDueDop.toFixed(2) }}</span>
                         </div>
                     </div>
                 </div>
 
-                <footer class="p-4 border-t border-[#e4e1ee] bg-[#fcfbfe] flex justify-end gap-2">
+                <footer class="px-6 py-4 border-t border-[#e4e1ee] bg-[#fcfbfe] flex gap-3">
                     <button
-                        class="min-h-10 rounded-lg border border-[#c7c4d8] bg-white px-4 font-semibold text-[#302f39] text-xs"
+                        class="min-h-14 rounded-xl border border-[#c7c4d8] bg-white px-6 font-semibold text-[#302f39] text-base"
                         @click="showPayModal = false"
                     >
                         Cancelar
                     </button>
                     <button
                         :disabled="loading || (orderStatus === 'completed' && totalPaidDop < totals.total)"
-                        class="min-h-10 rounded-lg bg-[#3525cd] px-5 font-bold text-white shadow-sm hover:bg-[#271aa3] transition disabled:bg-gray-300 text-xs"
+                        class="min-h-14 flex-1 rounded-xl bg-[#006c49] px-6 font-bold text-white text-lg shadow-sm hover:bg-[#005236] transition active:scale-[.99] disabled:bg-gray-300"
                         @click="submitOrder"
                     >
                         Confirmar e Imprimir
@@ -1077,21 +1092,27 @@ const filteredProducts = computed(() => {
             aria-modal="true"
             role="dialog"
         >
-            <div class="bg-white rounded-2xl max-w-sm w-full shadow-xl border border-[#c7c4d8]">
+            <div class="bg-white rounded-2xl max-w-md w-full shadow-xl border border-[#c7c4d8]">
                 <header class="p-5 border-b border-[#e4e1ee] bg-[#fcfbfe] flex justify-between items-center">
-                    <h3 class="text-sm font-bold text-gray-800">Movimiento de Caja Física</h3>
-                    <button class="text-xs" @click="showMovementModal = false">✕</button>
+                    <h3 class="text-xl font-bold text-[#302f39]">Movimiento de Caja Física</h3>
+                    <button
+                        class="min-h-11 min-w-11 rounded-lg hover:bg-gray-100 flex items-center justify-center text-lg text-[#464555]"
+                        aria-label="Cerrar"
+                        @click="showMovementModal = false"
+                    >
+                        ✕
+                    </button>
                 </header>
                 <div class="p-5 space-y-4">
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-1">Tipo de Movimiento</label>
+                        <label class="block text-sm font-semibold text-[#464555] mb-1.5">Tipo de Movimiento</label>
                         <div class="grid grid-cols-2 gap-2">
                             <button
                                 :class="[
-                                    'min-h-9 rounded-lg border text-xs font-bold transition',
+                                    'min-h-12 rounded-lg border text-base font-bold transition active:scale-[.98]',
                                     movementType === 'in'
-                                        ? 'bg-green-700 border-green-700 text-white'
-                                        : 'border-gray-300 text-gray-600',
+                                        ? 'bg-[#006c49] border-[#006c49] text-white'
+                                        : 'border-[#c7c4d8] text-[#464555]',
                                 ]"
                                 @click="movementType = 'in'"
                             >
@@ -1099,10 +1120,10 @@ const filteredProducts = computed(() => {
                             </button>
                             <button
                                 :class="[
-                                    'min-h-9 rounded-lg border text-xs font-bold transition',
+                                    'min-h-12 rounded-lg border text-base font-bold transition active:scale-[.98]',
                                     movementType === 'out'
-                                        ? 'bg-red-700 border-red-700 text-white'
-                                        : 'border-gray-300 text-gray-600',
+                                        ? 'bg-[#ba1a1a] border-[#ba1a1a] text-white'
+                                        : 'border-[#c7c4d8] text-[#464555]',
                                 ]"
                                 @click="movementType = 'out'"
                             >
@@ -1111,35 +1132,35 @@ const filteredProducts = computed(() => {
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-1">Monto DOP</label>
+                        <label class="block text-sm font-semibold text-[#464555] mb-1.5">Monto DOP</label>
                         <input
                             v-model="movementAmount"
                             type="number"
-                            class="w-full min-h-10 rounded-lg border border-gray-300 px-3 text-xs"
+                            class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-4 text-lg font-bold"
                             min="0.01"
                             step="0.01"
                         />
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-1">Concepto / Indicación</label>
+                        <label class="block text-sm font-semibold text-[#464555] mb-1.5">Concepto / Indicación</label>
                         <input
                             v-model="movementConcept"
                             type="text"
                             placeholder="Ej. Pago de delivery..."
-                            class="w-full min-h-10 rounded-lg border border-gray-300 px-3 text-xs"
+                            class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-4 text-base"
                         />
                     </div>
                 </div>
-                <footer class="p-4 border-t border-[#e4e1ee] bg-gray-50 flex justify-end gap-2">
+                <footer class="p-4 border-t border-[#e4e1ee] bg-[#fcfbfe] flex justify-end gap-3">
                     <button
-                        class="min-h-9 rounded-lg border border-gray-300 bg-white px-4 text-xs font-semibold"
+                        class="min-h-12 rounded-lg border border-[#c7c4d8] bg-white px-5 text-base font-semibold text-[#302f39]"
                         @click="showMovementModal = false"
                     >
                         Cancelar
                     </button>
                     <button
                         :disabled="loading || movementAmount <= 0 || !movementConcept"
-                        class="min-h-9 rounded-lg bg-[#3525cd] text-white px-4 text-xs font-bold disabled:bg-gray-300"
+                        class="min-h-12 rounded-lg bg-[#3525cd] text-white px-5 text-base font-bold hover:bg-[#271aa3] disabled:bg-gray-300"
                         @click="handleCreateMovement"
                     >
                         Confirmar Movimiento
@@ -1155,13 +1176,19 @@ const filteredProducts = computed(() => {
             aria-modal="true"
             role="dialog"
         >
-            <div class="bg-white rounded-2xl max-w-sm w-full shadow-xl border border-[#c7c4d8]">
+            <div class="bg-white rounded-2xl max-w-md w-full shadow-xl border border-[#c7c4d8]">
                 <header class="p-5 border-b border-[#e4e1ee] bg-[#fcfbfe] flex justify-between items-center">
-                    <h3 class="text-sm font-bold text-gray-800">Cierre de Caja y Arqueo</h3>
-                    <button class="text-xs" @click="showCloseSessionModal = false">✕</button>
+                    <h3 class="text-xl font-bold text-[#302f39]">Cierre de Caja y Arqueo</h3>
+                    <button
+                        class="min-h-11 min-w-11 rounded-lg hover:bg-gray-100 flex items-center justify-center text-lg text-[#464555]"
+                        aria-label="Cerrar"
+                        @click="showCloseSessionModal = false"
+                    >
+                        ✕
+                    </button>
                 </header>
                 <div class="p-5 space-y-4">
-                    <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-800 space-y-1">
+                    <div class="p-4 bg-blue-50 border border-blue-200 rounded-xl text-base text-blue-900 space-y-1">
                         <p class="font-bold">Información de Sistema:</p>
                         <p>
                             Turno: <span class="font-mono font-bold">{{ activeSession?.register_name }}</span>
@@ -1179,28 +1206,28 @@ const filteredProducts = computed(() => {
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-gray-500 mb-1"
+                        <label class="block text-sm font-semibold text-[#464555] mb-1.5"
                             >Efectivo Contado Físicamente (DOP)</label
                         >
                         <input
                             v-model="closeCountedAmount"
                             type="number"
-                            class="w-full min-h-10 rounded-lg border border-gray-300 px-3 text-xs"
+                            class="w-full min-h-12 rounded-lg border border-[#c7c4d8] px-4 text-lg font-bold"
                             min="0"
                             step="0.01"
                         />
                     </div>
                 </div>
-                <footer class="p-4 border-t border-[#e4e1ee] bg-gray-50 flex justify-end gap-2">
+                <footer class="p-4 border-t border-[#e4e1ee] bg-[#fcfbfe] flex justify-end gap-3">
                     <button
-                        class="min-h-9 rounded-lg border border-gray-300 bg-white px-4 text-xs font-semibold"
+                        class="min-h-12 rounded-lg border border-[#c7c4d8] bg-white px-5 text-base font-semibold text-[#302f39]"
                         @click="showCloseSessionModal = false"
                     >
                         Cancelar
                     </button>
                     <button
                         :disabled="loading"
-                        class="min-h-9 rounded-lg bg-red-600 text-white px-4 text-xs font-bold"
+                        class="min-h-12 rounded-lg bg-[#ba1a1a] text-white px-5 text-base font-bold hover:bg-[#93000a]"
                         @click="handleCloseSession"
                     >
                         Confirmar Cierre de Caja
@@ -1220,14 +1247,20 @@ const filteredProducts = computed(() => {
                 class="bg-white rounded-2xl max-w-sm w-full shadow-xl border border-[#c7c4d8] overflow-hidden flex flex-col max-h-[90vh]"
             >
                 <header class="p-4 border-b border-[#e4e1ee] bg-[#fcfbfe] flex justify-between items-center">
-                    <h3 class="text-sm font-bold text-gray-800">Comprobante Emitido</h3>
-                    <button class="text-xs" @click="showInvoicePrintModal = false">✕</button>
+                    <h3 class="text-xl font-bold text-[#302f39]">Comprobante Emitido</h3>
+                    <button
+                        class="min-h-11 min-w-11 rounded-lg hover:bg-gray-100 flex items-center justify-center text-lg text-[#464555]"
+                        aria-label="Cerrar"
+                        @click="showInvoicePrintModal = false"
+                    >
+                        ✕
+                    </button>
                 </header>
 
                 <!-- Ticket Térmico de 80mm -->
                 <div
                     id="printable-ticket"
-                    class="p-6 overflow-y-auto flex-1 font-mono text-[11px] text-gray-800 space-y-4"
+                    class="p-6 overflow-y-auto flex-1 font-mono text-[13px] text-gray-800 space-y-4"
                 >
                     <div class="text-center space-y-1">
                         <p class="font-bold text-sm uppercase">
@@ -1317,15 +1350,15 @@ const filteredProducts = computed(() => {
                     </div>
                 </div>
 
-                <footer class="p-4 border-t border-[#e4e1ee] bg-gray-50 flex justify-end gap-2">
+                <footer class="p-4 border-t border-[#e4e1ee] bg-[#fcfbfe] flex justify-end gap-3">
                     <button
-                        class="min-h-9 rounded-lg border border-gray-300 bg-white px-4 text-xs font-semibold"
+                        class="min-h-12 rounded-lg border border-[#c7c4d8] bg-white px-5 text-base font-semibold text-[#302f39]"
                         @click="showInvoicePrintModal = false"
                     >
                         Cerrar
                     </button>
                     <button
-                        class="min-h-9 rounded-lg bg-[#3525cd] text-white px-4 text-xs font-bold"
+                        class="min-h-12 rounded-lg bg-[#3525cd] text-white px-5 text-base font-bold hover:bg-[#271aa3]"
                         @click="printTicket"
                     >
                         🖨️ Imprimir Ticket
