@@ -143,8 +143,14 @@ async function loadData() {
             }
         }
 
-        // Cargar productos
-        products.value = await fetchProducts('');
+        // Cargar productos. En giros de puros servicios (p. ej. barbería) el
+        // módulo Productos puede estar apagado y el endpoint responde 403: eso
+        // no debe tumbar el POS, solo deja la grilla vacía.
+        try {
+            products.value = await fetchProducts('');
+        } catch {
+            products.value = [];
+        }
 
         // Cargar clientes
         const custRes = await api.get('/customers');
@@ -157,11 +163,18 @@ async function loadData() {
             selectedCustomerId.value = customers.value[0].id;
         }
 
-        // Cargar almacenes
-        const warRes = await api.get('/warehouses');
-        warehouses.value = warRes.data.data.map((w: { id: string; name: string }) => ({ id: w.id, name: w.name }));
-        if (warehouses.value.length > 0) {
-            selectedWarehouseId.value = warehouses.value[0].id;
+        // Cargar almacenes (requiere módulo Inventario; opcional para servicios).
+        try {
+            const warRes = await api.get('/warehouses');
+            warehouses.value = warRes.data.data.map((w: { id: string; name: string }) => ({
+                id: w.id,
+                name: w.name,
+            }));
+            if (warehouses.value.length > 0) {
+                selectedWarehouseId.value = warehouses.value[0].id;
+            }
+        } catch {
+            warehouses.value = [];
         }
 
         // Cargar impuestos (el catálogo de lectura vive en /settings/fiscal)

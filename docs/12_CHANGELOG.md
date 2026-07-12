@@ -4,6 +4,16 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-07-11 — Guía de Uso con imágenes + POS resiliente sin módulo Productos
+**Agregado**
+- Carpeta **`Guia de Uso/`** con guía operativa por giro, capturas reales del sistema y ciclo completo de cada uno: índice (`README.md`), acceso común (`_comun/`) y guías de **Salón/Barbería**, **Ferretería**, **Restaurante**, **Taller** y **Supermercado**, cada una con su subcarpeta `img/`.
+
+**Corregido**
+- **POS resiliente** (`PosPage.vue`): la carga de productos y almacenes ahora tolera un `403` por módulo apagado (giros de puro servicio como barbería) sin tumbar todo el POS con "Error al inicializar". Antes, un salón con `pos` activo pero sin módulo `product` no podía abrir la caja.
+
+**Validado**
+- Recorrido en navegador de los 5 giros documentados con venta real donde aplica: Ferretería (FAC-000001, RD$1,958.80, devuelta RD$41.20), Restaurante (comanda RD$1,085.60 + mesas + KDS), Taller (orden a Cotizada), Supermercado (venta RD$595.90 con inventario por lotes). ESLint, vue-tsc, Prettier y build verdes.
+
 ### 2026-07-11 — Demos por tipo de negocio (`DemoVerticalsSeeder`)
 **Agregado**
 - `database/seeders/DemoVerticalsSeeder.php`: crea tres empresas demo adicionales con onboarding completo por giro, RNC válido propio, caja renombrada y secuencia NCF B02 (1–500). Idempotente (se salta cada demo si su usuario existe); contraseña común `Password123!`:
