@@ -15,6 +15,10 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
   - `OrderController.php`: el campo `warehouse_id` pasa a ser opcional (`nullable`). Si la empresa o vertical no tiene activo el módulo de inventario multialmacén, el backend resuelve automáticamente el almacén principal de la sucursal activa (`ProvisionDefaultWarehouse`), evitando errores de validación.
   - `CreateOrderAction.php`: resolución automática de almacén por defecto de la sucursal/empresa cuando `warehouse_id` no viene especificado.
   - `PosPage.vue` & `services.ts`: selector de almacén en el modal de cobro condicionado a `v-if="warehouses.length > 0"` y validación de cobro adaptada.
+- **Flujo interactivo de Mesas y POS en Restaurante:**
+  - `RestaurantController.php` & `RestaurantService.php`: nuevo endpoint `POST /api/v1/restaurant/tables/{publicId}/release` para liberar / desocupar mesas de forma segura (cancela comandas vacías o sin consumos).
+  - `RestaurantLayoutPage.vue`: tarjetas de mesas ocupadas enriquecidas con botón directo `Ver / Cobrar POS`, transferencia entre mesas `↔️` y botón rápido `✕` para liberar mesas desocupadas o abiertas por error.
+  - `PosPage.vue`: detecta automáticamente si se está atendiendo una mesa de restaurante (`?table=S1&table_id=...`). Muestra un banner destacado `🍽️ Atendiendo Mesa: Mesa S1` con botones de desvincular o volver al plano de mesas. El carrito queda aislado por mesa (`cartScope()`) y al cobrar la venta en POS, la mesa asociada se libera automáticamente regresando a estado Disponible (`available`).
 - **Verificación en vivo con Agente Windows y hardware real:**
   - Confirmada ejecución del Agente local en `http://127.0.0.1:8765` y persistencia en la carpeta de inicio de Windows (`OmniPOS-Agent.vbs`).
   - Venta de prueba realizada en navegador real en `https://bsmpos.bsolutions.dev/pos` (Mofongo + Presidente, RD$ 908.60 con billete de RD$ 1,000 y devuelta RD$ 91.40).
