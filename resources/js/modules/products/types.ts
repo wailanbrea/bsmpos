@@ -20,6 +20,9 @@ export interface Product {
     cost: string;
     image_url: string | null;
     track_inventory: boolean;
+    warranty_months?: number | null;
+    warranty_terms?: string | null;
+    requires_serial_number?: boolean;
     is_active: boolean;
     available_pos: boolean;
     variants?: ProductVariant[];

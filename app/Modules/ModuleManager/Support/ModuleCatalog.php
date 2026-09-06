@@ -131,6 +131,7 @@ final class ModuleCatalog
             ['barbershop', 'Barbería / Salón', 'Servicios y citas por empleado.', 'scissors'],
             ['mechanic', 'Taller mecánico', 'Vehículos y órdenes de trabajo.', 'wrench'],
             ['auto_parts', 'Repuestos', 'Piezas con series y garantías.', 'gear'],
+            ['appliance_store', 'Electrodomésticos y Tecnología', 'Equipos con números de serie y garantías.', 'tv'],
             ['professional_services', 'Servicios profesionales', 'Servicios y cotizaciones.', 'briefcase'],
             ['custom', 'Negocio personalizado', 'Configuración manual de módulos.', 'sliders'],
         ];
@@ -201,6 +202,10 @@ final class ModuleCatalog
             'auto_parts' => [
                 'default' => [...$base, 'pos', 'product', 'inventory', 'barcode', 'serial_numbers', 'supplier', 'purchase'],
                 'recommended' => ['warranty', 'service', 'electronic_invoice'],
+            ],
+            'appliance_store' => [
+                'default' => [...$base, 'pos', 'product', 'inventory', 'warehouse', 'barcode', 'serial_numbers', 'warranty', 'supplier', 'purchase', 'quotation'],
+                'recommended' => ['electronic_invoice', 'accounts_receivable'],
             ],
             'professional_services' => [
                 'default' => [...$base, 'service', 'quotation'],

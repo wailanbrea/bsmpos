@@ -10,6 +10,9 @@ export interface PosOrderItem {
     tax_id: string | null;
     tax_rate?: number;
     batch_number?: string;
+    serial_number?: string;
+    warranty_terms?: string;
+    requires_serial_number?: boolean;
 }
 
 export interface PosPayment {

@@ -122,6 +122,8 @@ final class OrderController
             'items.*.discount' => ['required', 'numeric', 'min:0'],
             'items.*.tax_id' => ['nullable', 'string', Rule::exists('taxes', 'public_id')->where('company_id', $companyId)],
             'items.*.batch_number' => ['nullable', 'string', 'max:60'],
+            'items.*.serial_number' => ['nullable', 'string', 'max:100'],
+            'items.*.warranty_terms' => ['nullable', 'string', 'max:255'],
             'payments' => ['nullable', 'array'],
             'payments.*.payment_method_code' => ['required', 'string', Rule::in(['cash', 'card', 'transfer', 'credit'])],
             'payments.*.currency_code' => ['nullable', 'string', 'max:10'],
@@ -194,6 +196,8 @@ final class OrderController
                 'tax_amount' => $i->tax_amount,
                 'total' => $i->total,
                 'batch_number' => $i->batch_number,
+                'serial_number' => $i->serial_number,
+                'warranty_terms' => $i->warranty_terms,
             ]) : [],
         ];
     }

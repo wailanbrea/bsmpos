@@ -54,6 +54,7 @@ class DemoVerticalsSeeder extends Seeder
         $this->hardwareStore();
         $this->distributor();
         $this->professionalServices();
+        $this->applianceStore();
     }
 
     /** @return array{0: User, 1: Company, 2: Branch}|null */
@@ -610,6 +611,221 @@ class DemoVerticalsSeeder extends Seeder
             'tax_id_type' => 'RNC',
             'tax_id' => '131000169',
             'phone' => '809-555-0155',
+            'is_active' => true,
+        ]);
+    }
+
+    /** Tienda de Electrodomésticos y Tecnología: Showroom + Depósito, series, garantías y marcas. */
+    private function applianceStore(): void
+    {
+        $bootstrap = $this->bootstrapCompany(
+            email: 'demo.electro@omnipos.test',
+            ownerName: 'Gerente Electrodomésticos',
+            companyName: 'ElectroHogar Dominicana',
+            legalName: 'ElectroHogar Dominicana SRL',
+            businessType: 'appliance_store',
+            rnc: '131000177',
+            cashRegisterName: 'Caja Principal Electro',
+        );
+
+        if ($bootstrap === null) {
+            return;
+        }
+
+        [$owner, $company, $branch] = $bootstrap;
+        $tax = $this->itbis($company);
+
+        // Secuencia B01 (Crédito Fiscal) para facturas a empresas
+        NcfSequence::query()->create([
+            'company_id' => $company->getKey(),
+            'branch_id' => $branch->getKey(),
+            'document_type_code' => 'B01',
+            'series' => 'B',
+            'start_number' => 1,
+            'end_number' => 500,
+            'current_number' => 0,
+            'expires_at' => now()->addYear(),
+            'alert_threshold' => 20,
+            'is_active' => true,
+        ]);
+
+        // Crear usuario demo con alias demo.electro@bsmpos.com
+        if (! User::query()->where('email', 'demo.electro@bsmpos.com')->exists()) {
+            $userBsm = User::query()->create([
+                'name' => 'Gerente Electrodomésticos',
+                'email' => 'demo.electro@bsmpos.com',
+                'password' => Hash::make(self::PASSWORD),
+                'email_verified_at' => now(),
+            ]);
+            $company->users()->attach($userBsm->getKey(), [
+                'is_owner' => true,
+                'default_branch_id' => $branch->getKey(),
+            ]);
+            $branch->users()->attach($userBsm->getKey());
+            app(\App\Modules\Access\Actions\ProvisionCompanyOwnerAccess::class)->execute($company, $userBsm);
+        }
+
+        // Obtener o renombrar el almacén principal a "Sala de Exhibición (Showroom)"
+        $showroom = Warehouse::query()
+            ->where('company_id', $company->getKey())
+            ->where('branch_id', $branch->getKey())
+            ->first();
+        if ($showroom) {
+            $showroom->update(['name' => 'Sala de Exhibición (Showroom)']);
+        } else {
+            $showroom = Warehouse::query()->create([
+                'company_id' => $company->getKey(),
+                'branch_id' => $branch->getKey(),
+                'name' => 'Sala de Exhibición (Showroom)',
+                'code' => 'SHOWROOM',
+                'is_active' => true,
+            ]);
+        }
+
+        // Crear Almacén Central (Depósito)
+        $deposito = Warehouse::query()->create([
+            'company_id' => $company->getKey(),
+            'branch_id' => $branch->getKey(),
+            'name' => 'Almacén Central (Depósito)',
+            'code' => 'DEP-CENTRAL',
+            'is_active' => true,
+        ]);
+
+        $inventory = app(InventoryService::class);
+
+        // Productos de electrodomésticos reales
+        $items = [
+            [
+                'name' => 'Smart TV 55" Crystal UHD 4K Samsung',
+                'sku' => 'TV-SAM-55-4K',
+                'barcode' => '8806091823451',
+                'brand' => 'Samsung',
+                'price' => 28500.00,
+                'cost' => 21000.00,
+                'warranty_months' => 12,
+                'warranty_terms' => '12 meses de garantía oficial Samsung',
+                'requires_serial' => true,
+                'showroom_stock' => 3.0,
+                'deposito_stock' => 15.0,
+            ],
+            [
+                'name' => 'Nevera Inverter 16 Pies Cúbicos No-Frost Midea',
+                'sku' => 'NEV-MID-16P',
+                'barcode' => '7891129548231',
+                'brand' => 'Midea',
+                'price' => 39900.00,
+                'cost' => 29500.00,
+                'warranty_months' => 36,
+                'warranty_terms' => '36 meses compresor / 12 meses piezas',
+                'requires_serial' => true,
+                'showroom_stock' => 2.0,
+                'deposito_stock' => 10.0,
+            ],
+            [
+                'name' => 'Aire Acondicionado Inverter 12,000 BTU Nedoca',
+                'sku' => 'AIR-NED-12K',
+                'barcode' => '7461234567890',
+                'brand' => 'Nedoca',
+                'price' => 24500.00,
+                'cost' => 17800.00,
+                'warranty_months' => 24,
+                'warranty_terms' => '24 meses en compresor / 12 meses partes',
+                'requires_serial' => true,
+                'showroom_stock' => 4.0,
+                'deposito_stock' => 20.0,
+            ],
+            [
+                'name' => 'Lavadora Automática Carga Superior 18kg Whirlpool',
+                'sku' => 'LAV-WHI-18KG',
+                'barcode' => '7501011122334',
+                'brand' => 'Whirlpool',
+                'price' => 32000.00,
+                'cost' => 24000.00,
+                'warranty_months' => 12,
+                'warranty_terms' => '12 meses de garantía en piezas y servicios',
+                'requires_serial' => true,
+                'showroom_stock' => 2.0,
+                'deposito_stock' => 8.0,
+            ],
+            [
+                'name' => 'Horno Microondas Digital 1.1 Cu. Ft. Panasonic',
+                'sku' => 'MIC-PAN-1.1',
+                'barcode' => '8887554433221',
+                'brand' => 'Panasonic',
+                'price' => 6500.00,
+                'cost' => 4600.00,
+                'warranty_months' => 12,
+                'warranty_terms' => '12 meses de garantía Panasonic',
+                'requires_serial' => true,
+                'showroom_stock' => 5.0,
+                'deposito_stock' => 25.0,
+            ],
+            [
+                'name' => 'Freidora de Aire Digital XL 5.5L Ninja',
+                'sku' => 'AIR-NIN-5.5L',
+                'barcode' => '622356554433',
+                'brand' => 'Ninja',
+                'price' => 7900.00,
+                'cost' => 5400.00,
+                'warranty_months' => 12,
+                'warranty_terms' => '12 meses de garantía limitada',
+                'requires_serial' => true,
+                'showroom_stock' => 6.0,
+                'deposito_stock' => 18.0,
+            ],
+            [
+                'name' => 'Licuadora Profesional Reversible 3 Velocidades Oster',
+                'sku' => 'LIC-OST-REV',
+                'barcode' => '034264445566',
+                'brand' => 'Oster',
+                'price' => 3200.00,
+                'cost' => 2100.00,
+                'warranty_months' => 6,
+                'warranty_terms' => '6 meses de garantía',
+                'requires_serial' => false,
+                'showroom_stock' => 8.0,
+                'deposito_stock' => 30.0,
+            ],
+        ];
+
+        foreach ($items as $data) {
+            $prod = Product::query()->create([
+                'company_id' => $company->getKey(),
+                'tax_id' => $tax->getKey(),
+                'name' => $data['name'],
+                'sku' => $data['sku'],
+                'barcode' => $data['barcode'],
+                'brand' => $data['brand'],
+                'price' => $data['price'],
+                'cost' => $data['cost'],
+                'warranty_months' => $data['warranty_months'],
+                'warranty_terms' => $data['warranty_terms'],
+                'track_inventory' => true,
+                'is_active' => true,
+                'available_pos' => true,
+            ]);
+
+            $prod->inventorySetting()->create([
+                'requires_inventory' => true,
+                'requires_serial_number' => $data['requires_serial'],
+                'outgoing_method' => 'fefo',
+            ]);
+
+            // Stock en Showroom y en Depósito
+            $inventory->addStock($showroom, $prod, $data['showroom_stock'], $data['cost'], user: $owner);
+            $inventory->addStock($deposito, $prod, $data['deposito_stock'], $data['cost'], user: $owner);
+        }
+
+        // Cliente empresa con RNC para compras con Crédito Fiscal (B01)
+        Customer::query()->create([
+            'company_id' => $company->getKey(),
+            'kind' => 'empresa',
+            'name' => 'Constructora Santo Domingo SRL',
+            'tax_id_type' => 'RNC',
+            'tax_id' => '131889999',
+            'phone' => '809-555-4422',
+            'email' => 'compras@constructorasd.do',
+            'address' => 'Av. 27 de Febrero #204, Santo Domingo',
             'is_active' => true,
         ]);
     }

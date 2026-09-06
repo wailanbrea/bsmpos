@@ -33,7 +33,7 @@ final class ProductController
         }
 
         $query = Product::query()
-            ->with(['category', 'tax'])
+            ->with(['category', 'tax', 'inventorySetting'])
             ->where('company_id', $currentCompany->company()->getKey());
 
         if (is_string($search = $request->query('search')) && $search !== '') {

@@ -4,6 +4,28 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-09-06 — Vertical Electrodomésticos y Tecnología: Números de Serie, Pólizas de Garantía y Demo ElectroHogar
+- **Trazabilidad de Números de Serie (S/N / IMEI):**
+  - Migración `2026_09_06_230000_add_warranty_and_serial_fields.php`: campos `serial_number` (string 100, nullable) en `order_items` e `invoice_items`.
+  - Flag de producto `requires_serial_number` (a través de `inventory_settings.requires_serial_number`) y visualización de badges `S/N` en tarjetas del catálogo POS.
+  - Al agregar un producto serializado al carrito de POS (`PosPage.vue`), se añade como línea unitaria independiente con campo de entrada para escanear o digitar el número de serie.
+  - Validación en Form Requests y persistencia en `CreateOrderAction.php` e `InvoiceService.php`.
+- **Gestión de Pólizas de Garantía:**
+  - Campos `warranty_months` (int, nullable) y `warranty_terms` (string 255, nullable) en `products`, heredados a `order_items` e `invoice_items`.
+  - Visualización contextual de garantía en POS: tarjeta de producto, línea de carrito (`🛡️ {warranty_terms}`), comprobante de venta y factura fiscal.
+  - Inclusión en formatos de impresión:
+    - Impresión térmica ESC/POS: líneas `S/N: {serial}` y `Garantía: {terms}` por ítem.
+    - Impresión texto monoespaciado: desglose de número de serie y garantía.
+    - Facturas HTML y A4 para cliente: badge esmeralda de garantía y código de serie destacado en azul.
+- **Nuevo Giro de Negocio `appliance_store` (Electrodomésticos y Tecnología):**
+  - Registrado en `ModuleCatalog.php` con icono `tv`, descripción y preset modular específico (`pos`, `product`, `inventory`, `warehouse`, `barcode`, `serial_numbers`, `warranty`, `supplier`, `purchase`, `quotation`).
+  - Aislamiento multi-tenant estricto: cero impacto colateral en otros giros de negocio (restaurantes, barberías, supermercados). Todos los campos son opcionales y gobernados por la activación modular.
+- **Empresa Demo "ElectroHogar Dominicana" y Datos de Prueba:**
+  - `DemoVerticalsSeeder.php`: provisionada empresa demo con RNC `131000177`, 2 almacenes ("Sala de Exhibición - Showroom" y "Almacén Central - Depósito"), secuencias B01/B02, 7 electrodomésticos reales (Smart TV Samsung 55", Nevera Midea 16 cu.ft Inverter, Aire Nedoca 12k BTU Inverter, Lavadora Whirlpool 18kg, Microondas Panasonic, Freidora de Aire Ninja, Licuadora Oster Reversible) con garantías de 12 a 120 meses y stock en ambos almacenes.
+  - Usuarios demo para pruebas: `demo.electro@bsmpos.com` y `demo.electro@omnipos.test` (clave: `Password123!`).
+- **Pruebas Automatizadas:**
+  - `tests/Feature/ApplianceStoreTest.php`: suite completa verificando ciclo de vida de venta POS con número de serie, emisión de factura B02 con retención de serie y garantía, e impresión de ticket.
+
 ### 2026-09-06 — POS: Eliminación del parpadeo (flash) de apertura de caja al navegar desde Mesas
 - **Caché síncrono de sesión de caja (`sessionStorage`):**
   - `PosPage.vue`: resuelto el parpadeo del formulario modal "Apertura de Caja" al cambiar entre vistas del sistema (por ejemplo, desde el plano de Mesas `/restaurant/layout` hacia el POS `/pos`).

@@ -48,7 +48,9 @@ final class CreateOrderAction
      *         price: float,
      *         discount: float,
      *         tax_id?: string,
-     *         batch_number?: string
+     *         batch_number?: string,
+     *         serial_number?: string,
+     *         warranty_terms?: string
      *     }>,
      *     payments?: list<array{
      *         payment_method_code: string,
@@ -208,6 +210,13 @@ final class CreateOrderAction
                 $discountTotal = round($discountTotal + $itemDiscount, 2);
                 $taxTotal = round($taxTotal + $taxAmount, 2);
 
+                $warrantyTerms = !empty($item['warranty_terms'])
+                    ? (string) $item['warranty_terms']
+                    : $product->warranty_terms;
+                $serialNumber = !empty($item['serial_number'])
+                    ? (string) $item['serial_number']
+                    : null;
+
                 $itemsData[] = [
                     'product_id' => $product->getKey(),
                     'product_model' => $product,
@@ -218,6 +227,8 @@ final class CreateOrderAction
                     'tax_amount' => $taxAmount,
                     'total' => $itemTotal,
                     'batch_number' => $item['batch_number'] ?? null,
+                    'serial_number' => $serialNumber,
+                    'warranty_terms' => $warrantyTerms,
                 ];
             }
 

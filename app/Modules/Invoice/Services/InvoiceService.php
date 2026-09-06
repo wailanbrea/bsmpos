@@ -99,6 +99,8 @@ final class InvoiceService
                     'tax_amount' => $item->tax_amount,
                     'total' => $item->total,
                     'batch_number' => $item->batch_number,
+                    'serial_number' => $item->serial_number,
+                    'warranty_terms' => $item->warranty_terms,
                 ]);
             }
 
@@ -239,6 +241,8 @@ final class InvoiceService
                     'tax_amount' => $itemTax,
                     'total' => $itemTotal,
                     'batch_number' => $invItem->batch_number,
+                    'serial_number' => $invItem->serial_number,
+                    'warranty_terms' => $invItem->warranty_terms,
                 ];
             }
 

@@ -93,6 +93,12 @@ final class PrintController
             if ($item->batch_number) {
                 $builder->line('   Lote: '.$item->batch_number);
             }
+            if ($item->serial_number) {
+                $builder->line('   S/N: '.$item->serial_number);
+            }
+            if ($item->warranty_terms) {
+                $builder->line('   Garantía: '.$item->warranty_terms);
+            }
         }
         $builder->separator();
 
@@ -161,6 +167,12 @@ final class PrintController
             $lines[] = $left.str_repeat(' ', $space).$tot;
             if ($item->batch_number) {
                 $lines[] = "  Lote: {$item->batch_number}";
+            }
+            if ($item->serial_number) {
+                $lines[] = "  S/N: {$item->serial_number}";
+            }
+            if ($item->warranty_terms) {
+                $lines[] = "  Garantía: {$item->warranty_terms}";
             }
         }
 
@@ -245,9 +257,11 @@ final class PrintController
         foreach ($inv->items as $item) {
             $desc = number_format((float) $item->quantity, 0).' x '.htmlspecialchars((string) data_get($item, 'product.name', 'Prod'));
             $lote = $item->batch_number ? "<span style='display:block;font-size:9px;color:#666;'>Lote: ".htmlspecialchars($item->batch_number).'</span>' : '';
+            $serial = $item->serial_number ? "<span style='display:block;font-size:9px;color:#2563eb;font-weight:600;'>S/N: ".htmlspecialchars($item->serial_number).'</span>' : '';
+            $garantia = $item->warranty_terms ? "<span style='display:block;font-size:9px;color:#059669;'>🛡️ Garantía: ".htmlspecialchars($item->warranty_terms).'</span>' : '';
             $itemsHtml .= "
                 <tr>
-                    <td style='padding:4px 0;'>{$desc}{$lote}</td>
+                    <td style='padding:4px 0;'>{$desc}{$lote}{$serial}{$garantia}</td>
                     <td style='padding:4px 0;text-align:right;'>RD$ ".number_format((float) $item->total, 2).'</td>
                 </tr>
             ';
@@ -352,10 +366,12 @@ final class PrintController
         foreach ($inv->items as $item) {
             $desc = htmlspecialchars((string) data_get($item, 'product.name', 'Prod'));
             $lote = $item->batch_number ? "<span style='display:block;font-size:10px;color:#555;'>Lote: ".htmlspecialchars($item->batch_number).'</span>' : '';
+            $serial = $item->serial_number ? "<span style='display:block;font-size:11px;color:#2563eb;font-weight:600;'>S/N: ".htmlspecialchars($item->serial_number).'</span>' : '';
+            $garantia = $item->warranty_terms ? "<span style='display:block;font-size:11px;color:#059669;'>🛡️ Garantía: ".htmlspecialchars($item->warranty_terms).'</span>' : '';
             $itemsHtml .= "
                 <tr style='border-bottom: 1px solid #e2e8f0;'>
                     <td style='padding:10px;'>".number_format((float) $item->quantity, 2)."</td>
-                    <td style='padding:10px;'>{$desc}{$lote}</td>
+                    <td style='padding:10px;'>{$desc}{$lote}{$serial}{$garantia}</td>
                     <td style='padding:10px;text-align:right;'>RD$ ".number_format((float) $item->price, 2)."</td>
                     <td style='padding:10px;text-align:right;'>RD$ ".number_format((float) $item->discount_amount, 2)."</td>
                     <td style='padding:10px;text-align:right;'>RD$ ".number_format((float) $item->tax_amount, 2)."</td>

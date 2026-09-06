@@ -31,6 +31,8 @@ final class StoreProductRequest extends FormRequest
             'price' => ['required', 'numeric', 'min:0'],
             'cost' => ['nullable', 'numeric', 'min:0'],
             'track_inventory' => ['boolean'],
+            'warranty_months' => ['nullable', 'integer', 'min:0', 'max:120'],
+            'warranty_terms' => ['nullable', 'string', 'max:255'],
             'available_pos' => ['boolean'],
             'available_delivery' => ['boolean'],
             'available_digital_menu' => ['boolean'],

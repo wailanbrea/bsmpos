@@ -555,8 +555,9 @@ watch(
 
 // Agregar item al carrito
 function addToCart(prod: Product) {
-    const existing = cart.value.find((item) => item.product_id === prod.id);
     const tax = taxes.value.find((t) => t.id === prod.tax_id) || null;
+    const requiresSerial = Boolean(prod.requires_serial_number);
+    const existing = !requiresSerial ? cart.value.find((item) => item.product_id === prod.id) : null;
 
     if (existing) {
         existing.quantity += 1;
@@ -569,6 +570,9 @@ function addToCart(prod: Product) {
             discount: 0,
             tax_id: prod.tax_id || null,
             tax_rate: tax ? tax.rate : 0,
+            warranty_terms: prod.warranty_terms || undefined,
+            requires_serial_number: requiresSerial,
+            serial_number: '',
         });
     }
 }
@@ -712,6 +716,8 @@ async function submitOrder() {
             discount: item.discount,
             tax_id: item.tax_id ?? null,
             batch_number: item.batch_number || undefined,
+            serial_number: item.serial_number?.trim() || undefined,
+            warranty_terms: item.warranty_terms || undefined,
         })),
         payments:
             orderStatus.value === 'completed'
@@ -1057,7 +1063,7 @@ const filteredProducts = computed(() => {
 
                         <div
                             v-for="(item, idx) in cart"
-                            :key="item.product_id"
+                            :key="item.product_id + (item.serial_number || '') + idx"
                             class="border border-[#e4e1ee] rounded-xl p-3 bg-[#fcfbfe] flex flex-col gap-2 hover:border-[#c7c4d8] transition"
                         >
                             <div class="flex justify-between items-start gap-2">
@@ -1065,9 +1071,18 @@ const filteredProducts = computed(() => {
                                     <span class="font-semibold text-base block truncate" :title="item.product_name">{{
                                         item.product_name
                                     }}</span>
-                                    <span class="text-xs text-[#64748b]"
-                                        >RD$ {{ Number(item.price).toFixed(2) }} c/u</span
-                                    >
+                                    <div class="flex items-center gap-2 flex-wrap mt-0.5">
+                                        <span class="text-xs text-[#64748b]"
+                                            >RD$ {{ Number(item.price).toFixed(2) }} c/u</span
+                                        >
+                                        <span
+                                            v-if="item.warranty_terms"
+                                            class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded"
+                                            :title="item.warranty_terms"
+                                        >
+                                            🛡️ {{ item.warranty_terms }}
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="flex items-center gap-2 shrink-0">
                                     <span class="font-bold text-base whitespace-nowrap text-[#0b1c30]">
@@ -1114,6 +1129,24 @@ const filteredProducts = computed(() => {
                                         class="w-24 min-h-11 rounded-lg border border-[#c7c4d8] px-2 text-base text-right"
                                         min="0"
                                         @input="updateDiscount(idx, ($event.target as HTMLInputElement).value)"
+                                    />
+                                </div>
+                            </div>
+                            <!-- Campo de Número de Serie (si el producto lo requiere o el módulo de seriales está activo) -->
+                            <div
+                                v-if="item.requires_serial_number || moduleStore.canUse('serial_numbers')"
+                                class="mt-1 pt-2 border-t border-dashed border-gray-200"
+                            >
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-xs font-bold text-indigo-700 whitespace-nowrap flex items-center gap-0.5">
+                                        <span class="material-symbols-outlined text-[14px]">barcode_scanner</span>
+                                        S/N:
+                                    </span>
+                                    <input
+                                        type="text"
+                                        v-model="item.serial_number"
+                                        placeholder="Escanear o digitar serial..."
+                                        class="flex-1 text-xs border border-indigo-200 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-400 rounded-md px-2 py-1 bg-white font-mono uppercase"
                                     />
                                 </div>
                             </div>
@@ -1193,6 +1226,14 @@ const filteredProducts = computed(() => {
                                     <span class="font-semibold text-base text-[#302f39] line-clamp-2 leading-snug">{{
                                         p.name
                                     }}</span>
+                                    <div v-if="p.warranty_terms || p.requires_serial_number" class="flex flex-wrap gap-1 mt-1">
+                                        <span v-if="p.requires_serial_number" class="text-[10px] font-bold text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded">
+                                            S/N
+                                        </span>
+                                        <span v-if="p.warranty_terms" class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded truncate max-w-[130px]" :title="p.warranty_terms">
+                                            🛡️ {{ p.warranty_terms }}
+                                        </span>
+                                    </div>
                                     <div class="mt-2 w-full flex justify-between items-end gap-2">
                                         <span class="min-w-0 truncate text-xs text-gray-500 font-mono">{{
                                             p.sku || 'N/A'

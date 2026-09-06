@@ -224,6 +224,8 @@ final class InvoiceController
                 'tax_amount' => $i->tax_amount,
                 'total' => $i->total,
                 'batch_number' => $i->batch_number,
+                'serial_number' => $i->serial_number,
+                'warranty_terms' => $i->warranty_terms,
             ]),
         ];
     }

@@ -21,6 +21,8 @@ final class InvoiceItem extends Model
         'tax_amount',
         'total',
         'batch_number',
+        'serial_number',
+        'warranty_terms',
     ];
 
     protected function casts(): array

@@ -65,7 +65,7 @@ final class CompleteOnboardingAction
             //    una con el mismo código (evita duplicar el ITBIS provisionado).
             if ($defaultTaxRate !== null) {
                 $code = 'ITBIS'.(int) $defaultTaxRate;
-                Tax::query()->firstOrCreate(
+                Tax::withoutGlobalScopes()->firstOrCreate(
                     ['company_id' => $company->getKey(), 'code' => $code],
                     ['name' => 'ITBIS '.(int) $defaultTaxRate.'%', 'rate' => $defaultTaxRate, 'is_active' => true],
                 );
