@@ -4,7 +4,7 @@ export interface OfflineOrder {
     created_at: number;
 }
 
-const DB_NAME = 'omnipos_db';
+const DB_NAME = 'bsmpos_db';
 const DB_VERSION = 1;
 
 export class IndexedDBService {

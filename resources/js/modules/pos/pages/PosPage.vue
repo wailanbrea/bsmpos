@@ -122,8 +122,37 @@ const isOnline = ref(window.navigator.onLine);
 const { state: agentState, checkNow: checkAgentStatus } = useAgentStatus();
 const showAgentModal = ref(false);
 
-// Variables de Turno de Caja
-const activeSession = ref<ActiveSessionData | null>(null);
+// Variables de Turno de Caja y Caché en Sesión
+const CASH_SESSION_STORAGE_KEY = 'bsmpos_active_cash_session';
+
+function getCachedCashSession(): ActiveSessionData | null {
+    const company = localStorage.getItem(storageKeys.companyId) ?? 'none';
+    const branch = localStorage.getItem(storageKeys.branchId) ?? 'none';
+    const key = `${CASH_SESSION_STORAGE_KEY}_${company}_${branch}`;
+    const raw = window.sessionStorage.getItem(key);
+    if (!raw) return null;
+    try {
+        return JSON.parse(raw) as ActiveSessionData;
+    } catch {
+        window.sessionStorage.removeItem(key);
+        return null;
+    }
+}
+
+function setCachedCashSession(sess: ActiveSessionData | null): void {
+    const company = localStorage.getItem(storageKeys.companyId) ?? 'none';
+    const branch = localStorage.getItem(storageKeys.branchId) ?? 'none';
+    const key = `${CASH_SESSION_STORAGE_KEY}_${company}_${branch}`;
+    if (sess) {
+        window.sessionStorage.setItem(key, JSON.stringify(sess));
+    } else {
+        window.sessionStorage.removeItem(key);
+    }
+}
+
+const initialCachedSession = getCachedCashSession();
+const activeSession = ref<ActiveSessionData | null>(initialCachedSession);
+const isCheckingSession = ref<boolean>(initialCachedSession === null);
 const registers = ref<LocalRegister[]>([]);
 const openRegisterId = ref('');
 const openOpeningAmount = ref(0);
@@ -196,9 +225,9 @@ async function loadData() {
     try {
         // 1. Cargar turno de caja activo
         const sess = (await PosService.getActiveCashSession()) as ActiveSessionData | null;
-        if (sess) {
-            activeSession.value = sess;
-        } else {
+        activeSession.value = sess;
+        setCachedCashSession(sess);
+        if (!sess) {
             // Cargar cajas físicas para apertura si no hay sesión activa
             const regs = (await PosService.getCashRegisters()) as LocalRegister[];
             registers.value = regs;
@@ -316,6 +345,7 @@ async function loadData() {
         errorMsg.value = 'Error al inicializar el POS. Asegúrate de tener permisos.';
     } finally {
         loading.value = false;
+        isCheckingSession.value = false;
     }
 }
 
@@ -330,6 +360,7 @@ async function handleOpenSession() {
             openOpeningAmount.value,
         )) as ActiveSessionData;
         activeSession.value = sess;
+        setCachedCashSession(sess);
         successMsg.value = 'Turno de caja abierto correctamente.';
         if (products.value.length === 0) {
             await loadData();
@@ -374,6 +405,7 @@ async function handleCloseSession() {
         const closed = (await PosService.closeCashSession(closeCountedAmount.value)) as ActiveSessionData;
         lastClosedSummary.value = closed;
         activeSession.value = null;
+        setCachedCashSession(null);
         showCloseSessionModal.value = false;
 
         // Recargar cajas para la próxima apertura
@@ -775,8 +807,16 @@ const filteredProducts = computed(() => {
 
 <template>
     <div class="h-full flex-1 flex flex-col min-h-0 bg-kinetic-surface text-kinetic-ink overflow-hidden">
-        <!-- 1. FORMULARIO DE APERTURA DE CAJA (Si no hay turno activo) -->
-        <div v-if="!activeSession" class="flex flex-col items-center justify-center min-h-screen p-4 bg-[#f2eff9]">
+        <!-- 1. CARGANDO ESTADO DE CAJA (Evita flash de 'Apertura de caja') -->
+        <div v-if="isCheckingSession" class="flex flex-col items-center justify-center min-h-screen flex-1 p-6 bg-[#f2eff9]">
+            <div class="flex flex-col items-center space-y-4">
+                <div class="w-10 h-10 border-4 border-[#3525cd] border-t-transparent rounded-full animate-spin"></div>
+                <p class="text-base font-semibold text-[#464555]">Cargando terminal de ventas...</p>
+            </div>
+        </div>
+
+        <!-- 2. FORMULARIO DE APERTURA DE CAJA (Si no hay turno activo y ya se verificó) -->
+        <div v-else-if="!activeSession" class="flex flex-col items-center justify-center min-h-screen p-4 bg-[#f2eff9]">
             <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-lg border border-[#c7c4d8] space-y-6">
                 <div class="text-center space-y-2">
                     <span class="text-4xl">🔑</span>

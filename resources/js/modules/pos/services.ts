@@ -42,7 +42,7 @@ export interface ExternalOrderBridge {
     items: PosOrderItem[];
 }
 
-const BRIDGE_STORAGE_KEY = 'omnipos_external_order_bridge';
+const BRIDGE_STORAGE_KEY = 'bsmpos_external_order_bridge';
 
 export function setExternalOrderBridge(data: ExternalOrderBridge): void {
     window.sessionStorage.setItem(BRIDGE_STORAGE_KEY, JSON.stringify(data));
