@@ -78,6 +78,7 @@ final class OrderController
         $data = $request->validate([
             'customer_id' => ['required', 'string', Rule::exists('customers', 'public_id')->where('company_id', $companyId)],
             'warehouse_id' => ['nullable', 'string', Rule::exists('warehouses', 'public_id')->where('company_id', $companyId)],
+            'restaurant_table_id' => ['nullable', 'string'],
             'order_number' => ['required', 'string', 'max:50'],
             'status' => ['required', 'string', Rule::in(['pending', 'completed'])],
             'apply_tip' => ['required', 'boolean'],

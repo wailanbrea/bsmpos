@@ -57,14 +57,16 @@ async function openTable(table: Table) {
         const response = await api.post(`/restaurant/tables/${table.id}/open`, {});
         successMsg.value = `Mesa ${table.table_number} abierta. Redirigiendo al POS...`;
 
-        // Guardar la orden activa en localStorage y redirigir
+        // Guardar la orden activa y mesa en localStorage y redirigir
         const orderData = response.data.data;
+        window.localStorage.setItem('restaurant_table_id', table.id);
+        window.localStorage.setItem('restaurant_table_number', table.table_number);
         window.localStorage.setItem('active_order_id', orderData.active_order_id);
         window.localStorage.setItem('active_order_number', orderData.order_number);
 
         window.setTimeout(() => {
-            router.push({ name: 'pos' });
-        }, 800);
+            router.push({ name: 'pos', query: { table: table.table_number, table_id: table.id } });
+        }, 600);
     } catch (err: unknown) {
         const error = err as { response?: { data?: { error?: { message?: string } } } };
         errorMsg.value = error.response?.data?.error?.message || 'Error al abrir la mesa.';
@@ -111,9 +113,33 @@ async function executeTransfer() {
 
 function goToPos(table: Table) {
     if (!table.active_order) return;
+    window.localStorage.setItem('restaurant_table_id', table.id);
+    window.localStorage.setItem('restaurant_table_number', table.table_number);
     window.localStorage.setItem('active_order_id', table.active_order.id);
     window.localStorage.setItem('active_order_number', table.active_order.order_number);
-    router.push({ name: 'pos' });
+    router.push({ name: 'pos', query: { table: table.table_number, table_id: table.id } });
+}
+
+async function handleReleaseTable(table: Table) {
+    if (!window.confirm(`¿Deseas desocupar / liberar la mesa ${table.table_number}? Si tiene comanda abierta sin consumos, se cancelará.`)) return;
+    loading.value = true;
+    errorMsg.value = '';
+    try {
+        await api.post(`/restaurant/tables/${table.id}/release`, { force: true });
+        successMsg.value = `Mesa ${table.table_number} liberada correctamente.`;
+        if (window.localStorage.getItem('restaurant_table_id') === table.id) {
+            window.localStorage.removeItem('restaurant_table_id');
+            window.localStorage.removeItem('restaurant_table_number');
+            window.localStorage.removeItem('active_order_id');
+            window.localStorage.removeItem('active_order_number');
+        }
+        await loadLayout();
+    } catch (err: unknown) {
+        const error = err as { response?: { data?: { error?: { message?: string } } } };
+        errorMsg.value = error.response?.data?.error?.message || 'Error al liberar la mesa.';
+    } finally {
+        loading.value = false;
+    }
 }
 
 function getMinutesElapsed(createdAt: string): number {
@@ -211,19 +237,27 @@ onMounted(() => {
                             >
                                 Abrir Cuenta
                             </button>
-                            <div v-else class="w-full flex gap-1">
+                            <div v-else class="w-full flex items-center gap-1">
                                 <button
-                                    class="flex-1 text-xs bg-red-600 hover:bg-red-700 text-white py-1.5 rounded-lg font-semibold transition"
+                                    class="flex-1 text-xs bg-red-600 hover:bg-red-700 text-white py-1.5 px-2 rounded-lg font-bold transition truncate"
+                                    title="Atender o cobrar mesa en el POS"
                                     @click="goToPos(t)"
                                 >
-                                    Ver POS
+                                    Ver / Cobrar POS
                                 </button>
                                 <button
-                                    class="bg-gray-100 hover:bg-gray-200 text-[#302f39] py-1.5 px-2 rounded-lg font-bold transition"
-                                    title="Transferir Mesa"
+                                    class="bg-gray-100 hover:bg-gray-200 text-[#302f39] py-1.5 px-2 rounded-lg font-bold transition text-xs"
+                                    title="Transferir a otra mesa libre"
                                     @click="startTransfer(t)"
                                 >
                                     ↔️
+                                </button>
+                                <button
+                                    class="bg-gray-100 hover:bg-red-100 text-red-600 py-1.5 px-2 rounded-lg font-bold transition text-xs"
+                                    title="Liberar / Desocupar mesa sin consumos"
+                                    @click="handleReleaseTable(t)"
+                                >
+                                    ✕
                                 </button>
                             </div>
                         </div>

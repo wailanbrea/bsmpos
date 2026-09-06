@@ -12,6 +12,7 @@ Route::middleware(['auth:sanctum', 'company', 'branch', 'module:restaurant'])->g
     Route::post('restaurant/tables', [RestaurantController::class, 'storeTable']);
     Route::post('restaurant/tables/{publicId}/open', [RestaurantController::class, 'openTable']);
     Route::post('restaurant/tables/{publicId}/transfer', [RestaurantController::class, 'transferTable']);
+    Route::post('restaurant/tables/{publicId}/release', [RestaurantController::class, 'releaseTable']);
 
     Route::get('kitchen/kds', [KitchenController::class, 'indexKds']);
     Route::post('kitchen/orders', [KitchenController::class, 'sendToKitchen']);

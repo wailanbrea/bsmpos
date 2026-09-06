@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, computed, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import { PosService, consumeExternalOrderBridge } from '../services';
 import type { PosOrderItem, PosPayment, PosOrder } from '../services';
 import { IndexedDBService } from '../indexeddb';
@@ -12,14 +13,37 @@ import { printWithAgent, openDrawerWithAgent, getAgentPrinters } from '../../../
 import type { AgentPrinterInfo } from '../../../composables/useAgentPrinter';
 import { useModuleStore } from '../../module-manager/stores/modules';
 
+const route = useRoute();
 const moduleStore = useModuleStore();
 
-// Clave de contexto (compañía + sucursal) para aislar el carrito persistido:
-// evita que el carrito de una empresa aparezca al operar otra.
+// Contexto de mesa de restaurante (cuando se opera desde Plano de Mesas)
+const restaurantTableId = ref(
+    (route.query.table_id as string) || window.localStorage.getItem('restaurant_table_id') || ''
+);
+const restaurantTableNumber = ref(
+    (route.query.table as string) || window.localStorage.getItem('restaurant_table_number') || ''
+);
+
+function clearRestaurantTableContext() {
+    restaurantTableId.value = '';
+    restaurantTableNumber.value = '';
+    window.localStorage.removeItem('restaurant_table_id');
+    window.localStorage.removeItem('restaurant_table_number');
+    window.localStorage.removeItem('active_order_id');
+    window.localStorage.removeItem('active_order_number');
+    void reloadCartForCurrentScope();
+}
+
+async function reloadCartForCurrentScope() {
+    cart.value = (await IndexedDBService.getCart(cartScope())) as PosOrderItem[];
+}
+
+// Clave de contexto (compañía + sucursal + mesa) para aislar el carrito persistido:
 function cartScope(): string {
     const company = localStorage.getItem(storageKeys.companyId) ?? 'none';
     const branch = localStorage.getItem(storageKeys.branchId) ?? 'none';
-    return `${company}:${branch}`;
+    const table = restaurantTableId.value ? `:table-${restaurantTableId.value}` : '';
+    return `${company}:${branch}${table}`;
 }
 
 interface LocalCustomer {
@@ -643,6 +667,7 @@ async function submitOrder() {
     const payload: PosOrder = {
         customer_id: selectedCustomerId.value,
         warehouse_id: selectedWarehouseId.value || undefined,
+        restaurant_table_id: restaurantTableId.value || undefined,
         order_number: orderNumber,
         status: orderStatus.value,
         apply_tip: applyTip.value,
@@ -700,6 +725,11 @@ async function submitOrder() {
             successMsg.value = `Orden ${orderNumber} registrada y facturada con éxito.`;
             cart.value = [];
             showPayModal.value = false;
+
+            // Limpiar mesa de restaurante activa si correspondía
+            if (restaurantTableId.value) {
+                clearRestaurantTableContext();
+            }
 
             // Reiniciar estado de pagos
             paymentsList.value = [{ payment_method_code: 'cash', currency_code: 'DOP', exchange_rate: 1.0, amount: 0 }];
@@ -914,6 +944,40 @@ const filteredProducts = computed(() => {
                     class="flex flex-col border-r border-[#c7c4d8] bg-white h-full min-h-0 overflow-hidden"
                     aria-label="Carrito de compra"
                 >
+                    <!-- Banner de Mesa de Restaurante Activa -->
+                    <div
+                        v-if="restaurantTableNumber"
+                        class="shrink-0 m-3 px-3.5 py-2.5 bg-amber-50 border border-amber-200 rounded-2xl flex items-center justify-between shadow-2xs"
+                    >
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-2xl">🍽️</span>
+                            <div>
+                                <p class="text-[11px] font-bold text-amber-800 uppercase tracking-wider leading-none">
+                                    Atendiendo Mesa
+                                </p>
+                                <p class="text-base font-extrabold text-[#302f39] leading-tight">
+                                    Mesa {{ restaurantTableNumber }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button
+                                type="button"
+                                class="text-xs text-amber-700 hover:text-amber-900 underline font-semibold px-1"
+                                title="Desvincular comanda de esta mesa"
+                                @click="clearRestaurantTableContext"
+                            >
+                                Desvincular
+                            </button>
+                            <router-link
+                                to="/restaurant/layout"
+                                class="text-xs bg-amber-600 hover:bg-amber-700 text-white px-2.5 py-1.5 rounded-lg font-bold transition"
+                            >
+                                Ver Mesas
+                            </router-link>
+                        </div>
+                    </div>
+
                     <!-- Cabecera del carrito -->
                     <div
                         class="shrink-0 px-4 py-3 border-b border-[#e4e1ee] bg-[#fcfbfe] flex items-center justify-between"

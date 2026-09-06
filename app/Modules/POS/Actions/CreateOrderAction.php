@@ -34,6 +34,7 @@ final class CreateOrderAction
      * @param array{
      *     customer_id: string,
      *     warehouse_id: string,
+     *     restaurant_table_id?: string,
      *     order_number: string,
      *     status: string,
      *     apply_tip: bool,
@@ -342,9 +343,27 @@ final class CreateOrderAction
                 }
             }
 
-            // Liberar mesa de restaurante asociada si existe
-            if ($status === 'completed') {
-                if (Schema::hasTable('restaurant_tables')) {
+            // Vincular o liberar mesa de restaurante asociada
+            if (Schema::hasTable('restaurant_tables')) {
+                if (! empty($data['restaurant_table_id'])) {
+                    $tbl = DB::table('restaurant_tables')
+                        ->where('company_id', $company->getKey())
+                        ->where(function ($q) use ($data) {
+                            $q->where('public_id', $data['restaurant_table_id'])
+                                ->orWhere('id', $data['restaurant_table_id']);
+                        })
+                        ->first();
+
+                    if ($tbl) {
+                        DB::table('restaurant_tables')
+                            ->where('id', $tbl->id)
+                            ->update([
+                                'status' => $status === 'completed' ? 'available' : 'occupied',
+                                'active_order_id' => $status === 'completed' ? null : $order->getKey(),
+                                'updated_at' => now(),
+                            ]);
+                    }
+                } elseif ($status === 'completed') {
                     DB::table('restaurant_tables')
                         ->where('active_order_id', $order->getKey())
                         ->update([

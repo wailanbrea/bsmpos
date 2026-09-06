@@ -126,11 +126,11 @@ final class RestaurantService
     }
 
     /**
-     * Libera la mesa tras el cobro exitoso de su orden activa.
+     * Libera la mesa tras el cobro exitoso de su orden activa o cancelación de mesa vacía.
      */
-    public function releaseTable(RestaurantTable $table): RestaurantTable
+    public function releaseTable(RestaurantTable $table, bool $force = false): RestaurantTable
     {
-        return DB::transaction(function () use ($table): RestaurantTable {
+        return DB::transaction(function () use ($table, $force): RestaurantTable {
             $table = RestaurantTable::query()->lockForUpdate()->findOrFail($table->getKey());
 
             if ($table->active_order_id === null) {
@@ -141,9 +141,13 @@ final class RestaurantService
                 return $table;
             }
 
-            $order = Order::query()->findOrFail($table->active_order_id);
-            if ($order->status !== 'completed') {
-                throw new ApiException(ErrorCode::Conflict, 'La orden de la mesa aún no ha sido pagada/completada.', 400);
+            $order = Order::query()->find($table->active_order_id);
+            if ($order !== null && $order->status !== 'completed') {
+                if ((float) $order->total === 0.0 || $order->items()->count() === 0 || $force) {
+                    $order->update(['status' => 'cancelled']);
+                } else {
+                    throw new ApiException(ErrorCode::Conflict, 'La orden de la mesa tiene consumos pendientes de cobro.', 400);
+                }
             }
 
             $table->update([

@@ -216,4 +216,35 @@ final class RestaurantController
             'order_number' => $transferred->activeOrder?->order_number,
         ], 'Cuenta transferida con éxito.');
     }
+
+    public function releaseTable(string $publicId, Request $request, CurrentCompany $currentCompany): JsonResponse
+    {
+        /** @var User $user */
+        $user = $request->user();
+        if (! $user->hasCompanyPermission($currentCompany->company()->getKey(), 'pos.sell')) {
+            throw new ApiException(ErrorCode::PermissionDenied, 'No tiene permiso para liberar mesas.', 403);
+        }
+
+        $table = RestaurantTable::query()
+            ->where('company_id', $currentCompany->company()->getKey())
+            ->where('public_id', $publicId)
+            ->first();
+
+        if ($table === null) {
+            throw new ApiException(ErrorCode::NotFound, 'La mesa no existe.', 404);
+        }
+
+        $force = (bool) $request->boolean('force', false);
+        $released = $this->restaurantService->releaseTable($table, $force);
+
+        $released->audit('restaurant.table.released', [], [
+            'table_number' => $released->table_number,
+        ]);
+
+        return ApiResponse::success([
+            'id' => $released->public_id,
+            'table_number' => $released->table_number,
+            'status' => $released->status,
+        ], 'Mesa liberada con éxito.');
+    }
 }
