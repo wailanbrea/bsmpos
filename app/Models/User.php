@@ -96,6 +96,10 @@ class User extends Authenticatable
 
     public function hasCompanyPermission(int|string $companyId, string $permission): bool
     {
+        if ((bool) $this->is_super_admin) {
+            return true;
+        }
+
         if (! $this->belongsToCompany($companyId)) {
             return false;
         }

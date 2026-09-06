@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { api } from '../../../lib/api';
 
 interface KitchenItem {
@@ -18,6 +18,7 @@ const items = ref<KitchenItem[]>([]);
 const loading = ref(false);
 const errorMsg = ref('');
 const successMsg = ref('');
+let pollInterval: ReturnType<typeof setInterval> | null = null;
 
 async function loadKds() {
     loading.value = true;
@@ -63,9 +64,16 @@ function getTimeColor(createdAt: string): string {
 onMounted(() => {
     loadKds();
     // Auto-recarga cada 10 segundos
-    window.setInterval(() => {
+    pollInterval = setInterval(() => {
         loadKds();
     }, 10000);
+});
+
+onUnmounted(() => {
+    if (pollInterval) {
+        clearInterval(pollInterval);
+        pollInterval = null;
+    }
 });
 </script>
 

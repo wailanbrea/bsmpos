@@ -132,12 +132,14 @@ const router = createRouter({
         },
         {
             path: '/restaurant/layout',
+            alias: '/mesas',
             name: 'restaurant-layout',
             component: RestaurantLayoutPage,
             meta: { requiresAuth: true, requiresContext: true, requiresModule: 'restaurant' },
         },
         {
             path: '/kitchen/kds',
+            alias: ['/cocina', '/kds'],
             name: 'kitchen-kds',
             component: KitchenKdsPage,
             meta: { requiresAuth: true, requiresContext: true, requiresModule: 'restaurant' },

@@ -46,7 +46,7 @@ final class EnsureBranchContext
         $membership = $user->companies()->whereKey($currentCompany->company()->getKey())->first()?->pivot;
         $isOwner = $membership !== null && (bool) $membership->getAttribute('is_owner');
         $isAssigned = $user->branches()->whereKey($branch->getKey())->exists();
-        if (! $isOwner && ! $isAssigned) {
+        if (! (bool) $user->is_super_admin && ! $isOwner && ! $isAssigned) {
             throw new ApiException(ErrorCode::TenantAccessDenied, 'No tiene acceso a esta sucursal.', 403);
         }
 

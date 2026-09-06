@@ -4,6 +4,20 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-09-06 — Aislamiento estricto de módulos por vertical y refuerzo RBAC
+- **Aislamiento de módulos por tipo de negocio:**
+  - `OwnerUserSeeder.php`: corregido el bucle de seed que activaba ciegamente todos los módulos en todas las compañías. Ahora conserva el preset de cada empresa.
+  - `routes/console.php`: nuevo comando `modules:sync-presets` que desactiva módulos ajenos y activa los módulos del catálogo (`ModuleCatalog::businessTypePresets()`) para cada una de las 9 empresas registradas.
+  - En **Taller AutoMax** (`mechanic`), se eliminaron `restaurant`, `kitchen`, `table_management`, `delivery` y `appointment`. La barra de navegación ahora muestra únicamente Órdenes de Trabajo, Vehículos, Productos, Inventario y POS, sin rastro de Cocina KDS ni Mesas.
+  - En **Restaurante El Fogón** (`restaurant`), se eliminaron `vehicle`, `work_order` y `appointment`.
+  - En **Barbería La Navaja** (`barbershop`), se eliminaron `restaurant`, `kitchen`, `vehicle` y `work_order`.
+  - En **Supermercado La Económica** (`supermarket`), se eliminaron los módulos específicos de servicios, taller y gastronomía.
+- **Refuerzo de Roles y Permisos (RBAC):**
+  - `CompanyResource.php`: expone `is_owner` y lista de `permissions` efectivos del usuario para la compañía activa.
+  - `session.ts`: implementado helper `hasPermission(permissionCode)` que verifica `is_owner` o coincidencia en la lista de permisos efectivos.
+  - `AppLayout.vue`: `NavItem` ahora evalúa `(!item.module || modules.canUse(item.module)) && (!item.permission || session.hasPermission(item.permission))`, ocultando accesos sensibles a usuarios sin el permiso requerido.
+  - `router/index.ts`: rutas protegidas con `meta.requiresPermission`, impidiendo acceso directo por URL a usuarios no autorizados.
+
 ### 2026-09-06 — Corrección de redirección en contexto y Dashboards dedicados por vertical
 - **Resolución de redirección al login en selección de contexto:**
   - `App.vue`: `AppLayout` ahora solo se monta si el usuario está autenticado, tiene contexto (`hasContext`) y la ruta no es una vista limpia (`!isBareRoute`), evitando peticiones no autenticadas en vuelo durante la navegación inicial.

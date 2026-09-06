@@ -4,7 +4,7 @@
 
 **Estado global: FASES 1–14 completas (candidato v1). Plataforma renombrada a BSM-POS. Incluye Punto de Venta (POS) optimizado con eliminación rápida en carrito, Dashboards Dedicados por Vertical (Restaurante con mesas y KDS, Taller Mecánico con bahías y órdenes, Barbería con citas y sillones, Retail con arqueo y almacén), Centro de Notificaciones reactivas, Hub de Configuración completo (Perfil, Fiscal, NCFs, Impuestos, Métodos de pago), BSM-POS Windows Agent interactivo con instalación en 1 clic para hardware ESC/POS y gaveta, suite E2E Playwright, 180+ pruebas backend verdes y 0 errores en Larastan nivel 8.**
 
-**Actualización 2026-09-06:** corrección integral de la redirección al login en selección de contexto (protección contra peticiones no autenticadas en vuelo e interceptor 401 robusto). Activados los dashboards dinámicos dedicados por giro de negocio en frontend y backend (`business_type_code`).
+**Actualización 2026-09-06:** aislamiento estricto de módulos por tipo de empresa (eliminación de módulos ajenos como Cocina KDS en Taller AutoMax mediante comando `modules:sync-presets` y saneamiento de `OwnerUserSeeder`). Refuerzo integral de roles y permisos (RBAC) en backend (`CompanyResource.permissions`) y frontend (`session.hasPermission`, filtrado estricto en `AppLayout` y guardias de ruta en `router`). Verificado en navegador de producción con 0 errores. Corrección integral de la redirección al login en selección de contexto y dashboards dedicados por vertical (`business_type_code`).
 
 **Verificación 2026-07-10:** baseline de calidad restaurada tras correcciones de tipado en POS, inventario, facturación, impresión y restaurante. Pest, Pint, Larastan, vue-tsc, Vitest, ESLint, Prettier y build PWA están verdes.
 

@@ -45,21 +45,28 @@ api.interceptors.response.use(
         const currentToken = localStorage.getItem(storageKeys.token);
 
         if (status === 401 && currentToken) {
-            const requestAuth = error.config?.headers?.Authorization;
+            const headers = error.config?.headers;
+            const requestAuth =
+                headers?.Authorization ||
+                headers?.authorization ||
+                (typeof headers?.get === 'function' ? (headers.get('Authorization') || headers.get('authorization')) : null);
             const requestToken = typeof requestAuth === 'string' ? requestAuth.replace(/^Bearer\s+/i, '') : null;
 
-            // Si la petición se envió con un token distinto al actual, es obsoleta y se descarta sin invalidar la sesión
+            // Si la petición se envió con un token distinto al actual, o no llevaba token de auth, no destruir la sesión activa
             if (requestToken && requestToken !== currentToken) {
                 return Promise.reject(error);
             }
 
-            localStorage.removeItem(storageKeys.token);
-            localStorage.removeItem(storageKeys.companyId);
-            localStorage.removeItem(storageKeys.branchId);
-            localStorage.removeItem('omnipos.auth.user');
+            // Solo desloguear si la petición fallida realmente usó el token activo
+            if (requestToken && requestToken === currentToken) {
+                localStorage.removeItem(storageKeys.token);
+                localStorage.removeItem(storageKeys.companyId);
+                localStorage.removeItem(storageKeys.branchId);
+                localStorage.removeItem('omnipos.auth.user');
 
-            if (window.location.pathname !== '/ingresar' && window.location.pathname !== '/crear-cuenta') {
-                window.location.assign('/ingresar');
+                if (window.location.pathname !== '/ingresar' && window.location.pathname !== '/crear-cuenta') {
+                    window.location.assign('/ingresar');
+                }
             }
         }
 

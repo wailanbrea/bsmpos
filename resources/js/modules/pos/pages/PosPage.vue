@@ -10,6 +10,9 @@ import { api, storageKeys } from '../../../lib/api';
 import { useAgentStatus } from '../../../composables/useAgentStatus';
 import { printWithAgent, openDrawerWithAgent, getAgentPrinters } from '../../../composables/useAgentPrinter';
 import type { AgentPrinterInfo } from '../../../composables/useAgentPrinter';
+import { useModuleStore } from '../../module-manager/stores/modules';
+
+const moduleStore = useModuleStore();
 
 // Clave de contexto (compañía + sucursal) para aislar el carrito persistido:
 // evita que el carrito de una empresa aparezca al operar otra.
@@ -191,32 +194,34 @@ async function loadData() {
         }
 
         // Cargar servicios activos y disponibles en POS (ej. barberías, talleres, salones)
-        try {
-            const srvRes = await api.get('/services');
-            const posServices: Product[] = (srvRes.data.data || [])
-                .filter(
-                    (s: { available_pos?: boolean; is_active?: boolean }) =>
-                        s.available_pos !== false && s.is_active !== false,
-                )
-                .map((s: { id: string; name: string; price: string | number; tax_id?: string | null }) => ({
-                    id: s.id,
-                    name: s.name,
-                    sku: 'SRV-' + s.id.slice(-6),
-                    barcode: null,
-                    brand: 'Servicio',
-                    category_id: null,
-                    category: 'Servicios',
-                    tax_id: s.tax_id ?? null,
-                    price: String(s.price),
-                    cost: '0.00',
-                    image_url: null,
-                    track_inventory: false,
-                    is_active: true,
-                    available_pos: true,
-                }));
-            products.value = [...prodList, ...posServices];
-        } catch {
-            products.value = prodList;
+        if (moduleStore.canUse('service')) {
+            try {
+                const srvRes = await api.get('/services');
+                const posServices: Product[] = (srvRes.data.data || [])
+                    .filter(
+                        (s: { available_pos?: boolean; is_active?: boolean }) =>
+                            s.available_pos !== false && s.is_active !== false,
+                    )
+                    .map((s: { id: string; name: string; price: string | number; tax_id?: string | null }) => ({
+                        id: s.id,
+                        name: s.name,
+                        sku: 'SRV-' + s.id.slice(-6),
+                        barcode: null,
+                        brand: 'Servicio',
+                        category_id: null,
+                        category: 'Servicios',
+                        tax_id: s.tax_id ?? null,
+                        price: String(s.price),
+                        cost: '0.00',
+                        image_url: null,
+                        track_inventory: false,
+                        is_active: true,
+                        available_pos: true,
+                    }));
+                products.value = [...prodList, ...posServices];
+            } catch {
+                products.value = prodList;
+            }
         }
 
         // Cargar clientes
@@ -231,17 +236,19 @@ async function loadData() {
         }
 
         // Cargar almacenes (requiere módulo Inventario; opcional para servicios).
-        try {
-            const warRes = await api.get('/warehouses');
-            warehouses.value = warRes.data.data.map((w: { id: string; name: string }) => ({
-                id: w.id,
-                name: w.name,
-            }));
-            if (warehouses.value.length > 0) {
-                selectedWarehouseId.value = warehouses.value[0].id;
+        if (moduleStore.canUse('inventory') || moduleStore.canUse('warehouse')) {
+            try {
+                const warRes = await api.get('/warehouses');
+                warehouses.value = warRes.data.data.map((w: { id: string; name: string }) => ({
+                    id: w.id,
+                    name: w.name,
+                }));
+                if (warehouses.value.length > 0) {
+                    selectedWarehouseId.value = warehouses.value[0].id;
+                }
+            } catch {
+                warehouses.value = [];
             }
-        } catch {
-            warehouses.value = [];
         }
 
         // Cargar impuestos (el catálogo de lectura vive en /settings/fiscal)

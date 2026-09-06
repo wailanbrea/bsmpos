@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { api } from '../../../lib/api';
+
+const router = useRouter();
 
 interface Table {
     id: string;
@@ -39,8 +42,9 @@ async function loadLayout() {
     try {
         const response = await api.get('/restaurant/layout');
         areas.value = response.data.data;
-    } catch {
-        errorMsg.value = 'Error al cargar el layout de mesas.';
+    } catch (err: unknown) {
+        const error = err as { response?: { data?: { error?: { message?: string } } } };
+        errorMsg.value = error.response?.data?.error?.message || 'Error al cargar el layout de mesas.';
     } finally {
         loading.value = false;
     }
@@ -59,8 +63,8 @@ async function openTable(table: Table) {
         window.localStorage.setItem('active_order_number', orderData.order_number);
 
         window.setTimeout(() => {
-            window.location.href = '/pos';
-        }, 1000);
+            router.push({ name: 'pos' });
+        }, 800);
     } catch (err: unknown) {
         const error = err as { response?: { data?: { error?: { message?: string } } } };
         errorMsg.value = error.response?.data?.error?.message || 'Error al abrir la mesa.';
@@ -109,7 +113,7 @@ function goToPos(table: Table) {
     if (!table.active_order) return;
     window.localStorage.setItem('active_order_id', table.active_order.id);
     window.localStorage.setItem('active_order_number', table.active_order.order_number);
-    window.location.href = '/pos';
+    router.push({ name: 'pos' });
 }
 
 function getMinutesElapsed(createdAt: string): number {
@@ -140,8 +144,9 @@ onMounted(() => {
         </header>
 
         <!-- Mensajes de Estado -->
-        <div v-if="errorMsg" class="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-xl text-red-700 text-sm">
-            ⚠️ {{ errorMsg }}
+        <div v-if="errorMsg" class="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-xl text-red-700 text-sm flex items-center justify-between">
+            <span>⚠️ {{ errorMsg }}</span>
+            <button class="text-xs font-bold uppercase underline hover:text-red-900" @click="loadLayout">Reintentar</button>
         </div>
         <div
             v-if="successMsg"
