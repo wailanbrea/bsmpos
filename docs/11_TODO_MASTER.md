@@ -101,6 +101,8 @@
 
 
 ## FASE 11 — Impresión
+- [x] POS: mostrar errores de impresión local dentro del comprobante, respetar la impresora elegida y evitar fallback automático al navegador y clics simultáneos. Cuatro regresiones Vitest y navegador con agente simulado verificados (2026-09-05).
+- [ ] Desplegar la corrección de impresión POS; resolver detección COM4/timeout del agente instalado y confirmar ticket físico 58 mm con 2C-P58-C. Typecheck global pendiente por dos errores previos en ConfigurationPage.vue.
 - [x] Plantillas 58/80/88mm + A4 + comanda + precuenta + cierre; TicketBuilder ESC/POS-ready; config por terminal
 - [x] OmniPOS Windows Agent empaquetado (.zip en public/downloads y endpoint /api/v1/agent-terminals/download), modal interactivo de descarga e instalación en 1 clic desde el botón de estado del POS (desktop_windows) y panel de hardware con detección en vivo.
 
@@ -133,4 +135,3 @@
 ## Backlog (post-v1)
 - [x] Agente local de impresión y hardware Windows: OmniPOS Windows Agent (Kotlin 2.1 / Ktor 3.1 Netty en loopback 8765), detección PnP de dispositivos Bluetooth emparejados (reconocimiento de impresora `2C-P58-C` en COM7/COM6), puertos seriales COM, Spooler Windows, impresión directa ESC/POS raw (`\\.\COMx`), pulso de gaveta, backend Laravel con tokens HMAC-SHA256 (`/agent-terminals`), ticket monoespaciado (`/invoices/{id}/print/text`), página Bento Grid `/configuracion/terminales`, selector dinámico de impresora en el POS y orquestador `scripts/start-suite.ps1`.
 - [ ] Cuentas por cobrar/pagar completas, fidelización, reservas, garantías, gastos, notificaciones WhatsApp, panel super-admin SaaS, provider e-CF real (DGII directo o PSFE), app Android Kotlin
-

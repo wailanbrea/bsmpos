@@ -221,8 +221,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "service",
-      "id": "app_modules_service_models_service_service",
-      "community_name": "Illuminate\\Database\\Eloquent\\Model"
+      "community_name": "Illuminate\\Database\\Eloquent\\Model",
+      "id": "app_modules_service_models_service_service"
     },
     {
       "label": "ExchangeRate",
@@ -624,8 +624,8 @@
       "_origin": "ast",
       "community": 101,
       "norm_label": "externalorderbridge",
-      "id": "resources_js_modules_pos_services_externalorderbridge",
-      "community_name": "pos/services.ts"
+      "community_name": "pos/services.ts",
+      "id": "resources_js_modules_pos_services_externalorderbridge"
     },
     {
       "label": "PosOrder",
@@ -637,8 +637,8 @@
       "_origin": "ast",
       "community": 101,
       "norm_label": "posorder",
-      "id": "resources_js_modules_pos_services_posorder",
-      "community_name": "pos/services.ts"
+      "community_name": "pos/services.ts",
+      "id": "resources_js_modules_pos_services_posorder"
     },
     {
       "label": "PosOrderItem",
@@ -650,8 +650,8 @@
       "_origin": "ast",
       "community": 101,
       "norm_label": "posorderitem",
-      "id": "resources_js_modules_pos_services_posorderitem",
-      "community_name": "pos/services.ts"
+      "community_name": "pos/services.ts",
+      "id": "resources_js_modules_pos_services_posorderitem"
     },
     {
       "label": "PosPayment",
@@ -663,8 +663,8 @@
       "_origin": "ast",
       "community": 101,
       "norm_label": "pospayment",
-      "id": "resources_js_modules_pos_services_pospayment",
-      "community_name": "pos/services.ts"
+      "community_name": "pos/services.ts",
+      "id": "resources_js_modules_pos_services_pospayment"
     },
     {
       "label": "UserFactory",
@@ -741,8 +741,8 @@
       "_origin": "ast",
       "community": 107,
       "norm_label": "appointmentcontroller",
-      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller",
-      "community_name": ".index"
+      "community_name": ".index",
+      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller"
     },
     {
       "label": "InvoiceController",
@@ -1222,8 +1222,8 @@
       "_origin": "ast",
       "community": 125,
       "norm_label": "ordercontroller",
-      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller",
-      "community_name": "OrderController"
+      "community_name": "OrderController",
+      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller"
     },
     {
       "label": "Money",
@@ -2002,8 +2002,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "partinput",
-      "id": "resources_js_modules_work_orders_types_partinput",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_types_partinput"
     },
     {
       "label": "ServiceOption",
@@ -2015,8 +2015,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "serviceoption",
-      "id": "resources_js_modules_work_orders_types_serviceoption",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_types_serviceoption"
     },
     {
       "label": "VehicleOption",
@@ -2028,8 +2028,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "vehicleoption",
-      "id": "resources_js_modules_work_orders_types_vehicleoption",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_types_vehicleoption"
     },
     {
       "label": "WorkOrder",
@@ -2041,8 +2041,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "workorder",
-      "id": "resources_js_modules_work_orders_types_workorder",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_types_workorder"
     },
     {
       "label": "WorkOrderForm",
@@ -2054,8 +2054,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "workorderform",
-      "id": "resources_js_modules_work_orders_types_workorderform",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_types_workorderform"
     },
     {
       "label": "WorkOrderPartLine",
@@ -2067,8 +2067,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "workorderpartline",
-      "id": "resources_js_modules_work_orders_types_workorderpartline",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_types_workorderpartline"
     },
     {
       "label": "WorkOrderServiceLine",
@@ -2080,8 +2080,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "workorderserviceline",
-      "id": "resources_js_modules_work_orders_types_workorderserviceline",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_types_workorderserviceline"
     },
     {
       "label": "WorkOrderStatus",
@@ -2093,8 +2093,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "workorderstatus",
-      "id": "resources_js_modules_work_orders_types_workorderstatus",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_types_workorderstatus"
     },
     {
       "label": "CreateCustomerAction",
@@ -2184,8 +2184,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "agentterminal",
-      "id": "app_models_agentterminal_agentterminal",
-      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo"
+      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "id": "app_models_agentterminal_agentterminal"
     },
     {
       "label": "AppointmentServiceLine",
@@ -2262,8 +2262,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "agentterminal",
-      "id": "app_modules_pos_models_agentterminal_agentterminal",
-      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo"
+      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "id": "app_modules_pos_models_agentterminal_agentterminal"
     },
     {
       "label": "CashMovement",
@@ -2717,8 +2717,8 @@
       "_origin": "ast",
       "community": 25,
       "norm_label": "owneruserseeder",
-      "id": "database_seeders_owneruserseeder_owneruserseeder",
-      "community_name": "NcfSequence"
+      "community_name": "NcfSequence",
+      "id": "database_seeders_owneruserseeder_owneruserseeder"
     },
     {
       "label": "InventoryBatch",
@@ -2782,8 +2782,8 @@
       "_origin": "ast",
       "community": 29,
       "norm_label": "createorderaction",
-      "id": "app_modules_pos_actions_createorderaction_createorderaction",
-      "community_name": "Warehouse"
+      "community_name": "Warehouse",
+      "id": "app_modules_pos_actions_createorderaction_createorderaction"
     },
     {
       "label": "SendElectronicInvoiceJob",
@@ -3627,8 +3627,8 @@
       "_origin": "ast",
       "community": 5,
       "norm_label": "appointmentresource",
-      "id": "app_modules_appointment_http_resources_appointmentresource_appointmentresource",
-      "community_name": "Illuminate\\Http\\Request"
+      "community_name": "Illuminate\\Http\\Request",
+      "id": "app_modules_appointment_http_resources_appointmentresource_appointmentresource"
     },
     {
       "label": "AuditLogResource",
@@ -3796,8 +3796,8 @@
       "_origin": "ast",
       "community": 5,
       "norm_label": "workorderresource",
-      "id": "app_modules_workorder_http_resources_workorderresource_workorderresource",
-      "community_name": "Illuminate\\Http\\Request"
+      "community_name": "Illuminate\\Http\\Request",
+      "id": "app_modules_workorder_http_resources_workorderresource_workorderresource"
     },
     {
       "label": "BranchForm",
@@ -4212,8 +4212,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": "printcontroller",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller"
     },
     {
       "label": "TicketBuilder",
@@ -4237,9 +4237,9 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "activesessiondata",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_activesessiondata",
-      "community_name": "PosPage.vue"
+      "norm_label": "activesessiondata"
     },
     {
       "label": "InvoiceLine",
@@ -4250,9 +4250,9 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "invoiceline",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_invoiceline",
-      "community_name": "PosPage.vue"
+      "norm_label": "invoiceline"
     },
     {
       "label": "InvoiceResult",
@@ -4263,9 +4263,9 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "invoiceresult",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_invoiceresult",
-      "community_name": "PosPage.vue"
+      "norm_label": "invoiceresult"
     },
     {
       "label": "LocalCustomer",
@@ -4276,9 +4276,9 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "localcustomer",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_localcustomer",
-      "community_name": "PosPage.vue"
+      "norm_label": "localcustomer"
     },
     {
       "label": "LocalRegister",
@@ -4289,9 +4289,9 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "localregister",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_localregister",
-      "community_name": "PosPage.vue"
+      "norm_label": "localregister"
     },
     {
       "label": "LocalTax",
@@ -4302,9 +4302,9 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "localtax",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_localtax",
-      "community_name": "PosPage.vue"
+      "norm_label": "localtax"
     },
     {
       "label": "LocalWarehouse",
@@ -4315,9 +4315,9 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "localwarehouse",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_localwarehouse",
-      "community_name": "PosPage.vue"
+      "norm_label": "localwarehouse"
     },
     {
       "label": "RecentSale",
@@ -4576,8 +4576,8 @@
       "_origin": "ast",
       "community": 90,
       "norm_label": "agentterminalcontroller",
-      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller",
-      "community_name": "AgentTerminalController"
+      "community_name": "AgentTerminalController",
+      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller"
     },
     {
       "label": "ElectronicInvoiceController",
@@ -4811,8 +4811,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".execute()",
-      "id": "app_modules_pos_actions_createorderaction_createorderaction_execute",
-      "community_name": "Illuminate\\Database\\Eloquent\\Model"
+      "community_name": "Illuminate\\Database\\Eloquent\\Model",
+      "id": "app_modules_pos_actions_createorderaction_createorderaction_execute"
     },
     {
       "label": ".casts()",
@@ -4919,8 +4919,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".casts()",
-      "id": "app_modules_service_models_service_service_casts",
-      "community_name": "Illuminate\\Database\\Eloquent\\Model"
+      "community_name": "Illuminate\\Database\\Eloquent\\Model",
+      "id": "app_modules_service_models_service_service_casts"
     },
     {
       "label": ".casts()",
@@ -5914,21 +5914,21 @@
       "_callable": true,
       "_origin": "ast",
       "community": 101,
-      "norm_label": "cartscope()",
+      "community_name": "pos/services.ts",
       "id": "resources_js_modules_pos_pages_pospage_cartscope",
-      "community_name": "pos/services.ts"
+      "norm_label": "cartscope()"
     },
     {
       "label": "loadData()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L163",
+      "source_location": "L166",
       "_callable": true,
       "_origin": "ast",
       "community": 101,
-      "norm_label": "loaddata()",
+      "community_name": "pos/services.ts",
       "id": "resources_js_modules_pos_pages_pospage_loaddata",
-      "community_name": "pos/services.ts"
+      "norm_label": "loaddata()"
     },
     {
       "label": "consumeExternalOrderBridge()",
@@ -5939,8 +5939,8 @@
       "_origin": "ast",
       "community": 101,
       "norm_label": "consumeexternalorderbridge()",
-      "id": "resources_js_modules_pos_services_consumeexternalorderbridge",
-      "community_name": "pos/services.ts"
+      "community_name": "pos/services.ts",
+      "id": "resources_js_modules_pos_services_consumeexternalorderbridge"
     },
     {
       "label": "bootBelongsToCompany()",
@@ -6227,8 +6227,8 @@
       "_origin": "ast",
       "community": 107,
       "norm_label": ".authorize()",
-      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_authorize",
-      "community_name": ".index"
+      "community_name": ".index",
+      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_authorize"
     },
     {
       "label": ".find()",
@@ -6239,8 +6239,8 @@
       "_origin": "ast",
       "community": 107,
       "norm_label": ".find()",
-      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_find",
-      "community_name": ".index"
+      "community_name": ".index",
+      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_find"
     },
     {
       "label": ".index()",
@@ -6251,8 +6251,8 @@
       "_origin": "ast",
       "community": 107,
       "norm_label": ".index()",
-      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_index",
-      "community_name": ".index"
+      "community_name": ".index",
+      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_index"
     },
     {
       "label": ".show()",
@@ -6263,8 +6263,8 @@
       "_origin": "ast",
       "community": 107,
       "norm_label": ".show()",
-      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_show",
-      "community_name": ".index"
+      "community_name": ".index",
+      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_show"
     },
     {
       "label": ".store()",
@@ -6275,8 +6275,8 @@
       "_origin": "ast",
       "community": 107,
       "norm_label": ".store()",
-      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_store",
-      "community_name": ".index"
+      "community_name": ".index",
+      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_store"
     },
     {
       "label": ".updateStatus()",
@@ -6287,8 +6287,8 @@
       "_origin": "ast",
       "community": 107,
       "norm_label": ".updatestatus()",
-      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_updatestatus",
-      "community_name": ".index"
+      "community_name": ".index",
+      "id": "app_modules_appointment_http_controllers_appointmentcontroller_appointmentcontroller_updatestatus"
     },
     {
       "label": ".annul()",
@@ -6875,8 +6875,8 @@
       "_origin": "ast",
       "community": 122,
       "norm_label": ".__construct()",
-      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller_construct",
-      "community_name": "IdempotencyService.php"
+      "community_name": "IdempotencyService.php",
+      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller_construct"
     },
     {
       "label": ".encode()",
@@ -6911,8 +6911,8 @@
       "_origin": "ast",
       "community": 125,
       "norm_label": ".index()",
-      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller_index",
-      "community_name": "OrderController"
+      "community_name": "OrderController",
+      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller_index"
     },
     {
       "label": ".mapOrder()",
@@ -6923,8 +6923,8 @@
       "_origin": "ast",
       "community": 125,
       "norm_label": ".maporder()",
-      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller_maporder",
-      "community_name": "OrderController"
+      "community_name": "OrderController",
+      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller_maporder"
     },
     {
       "label": ".show()",
@@ -6935,8 +6935,8 @@
       "_origin": "ast",
       "community": 125,
       "norm_label": ".show()",
-      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller_show",
-      "community_name": "OrderController"
+      "community_name": "OrderController",
+      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller_show"
     },
     {
       "label": ".store()",
@@ -6947,8 +6947,8 @@
       "_origin": "ast",
       "community": 125,
       "norm_label": ".store()",
-      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller_store",
-      "community_name": "OrderController"
+      "community_name": "OrderController",
+      "id": "app_modules_pos_http_controllers_ordercontroller_ordercontroller_store"
     },
     {
       "label": "down()",
@@ -8867,8 +8867,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "setexternalorderbridge()",
-      "id": "resources_js_modules_pos_services_setexternalorderbridge",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_pos_services_setexternalorderbridge"
     },
     {
       "label": "addPart()",
@@ -8879,8 +8879,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "addpart()",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_addpart",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_addpart"
     },
     {
       "label": "billInPos()",
@@ -8891,8 +8891,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "billinpos()",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_billinpos",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_billinpos"
     },
     {
       "label": "changeStatus()",
@@ -8903,8 +8903,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "changestatus()",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_changestatus",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_changestatus"
     },
     {
       "label": "emptyForm()",
@@ -8915,8 +8915,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "emptyform()",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_emptyform",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_emptyform"
     },
     {
       "label": "load()",
@@ -8927,8 +8927,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "load()",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_load",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_load"
     },
     {
       "label": "message()",
@@ -8939,8 +8939,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "message()",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_message",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_message"
     },
     {
       "label": "removePart()",
@@ -8951,8 +8951,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "removepart()",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_removepart",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_removepart"
     },
     {
       "label": "save()",
@@ -8963,8 +8963,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "save()",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_save",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_save"
     },
     {
       "label": "createWorkOrder()",
@@ -9995,8 +9995,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": ".branch()",
-      "id": "app_modules_pos_models_agentterminal_agentterminal_branch",
-      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo"
+      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "id": "app_modules_pos_models_agentterminal_agentterminal_branch"
     },
     {
       "label": ".cashRegister()",
@@ -10007,8 +10007,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": ".cashregister()",
-      "id": "app_modules_pos_models_agentterminal_agentterminal_cashregister",
-      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo"
+      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "id": "app_modules_pos_models_agentterminal_agentterminal_cashregister"
     },
     {
       "label": ".casts()",
@@ -10019,8 +10019,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": ".casts()",
-      "id": "app_modules_pos_models_agentterminal_agentterminal_casts",
-      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo"
+      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "id": "app_modules_pos_models_agentterminal_agentterminal_casts"
     },
     {
       "label": ".creator()",
@@ -10031,8 +10031,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": ".creator()",
-      "id": "app_modules_pos_models_agentterminal_agentterminal_creator",
-      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo"
+      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "id": "app_modules_pos_models_agentterminal_agentterminal_creator"
     },
     {
       "label": ".statusChangedBy()",
@@ -10043,8 +10043,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": ".statuschangedby()",
-      "id": "app_modules_pos_models_agentterminal_agentterminal_statuschangedby",
-      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo"
+      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "id": "app_modules_pos_models_agentterminal_agentterminal_statuschangedby"
     },
     {
       "label": ".tokenRotatedBy()",
@@ -10055,8 +10055,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": ".tokenrotatedby()",
-      "id": "app_modules_pos_models_agentterminal_agentterminal_tokenrotatedby",
-      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo"
+      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "id": "app_modules_pos_models_agentterminal_agentterminal_tokenrotatedby"
     },
     {
       "label": ".casts()",
@@ -10379,8 +10379,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": ".tax()",
-      "id": "app_modules_service_models_service_service_tax",
-      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo"
+      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "id": "app_modules_service_models_service_service_tax"
     },
     {
       "label": ".customer()",
@@ -11130,13 +11130,13 @@
       "label": "printTicket()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L354",
+      "source_location": "L360",
       "_callable": true,
       "_origin": "ast",
       "community": 229,
-      "norm_label": "printticket()",
+      "community_name": "printWithAgent",
       "id": "resources_js_modules_pos_pages_pospage_printticket",
-      "community_name": "printWithAgent"
+      "norm_label": "printticket()"
     },
     {
       "label": ".__construct()",
@@ -11423,8 +11423,8 @@
       "_origin": "ast",
       "community": 23,
       "norm_label": ".run()",
-      "id": "database_seeders_owneruserseeder_owneruserseeder_run",
-      "community_name": "ModuleManagerService"
+      "community_name": "ModuleManagerService",
+      "id": "database_seeders_owneruserseeder_owneruserseeder_run"
     },
     {
       "label": "getCurrentLanguage()",
@@ -11987,8 +11987,8 @@
       "_origin": "ast",
       "community": 29,
       "norm_label": ".__construct()",
-      "id": "app_modules_pos_actions_createorderaction_createorderaction_construct",
-      "community_name": "Warehouse"
+      "community_name": "Warehouse",
+      "id": "app_modules_pos_actions_createorderaction_createorderaction_construct"
     },
     {
       "label": "cancel()",
@@ -14579,8 +14579,8 @@
       "_origin": "ast",
       "community": 5,
       "norm_label": ".toarray()",
-      "id": "app_modules_appointment_http_resources_appointmentresource_appointmentresource_toarray",
-      "community_name": "Illuminate\\Http\\Request"
+      "community_name": "Illuminate\\Http\\Request",
+      "id": "app_modules_appointment_http_resources_appointmentresource_appointmentresource_toarray"
     },
     {
       "label": ".toArray()",
@@ -14831,8 +14831,8 @@
       "_origin": "ast",
       "community": 5,
       "norm_label": ".toarray()",
-      "id": "app_modules_workorder_http_resources_workorderresource_workorderresource_toarray",
-      "community_name": "Illuminate\\Http\\Request"
+      "community_name": "Illuminate\\Http\\Request",
+      "id": "app_modules_workorder_http_resources_workorderresource_workorderresource_toarray"
     },
     {
       "label": "emptyForm()",
@@ -15618,37 +15618,37 @@
       "label": "checkOfflineQueue()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L413",
+      "source_location": "L436",
       "_callable": true,
       "_origin": "ast",
       "community": 60,
-      "norm_label": "checkofflinequeue()",
+      "community_name": "IndexedDBService",
       "id": "resources_js_modules_pos_pages_pospage_checkofflinequeue",
-      "community_name": "IndexedDBService"
+      "norm_label": "checkofflinequeue()"
     },
     {
       "label": "submitOrder()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L573",
+      "source_location": "L607",
       "_callable": true,
       "_origin": "ast",
       "community": 60,
-      "norm_label": "submitorder()",
+      "community_name": "IndexedDBService",
       "id": "resources_js_modules_pos_pages_pospage_submitorder",
-      "community_name": "IndexedDBService"
+      "norm_label": "submitorder()"
     },
     {
       "label": "syncOfflineOrders()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L419",
+      "source_location": "L442",
       "_callable": true,
       "_origin": "ast",
       "community": 60,
-      "norm_label": "syncofflineorders()",
+      "community_name": "IndexedDBService",
       "id": "resources_js_modules_pos_pages_pospage_syncofflineorders",
-      "community_name": "IndexedDBService"
+      "norm_label": "syncofflineorders()"
     },
     {
       "label": "testDrawer()",
@@ -15935,8 +15935,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": ".branchname()",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_branchname",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_branchname"
     },
     {
       "label": ".customerName()",
@@ -15947,8 +15947,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": ".customername()",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_customername",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_customername"
     },
     {
       "label": ".customerTaxId()",
@@ -15959,8 +15959,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": ".customertaxid()",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_customertaxid",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_customertaxid"
     },
     {
       "label": ".date()",
@@ -15971,8 +15971,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": ".date()",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_date",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_date"
     },
     {
       "label": ".dateTime()",
@@ -15983,8 +15983,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": ".datetime()",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_datetime",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_datetime"
     },
     {
       "label": ".printHtml()",
@@ -15995,8 +15995,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": ".printhtml()",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_printhtml",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_printhtml"
     },
     {
       "label": ".printRawInvoice()",
@@ -16007,8 +16007,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": ".printrawinvoice()",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_printrawinvoice",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_printrawinvoice"
     },
     {
       "label": ".printRawSession()",
@@ -16019,8 +16019,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": ".printrawsession()",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_printrawsession",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_printrawsession"
     },
     {
       "label": ".printTextInvoice()",
@@ -16031,8 +16031,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": ".printtextinvoice()",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_printtextinvoice",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_printtextinvoice"
     },
     {
       "label": ".renderA4Html()",
@@ -16043,8 +16043,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": ".rendera4html()",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_rendera4html",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_rendera4html"
     },
     {
       "label": ".renderTicketHtml()",
@@ -16055,8 +16055,8 @@
       "_origin": "ast",
       "community": 67,
       "norm_label": ".rendertickethtml()",
-      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_rendertickethtml",
-      "community_name": "PrintController"
+      "community_name": "PrintController",
+      "id": "app_modules_invoice_http_controllers_printcontroller_printcontroller_rendertickethtml"
     },
     {
       "label": ".align()",
@@ -16182,121 +16182,157 @@
       "label": "addPaymentLine()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L530",
+      "source_location": "L564",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "addpaymentline()",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_addpaymentline",
-      "community_name": "PosPage.vue"
+      "norm_label": "addpaymentline()"
     },
     {
       "label": "addToCart()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L467",
+      "source_location": "L490",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "addtocart()",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_addtocart",
-      "community_name": "PosPage.vue"
+      "norm_label": "addtocart()"
+    },
+    {
+      "label": "clearCart()",
+      "file_type": "code",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L526",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "PosPage.vue",
+      "id": "resources_js_modules_pos_pages_pospage_clearcart",
+      "norm_label": "clearcart()"
     },
     {
       "label": "handleCloseSession()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L329",
+      "source_location": "L335",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "handleclosesession()",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_handleclosesession",
-      "community_name": "PosPage.vue"
+      "norm_label": "handleclosesession()"
     },
     {
       "label": "handleCreateMovement()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L305",
+      "source_location": "L311",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "handlecreatemovement()",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_handlecreatemovement",
-      "community_name": "PosPage.vue"
+      "norm_label": "handlecreatemovement()"
     },
     {
       "label": "handleOpenSession()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L285",
+      "source_location": "L291",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "handleopensession()",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_handleopensession",
-      "community_name": "PosPage.vue"
+      "norm_label": "handleopensession()"
     },
     {
       "label": "onCurrencyChange()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L538",
+      "source_location": "L572",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "oncurrencychange()",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_oncurrencychange",
-      "community_name": "PosPage.vue"
+      "norm_label": "oncurrencychange()"
     },
     {
       "label": "quickCashAmount()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L552",
+      "source_location": "L586",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "quickcashamount()",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_quickcashamount",
-      "community_name": "PosPage.vue"
+      "norm_label": "quickcashamount()"
+    },
+    {
+      "label": "removeFromCart()",
+      "file_type": "code",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L522",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "PosPage.vue",
+      "id": "resources_js_modules_pos_pages_pospage_removefromcart",
+      "norm_label": "removefromcart()"
     },
     {
       "label": "removePaymentLine()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L534",
+      "source_location": "L568",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "removepaymentline()",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_removepaymentline",
-      "community_name": "PosPage.vue"
+      "norm_label": "removepaymentline()"
+    },
+    {
+      "label": "sendTicket()",
+      "file_type": "code",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L371",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "PosPage.vue",
+      "id": "resources_js_modules_pos_pages_pospage_sendticket",
+      "norm_label": "sendticket()"
     },
     {
       "label": "updateDiscount()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L494",
+      "source_location": "L517",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "updatediscount()",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_updatediscount",
-      "community_name": "PosPage.vue"
+      "norm_label": "updatediscount()"
     },
     {
       "label": "updateQty()",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L486",
+      "source_location": "L509",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "norm_label": "updateqty()",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_updateqty",
-      "community_name": "PosPage.vue"
+      "norm_label": "updateqty()"
     },
     {
       "label": ".coreModule()",
@@ -16607,8 +16643,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "billinpos()",
-      "id": "resources_js_modules_appointments_pages_agendapage_billinpos",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_billinpos"
     },
     {
       "label": "changeStatus()",
@@ -16619,8 +16655,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "changestatus()",
-      "id": "resources_js_modules_appointments_pages_agendapage_changestatus",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_changestatus"
     },
     {
       "label": "emptyForm()",
@@ -16631,8 +16667,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "emptyform()",
-      "id": "resources_js_modules_appointments_pages_agendapage_emptyform",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_emptyform"
     },
     {
       "label": "loadAgenda()",
@@ -16643,8 +16679,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "loadagenda()",
-      "id": "resources_js_modules_appointments_pages_agendapage_loadagenda",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_loadagenda"
     },
     {
       "label": "message()",
@@ -16655,8 +16691,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "message()",
-      "id": "resources_js_modules_appointments_pages_agendapage_message",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_message"
     },
     {
       "label": "save()",
@@ -16667,8 +16703,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "save()",
-      "id": "resources_js_modules_appointments_pages_agendapage_save",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_save"
     },
     {
       "label": "time()",
@@ -16679,8 +16715,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "time()",
-      "id": "resources_js_modules_appointments_pages_agendapage_time",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_time"
     },
     {
       "label": "today()",
@@ -16691,8 +16727,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "today()",
-      "id": "resources_js_modules_appointments_pages_agendapage_today",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_today"
     },
     {
       "label": "createAppointment()",
@@ -16883,8 +16919,8 @@
       "_origin": "ast",
       "community": 90,
       "norm_label": ".destroy()",
-      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_destroy",
-      "community_name": "AgentTerminalController"
+      "community_name": "AgentTerminalController",
+      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_destroy"
     },
     {
       "label": ".ensureOwned()",
@@ -16895,8 +16931,8 @@
       "_origin": "ast",
       "community": 90,
       "norm_label": ".ensureowned()",
-      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_ensureowned",
-      "community_name": "AgentTerminalController"
+      "community_name": "AgentTerminalController",
+      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_ensureowned"
     },
     {
       "label": ".ensurePermission()",
@@ -16907,8 +16943,8 @@
       "_origin": "ast",
       "community": 90,
       "norm_label": ".ensurepermission()",
-      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_ensurepermission",
-      "community_name": "AgentTerminalController"
+      "community_name": "AgentTerminalController",
+      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_ensurepermission"
     },
     {
       "label": ".index()",
@@ -16919,8 +16955,8 @@
       "_origin": "ast",
       "community": 90,
       "norm_label": ".index()",
-      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_index",
-      "community_name": "AgentTerminalController"
+      "community_name": "AgentTerminalController",
+      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_index"
     },
     {
       "label": ".rotateToken()",
@@ -16931,8 +16967,8 @@
       "_origin": "ast",
       "community": 90,
       "norm_label": ".rotatetoken()",
-      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_rotatetoken",
-      "community_name": "AgentTerminalController"
+      "community_name": "AgentTerminalController",
+      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_rotatetoken"
     },
     {
       "label": ".store()",
@@ -16943,8 +16979,8 @@
       "_origin": "ast",
       "community": 90,
       "norm_label": ".store()",
-      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_store",
-      "community_name": "AgentTerminalController"
+      "community_name": "AgentTerminalController",
+      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_store"
     },
     {
       "label": ".toggle()",
@@ -16955,8 +16991,8 @@
       "_origin": "ast",
       "community": 90,
       "norm_label": ".toggle()",
-      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_toggle",
-      "community_name": "AgentTerminalController"
+      "community_name": "AgentTerminalController",
+      "id": "app_modules_pos_http_controllers_agentterminalcontroller_agentterminalcontroller_toggle"
     },
     {
       "label": ".index()",
@@ -17379,8 +17415,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "createorderaction.php",
-      "id": "app_modules_pos_actions_createorderaction",
-      "community_name": "Illuminate\\Database\\Eloquent\\Model"
+      "community_name": "Illuminate\\Database\\Eloquent\\Model",
+      "id": "app_modules_pos_actions_createorderaction"
     },
     {
       "label": "Order",
@@ -17390,8 +17426,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "order",
-      "id": "app_modules_pos_actions_createorderaction_php_order",
-      "community_name": "Illuminate\\Database\\Eloquent\\Model"
+      "community_name": "Illuminate\\Database\\Eloquent\\Model",
+      "id": "app_modules_pos_actions_createorderaction_php_order"
     },
     {
       "label": "CashMovement.php",
@@ -17632,8 +17668,8 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "illuminate\\support\\facades\\db",
-      "id": "illuminate_support_facades_db",
-      "community_name": "Illuminate\\Database\\Eloquent\\Model"
+      "community_name": "Illuminate\\Database\\Eloquent\\Model",
+      "id": "illuminate_support_facades_db"
     },
     {
       "label": "CorePolicyAuthorizationTest.php",
@@ -17984,8 +18020,8 @@
       "_origin": "ast",
       "community": 101,
       "norm_label": "pos/services.ts",
-      "id": "resources_js_modules_pos_services",
-      "community_name": "pos/services.ts"
+      "community_name": "pos/services.ts",
+      "id": "resources_js_modules_pos_services"
     },
     {
       "label": "PosService",
@@ -17995,8 +18031,8 @@
       "_origin": "ast",
       "community": 101,
       "norm_label": "posservice",
-      "id": "resources_js_modules_pos_services_posservice",
-      "community_name": "pos/services.ts"
+      "community_name": "pos/services.ts",
+      "id": "resources_js_modules_pos_services_posservice"
     },
     {
       "label": "1) Orientarte con Graphify (por bash, NO es un MCP)",
@@ -18138,8 +18174,8 @@
       "_origin": "ast",
       "community": 107,
       "norm_label": "appointment",
-      "id": "appointment",
-      "community_name": ".index"
+      "community_name": ".index",
+      "id": "appointment"
     },
     {
       "label": "SettingsGroupCard.vue",
@@ -19535,8 +19571,8 @@
       "_origin": "ast",
       "community": 125,
       "norm_label": "order",
-      "id": "app_modules_pos_http_controllers_ordercontroller_php_order",
-      "community_name": "OrderController"
+      "community_name": "OrderController",
+      "id": "app_modules_pos_http_controllers_ordercontroller_php_order"
     },
     {
       "label": "keywords",
@@ -21405,8 +21441,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "workorderlistpage.vue",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage"
     },
     {
       "label": "error",
@@ -21416,8 +21452,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "error",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_error",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_error"
     },
     {
       "label": "filterStatus",
@@ -21427,8 +21463,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "filterstatus",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_filterstatus",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_filterstatus"
     },
     {
       "label": "form",
@@ -21438,8 +21474,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "form",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_form",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_form"
     },
     {
       "label": "loading",
@@ -21449,8 +21485,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "loading",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_loading",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_loading"
     },
     {
       "label": "orders",
@@ -21460,8 +21496,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "orders",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_orders",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_orders"
     },
     {
       "label": "router",
@@ -21471,8 +21507,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "router",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_router",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_router"
     },
     {
       "label": "saving",
@@ -21482,8 +21518,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "saving",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_saving",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_saving"
     },
     {
       "label": "services",
@@ -21493,8 +21529,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "services",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_services",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_services"
     },
     {
       "label": "STATUS_LABELS",
@@ -21504,8 +21540,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "status_labels",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_status_labels",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_status_labels"
     },
     {
       "label": "TRANSITIONS",
@@ -21515,8 +21551,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "transitions",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_transitions",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_transitions"
     },
     {
       "label": "vehicles",
@@ -21526,8 +21562,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "vehicles",
-      "id": "resources_js_modules_work_orders_pages_workorderlistpage_vehicles",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_pages_workorderlistpage_vehicles"
     },
     {
       "label": "work-orders/services.ts",
@@ -21548,8 +21584,8 @@
       "_origin": "ast",
       "community": 18,
       "norm_label": "work-orders/types.ts",
-      "id": "resources_js_modules_work_orders_types",
-      "community_name": "WorkOrderListPage.vue"
+      "community_name": "WorkOrderListPage.vue",
+      "id": "resources_js_modules_work_orders_types"
     },
     {
       "label": "2026_07_09_175000_add_public_id_to_users_table.php",
@@ -21856,8 +21892,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "app/models/agentterminal.php",
-      "id": "app_models_agentterminal",
-      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo"
+      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "id": "app_models_agentterminal"
     },
     {
       "label": "AppointmentServiceLine.php",
@@ -21900,8 +21936,8 @@
       "_origin": "ast",
       "community": 2,
       "norm_label": "pos/models/agentterminal.php",
-      "id": "app_modules_pos_models_agentterminal",
-      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo"
+      "community_name": "Illuminate\\Database\\Eloquent\\Relations\\BelongsTo",
+      "id": "app_modules_pos_models_agentterminal"
     },
     {
       "label": "ProductCombo.php",
@@ -21966,8 +22002,8 @@
       "_origin": "ast",
       "community": 20,
       "norm_label": "appointmentcontroller.php",
-      "id": "app_modules_appointment_http_controllers_appointmentcontroller",
-      "community_name": "Product.php"
+      "community_name": "Product.php",
+      "id": "app_modules_appointment_http_controllers_appointmentcontroller"
     },
     {
       "label": "StoreAppointmentRequest.php",
@@ -22076,8 +22112,8 @@
       "_origin": "ast",
       "community": 20,
       "norm_label": "service.php",
-      "id": "app_modules_service_models_service",
-      "community_name": "Product.php"
+      "community_name": "Product.php",
+      "id": "app_modules_service_models_service"
     },
     {
       "label": "Tax.php",
@@ -23286,8 +23322,8 @@
       "_origin": "ast",
       "community": 25,
       "norm_label": "owneruserseeder.php",
-      "id": "database_seeders_owneruserseeder",
-      "community_name": "NcfSequence"
+      "community_name": "NcfSequence",
+      "id": "database_seeders_owneruserseeder"
     },
     {
       "label": "Illuminate\\Database\\Seeder",
@@ -24067,8 +24103,8 @@
       "_origin": "ast",
       "community": 29,
       "norm_label": "ordercontroller.php",
-      "id": "app_modules_pos_http_controllers_ordercontroller",
-      "community_name": "Warehouse"
+      "community_name": "Warehouse",
+      "id": "app_modules_pos_http_controllers_ordercontroller"
     },
     {
       "label": "build.gradle.kts",
@@ -24641,6 +24677,28 @@
       "norm_label": "@vitejs/plugin-vue",
       "community_name": "@vitejs/plugin-vue",
       "id": "vitejs_plugin_vue"
+    },
+    {
+      "label": "PosPage.print.spec.ts",
+      "file_type": "code",
+      "source_file": "resources/js/modules/pos/pages/PosPage.print.spec.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 317,
+      "community_name": "Community 317",
+      "id": "resources_js_modules_pos_pages_pospage_print_spec",
+      "norm_label": "pospage.print.spec.ts"
+    },
+    {
+      "label": "mocks",
+      "file_type": "code",
+      "source_file": "resources/js/modules/pos/pages/PosPage.print.spec.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "community": 317,
+      "community_name": "Community 317",
+      "id": "resources_js_modules_pos_pages_pospage_print_spec_mocks",
+      "norm_label": "mocks"
     },
     {
       "label": "ProductListPage.vue",
@@ -26069,8 +26127,8 @@
       "_origin": "ast",
       "community": 4,
       "norm_label": "posordertest.php",
-      "id": "tests_feature_posordertest",
-      "community_name": "User.php"
+      "community_name": "User.php",
+      "id": "tests_feature_posordertest"
     },
     {
       "label": "POSPrintTest.php",
@@ -27224,8 +27282,8 @@
       "_origin": "ast",
       "community": 5,
       "norm_label": "appointmentresource.php",
-      "id": "app_modules_appointment_http_resources_appointmentresource",
-      "community_name": "Illuminate\\Http\\Request"
+      "community_name": "Illuminate\\Http\\Request",
+      "id": "app_modules_appointment_http_resources_appointmentresource"
     },
     {
       "label": "AuditLogResource.php",
@@ -27356,8 +27414,8 @@
       "_origin": "ast",
       "community": 5,
       "norm_label": "workorderresource.php",
-      "id": "app_modules_workorder_http_resources_workorderresource",
-      "community_name": "Illuminate\\Http\\Request"
+      "community_name": "Illuminate\\Http\\Request",
+      "id": "app_modules_workorder_http_resources_workorderresource"
     },
     {
       "label": "Illuminate\\Http\\Request",
@@ -28698,8 +28756,8 @@
       "_origin": "ast",
       "community": 6,
       "norm_label": "printcontroller.php",
-      "id": "app_modules_invoice_http_controllers_printcontroller",
-      "community_name": "ErrorCode.php"
+      "community_name": "ErrorCode.php",
+      "id": "app_modules_invoice_http_controllers_printcontroller"
     },
     {
       "label": "InvoiceService.php",
@@ -28720,8 +28778,8 @@
       "_origin": "ast",
       "community": 6,
       "norm_label": "agentterminalcontroller.php",
-      "id": "app_modules_pos_http_controllers_agentterminalcontroller",
-      "community_name": "ErrorCode.php"
+      "community_name": "ErrorCode.php",
+      "id": "app_modules_pos_http_controllers_agentterminalcontroller"
     },
     {
       "label": "CashSessionController.php",
@@ -29775,75 +29833,75 @@
       "source_location": "L1",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "pospage.vue",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage",
-      "community_name": "PosPage.vue"
+      "norm_label": "pospage.vue"
     },
     {
       "label": "activeSession",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L98",
+      "source_location": "L99",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "activesession",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_activesession",
-      "community_name": "PosPage.vue"
+      "norm_label": "activesession"
     },
     {
       "label": "applyTip",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L120",
+      "source_location": "L121",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "applytip",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_applytip",
-      "community_name": "PosPage.vue"
+      "norm_label": "applytip"
     },
     {
       "label": "availablePrinters",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L127",
+      "source_location": "L130",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "availableprinters",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_availableprinters",
-      "community_name": "PosPage.vue"
+      "norm_label": "availableprinters"
     },
     {
       "label": "cart",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L114",
+      "source_location": "L115",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "cart",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_cart",
-      "community_name": "PosPage.vue"
+      "norm_label": "cart"
     },
     {
       "label": "changeDueDop",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L562",
+      "source_location": "L596",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "changeduedop",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_changeduedop",
-      "community_name": "PosPage.vue"
+      "norm_label": "changeduedop"
     },
     {
       "label": "closeCountedAmount",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L110",
+      "source_location": "L111",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "closecountedamount",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_closecountedamount",
-      "community_name": "PosPage.vue"
+      "norm_label": "closecountedamount"
     },
     {
       "label": "customers",
@@ -29852,20 +29910,20 @@
       "source_location": "L86",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "customers",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_customers",
-      "community_name": "PosPage.vue"
+      "norm_label": "customers"
     },
     {
       "label": "documentTypeCode",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L123",
+      "source_location": "L124",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "documenttypecode",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_documenttypecode",
-      "community_name": "PosPage.vue"
+      "norm_label": "documenttypecode"
     },
     {
       "label": "errorMsg",
@@ -29874,31 +29932,31 @@
       "source_location": "L92",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "errormsg",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_errormsg",
-      "community_name": "PosPage.vue"
+      "norm_label": "errormsg"
     },
     {
       "label": "exchangeRates",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L158",
+      "source_location": "L161",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "exchangerates",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_exchangerates",
-      "community_name": "PosPage.vue"
+      "norm_label": "exchangerates"
     },
     {
       "label": "filteredProducts",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L688",
+      "source_location": "L725",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "filteredproducts",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_filteredproducts",
-      "community_name": "PosPage.vue"
+      "norm_label": "filteredproducts"
     },
     {
       "label": "isOnline",
@@ -29907,20 +29965,20 @@
       "source_location": "L94",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "isonline",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_isonline",
-      "community_name": "PosPage.vue"
+      "norm_label": "isonline"
     },
     {
       "label": "lastClosedSummary",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L111",
+      "source_location": "L112",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "lastclosedsummary",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_lastclosedsummary",
-      "community_name": "PosPage.vue"
+      "norm_label": "lastclosedsummary"
     },
     {
       "label": "loading",
@@ -29929,119 +29987,141 @@
       "source_location": "L91",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "loading",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_loading",
-      "community_name": "PosPage.vue"
+      "norm_label": "loading"
     },
     {
       "label": "movementAmount",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L106",
+      "source_location": "L107",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "movementamount",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_movementamount",
-      "community_name": "PosPage.vue"
+      "norm_label": "movementamount"
     },
     {
       "label": "movementConcept",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L107",
+      "source_location": "L108",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "movementconcept",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_movementconcept",
-      "community_name": "PosPage.vue"
+      "norm_label": "movementconcept"
     },
     {
       "label": "movementType",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L105",
+      "source_location": "L106",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "movementtype",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_movementtype",
-      "community_name": "PosPage.vue"
+      "norm_label": "movementtype"
     },
     {
       "label": "offlineQueueCount",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L161",
+      "source_location": "L164",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "offlinequeuecount",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_offlinequeuecount",
-      "community_name": "PosPage.vue"
+      "norm_label": "offlinequeuecount"
     },
     {
       "label": "openOpeningAmount",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L101",
+      "source_location": "L102",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "openopeningamount",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_openopeningamount",
-      "community_name": "PosPage.vue"
+      "norm_label": "openopeningamount"
     },
     {
       "label": "openRegisterId",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L100",
+      "source_location": "L101",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "openregisterid",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_openregisterid",
-      "community_name": "PosPage.vue"
+      "norm_label": "openregisterid"
     },
     {
       "label": "orderNotes",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L121",
+      "source_location": "L122",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "ordernotes",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_ordernotes",
-      "community_name": "PosPage.vue"
+      "norm_label": "ordernotes"
     },
     {
       "label": "orderStatus",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L122",
+      "source_location": "L123",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "orderstatus",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_orderstatus",
-      "community_name": "PosPage.vue"
+      "norm_label": "orderstatus"
     },
     {
       "label": "paperWidth",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L126",
+      "source_location": "L129",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "paperwidth",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_paperwidth",
-      "community_name": "PosPage.vue"
+      "norm_label": "paperwidth"
     },
     {
       "label": "paymentsList",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L155",
+      "source_location": "L158",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "paymentslist",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_paymentslist",
-      "community_name": "PosPage.vue"
+      "norm_label": "paymentslist"
+    },
+    {
+      "label": "printError",
+      "file_type": "code",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L128",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "PosPage.vue",
+      "id": "resources_js_modules_pos_pages_pospage_printerror",
+      "norm_label": "printerror"
+    },
+    {
+      "label": "printingTicket",
+      "file_type": "code",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L127",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "PosPage.vue",
+      "id": "resources_js_modules_pos_pages_pospage_printingticket",
+      "norm_label": "printingticket"
     },
     {
       "label": "products",
@@ -30050,20 +30130,20 @@
       "source_location": "L85",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "products",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_products",
-      "community_name": "PosPage.vue"
+      "norm_label": "products"
     },
     {
       "label": "registers",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L99",
+      "source_location": "L100",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "registers",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_registers",
-      "community_name": "PosPage.vue"
+      "norm_label": "registers"
     },
     {
       "label": "searchQuery",
@@ -30072,108 +30152,119 @@
       "source_location": "L90",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "searchquery",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_searchquery",
-      "community_name": "PosPage.vue"
+      "norm_label": "searchquery"
     },
     {
       "label": "selectedCustomerHasRnc",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L567",
+      "source_location": "L601",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "selectedcustomerhasrnc",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_selectedcustomerhasrnc",
-      "community_name": "PosPage.vue"
+      "norm_label": "selectedcustomerhasrnc"
     },
     {
       "label": "selectedCustomerId",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L118",
+      "source_location": "L119",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "selectedcustomerid",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_selectedcustomerid",
-      "community_name": "PosPage.vue"
+      "norm_label": "selectedcustomerid"
     },
     {
       "label": "selectedPrinter",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L128",
+      "source_location": "L131",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "selectedprinter",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_selectedprinter",
-      "community_name": "PosPage.vue"
+      "norm_label": "selectedprinter"
     },
     {
       "label": "selectedWarehouseId",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L119",
+      "source_location": "L120",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "selectedwarehouseid",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_selectedwarehouseid",
-      "community_name": "PosPage.vue"
+      "norm_label": "selectedwarehouseid"
+    },
+    {
+      "label": "showAgentModal",
+      "file_type": "code",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L96",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "PosPage.vue",
+      "id": "resources_js_modules_pos_pages_pospage_showagentmodal",
+      "norm_label": "showagentmodal"
     },
     {
       "label": "showCloseSessionModal",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L109",
+      "source_location": "L110",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "showclosesessionmodal",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_showclosesessionmodal",
-      "community_name": "PosPage.vue"
+      "norm_label": "showclosesessionmodal"
     },
     {
       "label": "showInvoicePrintModal",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L125",
+      "source_location": "L126",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "showinvoiceprintmodal",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_showinvoiceprintmodal",
-      "community_name": "PosPage.vue"
+      "norm_label": "showinvoiceprintmodal"
     },
     {
       "label": "showMovementModal",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L104",
+      "source_location": "L105",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "showmovementmodal",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_showmovementmodal",
-      "community_name": "PosPage.vue"
+      "norm_label": "showmovementmodal"
     },
     {
       "label": "showPayModal",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L117",
+      "source_location": "L118",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "showpaymodal",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_showpaymodal",
-      "community_name": "PosPage.vue"
+      "norm_label": "showpaymodal"
     },
     {
-      "label": "{ state: agentState }",
+      "label": "{ state: agentState, checkNow: checkAgentStatus }",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
       "source_location": "L95",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "{ state: agentstate }",
-      "id": "resources_js_modules_pos_pages_pospage_state_agentstate",
-      "community_name": "PosPage.vue"
+      "community_name": "PosPage.vue",
+      "id": "resources_js_modules_pos_pages_pospage_state_agentstate_checknow_checkagentstatus",
+      "norm_label": "{ state: agentstate, checknow: checkagentstatus }"
     },
     {
       "label": "successMsg",
@@ -30182,9 +30273,9 @@
       "source_location": "L93",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "successmsg",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_successmsg",
-      "community_name": "PosPage.vue"
+      "norm_label": "successmsg"
     },
     {
       "label": "taxes",
@@ -30193,31 +30284,31 @@
       "source_location": "L88",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "taxes",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_taxes",
-      "community_name": "PosPage.vue"
+      "norm_label": "taxes"
     },
     {
       "label": "totalPaidDop",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L558",
+      "source_location": "L592",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "totalpaiddop",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_totalpaiddop",
-      "community_name": "PosPage.vue"
+      "norm_label": "totalpaiddop"
     },
     {
       "label": "totals",
       "file_type": "code",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L500",
+      "source_location": "L534",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "totals",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_totals",
-      "community_name": "PosPage.vue"
+      "norm_label": "totals"
     },
     {
       "label": "warehouses",
@@ -30226,9 +30317,9 @@
       "source_location": "L87",
       "_origin": "ast",
       "community": 7,
-      "norm_label": "warehouses",
+      "community_name": "PosPage.vue",
       "id": "resources_js_modules_pos_pages_pospage_warehouses",
-      "community_name": "PosPage.vue"
+      "norm_label": "warehouses"
     },
     {
       "label": "DashboardPage.vue",
@@ -31954,8 +32045,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "agendapage.vue",
-      "id": "resources_js_modules_appointments_pages_agendapage",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage"
     },
     {
       "label": "appointments",
@@ -31965,8 +32056,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "appointments",
-      "id": "resources_js_modules_appointments_pages_agendapage_appointments",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_appointments"
     },
     {
       "label": "customers",
@@ -31976,8 +32067,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "customers",
-      "id": "resources_js_modules_appointments_pages_agendapage_customers",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_customers"
     },
     {
       "label": "employees",
@@ -31987,8 +32078,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "employees",
-      "id": "resources_js_modules_appointments_pages_agendapage_employees",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_employees"
     },
     {
       "label": "error",
@@ -31998,8 +32089,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "error",
-      "id": "resources_js_modules_appointments_pages_agendapage_error",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_error"
     },
     {
       "label": "filterDate",
@@ -32009,8 +32100,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "filterdate",
-      "id": "resources_js_modules_appointments_pages_agendapage_filterdate",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_filterdate"
     },
     {
       "label": "filterEmployee",
@@ -32020,8 +32111,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "filteremployee",
-      "id": "resources_js_modules_appointments_pages_agendapage_filteremployee",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_filteremployee"
     },
     {
       "label": "form",
@@ -32031,8 +32122,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "form",
-      "id": "resources_js_modules_appointments_pages_agendapage_form",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_form"
     },
     {
       "label": "formTotal",
@@ -32042,8 +32133,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "formtotal",
-      "id": "resources_js_modules_appointments_pages_agendapage_formtotal",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_formtotal"
     },
     {
       "label": "loading",
@@ -32053,8 +32144,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "loading",
-      "id": "resources_js_modules_appointments_pages_agendapage_loading",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_loading"
     },
     {
       "label": "router",
@@ -32064,8 +32155,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "router",
-      "id": "resources_js_modules_appointments_pages_agendapage_router",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_router"
     },
     {
       "label": "saving",
@@ -32075,8 +32166,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "saving",
-      "id": "resources_js_modules_appointments_pages_agendapage_saving",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_saving"
     },
     {
       "label": "services",
@@ -32086,8 +32177,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "services",
-      "id": "resources_js_modules_appointments_pages_agendapage_services",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_services"
     },
     {
       "label": "STATUS_LABELS",
@@ -32097,8 +32188,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "status_labels",
-      "id": "resources_js_modules_appointments_pages_agendapage_status_labels",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_status_labels"
     },
     {
       "label": "TRANSITIONS",
@@ -32108,8 +32199,8 @@
       "_origin": "ast",
       "community": 9,
       "norm_label": "transitions",
-      "id": "resources_js_modules_appointments_pages_agendapage_transitions",
-      "community_name": "AgendaPage.vue"
+      "community_name": "AgendaPage.vue",
+      "id": "resources_js_modules_appointments_pages_agendapage_transitions"
     },
     {
       "label": "appointments/services.ts",
@@ -41191,169 +41282,61 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L414",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "resources_js_modules_pos_pages_pospage_checkofflinequeue",
-      "target": "resources_js_modules_pos_indexeddb_indexeddbservice_getofflineorders"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L185",
+      "source_location": "L263",
       "weight": 1.0,
       "_origin": "ast",
       "source": "resources_js_modules_pos_pages_pospage_loaddata",
-      "target": "resources_js_modules_products_services_fetchproducts"
+      "target": "resources_js_modules_pos_pages_pospage_cartscope",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L250",
+      "source_location": "L282",
       "weight": 1.0,
       "_origin": "ast",
       "source": "resources_js_modules_pos_pages_pospage_loaddata",
-      "target": "resources_js_modules_settings_services_fetchexchangerates"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L257",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "resources_js_modules_pos_pages_pospage_loaddata",
-      "target": "resources_js_modules_pos_indexeddb_indexeddbservice_getcart"
+      "target": "resources_js_modules_pos_pages_pospage_checkofflinequeue",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L257",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "resources_js_modules_pos_pages_pospage_loaddata",
-      "target": "resources_js_modules_pos_pages_pospage_cartscope"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L260",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "resources_js_modules_pos_pages_pospage_loaddata",
-      "target": "resources_js_modules_pos_services_consumeexternalorderbridge"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L276",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "resources_js_modules_pos_pages_pospage_loaddata",
-      "target": "resources_js_modules_pos_pages_pospage_checkofflinequeue"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L364",
+      "source_location": "L365",
       "weight": 1.0,
       "_origin": "ast",
       "source": "resources_js_modules_pos_pages_pospage_printticket",
-      "target": "resources_js_composables_useagentprinter_printwithagent"
+      "target": "resources_js_modules_pos_pages_pospage_sendticket",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L642",
+      "source_location": "L715",
       "weight": 1.0,
       "_origin": "ast",
       "source": "resources_js_modules_pos_pages_pospage_submitorder",
-      "target": "resources_js_composables_useagentprinter_opendrawerwithagent"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L671",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "resources_js_modules_pos_pages_pospage_submitorder",
-      "target": "resources_js_modules_pos_indexeddb_indexeddbservice_saveofflineorder"
+      "target": "resources_js_modules_pos_pages_pospage_checkofflinequeue",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L678",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "resources_js_modules_pos_pages_pospage_submitorder",
-      "target": "resources_js_modules_pos_pages_pospage_checkofflinequeue"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L424",
+      "source_location": "L459",
       "weight": 1.0,
       "_origin": "ast",
       "source": "resources_js_modules_pos_pages_pospage_syncofflineorders",
-      "target": "resources_js_modules_pos_indexeddb_indexeddbservice_getofflineorders"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L432",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "resources_js_modules_pos_pages_pospage_syncofflineorders",
-      "target": "resources_js_modules_pos_indexeddb_indexeddbservice_deleteofflineorder"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L436",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "resources_js_modules_pos_pages_pospage_syncofflineorders",
-      "target": "resources_js_modules_pos_pages_pospage_checkofflinequeue"
+      "target": "resources_js_modules_pos_pages_pospage_checkofflinequeue",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -58589,9 +58572,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_composables_useagentstatus_useagentstatus"
+      "target": "resources_js_composables_useagentstatus_useagentstatus",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58601,9 +58584,9 @@
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_composables_useagentprinter_getagentprinters"
+      "target": "resources_js_composables_useagentprinter_getagentprinters",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58613,9 +58596,9 @@
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_composables_useagentprinter_opendrawerwithagent"
+      "target": "resources_js_composables_useagentprinter_opendrawerwithagent",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58625,9 +58608,9 @@
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_composables_useagentprinter_printwithagent"
+      "target": "resources_js_composables_useagentprinter_printwithagent",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58637,9 +58620,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_composables_useagentprinter_agentprinterinfo"
+      "target": "resources_js_composables_useagentprinter_agentprinterinfo",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58649,9 +58632,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_services_consumeexternalorderbridge"
+      "target": "resources_js_modules_pos_services_consumeexternalorderbridge",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58661,9 +58644,9 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_services_posservice"
+      "target": "resources_js_modules_pos_services_posservice",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58673,9 +58656,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_services_posorder"
+      "target": "resources_js_modules_pos_services_posorder",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58685,9 +58668,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_services_posorderitem"
+      "target": "resources_js_modules_pos_services_posorderitem",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58697,9 +58680,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_services_pospayment"
+      "target": "resources_js_modules_pos_services_pospayment",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58709,9 +58692,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_indexeddb_indexeddbservice"
+      "target": "resources_js_modules_pos_indexeddb_indexeddbservice",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58721,9 +58704,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_products_services_fetchproducts"
+      "target": "resources_js_modules_products_services_fetchproducts",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58733,9 +58716,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_settings_services_fetchexchangerates"
+      "target": "resources_js_modules_settings_services_fetchexchangerates",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58745,9 +58728,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_products_types_product"
+      "target": "resources_js_modules_products_types_product",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58757,9 +58740,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_lib_api_api"
+      "target": "resources_js_lib_api_api",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -58769,9 +58752,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_lib_api_storagekeys"
+      "target": "resources_js_lib_api_storagekeys",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -64877,9 +64860,9 @@
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_composables_useagentstatus"
+      "target": "resources_js_composables_useagentstatus",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -64889,9 +64872,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_composables_useagentprinter"
+      "target": "resources_js_composables_useagentprinter",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -64901,9 +64884,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_services"
+      "target": "resources_js_modules_pos_services",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -64913,9 +64896,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_indexeddb"
+      "target": "resources_js_modules_pos_indexeddb",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -64925,9 +64908,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_products_services"
+      "target": "resources_js_modules_products_services",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -64937,9 +64920,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_settings_services"
+      "target": "resources_js_modules_settings_services",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -64949,9 +64932,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_products_types"
+      "target": "resources_js_modules_products_types",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -64961,9 +64944,21 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_lib_api"
+      "target": "resources_js_lib_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/pos/pages/PosPage.print.spec.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "resources_js_modules_pos_pages_pospage_print_spec",
+      "target": "resources_js_modules_pos_pages_pospage",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -88351,9 +88346,9 @@
       "source_location": "L100",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_openregisterid"
+      "target": "resources_js_modules_pos_pages_pospage_registers",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88362,20 +88357,20 @@
       "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_openopeningamount"
+      "target": "resources_js_modules_pos_pages_pospage_openregisterid",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L104",
+      "source_location": "L102",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_showmovementmodal"
+      "target": "resources_js_modules_pos_pages_pospage_openopeningamount",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88384,9 +88379,9 @@
       "source_location": "L105",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_movementtype"
+      "target": "resources_js_modules_pos_pages_pospage_showmovementmodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88395,9 +88390,9 @@
       "source_location": "L106",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_movementamount"
+      "target": "resources_js_modules_pos_pages_pospage_movementtype",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88406,20 +88401,20 @@
       "source_location": "L107",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_movementconcept"
+      "target": "resources_js_modules_pos_pages_pospage_movementamount",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L109",
+      "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_showclosesessionmodal"
+      "target": "resources_js_modules_pos_pages_pospage_movementconcept",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88428,9 +88423,9 @@
       "source_location": "L110",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_closecountedamount"
+      "target": "resources_js_modules_pos_pages_pospage_showclosesessionmodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88439,31 +88434,31 @@
       "source_location": "L111",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_lastclosedsummary"
+      "target": "resources_js_modules_pos_pages_pospage_closecountedamount",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L114",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_cart"
+      "target": "resources_js_modules_pos_pages_pospage_lastclosedsummary",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L117",
+      "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_showpaymodal"
+      "target": "resources_js_modules_pos_pages_pospage_cart",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88472,9 +88467,9 @@
       "source_location": "L118",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_selectedcustomerid"
+      "target": "resources_js_modules_pos_pages_pospage_showpaymodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88483,9 +88478,9 @@
       "source_location": "L119",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_selectedwarehouseid"
+      "target": "resources_js_modules_pos_pages_pospage_selectedcustomerid",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88494,9 +88489,9 @@
       "source_location": "L120",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_applytip"
+      "target": "resources_js_modules_pos_pages_pospage_selectedwarehouseid",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88505,9 +88500,9 @@
       "source_location": "L121",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_ordernotes"
+      "target": "resources_js_modules_pos_pages_pospage_applytip",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88516,9 +88511,9 @@
       "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_orderstatus"
+      "target": "resources_js_modules_pos_pages_pospage_ordernotes",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88527,9 +88522,9 @@
       "source_location": "L123",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_documenttypecode"
+      "target": "resources_js_modules_pos_pages_pospage_orderstatus",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88538,9 +88533,9 @@
       "source_location": "L124",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_invoiceresult"
+      "target": "resources_js_modules_pos_pages_pospage_documenttypecode",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88549,9 +88544,9 @@
       "source_location": "L125",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_showinvoiceprintmodal"
+      "target": "resources_js_modules_pos_pages_pospage_invoiceresult",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88560,9 +88555,9 @@
       "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_paperwidth"
+      "target": "resources_js_modules_pos_pages_pospage_showinvoiceprintmodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88571,9 +88566,9 @@
       "source_location": "L127",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_availableprinters"
+      "target": "resources_js_modules_pos_pages_pospage_printingticket",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88582,20 +88577,42 @@
       "source_location": "L128",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_selectedprinter"
+      "target": "resources_js_modules_pos_pages_pospage_printerror",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L155",
+      "source_location": "L129",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_paymentslist"
+      "target": "resources_js_modules_pos_pages_pospage_paperwidth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "resources_js_modules_pos_pages_pospage",
+      "target": "resources_js_modules_pos_pages_pospage_availableprinters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L131",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "resources_js_modules_pos_pages_pospage",
+      "target": "resources_js_modules_pos_pages_pospage_selectedprinter",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88604,9 +88621,9 @@
       "source_location": "L158",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_exchangerates"
+      "target": "resources_js_modules_pos_pages_pospage_paymentslist",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88615,9 +88632,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_cartscope"
+      "target": "resources_js_modules_pos_pages_pospage_cartscope",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88626,20 +88643,31 @@
       "source_location": "L161",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_offlinequeuecount"
+      "target": "resources_js_modules_pos_pages_pospage_exchangerates",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L163",
+      "source_location": "L164",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_loaddata"
+      "target": "resources_js_modules_pos_pages_pospage_offlinequeuecount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L166",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "resources_js_modules_pos_pages_pospage",
+      "target": "resources_js_modules_pos_pages_pospage_loaddata",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88648,9 +88676,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_localcustomer"
+      "target": "resources_js_modules_pos_pages_pospage_localcustomer",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88659,42 +88687,31 @@
       "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_localwarehouse"
+      "target": "resources_js_modules_pos_pages_pospage_localwarehouse",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L285",
+      "source_location": "L291",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_handleopensession"
+      "target": "resources_js_modules_pos_pages_pospage_handleopensession",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L305",
+      "source_location": "L311",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_handlecreatemovement"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L329",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_handleclosesession"
+      "target": "resources_js_modules_pos_pages_pospage_handlecreatemovement",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88703,20 +88720,42 @@
       "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_localtax"
+      "target": "resources_js_modules_pos_pages_pospage_localtax",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L354",
+      "source_location": "L335",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_printticket"
+      "target": "resources_js_modules_pos_pages_pospage_handleclosesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L360",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "resources_js_modules_pos_pages_pospage",
+      "target": "resources_js_modules_pos_pages_pospage_printticket",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L371",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "resources_js_modules_pos_pages_pospage",
+      "target": "resources_js_modules_pos_pages_pospage_sendticket",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88725,75 +88764,53 @@
       "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_activesessiondata"
+      "target": "resources_js_modules_pos_pages_pospage_activesessiondata",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L413",
+      "source_location": "L436",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_checkofflinequeue"
+      "target": "resources_js_modules_pos_pages_pospage_checkofflinequeue",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L419",
+      "source_location": "L442",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_syncofflineorders"
+      "target": "resources_js_modules_pos_pages_pospage_syncofflineorders",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L467",
+      "source_location": "L490",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_addtocart"
+      "target": "resources_js_modules_pos_pages_pospage_addtocart",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L486",
+      "source_location": "L509",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_updateqty"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L494",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_updatediscount"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L500",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_totals"
+      "target": "resources_js_modules_pos_pages_pospage_updateqty",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88802,20 +88819,42 @@
       "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_invoiceline"
+      "target": "resources_js_modules_pos_pages_pospage_invoiceline",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L530",
+      "source_location": "L517",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_addpaymentline"
+      "target": "resources_js_modules_pos_pages_pospage_updatediscount",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L522",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "resources_js_modules_pos_pages_pospage",
+      "target": "resources_js_modules_pos_pages_pospage_removefromcart",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L526",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "resources_js_modules_pos_pages_pospage",
+      "target": "resources_js_modules_pos_pages_pospage_clearcart",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88824,86 +88863,108 @@
       "source_location": "L534",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_removepaymentline"
+      "target": "resources_js_modules_pos_pages_pospage_totals",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L538",
+      "source_location": "L564",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_oncurrencychange"
+      "target": "resources_js_modules_pos_pages_pospage_addpaymentline",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L552",
+      "source_location": "L568",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_quickcashamount"
+      "target": "resources_js_modules_pos_pages_pospage_removepaymentline",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L558",
+      "source_location": "L572",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_totalpaiddop"
+      "target": "resources_js_modules_pos_pages_pospage_oncurrencychange",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L562",
+      "source_location": "L586",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_changeduedop"
+      "target": "resources_js_modules_pos_pages_pospage_quickcashamount",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L567",
+      "source_location": "L592",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_selectedcustomerhasrnc"
+      "target": "resources_js_modules_pos_pages_pospage_totalpaiddop",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L573",
+      "source_location": "L596",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_submitorder"
+      "target": "resources_js_modules_pos_pages_pospage_changeduedop",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L688",
+      "source_location": "L601",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_filteredproducts"
+      "target": "resources_js_modules_pos_pages_pospage_selectedcustomerhasrnc",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L607",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "resources_js_modules_pos_pages_pospage",
+      "target": "resources_js_modules_pos_pages_pospage_submitorder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/pos/pages/PosPage.vue",
+      "source_location": "L725",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "resources_js_modules_pos_pages_pospage",
+      "target": "resources_js_modules_pos_pages_pospage_filteredproducts",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88912,9 +88973,9 @@
       "source_location": "L78",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_localregister"
+      "target": "resources_js_modules_pos_pages_pospage_localregister",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88923,9 +88984,9 @@
       "source_location": "L85",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_products"
+      "target": "resources_js_modules_pos_pages_pospage_products",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88934,9 +88995,9 @@
       "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_customers"
+      "target": "resources_js_modules_pos_pages_pospage_customers",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88945,9 +89006,9 @@
       "source_location": "L87",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_warehouses"
+      "target": "resources_js_modules_pos_pages_pospage_warehouses",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88956,9 +89017,9 @@
       "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_taxes"
+      "target": "resources_js_modules_pos_pages_pospage_taxes",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88967,9 +89028,9 @@
       "source_location": "L90",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_searchquery"
+      "target": "resources_js_modules_pos_pages_pospage_searchquery",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88978,9 +89039,9 @@
       "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_loading"
+      "target": "resources_js_modules_pos_pages_pospage_loading",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -88989,9 +89050,9 @@
       "source_location": "L92",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_errormsg"
+      "target": "resources_js_modules_pos_pages_pospage_errormsg",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -89000,9 +89061,9 @@
       "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_successmsg"
+      "target": "resources_js_modules_pos_pages_pospage_successmsg",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -89011,9 +89072,9 @@
       "source_location": "L94",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_isonline"
+      "target": "resources_js_modules_pos_pages_pospage_isonline",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -89022,20 +89083,20 @@
       "source_location": "L95",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_state_agentstate"
+      "target": "resources_js_modules_pos_pages_pospage_state_agentstate_checknow_checkagentstatus",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "resources/js/modules/pos/pages/PosPage.vue",
-      "source_location": "L98",
+      "source_location": "L96",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_activesession"
+      "target": "resources_js_modules_pos_pages_pospage_showagentmodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -89044,9 +89105,20 @@
       "source_location": "L99",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "resources_js_modules_pos_pages_pospage",
-      "target": "resources_js_modules_pos_pages_pospage_registers"
+      "target": "resources_js_modules_pos_pages_pospage_activesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "resources/js/modules/pos/pages/PosPage.print.spec.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "resources_js_modules_pos_pages_pospage_print_spec",
+      "target": "resources_js_modules_pos_pages_pospage_print_spec_mocks",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -109654,5 +109726,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2f845c9d6866eb413ecb8dc58e7a8b26b1220f8d"
+  "built_at_commit": "176b9db506265c3b5efbc59c552fb2243683d808"
 }

@@ -92,7 +92,7 @@ const loading = ref(false);
 const errorMsg = ref('');
 const successMsg = ref('');
 const isOnline = ref(window.navigator.onLine);
-const { state: agentState, version: agentVersion, checkNow: checkAgentStatus } = useAgentStatus();
+const { state: agentState, checkNow: checkAgentStatus } = useAgentStatus();
 const showAgentModal = ref(false);
 
 // Variables de Turno de Caja
@@ -124,6 +124,8 @@ const orderStatus = ref<'pending' | 'completed'>('completed');
 const documentTypeCode = ref('B02');
 const invoiceResult = ref<InvoiceResult | null>(null);
 const showInvoicePrintModal = ref(false);
+const printingTicket = ref(false);
+const printError = ref('');
 const paperWidth = ref(window.localStorage.getItem('pos_paper_width') || '80mm');
 const availablePrinters = ref<AgentPrinterInfo[]>([]);
 const selectedPrinter = ref<string>(window.localStorage.getItem('pos_selected_printer') || '');
@@ -192,7 +194,10 @@ async function loadData() {
         try {
             const srvRes = await api.get('/services');
             const posServices: Product[] = (srvRes.data.data || [])
-                .filter((s: { available_pos?: boolean; is_active?: boolean }) => s.available_pos !== false && s.is_active !== false)
+                .filter(
+                    (s: { available_pos?: boolean; is_active?: boolean }) =>
+                        s.available_pos !== false && s.is_active !== false,
+                )
                 .map((s: { id: string; name: string; price: string | number; tax_id?: string | null }) => ({
                     id: s.id,
                     name: s.name,
@@ -353,24 +358,41 @@ async function handleCloseSession() {
 }
 
 async function printTicket() {
+    if (!invoiceResult.value || printingTicket.value) return;
+    printingTicket.value = true;
+    printError.value = '';
+    try {
+        await sendTicket();
+    } finally {
+        printingTicket.value = false;
+    }
+}
+
+async function sendTicket() {
     if (!invoiceResult.value) return;
 
-    // 1. Si el agente Windows local está conectado y es ticket térmico, imprimir directo vía ESC/POS
-    if (agentState.value === 'connected' && paperWidth.value !== 'A4') {
+    // Una impresora seleccionada conserva la ruta local incluso si el agente pierde conexión.
+    if (paperWidth.value !== 'A4' && (selectedPrinter.value || agentState.value === 'connected')) {
         try {
             const widthParam = paperWidth.value === '58mm' ? '58mm' : '80mm';
             const res = await api.get(`/invoices/${invoiceResult.value.id}/print/text?width=${widthParam}`);
             const textContent = res.data?.data?.content;
-            if (textContent) {
-                const printRes = await printWithAgent(textContent, selectedPrinter.value || undefined);
-                if (printRes.ok) {
-                    successMsg.value = `Ticket enviado directamente a ${selectedPrinter.value || 'la impresora local Windows'}.`;
-                    return;
-                }
+            if (typeof textContent !== 'string' || !textContent.trim()) {
+                printError.value = 'No se recibió contenido válido para imprimir el ticket.';
+                return;
             }
-        } catch {
-            // Fallback transparente al diálogo de impresión del navegador
+            const printRes = await printWithAgent(textContent, selectedPrinter.value || undefined);
+            if (printRes.ok) {
+                successMsg.value = `Ticket enviado directamente a ${selectedPrinter.value || 'la impresora local Windows'}.`;
+            } else {
+                printError.value = `${selectedPrinter.value || 'Impresora local'}: ${printRes.message} (${printRes.status}).`;
+            }
+        } catch (err: unknown) {
+            const error = err as { response?: { data?: { error?: { message?: string } } } };
+            printError.value =
+                error.response?.data?.error?.message || 'No se pudo obtener el ticket para enviarlo al agente.';
         }
+        return;
     }
 
     const format = paperWidth.value === 'A4' ? 'A4' : 'ticket';
@@ -407,7 +429,7 @@ async function printTicket() {
             }, 100);
         }
     } catch {
-        errorMsg.value = 'Error al generar la vista de impresión en el cliente.';
+        printError.value = 'Error al generar la vista de impresión en el cliente.';
     }
 }
 
@@ -650,7 +672,10 @@ async function submitOrder() {
                     showInvoicePrintModal.value = true;
 
                     // Pulso automático a gaveta de dinero si hubo cobro en efectivo y el agente local está conectado
-                    if (agentState.value === 'connected' && paymentsList.value.some((p) => p.payment_method_code === 'cash')) {
+                    if (
+                        agentState.value === 'connected' &&
+                        paymentsList.value.some((p) => p.payment_method_code === 'cash')
+                    ) {
                         void openDrawerWithAgent(selectedPrinter.value || undefined);
                     }
                 } catch (invErr: unknown) {
@@ -791,7 +816,9 @@ const filteredProducts = computed(() => {
         <!-- 2. TERMINAL POS INTERACTIVA (Si hay turno activo) -->
         <div v-else class="h-full flex-1 flex flex-col overflow-hidden min-h-0">
             <!-- Barra de estado superior -->
-            <header class="shrink-0 bg-[#302f39] text-[#f3effc] px-4 py-2.5 flex flex-wrap justify-between items-center gap-3 shadow-xs">
+            <header
+                class="shrink-0 bg-[#302f39] text-[#f3effc] px-4 py-2.5 flex flex-wrap justify-between items-center gap-3 shadow-xs"
+            >
                 <div class="flex items-center gap-3">
                     <span class="font-bold tracking-wider text-base">BSM-POS · {{ activeSession.register_name }}</span>
                     <span
@@ -808,19 +835,27 @@ const filteredProducts = computed(() => {
                         :class="[
                             agentState === 'connected'
                                 ? 'bg-emerald-600 text-white hover:bg-emerald-500'
-                                : (agentState === 'checking'
-                                    ? 'bg-slate-600 text-white'
-                                    : 'bg-amber-600 text-white hover:bg-amber-500 animate-pulse')
+                                : agentState === 'checking'
+                                  ? 'bg-slate-600 text-white'
+                                  : 'bg-amber-600 text-white hover:bg-amber-500 animate-pulse',
                         ]"
-                        :title="agentState === 'connected'
-                            ? 'BSM-POS Windows Agent conectado (127.0.0.1:8765) - Clic para ver detalles'
-                            : (agentState === 'checking'
-                                ? 'Comprobando agente de Windows...'
-                                : 'Agente no detectado - Clic para descargar e instalar')"
+                        :title="
+                            agentState === 'connected'
+                                ? 'BSM-POS Windows Agent conectado (127.0.0.1:8765) - Clic para ver detalles'
+                                : agentState === 'checking'
+                                  ? 'Comprobando agente de Windows...'
+                                  : 'Agente no detectado - Clic para descargar e instalar'
+                        "
                         @click="showAgentModal = true"
                     >
                         <span class="material-symbols-outlined text-[14px]">desktop_windows</span>
-                        <span>{{ agentState === 'connected' ? 'Agente Windows' : (agentState === 'checking' ? 'Conectando...' : 'Instalar Agente') }}</span>
+                        <span>{{
+                            agentState === 'connected'
+                                ? 'Agente Windows'
+                                : agentState === 'checking'
+                                  ? 'Conectando...'
+                                  : 'Instalar Agente'
+                        }}</span>
                     </button>
                     <span class="text-sm text-gray-300">| Cajero: {{ activeSession.opened_by }}</span>
                     <span class="text-sm font-bold text-green-400">
@@ -835,12 +870,7 @@ const filteredProducts = computed(() => {
                         title="Impresora física Windows seleccionada"
                     >
                         <option class="text-black" value="">🖨️ (Predeterminada)</option>
-                        <option
-                            v-for="p in availablePrinters"
-                            :key="p.name"
-                            class="text-black"
-                            :value="p.name"
-                        >
+                        <option v-for="p in availablePrinters" :key="p.name" class="text-black" :value="p.name">
                             {{ p.type === 'BLUETOOTH' ? '📶 ' : '🖨️ ' }}{{ p.name }}
                         </option>
                     </select>
@@ -874,11 +904,16 @@ const filteredProducts = computed(() => {
                     aria-label="Carrito de compra"
                 >
                     <!-- Cabecera del carrito -->
-                    <div class="shrink-0 px-4 py-3 border-b border-[#e4e1ee] bg-[#fcfbfe] flex items-center justify-between">
+                    <div
+                        class="shrink-0 px-4 py-3 border-b border-[#e4e1ee] bg-[#fcfbfe] flex items-center justify-between"
+                    >
                         <div class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-[20px] text-[#4648d4]">shopping_cart</span>
                             <h2 class="text-base font-bold text-[#302f39]">Orden Actual</h2>
-                            <span v-if="cart.length > 0" class="text-xs font-bold bg-[#eff4ff] text-[#4648d4] px-2 py-0.5 rounded-full">
+                            <span
+                                v-if="cart.length > 0"
+                                class="text-xs font-bold bg-[#eff4ff] text-[#4648d4] px-2 py-0.5 rounded-full"
+                            >
                                 {{ cart.reduce((sum, item) => sum + item.quantity, 0) }}
                             </span>
                         </div>
@@ -912,8 +947,12 @@ const filteredProducts = computed(() => {
                         >
                             <div class="flex justify-between items-start gap-2">
                                 <div class="flex-1 min-w-0">
-                                    <span class="font-semibold text-base block truncate" :title="item.product_name">{{ item.product_name }}</span>
-                                    <span class="text-xs text-[#64748b]">RD$ {{ Number(item.price).toFixed(2) }} c/u</span>
+                                    <span class="font-semibold text-base block truncate" :title="item.product_name">{{
+                                        item.product_name
+                                    }}</span>
+                                    <span class="text-xs text-[#64748b]"
+                                        >RD$ {{ Number(item.price).toFixed(2) }} c/u</span
+                                    >
                                 </div>
                                 <div class="flex items-center gap-2 shrink-0">
                                     <span class="font-bold text-base whitespace-nowrap text-[#0b1c30]">
@@ -1565,6 +1604,9 @@ const filteredProducts = computed(() => {
                     </div>
                 </div>
 
+                <p v-if="printError" role="alert" class="mx-4 mb-3 rounded-lg bg-red-50 p-3 text-sm text-red-800">
+                    {{ printError }}
+                </p>
                 <footer class="p-4 border-t border-[#e4e1ee] bg-[#fcfbfe] flex justify-end gap-3">
                     <button
                         class="min-h-12 rounded-lg border border-[#c7c4d8] bg-white px-5 text-base font-semibold text-[#302f39]"
@@ -1574,9 +1616,10 @@ const filteredProducts = computed(() => {
                     </button>
                     <button
                         class="min-h-12 rounded-lg bg-[#3525cd] text-white px-5 text-base font-bold hover:bg-[#271aa3]"
+                        :disabled="printingTicket"
                         @click="printTicket"
                     >
-                        🖨️ Imprimir Ticket
+                        {{ printingTicket ? 'Enviando ticket…' : '🖨️ Imprimir Ticket' }}
                     </button>
                 </footer>
             </div>
@@ -1589,12 +1632,18 @@ const filteredProducts = computed(() => {
             aria-modal="true"
             role="dialog"
         >
-            <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-[#c7c4d8] overflow-hidden flex flex-col max-h-[92vh]">
+            <div
+                class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-[#c7c4d8] overflow-hidden flex flex-col max-h-[92vh]"
+            >
                 <header class="p-4 border-b border-[#e4e1ee] bg-[#fcfbfe] flex justify-between items-center">
                     <div class="flex items-center gap-2.5">
                         <div
                             class="w-9 h-9 rounded-xl flex items-center justify-center"
-                            :class="agentState === 'connected' ? 'bg-emerald-100 text-emerald-700' : 'bg-indigo-100 text-indigo-700'"
+                            :class="
+                                agentState === 'connected'
+                                    ? 'bg-emerald-100 text-emerald-700'
+                                    : 'bg-indigo-100 text-indigo-700'
+                            "
                         >
                             <span class="material-symbols-outlined text-[22px]">desktop_windows</span>
                         </div>
@@ -1616,7 +1665,11 @@ const filteredProducts = computed(() => {
                     <!-- ESTADO ACTUAL -->
                     <div
                         class="p-4 rounded-xl border flex items-center justify-between"
-                        :class="agentState === 'connected' ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-amber-50 border-amber-200 text-amber-900'"
+                        :class="
+                            agentState === 'connected'
+                                ? 'bg-emerald-50 border-emerald-200 text-emerald-900'
+                                : 'bg-amber-50 border-amber-200 text-amber-900'
+                        "
                     >
                         <div class="flex items-center gap-3">
                             <span class="relative flex h-3 w-3">
@@ -1631,12 +1684,17 @@ const filteredProducts = computed(() => {
                             </span>
                             <div>
                                 <div class="font-bold text-xs uppercase tracking-wider">
-                                    {{ agentState === 'connected' ? 'Agente Conectado' : 'Agente no detectado en esta máquina' }}
+                                    {{
+                                        agentState === 'connected'
+                                            ? 'Agente Conectado'
+                                            : 'Agente no detectado en esta máquina'
+                                    }}
                                 </div>
                                 <div class="text-xs opacity-85">
-                                    {{ agentState === 'connected'
-                                        ? `En línea en 127.0.0.1:8765 (${availablePrinters.length} impresora(s) detectada(s))`
-                                        : 'Puerto 8765 cerrado. Para impresión silenciosa sin diálogos emergentes, instálalo a continuación.'
+                                    {{
+                                        agentState === 'connected'
+                                            ? `En línea en 127.0.0.1:8765 (${availablePrinters.length} impresora(s) detectada(s))`
+                                            : 'Puerto 8765 cerrado. Para impresión silenciosa sin diálogos emergentes, instálalo a continuación.'
                                     }}
                                 </div>
                             </div>
@@ -1659,7 +1717,9 @@ const filteredProducts = computed(() => {
                             ¿Para qué sirve este agente?
                         </div>
                         <p>
-                            Permite que el sistema web imprima en tus impresoras térmicas (USB, Bluetooth o Red) y abra la gaveta de dinero <strong>automáticamente y en silencio</strong>, sin mostrar ventanas emergentes de Windows en cada venta.
+                            Permite que el sistema web imprima en tus impresoras térmicas (USB, Bluetooth o Red) y abra
+                            la gaveta de dinero <strong>automáticamente y en silencio</strong>, sin mostrar ventanas
+                            emergentes de Windows en cada venta.
                         </p>
                     </div>
 
@@ -1670,10 +1730,16 @@ const filteredProducts = computed(() => {
                         </div>
 
                         <div class="flex items-start gap-3 p-3 rounded-lg bg-gray-50 border border-gray-200">
-                            <div class="w-6 h-6 rounded-full bg-[#4648d4] text-white flex items-center justify-center font-bold text-xs shrink-0">1</div>
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#4648d4] text-white flex items-center justify-center font-bold text-xs shrink-0"
+                            >
+                                1
+                            </div>
                             <div class="text-xs space-y-1">
                                 <div class="font-semibold text-[#0b1c30]">Descarga el paquete del Agente</div>
-                                <p class="text-[#5f5e61]">Descarga el archivo comprimido que contiene el instalador para Windows (10 u 11).</p>
+                                <p class="text-[#5f5e61]">
+                                    Descarga el archivo comprimido que contiene el instalador para Windows (10 u 11).
+                                </p>
                                 <div class="pt-1">
                                     <a
                                         href="/downloads/bsm-pos-agent.zip"
@@ -1688,21 +1754,35 @@ const filteredProducts = computed(() => {
                         </div>
 
                         <div class="flex items-start gap-3 p-3 rounded-lg bg-gray-50 border border-gray-200">
-                            <div class="w-6 h-6 rounded-full bg-[#4648d4] text-white flex items-center justify-center font-bold text-xs shrink-0">2</div>
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#4648d4] text-white flex items-center justify-center font-bold text-xs shrink-0"
+                            >
+                                2
+                            </div>
                             <div class="text-xs">
                                 <div class="font-semibold text-[#0b1c30]">Descomprime y ejecuta como Administrador</div>
                                 <p class="text-[#5f5e61] mt-0.5">
-                                    Abre la carpeta extraída, haz clic derecho sobre <code class="bg-gray-200 px-1 py-0.5 rounded font-mono font-bold text-[#0b1c30]">instalar-servicio.bat</code> y selecciona <strong>"Ejecutar como Administrador"</strong>.
+                                    Abre la carpeta extraída, haz clic derecho sobre
+                                    <code class="bg-gray-200 px-1 py-0.5 rounded font-mono font-bold text-[#0b1c30]"
+                                        >instalar-servicio.bat</code
+                                    >
+                                    y selecciona <strong>"Ejecutar como Administrador"</strong>.
                                 </p>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-3 p-3 rounded-lg bg-gray-50 border border-gray-200">
-                            <div class="w-6 h-6 rounded-full bg-[#4648d4] text-white flex items-center justify-center font-bold text-xs shrink-0">3</div>
+                            <div
+                                class="w-6 h-6 rounded-full bg-[#4648d4] text-white flex items-center justify-center font-bold text-xs shrink-0"
+                            >
+                                3
+                            </div>
                             <div class="text-xs">
                                 <div class="font-semibold text-[#0b1c30]">¡Listo! Detección automática</div>
                                 <p class="text-[#5f5e61] mt-0.5">
-                                    El servicio arrancará en segundo plano. En cuanto esté listo, la insignia cambiará a <strong class="text-emerald-700">verde</strong> automáticamente sin tener que recargar la página.
+                                    El servicio arrancará en segundo plano. En cuanto esté listo, la insignia cambiará a
+                                    <strong class="text-emerald-700">verde</strong> automáticamente sin tener que
+                                    recargar la página.
                                 </p>
                             </div>
                         </div>

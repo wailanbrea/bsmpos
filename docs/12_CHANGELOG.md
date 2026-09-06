@@ -4,6 +4,12 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-09-05 — POS: errores del agente sin impresión automática por navegador
+- `PosPage.vue`: conserva la ruta del agente si existe una impresora seleccionada; muestra fallos del agente y de generación del ticket dentro del comprobante. Bloquea clics durante el envío. A4 conserva la ruta de navegador.
+- `PosPage.print.spec.ts`: cuatro regresiones sobre error del agente, monitor desconectado, error de generación y clics simultáneos/envío correcto.
+- Verificado en navegador real con respuestas simuladas: solicitud de texto y POST al agente, sin HTML ni errores de consola. ESLint del área y build correctos; typecheck global conserva dos errores ajenos en ConfigurationPage.vue.
+- Grafo actualizado por extracción AST incremental. Pendientes: despliegue y conexión física de la 2C-P58-C en COM4.
+
 ### 2026-09-05 — Branding: Cambio de Nombre e Identidad del Sistema a "BSM-POS"
 **Modificado**
 - **Identidad de Marca y Aplicación:**

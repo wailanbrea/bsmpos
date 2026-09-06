@@ -6,9 +6,17 @@ Documentos: ticket 58/80/88 mm, factura A4, comanda (cocina/barra), precuenta, c
 
 ## Estrategia por etapas
 
-1. **Fase 11 (ahora):** impresión por navegador — plantillas HTML/CSS específicas por ancho (58/80/88mm con `@media print`) y PDF A4 (dompdf/browsershot). Vista previa antes de imprimir.
+1. **Impresión por navegador:** plantillas HTML/CSS específicas por ancho (58/80/88mm con `@media print`) y vista previa A4.
 2. **Preparado ESC/POS:** capa `TicketBuilder` que genera una representación intermedia (líneas, alineación, negrita, QR, corte) renderizable como HTML **o** bytes ESC/POS (mike42/escpos-php), sin acoplar plantillas al medio.
-3. **Futuro:** agente local (WebSocket/HTTP en LAN) para impresión directa a impresoras de red/USB, y app Android Kotlin (Bluetooth/USB). No desarrollar ahora.
+3. **Agente Windows implementado:** Kotlin/Ktor en loopback 8765; recepción de texto por `/api/print`, envío ESC/POS por Spooler o COM. Android continúa pendiente.
+
+## Ruta de impresión del POS (2026-09-05)
+
+- Los tickets térmicos usan el agente cuando está conectado o hay una impresora local seleccionada. Se conserva esa selección aunque el monitor de conexión cambie a desconectado.
+- Un fallo del agente o de `/invoices/{id}/print/text` se muestra dentro del comprobante. Nunca provoca un salto automático a HTML/navegador. A4 conserva la impresión de navegador, al igual que un ticket sin agente conectado ni impresora local seleccionada.
+- El botón se deshabilita mientras se envía el ticket para evitar clics simultáneos. Esto no sustituye la idempotencia del agente ni confirma salida física del papel.
+- Diagnóstico 2C-P58-C: Windows enumeró COM4, pero el agente instalado devolvía la impresora Bluetooth con `port: null`. El escaneo `/api/devices` tardó aproximadamente ocho segundos y devolvió dispositivos vacíos, compatible con el timeout del escáner. Falta resolver esa detección y validar impresión física; estar conectado al agente no confirma conexión con la impresora.
+- Validación local: cuatro regresiones Vitest y navegador real con API/agente simulados (error visible, sin petición HTML ni consola con errores). ESLint del área y build correctos. Typecheck global bloqueado por dos errores de nulabilidad existentes en `ConfigurationPage.vue`. Cambio pendiente de despliegue.
 
 ## Configuración
 
