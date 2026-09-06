@@ -4,6 +4,27 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-09-06 — Rebranding total a BSM-POS, JRE 21 embebido y Servicio Windows desatendido en 1 clic
+- **Rebranding integral a BSM-POS:**
+  - Eliminación de todas las referencias residuales al nombre anterior en la suite del agente y el ecosistema SaaS.
+  - Código Kotlin reestructurado en paquete `com.bsmpos.agent`.
+  - Proyecto Gradle renombrado a `bsmpos-windows-agent`.
+  - Servicio Windows configurado como `BSMPOSWindowsAgent` con ejecutable `BSMPOSAgent.exe` y archivo de configuración `BSMPOSAgent.xml`.
+  - Actualización de `composer.json` (`bsmpos/modular-saas`), configuraciones de Ktor, origen CORS (`https://bsmpos.bsolutions.dev`), scripts `.vbs` y `.bat`, y actualización de registros de empresa en base de datos a **BSM-POS Demo**.
+- **Empaquetado distribuible con JRE 21 mínimo embebido (`jlink`):**
+  - Runtime OpenJDK 21 recortado a la medida mediante `jlink` (`java.base`, `java.desktop` para Java Print Service, `java.sql`, `java.naming`, `java.management`, `java.net.http`, `jdk.unsupported` para buffers directos de Netty, `jdk.charsets` para codificaciones ESC/POS).
+  - Tamaño de solo 58 MB descomprimido y 40.5 MB en el paquete comprimido `.zip`.
+  - Cero requisitos de instalación previa en la computadora del cliente: no requiere instalar JDK, ni Java Runtime, ni variables de entorno PATH.
+- **Servicio de Windows de alta disponibilidad con arranque automático:**
+  - Ejecución bajo privilegios de sistema (`LocalSystem`), otorgando acceso sin restricciones a puertos COM físicos, emulaciones Bluetooth SPP (`COM4`) y cola de impresión de Windows.
+  - Tipo de inicio automático al arrancar Windows (`start= auto`), operando en segundo plano antes del inicio de sesión del usuario.
+  - Política de resiliencia y autorecuperación: reinicio automático en 5s, 10s y 20s ante cualquier salida imprevista.
+- **Instalador y Desinstalador automatizado en 1 Clic:**
+  - `INSTALAR-AGENTE.bat`: auto-elevación con diálogo nativo de permisos de Administrador (UAC), limpieza de versiones previas, registro e inicio del servicio y comprobación en vivo por PowerShell contra `http://127.0.0.1:8765/api/status`.
+  - `DESINSTALAR-AGENTE.bat`: parada y eliminación segura del servicio del registro de Windows.
+  - Alternativas incluidas: `BSMPOS-Agent.vbs` (segundo plano silencioso sin servicio) e `iniciar-sin-servicio.bat` (modo consola manual).
+  - Paquete `bsm-pos-agent.zip` (40.5 MB) disponible para descarga directa en la nube de producción (`https://bsmpos.bsolutions.dev/downloads/bsm-pos-agent.zip`) y en los paneles de POS y Terminales.
+
 ### 2026-09-06 — POS: Catálogo de Restaurante El Fogón, desacople de almacén y verificación de impresión térmica
 - **Catálogo de Restaurante El Fogón:**
   - `DemoVerticalsSeeder.php`: incorporados 28 nuevos productos auténticos de gastronomía dominicana clasificados en entradas (tostones rellenos, chicharrón de pollo, croquetas de jamón, empanaditas), platos fuertes y carnes (mofongo especial, chivo liniero, churrasco, costillas BBQ, hamburguesa), pescados/mariscos (chillo boca chica, salmón maracuyá, camarones al ajillo), pastas, bebidas (Presidente regular/light, jugos naturales, limonada) y postres tradicionales (tres leches, flan de caramelo, dulce de leche cortada).
