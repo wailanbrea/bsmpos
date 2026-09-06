@@ -10,8 +10,12 @@ type AgentStatusPayload = {
     port?: number;
 };
 
-const AGENT_STATUS_URL = 'http://127.0.0.1:8765/api/status';
-const RETRY_DELAY_MS = 15_000;
+const AGENT_STATUS_URLS = [
+    'http://127.0.0.1:8765/api/status',
+    'http://localhost:8765/api/status',
+];
+const RETRY_DELAY_DISCONNECTED_MS = 3_000;
+const RETRY_DELAY_CONNECTED_MS = 15_000;
 const REQUEST_TIMEOUT_MS = 3_000;
 
 /** Monitorea el estado del agente local de hardware (BSM-POS Windows Agent) sin bloquear la aplicación web. */
@@ -37,14 +41,14 @@ export function useAgentStatus() {
         }
     }
 
-    function scheduleRetry() {
+    function scheduleRetry(delayMs: number) {
         if (!mounted || retryTimer !== undefined) {
             return;
         }
         retryTimer = window.setTimeout(() => {
             retryTimer = undefined;
             void checkNow();
-        }, RETRY_DELAY_MS);
+        }, delayMs);
     }
 
     async function checkNow() {
@@ -55,36 +59,46 @@ export function useAgentStatus() {
         controller?.abort();
         controller = new AbortController();
         requestTimer = window.setTimeout(() => controller?.abort(), REQUEST_TIMEOUT_MS);
-        state.value = 'checking';
 
-        try {
-            const response = await fetch(AGENT_STATUS_URL, {
-                headers: { Accept: 'application/json' },
-                cache: 'no-store',
-                signal: controller.signal,
-            });
-            if (!response.ok) {
-                throw new Error(`El agente respondió con código ${response.status}`);
+        let connectedPayload: AgentStatusPayload | null = null;
+
+        for (const url of AGENT_STATUS_URLS) {
+            try {
+                const response = await fetch(url, {
+                    headers: { Accept: 'application/json' },
+                    cache: 'no-store',
+                    signal: controller.signal,
+                    // @ts-expect-error Chrome Private Network Access hint
+                    targetAddressSpace: 'loopback',
+                });
+                if (response.ok) {
+                    const payload = (await response.json()) as AgentStatusPayload;
+                    if (payload.status === 'ok') {
+                        connectedPayload = payload;
+                        break;
+                    }
+                }
+            } catch {
+                // Siguiente URL de fallback
             }
-            const payload = (await response.json()) as AgentStatusPayload;
-            if (payload.status !== 'ok') {
-                throw new Error('El agente no se encuentra en estado operativo');
-            }
+        }
+
+        if (connectedPayload) {
             state.value = 'connected';
-            version.value = payload.version ?? null;
-            agentName.value = payload.agent ?? 'BSM-POS Windows Agent';
-        } catch {
+            version.value = connectedPayload.version ?? null;
+            agentName.value = connectedPayload.agent ?? 'BSM-POS Windows Agent';
+        } else {
             state.value = 'disconnected';
             version.value = null;
             agentName.value = null;
-        } finally {
-            if (requestTimer !== undefined) {
-                window.clearTimeout(requestTimer);
-                requestTimer = undefined;
-            }
-            lastCheckedAt.value = new Date();
-            scheduleRetry();
         }
+
+        if (requestTimer !== undefined) {
+            window.clearTimeout(requestTimer);
+            requestTimer = undefined;
+        }
+        lastCheckedAt.value = new Date();
+        scheduleRetry(state.value === 'connected' ? RETRY_DELAY_CONNECTED_MS : RETRY_DELAY_DISCONNECTED_MS);
     }
 
     function handleVisibilityChange() {

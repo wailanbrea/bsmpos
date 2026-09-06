@@ -93,6 +93,7 @@ const branchName = computed(() => session.branch?.name ?? 'Santo Domingo #04');
 const userName = computed(() => session.user?.name ?? 'Carlos Mendez');
 const userRole = computed(() => (session.user?.is_super_admin ? 'Propietario' : 'Store Manager'));
 const userInitial = computed(() => (userName.value.charAt(0) || 'U').toUpperCase());
+const isPosRoute = computed(() => route.path === '/pos' || route.name === 'pos');
 
 function toggleMobileMenu(): void {
     isMobileMenuOpen.value = !isMobileMenuOpen.value;
@@ -309,7 +310,14 @@ onMounted(() => {
             </header>
 
             <!-- VISTA DE PÁGINA (MAIN) -->
-            <main class="relative pt-16 bg-[#f8f9ff] min-h-screen flex-1 min-w-0">
+            <main
+                class="relative bg-[#f8f9ff] min-w-0"
+                :class="[
+                    isPosRoute
+                        ? 'h-screen max-h-screen overflow-hidden flex flex-col pt-16'
+                        : 'min-h-screen pt-16 flex-1'
+                ]"
+            >
                 <slot />
             </main>
         </div>

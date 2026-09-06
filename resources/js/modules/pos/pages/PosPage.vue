@@ -789,9 +789,9 @@ const filteredProducts = computed(() => {
         </div>
 
         <!-- 2. TERMINAL POS INTERACTIVA (Si hay turno activo) -->
-        <div v-else>
+        <div v-else class="h-full flex-1 flex flex-col overflow-hidden min-h-0">
             <!-- Barra de estado superior -->
-            <header class="bg-[#302f39] text-[#f3effc] p-4 flex flex-wrap justify-between items-center gap-3">
+            <header class="shrink-0 bg-[#302f39] text-[#f3effc] px-4 py-2.5 flex flex-wrap justify-between items-center gap-3 shadow-xs">
                 <div class="flex items-center gap-3">
                     <span class="font-bold tracking-wider text-base">BSM-POS · {{ activeSession.register_name }}</span>
                     <span
@@ -805,12 +805,22 @@ const filteredProducts = computed(() => {
                     <button
                         type="button"
                         class="px-2.5 py-1 rounded-full text-xs font-bold uppercase flex items-center gap-1.5 cursor-pointer transition hover:opacity-90 shadow-2xs"
-                        :class="agentState === 'connected' ? 'bg-emerald-600 text-white hover:bg-emerald-500' : 'bg-amber-600 text-white hover:bg-amber-500 animate-pulse'"
-                        :title="agentState === 'connected' ? 'BSM-POS Windows Agent conectado (127.0.0.1:8765) - Clic para ver detalles' : 'Agente no detectado - Clic para descargar e instalar'"
+                        :class="[
+                            agentState === 'connected'
+                                ? 'bg-emerald-600 text-white hover:bg-emerald-500'
+                                : (agentState === 'checking'
+                                    ? 'bg-slate-600 text-white'
+                                    : 'bg-amber-600 text-white hover:bg-amber-500 animate-pulse')
+                        ]"
+                        :title="agentState === 'connected'
+                            ? 'BSM-POS Windows Agent conectado (127.0.0.1:8765) - Clic para ver detalles'
+                            : (agentState === 'checking'
+                                ? 'Comprobando agente de Windows...'
+                                : 'Agente no detectado - Clic para descargar e instalar')"
                         @click="showAgentModal = true"
                     >
                         <span class="material-symbols-outlined text-[14px]">desktop_windows</span>
-                        <span>{{ agentState === 'connected' ? 'Agente Windows' : 'Instalar Agente' }}</span>
+                        <span>{{ agentState === 'connected' ? 'Agente Windows' : (agentState === 'checking' ? 'Conectando...' : 'Instalar Agente') }}</span>
                     </button>
                     <span class="text-sm text-gray-300">| Cajero: {{ activeSession.opened_by }}</span>
                     <span class="text-sm font-bold text-green-400">
@@ -857,14 +867,14 @@ const filteredProducts = computed(() => {
                 </div>
             </header>
 
-            <div class="grid lg:grid-cols-[450px_1fr] h-[calc(100vh-65px)] overflow-hidden">
+            <div class="flex-1 min-h-0 grid lg:grid-cols-[430px_1fr] xl:grid-cols-[460px_1fr] overflow-hidden">
                 <!-- PANEL IZQUIERDO: CARRITO DE COMPRA -->
                 <section
-                    class="flex flex-col border-r border-[#c7c4d8] bg-white h-full overflow-hidden"
+                    class="flex flex-col border-r border-[#c7c4d8] bg-white h-full min-h-0 overflow-hidden"
                     aria-label="Carrito de compra"
                 >
                     <!-- Cabecera del carrito -->
-                    <div class="px-4 py-3 border-b border-[#e4e1ee] bg-[#fcfbfe] flex items-center justify-between">
+                    <div class="shrink-0 px-4 py-3 border-b border-[#e4e1ee] bg-[#fcfbfe] flex items-center justify-between">
                         <div class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-[20px] text-[#4648d4]">shopping_cart</span>
                             <h2 class="text-base font-bold text-[#302f39]">Orden Actual</h2>
@@ -885,7 +895,7 @@ const filteredProducts = computed(() => {
                     </div>
 
                     <!-- Listado de items del carrito -->
-                    <div class="flex-1 overflow-y-auto p-4 space-y-3">
+                    <div class="flex-1 min-h-0 overflow-y-auto p-4 space-y-3">
                         <div
                             v-if="cart.length === 0"
                             class="h-full flex flex-col items-center justify-center text-[#464555] p-8"
@@ -957,7 +967,7 @@ const filteredProducts = computed(() => {
                     </div>
 
                     <!-- Resumen de montos -->
-                    <div class="border-t border-[#e4e1ee] bg-[#fcfbfe] p-4 space-y-2">
+                    <div class="shrink-0 border-t border-[#e4e1ee] bg-[#fcfbfe] p-4 space-y-2">
                         <div class="flex justify-between text-base text-[#464555]">
                             <span>Subtotal:</span>
                             <span>RD$ {{ totals.subtotal.toFixed(2) }}</span>
@@ -992,9 +1002,9 @@ const filteredProducts = computed(() => {
                 </section>
 
                 <!-- PANEL DERECHO: CATÁLOGO DE PRODUCTOS -->
-                <section class="flex flex-col bg-[#fcfbfe] h-full overflow-hidden p-4">
+                <section class="flex flex-col bg-[#fcfbfe] h-full min-h-0 overflow-hidden p-4">
                     <!-- Buscador -->
-                    <div class="mb-4">
+                    <div class="shrink-0 mb-4">
                         <input
                             v-model="searchQuery"
                             type="text"
@@ -1004,7 +1014,7 @@ const filteredProducts = computed(() => {
                     </div>
 
                     <!-- Grid de productos -->
-                    <div class="flex-1 overflow-y-auto">
+                    <div class="flex-1 min-h-0 overflow-y-auto">
                         <div
                             class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-3"
                         >

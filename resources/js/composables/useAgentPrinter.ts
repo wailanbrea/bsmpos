@@ -1,5 +1,22 @@
-const AGENT_BASE_URL = 'http://127.0.0.1:8765';
+const AGENT_BASE_URLS = ['http://127.0.0.1:8765', 'http://localhost:8765'];
 const REQUEST_TIMEOUT_MS = 10000;
+
+async function fetchFromAgent(endpoint: string, init: RequestInit): Promise<Response> {
+    let lastError: unknown;
+    for (const baseUrl of AGENT_BASE_URLS) {
+        try {
+            const res = await fetch(`${baseUrl}${endpoint}`, {
+                ...init,
+                // @ts-expect-error Chrome Private Network Access hint
+                targetAddressSpace: 'loopback',
+            });
+            return res;
+        } catch (e) {
+            lastError = e;
+        }
+    }
+    throw lastError || new Error('No se pudo contactar al agente local.');
+}
 
 export type AgentPrintResult = {
     ok: boolean;
@@ -41,7 +58,7 @@ export async function printWithAgent(content: string, printerName?: string): Pro
     const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
     try {
-        const response = await fetch(`${AGENT_BASE_URL}/api/print`, {
+        const response = await fetchFromAgent('/api/print', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -73,7 +90,7 @@ export async function testWithAgent(printerName?: string, message?: string): Pro
     const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
     try {
-        const response = await fetch(`${AGENT_BASE_URL}/api/test`, {
+        const response = await fetchFromAgent('/api/test', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -108,7 +125,7 @@ export async function openDrawerWithAgent(printerName?: string): Promise<AgentPr
     const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
     try {
-        const response = await fetch(`${AGENT_BASE_URL}/api/drawer/open`, {
+        const response = await fetchFromAgent('/api/drawer/open', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ printer: printerName || undefined }),
@@ -140,7 +157,7 @@ export async function getAgentPrinters(): Promise<AgentPrinterInfo[]> {
     const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
     try {
-        const response = await fetch(`${AGENT_BASE_URL}/api/printers`, {
+        const response = await fetchFromAgent('/api/printers', {
             headers: { Accept: 'application/json' },
             cache: 'no-store',
             signal: controller.signal,
@@ -160,7 +177,7 @@ export async function getAgentDevices(): Promise<AgentDeviceSummary> {
     const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
     try {
-        const response = await fetch(`${AGENT_BASE_URL}/api/devices`, {
+        const response = await fetchFromAgent('/api/devices', {
             headers: { Accept: 'application/json' },
             cache: 'no-store',
             signal: controller.signal,
