@@ -203,10 +203,9 @@ open class LocalPrinterService {
      * Escribe bytes crudos directamente al puerto serial o Bluetooth virtual COM en Windows (\\\\.\\COMx).
      */
     open fun printToSerialPort(port: String, payload: ByteArray): Result<String> = runCatching {
-        val cleanPort = port.uppercase().trim()
-        val portPath = if (cleanPort.startsWith("""\\.\""")) cleanPort else """\\.\$cleanPort"""
+        val cleanPort = port.uppercase().trim().removePrefix("""\\.\""").removeSuffix("""\""")
         try {
-            FileOutputStream(File(portPath)).use { fos ->
+            FileOutputStream(cleanPort).use { fos ->
                 fos.write(payload)
                 fos.flush()
             }
