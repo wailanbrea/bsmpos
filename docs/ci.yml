@@ -1,0 +1,85 @@
+name: Continuous Integration
+
+on:
+    push:
+    pull_request:
+
+permissions:
+    contents: read
+
+jobs:
+    backend:
+        name: Backend quality
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.3'
+                  extensions: bcmath, pdo_sqlite
+                  coverage: none
+
+            - uses: ramsey/composer-install@v3
+              with:
+                  composer-options: --no-interaction --prefer-dist --no-progress
+
+            - run: vendor/bin/pint --test
+            - run: vendor/bin/phpstan analyse --memory-limit=1G
+            - run: php artisan test
+
+    frontend:
+        name: Frontend quality
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: npm
+
+            - run: npm ci
+            - run: npm run typecheck
+            - run: npm run lint
+            - run: npm run format:check
+            - run: npm run test:unit
+            - run: npm run build
+
+    e2e:
+        name: Browser E2E
+        needs: [backend, frontend]
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.3'
+                  extensions: bcmath, pdo_sqlite
+                  coverage: none
+
+            - uses: ramsey/composer-install@v3
+              with:
+                  composer-options: --no-interaction --prefer-dist --no-progress
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: npm
+
+            - run: npm ci
+            - run: npm run build
+            - run: npx playwright install --with-deps chromium
+            - run: npm run test:e2e
+
+            - name: Upload E2E artifacts
+              if: failure()
+              uses: actions/upload-artifact@v4
+              with:
+                  name: playwright-artifacts
+                  path: |
+                      playwright-report/
+                      test-results/
+                  if-no-files-found: ignore
+                  retention-days: 7
