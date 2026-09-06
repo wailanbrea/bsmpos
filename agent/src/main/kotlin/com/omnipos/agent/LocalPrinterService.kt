@@ -2,7 +2,9 @@ package com.omnipos.agent
 
 import java.io.File
 import java.io.FileOutputStream
+import java.util.concurrent.CompletableFuture
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeoutException
 import javax.print.DocFlavor
 import javax.print.PrintServiceLookup
 import javax.print.SimpleDoc
@@ -36,6 +38,7 @@ data class BluetoothDeviceInfo(
 data class SerialPortInfo(
     val port: String,
     val name: String,
+    val pnpDeviceId: String = "",
     val isBluetooth: Boolean = false,
 )
 
@@ -97,7 +100,7 @@ open class LocalPrinterService {
 
         // 1. Identificar impresoras entre dispositivos Bluetooth
         bluetoothDevices.filter { it.isPrinter }.forEach { bt ->
-            val printerPort = bt.port ?: serialPorts.firstOrNull { it.isBluetooth }?.port
+            val printerPort = bt.port
             val displayName = if (printerPort != null) "${bt.name} ($printerPort)" else "${bt.name} (Bluetooth)"
             if (combinedPrinters.none { it.name.contains(bt.name, ignoreCase = true) }) {
                 combinedPrinters.add(
@@ -255,7 +258,7 @@ open class LocalPrinterService {
             val psCommand = """
                 & {
                     ${'$'}ports = @(Get-CimInstance -ClassName Win32_SerialPort -ErrorAction SilentlyContinue | Where-Object { ${'$'}_.Status -eq 'OK' } | Select-Object DeviceID, Name, Description, PNPDeviceID)
-                    ${'$'}bt = @(Get-PnpDevice -Class Bluetooth -PresentOnly -ErrorAction SilentlyContinue | Where-Object { ${'$'}_.InstanceId -like 'BTHENUM\DEV_*' -or ${'$'}_.FriendlyName -like '*P58*' -or ${'$'}_.FriendlyName -like '*POS*' } | Select-Object FriendlyName, InstanceId, Status)
+                    ${'$'}bt = @(Get-PnpDevice -Class Bluetooth -PresentOnly -ErrorAction SilentlyContinue | Select-Object FriendlyName, InstanceId, Status)
                     [PSCustomObject]@{ ports = ${'$'}ports; bluetooth = ${'$'}bt } | ConvertTo-Json -Compress
                 }
             """.trimIndent()
@@ -264,13 +267,22 @@ open class LocalPrinterService {
                 .redirectErrorStream(true)
                 .start()
 
-            val finished = process.waitFor(20000, TimeUnit.MILLISECONDS)
-            if (!finished) {
+            val future = CompletableFuture.supplyAsync {
+                process.inputStream.bufferedReader().use { it.readText().trim() }
+            }
+
+            val output = try {
+                future.get(20, TimeUnit.SECONDS)
+            } catch (_: TimeoutException) {
+                process.destroyForcibly()
+                return Pair(emptyList(), emptyList())
+            } catch (_: Exception) {
                 process.destroyForcibly()
                 return Pair(emptyList(), emptyList())
             }
 
-            val output = process.inputStream.bufferedReader().readText().trim()
+            process.waitFor(2, TimeUnit.SECONDS)
+
             if (output.isBlank() || !output.startsWith("{")) {
                 return Pair(emptyList(), emptyList())
             }
@@ -302,7 +314,7 @@ open class LocalPrinterService {
             val isBt = name.contains("Bluetooth", ignoreCase = true) ||
                 pnpDeviceId.contains("BTHENUM", ignoreCase = true)
             if (deviceId.isNotBlank()) {
-                serialPorts.add(SerialPortInfo(port = deviceId, name = name, isBluetooth = isBt))
+                serialPorts.add(SerialPortInfo(port = deviceId, name = name, pnpDeviceId = pnpDeviceId, isBluetooth = isBt))
             }
         }
 
@@ -315,6 +327,8 @@ open class LocalPrinterService {
             else -> emptyList()
         }
 
+        val btSerialPorts = serialPorts.filter { it.isBluetooth }
+
         btArray.forEach { elem ->
             val obj = elem.jsonObject
             val friendlyName = obj["FriendlyName"]?.jsonPrimitive?.content.orEmpty()
@@ -323,15 +337,20 @@ open class LocalPrinterService {
 
             if (friendlyName.isNotBlank()) {
                 val isPrinter = isPrinterDevice(friendlyName)
-                val deviceAddress = Regex("DEV_([0-9A-F]{12})", RegexOption.IGNORE_CASE)
-                    .find(instanceId)?.groupValues?.getOrNull(1)
+                val deviceAddress = Regex("""(?:DEV_|_)?([0-9A-F]{12})\b""", RegexOption.IGNORE_CASE)
+                    .find(instanceId)?.groupValues?.getOrNull(1)?.uppercase()
                 val associatedPort = if (isPrinter) {
-                    serialPorts.firstOrNull { port ->
-                        val portAddress = Regex("DEV_([0-9A-F]{12})", RegexOption.IGNORE_CASE)
-                            .find(port.name)?.groupValues?.getOrNull(1)
-                        port.isBluetooth && (deviceAddress == null || portAddress == null ||
-                            deviceAddress.equals(portAddress, ignoreCase = true))
-                    }?.port
+                    val matchedByAddress = if (deviceAddress != null) {
+                        btSerialPorts.firstOrNull { port ->
+                            val portAddress = Regex("""(?:DEV_|_|&)?([0-9A-F]{12})\b""", RegexOption.IGNORE_CASE)
+                                .find(port.pnpDeviceId.ifBlank { port.name })?.groupValues?.getOrNull(1)?.uppercase()
+                            (portAddress != null && portAddress == deviceAddress) ||
+                                port.pnpDeviceId.contains(deviceAddress, ignoreCase = true)
+                        }?.port
+                    } else null
+
+                    // No asignar ciegamente si hay más de un puerto Bluetooth disponible
+                    matchedByAddress ?: if (btSerialPorts.size == 1) btSerialPorts.first().port else null
                 } else null
 
                 bluetoothDevices.add(
