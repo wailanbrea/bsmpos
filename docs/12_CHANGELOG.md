@@ -4,6 +4,24 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-09-06 — POS: Catálogo de Restaurante El Fogón, desacople de almacén y verificación de impresión térmica
+- **Catálogo de Restaurante El Fogón:**
+  - `DemoVerticalsSeeder.php`: incorporados 28 nuevos productos auténticos de gastronomía dominicana clasificados en entradas (tostones rellenos, chicharrón de pollo, croquetas de jamón, empanaditas), platos fuertes y carnes (mofongo especial, chivo liniero, churrasco, costillas BBQ, hamburguesa), pescados/mariscos (chillo boca chica, salmón maracuyá, camarones al ajillo), pastas, bebidas (Presidente regular/light, jugos naturales, limonada) y postres tradicionales (tres leches, flan de caramelo, dulce de leche cortada).
+  - Poblado en producción: 29 productos activos con precios en DOP y SKU estandarizados.
+- **Corrección de carga de productos en POS:**
+  - `PosPage.vue`: se corrigió la asignación `products.value = prodList` que se encontraba erróneamente subordinada a la condición `moduleStore.canUse('service')`. En empresas donde el módulo `service` no está activo (como restaurantes o tiendas), el catálogo de productos permanecía vacío a pesar de existir productos en el backend.
+  - Asegurada recarga reactiva de catálogo al abrir turno de caja física.
+- **Desacople de almacén en giros sin módulo de inventario:**
+  - `OrderController.php`: el campo `warehouse_id` pasa a ser opcional (`nullable`). Si la empresa o vertical no tiene activo el módulo de inventario multialmacén, el backend resuelve automáticamente el almacén principal de la sucursal activa (`ProvisionDefaultWarehouse`), evitando errores de validación.
+  - `CreateOrderAction.php`: resolución automática de almacén por defecto de la sucursal/empresa cuando `warehouse_id` no viene especificado.
+  - `PosPage.vue` & `services.ts`: selector de almacén en el modal de cobro condicionado a `v-if="warehouses.length > 0"` y validación de cobro adaptada.
+- **Verificación en vivo con Agente Windows y hardware real:**
+  - Confirmada ejecución del Agente local en `http://127.0.0.1:8765` y persistencia en la carpeta de inicio de Windows (`OmniPOS-Agent.vbs`).
+  - Venta de prueba realizada en navegador real en `https://bsmpos.bsolutions.dev/pos` (Mofongo + Presidente, RD$ 908.60 con billete de RD$ 1,000 y devuelta RD$ 91.40).
+  - Factura emitida `FAC-000001` con NCF de Consumo `B0200000001`.
+  - Pulso automático a gaveta de dinero en cobro de efectivo ejecutado vía `POST /api/drawer/open`.
+  - Impresión silenciosa directa enviada por RFCOMM/COM a la impresora térmica Bluetooth `2C-P58-C (COM4)` con ancho de 58mm vía `POST /api/print` (200 OK: "Ticket enviado correctamente").
+
 ### 2026-09-06 — Aislamiento estricto de módulos por vertical y refuerzo RBAC
 - **Aislamiento de módulos por tipo de negocio:**
   - `OwnerUserSeeder.php`: corregido el bucle de seed que activaba ciegamente todos los módulos en todas las compañías. Ahora conserva el preset de cada empresa.
