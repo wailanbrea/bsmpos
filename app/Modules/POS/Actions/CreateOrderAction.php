@@ -82,13 +82,25 @@ final class CreateOrderAction
                 throw new ApiException(ErrorCode::NotFound, 'El cliente no existe.', 404);
             }
 
-            $warehouse = Warehouse::query()
-                ->where('company_id', $company->getKey())
-                ->where('public_id', $data['warehouse_id'])
-                ->first();
+            $warehouse = null;
+            if (! empty($data['warehouse_id'])) {
+                $warehouse = Warehouse::query()
+                    ->where('company_id', $company->getKey())
+                    ->where('public_id', $data['warehouse_id'])
+                    ->first();
+            }
 
             if ($warehouse === null) {
-                throw new ApiException(ErrorCode::NotFound, 'El almacén no existe o no pertenece a esta compañía.', 404);
+                $warehouse = Warehouse::query()
+                    ->where('company_id', $company->getKey())
+                    ->where('branch_id', $branch->getKey())
+                    ->first()
+                    ?? Warehouse::query()->where('company_id', $company->getKey())->first();
+            }
+
+            if ($warehouse === null) {
+                $warehouse = app(\App\Modules\Inventory\Actions\ProvisionDefaultWarehouse::class)
+                    ->execute($branch);
             }
 
             // Validar que el correlativo de orden sea único para la compañía

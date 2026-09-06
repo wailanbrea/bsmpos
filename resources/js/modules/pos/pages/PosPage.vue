@@ -616,7 +616,7 @@ const selectedCustomerHasRnc = computed(() => {
 
 // Registrar la venta/orden
 async function submitOrder() {
-    if (!selectedCustomerId.value || !selectedWarehouseId.value) {
+    if (!selectedCustomerId.value || (warehouses.value.length > 0 && !selectedWarehouseId.value)) {
         errorMsg.value = 'Completa el cliente y el almacén antes de cobrar.';
         return;
     }
@@ -642,7 +642,7 @@ async function submitOrder() {
 
     const payload: PosOrder = {
         customer_id: selectedCustomerId.value,
-        warehouse_id: selectedWarehouseId.value,
+        warehouse_id: selectedWarehouseId.value || undefined,
         order_number: orderNumber,
         status: orderStatus.value,
         apply_tip: applyTip.value,
@@ -1159,7 +1159,7 @@ const filteredProducts = computed(() => {
                                 ⚠️ El cliente no posee RNC registrado.
                             </p>
                         </div>
-                        <div>
+                        <div v-if="warehouses.length > 0">
                             <label class="block text-sm font-semibold text-[#464555] mb-1.5">Almacén *</label>
                             <select
                                 v-model="selectedWarehouseId"

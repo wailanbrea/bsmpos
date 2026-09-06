@@ -77,7 +77,7 @@ final class OrderController
 
         $data = $request->validate([
             'customer_id' => ['required', 'string', Rule::exists('customers', 'public_id')->where('company_id', $companyId)],
-            'warehouse_id' => ['required', 'string', Rule::exists('warehouses', 'public_id')->where('company_id', $companyId)],
+            'warehouse_id' => ['nullable', 'string', Rule::exists('warehouses', 'public_id')->where('company_id', $companyId)],
             'order_number' => ['required', 'string', 'max:50'],
             'status' => ['required', 'string', Rule::in(['pending', 'completed'])],
             'apply_tip' => ['required', 'boolean'],
@@ -128,6 +128,23 @@ final class OrderController
             'payments.*.amount' => ['required', 'numeric', 'gt:0'],
             'payments.*.reference' => ['nullable', 'string', 'max:255'],
         ]);
+
+        if (empty($data['warehouse_id'])) {
+            $defaultWh = \App\Modules\Inventory\Models\Warehouse::query()
+                ->where('company_id', $companyId)
+                ->where(function ($q) use ($currentCompany) {
+                    $q->where('branch_id', $currentCompany->branch()->getKey())
+                        ->orWhereNull('branch_id');
+                })
+                ->first();
+
+            if ($defaultWh === null) {
+                $defaultWh = app(\App\Modules\Inventory\Actions\ProvisionDefaultWarehouse::class)
+                    ->execute($currentCompany->branch());
+            }
+
+            $data['warehouse_id'] = $defaultWh->public_id;
+        }
 
         $idempotencyKey = $request->header('Idempotency-Key');
 

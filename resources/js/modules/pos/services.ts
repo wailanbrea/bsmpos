@@ -23,7 +23,7 @@ export interface PosPayment {
 export interface PosOrder {
     id?: string;
     customer_id: string;
-    warehouse_id: string;
+    warehouse_id?: string;
     order_number: string;
     status: string; // pending | completed
     apply_tip: boolean;
