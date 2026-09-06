@@ -4,6 +4,15 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-09-06 — POS: Eliminación del parpadeo (flash) de apertura de caja al navegar desde Mesas
+- **Caché síncrono de sesión de caja (`sessionStorage`):**
+  - `PosPage.vue`: resuelto el parpadeo del formulario modal "Apertura de Caja" al cambiar entre vistas del sistema (por ejemplo, desde el plano de Mesas `/restaurant/layout` hacia el POS `/pos`).
+  - La causa raíz era la inicialización de `activeSession = null` evaluada asíncronamente mientras el API `getActiveCashSession()` respondía (100–300ms), mostrando momentáneamente el formulario de apertura antes de renderizar la caja activa.
+  - Implementada persistencia síncrona en `sessionStorage` con clave aislada por empresa y sucursal (`bsmpos_active_cash_session_${companyId}_${branchId}`).
+  - Se añade un centinela `isCheckingSession` para mostrar un spinner limpio si no existe sesión en caché, impidiendo cualquier montaje prematuro del formulario de apertura.
+  - Sincronización bidireccional automática del caché al abrir turno (`handleOpenSession`) y cerrar turno (`handleCloseSession`).
+  - Normalización de nombres de almacenamiento local a `bsmpos_db` (`indexeddb.ts`) y `bsmpos_external_order_bridge` (`services.ts`).
+
 ### 2026-09-06 — Rebranding total a BSM-POS, JRE 21 embebido y Servicio Windows desatendido en 1 clic
 - **Rebranding integral a BSM-POS:**
   - Eliminación de todas las referencias residuales al nombre anterior en la suite del agente y el ecosistema SaaS.
