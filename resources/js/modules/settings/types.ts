@@ -1,3 +1,18 @@
+export interface CompanyProfile {
+    id: string;
+    name: string;
+    legal_name: string | null;
+    tax_id_type: 'RNC' | 'CEDULA' | null;
+    tax_id: string | null;
+    phone: string | null;
+    whatsapp: string | null;
+    email: string | null;
+    address: string | null;
+    timezone: string | null;
+    currency_code: string | null;
+    is_active: boolean;
+}
+
 export interface Tax {
     id: string;
     name: string;

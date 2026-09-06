@@ -1,0 +1,7 @@
+{
+    "code": "notification",
+    "name": "Notificaciones",
+    "category": "core",
+    "is_core": true,
+    "dependencies": []
+}

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
-import { RouterLink } from 'vue-router';
 import { api } from '../../../lib/api';
 import type { ApiEnvelope } from '../../auth/types';
 import type { AuditLog, AuditPagination } from '../types';
@@ -86,14 +85,7 @@ onMounted(() => {
 <template>
     <main class="min-h-screen bg-kinetic-surface px-4 py-6 text-kinetic-ink md:px-8 md:py-10">
         <div class="mx-auto max-w-6xl">
-            <RouterLink
-                to="/"
-                class="inline-flex min-h-11 items-center text-sm font-semibold text-[#3525cd] hover:underline"
-            >
-                ← Volver al panel
-            </RouterLink>
-
-            <header class="mt-4 border-b border-[#c7c4d8] pb-6 md:flex md:items-end md:justify-between">
+            <header class="border-b border-[#c7c4d8] pb-6 md:flex md:items-end md:justify-between">
                 <div>
                     <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#3525cd]">Seguridad operativa</p>
                     <h1 class="mt-2 text-3xl font-bold tracking-tight md:text-4xl">Bitácora de auditoría</h1>

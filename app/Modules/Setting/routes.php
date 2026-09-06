@@ -20,7 +20,9 @@ Route::middleware(['auth:sanctum', 'company'])->group(function (): void {
         Route::post('taxes', [SettingController::class, 'storeTax']);
         Route::patch('taxes/{publicId}', [SettingController::class, 'updateTax']);
         Route::post('payment-methods', [SettingController::class, 'storePaymentMethod']);
+        Route::patch('payment-methods/{publicId}', [SettingController::class, 'updatePaymentMethod']);
         Route::post('ncf-sequences', [NcfSequenceController::class, 'store']);
+        Route::patch('ncf-sequences/{id}', [NcfSequenceController::class, 'update']);
         Route::put('settings/{group}', [SettingsGroupController::class, 'update']);
         Route::post('exchange-rates', [ExchangeRateController::class, 'store']);
     });

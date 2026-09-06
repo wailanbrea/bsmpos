@@ -2,11 +2,31 @@
 
 @theme {
     --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
-    --color-kinetic-primary: #3525cd;
+    --font-geist: Geist, Inter, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    --color-surface: #f8f9ff;
+    --color-surface-dim: #cbdbf5;
+    --color-surface-container: #e5eeff;
+    --color-surface-container-low: #eff4ff;
+    --color-surface-container-lowest: #ffffff;
+    --color-on-surface: #0b1c30;
+    --color-on-surface-variant: #464554;
+
+    --color-primary: #4648d4;
+    --color-primary-container: #6063ee;
+    --color-on-primary: #ffffff;
+    --color-inverse-primary: #c0c1ff;
+
+    --color-secondary: #5f5e61;
+    --color-outline: #767586;
+    --color-outline-variant: #c7c4d7;
+
+    --color-kinetic-primary: #4648d4;
     --color-kinetic-success: #006c49;
     --color-kinetic-danger: #ba1a1a;
-    --color-kinetic-surface: #fcf8ff;
-    --color-kinetic-ink: #1b1b24;
+    --color-kinetic-surface: #f8f9ff;
+    --color-kinetic-ink: #0b1c30;
 }
 
 @layer components {
@@ -262,3 +282,12 @@
         outline-offset: 2px;
     }
 }
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+

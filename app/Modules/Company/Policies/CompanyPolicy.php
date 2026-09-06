@@ -29,6 +29,11 @@ final class CompanyPolicy
         return $user->hasCompanyPermission($company->getKey(), 'company.manage');
     }
 
+    public function update(User $user, Company $company): bool
+    {
+        return $user->hasCompanyPermission($company->getKey(), 'company.manage');
+    }
+
     public function viewRoles(User $user, Company $company): bool
     {
         return $user->hasCompanyPermission($company->getKey(), 'access.roles.view');

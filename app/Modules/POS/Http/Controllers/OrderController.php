@@ -12,6 +12,9 @@ use App\Core\Tenancy\CurrentCompany;
 use App\Models\User;
 use App\Modules\POS\Actions\CreateOrderAction;
 use App\Modules\POS\Models\Order;
+use App\Modules\Product\Models\Product;
+use App\Modules\Service\Models\Service;
+use Closure;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -80,7 +83,39 @@ final class OrderController
             'apply_tip' => ['required', 'boolean'],
             'notes' => ['nullable', 'string'],
             'items' => ['required', 'array', 'min:1'],
-            'items.*.product_id' => ['required', 'string', Rule::exists('products', 'public_id')->where('company_id', $companyId)->whereNull('deleted_at')],
+            'items.*.product_id' => [
+                'required',
+                'string',
+                function (string $attribute, mixed $value, Closure $fail) use ($companyId): void {
+                    if (is_string($value) && (
+                        str_starts_with($value, 'srv-') ||
+                        str_starts_with($value, 'part-') ||
+                        str_starts_with($value, 'labor-') ||
+                        str_starts_with($value, 'custom-')
+                    )) {
+                        return;
+                    }
+
+                    $prodQuery = Product::query()->where('company_id', $companyId)->whereNull('deleted_at');
+                    $existsInProducts = is_numeric($value)
+                        ? (clone $prodQuery)->where('id', (int) $value)->exists()
+                        : (clone $prodQuery)->where('public_id', $value)->exists();
+
+                    if ($existsInProducts) {
+                        return;
+                    }
+
+                    $servQuery = Service::query()->where('company_id', $companyId)->whereNull('deleted_at');
+                    $existsInServices = is_numeric($value)
+                        ? (clone $servQuery)->where('id', (int) $value)->exists()
+                        : (clone $servQuery)->where('public_id', $value)->exists();
+
+                    if (! $existsInServices) {
+                        $fail('validation.exists');
+                    }
+                },
+            ],
+            'items.*.name' => ['nullable', 'string', 'max:255'],
             'items.*.quantity' => ['required', 'numeric', 'gt:0'],
             'items.*.price' => ['required', 'numeric', 'min:0'],
             'items.*.discount' => ['required', 'numeric', 'min:0'],

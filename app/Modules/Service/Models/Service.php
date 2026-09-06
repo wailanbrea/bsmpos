@@ -7,7 +7,9 @@ namespace App\Modules\Service\Models;
 use App\Core\Concerns\Auditable;
 use App\Core\Concerns\BelongsToCompany;
 use App\Core\Concerns\HasPublicUlid;
+use App\Modules\Setting\Models\Tax;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 final class Service extends Model
@@ -37,5 +39,11 @@ final class Service extends Model
             'requires_employee' => 'boolean',
             'is_active' => 'boolean',
         ];
+    }
+
+    /** @return BelongsTo<Tax, $this> */
+    public function tax(): BelongsTo
+    {
+        return $this->belongsTo(Tax::class);
     }
 }

@@ -3,6 +3,7 @@ import { api } from '../../lib/api';
 export interface PosOrderItem {
     product_id: string;
     product_name?: string;
+    name?: string;
     quantity: number;
     price: number;
     discount: number;
@@ -29,6 +30,32 @@ export interface PosOrder {
     notes?: string;
     items: PosOrderItem[];
     payments?: PosPayment[];
+}
+
+export interface ExternalOrderBridge {
+    source: 'appointment' | 'work_order';
+    reference_id: string;
+    customer_id?: string | null;
+    customer_name?: string | null;
+    notes?: string;
+    items: PosOrderItem[];
+}
+
+const BRIDGE_STORAGE_KEY = 'omnipos_external_order_bridge';
+
+export function setExternalOrderBridge(data: ExternalOrderBridge): void {
+    window.sessionStorage.setItem(BRIDGE_STORAGE_KEY, JSON.stringify(data));
+}
+
+export function consumeExternalOrderBridge(): ExternalOrderBridge | null {
+    const raw = window.sessionStorage.getItem(BRIDGE_STORAGE_KEY);
+    if (!raw) return null;
+    window.sessionStorage.removeItem(BRIDGE_STORAGE_KEY);
+    try {
+        return JSON.parse(raw) as ExternalOrderBridge;
+    } catch {
+        return null;
+    }
 }
 
 // El cliente compartido `api` inyecta Authorization y el contexto de

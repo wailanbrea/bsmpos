@@ -27,7 +27,7 @@ final class AppointmentResource extends JsonResource
             'reminder_at' => $this->reminder_at?->toIso8601String(),
             'notes' => $this->notes,
             'services' => $this->whenLoaded('services', fn () => $this->services->map(fn ($line): array => [
-                'service_id' => $line->service_id,
+                'service_id' => $line->service->public_id,
                 'name' => $line->name,
                 'price' => $line->price,
                 'tax_rate' => $line->tax_rate,

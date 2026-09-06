@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import axios from 'axios';
 import { computed, onMounted, ref, watch } from 'vue';
-import { RouterLink } from 'vue-router';
 import {
     createProduct,
     deleteProductImage,
@@ -233,10 +232,7 @@ onMounted(() => {
 <template>
     <main class="min-h-screen bg-kinetic-surface p-4 text-kinetic-ink md:p-8">
         <div class="mx-auto max-w-7xl">
-            <RouterLink to="/" class="inline-flex min-h-11 items-center text-sm font-semibold text-[#3525cd]"
-                >← Volver al panel</RouterLink
-            >
-            <header class="mt-3 border-b border-[#c7c4d8] pb-6">
+            <header class="border-b border-[#c7c4d8] pb-6">
                 <p class="text-xs font-bold uppercase tracking-[.14em] text-[#3525cd]">Catálogo</p>
                 <h1 class="mt-2 text-3xl font-bold tracking-tight">Productos</h1>
                 <p class="mt-2 text-sm text-[#464555]">

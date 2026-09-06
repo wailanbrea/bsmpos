@@ -15,8 +15,8 @@ export default defineConfig({
         VitePWA({
             registerType: 'autoUpdate',
             manifest: {
-                name: 'OmniPOS',
-                short_name: 'OmniPOS',
+                name: 'BSM-POS',
+                short_name: 'BSM-POS',
                 lang: 'es-DO',
                 theme_color: '#3525cd',
                 background_color: '#fcf8ff',

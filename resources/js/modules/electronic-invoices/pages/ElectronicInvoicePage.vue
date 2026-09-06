@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
-import { RouterLink } from 'vue-router';
 import { api } from '../../../lib/api';
 
 interface EInvoice {
@@ -102,16 +101,22 @@ onMounted(() => {
 <template>
     <main class="min-h-screen bg-kinetic-surface p-4 text-kinetic-ink md:p-8">
         <div class="mx-auto max-w-6xl">
-            <RouterLink to="/" class="inline-flex min-h-11 items-center text-sm font-semibold text-[#3525cd]"
-                >← Volver al panel</RouterLink
-            >
-            <header class="mt-3 border-b border-[#c7c4d8] pb-6">
+            <header class="border-b border-[#c7c4d8] pb-6">
                 <p class="text-xs font-bold uppercase tracking-[.14em] text-[#3525cd]">Fiscal</p>
                 <h1 class="mt-2 text-3xl font-bold tracking-tight">Facturación Electrónica (e-CF)</h1>
                 <p class="mt-2 text-sm text-[#464555]">
-                    Estado de los comprobantes fiscales electrónicos. El proveedor real se conecta cuando la empresa
-                    complete su certificación ante la DGII; mientras tanto el simulador permite operar y probar.
+                    Estado de los comprobantes fiscales electrónicos (e-CF, Ley 32-23).
                 </p>
+                <!-- BANNER SAAS SERVICIO OPCIONAL -->
+                <div class="mt-4 flex items-start gap-3 rounded-xl border border-[#4648d4]/20 bg-[#eff4ff] p-4 text-xs text-[#0b1c30]">
+                    <span class="material-symbols-outlined text-[20px] text-[#4648d4] shrink-0">info</span>
+                    <div>
+                        <p class="font-semibold text-[#4648d4]">Servicio SaaS Opcional bajo Demanda</p>
+                        <p class="mt-0.5 text-[#464555] leading-relaxed">
+                            La facturación electrónica e-CF está completamente preparada y disponible como módulo SaaS opcional. Si tu negocio aún no emite comprobantes electrónicos ante la DGII, puedes operar al 100% con secuencias NCF tradicionales (B01, B02, etc.) sin restricciones.
+                        </p>
+                    </div>
+                </div>
             </header>
 
             <div v-if="error" class="mt-6 rounded-xl bg-[#ffdad6] p-4 text-sm text-[#93000a]" role="alert">

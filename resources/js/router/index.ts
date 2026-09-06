@@ -10,6 +10,7 @@ import BranchManagementPage from '../modules/company/pages/BranchManagementPage.
 import ModuleManagementPage from '../modules/module-manager/pages/ModuleManagementPage.vue';
 import OnboardingPage from '../modules/module-manager/pages/OnboardingPage.vue';
 import ConfigurationPage from '../modules/settings/pages/ConfigurationPage.vue';
+import AgentTerminalsPage from '../modules/settings/pages/AgentTerminalsPage.vue';
 import CustomerListPage from '../modules/customers/pages/CustomerListPage.vue';
 import ProductListPage from '../modules/products/pages/ProductListPage.vue';
 import InventoryPage from '../modules/inventory/pages/InventoryPage.vue';
@@ -88,9 +89,21 @@ const router = createRouter({
             meta: { requiresAuth: true, requiresContext: true },
         },
         {
+            path: '/configuracion',
+            name: 'settings',
+            component: ConfigurationPage,
+            meta: { requiresAuth: true, requiresContext: true },
+        },
+        {
             path: '/configuracion/fiscal',
             name: 'settings-fiscal',
             component: ConfigurationPage,
+            meta: { requiresAuth: true, requiresContext: true },
+        },
+        {
+            path: '/configuracion/terminales',
+            name: 'settings-terminals',
+            component: AgentTerminalsPage,
             meta: { requiresAuth: true, requiresContext: true },
         },
         {

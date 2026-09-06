@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import { useRouter } from 'vue-router';
 import { fetchEmployees } from '../../employees/services';
 import type { Employee } from '../../employees/types';
+import { setExternalOrderBridge } from '../../pos/services';
 import {
     createAppointment,
     fetchAppointments,
@@ -108,6 +109,31 @@ function time(iso: string): string {
     return new Date(iso).toLocaleTimeString('es-DO', { hour: '2-digit', minute: '2-digit' });
 }
 
+const router = useRouter();
+
+function billInPos(appointment: Appointment): void {
+    const items = appointment.services.map((s) => ({
+        product_id: String(s.service_id),
+        product_name: s.name,
+        quantity: 1,
+        price: Number(s.price),
+        discount: 0,
+        tax_id: null,
+        tax_rate: Number(s.tax_rate) || 18,
+    }));
+
+    setExternalOrderBridge({
+        source: 'appointment',
+        reference_id: appointment.id,
+        customer_id: appointment.customer_id,
+        customer_name: appointment.customer_name,
+        notes: `Cita Barbería #${appointment.id.slice(-6)} · ${appointment.employee_name || 'Sin empleado'} (${time(appointment.scheduled_at)})`,
+        items,
+    });
+
+    void router.push({ path: '/pos', query: { source: 'appointment', ref: appointment.id } });
+}
+
 onMounted(async () => {
     try {
         [employees.value, services.value, customers.value] = await Promise.all([
@@ -125,10 +151,7 @@ onMounted(async () => {
 <template>
     <main class="min-h-screen bg-kinetic-surface p-4 text-kinetic-ink md:p-8">
         <div class="mx-auto max-w-6xl">
-            <RouterLink to="/" class="inline-flex min-h-11 items-center text-sm font-semibold text-[#3525cd]"
-                >← Volver al panel</RouterLink
-            >
-            <header class="mt-3 border-b border-[#c7c4d8] pb-6">
+            <header class="border-b border-[#c7c4d8] pb-6">
                 <p class="text-xs font-bold uppercase tracking-[.14em] text-[#3525cd]">Barbería / Salón</p>
                 <h1 class="mt-2 text-3xl font-bold tracking-tight">Agenda de citas</h1>
                 <p class="mt-2 text-sm text-[#464555]">Citas por empleado, con estado y total del servicio.</p>
@@ -188,12 +211,22 @@ onMounted(async () => {
                                     {{ STATUS_LABELS[appointment.status] }}
                                 </span>
                             </div>
-                            <div v-if="TRANSITIONS[appointment.status].length" class="mt-3 flex flex-wrap gap-2">
+                            <div class="mt-3 flex flex-wrap items-center gap-2">
+                                <button
+                                    v-if="appointment.status === 'completada' || appointment.status === 'en_proceso'"
+                                    type="button"
+                                    class="min-h-9 rounded-lg bg-[#4648d4] px-3 text-xs font-bold text-white hover:bg-[#393bb3] flex items-center gap-1.5 shadow-2xs transition cursor-pointer"
+                                    title="Transferir servicios al POS para cobrar y emitir comprobante fiscal"
+                                    @click="billInPos(appointment)"
+                                >
+                                    <span class="material-symbols-outlined text-[16px]">point_of_sale</span>
+                                    <span>Facturar en POS</span>
+                                </button>
                                 <button
                                     v-for="next in TRANSITIONS[appointment.status]"
                                     :key="next"
                                     type="button"
-                                    class="min-h-9 rounded-lg border border-[#c7c4d8] px-3 text-xs font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
+                                    class="min-h-9 rounded-lg border border-[#c7c4d8] px-3 text-xs font-bold text-[#3525cd] hover:bg-[#f0ecf9] cursor-pointer"
                                     @click="changeStatus(appointment, next)"
                                 >
                                     {{ STATUS_LABELS[next] }}

@@ -17,6 +17,7 @@ export interface WorkOrder {
     id: string;
     vehicle_id: string | null;
     vehicle_label: string | null;
+    customer_id?: string | null;
     customer_name: string | null;
     employee_name: string | null;
     diagnosis: string | null;

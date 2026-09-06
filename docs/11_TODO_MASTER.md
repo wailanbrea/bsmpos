@@ -2,7 +2,7 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASES 1–14 completas (candidato v1), incluidos los verticales Barbería (empleados + citas) y Taller (vehículos + órdenes de trabajo). Seguridad (2FA), suite E2E Playwright (18 escenarios, incl. barbería y taller) y CI GitHub Actions operativos; 166 pruebas backend verdes. Export nativo Excel/PDF y seeder base global cerrados. Pendientes: backlog post-v1 (provider e-CF real con credenciales DGII, cotizaciones/fotos de taller, facturar cita/orden → factura fiscal).**
+**Estado global: FASES 1–14 completas (candidato v1). Plataforma renombrada a BSM-POS. Incluye Punto de Venta (POS) optimizado con eliminación rápida en carrito, Centro de Notificaciones reactivas, Hub de Configuración completo (Perfil, Fiscal, NCFs, Impuestos, Métodos de pago), Verticales Barbería y Taller, BSM-POS Windows Agent interactivo con instalación en 1 clic para hardware ESC/POS y gaveta, suite E2E Playwright, 180 pruebas backend verdes y 0 errores en Larastan nivel 8.**
 
 **Verificación 2026-07-10:** baseline de calidad restaurada tras correcciones de tipado en POS, inventario, facturación, impresión y restaurante. Pest, Pint, Larastan, vue-tsc, Vitest, ESLint, Prettier y build PWA están verdes.
 
@@ -59,6 +59,7 @@
 - [x] Tipos de comprobante DGII (B01/B02/B03/B04/B14/B15 + E31/E32/E33/E34/E44/E45) y secuencias NCF/e-NCF con `NcfSequenceService::reserve()` (lockForUpdate, vencimiento, agotamiento, alertas) — probado
 - [x] Códigos fiscales canónicos y NCF completo: emisión POS, impresión y migración de registros históricos normalizados a `B01/B02/...`.
 - [x] API de configuración fiscal (`/settings/fiscal`, `/taxes`, `/payment-methods`, `/ncf-sequences`) + pantalla de Configuración; verificado en navegador
+- [x] Edición integral de Perfil de Empresa (`GET/PATCH /company/profile`: nombre comercial, razón social, RNC, teléfonos, correo, dirección, timezone) y gestión de impuestos, métodos de pago y secuencias NCF (ajuste de número final y alertas); verificado en navegador
 - [x] Tasas de cambio editables con registro histórico (API `/exchange-rates` + tabla y alta en UI); verificado en navegador
 - [x] Configuración por grupos POS/inventario/facturación/impresión/seguridad/backup (tabla `settings` clave-valor, `SettingsSchema` con tipos y defaults, `SettingsService`, API `GET/PUT /settings/{group}`, tarjetas de preferencias en UI renderizadas desde el esquema); persistencia verificada en navegador
 
@@ -83,6 +84,7 @@
 
 ## FASE 7 — POS Touch
 - [x] Órdenes + carrito persistente (IndexedDB) + validaciones stock/lote/vencimiento/caja
+- [x] Eliminación rápida en 1 clic de productos del carrito (icono de papelera) y vaciado total de orden con confirmación y recálculo instantáneo
 - [x] Totales DECIMAL, descuentos, impuestos, propina; cotización; idempotencia
 
 ## FASE 8 — Caja y pagos
@@ -100,11 +102,12 @@
 
 ## FASE 11 — Impresión
 - [x] Plantillas 58/80/88mm + A4 + comanda + precuenta + cierre; TicketBuilder ESC/POS-ready; config por terminal
+- [x] OmniPOS Windows Agent empaquetado (.zip en public/downloads y endpoint /api/v1/agent-terminals/download), modal interactivo de descarga e instalación en 1 clic desde el botón de estado del POS (desktop_windows) y panel de hardware con detección en vivo.
 
 ## FASE 12 — Módulos por negocio
 - [x] Restaurante: mesas/áreas, KDS, comandas, delivery, menú digital
-- [x] Barbería / Salón: módulos activables **`employee`** (empleados con % de comisión) y **`appointment`** (citas). Agenda por fecha/empleado, alta de cita con servicios (total con ITBIS vía bcmath), ciclo de estados pendiente→confirmada→en_proceso→completada con transiciones validadas (cancelada/no_asistio); rutas gated por `module:`+permiso, aislamiento por compañía. Cubierto por `AppointmentModuleTest` (6 casos) y verificado en navegador real (crear cita RD$413, transición de estado, 0 errores de consola). Pendiente futuro: facturar cita → factura fiscal (hoy los servicios se cobran por POS).
-- [x] Taller mecánico: módulos activables **`vehicle`** (vehículos de clientes: marca/modelo/año/placa/VIN/color/kilometraje) y **`work_order`** (órdenes de trabajo). Órdenes con diagnóstico, servicios (total con ITBIS vía bcmath), repuestos (cantidad × precio) y mano de obra; ciclo de estados recibida→diagnosticando→cotizada→aprobada→en_proceso→lista→entregada (+ cancelada) con transiciones validadas; rutas gated por `module:`+permiso, aislamiento por compañía. Cubierto por `WorkshopModuleTest` (6 casos, total RD$ 1554) y verificado en navegador real (registrar vehículo Toyota Hilux y crear orden, POST 201). Pendiente futuro: cotizaciones (módulo `quotation`), fotos/evidencias y facturar orden → factura fiscal (hoy vía POS).
+- [x] Barbería / Salón: módulos activables **`employee`** (empleados con % de comisión) y **`appointment`** (citas). Agenda por fecha/empleado, alta de cita con servicios (total con ITBIS vía bcmath), ciclo de estados con transiciones validadas; botón **"Facturar en POS"** que transfiere servicios, cliente y notas a la caja con cálculo de ITBIS y emisión fiscal NCF B02 sin deducción física de stock.
+- [x] Taller mecánico: módulos activables **`vehicle`** y **`work_order`**. Órdenes con diagnóstico, servicios, repuestos y mano de obra; ciclo de estados con transiciones validadas; botón **"Facturar en POS"** con puente reactivo `ExternalOrderBridge`, soporte a conceptos virtuales/repuestos/mano de obra, y facturación NCF B02 auditada.
 
 ## FASE 13 — Reportes
 - [x] Ventas y caja por período exportable CSV; desgloses por producto/categoría/método de pago/cajero/cliente/impuestos/descuentos; reporte de anulaciones (`/reports/annulments`) con resumen
@@ -119,6 +122,15 @@
 - [x] Suite **Playwright E2E** dedicada (runner + CI): 18 escenarios sobre la app real cubren todos los flujos críticos transversales — acceso/2FA, navegación y gates de módulo, POS fiscal (caja→venta→efectivo/cambio→B02→ticket→inventario), pago mixto tarjeta DOP + efectivo USD, cierre de caja/arqueo, activación/desactivación de módulos con protección del núcleo, bloqueo de venta sin stock, y los verticales **Barbería** (agendar cita con total ITBIS + transición) y **Taller** (registrar vehículo → crear orden con servicio+mano de obra + transición). Los flujos por-vertical restantes (restaurante, compras/FEFO, vencimientos, e-CF Mock) quedan en backlog: hoy cubiertos por pruebas backend (Pest) + verificación manual; se automatizarán al madurar cada vertical (varios son post-v1).
 - [x] UI de 2FA en `/seguridad`: asistente activar (clave manual agrupada + enlace `otpauth://`) → confirmar con código → desactivar con código; campo de código 2FA en el login que aparece ante `TWO_FACTOR_REQUIRED`. Verificado en navegador (activar → reto en login → acceso con código válido). (QR gráfico opcional a futuro; hoy clave manual, soportada por toda app autenticadora)
 - [x] CI GitHub Actions: Pint, Larastan, Pest, typecheck, ESLint, Prettier, Vitest, build y Playwright Chromium con artefactos de fallo.
+- [x] **Centro de Notificaciones Operativas en Vivo (`app/Modules/Notification/` & `NotificationDropdown.vue`):**
+  - Módulo core multi-tenant con `SystemNotification` (categorías `inventory`, `fiscal`, `appointment`, `work_order`, `cash`, `system`).
+  - Detección automática y sincronización de alertas inteligentes: existencias críticas bajo umbral, secuencias NCF por agotarse, citas del día, órdenes de taller terminadas y turnos de caja abiertos por más de 12 horas.
+  - Endpoints RESTful con marcas de lectura individuales y masivas (`/api/v1/notifications`).
+  - Dropdown interactivo con badge dinámico animado, tiempos relativos, eliminación y navegación directa al recurso. Cubierto con 8 pruebas Pest y verificado en navegador.
+- [x] **Preparación de e-CF como Servicio SaaS Opcional:**
+  - Módulo `electronic_invoice` desacoplado y opcional (`is_core = false`). Si no se contrata, la empresa opera legal y fluidamente con NCF tradicionales (B01, B02, B14). Si se solicita, todo el pipeline e-CF (contratos, provider, colas y secuencias E31/E32) está listo para encenderse de inmediato.
 
 ## Backlog (post-v1)
-- [ ] Cuentas por cobrar/pagar completas, fidelización, reservas, garantías, gastos, notificaciones WhatsApp, panel super-admin SaaS, provider e-CF real (DGII directo o PSFE), agente local de impresión, app Android Kotlin
+- [x] Agente local de impresión y hardware Windows: OmniPOS Windows Agent (Kotlin 2.1 / Ktor 3.1 Netty en loopback 8765), detección PnP de dispositivos Bluetooth emparejados (reconocimiento de impresora `2C-P58-C` en COM7/COM6), puertos seriales COM, Spooler Windows, impresión directa ESC/POS raw (`\\.\COMx`), pulso de gaveta, backend Laravel con tokens HMAC-SHA256 (`/agent-terminals`), ticket monoespaciado (`/invoices/{id}/print/text`), página Bento Grid `/configuracion/terminales`, selector dinámico de impresora en el POS y orquestador `scripts/start-suite.ps1`.
+- [ ] Cuentas por cobrar/pagar completas, fidelización, reservas, garantías, gastos, notificaciones WhatsApp, panel super-admin SaaS, provider e-CF real (DGII directo o PSFE), app Android Kotlin
+

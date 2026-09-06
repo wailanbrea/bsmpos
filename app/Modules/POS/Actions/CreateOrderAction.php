@@ -16,6 +16,7 @@ use App\Modules\POS\Models\Order;
 use App\Modules\POS\Models\Payment;
 use App\Modules\POS\Services\CashSessionService;
 use App\Modules\Product\Models\Product;
+use App\Modules\Service\Models\Service;
 use App\Modules\Setting\Models\Tax;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -40,6 +41,8 @@ final class CreateOrderAction
      *     idempotency_key?: string,
      *     items: list<array{
      *         product_id: string,
+     *         name?: string,
+     *         product_name?: string,
      *         quantity: float,
      *         price: float,
      *         discount: float,
@@ -105,14 +108,59 @@ final class CreateOrderAction
 
             // Procesar líneas
             foreach ($data['items'] as $item) {
-                $product = Product::query()
-                    ->where('company_id', $company->getKey())
-                    ->where('public_id', $item['product_id'])
-                    ->whereNull('deleted_at')
-                    ->first();
+                $isVirtual = str_starts_with($item['product_id'], 'srv-') ||
+                    str_starts_with($item['product_id'], 'part-') ||
+                    str_starts_with($item['product_id'], 'labor-') ||
+                    str_starts_with($item['product_id'], 'custom-');
 
-                if ($product === null) {
-                    throw new ApiException(ErrorCode::NotFound, 'Producto no encontrado.', 404);
+                if ($isVirtual) {
+                    $itemName = $item['name'] ?? $item['product_name'] ?? (string) $item['product_id'];
+                    $product = Product::query()->firstOrCreate(
+                        [
+                            'company_id' => $company->getKey(),
+                            'sku' => mb_substr((string) $item['product_id'], 0, 50),
+                        ],
+                        [
+                            'name' => $itemName,
+                            'price' => (float) $item['price'],
+                            'cost' => 0,
+                            'track_inventory' => false,
+                            'is_active' => true,
+                            'available_pos' => true,
+                        ]
+                    );
+                } else {
+                    $prodQuery = Product::query()->where('company_id', $company->getKey())->whereNull('deleted_at');
+                    $product = is_numeric($item['product_id'])
+                        ? (clone $prodQuery)->where('id', (int) $item['product_id'])->first()
+                        : (clone $prodQuery)->where('public_id', $item['product_id'])->first();
+
+                    if ($product === null) {
+                        $servQuery = Service::query()->where('company_id', $company->getKey())->whereNull('deleted_at');
+                        $service = is_numeric($item['product_id'])
+                            ? (clone $servQuery)->where('id', (int) $item['product_id'])->first()
+                            : (clone $servQuery)->where('public_id', $item['product_id'])->first();
+
+                        if ($service === null) {
+                            throw new ApiException(ErrorCode::NotFound, 'Producto o servicio no encontrado.', 404);
+                        }
+
+                        $product = Product::query()->firstOrCreate(
+                            [
+                                'company_id' => $company->getKey(),
+                                'sku' => 'SRV-'.$service->public_id,
+                            ],
+                            [
+                                'name' => $service->name,
+                                'price' => $service->price,
+                                'cost' => 0,
+                                'tax_id' => $service->tax_id,
+                                'track_inventory' => false,
+                                'is_active' => true,
+                                'available_pos' => true,
+                            ]
+                        );
+                    }
                 }
 
                 $qty = (float) $item['quantity'];

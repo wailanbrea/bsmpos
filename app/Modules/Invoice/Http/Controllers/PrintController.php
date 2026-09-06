@@ -108,10 +108,89 @@ final class PrintController
         $builder->separator();
 
         $builder->align('center')->bold()->line('¡GRACIAS POR SU COMPRA!')->bold(false);
-        $builder->line('OmniPOS Modular SaaS');
+        $builder->line('BSM-POS Modular SaaS');
         $builder->cut();
 
         return ApiResponse::success(['commands' => base64_encode($builder->build())]);
+    }
+
+    public function printTextInvoice(string $publicId, Request $request, CurrentCompany $currentCompany): JsonResponse
+    {
+        /** @var User $user */
+        $user = $request->user();
+        if (! $user->hasCompanyPermission($currentCompany->company()->getKey(), 'pos.view')) {
+            throw new ApiException(ErrorCode::PermissionDenied, 'No tiene permiso para imprimir facturas.', 403);
+        }
+
+        $invoice = Invoice::query()
+            ->with(['items.product', 'customer', 'branch'])
+            ->where('company_id', $currentCompany->company()->getKey())
+            ->where('public_id', $publicId)
+            ->first();
+
+        if ($invoice === null) {
+            throw new ApiException(ErrorCode::NotFound, 'La factura no existe.', 404);
+        }
+
+        $width = $request->query('width', '80mm') === '58mm' ? 32 : 42;
+        $sep = str_repeat('=', $width);
+        $dash = str_repeat('-', $width);
+
+        $lines = [];
+        $lines[] = $sep;
+        $companyName = $invoice->branch->name;
+        $lines[] = str_pad(mb_substr($companyName, 0, $width), $width, ' ', STR_PAD_BOTH);
+        $rnc = $this->customerTaxId($invoice, 'NO FISCAL');
+        $lines[] = str_pad("RNC: {$rnc}", $width, ' ', STR_PAD_BOTH);
+        $lines[] = $sep;
+        $lines[] = "Factura: {$invoice->invoice_number}";
+        $lines[] = 'NCF: '.($invoice->ncf ?? 'B0200000000');
+        if ($invoice->ncf_expires_at) {
+            $lines[] = 'Vence: '.$this->date($invoice->ncf_expires_at);
+        }
+        $lines[] = 'Fecha: '.$this->dateTime($invoice->created_at);
+        $lines[] = 'Cliente: '.$this->customerName($invoice, 'Cliente Genérico');
+        $lines[] = $sep;
+
+        foreach ($invoice->items as $item) {
+            $qty = number_format((float) $item->quantity, 0);
+            $name = mb_substr($item->product->name, 0, $width - 16);
+            $tot = 'RD$ '.number_format((float) $item->total, 2);
+            $left = "{$qty} x {$name}";
+            $space = max(1, $width - mb_strlen($left) - mb_strlen($tot));
+            $lines[] = $left.str_repeat(' ', $space).$tot;
+            if ($item->batch_number) {
+                $lines[] = "  Lote: {$item->batch_number}";
+            }
+        }
+
+        $lines[] = $dash;
+        $subtotal = 'RD$ '.number_format((float) $invoice->subtotal, 2);
+        $lines[] = 'Subtotal:'.str_repeat(' ', max(1, $width - 9 - mb_strlen($subtotal))).$subtotal;
+
+        if ((float) $invoice->discount_total > 0) {
+            $disc = '-RD$ '.number_format((float) $invoice->discount_total, 2);
+            $lines[] = 'Descuento:'.str_repeat(' ', max(1, $width - 10 - mb_strlen($disc))).$disc;
+        }
+
+        $tax = 'RD$ '.number_format((float) $invoice->tax_total, 2);
+        $lines[] = 'ITBIS (18%):'.str_repeat(' ', max(1, $width - 12 - mb_strlen($tax))).$tax;
+
+        if ((float) $invoice->tip_total > 0) {
+            $tip = 'RD$ '.number_format((float) $invoice->tip_total, 2);
+            $lines[] = 'Propina (10%):'.str_repeat(' ', max(1, $width - 14 - mb_strlen($tip))).$tip;
+        }
+
+        $lines[] = $sep;
+        $total = 'RD$ '.number_format((float) $invoice->total, 2);
+        $lines[] = 'TOTAL:'.str_repeat(' ', max(1, $width - 6 - mb_strlen($total))).$total;
+        $lines[] = $sep;
+        $lines[] = str_pad('¡GRACIAS POR SU COMPRA!', $width, ' ', STR_PAD_BOTH);
+        $lines[] = str_pad('BSM-POS Modular SaaS', $width, ' ', STR_PAD_BOTH);
+
+        return ApiResponse::success([
+            'content' => implode("\n", $lines),
+        ]);
     }
 
     public function printRawSession(string $publicId, Request $request, CurrentCompany $currentCompany): JsonResponse
@@ -260,7 +339,7 @@ final class PrintController
             <div class='divider'></div>
             <div class='text-center bold' style='margin-top:12px;'>
                 ¡GRACIAS POR SU COMPRA!<br>
-                OmniPOS Modular SaaS
+                BSM-POS Modular SaaS
             </div>
         </body>
         </html>

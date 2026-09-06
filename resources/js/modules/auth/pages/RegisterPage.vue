@@ -23,7 +23,7 @@ async function submit(): Promise<void> {
             email: email.value,
             password: password.value,
             password_confirmation: passwordConfirmation.value,
-            device_name: 'OmniPOS Web',
+            device_name: 'BSM-POS Web',
         });
         await router.push({ name: 'context' });
     } catch (error) {
@@ -39,7 +39,7 @@ async function submit(): Promise<void> {
 <template>
     <main class="auth-shell">
         <section class="auth-panel" aria-labelledby="register-title">
-            <div class="auth-brand"><span class="auth-brand__mark" aria-hidden="true">O</span><span>OmniPOS</span></div>
+            <div class="auth-brand"><span class="auth-brand__mark" aria-hidden="true">B</span><span>BSM-POS</span></div>
             <div class="auth-heading">
                 <p class="auth-kicker">Nueva cuenta</p>
                 <h1 id="register-title">Prepara tu primer turno.</h1>

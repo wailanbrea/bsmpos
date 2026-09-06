@@ -11,7 +11,9 @@
         "test:e2e": "playwright test",
         "test:e2e:ui": "playwright test --ui",
         "test:e2e:build": "vite build && playwright test",
-        "typecheck": "vue-tsc --noEmit"
+        "typecheck": "vue-tsc --noEmit",
+        "electron:dev": "electron electron/main.cjs",
+        "electron:build": "electron-builder"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",

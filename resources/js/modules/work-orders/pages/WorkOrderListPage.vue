@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import { useRouter } from 'vue-router';
+import { setExternalOrderBridge } from '../../pos/services';
 import {
     createWorkOrder,
     fetchServiceOptions,
@@ -98,6 +99,54 @@ async function changeStatus(order: WorkOrder, status: WorkOrderStatus): Promise<
     }
 }
 
+const router = useRouter();
+
+function billInPos(order: WorkOrder): void {
+    const items = [
+        ...order.services.map((s) => ({
+            product_id: 'srv-' + s.name,
+            product_name: `[Servicio] ${s.name}`,
+            quantity: 1,
+            price: Number(s.price),
+            discount: 0,
+            tax_id: null,
+            tax_rate: Number(s.tax_rate) || 18,
+        })),
+        ...order.parts.map((p) => ({
+            product_id: 'part-' + p.name,
+            product_name: `[Repuesto] ${p.name}`,
+            quantity: Number(p.quantity) || 1,
+            price: Number(p.price),
+            discount: 0,
+            tax_id: null,
+            tax_rate: 18,
+        })),
+    ];
+
+    if (Number(order.labor_amount) > 0) {
+        items.push({
+            product_id: 'labor-workshop',
+            product_name: 'Mano de obra (Taller)',
+            quantity: 1,
+            price: Number(order.labor_amount),
+            discount: 0,
+            tax_id: null,
+            tax_rate: 18,
+        });
+    }
+
+    setExternalOrderBridge({
+        source: 'work_order',
+        reference_id: order.id,
+        customer_id: order.customer_id,
+        customer_name: order.customer_name,
+        notes: `Orden de Trabajo #${order.id.slice(-6)} · ${order.vehicle_label || 'Vehículo'}${order.diagnosis ? ' (' + order.diagnosis + ')' : ''}`,
+        items,
+    });
+
+    void router.push({ path: '/pos', query: { source: 'work_order', ref: order.id } });
+}
+
 onMounted(async () => {
     try {
         [vehicles.value, services.value] = await Promise.all([fetchVehicleOptions(), fetchServiceOptions()]);
@@ -111,10 +160,7 @@ onMounted(async () => {
 <template>
     <main class="min-h-screen bg-kinetic-surface p-4 text-kinetic-ink md:p-8">
         <div class="mx-auto max-w-6xl">
-            <RouterLink to="/" class="inline-flex min-h-11 items-center text-sm font-semibold text-[#3525cd]"
-                >← Volver al panel</RouterLink
-            >
-            <header class="mt-3 border-b border-[#c7c4d8] pb-6">
+            <header class="border-b border-[#c7c4d8] pb-6">
                 <p class="text-xs font-bold uppercase tracking-[.14em] text-[#3525cd]">Taller mecánico</p>
                 <h1 class="mt-2 text-3xl font-bold tracking-tight">Órdenes de trabajo</h1>
                 <p class="mt-2 text-sm text-[#464555]">
@@ -159,12 +205,22 @@ onMounted(async () => {
                                     {{ STATUS_LABELS[order.status] }}
                                 </span>
                             </div>
-                            <div v-if="TRANSITIONS[order.status].length" class="mt-3 flex flex-wrap gap-2">
+                            <div class="mt-3 flex flex-wrap items-center gap-2">
+                                <button
+                                    v-if="order.status === 'lista' || order.status === 'entregada' || order.status === 'en_proceso'"
+                                    type="button"
+                                    class="min-h-9 rounded-lg bg-[#4648d4] px-3 text-xs font-bold text-white hover:bg-[#393bb3] flex items-center gap-1.5 shadow-2xs transition cursor-pointer"
+                                    title="Transferir servicios, repuestos y mano de obra al POS para cobrar y emitir comprobante fiscal"
+                                    @click="billInPos(order)"
+                                >
+                                    <span class="material-symbols-outlined text-[16px]">point_of_sale</span>
+                                    <span>Facturar en POS</span>
+                                </button>
                                 <button
                                     v-for="next in TRANSITIONS[order.status]"
                                     :key="next"
                                     type="button"
-                                    class="min-h-9 rounded-lg border border-[#c7c4d8] px-3 text-xs font-bold text-[#3525cd] hover:bg-[#f0ecf9]"
+                                    class="min-h-9 rounded-lg border border-[#c7c4d8] px-3 text-xs font-bold text-[#3525cd] hover:bg-[#f0ecf9] cursor-pointer"
                                     @click="changeStatus(order, next)"
                                 >
                                     {{ STATUS_LABELS[next] }}

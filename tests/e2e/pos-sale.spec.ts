@@ -10,7 +10,7 @@ test.describe('Venta POS fiscal', () => {
         await page.getByText('Fondo Inicial DOP').locator('..').getByRole('spinbutton').fill('200');
         await page.getByRole('button', { name: 'Abrir Caja e Iniciar Ventas' }).click();
 
-        await expect(page.getByText('OMNIPOS · Caja Demo')).toBeVisible();
+        await expect(page.getByText('BSM-POS · Caja Demo')).toBeVisible();
         await page.getByRole('button', { name: /Café Santo Domingo 8 oz/ }).click();
 
         const cart = page.getByLabel('Carrito de compra');
@@ -45,7 +45,7 @@ test.describe('Venta POS fiscal', () => {
         await expect(
             ticketDialog.getByText('TOTAL:', { exact: true }).locator('..').getByText('RD$ 118.00'),
         ).toBeVisible();
-        await ticketDialog.getByRole('button', { name: 'Cerrar' }).click();
+        await ticketDialog.getByRole('button', { name: 'Cerrar', exact: true }).click();
 
         await page.getByRole('button', { name: /Cerrar Caja/ }).click();
         const closeDialog = page.getByRole('dialog').filter({
@@ -126,7 +126,7 @@ test.describe('Venta POS fiscal', () => {
         await expect(
             ticketDialog.getByText('TOTAL:', { exact: true }).locator('..').getByText('RD$ 118.00'),
         ).toBeVisible();
-        await ticketDialog.getByRole('button', { name: 'Cerrar' }).click();
+        await ticketDialog.getByRole('button', { name: 'Cerrar', exact: true }).click();
 
         await page.goto('/inventario');
         const stockRow = page.getByRole('row').filter({ hasText: 'Chocolate Barra 100 g' });

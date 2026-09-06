@@ -79,7 +79,7 @@ async function createCompany(): Promise<void> {
 <template>
     <main class="context-shell">
         <header class="context-header">
-            <div class="auth-brand"><span class="auth-brand__mark" aria-hidden="true">O</span><span>OmniPOS</span></div>
+            <div class="auth-brand"><span class="auth-brand__mark" aria-hidden="true">B</span><span>BSM-POS</span></div>
             <button
                 class="quiet-action"
                 type="button"

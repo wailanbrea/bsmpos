@@ -20,6 +20,7 @@ final class WorkOrderResource extends JsonResource
             'vehicle_label' => $this->whenLoaded('vehicle', fn () => $this->vehicle
                 ? trim("{$this->vehicle->brand} {$this->vehicle->model} · {$this->vehicle->plate}")
                 : null),
+            'customer_id' => $this->whenLoaded('customer', fn () => $this->customer?->public_id),
             'customer_name' => $this->whenLoaded('customer', fn () => $this->customer?->name),
             'employee_name' => $this->whenLoaded('employee', fn () => $this->employee?->name),
             'diagnosis' => $this->diagnosis,

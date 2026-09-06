@@ -18,22 +18,27 @@
 
 | Módulo | Prefijo | Estado |
 |---|---|---|
-| Auth | `/auth/register`, `/auth/login`, `/auth/logout`, `/auth/me`, `/auth/2fa` (enable/confirm/disable) | Implementado |
-| Companies | `/companies`, `/onboarding` | Pendiente |
+| Auth & Security | `/auth/register`, `/auth/login`, `/auth/logout`, `/auth/me`, `/auth/2fa` (enable/confirm/disable) | Implementado (Fase 0/1/14) |
+| Companies | `/companies`, `/company/profile`, `/onboarding` | Implementado (Fase 1/2/3) |
 | Branches | `/branches`, `/branches/{publicId}` | Implementado (Fase 1) |
-| Users/Roles | `/users`, `/users/{publicId}/access`, `/roles`, `/roles/{publicId}`, `/permissions` | Roles/permisos implementados; usuarios parciales (Fase 1) |
+| Users/Roles | `/users`, `/users/{publicId}/access`, `/roles`, `/roles/{publicId}`, `/permissions` | Implementado (Fase 1) |
 | Modules | `/modules`, `/modules/{code}/enable|disable`, `/business-types`, `/onboarding` | Implementado (Fase 2) |
-| Settings | `/settings/fiscal`, `/settings/{group}`, `/taxes`, `/payment-methods`, `/ncf-sequences`, `/exchange-rates` | Implementado (Fase 3) |
-| Customers | `/customers` (search, paginado), `/customers/{id}`, `/customers/{id}/credit` | Implementado (Fase 4) |
-| Products | `/categories`, `/products`, `/products/{id}/variants|modifiers|images` | Pendiente |
-| Services | `/service-categories`, `/services` | Pendiente |
-| Inventory | `/warehouses`, `/stock`, `/batches`, `/movements`, `/transfers`, `/adjustments`, `/kardex/{productId}`, `/alerts` | Pendiente |
-| Purchases | `/suppliers`, `/purchases` | Pendiente |
-| POS | `/orders`, `/orders/{id}/items|send-kitchen|pay` | Pendiente |
-| Cash | `/cash-registers`, `/cash-sessions`, `/cash-sessions/{id}/movements|close` | Pendiente |
-| Invoices | `/invoices`, `/invoices/{id}/pdf|ticket|cancel`, `/quotes`, `/credit-notes` | Pendiente |
-| e-CF | `/electronic-invoices`, `/electronic-invoices/{id}/retry|logs`, `/electronic-invoices/settings` | Implementado con providers Null/Mock; provider DGII/PSFE pendiente |
-| Reports | `/reports/sales|cash|inventory|taxes|dgii-606|dgii-607|dgii-608` | Ventas/caja, CSV y desgloses implementados; DGII 608 TXT implementado, 606/607 pendientes |
+| Settings | `/settings/fiscal`, `/settings/{group}`, `/taxes`, `/payment-methods`, `/ncf-sequences`, `/exchange-rates`, `/agent-terminals` | Implementado (Fase 3/11) |
+| Customers | `/customers` (search, paginado), `/customers/{publicId}`, `/customers/{publicId}/credit` | Implementado (Fase 4) |
+| Products | `/categories`, `/products`, `/products/{publicId}/image` | Implementado (Fase 5) |
+| Services | `/services` | Implementado (Fase 5/12) |
+| Inventory | `/warehouses`, `/stock`, `/batches`, `/movements`, `/transfers`, `/adjustments`, `/kardex/{productId}`, `/alerts` | Implementado (Fase 6) |
+| Purchases | `/suppliers`, `/purchases`, `/purchases/{publicId}/confirm`, `/purchases/{publicId}/fiscal-data` | Implementado (Fase 6/13) |
+| POS | `/orders`, `/orders/{publicId}/items|pay`, `/agent-terminals` | Implementado (Fase 7/11) |
+| Cash | `/cash-registers`, `/cash-sessions/open|close|movements|current` | Implementado (Fase 8) |
+| Invoices | `/invoices`, `/invoices/{publicId}/pdf|ticket|cancel`, `/quotes`, `/credit-notes` | Implementado (Fase 9) |
+| e-CF | `/electronic-invoices`, `/electronic-invoices/{publicId}/retry|logs`, `/electronic-invoices/settings` | Implementado (Fase 10 - servicio SaaS opcional) |
+| Reports | `/reports/sales|cash|by-cashier|by-category|by-customer|by-payment-method|by-product|taxes|discounts`, `export.csv|.pdf|.xlsx`, `/reports/dgii/606|607|608` | Implementado (Fase 13) |
+| Restaurant | `/restaurant/layout`, `/restaurant/areas`, `/restaurant/tables`, `/restaurant/tables/{publicId}/open|transfer`, `/kitchen/orders` | Implementado (Fase 12) |
+| Appointments | `/appointments`, `/appointments/{publicId}/status` (Barbería / Salón) | Implementado (Fase 12) |
+| Vehicles | `/vehicles`, `/vehicles/{publicId}` (Taller Mecánico) | Implementado (Fase 12) |
+| Work Orders | `/work-orders`, `/work-orders/{publicId}`, `/work-orders/{publicId}/status` (Taller Mecánico) | Implementado (Fase 12) |
+| Notifications | `/notifications`, `/notifications/unread-count`, `/notifications/{publicId}/read`, `/notifications/mark-all-read` | Implementado (Fase 14) |
 
 ## Reportes operativos (Fase 13)
 

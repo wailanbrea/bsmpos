@@ -42,7 +42,7 @@ final class TwoFactorController
 
         return ApiResponse::success([
             'secret' => $secret,
-            'otpauth_uri' => $this->totp->provisioningUri($secret, $user->email, config('app.name', 'OmniPOS')),
+            'otpauth_uri' => $this->totp->provisioningUri($secret, $user->email, config('app.name', 'BSM-POS')),
         ], 'Escanea el código y confírmalo para activar.');
     }
 

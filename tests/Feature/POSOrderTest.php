@@ -12,6 +12,8 @@ use App\Modules\POS\Models\CashRegister;
 use App\Modules\POS\Models\Order;
 use App\Modules\POS\Services\CashSessionService;
 use App\Modules\Product\Models\Product;
+use App\Modules\Service\Models\Service;
+use App\Modules\Setting\Models\NcfSequence;
 use App\Modules\Setting\Models\Tax;
 use Database\Seeders\ModuleSystemSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -269,4 +271,91 @@ it('throws exception if completed order lacks stock', function (): void {
             ],
         ],
     ], $this->headers)->assertStatus(400); // Bad Request / Conflict
+});
+
+it('creates a completed order with a service and invoices it without inventory deduction', function (): void {
+    Sanctum::actingAs($this->owner);
+
+    $mgr = app(ModuleManagerService::class);
+    $mgr->enableModule($this->company, 'service', $this->owner);
+    $mgr->enableModule($this->company, 'invoice', $this->owner);
+
+    NcfSequence::query()->create([
+        'company_id' => $this->company->getKey(),
+        'branch_id' => $this->branch->getKey(),
+        'document_type_code' => 'B02',
+        'series' => 'B',
+        'start_number' => 1,
+        'end_number' => 100,
+        'current_number' => 0,
+        'expires_at' => now()->addYear(),
+        'alert_threshold' => 10,
+        'is_active' => true,
+    ]);
+
+    $service = Service::query()->create([
+        'company_id' => $this->company->getKey(),
+        'tax_id' => $this->tax->getKey(),
+        'name' => 'Corte Ejecutivo con Barba',
+        'price' => 500.00,
+        'duration_minutes' => 45,
+        'available_pos' => true,
+        'available_appointments' => true,
+        'requires_employee' => true,
+        'is_active' => true,
+    ]);
+
+    $res = $this->postJson('/api/v1/orders', [
+        'customer_id' => $this->customer->public_id,
+        'warehouse_id' => $this->warehouse->public_id,
+        'order_number' => 'ORD-SRV-001',
+        'status' => 'completed',
+        'apply_tip' => false,
+        'items' => [
+            [
+                'product_id' => $service->public_id,
+                'quantity' => 1,
+                'price' => 500.00,
+                'discount' => 0.00,
+                'tax_id' => $this->tax->public_id,
+            ],
+        ],
+        'payments' => [
+            [
+                'payment_method_code' => 'cash',
+                'amount' => 600.00,
+            ],
+        ],
+    ], $this->headers);
+
+    $res->assertStatus(201);
+    $res->assertJsonPath('data.order_number', 'ORD-SRV-001');
+    $res->assertJsonPath('data.status', 'completed');
+    $res->assertJsonPath('data.subtotal', '500.00');
+    $res->assertJsonPath('data.tax_total', '90.00');
+    $res->assertJsonPath('data.total', '590.00');
+
+    $orderPublicId = $res->json('data.id');
+
+    // Comprobar que se creó el Product representativo no inventariable
+    $product = Product::query()
+        ->where('company_id', $this->company->getKey())
+        ->where('sku', 'SRV-'.$service->public_id)
+        ->first();
+
+    expect($product)->not->toBeNull();
+    expect($product->track_inventory)->toBeFalse();
+    expect($product->price)->toBe('500.00');
+
+    // Facturar la orden en el módulo de facturación NCF B02
+    $invoiceRes = $this->postJson('/api/v1/invoices/from-order', [
+        'order_id' => $orderPublicId,
+        'document_type_code' => 'B02',
+    ], $this->headers);
+
+    $invoiceRes->assertStatus(201);
+    $invoiceRes->assertJsonPath('data.document_type_code', 'B02');
+    $invoiceRes->assertJsonPath('data.ncf', 'B0200000001');
+    $invoiceRes->assertJsonPath('data.total', '590.00');
+    $invoiceRes->assertJsonPath('data.status', 'paid');
 });

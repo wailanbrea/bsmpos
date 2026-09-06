@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { ref, onMounted, computed, watch } from 'vue';
-import { PosService } from '../services';
+import { PosService, consumeExternalOrderBridge } from '../services';
 import type { PosOrderItem, PosPayment, PosOrder } from '../services';
 import { IndexedDBService } from '../indexeddb';
 import { fetchProducts } from '../../products/services';
 import { fetchExchangeRates } from '../../settings/services';
 import type { Product } from '../../products/types';
 import { api, storageKeys } from '../../../lib/api';
+import { useAgentStatus } from '../../../composables/useAgentStatus';
+import { printWithAgent, openDrawerWithAgent, getAgentPrinters } from '../../../composables/useAgentPrinter';
+import type { AgentPrinterInfo } from '../../../composables/useAgentPrinter';
 
 // Clave de contexto (compañía + sucursal) para aislar el carrito persistido:
 // evita que el carrito de una empresa aparezca al operar otra.
@@ -89,6 +92,8 @@ const loading = ref(false);
 const errorMsg = ref('');
 const successMsg = ref('');
 const isOnline = ref(window.navigator.onLine);
+const { state: agentState, version: agentVersion, checkNow: checkAgentStatus } = useAgentStatus();
+const showAgentModal = ref(false);
 
 // Variables de Turno de Caja
 const activeSession = ref<ActiveSessionData | null>(null);
@@ -120,10 +125,32 @@ const documentTypeCode = ref('B02');
 const invoiceResult = ref<InvoiceResult | null>(null);
 const showInvoicePrintModal = ref(false);
 const paperWidth = ref(window.localStorage.getItem('pos_paper_width') || '80mm');
+const availablePrinters = ref<AgentPrinterInfo[]>([]);
+const selectedPrinter = ref<string>(window.localStorage.getItem('pos_selected_printer') || '');
 
 watch(paperWidth, (val) => {
     window.localStorage.setItem('pos_paper_width', val);
 });
+
+watch(selectedPrinter, (val) => {
+    if (val) {
+        window.localStorage.setItem('pos_selected_printer', val);
+    } else {
+        window.localStorage.removeItem('pos_selected_printer');
+    }
+});
+
+watch(
+    agentState,
+    async (newState) => {
+        if (newState === 'connected') {
+            availablePrinters.value = await getAgentPrinters();
+        } else {
+            availablePrinters.value = [];
+        }
+    },
+    { immediate: true },
+);
 
 // Gestión de Pagos Mixtos y Multimoneda
 const paymentsList = ref<PosPayment[]>([
@@ -154,10 +181,37 @@ async function loadData() {
         // Cargar productos. En giros de puros servicios (p. ej. barbería) el
         // módulo Productos puede estar apagado y el endpoint responde 403: eso
         // no debe tumbar el POS, solo deja la grilla vacía.
+        let prodList: Product[] = [];
         try {
-            products.value = await fetchProducts('');
+            prodList = await fetchProducts('');
         } catch {
-            products.value = [];
+            prodList = [];
+        }
+
+        // Cargar servicios activos y disponibles en POS (ej. barberías, talleres, salones)
+        try {
+            const srvRes = await api.get('/services');
+            const posServices: Product[] = (srvRes.data.data || [])
+                .filter((s: { available_pos?: boolean; is_active?: boolean }) => s.available_pos !== false && s.is_active !== false)
+                .map((s: { id: string; name: string; price: string | number; tax_id?: string | null }) => ({
+                    id: s.id,
+                    name: s.name,
+                    sku: 'SRV-' + s.id.slice(-6),
+                    barcode: null,
+                    brand: 'Servicio',
+                    category_id: null,
+                    category: 'Servicios',
+                    tax_id: s.tax_id ?? null,
+                    price: String(s.price),
+                    cost: '0.00',
+                    image_url: null,
+                    track_inventory: false,
+                    is_active: true,
+                    available_pos: true,
+                }));
+            products.value = [...prodList, ...posServices];
+        } catch {
+            products.value = prodList;
         }
 
         // Cargar clientes
@@ -202,6 +256,22 @@ async function loadData() {
 
         // Cargar carrito persistido
         cart.value = (await IndexedDBService.getCart(cartScope())) as PosOrderItem[];
+
+        // Importar orden externa transferida desde Barbería o Taller si existe
+        const externalOrder = consumeExternalOrderBridge();
+        if (externalOrder) {
+            if (externalOrder.items.length > 0) {
+                cart.value = externalOrder.items;
+            }
+            if (externalOrder.customer_id) {
+                selectedCustomerId.value = externalOrder.customer_id;
+            }
+            if (externalOrder.notes) {
+                orderNotes.value = externalOrder.notes;
+            }
+            const sourceLabel = externalOrder.source === 'appointment' ? 'la cita de barbería' : 'la orden de taller';
+            successMsg.value = `Se importaron exitosamente los conceptos de ${sourceLabel} (#${externalOrder.reference_id.slice(-6)}) al carrito para su cobro.`;
+        }
 
         // Verificar cola offline
         await checkOfflineQueue();
@@ -284,6 +354,25 @@ async function handleCloseSession() {
 
 async function printTicket() {
     if (!invoiceResult.value) return;
+
+    // 1. Si el agente Windows local está conectado y es ticket térmico, imprimir directo vía ESC/POS
+    if (agentState.value === 'connected' && paperWidth.value !== 'A4') {
+        try {
+            const widthParam = paperWidth.value === '58mm' ? '58mm' : '80mm';
+            const res = await api.get(`/invoices/${invoiceResult.value.id}/print/text?width=${widthParam}`);
+            const textContent = res.data?.data?.content;
+            if (textContent) {
+                const printRes = await printWithAgent(textContent, selectedPrinter.value || undefined);
+                if (printRes.ok) {
+                    successMsg.value = `Ticket enviado directamente a ${selectedPrinter.value || 'la impresora local Windows'}.`;
+                    return;
+                }
+            }
+        } catch {
+            // Fallback transparente al diálogo de impresión del navegador
+        }
+    }
+
     const format = paperWidth.value === 'A4' ? 'A4' : 'ticket';
 
     try {
@@ -408,6 +497,17 @@ function updateDiscount(idx: number, discountStr: string) {
     cart.value[idx].discount = val;
 }
 
+function removeFromCart(idx: number) {
+    cart.value.splice(idx, 1);
+}
+
+function clearCart() {
+    if (cart.value.length === 0) return;
+    if (window.confirm('¿Deseas vaciar todos los productos del carrito?')) {
+        cart.value = [];
+    }
+}
+
 // Totales reactivos
 const totals = computed(() => {
     let subtotal = 0;
@@ -516,6 +616,7 @@ async function submitOrder() {
         notes: orderNotes.value || undefined,
         items: cart.value.map((item) => ({
             product_id: item.product_id,
+            name: item.product_name,
             quantity: item.quantity,
             price: item.price,
             discount: item.discount,
@@ -547,6 +648,11 @@ async function submitOrder() {
                     });
                     invoiceResult.value = invRes.data.data;
                     showInvoicePrintModal.value = true;
+
+                    // Pulso automático a gaveta de dinero si hubo cobro en efectivo y el agente local está conectado
+                    if (agentState.value === 'connected' && paymentsList.value.some((p) => p.payment_method_code === 'cash')) {
+                        void openDrawerWithAgent(selectedPrinter.value || undefined);
+                    }
                 } catch (invErr: unknown) {
                     const err = invErr as { response?: { data?: { error?: { message?: string } } } };
                     errorMsg.value =
@@ -687,7 +793,7 @@ const filteredProducts = computed(() => {
             <!-- Barra de estado superior -->
             <header class="bg-[#302f39] text-[#f3effc] p-4 flex flex-wrap justify-between items-center gap-3">
                 <div class="flex items-center gap-3">
-                    <span class="font-bold tracking-wider text-base">OMNIPOS · {{ activeSession.register_name }}</span>
+                    <span class="font-bold tracking-wider text-base">BSM-POS · {{ activeSession.register_name }}</span>
                     <span
                         :class="[
                             'px-2.5 py-1 rounded-full text-xs font-bold uppercase',
@@ -696,12 +802,38 @@ const filteredProducts = computed(() => {
                     >
                         {{ isOnline ? 'En línea' : 'Sin conexión' }}
                     </span>
+                    <button
+                        type="button"
+                        class="px-2.5 py-1 rounded-full text-xs font-bold uppercase flex items-center gap-1.5 cursor-pointer transition hover:opacity-90 shadow-2xs"
+                        :class="agentState === 'connected' ? 'bg-emerald-600 text-white hover:bg-emerald-500' : 'bg-amber-600 text-white hover:bg-amber-500 animate-pulse'"
+                        :title="agentState === 'connected' ? 'BSM-POS Windows Agent conectado (127.0.0.1:8765) - Clic para ver detalles' : 'Agente no detectado - Clic para descargar e instalar'"
+                        @click="showAgentModal = true"
+                    >
+                        <span class="material-symbols-outlined text-[14px]">desktop_windows</span>
+                        <span>{{ agentState === 'connected' ? 'Agente Windows' : 'Instalar Agente' }}</span>
+                    </button>
                     <span class="text-sm text-gray-300">| Cajero: {{ activeSession.opened_by }}</span>
                     <span class="text-sm font-bold text-green-400">
                         Caja DOP: {{ Number(activeSession.expected_amount).toFixed(2) }}
                     </span>
                 </div>
                 <div class="flex items-center gap-2">
+                    <select
+                        v-if="agentState === 'connected' && availablePrinters.length > 0"
+                        v-model="selectedPrinter"
+                        class="text-xs min-h-11 bg-white/10 text-[#f3effc] border-0 rounded-lg px-2.5 focus:ring-0 cursor-pointer font-semibold outline-none max-w-[180px] truncate"
+                        title="Impresora física Windows seleccionada"
+                    >
+                        <option class="text-black" value="">🖨️ (Predeterminada)</option>
+                        <option
+                            v-for="p in availablePrinters"
+                            :key="p.name"
+                            class="text-black"
+                            :value="p.name"
+                        >
+                            {{ p.type === 'BLUETOOTH' ? '📶 ' : '🖨️ ' }}{{ p.name }}
+                        </option>
+                    </select>
                     <select
                         v-model="paperWidth"
                         class="text-sm min-h-11 bg-white/10 text-[#f3effc] border-0 rounded-lg px-3 focus:ring-0 cursor-pointer font-semibold outline-none"
@@ -731,6 +863,27 @@ const filteredProducts = computed(() => {
                     class="flex flex-col border-r border-[#c7c4d8] bg-white h-full overflow-hidden"
                     aria-label="Carrito de compra"
                 >
+                    <!-- Cabecera del carrito -->
+                    <div class="px-4 py-3 border-b border-[#e4e1ee] bg-[#fcfbfe] flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[20px] text-[#4648d4]">shopping_cart</span>
+                            <h2 class="text-base font-bold text-[#302f39]">Orden Actual</h2>
+                            <span v-if="cart.length > 0" class="text-xs font-bold bg-[#eff4ff] text-[#4648d4] px-2 py-0.5 rounded-full">
+                                {{ cart.reduce((sum, item) => sum + item.quantity, 0) }}
+                            </span>
+                        </div>
+                        <button
+                            v-if="cart.length > 0"
+                            type="button"
+                            class="text-xs font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-lg flex items-center gap-1 transition cursor-pointer"
+                            title="Vaciar todo el carrito"
+                            @click="clearCart"
+                        >
+                            <span class="material-symbols-outlined text-[16px]">delete_sweep</span>
+                            <span>Vaciar</span>
+                        </button>
+                    </div>
+
                     <!-- Listado de items del carrito -->
                     <div class="flex-1 overflow-y-auto p-4 space-y-3">
                         <div
@@ -745,13 +898,27 @@ const filteredProducts = computed(() => {
                         <div
                             v-for="(item, idx) in cart"
                             :key="item.product_id"
-                            class="border border-[#e4e1ee] rounded-xl p-3 bg-[#fcfbfe] flex flex-col gap-2"
+                            class="border border-[#e4e1ee] rounded-xl p-3 bg-[#fcfbfe] flex flex-col gap-2 hover:border-[#c7c4d8] transition"
                         >
                             <div class="flex justify-between items-start gap-2">
-                                <span class="font-semibold text-base">{{ item.product_name }}</span>
-                                <span class="font-bold text-base whitespace-nowrap"
-                                    >RD$ {{ Number(item.price * item.quantity - item.discount).toFixed(2) }}</span
-                                >
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-semibold text-base block truncate" :title="item.product_name">{{ item.product_name }}</span>
+                                    <span class="text-xs text-[#64748b]">RD$ {{ Number(item.price).toFixed(2) }} c/u</span>
+                                </div>
+                                <div class="flex items-center gap-2 shrink-0">
+                                    <span class="font-bold text-base whitespace-nowrap text-[#0b1c30]">
+                                        RD$ {{ Number(item.price * item.quantity - item.discount).toFixed(2) }}
+                                    </span>
+                                    <button
+                                        type="button"
+                                        class="min-w-9 min-h-9 w-9 h-9 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 flex items-center justify-center transition active:scale-95 cursor-pointer"
+                                        title="Quitar producto del carrito"
+                                        :aria-label="`Quitar ${item.product_name} del carrito`"
+                                        @click="removeFromCart(idx)"
+                                    >
+                                        <span class="material-symbols-outlined text-[20px]">delete</span>
+                                    </button>
+                                </div>
                             </div>
                             <div class="flex items-center justify-between mt-1 gap-2">
                                 <!-- Botones cantidad -->
@@ -1288,7 +1455,7 @@ const filteredProducts = computed(() => {
                     <h3 class="text-xl font-bold text-[#302f39]">Comprobante Emitido</h3>
                     <button
                         class="min-h-11 min-w-11 rounded-lg hover:bg-gray-100 flex items-center justify-center text-lg text-[#464555]"
-                        aria-label="Cerrar"
+                        aria-label="Cerrar modal"
                         @click="showInvoicePrintModal = false"
                     >
                         ✕
@@ -1384,7 +1551,7 @@ const filteredProducts = computed(() => {
 
                     <div class="text-center pt-4 space-y-1">
                         <p class="font-bold">¡GRACIAS POR SU COMPRA!</p>
-                        <p>OmniPOS Modular SaaS</p>
+                        <p>BSM-POS Modular SaaS</p>
                     </div>
                 </div>
 
@@ -1400,6 +1567,153 @@ const filteredProducts = computed(() => {
                         @click="printTicket"
                     >
                         🖨️ Imprimir Ticket
+                    </button>
+                </footer>
+            </div>
+        </div>
+
+        <!-- MODAL DEL AGENTE DE WINDOWS (DESCARGA E INSTRUCCIONES) -->
+        <div
+            v-if="showAgentModal"
+            class="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-fade-in"
+            aria-modal="true"
+            role="dialog"
+        >
+            <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-[#c7c4d8] overflow-hidden flex flex-col max-h-[92vh]">
+                <header class="p-4 border-b border-[#e4e1ee] bg-[#fcfbfe] flex justify-between items-center">
+                    <div class="flex items-center gap-2.5">
+                        <div
+                            class="w-9 h-9 rounded-xl flex items-center justify-center"
+                            :class="agentState === 'connected' ? 'bg-emerald-100 text-emerald-700' : 'bg-indigo-100 text-indigo-700'"
+                        >
+                            <span class="material-symbols-outlined text-[22px]">desktop_windows</span>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold font-geist text-[#0b1c30]">BSM-POS Windows Agent</h3>
+                            <p class="text-xs text-[#5f5e61]">Controlador local de hardware para Windows</p>
+                        </div>
+                    </div>
+                    <button
+                        class="min-h-10 min-w-10 rounded-lg hover:bg-gray-100 flex items-center justify-center text-lg text-[#464555] cursor-pointer"
+                        aria-label="Cerrar"
+                        @click="showAgentModal = false"
+                    >
+                        ✕
+                    </button>
+                </header>
+
+                <div class="p-6 overflow-y-auto space-y-5 text-sm text-[#302f39]">
+                    <!-- ESTADO ACTUAL -->
+                    <div
+                        class="p-4 rounded-xl border flex items-center justify-between"
+                        :class="agentState === 'connected' ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-amber-50 border-amber-200 text-amber-900'"
+                    >
+                        <div class="flex items-center gap-3">
+                            <span class="relative flex h-3 w-3">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                                    :class="agentState === 'connected' ? 'bg-emerald-400' : 'bg-amber-400'"
+                                />
+                                <span
+                                    class="relative inline-flex rounded-full h-3 w-3"
+                                    :class="agentState === 'connected' ? 'bg-emerald-500' : 'bg-amber-500'"
+                                />
+                            </span>
+                            <div>
+                                <div class="font-bold text-xs uppercase tracking-wider">
+                                    {{ agentState === 'connected' ? 'Agente Conectado' : 'Agente no detectado en esta máquina' }}
+                                </div>
+                                <div class="text-xs opacity-85">
+                                    {{ agentState === 'connected'
+                                        ? `En línea en 127.0.0.1:8765 (${availablePrinters.length} impresora(s) detectada(s))`
+                                        : 'Puerto 8765 cerrado. Para impresión silenciosa sin diálogos emergentes, instálalo a continuación.'
+                                    }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="text-xs font-semibold px-2.5 py-1.5 rounded-lg border bg-white shadow-2xs hover:bg-gray-50 flex items-center gap-1 cursor-pointer"
+                            @click="checkAgentStatus"
+                        >
+                            <span class="material-symbols-outlined text-[14px]">refresh</span>
+                            <span>Reintentar</span>
+                        </button>
+                    </div>
+
+                    <!-- POR QUÉ ES NECESARIO -->
+                    <div class="text-xs text-[#5f5e61] bg-[#f8f9fa] p-3.5 rounded-xl border border-gray-200 space-y-1">
+                        <div class="font-bold text-[#0b1c30] flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-[16px] text-[#4648d4]">info</span>
+                            ¿Para qué sirve este agente?
+                        </div>
+                        <p>
+                            Permite que el sistema web imprima en tus impresoras térmicas (USB, Bluetooth o Red) y abra la gaveta de dinero <strong>automáticamente y en silencio</strong>, sin mostrar ventanas emergentes de Windows en cada venta.
+                        </p>
+                    </div>
+
+                    <!-- PASOS DE INSTALACIÓN -->
+                    <div class="space-y-3">
+                        <div class="font-bold text-xs uppercase tracking-wider text-[#5f5e61]">
+                            Instalación en 3 pasos (Solo 1 vez):
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3 rounded-lg bg-gray-50 border border-gray-200">
+                            <div class="w-6 h-6 rounded-full bg-[#4648d4] text-white flex items-center justify-center font-bold text-xs shrink-0">1</div>
+                            <div class="text-xs space-y-1">
+                                <div class="font-semibold text-[#0b1c30]">Descarga el paquete del Agente</div>
+                                <p class="text-[#5f5e61]">Descarga el archivo comprimido que contiene el instalador para Windows (10 u 11).</p>
+                                <div class="pt-1">
+                                    <a
+                                        href="/downloads/bsm-pos-agent.zip"
+                                        download="BSM-POS-Agent.zip"
+                                        class="inline-flex items-center gap-1.5 bg-[#4648d4] hover:bg-[#393bb3] text-white px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-xs transition cursor-pointer"
+                                    >
+                                        <span class="material-symbols-outlined text-[16px]">download</span>
+                                        <span>Descargar BSM-POS-Agent.zip (21 MB)</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3 rounded-lg bg-gray-50 border border-gray-200">
+                            <div class="w-6 h-6 rounded-full bg-[#4648d4] text-white flex items-center justify-center font-bold text-xs shrink-0">2</div>
+                            <div class="text-xs">
+                                <div class="font-semibold text-[#0b1c30]">Descomprime y ejecuta como Administrador</div>
+                                <p class="text-[#5f5e61] mt-0.5">
+                                    Abre la carpeta extraída, haz clic derecho sobre <code class="bg-gray-200 px-1 py-0.5 rounded font-mono font-bold text-[#0b1c30]">instalar-servicio.bat</code> y selecciona <strong>"Ejecutar como Administrador"</strong>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3 rounded-lg bg-gray-50 border border-gray-200">
+                            <div class="w-6 h-6 rounded-full bg-[#4648d4] text-white flex items-center justify-center font-bold text-xs shrink-0">3</div>
+                            <div class="text-xs">
+                                <div class="font-semibold text-[#0b1c30]">¡Listo! Detección automática</div>
+                                <p class="text-[#5f5e61] mt-0.5">
+                                    El servicio arrancará en segundo plano. En cuanto esté listo, la insignia cambiará a <strong class="text-emerald-700">verde</strong> automáticamente sin tener que recargar la página.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="p-4 border-t border-[#e4e1ee] bg-[#fcfbfe] flex items-center justify-between">
+                    <a
+                        href="/configuracion/terminales"
+                        class="text-xs text-[#4648d4] hover:underline font-semibold flex items-center gap-1"
+                        @click="showAgentModal = false"
+                    >
+                        <span>Ir al panel de hardware</span>
+                        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                    </a>
+                    <button
+                        type="button"
+                        class="min-h-10 rounded-lg border border-[#c7c4d8] bg-white px-5 text-xs font-semibold text-[#302f39] hover:bg-gray-50 cursor-pointer"
+                        @click="showAgentModal = false"
+                    >
+                        Cerrar
                     </button>
                 </footer>
             </div>

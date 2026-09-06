@@ -21,7 +21,7 @@ async function submit(): Promise<void> {
         await session.login({
             email: email.value,
             password: password.value,
-            device_name: 'OmniPOS Web',
+            device_name: 'BSM-POS Web',
             code: needsCode.value ? code.value : undefined,
         });
         await router.push({ name: session.hasContext ? 'dashboard' : 'context' });
@@ -50,8 +50,8 @@ async function submit(): Promise<void> {
     <main class="auth-shell">
         <section class="auth-panel" aria-labelledby="login-title">
             <div class="auth-brand">
-                <span class="auth-brand__mark" aria-hidden="true">O</span>
-                <span>OmniPOS</span>
+                <span class="auth-brand__mark" aria-hidden="true">B</span>
+                <span>BSM-POS</span>
             </div>
 
             <div class="auth-heading">
@@ -95,12 +95,12 @@ async function submit(): Promise<void> {
             </form>
 
             <p class="auth-footnote">
-                ¿Primera vez en OmniPOS?
+                ¿Primera vez en BSM-POS?
                 <RouterLink to="/crear-cuenta">Crea tu cuenta</RouterLink>
             </p>
         </section>
 
-        <aside class="auth-aside" aria-label="Información de OmniPOS">
+        <aside class="auth-aside" aria-label="Información de BSM-POS">
             <p class="auth-kicker">Operación con contexto</p>
             <p class="auth-aside__statement">Cada venta empieza con la empresa y sucursal correctas.</p>
             <div class="auth-aside__rail">

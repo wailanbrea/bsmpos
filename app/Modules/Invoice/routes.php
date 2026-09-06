@@ -15,5 +15,6 @@ Route::middleware(['auth:sanctum', 'company', 'branch', 'module:invoice'])->grou
 
     Route::get('invoices/{publicId}/print/html', [PrintController::class, 'printHtml']);
     Route::get('invoices/{publicId}/print/raw', [PrintController::class, 'printRawInvoice']);
+    Route::get('invoices/{publicId}/print/text', [PrintController::class, 'printTextInvoice']);
     Route::get('cash-sessions/{publicId}/print/raw', [PrintController::class, 'printRawSession']);
 });

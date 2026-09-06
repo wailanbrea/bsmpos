@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; }}::-webkit-scrollbar { display: none; }</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: { extend: { "colors": { "error-container": "#ffdad6", "secondary-fixed-dim": "#c8c5ca", "surface-container-high": "#dce9ff", "on-primary-fixed-variant": "#2f2ebe", "on-tertiary-container": "#fbfdff", "inverse-primary": "#c0c1ff", "tertiary-container": "#727577", "surface-container-lowest": "#ffffff", "on-background": "#0b1c30", "surface-container": "#e5eeff", "surface-dim": "#cbdbf5", "tertiary-fixed": "#e0e3e5", "on-secondary-container": "#656467", "surface-container-highest": "#d3e4fe", "error": "#ba1a1a", "secondary-fixed": "#e4e1e6", "surface": "#f8f9ff", "on-secondary": "#ffffff", "on-tertiary-fixed": "#191c1e", "on-primary": "#ffffff", "on-secondary-fixed-variant": "#47464a", "on-tertiary": "#ffffff", "on-primary-container": "#fffbff", "primary-container": "#6063ee", "inverse-surface": "#213145", "on-surface-variant": "#464554", "inverse-on-surface": "#eaf1ff", "surface-variant": "#d3e4fe", "surface-bright": "#f8f9ff", "on-secondary-fixed": "#1b1b1e", "surface-tint": "#494bd6", "secondary": "#5f5e61", "primary-fixed": "#e1e0ff", "outline": "#767586", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#444749", "tertiary": "#595c5e", "on-primary-fixed": "#07006c", "on-surface": "#0b1c30", "outline-variant": "#c7c4d7", "primary": "#4648d4", "on-error": "#ffffff", "background": "#f8f9ff", "secondary-container": "#e4e1e6", "primary-fixed-dim": "#c0c1ff", "tertiary-fixed-dim": "#c4c7c9", "surface-container-low": "#eff4ff" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-lg": "1.5rem", "bento-gap": "1rem", "space-xs": "0.25rem", "space-xl": "2rem", "space-sm": "0.5rem", "grid-margin": "1.5rem", "space-md": "1rem", "sidebar-width": "260px" }, "fontFamily": { "headline-md": ["Geist"], "body-md": ["Inter"], "body-lg": ["Inter"], "body-sm": ["Inter"], "headline-sm": ["Geist"], "label-md": ["Inter"], "label-sm": ["Inter"], "headline-lg": ["Geist"], "code-md": ["JetBrains Mono"] }, "fontSize": { "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "body-lg": ["15px", {"lineHeight": "24px", "fontWeight": "400"}], "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}], "headline-sm": ["16px", {"lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "500"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}], "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "code-md": ["13px", {"lineHeight": "18px", "fontWeight": "400"}] } } }}</script></head><body class="bg-background font-body-md text-on-background"><aside class="fixed left-0 top-0 h-full w-[250px] bg-[#18181b] text-[#f4f4f5] z-50 flex flex-col justify-between py-space-lg"><div class="flex flex-col h-full"><div class="px-space-lg mb-space-md flex items-center justify-between"><span class="font-headline-md text-white tracking-wider">OMNIPOS</span><span class="text-xs bg-primary/25 text-inverse-primary px-space-xs py-0.5 rounded">e-CF</span></div><div class="mx-space-lg mb-space-lg p-space-sm bg-zinc-800 rounded-lg border border-zinc-700 flex items-center justify-between"><div class="flex items-center space-x-2"><span class="material-symbols-outlined text-primary text-[18px]">store</span><div><p class="text-label-sm text-zinc-400">Active Store</p><p class="text-body-sm font-medium text-white">Santo Domingo #04</p></div></div><span class="material-symbols-outlined text-zinc-400 text-[16px]">unfold_more</span></div><nav class="flex-1 px-space-md space-y-space-xl overflow-y-auto" data-active-classes="bg-primary text-on-primary font-medium rounded-lg"><div><p class="text-label-sm text-zinc-400 uppercase tracking-wider mb-space-sm px-space-sm">Daily Operations</p><div class="space-y-0.5"><a aria-current="page" class="flex items-center px-space-sm py-2 transition-all bg-primary text-on-primary font-medium rounded-lg" data-path="pos-terminal" href="#"><span class="material-symbols-outlined mr-space-sm text-[18px]">point_of_sale</span>POS Terminal</a><a class="flex items-center px-space-sm py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all text-body-sm" data-path="sales-register" href="#"><span class="material-symbols-outlined mr-space-sm text-[18px]">receipt_long</span>Sales Register</a><a class="flex items-center px-space-sm py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all text-body-sm" data-path="cash-drawer" href="#"><span class="material-symbols-outlined mr-space-sm text-[18px]">payments</span>Cash Drawer</a></div></div><div><p class="text-label-sm text-zinc-400 uppercase tracking-wider mb-space-sm px-space-sm">Inventory</p><div class="space-y-0.5"><a class="flex items-center px-space-sm py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all text-body-sm" data-path="stock-levels" href="#"><span class="material-symbols-outlined mr-space-sm text-[18px]">inventory_2</span>Stock Levels</a><a class="flex items-center px-space-sm py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all text-body-sm" data-path="transfers" href="#"><span class="material-symbols-outlined mr-space-sm text-[18px]">local_shipping</span>Store Transfers</a></div></div><div><p class="text-label-sm text-zinc-400 uppercase tracking-wider mb-space-sm px-space-sm">Fiscal</p><div class="space-y-0.5"><a class="flex items-center px-space-sm py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all text-body-sm" data-path="dgii-ecf" href="#"><span class="material-symbols-outlined mr-space-sm text-[18px]">verified</span>e-CF Compliance</a><a class="flex items-center px-space-sm py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all text-body-sm" data-path="tax-reports" href="#"><span class="material-symbols-outlined mr-space-sm text-[18px]">description</span>Tax Reports</a></div></div><div><p class="text-label-sm text-zinc-400 uppercase tracking-wider mb-space-sm px-space-sm">SaaS Settings</p><div class="space-y-0.5"><a class="flex items-center px-space-sm py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all text-body-sm" data-path="companies" href="#"><span class="material-symbols-outlined mr-space-sm text-[18px]">business</span>Companies</a><a class="flex items-center px-space-sm py-2 rounded-lg text-zinc-300 hover:bg-zinc-800 hover:text-white transition-all text-body-sm" data-path="users" href="#"><span class="material-symbols-outlined mr-space-sm text-[18px]">group</span>Users & Roles</a></div></div></nav></div><div class="px-space-lg pt-space-md border-t border-zinc-800 flex items-center justify-between"><div class="flex items-center space-x-3"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div><p class="text-body-sm font-medium text-white">Carlos Mendez</p><p class="text-label-sm text-zinc-400">Store Manager</p></div></div><span class="material-symbols-outlined text-zinc-400 cursor-pointer hover:text-white text-[18px]">logout</span></div></aside><div class="pl-[250px]"><header class="fixed top-0 left-[250px] right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center bg-surface-container-low px-space-md py-1.5 rounded-lg w-96 border border-outline-variant/30"><span class="material-symbols-outlined text-outline mr-space-sm text-[18px]">search</span><input class="bg-transparent border-none outline-none text-body-md text-on-surface w-full placeholder:text-outline" placeholder="Global Search (SKU, e-CF, Customer)..." type="text"/></div><div class="flex items-center space-x-space-md"><div class="flex items-center space-x-2 bg-surface-container-low px-space-sm py-1 rounded-full border border-outline-variant/30"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span><span class="text-label-sm font-medium text-on-surface">DGII e-CF: Online</span></div><button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><button class="bg-primary hover:bg-primary/90 text-on-primary px-space-md py-2 rounded-lg font-medium text-body-sm flex items-center shadow-sm transition-all"><span class="material-symbols-outlined mr-space-xs text-[18px]">point_of_sale</span>Open Terminal</button></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full pb-16">
+<!-- Smart Greeting & Period Header -->
+<div class="px-grid-margin py-space-lg flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div>
+<div class="flex items-center space-x-space-sm mb-1">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary px-2 py-0.5 rounded bg-surface-container">Store Shift Active #04</span>
+<span class="text-label-sm text-outline">•</span>
+<span class="text-label-sm text-secondary">Terminal POS-SD-02</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-background">Good day, Carlos Mendez</h1>
+</div>
+<div class="flex items-center space-x-space-sm">
+<div class="flex bg-surface-container p-1 rounded-lg">
+<button class="px-space-md py-1.5 rounded text-label-md font-label-md bg-surface text-on-surface shadow-sm">Today</button>
+<button class="px-space-md py-1.5 rounded text-label-md font-label-md text-secondary hover:text-on-surface transition-colors">This Week</button>
+<button class="px-space-md py-1.5 rounded text-label-md font-label-md text-secondary hover:text-on-surface transition-colors">This Month</button>
+</div>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-2 rounded-lg font-label-md text-label-md flex items-center transition-all">
+<span class="material-symbols-outlined mr-space-xs text-[18px]">download</span>
+        Export Report
+      </button>
+</div>
+</div>
+<!-- Operational KPI Cards -->
+<div class="px-grid-margin grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-bento-gap mb-space-xl">
+<!-- Card 1: Daily Sales -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">Daily Sales</span>
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+</div>
+<div>
+<div class="text-headline-lg font-headline-lg text-on-background mb-1">RD$ 48,250.00</div>
+<div class="flex items-center space-x-1 text-label-sm text-emerald-600 font-medium">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+12.5% vs yesterday</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Cash Drawer -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary"></div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">Shift Cash Drawer</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]">point_of_sale</span>
+</div>
+</div>
+<div>
+<div class="text-headline-lg font-headline-lg text-on-background mb-1">RD$ 5,000.00</div>
+<div class="flex items-center space-x-1 text-label-sm text-secondary">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>Drawer Open / Active Shift</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Inventory Alerts -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">Inventory Alerts</span>
+<div class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
+<span class="material-symbols-outlined text-[18px]">inventory_2</span>
+</div>
+</div>
+<div>
+<div class="text-headline-lg font-headline-lg text-on-background mb-1">3 Items</div>
+<div class="flex items-center space-x-1 text-label-sm text-amber-700 font-medium">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+<span>Low stock threshold reached</span>
+</div>
+</div>
+</div>
+<!-- Card 4: e-CF Invoices -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-emerald-600"></div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">DGII e-CF Issued</span>
+<div class="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+</div>
+<div>
+<div class="text-headline-lg font-headline-lg text-on-background mb-1">142 Total</div>
+<div class="flex items-center space-x-1 text-label-sm text-emerald-700 font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>100% Accepted by DGII</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Quick Operations -->
+<div class="px-grid-margin grid grid-cols-1 lg:grid-cols-3 gap-bento-gap mb-space-xl">
+<!-- Large POS Shortcut Card (2 cols) -->
+<div class="lg:col-span-2 bg-gradient-to-br from-primary-container to-primary text-on-primary p-space-xl rounded-xl shadow-md flex flex-col justify-between relative overflow-hidden">
+<div class="absolute right-0 bottom-0 opacity-10 translate-x-8 translate-y-8">
+<span class="material-symbols-outlined text-[200px]">point_of_sale</span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="bg-white/20 text-white px-2.5 py-1 rounded-full text-label-sm font-label-sm">High-Speed Engine</span>
+<span class="text-label-sm text-inverse-primary">Latency: 12ms</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg mb-2">POS Terminal Ready</h2>
+<p class="text-body-md text-inverse-primary max-w-lg mb-space-lg">Process sales instantly with barcode scanner support, automated tax calculations, and direct e-CF generation.</p>
+</div>
+<div class="flex items-center space-x-space-md">
+<button class="bg-white text-primary px-space-lg py-2.5 rounded-lg font-label-md text-label-md hover:bg-surface transition-all flex items-center shadow">
+<span class="material-symbols-outlined mr-space-xs text-[18px]">bolt</span>
+          Launch POS Terminal
+        </button>
+<button class="bg-primary-container text-white px-space-md py-2.5 rounded-lg font-label-md text-label-md hover:bg-black/20 transition-all">
+          View Shortcuts
+        </button>
+</div>
+</div>
+<!-- Inventory Capacity Card -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">Inventory Capacity</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">inventory</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">Warehouse Stock</h3>
+<p class="text-body-sm text-secondary mb-space-md">Santo Domingo Main Hub</p>
+<div class="space-y-space-sm mb-space-md">
+<div class="flex justify-between text-body-sm">
+<span class="text-secondary">Used Space</span>
+<span class="font-medium text-on-background">1,840 / 2,500 SKUs</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 73.6%;"></div>
+</div>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between">
+<span class="text-label-sm text-amber-700 font-medium">3 low stock items</span>
+<a class="text-label-md text-primary font-medium hover:underline" href="#">Manage Stock →</a>
+</div>
+</div>
+<!-- DGII e-CF Sequences Status -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">DGII e-CF Status</span>
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">verified</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">Active Sequences</h3>
+<p class="text-body-sm text-secondary mb-space-md">E31 (B2C) & E32 (B2B)</p>
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between p-2 bg-surface-container-low rounded">
+<span class="text-body-sm font-medium">E310000000142</span>
+<span class="text-label-sm bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">Active</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-low rounded">
+<span class="text-body-sm font-medium">E320000000088</span>
+<span class="text-label-sm bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">Active</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-surface-container flex items-center justify-between">
+<span class="text-label-sm text-secondary">Token expires in 4h</span>
+<button class="text-label-md text-primary font-medium hover:underline">Sync DGII</button>
+</div>
+</div>
+<!-- Restaurant/Salon Quick Tabs -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider">Quick Operations & Tables</span>
+<div class="flex space-x-2">
+<span class="text-label-sm bg-primary/10 text-primary px-2 py-0.5 rounded font-medium">Dining Room</span>
+<span class="text-label-sm bg-surface-container text-secondary px-2 py-0.5 rounded">Express Pickup</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm">
+<div class="p-3 bg-emerald-50 border border-emerald-200 rounded-lg cursor-pointer hover:bg-emerald-100 transition-colors">
+<div class="flex justify-between items-center mb-1">
+<span class="font-medium text-body-sm text-emerald-900">Table 01</span>
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+</div>
+<p class="text-label-sm text-emerald-700">RD$ 2,400 · 4 guests</p>
+</div>
+<div class="p-3 bg-amber-50 border border-amber-200 rounded-lg cursor-pointer hover:bg-amber-100 transition-colors">
+<div class="flex justify-between items-center mb-1">
+<span class="font-medium text-body-sm text-amber-900">Table 02</span>
+<span class="w-2 h-2 rounded-full bg-amber-600"></span>
+</div>
+<p class="text-label-sm text-amber-700">RD$ 5,800 · Ordered</p>
+</div>
+<div class="p-3 bg-surface-container-low border border-surface-container rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-center mb-1">
+<span class="font-medium text-body-sm text-on-surface">Table 03</span>
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+</div>
+<p class="text-label-sm text-secondary">Available</p>
+</div>
+<div class="p-3 bg-surface-container-low border border-surface-container rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex justify-between items-center mb-1">
+<span class="font-medium text-body-sm text-on-surface">Table 04</span>
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+</div>
+<p class="text-label-sm text-secondary">Available</p>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-md border-t border-surface-container flex justify-between items-center">
+<span class="text-label-sm text-secondary">Active floor plan: Main Salon 01</span>
+<button class="text-label-md text-primary font-medium hover:underline">View All Floor Maps →</button>
+</div>
+</div>
+</div>
+<!-- Recent Sales Activity Table -->
+<div class="px-grid-margin">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="px-space-lg py-space-md border-b border-surface-container flex items-center justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background">Recent Sales Activity</h3>
+<p class="text-body-sm text-secondary">Real-time ledger synced with DGII e-CF electronic invoicing</p>
+</div>
+<div class="flex items-center space-x-space-sm">
+<div class="flex items-center bg-surface-container-low px-3 py-1.5 rounded-lg border border-outline-variant/30">
+<span class="material-symbols-outlined text-outline mr-2 text-[16px]">filter_list</span>
+<input class="bg-transparent border-none outline-none text-body-sm w-44" placeholder="Filter NCF or Customer..." type="text"/>
+</div>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-1.5 rounded-lg text-label-md font-label-md">View All</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-label-sm font-label-sm text-secondary uppercase tracking-wider">
+<th class="py-3 px-space-lg">e-CF / NCF</th>
+<th class="py-3 px-space-lg">Customer</th>
+<th class="py-3 px-space-lg">Payment Method</th>
+<th class="py-3 px-space-lg text-right">Amount</th>
+<th class="py-3 px-space-lg text-center">Status</th>
+<th class="py-3 px-space-lg text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container text-body-md">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-lg font-code-md text-primary font-medium">E310000000142</td>
+<td class="py-3 px-space-lg font-medium text-on-background">Juan Perez (Consumidor Final)</td>
+<td class="py-3 px-space-lg text-secondary flex items-center space-x-1">
+<span class="material-symbols-outlined text-[16px]">credit_card</span>
+<span>Tarjeta de Crédito</span>
+</td>
+<td class="py-3 px-space-lg text-right font-medium">RD$ 3,450.00</td>
+<td class="py-3 px-space-lg text-center">
+<span class="bg-emerald-100 text-emerald-800 text-label-sm px-2.5 py-1 rounded-full font-medium">Cobrado</span>
+</td>
+<td class="py-3 px-space-lg text-right">
+<button class="p-1 rounded hover:bg-surface-container text-secondary"><span class="material-symbols-outlined text-[18px]">receipt</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-lg font-code-md text-primary font-medium">E320000000088</td>
+<td class="py-3 px-space-lg font-medium text-on-background">Distribuidora Corripio SRL</td>
+<td class="py-3 px-space-lg text-secondary flex items-center space-x-1">
+<span class="material-symbols-outlined text-[16px]">account_balance</span>
+<span>Transferencia Bancaria</span>
+</td>
+<td class="py-3 px-space-lg text-right font-medium">RD$ 24,100.00</td>
+<td class="py-3 px-space-lg text-center">
+<span class="bg-emerald-100 text-emerald-800 text-label-sm px-2.5 py-1 rounded-full font-medium">Cobrado</span>
+</td>
+<td class="py-3 px-space-lg text-right">
+<button class="p-1 rounded hover:bg-surface-container text-secondary"><span class="material-symbols-outlined text-[18px]">receipt</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-lg font-code-md text-primary font-medium">E310000000141</td>
+<td class="py-3 px-space-lg font-medium text-on-background">Maria Almonte</td>
+<td class="py-3 px-space-lg text-secondary flex items-center space-x-1">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>Efectivo (RD$)</span>
+</td>
+<td class="py-3 px-space-lg text-right font-medium">RD$ 1,250.00</td>
+<td class="py-3 px-space-lg text-center">
+<span class="bg-emerald-100 text-emerald-800 text-label-sm px-2.5 py-1 rounded-full font-medium">Cobrado</span>
+</td>
+<td class="py-3 px-space-lg text-right">
+<button class="p-1 rounded hover:bg-surface-container text-secondary"><span class="material-symbols-outlined text-[18px]">receipt</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3 px-space-lg font-code-md text-primary font-medium">E310000000140</td>
+<td class="py-3 px-space-lg font-medium text-on-background">Roberto Gomez</td>
+<td class="py-3 px-space-lg text-secondary flex items-center space-x-1">
+<span class="material-symbols-outlined text-[16px]">phone_iphone</span>
+<span>Mobile Payment</span>
+</td>
+<td class="py-3 px-space-lg text-right font-medium">RD$ 890.00</td>
+<td class="py-3 px-space-lg text-center">
+<span class="bg-emerald-100 text-emerald-800 text-label-sm px-2.5 py-1 rounded-full font-medium">Cobrado</span>
+</td>
+<td class="py-3 px-space-lg text-right">
+<button class="p-1 rounded hover:bg-surface-container text-secondary"><span class="material-symbols-outlined text-[18px]">receipt</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-space-lg py-space-md border-t border-surface-container flex items-center justify-between text-body-sm text-secondary">
+<span>Showing 4 of 142 e-CF transactions today</span>
+<div class="flex items-center space-x-2">
+<button class="px-3 py-1 bg-surface-container rounded disabled:opacity-50" disabled="">Previous</button>
+<button class="px-3 py-1 bg-surface-container rounded hover:bg-surface-container-high text-on-surface">Next</button>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

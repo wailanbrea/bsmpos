@@ -15,7 +15,7 @@ test.describe('Venta POS sin stock', () => {
         await page.getByText('Fondo Inicial DOP').locator('..').getByRole('spinbutton').fill('200');
         await page.getByRole('button', { name: 'Abrir Caja e Iniciar Ventas' }).click();
 
-        await expect(page.getByText('OMNIPOS · Caja Demo')).toBeVisible();
+        await expect(page.getByText('BSM-POS · Caja Demo')).toBeVisible();
         await page.getByRole('button', { name: /Botellón de Agua 20 L/ }).click();
         await page.getByRole('button', { name: /Completar Venta/ }).click();
 
@@ -38,7 +38,7 @@ test.describe('Venta POS sin stock', () => {
 
         // Cerrar el cobro y arquear la caja para no dejar el turno abierto
         // (una sola "Caja Demo" compartida entre escenarios).
-        await paymentDialog.getByRole('button', { name: '✕' }).click();
+        await paymentDialog.getByRole('button', { name: /Cerrar|✕/ }).click();
         await page.getByRole('button', { name: /Cerrar Caja/ }).click();
         const closeDialog = page.getByRole('dialog').filter({
             has: page.getByRole('heading', { name: 'Cierre de Caja y Arqueo' }),

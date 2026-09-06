@@ -61,7 +61,7 @@ final class ModuleCatalog
             ['warranty', 'Garantías', 'Garantías de venta.', 'sales', false],
             ['expense', 'Gastos', 'Gastos operativos (606).', 'finance', false],
             ['employee', 'Empleados', 'Empleados y comisiones.', 'hr', false],
-            ['notification', 'Notificaciones', 'Correo y WhatsApp.', 'operations', false],
+            ['notification', 'Notificaciones', 'Centro de notificaciones y alertas.', 'core', true],
         ];
 
         $sort = 0;

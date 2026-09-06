@@ -10,6 +10,7 @@ use App\Core\Http\ApiResponse;
 use App\Core\Tenancy\CurrentCompany;
 use App\Modules\Setting\Http\Requests\StorePaymentMethodRequest;
 use App\Modules\Setting\Http\Requests\StoreTaxRequest;
+use App\Modules\Setting\Http\Requests\UpdatePaymentMethodRequest;
 use App\Modules\Setting\Http\Requests\UpdateTaxRequest;
 use App\Modules\Setting\Http\Resources\PaymentMethodResource;
 use App\Modules\Setting\Http\Resources\TaxResource;
@@ -66,6 +67,24 @@ final class SettingController
         $method->audit('payment_method.created', [], $method->only(['code']));
 
         return ApiResponse::success(new PaymentMethodResource($method), 'Método de pago creado.', 201);
+    }
+
+    public function updatePaymentMethod(string $publicId, UpdatePaymentMethodRequest $request, CurrentCompany $currentCompany): JsonResponse
+    {
+        $method = PaymentMethod::query()
+            ->where('company_id', $currentCompany->company()->getKey())
+            ->where('public_id', $publicId)
+            ->first();
+
+        if ($method === null) {
+            throw new ApiException(ErrorCode::NotFound, 'El método de pago no existe.', 404);
+        }
+
+        $before = $method->only(['name', 'requires_reference', 'is_active']);
+        $method->update($request->validated());
+        $method->audit('payment_method.updated', $before, $method->only(['name', 'requires_reference', 'is_active']));
+
+        return ApiResponse::success(new PaymentMethodResource($method), 'Método de pago actualizado.');
     }
 
     private function findTax(string $publicId, CurrentCompany $currentCompany): Tax

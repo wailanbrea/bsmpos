@@ -12,6 +12,8 @@ Route::middleware('auth:sanctum')->group(function (): void {
 });
 
 Route::middleware(['auth:sanctum', 'company', 'permission:company.manage'])->group(function (): void {
+    Route::get('company/profile', [CompanyController::class, 'showCurrent']);
+    Route::patch('company/profile', [CompanyController::class, 'updateCurrent']);
     Route::get('branches', [BranchController::class, 'index']);
     Route::post('branches', [BranchController::class, 'store']);
     Route::patch('branches/{publicId}', [BranchController::class, 'update']);

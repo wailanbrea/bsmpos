@@ -25,7 +25,7 @@ final class AppointmentController
         $this->authorize($request, $currentCompany, 'appointments.view');
 
         $query = Appointment::query()
-            ->with(['customer', 'employee', 'services'])
+            ->with(['customer', 'employee', 'services.service'])
             ->where('company_id', $currentCompany->company()->getKey())
             ->orderBy('scheduled_at');
 

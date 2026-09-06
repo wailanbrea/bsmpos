@@ -1,0 +1,20 @@
+<service>
+  <id>OmniPOSWindowsAgent</id>
+  <name>OmniPOS Windows Agent</name>
+  <description>Controlador local de hardware para OmniPOS SaaS (impresoras termicas ESC/POS y gaveta de dinero).</description>
+  <executable>java</executable>
+  <arguments>-Dfile.encoding=UTF-8 -cp "lib/*" io.ktor.server.netty.EngineMain</arguments>
+  <workingdirectory>%BASE%</workingdirectory>
+  <logpath>%BASE%\logs</logpath>
+  <log mode="roll-by-size">
+    <sizeThreshold>10240</sizeThreshold>
+    <keepFiles>5</keepFiles>
+  </log>
+  <onfailure action="restart" delay="5 sec"/>
+  <onfailure action="restart" delay="10 sec"/>
+  <onfailure action="restart" delay="20 sec"/>
+  <resetfailure>1 hour</resetfailure>
+  <serviceaccount>
+    <username>NT AUTHORITY\LocalService</username>
+  </serviceaccount>
+</service>

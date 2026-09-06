@@ -4,6 +4,207 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-09-05 — Branding: Cambio de Nombre e Identidad del Sistema a "BSM-POS"
+**Modificado**
+- **Identidad de Marca y Aplicación:**
+  - Actualización oficial del nombre comercial del sistema de "OmniPOS" a **"BSM-POS"**.
+  - Configuración backend: `.env`, `.env.example` y `config/app.php` actualizados con `APP_NAME=BSM-POS`.
+  - Título de la aplicación web y PWA: `resources/views/welcome.blade.php` y `vite.config.js` (`name: 'BSM-POS'`, `short_name: 'BSM-POS'`).
+  - Layout y navegación principal (`AppLayout.vue`): cabecera, logotipo del sidebar (`BSM-POS` con badge de comprobantes `e-CF`), nombre de empresa por defecto `BSM-POS Enterprise`.
+  - Punto de Venta POS (`PosPage.vue`): título superior `BSM-POS · [Nombre de Caja]`, pie de comprobante fiscal impreso `BSM-POS Modular SaaS`, modal de instalación de hardware `BSM-POS Windows Agent`.
+  - Módulo de Hardware (`AgentTerminalsPage.vue` y `AgentTerminalController.php`): tarjetas de terminales, botones de descarga directa de `BSM-POS-Agent.zip` y control de servicio de impresión térmica local.
+  - Autenticación y Cuentas (`LoginPage.vue`, `RegisterPage.vue`, `ContextPage.vue`, `TwoFactorController.php`): branding unificado, textos de registro y código QR de autenticación 2FA TOTP con emisor `BSM-POS`.
+  - Generador de Facturas e Impresión Térmica ESC/POS (`PrintController.php`): tickets ESC/POS nativos, tickets de texto plano y facturas HTML con pie de comprobante `BSM-POS Modular SaaS`.
+- **Pruebas y Calidad:**
+  - Pruebas E2E de Playwright (`tests/e2e/pos-sale.spec.ts`, `tests/e2e/pos-no-stock.spec.ts`) sincronizadas con el nuevo encabezado `BSM-POS · Caja Demo`.
+  - 180 pruebas Pest pasando, 0 errores en Larastan (nivel 8), 100% código limpio en Pint y verificación visual en navegador con Playwright MCP.
+
+### 2026-09-05 — Hardware: Modal Interactivo de Instalación en 1 Clic del OmniPOS Windows Agent
+**Agregado**
+- **Modal Interactivo del Agente en POS (`PosPage.vue`):**
+  - La insignia de estado `desktop_windows` en el encabezado del terminal POS ahora es un botón interactivo y reactivo.
+  - Cuando el agente está desconectado (`Instalar Agente`), parpadea en color ámbar y al hacer clic despliega un modal explicativo detallado con el estado en tiempo real, botón de reintento (`refresh`) y guía de instalación visual en 3 pasos.
+  - Botón de descarga directa del paquete `OmniPOS-Agent.zip` (21 MB).
+  - Detección automática en vivo: cuando el usuario ejecuta el instalador en su máquina, el POS detecta el agente en `http://127.0.0.1:8765/api/status` y conmuta la insignia a color verde (`Agente Windows`) automáticamente sin recargar la página.
+- **Botón de Descarga en Panel de Terminales (`AgentTerminalsPage.vue`):**
+  - Botón "Descargar Agente Windows" en el encabezado principal de hardware y en la tarjeta de estado del agente local.
+- **Distribución y Endpoint de Descarga:**
+  - Generación del paquete comprimido `public/downloads/omnipos-windows-agent.zip` incluyendo ejecutables `bin/`, librerías Ktor/Netty `lib/`, wrapper de servicio Windows `service/OmniPOSAgent.exe`, `instalar-servicio.bat` con elevación de permisos, `iniciar-sin-servicio.bat` y `LEEME-INSTRUCCIONES.txt`.
+  - Endpoint `GET /api/v1/agent-terminals/download` en `AgentTerminalController.php`.
+- **Calidad:** 180 pruebas Pest pasando, 0 errores en Larastan, 100% formateado con Pint y verificado en navegador con Playwright MCP.
+
+### 2026-09-05 — POS: Eliminación Rápida de Ítems / Vaciar Carrito y Centro de Configuración Totalmente Editable
+**Agregado**
+- **Eliminación Rápida en Punto de Venta POS (`PosPage.vue`):**
+  - Botón de papelera directa (`delete`) en cada fila de producto en el carrito de compras: permite eliminar cualquier ítem en 1 solo clic sin tener que presionar repetidamente el botón de restar cantidad hasta llegar a cero.
+  - Botón "Vaciar" (`delete_sweep`) en la cabecera del carrito con confirmación de seguridad para reiniciar la orden completa instantáneamente.
+  - Indicador de número total de ítems en la cabecera de la orden.
+  - Recálculo en tiempo real de subtotales, ITBIS y total general al eliminar ítems o vaciar el carrito.
+- **Centro de Configuración Totalmente Editable (`ConfigurationPage.vue` & Backend):**
+  - **Pestaña "Empresa & Perfil":** Formulario completo para editar Nombre Comercial, Razón Social, RNC/Cédula, Moneda Contable Base, Teléfono Principal, WhatsApp de Atención al Cliente, Correo Electrónico Comercial, Dirección Física Fiscal y Zona Horaria.
+  - **Pestaña "Fiscal & Comprobantes":**
+    - Impuestos de Ley (ITBIS/Propina): Modal para crear nuevos impuestos y modal para editar tasas, nombres descriptivos, ámbitos (productos/servicios/ambos) y estado activo/inactivo.
+    - Métodos de Pago: Modal para crear nuevos métodos y modal para editar nombres, exigencia de referencia/banco y estado activo/inactivo.
+    - Secuencias NCF y e-CF: Modal de ajuste de secuencias para modificar el número final del rango autorizado por la DGII, umbral de alerta de agotamiento, fecha de vencimiento y estado activo/pausado.
+  - **Pestaña "Preferencias Operativas":** Conmutadores y políticas para Punto de Venta (venta sin stock, NCF por defecto, exigencia de RNC, propina legal), Facturación & Precios, e Inventario.
+  - **Pestaña "Hub del Sistema":** Tarjetas de acceso directo a Terminales Windows, Gestor de Módulos SaaS, Monitor e-CF, Sucursales, Roles RBAC y Seguridad 2FA.
+- **Endpoints y Servicios Backend:**
+  - `GET /api/v1/company/profile`: Consulta de datos completos de la empresa activa.
+  - `PATCH /api/v1/company/profile`: Actualización con validación `UpdateCompanyRequest`, autorización `CompanyPolicy@update` (`company.manage`) y auditoría.
+  - `PATCH /api/v1/payment-methods/{publicId}`: Edición de métodos de pago con `UpdatePaymentMethodRequest`.
+  - `PATCH /api/v1/ncf-sequences/{id}`: Ajuste de rangos y umbrales de comprobantes fiscales.
+- **Calidad:**
+  - 180 pruebas Pest pasando (747 aserciones).
+  - Larastan 0 errores (315 archivos).
+  - Verificación end-to-end con Playwright MCP: prueba de eliminación rápida en POS, vaciado de carrito, edición de perfil de empresa y ajuste de secuencias NCF con actualización reactiva de la UI.
+
+### 2026-09-05 — Centro de Notificaciones Inteligentes en Vivo y e-CF Modular Opcional
+**Agregado**
+- **Centro de Notificaciones en Tiempo Real (`app/Modules/Notification/` & `NotificationDropdown.vue`):**
+  - Módulo core `notification` registrado en `ModuleCatalog.php` y habilitado por defecto para todos los tenants.
+  - Modelo `SystemNotification` con aislamiento estricto multi-empresa (`BelongsToCompany`, `HasPublicUlid`), tipos (`info`, `warning`, `success`, `error`), categorías (`inventory`, `fiscal`, `appointment`, `work_order`, `cash`, `system`), URL de acción y marcas de lectura (`read_at`).
+  - Servicio `NotificationService.php` con generación sincronizada de alertas inteligentes operativas:
+    - Inventario crítico: detecta productos activos con stock por debajo o igual al mínimo requerido (consulta optimizada y compatible con `ONLY_FULL_GROUP_BY` de MySQL).
+    - Secuencias NCF por agotarse: alerta cuando el rango restante de comprobantes alcanza el umbral de alerta (`alert_threshold`).
+    - Citas programadas para el día de hoy (módulo `appointment`).
+    - Órdenes de taller listas para cobro o entrega (módulo `work_order`).
+    - Turnos de caja prolongados abiertos por más de 12 horas (módulo `pos`).
+  - Endpoints RESTful completos en `routes.php`:
+    - `GET /api/v1/notifications`: Listado con soporte de paginación y metadata de no leídas (`unread_count`).
+    - `GET /api/v1/notifications/unread-count`: Consulta rápida de contador.
+    - `PATCH /api/v1/notifications/{publicId}/read`: Marcado de notificación individual como leída.
+    - `POST /api/v1/notifications/mark-all-read`: Marcado masivo de todas las notificaciones como leídas.
+    - `DELETE /api/v1/notifications/{publicId}`: Eliminación de notificaciones.
+  - Componente frontend interactivo `NotificationDropdown.vue` integrado en la barra superior de `AppLayout.vue`:
+    - Campana interactiva con badge dinámico animado con número de no leídas (oculto en 0).
+    - Desplegable con diseño Bento / Kinetic Enterprise, iconos temáticos por categoría, tiempos relativos, botón "Marcar todas", eliminación individual y navegación directa al recurso mediante clic.
+    - Polling en segundo plano cada 30 segundos sin interrumpir la interacción del usuario.
+    - Textos y categorías localizados en español e inglés (`es.ts` y `en.ts`).
+  - Suite de pruebas Pest en `tests/Feature/NotificationTest.php` (8 pruebas completas cubriendo listado, lectura individual/masiva, borrado y aislamiento multi-tenant).
+- **Facturación Electrónica e-CF como Servicio SaaS Opcional:**
+  - El sistema mantiene desacoplado y opcional el módulo `electronic_invoice` (`is_core = false`): si el cliente no lo contrata/solicita, emite de forma 100% legal y transparente comprobantes fiscales tradicionales (B01, B02, B14, etc.) sin bloqueos ni dependencias de certificados electrónicos.
+  - Si el cliente lo solicita/activa, el sistema ya tiene preparado el pipeline completo (`ElectronicInvoiceProviderInterface`, provider Mock/DGII, secuencias e-NCF E31/E32 y colas con backoff exponencial).
+  - Banners informativos claros en `ConfigurationPage.vue` y `ElectronicInvoicePage.vue` destacando la naturaleza opcional bajo demanda del servicio e-CF sin afectar la operativa diaria tradicional.
+- **Calidad:**
+  - Suite Pest: **180 pruebas pasando (747 aserciones)** al 100%.
+  - Larastan: **0 errores en 313 archivos** (`[OK] No errors`).
+  - Pint: 100% formateado según estándar oficial.
+  - Vite build: compilación limpia en 2.52s.
+  - Verificación end-to-end en navegador real con Playwright: recepción de alertas en vivo, apertura de dropdown, marcado masivo, eliminación y navegación directa a la agenda.
+**Agregado**
+- **Puente entre Verticales y POS (`ExternalOrderBridge`):**
+  - Implementación de `setExternalOrderBridge()` y `consumeExternalOrderBridge()` en `resources/js/modules/pos/services.ts` para transferir citas y órdenes de trabajo a la caja registradora de forma reactiva y desacoplada vía `sessionStorage`.
+  - Botón `"Facturar en POS"` en la Agenda de Citas (`AgendaPage.vue`) para transferir clientes, empleados asignados, notas y servicios.
+  - Botón `"Facturar en POS"` en las Órdenes de Trabajo (`WorkOrderListPage.vue`) para transferir vehículos, diagnósticos, servicios, repuestos y mano de obra tarifada.
+- **Backend POS Híbrido (Productos Físicos + Servicios de Catálogo + Conceptos Dinámicos):**
+  - Actualización de `OrderController.php` y `CreateOrderAction.php` para aceptar tanto `Product` como `Service` (por `public_id` o ID numérico), así como conceptos dinámicos de taller (`srv-`, `part-`, `labor-`, `custom-`).
+  - Creación y resolución automática de productos sombra no inventariables (`track_inventory = false`) con el nombre y precio del servicio o mano de obra, garantizando integridad referencial en `order_items` e `invoice_items` sin tocar el stock de almacén.
+  - Emisión de facturas fiscales NCF tradicionales (B02 / B01) directas desde el POS con desglose transparente de servicios y repuestos.
+- **Pruebas y Calidad:**
+  - Nueva prueba Feature en `tests/Feature/POSOrderTest.php`: venta de un servicio en el POS y emisión de factura NCF B02 sin descuento de existencias físicas.
+  - Suite Pest completa pasando al 100% (172 pruebas, 717 aserciones).
+  - PHPStan / Larastan en nivel máximo pasando con 0 errores en 307 archivos.
+  - ESLint sin advertencias y Vite build limpio.
+  - Verificación end-to-end en navegador real (Playwright MCP) completando y cobrando ventas fiscales reales desde Barbería y Taller AutoMax con el agente Windows conectado.
+
+### 2026-09-05 — Integración Windows: OmniPOS Agent (Kotlin/Ktor), Detección de Dispositivos Bluetooth/Serial y Gestión de Terminales POS
+**Agregado**
+- **Agente Local Windows nativo (`agent/`):**
+  - Servicio liviano en Kotlin 2.1 + Ktor 3.1 escuchando exclusivamente en loopback `127.0.0.1:8765`.
+  - **Detección de Hardware y Periféricos (`LocalPrinterService.kt`):**
+    - Impresoras Spooler de Windows vía Java Print Service (`PrintServiceLookup`).
+    - Detección profunda de puertos seriales COM (`Win32_SerialPort`) y dispositivos Bluetooth vinculados en Windows (`Get-PnpDevice -Class Bluetooth`).
+    - Detección y emparejamiento automático de impresoras Bluetooth (e.g. `2C-P58-C`) asociándolas directamente a sus puertos virtuales `COM7` / `COM6`.
+    - Hilo en segundo plano no bloqueante (`OmniPOS-HardwareScanner`) con caché suave de 6 segundos para escaneos ultrarrápidos (<5ms).
+    - Impresión raw ESC/POS directa hacia puertos COM / Bluetooth (`\\.\COMx`) y spooler de Windows.
+    - Soporte de apertura de gaveta de dinero por pulso ESC/POS (`0x1B, 0x70, 0x00, 0x19, 0xFA`).
+  - **Seguridad Loopback Reforzada (`AgentSecurity.kt`):**
+    - Validación de loopback estricto mediante `InetAddress.isLoopbackAddress` (soporta Docker Desktop `kubernetes.docker.internal`).
+    - Validación estricta de dominios autorizados en `Origin` y rate limiting de 120 req/min.
+    - Autenticación opcional mediante tokens HMAC-SHA256 con ventana de tiempo de 300s.
+  - **Endpoints del Agente (`Application.kt`):**
+    - `GET /api/status`: Estado, versión y host del agente.
+    - `GET /api/printers`: Listado de impresoras del sistema y puertos Bluetooth.
+    - `GET /api/devices`: Resumen completo de impresoras, dispositivos Bluetooth emparejados y puertos COM.
+    - `GET /api/config`: Configuración de la terminal, ancho de papel y codificación.
+    - `POST /api/print`: Envío de tickets ESC/POS en texto plano codificado.
+    - `POST /api/test`: Prueba de impresión directa sobre cualquier impresora o puerto COM.
+    - `POST /api/drawer/open`: Pulso para gaveta conectada a impresora.
+  - Empaquetado completo distribuible (`gradle installDist`) en `agent/build/install/omnipos-windows-agent/`.
+- **Backend Laravel (`app/Modules/POS/` & `app/Modules/Invoice/`):**
+  - Migración y Modelo `AgentTerminal` con almacenamiento seguro de tokens (hash SHA-256) y unicidad por tenant (`company_id`).
+  - Controlador `AgentTerminalController` con endpoints RESTful (`index`, `store`, `update`, `destroy`, `rotateToken`).
+  - Endpoint de impresión en texto plano monospaced para impresoras térmicas ESC/POS: `GET /api/v1/invoices/{id}/print/text`.
+  - Suite de pruebas Pest `AgentTerminalTest.php` (4 pruebas, 24 aserciones pasando al 100%).
+- **Frontend Vue 3 / TypeScript (`resources/js/`):**
+  - Composables dedicados `useAgentStatus.ts` (polling suave no bloqueante) y `useAgentPrinter.ts` (detección de periféricos, impresión y apertura de gaveta).
+  - Nueva página de administración Bento Grid `AgentTerminalsPage.vue` (`/configuracion/terminales`):
+    - Banner de estado en vivo del agente Windows.
+    - Grilla de impresoras detectadas con botones de prueba de impresión y pulso de gaveta.
+    - Panel interactivo de dispositivos Bluetooth vinculados y puertos seriales COM.
+    - Tabla de terminales registradas con modal para creación y rotación de tokens HMAC-SHA256.
+  - Integración en `PosPage.vue`: Badge en vivo de agente Windows, impresión automática de tickets térmicos vía agente local con fallback transparente al diálogo de impresión del navegador, y pulso de gaveta en cobros en efectivo.
+  - Integración en menú de navegación `AppLayout.vue` y rutas de `router/index.ts`.
+  - Contenedor Electron con aislamiento de contexto (`electron/main.cjs`, `electron/preload.cjs`).
+
+
+### 2026-09-05 — i18n: Sistema 100% en español con soporte y alternador a inglés (vue-i18n)
+**Agregado**
+- **Arquitectura i18n centralizada (`resources/js/i18n/`):**
+  - Módulo principal `index.ts` con integración reactiva Composition API de `vue-i18n`.
+  - Diccionario exhaustivo en español (`es.ts`) cubriendo términos comunes, navegación, Bento Dashboard, alertas, secuencias DGII e-CF, operaciones y tablas.
+  - Diccionario completo en inglés (`en.ts`) con equivalencias semánticas directas.
+  - Persistencia automática de la preferencia del usuario en `localStorage` (`omnipos_locale`) y actualización dinámica del atributo `html[lang]`.
+- **Selector de Idioma en Topbar (`AppLayout.vue`):**
+  - Botón interactivo con icono de traducción y chip de idioma activo (`ES` / `EN`) que conmuta instantáneamente sin recargar la página.
+  - Traducción completa y reactiva de los títulos de sección del sidebar, enlaces de navegación, estados e-CF y buscador global.
+- **Dashboard Bento Grid traducido al español (`DashboardPage.vue`):**
+  - Todos los KPIs, turnos, banners operativos, monitores fiscales DGII y tablas de ventas ahora se muestran en español dominicano por defecto, con fallback y conmutación completa a inglés al pulsar el selector.
+- **Configuración backend Laravel (`config/app.php`):**
+  - `locale` y `fallback_locale` configurados a `'es'`.
+
+
+### 2026-09-05 — UI/UX: Rediseño total Enterprise SaaS (Bento Grid, Tokens Zinc/Indigo, Tipografía Geist/Inter)
+**Agregado**
+- **Adopción integral del Enterprise SaaS Design System:**
+  - Integración de fuentes Google Fonts: **Geist** (encabezados métricos y títulos de alta jerarquía), **Inter** (cuerpo e interfaces densas) y **JetBrains Mono** (códigos NCF/e-CF y SKUs) en `welcome.blade.php`.
+  - Inclusión de **Material Symbols Outlined** de Google Fonts para iconografía limpia y consistente.
+  - Extensión de tokens en `resources/css/app.css` (`@theme` con paleta dark Zinc `#18181b`, `#27272a`, Royal Indigo `#4648d4`, `#6063ee`, emerald y amber).
+- **Layout Global Enterprise (`AppLayout.vue`):**
+  - **Sidebar de 260px (`#18181b`):** Brand con badge e-CF, tarjeta `Active Store` con `unfold_more` para conmutar sucursal, categorías limpias con scroll invisible (`.no-scrollbar`), footer con avatar del usuario autenticado y acción de desconexión.
+  - **Topbar Global:** Input de búsqueda unificada `Global Search (SKU, e-CF, Customer)...`, chip de estatus DGII pulsante (`DGII e-CF: Online` / `NCF Tradicional`), campanilla de notificaciones y botón de acción principal `Open Terminal` / `Abrir POS`.
+- **Dashboard Bento Grid (`DashboardPage.vue`):**
+  - Encabezado con shift badge (`Store Shift Active #04 • Terminal POS-SD-02`), saludo personalizado, selectores de período (`Today`, `This Week`, `This Month`) y exportación.
+  - 4 Tarjetas KPI con borde acentuado de 4px (Ventas del día con % comparativo, Cajón de efectivo/turno, Alertas de stock bajo con umbrales, Emisión DGII e-CF).
+  - Banner interactivo de alta velocidad "POS Terminal Ready" con gradiente azul/índigo y accesos rápidos a terminal y atajos de teclado.
+  - Tarjeta de Capacidad de Almacén con indicador de SKUs y barra de progreso de capacidad.
+  - Monitor en vivo de secuencias DGII activas (E31 Facturas con crédito fiscal, E32 Consumo).
+  - Selector de operaciones rápidas y mesas con pestañas dinámicas (`Dining Room`, `Express Pickup`).
+  - Tabla de actividad reciente sincronizada con búsqueda en tiempo real, métodos de pago, badges de estado y paginación.
+
+
+### 2026-09-05 — UI/UX: Rediseño profesional del Dashboard y eliminación de menús locales redundantes
+**Agregado**
+- **Dashboard Ejecutivo moderno (`DashboardPage.vue`):** Se eliminó por completo el menú viejo local de 220px y el contenedor provisional en desuso. Ahora cuenta con un panel ejecutivo de alto impacto:
+  - 4 Tarjetas KPI operativas en tiempo real: Ventas del día (`RD$ 0.00`), Estado de caja (`Requiere apertura`), Catálogo & Stock (`Stock sincronizado`), Fiscal DGII (`e-CF Habilitado` / `NCF Tradicional`).
+  - Grilla de **Operaciones Rápidas** interactivas con diseño Kinetic Enterprise para Terminal POS, Catálogo de Productos, Control de Inventario, Directorio de Clientes, Reportes y Cierres, Configuración Fiscal y módulos especializados por giro (Plano de Mesas, Cocina KDS, Agenda, Órdenes de Trabajo, Vehículos, e-CF).
+  - Tarjeta de contexto empresarial con resumen de la sucursal, ID, moneda, modo de operación Nube SaaS, aislamiento multitenant y acceso a centro de control de módulos y roles.
+- **Limpieza de enlaces locales obsoletos:** Se eliminaron los botones rudimentarios `← Volver al panel` e importaciones en desuso en las 15 vistas internas secundarias (`ProductListPage`, `CustomerListPage`, `ReportsPage`, `ConfigurationPage`, `ElectronicInvoicePage`, `AuditLogPage`, `RoleManagementPage`, `UserManagementPage`, `BranchManagementPage`, `ModuleManagementPage`, `SecurityPage`, `AgendaPage`, `WorkOrderListPage`, `VehicleListPage`, `EmployeeListPage`), unificando toda la navegación en el sidebar fijo global.
+- **Optimización y eliminación de scrollbar en sidebar (`AppLayout.vue` y `app.css`):** Se implementó la clase utilitaria `.no-scrollbar` (`scrollbar-width: none; -ms-overflow-style: none; ::-webkit-scrollbar { display: none; }`) para eliminar completamente la barra de desplazamiento gris y tosca nativa de Windows. Se compactaron los paddings, margins y alturas de los ítems de navegación (`h-8.5` con `space-y-0.5` y `space-y-3` entre secciones) logrando un diseño esbelto estilo Linear/Stripe.
+
+**Validado**
+- Verificado en navegador real mediante Playwright navegando en vivo entre Dashboard, Productos, Inventario, y Resumen.
+- Inspección visual mediante captura de pantalla completa confirmando integración armónica y profesional.
+- Suite Pest completa pasando: 167 tests (679 aserciones).
+- Compilación Vite y linter ESLint 100% limpios sin advertencias ni errores.
+
+### 2026-09-05 — UI/UX: Layout global con Sidebar lateral fijo (tipo Bootstrap/Laravel SaaS)
+**Agregado**
+- Nuevo componente `AppLayout.vue` (`resources/js/layouts/AppLayout.vue`) que envuelve todas las vistas internas autenticadas del sistema.
+- **Sidebar lateral izquierdo fijo (`w-64`):** Permanece siempre visible en escritorio sin cerrarse al cambiar de pantalla o módulo. Incluye logotipo de OmniPOS, tarjeta de contexto (empresa y sucursal con botón para cambiar), navegación categorizada por áreas operativas (Operación diaria, Catálogo & Almacén, Fiscal & Reportes, Administración SaaS) con resaltado activo automático de ruta, y footer con información de usuario y botón de cerrar sesión. En dispositivos móviles opera como un drawer deslizable con backdrop.
+- **Topbar superior fija:** Barra sticky con título de contexto, indicador de estado "En línea", y botón de acceso rápido "Abrir POS".
+- Actualizado `App.vue` para aplicar automáticamente `AppLayout` en todas las rutas con contexto, excluyendo únicamente las pantallas de autenticación (`/ingresar`, `/crear-cuenta`, `/seleccionar-contexto`, `/configuracion/inicial`).
+
 ### 2026-07-12 — Imágenes de producto (subir, listar, POS)
 **Agregado**
 - Los productos ahora pueden tener **imagen**. Backend: endpoints `POST /products/{id}/image` (multipart, campo `image`, jpg/png/webp ≤ 2 MB) y `DELETE /products/{id}/image`, con almacenamiento en el disco `public` (`products/`), borrado del archivo anterior y auditoría (`product.image_updated` / `product.image_removed`). `ProductResource` expone `image_url`.

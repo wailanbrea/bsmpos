@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace App\Modules\Setting\Http\Controllers;
 
+use App\Core\Enums\ErrorCode;
 use App\Core\Http\ApiResponse;
 use App\Core\Tenancy\CurrentCompany;
 use App\Modules\Setting\Http\Requests\StoreNcfSequenceRequest;
 use App\Modules\Setting\Http\Resources\NcfSequenceResource;
 use App\Modules\Setting\Models\NcfSequence;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 final class NcfSequenceController
 {
@@ -42,5 +44,30 @@ final class NcfSequenceController
         $sequence->audit('ncf_sequence.created', [], $sequence->only(['document_type_code', 'start_number', 'end_number']));
 
         return ApiResponse::success(new NcfSequenceResource($sequence), 'Secuencia NCF creada.', 201);
+    }
+
+    public function update(int|string $id, Request $request, CurrentCompany $currentCompany): JsonResponse
+    {
+        $sequence = NcfSequence::query()
+            ->where('company_id', $currentCompany->company()->getKey())
+            ->where('id', $id)
+            ->first();
+
+        if ($sequence === null) {
+            return ApiResponse::error(ErrorCode::NotFound, 'Secuencia no encontrada.', 404);
+        }
+
+        $validated = $request->validate([
+            'end_number' => ['sometimes', 'integer', 'min:'.($sequence->current_number + 1)],
+            'alert_threshold' => ['sometimes', 'integer', 'min:1'],
+            'expires_at' => ['nullable', 'date'],
+            'is_active' => ['sometimes', 'boolean'],
+        ]);
+
+        $before = $sequence->only(['end_number', 'alert_threshold', 'expires_at', 'is_active']);
+        $sequence->update($validated);
+        $sequence->audit('ncf_sequence.updated', $before, $sequence->only(['end_number', 'alert_threshold', 'expires_at', 'is_active']));
+
+        return ApiResponse::success(new NcfSequenceResource($sequence), 'Secuencia NCF actualizada.');
     }
 }
