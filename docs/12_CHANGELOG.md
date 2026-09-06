@@ -4,6 +4,11 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-09-06 — Despliegue de la corrección de impresión POS
+- Commit funcional `31d77cd` publicado en `main` y aplicado en `C:\xampp\htdocs\bsmpos` del VPS por `ssh bsolutions-vps`.
+- Respaldo de 12 archivos de build verificado por SHA256 en `C:\xampp\htdocs\_deploy_backups\bsmpos-pos-print-31d77cd`. Build local Vite 7.3.6 transferido (7 archivos), verificado y activado conservando assets anteriores. El VPS no tiene dependencias de frontend; el intento de compilación remota falló antes de publicar assets.
+- POS y bundle `app-BxHUcp4B.js` responden HTTP 200; navegador de producción recargado, sesión conservada y agente conectado. No hubo cambios en backend, base de datos ni reinstalación del agente. Pendiente detección Bluetooth y prueba física.
+
 ### 2026-09-05 — POS: errores del agente sin impresión automática por navegador
 - `PosPage.vue`: conserva la ruta del agente si existe una impresora seleccionada; muestra fallos del agente y de generación del ticket dentro del comprobante. Bloquea clics durante el envío. A4 conserva la ruta de navegador.
 - `PosPage.print.spec.ts`: cuatro regresiones sobre error del agente, monitor desconectado, error de generación y clics simultáneos/envío correcto.

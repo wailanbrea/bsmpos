@@ -102,7 +102,8 @@
 
 ## FASE 11 — Impresión
 - [x] POS: mostrar errores de impresión local dentro del comprobante, respetar la impresora elegida y evitar fallback automático al navegador y clics simultáneos. Cuatro regresiones Vitest y navegador con agente simulado verificados (2026-09-05).
-- [ ] Desplegar la corrección de impresión POS; resolver detección COM4/timeout del agente instalado y confirmar ticket físico 58 mm con 2C-P58-C. Typecheck global pendiente por dos errores previos en ConfigurationPage.vue.
+- [x] Corrección de impresión POS publicada en bsmpos.bsolutions.dev (2026-09-06, commit 31d77cd): build local transferido por SSH, hashes verificados y navegador de producción recargado.
+- [ ] Resolver detección COM4/timeout del agente instalado y confirmar ticket físico 58 mm con 2C-P58-C. Typecheck global pendiente por dos errores previos en ConfigurationPage.vue.
 - [x] Plantillas 58/80/88mm + A4 + comanda + precuenta + cierre; TicketBuilder ESC/POS-ready; config por terminal
 - [x] OmniPOS Windows Agent empaquetado (.zip en public/downloads y endpoint /api/v1/agent-terminals/download), modal interactivo de descarga e instalación en 1 clic desde el botón de estado del POS (desktop_windows) y panel de hardware con detección en vivo.
 

@@ -16,7 +16,8 @@ Documentos: ticket 58/80/88 mm, factura A4, comanda (cocina/barra), precuenta, c
 - Un fallo del agente o de `/invoices/{id}/print/text` se muestra dentro del comprobante. Nunca provoca un salto automático a HTML/navegador. A4 conserva la impresión de navegador, al igual que un ticket sin agente conectado ni impresora local seleccionada.
 - El botón se deshabilita mientras se envía el ticket para evitar clics simultáneos. Esto no sustituye la idempotencia del agente ni confirma salida física del papel.
 - Diagnóstico 2C-P58-C: Windows enumeró COM4, pero el agente instalado devolvía la impresora Bluetooth con `port: null`. El escaneo `/api/devices` tardó aproximadamente ocho segundos y devolvió dispositivos vacíos, compatible con el timeout del escáner. Falta resolver esa detección y validar impresión física; estar conectado al agente no confirma conexión con la impresora.
-- Validación local: cuatro regresiones Vitest y navegador real con API/agente simulados (error visible, sin petición HTML ni consola con errores). ESLint del área y build correctos. Typecheck global bloqueado por dos errores de nulabilidad existentes en `ConfigurationPage.vue`. Cambio pendiente de despliegue.
+- Validación local: cuatro regresiones Vitest y navegador real con API/agente simulados (error visible, sin petición HTML ni consola con errores). ESLint del área y build correctos. Typecheck global bloqueado por dos errores de nulabilidad existentes en `ConfigurationPage.vue`.
+- Desplegado el 2026-09-06 (31d77cd): build `app-BxHUcp4B.js` servido con HTTP 200 y POS recargado en navegador de producción con agente conectado. La impresora Bluetooth no apareció en la lista actual del agente. No se reinstaló el agente porque este cambio solo modifica el frontend.
 
 ## Configuración
 
