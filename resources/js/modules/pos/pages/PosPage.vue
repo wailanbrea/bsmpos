@@ -192,6 +192,7 @@ async function loadData() {
         } catch {
             prodList = [];
         }
+        products.value = prodList;
 
         // Cargar servicios activos y disponibles en POS (ej. barberías, talleres, salones)
         if (moduleStore.canUse('service')) {
@@ -306,6 +307,9 @@ async function handleOpenSession() {
         )) as ActiveSessionData;
         activeSession.value = sess;
         successMsg.value = 'Turno de caja abierto correctamente.';
+        if (products.value.length === 0) {
+            await loadData();
+        }
     } catch (err: unknown) {
         const error = err as { response?: { data?: { error?: { message?: string } } } };
         errorMsg.value = error.response?.data?.error?.message || 'Error al abrir la caja.';
