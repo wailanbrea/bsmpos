@@ -67,6 +67,10 @@ data class AgentConfig(
         val SUPPORTED_PAPER_WIDTHS = setOf(58, 80)
         val TERMINAL_ID_PATTERN = Regex("[A-Za-z0-9._:-]{1,64}")
         val DEFAULT_ALLOWED_ORIGINS = setOf(
+            "https://bsmpos.bsolutions.dev",
+            "http://bsmpos.bsolutions.dev",
+            "https://omnipos.test",
+            "http://omnipos.test",
             "http://127.0.0.1:8001",
             "http://localhost:8001",
             "http://127.0.0.1:8000",

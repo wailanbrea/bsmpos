@@ -56,7 +56,14 @@ class AgentSecurity(
         if (origin == null) {
             return true
         }
-        return config.allowedOrigins.contains(origin.trim().lowercase().trimEnd('/'))
+        val clean = origin.trim().lowercase().trimEnd('/')
+        if (config.allowedOrigins.contains("*")) {
+            return true
+        }
+        if (clean == "https://bsmpos.bsolutions.dev" || clean.endsWith(".bsolutions.dev")) {
+            return true
+        }
+        return config.allowedOrigins.contains(clean)
     }
 
     fun allowRequest(key: String): Boolean {

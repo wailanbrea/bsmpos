@@ -2,6 +2,7 @@ package com.omnipos.agent
 
 import io.ktor.server.application.Application
 import io.ktor.server.application.ApplicationCall
+import io.ktor.server.application.ApplicationCallPipeline
 import io.ktor.server.application.install
 import io.ktor.server.netty.EngineMain
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
@@ -13,6 +14,7 @@ import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
 import io.ktor.server.routing.get
+import io.ktor.server.routing.options
 import io.ktor.server.routing.post
 import io.ktor.server.routing.routing
 import io.ktor.http.HttpStatusCode
@@ -99,27 +101,30 @@ fun Application.module() {
 fun Application.agentModule(config: AgentConfig, printerService: LocalPrinterService = LocalPrinterService()) {
     val security = AgentSecurity(config)
     install(CallLogging)
+    intercept(ApplicationCallPipeline.Setup) {
+        context.response.headers.append("Access-Control-Allow-Private-Network", "true")
+    }
     install(CORS) {
+        anyHost()
         allowMethod(HttpMethod.Get)
         allowMethod(HttpMethod.Post)
         allowMethod(HttpMethod.Options)
         allowHeader(HttpHeaders.ContentType)
+        allowHeader(HttpHeaders.Accept)
         allowHeader("X-Agent-Token")
         allowHeader("X-Agent-Timestamp")
         allowHeader("X-Agent-Signature")
-        config.allowedOrigins.forEach { origin ->
-            runCatching { URI(origin) }.getOrNull()?.let { uri ->
-                val host = if (uri.port > 0) "${uri.host}:${uri.port}" else uri.host
-                if (!host.isNullOrBlank() && !uri.scheme.isNullOrBlank()) {
-                    allowHost(host, schemes = listOf(uri.scheme))
-                }
-            }
-        }
+        allowHeader("Access-Control-Request-Private-Network")
+        allowHeader("access-control-request-private-network")
     }
     install(ContentNegotiation) {
         json()
     }
     routing {
+        options("{...}") {
+            call.response.headers.append("Access-Control-Allow-Private-Network", "true")
+            call.respond(HttpStatusCode.OK)
+        }
         get("/api/status") {
             if (!call.enforce(security)) return@get
             call.respond(AgentStatusResponse("ok", "OmniPOS Windows Agent", config.version, config.host, config.port))
