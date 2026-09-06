@@ -254,17 +254,17 @@ open class LocalPrinterService {
         return runCatching {
             val psCommand = """
                 & {
-                    ${'$'}ports = @(Get-CimInstance -ClassName Win32_SerialPort -ErrorAction SilentlyContinue | Select-Object DeviceID, Name, Description)
-                    ${'$'}bt = @(Get-PnpDevice -Class Bluetooth -ErrorAction SilentlyContinue | Where-Object { ${'$'}_.InstanceId -like 'BTHENUM\DEV_*' -or ${'$'}_.FriendlyName -like '*P58*' -or ${'$'}_.FriendlyName -like '*POS*' } | Select-Object FriendlyName, InstanceId, Status)
+                    ${'$'}ports = @(Get-CimInstance -ClassName Win32_SerialPort -ErrorAction SilentlyContinue | Where-Object { ${'$'}_.Status -eq 'OK' } | Select-Object DeviceID, Name, Description, PNPDeviceID)
+                    ${'$'}bt = @(Get-PnpDevice -Class Bluetooth -PresentOnly -ErrorAction SilentlyContinue | Where-Object { ${'$'}_.InstanceId -like 'BTHENUM\DEV_*' -or ${'$'}_.FriendlyName -like '*P58*' -or ${'$'}_.FriendlyName -like '*POS*' } | Select-Object FriendlyName, InstanceId, Status)
                     [PSCustomObject]@{ ports = ${'$'}ports; bluetooth = ${'$'}bt } | ConvertTo-Json -Compress
                 }
             """.trimIndent()
 
-            val process = ProcessBuilder("powershell", "-NoProfile", "-NonInteractive", "-Command", psCommand)
+            val process = ProcessBuilder("powershell.exe", "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-Command", psCommand)
                 .redirectErrorStream(true)
                 .start()
 
-            val finished = process.waitFor(8000, TimeUnit.MILLISECONDS)
+            val finished = process.waitFor(20000, TimeUnit.MILLISECONDS)
             if (!finished) {
                 process.destroyForcibly()
                 return Pair(emptyList(), emptyList())
@@ -298,7 +298,9 @@ open class LocalPrinterService {
             val obj = elem.jsonObject
             val deviceId = obj["DeviceID"]?.jsonPrimitive?.content.orEmpty()
             val name = obj["Name"]?.jsonPrimitive?.content ?: deviceId
-            val isBt = name.contains("Bluetooth", ignoreCase = true)
+            val pnpDeviceId = obj["PNPDeviceID"]?.jsonPrimitive?.content.orEmpty()
+            val isBt = name.contains("Bluetooth", ignoreCase = true) ||
+                pnpDeviceId.contains("BTHENUM", ignoreCase = true)
             if (deviceId.isNotBlank()) {
                 serialPorts.add(SerialPortInfo(port = deviceId, name = name, isBluetooth = isBt))
             }
@@ -321,8 +323,15 @@ open class LocalPrinterService {
 
             if (friendlyName.isNotBlank()) {
                 val isPrinter = isPrinterDevice(friendlyName)
+                val deviceAddress = Regex("DEV_([0-9A-F]{12})", RegexOption.IGNORE_CASE)
+                    .find(instanceId)?.groupValues?.getOrNull(1)
                 val associatedPort = if (isPrinter) {
-                    serialPorts.firstOrNull { it.isBluetooth }?.port
+                    serialPorts.firstOrNull { port ->
+                        val portAddress = Regex("DEV_([0-9A-F]{12})", RegexOption.IGNORE_CASE)
+                            .find(port.name)?.groupValues?.getOrNull(1)
+                        port.isBluetooth && (deviceAddress == null || portAddress == null ||
+                            deviceAddress.equals(portAddress, ignoreCase = true))
+                    }?.port
                 } else null
 
                 bluetoothDevices.add(
