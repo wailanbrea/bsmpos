@@ -46,7 +46,13 @@ onMounted(async () => {
 async function continueToDashboard(): Promise<void> {
     errorMessage.value = null;
     try {
-        session.selectContext(selectedCompanyId.value, selectedBranchId.value);
+        let branchId = selectedBranchId.value;
+        const validBranch = availableBranches.value.find((b) => b.id === branchId);
+        if (!validBranch) {
+            branchId = availableBranches.value.find((b) => b.is_main)?.id ?? availableBranches.value[0]?.id ?? '';
+            selectedBranchId.value = branchId;
+        }
+        session.selectContext(selectedCompanyId.value, branchId);
         await router.push({ name: 'dashboard' });
     } catch (error) {
         errorMessage.value = error instanceof Error ? error.message : 'Selecciona una compañía y sucursal válidas.';

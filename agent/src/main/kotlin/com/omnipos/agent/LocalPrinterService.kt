@@ -52,6 +52,7 @@ data class DeviceSummary(
 
 private val logger = LoggerFactory.getLogger("LocalPrinterService")
 private val jsonParser = Json { ignoreUnknownKeys = true }
+private const val HARDWARE_SCAN_TIMEOUT_SECONDS = 5L
 
 /**
  * Servicio de periféricos e impresoras Windows (Spooler, Bluetooth SPP y Puertos COM).
@@ -195,9 +196,8 @@ open class LocalPrinterService {
         }
 
         // 2. Detectar si apunta a un puerto serial / Bluetooth COM
-        val comMatch = Regex("""\b(COM\d+)\b""", RegexOption.IGNORE_CASE).find(target)
-        if (comMatch != null) {
-            val port = comMatch.value.uppercase()
+        val port = normalizeSerialPortName(target)
+        if (port != null) {
             return@runCatching printToSerialPort(port, payload).getOrThrow()
         }
 
@@ -337,9 +337,11 @@ open class LocalPrinterService {
      * Escribe bytes crudos directamente al puerto serial o Bluetooth virtual COM en Windows (\\\\.\\COMx).
      */
     open fun printToSerialPort(port: String, payload: ByteArray): Result<String> = runCatching {
-        val cleanPort = port.uppercase().trim().removePrefix("""\\.\""").removeSuffix("""\""")
+        val cleanPort = normalizeSerialPortName(port)
+            ?: throw IllegalArgumentException("Puerto serial inválido: $port")
+        val devicePath = serialDevicePath(cleanPort)
         try {
-            FileOutputStream(cleanPort).use { fos ->
+            FileOutputStream(devicePath).use { fos ->
                 fos.write(payload)
                 fos.flush()
             }
@@ -392,46 +394,81 @@ open class LocalPrinterService {
         }
 
         return runCatching {
-            val psCommand = """
+            val serialCommand = """
                 & {
-                    ${'$'}ports = @(Get-CimInstance -ClassName Win32_SerialPort -ErrorAction SilentlyContinue | Where-Object { ${'$'}_.Status -eq 'OK' } | Select-Object DeviceID, Name, Description, PNPDeviceID)
+                    ${'$'}serial = @(Get-CimInstance -ClassName Win32_SerialPort -ErrorAction SilentlyContinue | Where-Object { ${'$'}_.Status -eq 'OK' } | Select-Object DeviceID, Name, Description, PNPDeviceID, Status)
+                    ${'$'}pnp = @(Get-CimInstance -ClassName Win32_PnPEntity -ErrorAction SilentlyContinue |
+                        Where-Object { ${'$'}_.Name -match '\(COM[0-9]+\)' } |
+                        ForEach-Object {
+                            ${'$'}match = [regex]::Match([string]${'$'}_.Name, 'COM[0-9]+')
+                            [PSCustomObject]@{
+                                DeviceID = ${'$'}match.Value
+                                Name = ${'$'}_.Name
+                                Description = ${'$'}_.Name
+                                PNPDeviceID = ${'$'}_.PNPDeviceID
+                                Status = ${'$'}_.Status
+                            }
+                        })
+                    ${'$'}ports = @(${ '$' }serial + ${ '$' }pnp | Where-Object { ${ '$' }_.DeviceID } | Group-Object DeviceID | ForEach-Object { ${ '$' }_.Group | Select-Object -First 1 })
+                    [PSCustomObject]@{ ports = ${'$'}ports } | ConvertTo-Json -Compress -Depth 4
+                }
+            """.trimIndent()
+            val bluetoothCommand = """
+                & {
                     ${'$'}bt = @(Get-PnpDevice -Class Bluetooth -PresentOnly -ErrorAction SilentlyContinue | Select-Object FriendlyName, InstanceId, Status)
-                    [PSCustomObject]@{ ports = ${'$'}ports; bluetooth = ${'$'}bt } | ConvertTo-Json -Compress
+                    [PSCustomObject]@{ bluetooth = ${'$'}bt } | ConvertTo-Json -Compress -Depth 4
                 }
             """.trimIndent()
 
-            val process = ProcessBuilder("powershell.exe", "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-Command", psCommand)
-                .redirectErrorStream(true)
-                .start()
+            val serialFuture = CompletableFuture.supplyAsync { runPowerShellJson(serialCommand, HARDWARE_SCAN_TIMEOUT_SECONDS) }
+            val bluetoothFuture = CompletableFuture.supplyAsync { runPowerShellJson(bluetoothCommand, HARDWARE_SCAN_TIMEOUT_SECONDS) }
+            val serialJson = serialFuture.get(HARDWARE_SCAN_TIMEOUT_SECONDS + 1, TimeUnit.SECONDS)
+            val bluetoothJson = bluetoothFuture.get(HARDWARE_SCAN_TIMEOUT_SECONDS + 1, TimeUnit.SECONDS)
 
-            val future = CompletableFuture.supplyAsync {
-                process.inputStream.bufferedReader().use { it.readText().trim() }
+            val serialPorts = serialJson?.let { parseHardwareJson(it).second } ?: emptyList()
+            val bluetoothDevices = bluetoothJson?.let { parseHardwareJson(it).first } ?: emptyList()
+            val portsJson = serialJson?.let { extractJsonProperty(it, "ports") } ?: "[]"
+            val bluetoothJsonValue = bluetoothJson?.let { extractJsonProperty(it, "bluetooth") } ?: "[]"
+            val combined = """{"ports":$portsJson,"bluetooth":$bluetoothJsonValue}"""
+
+            parseHardwareJson(combined).let { parsed ->
+                Pair(parsed.first, if (parsed.second.isNotEmpty()) parsed.second else serialPorts)
             }
-
-            val output = try {
-                future.get(20, TimeUnit.SECONDS)
-            } catch (_: TimeoutException) {
-                process.destroyForcibly()
-                return Pair(emptyList(), emptyList())
-            } catch (_: Exception) {
-                process.destroyForcibly()
-                return Pair(emptyList(), emptyList())
-            }
-
-            process.waitFor(2, TimeUnit.SECONDS)
-
-            if (output.isBlank() || !output.startsWith("{")) {
-                return Pair(emptyList(), emptyList())
-            }
-
-            parseHardwareJson(output)
         }.getOrElse { error ->
             logger.warn("Excepción al escanear hardware Bluetooth/COM: {}", error.message)
             Pair(emptyList(), emptyList())
         }
     }
 
-    private fun parseHardwareJson(rawJson: String): Pair<List<BluetoothDeviceInfo>, List<SerialPortInfo>> {
+    private fun runPowerShellJson(command: String, timeoutSeconds: Long): String? {
+        val process = ProcessBuilder("powershell.exe", "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-Command", command)
+            .redirectErrorStream(true)
+            .start()
+        val outputFuture = CompletableFuture.supplyAsync {
+            process.inputStream.bufferedReader().use { it.readText().trim() }
+        }
+
+        return try {
+            val output = outputFuture.get(timeoutSeconds, TimeUnit.SECONDS)
+            process.waitFor(1, TimeUnit.SECONDS)
+            val start = output.indexOf('{')
+            val end = output.lastIndexOf('}')
+            if (start >= 0 && end > start) output.substring(start, end + 1) else null
+        } catch (_: TimeoutException) {
+            process.destroyForcibly()
+            null
+        } catch (_: Exception) {
+            process.destroyForcibly()
+            null
+        }
+    }
+
+    private fun extractJsonProperty(rawJson: String, property: String): String {
+        val json = jsonParser.parseToJsonElement(rawJson).jsonObject
+        return json[property]?.toString() ?: "[]"
+    }
+
+    internal fun parseHardwareJson(rawJson: String): Pair<List<BluetoothDeviceInfo>, List<SerialPortInfo>> {
         val root = jsonParser.parseToJsonElement(rawJson).jsonObject
 
         val serialPorts = mutableListOf<SerialPortInfo>()
@@ -636,4 +673,17 @@ open class LocalPrinterService {
             false
         }
     }
+}
+
+internal fun normalizeSerialPortName(value: String): String? =
+    Regex("""\b(COM\d+)\b""", RegexOption.IGNORE_CASE)
+        .find(value)
+        ?.groupValues
+        ?.getOrNull(1)
+        ?.uppercase()
+
+internal fun serialDevicePath(port: String): String {
+    val normalized = normalizeSerialPortName(port)
+        ?: throw IllegalArgumentException("Puerto serial inválido: $port")
+    return "\\\\.\\$normalized"
 }

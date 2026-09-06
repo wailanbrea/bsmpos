@@ -7,6 +7,7 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.testApplication
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class ApplicationTest {
@@ -96,5 +97,37 @@ class ApplicationTest {
         val text = response.bodyAsText()
         assertTrue(text.contains("status"))
         assertTrue(text.contains("devices"))
+    }
+
+    @Test
+    fun serialPortNamesAreNormalizedToWindowsDevicePaths() {
+        assertEquals("COM4", normalizeSerialPortName("2C-P58-C (COM4)"))
+        assertEquals("COM12", normalizeSerialPortName("\\\\.\\COM12"))
+        assertNull(normalizeSerialPortName("Bluetooth printer without port"))
+        assertEquals("\\\\.\\COM4", serialDevicePath("COM4"))
+    }
+
+    @Test
+    fun hardwareParserAssociatesBluetoothPrinterWithItsSerialPort() {
+        val (bluetooth, serial) = LocalPrinterService().parseHardwareJson(
+            """
+            {
+              "ports": {
+                "DeviceID": "COM4",
+                "Name": "Standard Serial over Bluetooth link (COM4)",
+                "PNPDeviceID": "BTHENUM\\DEV_001122334455",
+                "Status": "OK"
+              },
+              "bluetooth": {
+                "FriendlyName": "2C-P58-C",
+                "InstanceId": "BTHENUM\\DEV_001122334455",
+                "Status": "OK"
+              }
+            }
+            """.trimIndent(),
+        )
+
+        assertEquals("COM4", serial.single().port)
+        assertEquals("COM4", bluetooth.single().port)
     }
 }

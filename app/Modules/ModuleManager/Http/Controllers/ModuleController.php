@@ -37,6 +37,7 @@ final class ModuleController
             'modules' => $modules,
             'enabled' => $enabled,
             'business_type' => $company->business_type_id !== null,
+            'business_type_code' => $company->businessType?->code,
         ]);
     }
 

@@ -11,6 +11,7 @@ export interface ModuleIndexResponse {
     modules: SystemModule[];
     enabled: string[];
     business_type: boolean;
+    business_type_code?: string | null;
 }
 
 export interface BusinessType {

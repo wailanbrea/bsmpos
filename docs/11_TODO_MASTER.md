@@ -2,7 +2,9 @@
 
 > Fuente de verdad del avance. Marcar `[x]` solo con pruebas verdes y documentación actualizada. Fases del master prompt §28 + adiciones del addendum.
 
-**Estado global: FASES 1–14 completas (candidato v1). Plataforma renombrada a BSM-POS. Incluye Punto de Venta (POS) optimizado con eliminación rápida en carrito, Centro de Notificaciones reactivas, Hub de Configuración completo (Perfil, Fiscal, NCFs, Impuestos, Métodos de pago), Verticales Barbería y Taller, BSM-POS Windows Agent interactivo con instalación en 1 clic para hardware ESC/POS y gaveta, suite E2E Playwright, 180 pruebas backend verdes y 0 errores en Larastan nivel 8.**
+**Estado global: FASES 1–14 completas (candidato v1). Plataforma renombrada a BSM-POS. Incluye Punto de Venta (POS) optimizado con eliminación rápida en carrito, Dashboards Dedicados por Vertical (Restaurante con mesas y KDS, Taller Mecánico con bahías y órdenes, Barbería con citas y sillones, Retail con arqueo y almacén), Centro de Notificaciones reactivas, Hub de Configuración completo (Perfil, Fiscal, NCFs, Impuestos, Métodos de pago), BSM-POS Windows Agent interactivo con instalación en 1 clic para hardware ESC/POS y gaveta, suite E2E Playwright, 180+ pruebas backend verdes y 0 errores en Larastan nivel 8.**
+
+**Actualización 2026-09-06:** corrección integral de la redirección al login en selección de contexto (protección contra peticiones no autenticadas en vuelo e interceptor 401 robusto). Activados los dashboards dinámicos dedicados por giro de negocio en frontend y backend (`business_type_code`).
 
 **Verificación 2026-07-10:** baseline de calidad restaurada tras correcciones de tipado en POS, inventario, facturación, impresión y restaurante. Pest, Pint, Larastan, vue-tsc, Vitest, ESLint, Prettier y build PWA están verdes.
 
@@ -103,7 +105,8 @@
 ## FASE 11 — Impresión
 - [x] POS: mostrar errores de impresión local dentro del comprobante, respetar la impresora elegida y evitar fallback automático al navegador y clics simultáneos. Cuatro regresiones Vitest y navegador con agente simulado verificados (2026-09-05).
 - [x] Corrección de impresión POS publicada en bsmpos.bsolutions.dev (2026-09-06, commit 31d77cd): build local transferido por SSH, hashes verificados y navegador de producción recargado.
-- [ ] Resolver detección COM4/timeout del agente instalado y confirmar ticket físico 58 mm con 2C-P58-C. Typecheck global pendiente por dos errores previos en ConfigurationPage.vue.
+- [x] Resolver técnicamente la detección COM4/timeout del agente: fallback COM/PnP separado, timeout acotado, extracción PnP y escritura serial mediante `\\.\COMx`.
+- [ ] Confirmar ticket físico 58 mm con `2C-P58-C`. Typecheck global pendiente por dos errores previos en ConfigurationPage.vue.
 - [x] Plantillas 58/80/88mm + A4 + comanda + precuenta + cierre; TicketBuilder ESC/POS-ready; config por terminal
 - [x] OmniPOS Windows Agent empaquetado (.zip en public/downloads y endpoint /api/v1/agent-terminals/download), modal interactivo de descarga e instalación en 1 clic desde el botón de estado del POS (desktop_windows) y panel de hardware con detección en vivo.
 

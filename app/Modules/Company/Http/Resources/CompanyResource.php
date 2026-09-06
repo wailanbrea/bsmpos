@@ -27,6 +27,8 @@ final class CompanyResource extends JsonResource
             'timezone' => $this->timezone,
             'currency_code' => $this->currency_code,
             'is_active' => $this->is_active,
+            'business_type' => $this->businessType?->code,
+            'business_type_name' => $this->businessType?->name,
             'branches' => BranchResource::collection($this->whenLoaded('branches')),
         ];
     }

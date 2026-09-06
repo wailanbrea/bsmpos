@@ -36,18 +36,31 @@ api.interceptors.request.use((config) => {
 
 // Un 401 con token almacenado significa sesión revocada o expirada: limpiar el
 // estado local y volver al login evita quedar "medio autenticado" con menú vacío.
+// Se valida que el 401 provenga del token activo actual para que peticiones obsoletas
+// en vuelo no destruyan una sesión recién iniciada.
 api.interceptors.response.use(
     (response) => response,
     (error) => {
         const status = axios.isAxiosError(error) ? error.response?.status : null;
-        const hadToken = localStorage.getItem(storageKeys.token) !== null;
+        const currentToken = localStorage.getItem(storageKeys.token);
 
-        if (status === 401 && hadToken) {
+        if (status === 401 && currentToken) {
+            const requestAuth = error.config?.headers?.Authorization;
+            const requestToken = typeof requestAuth === 'string' ? requestAuth.replace(/^Bearer\s+/i, '') : null;
+
+            // Si la petición se envió con un token distinto al actual, es obsoleta y se descarta sin invalidar la sesión
+            if (requestToken && requestToken !== currentToken) {
+                return Promise.reject(error);
+            }
+
             localStorage.removeItem(storageKeys.token);
             localStorage.removeItem(storageKeys.companyId);
             localStorage.removeItem(storageKeys.branchId);
             localStorage.removeItem('omnipos.auth.user');
-            window.location.assign('/ingresar');
+
+            if (window.location.pathname !== '/ingresar' && window.location.pathname !== '/crear-cuenta') {
+                window.location.assign('/ingresar');
+            }
         }
 
         return Promise.reject(error);

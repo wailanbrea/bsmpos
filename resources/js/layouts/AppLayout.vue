@@ -118,7 +118,9 @@ watch(
 );
 
 onMounted(() => {
-    void modules.loadModules();
+    if (session.isAuthenticated && session.hasContext) {
+        void modules.loadModules();
+    }
 });
 </script>
 

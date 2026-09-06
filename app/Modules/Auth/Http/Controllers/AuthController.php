@@ -36,7 +36,7 @@ final class AuthController
         /** @var User $user */
         $user = $request->user();
 
-        return ApiResponse::success(new UserResource($user->load('companies.branches')));
+        return ApiResponse::success(new UserResource($user->load(['companies.branches', 'companies.businessType'])));
     }
 
     public function logout(Request $request, LogoutUserAction $action): JsonResponse
@@ -52,7 +52,7 @@ final class AuthController
     private function sessionResponse(array $session, string $message, int $status = 200): JsonResponse
     {
         return ApiResponse::success([
-            'user' => new UserResource($session['user']->load('companies.branches')),
+            'user' => new UserResource($session['user']->load(['companies.branches', 'companies.businessType'])),
             'token' => $session['token'],
         ], $message, $status);
     }

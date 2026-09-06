@@ -46,6 +46,7 @@
 *.log
 *.local
 Thumbs.db
+/COM[0-9]*
 
 # Graphify cache and intermediate extraction batches
 /graphify-out/cache/

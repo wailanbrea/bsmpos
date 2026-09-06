@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useSessionStore } from '../modules/auth/stores/session';
 import {
     deleteNotification,
     fetchNotifications,
@@ -10,6 +11,7 @@ import {
 } from '../modules/notifications/services';
 
 const router = useRouter();
+const session = useSessionStore();
 
 const isOpen = ref(false);
 const loading = ref(false);
@@ -23,6 +25,10 @@ const hasUnread = computed(() => unreadCount.value > 0);
 const badgeLabel = computed(() => (unreadCount.value > 99 ? '99+' : String(unreadCount.value)));
 
 async function load(): Promise<void> {
+    if (!session.isAuthenticated || !session.hasContext) {
+        return;
+    }
+
     loading.value = true;
     try {
         const res = await fetchNotifications(20);
@@ -98,10 +104,14 @@ function typeColor(type: string): string {
 }
 
 onMounted(() => {
-    void load();
+    if (session.isAuthenticated && session.hasContext) {
+        void load();
+    }
     document.addEventListener('click', closeOnOutside);
     pollInterval = setInterval(() => {
-        void load();
+        if (session.isAuthenticated && session.hasContext) {
+            void load();
+        }
     }, 30_000);
 });
 

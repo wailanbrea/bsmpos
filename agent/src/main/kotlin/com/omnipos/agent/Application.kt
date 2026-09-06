@@ -118,7 +118,18 @@ fun Application.agentModule(config: AgentConfig, printerService: LocalPrinterSer
         context.response.headers.append("Access-Control-Allow-Private-Network", "true")
     }
     install(CORS) {
-        anyHost()
+        if ("*" in config.allowedOrigins) {
+            anyHost()
+        } else {
+            config.allowedOrigins.forEach { rawOrigin ->
+                runCatching { URI(rawOrigin) }.getOrNull()?.let { origin ->
+                    val host = origin.host ?: return@let
+                    val hostWithPort = if (origin.port > 0) "$host:${origin.port}" else host
+                    val schemes = origin.scheme?.let(::listOf) ?: emptyList()
+                    allowHost(hostWithPort, schemes = schemes)
+                }
+            }
+        }
         allowMethod(HttpMethod.Get)
         allowMethod(HttpMethod.Post)
         allowMethod(HttpMethod.Options)

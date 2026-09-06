@@ -4,6 +4,25 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-09-06 — Corrección de redirección en contexto y Dashboards dedicados por vertical
+- **Resolución de redirección al login en selección de contexto:**
+  - `App.vue`: `AppLayout` ahora solo se monta si el usuario está autenticado, tiene contexto (`hasContext`) y la ruta no es una vista limpia (`!isBareRoute`), evitando peticiones no autenticadas en vuelo durante la navegación inicial.
+  - `api.ts`: el interceptor de respuesta ante un 401 valida que el token que falló coincida con el token activo actual en `localStorage`, evitando que peticiones obsoletas en vuelo invaliden una sesión recién iniciada. No fuerza redirección si la URL actual ya es `/ingresar` o `/crear-cuenta`.
+  - `NotificationDropdown.vue` y `AppLayout.vue`: llamadas en `onMounted` protegidas verificando `session.isAuthenticated && session.hasContext`.
+  - `ContextPage.vue`: `continueToDashboard()` asegura una sucursal válida asociada a la empresa seleccionada antes de almacenar el contexto y transicionar.
+- **Dashboards verticales dedicados por tipo de negocio:**
+  - `Company.php`: agregada relación `businessType(): BelongsTo` hacia `BusinessType`.
+  - `CompanyResource.php`: expone `business_type` (código) y `business_type_name` en la sesión del usuario.
+  - `ModuleController.php`: expone `business_type_code` en `/api/v1/modules`.
+  - `AuthController.php`: eager load de `companies.businessType`.
+  - `modules.ts`: store actualizado con `businessTypeCode` y computeds `isRestaurant`, `isWorkshop`, `isBarbershop`, `isRetail`.
+  - `DashboardPage.vue`: actúa como orquestador dinámico según la vertical del negocio activo.
+  - Nuevos componentes especializados creados:
+    - `RestaurantDashboard.vue`: Salón y mesas en tiempo real, comensales, comandas en Cocina KDS y atajos POS/Mesas.
+    - `WorkshopDashboard.vue`: Vehículos en taller, bahías de servicio con mecánicos asignados, tubería de órdenes de trabajo por estado (diagnóstico, reparación, listo).
+    - `BarbershopDashboard.vue`: Agenda de citas del día, estado de sillones/estilistas y servicios en curso.
+    - `RetailDashboard.vue`: Terminal comercial POS, arqueo de caja, capacidad de almacén y secuencias e-CF DGII.
+
 ### 2026-09-06 — Despliegue de la corrección de impresión POS
 - Commit funcional `31d77cd` publicado en `main` y aplicado en `C:\xampp\htdocs\bsmpos` del VPS por `ssh bsolutions-vps`.
 - Respaldo de 12 archivos de build verificado por SHA256 en `C:\xampp\htdocs\_deploy_backups\bsmpos-pos-print-31d77cd`. Build local Vite 7.3.6 transferido (7 archivos), verificado y activado conservando assets anteriores. El VPS no tiene dependencias de frontend; el intento de compilación remota falló antes de publicar assets.
@@ -14,6 +33,17 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 - `PosPage.print.spec.ts`: cuatro regresiones sobre error del agente, monitor desconectado, error de generación y clics simultáneos/envío correcto.
 - Verificado en navegador real con respuestas simuladas: solicitud de texto y POST al agente, sin HTML ni errores de consola. ESLint del área y build correctos; typecheck global conserva dos errores ajenos en ConfigurationPage.vue.
 - Grafo actualizado por extracción AST incremental. Pendientes: despliegue y conexión física de la 2C-P58-C en COM4.
+
+### 2026-09-06 — Robustez del OmniPOS Windows Agent
+
+- El escaneo de hardware ahora separa puertos seriales/PnP del escaneo Bluetooth,
+  con timeout acotado; una demora de Bluetooth no oculta COM4.
+- Se reconocen puertos desde nombres PnP como `2C-P58-C (COM4)` y se normalizan
+  rutas seriales Windows a `\\.\COMx`, incluyendo puertos superiores a COM9.
+- CORS dejó de usar `anyHost`: se limita a los orígenes configurados por la
+  terminal, manteniendo la validación loopback, timestamp, HMAC y rate limit.
+- Pruebas del agente: `gradle test --rerun-tasks` aprobadas. La confirmación de
+  impresión física de la 2C-P58-C queda pendiente.
 
 ### 2026-09-05 — Branding: Cambio de Nombre e Identidad del Sistema a "BSM-POS"
 **Modificado**

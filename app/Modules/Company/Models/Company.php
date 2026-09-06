@@ -8,6 +8,7 @@ use App\Core\Concerns\Auditable;
 use App\Core\Concerns\HasPublicUlid;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -51,5 +52,11 @@ final class Company extends Model
         return $this->belongsToMany(User::class)
             ->withPivot(['is_owner', 'default_branch_id'])
             ->withTimestamps();
+    }
+
+    /** @return BelongsTo<\App\Modules\ModuleManager\Models\BusinessType, $this> */
+    public function businessType(): BelongsTo
+    {
+        return $this->belongsTo(\App\Modules\ModuleManager\Models\BusinessType::class, 'business_type_id');
     }
 }
