@@ -1,6 +1,7 @@
 package com.omnipos.agent
 
 import io.ktor.client.request.get
+import io.ktor.client.request.post
 import io.ktor.client.statement.bodyAsText
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.testApplication
@@ -77,5 +78,23 @@ class ApplicationTest {
         assertTrue(text.contains("printers"))
         assertTrue(text.contains("bluetoothDevices"))
         assertTrue(text.contains("serialPorts"))
+    }
+
+    @Test
+    fun testEnableBluetoothSppEndpoint() = testApplication {
+        application {
+            agentModule(
+                AgentConfig(
+                    host = "127.0.0.1",
+                    port = 8765,
+                    version = "0.1.0",
+                ),
+            )
+        }
+        val response = client.post("/api/devices/bluetooth/enable-spp")
+        assertEquals(HttpStatusCode.OK, response.status)
+        val text = response.bodyAsText()
+        assertTrue(text.contains("status"))
+        assertTrue(text.contains("devices"))
     }
 }

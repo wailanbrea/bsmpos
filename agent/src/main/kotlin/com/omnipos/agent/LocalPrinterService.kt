@@ -213,8 +213,12 @@ open class LocalPrinterService {
             logger.info("Impresión enviada exitosamente al puerto {}", cleanPort)
             cleanPort
         } catch (e: Exception) {
-            logger.error("Error al escribir en el puerto {}: {}", cleanPort, e.message)
-            throw IllegalStateException("No se pudo comunicar con el puerto $cleanPort: ${e.message}")
+            val msg = e.message.orEmpty()
+            val hint = if (msg.contains("denegado", ignoreCase = true) || msg.contains("denied", ignoreCase = true)) {
+                " El puerto está ocupado o la impresora no responde. Verifique que la impresora esté encendida, en rango de Bluetooth y que ningún teléfono u otra aplicación esté conectada a ella."
+            } else ""
+            logger.error("Error al escribir en el puerto {}: {}{}", cleanPort, msg, hint)
+            throw IllegalStateException("No se pudo comunicar con el puerto $cleanPort: $msg.$hint")
         }
     }
 
@@ -383,5 +387,120 @@ open class LocalPrinterService {
             lower.contains("rpp") ||
             lower.contains("zebra") ||
             lower.contains("epson")
+    }
+
+    /**
+     * Habilita el servicio SPP (Serial Port Profile) en dispositivos Bluetooth emparejados
+     * para que Windows cree y asocie automáticamente el puerto COM virtual saliente.
+     */
+    open fun enableBluetoothSerialPort(target: String? = null): Boolean {
+        val isWindows = System.getProperty("os.name")?.contains("Windows", ignoreCase = true) == true
+        if (!isWindows) return false
+
+        return runCatching {
+            val targetArg = target?.trim().orEmpty().replace("\"", "`\"")
+            val psScript = """
+                & {
+                    Add-Type -TypeDefinition @"
+                    using System;
+                    using System.Runtime.InteropServices;
+                    public class BtHelper {
+                        [StructLayout(LayoutKind.Sequential)] public struct BLUETOOTH_FIND_RADIO_PARAMS { public uint dwSize; }
+                        [StructLayout(LayoutKind.Sequential)] public struct SYSTEMTIME { public ushort wYear, wMonth, wDayOfWeek, wDay, wHour, wMinute, wSecond, wMilliseconds; }
+                        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+                        public struct BLUETOOTH_DEVICE_INFO {
+                            public uint dwSize; public ulong Address; public uint ulClassofDevice;
+                            [MarshalAs(UnmanagedType.Bool)] public bool fConnected;
+                            [MarshalAs(UnmanagedType.Bool)] public bool fRemembered;
+                            [MarshalAs(UnmanagedType.Bool)] public bool fAuthenticated;
+                            public SYSTEMTIME stLastSeen; public SYSTEMTIME stLastUsed;
+                            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 248)] public string szName;
+                        }
+                        [StructLayout(LayoutKind.Sequential)]
+                        public struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
+                            public uint dwSize;
+                            [MarshalAs(UnmanagedType.Bool)] public bool fReturnAuthenticated;
+                            [MarshalAs(UnmanagedType.Bool)] public bool fReturnRemembered;
+                            [MarshalAs(UnmanagedType.Bool)] public bool fReturnUnknown;
+                            [MarshalAs(UnmanagedType.Bool)] public bool fReturnConnected;
+                            [MarshalAs(UnmanagedType.Bool)] public bool fIssueInquiry;
+                            public byte cTimeoutMultiplier; public IntPtr hRadio;
+                        }
+                        [DllImport("bthprops.cpl", SetLastError = true)] public static extern IntPtr BluetoothFindFirstRadio(ref BLUETOOTH_FIND_RADIO_PARAMS p, out IntPtr phRadio);
+                        [DllImport("bthprops.cpl", SetLastError = true)] public static extern bool BluetoothFindRadioClose(IntPtr hFind);
+                        [DllImport("kernel32.dll", SetLastError = true)] public static extern bool CloseHandle(IntPtr handle);
+                        [DllImport("bthprops.cpl", SetLastError = true)] public static extern IntPtr BluetoothFindFirstDevice(ref BLUETOOTH_DEVICE_SEARCH_PARAMS s, ref BLUETOOTH_DEVICE_INFO d);
+                        [DllImport("bthprops.cpl", SetLastError = true)] public static extern bool BluetoothFindNextDevice(IntPtr hFind, ref BLUETOOTH_DEVICE_INFO d);
+                        [DllImport("bthprops.cpl", SetLastError = true)] public static extern bool BluetoothFindDeviceClose(IntPtr hFind);
+                        [DllImport("bthprops.cpl", SetLastError = true)] public static extern uint BluetoothSetServiceState(IntPtr hRadio, ref BLUETOOTH_DEVICE_INFO d, ref Guid g, uint f);
+                        public static readonly Guid SPP_UUID = new Guid("00001101-0000-1000-8000-00805F9B34FB");
+                    }
+"@ -ErrorAction SilentlyContinue
+
+                    ${'$'}rParams = New-Object BtHelper+BLUETOOTH_FIND_RADIO_PARAMS
+                    ${'$'}rParams.dwSize = [System.Runtime.InteropServices.Marshal]::SizeOf(${'$'}rParams)
+                    ${'$'}hRadio = [IntPtr]::Zero
+                    ${'$'}hFindRadio = [BtHelper]::BluetoothFindFirstRadio([ref]${'$'}rParams, [ref]${'$'}hRadio)
+                    if (${'$'}hRadio -eq [IntPtr]::Zero) { Write-Output "NO_RADIO"; exit 0 }
+
+                    ${'$'}sParams = New-Object BtHelper+BLUETOOTH_DEVICE_SEARCH_PARAMS
+                    ${'$'}sParams.dwSize = [System.Runtime.InteropServices.Marshal]::SizeOf(${'$'}sParams)
+                    ${'$'}sParams.fReturnAuthenticated = ${'$'}true
+                    ${'$'}sParams.fReturnRemembered = ${'$'}true
+                    ${'$'}sParams.fReturnConnected = ${'$'}true
+                    ${'$'}sParams.hRadio = ${'$'}hRadio
+
+                    ${'$'}devInfo = New-Object BtHelper+BLUETOOTH_DEVICE_INFO
+                    ${'$'}devInfo.dwSize = [System.Runtime.InteropServices.Marshal]::SizeOf(${'$'}devInfo)
+                    ${'$'}hFind = [BtHelper]::BluetoothFindFirstDevice([ref]${'$'}sParams, [ref]${'$'}devInfo)
+                    ${'$'}target = "$targetArg".Trim()
+                    ${'$'}anyEnabled = ${'$'}false
+
+                    if (${'$'}hFind -ne [IntPtr]::Zero) {
+                        do {
+                            ${'$'}macHex = "{0:X12}" -f ${'$'}devInfo.Address
+                            ${'$'}name = ${'$'}devInfo.szName
+                            ${'$'}match = ${'$'}false
+                            if (${'$'}target -ne "") {
+                                if (${'$'}macHex -like "*${'$'}target*" -or ${'$'}name -like "*${'$'}target*") { ${'$'}match = ${'$'}true }
+                            } else {
+                                ${'$'}lower = ${'$'}name.ToLower()
+                                if (${'$'}lower -like "*p58*" -or ${'$'}lower -like "*pos*" -or ${'$'}lower -like "*pt-210*" -or ${'$'}lower -like "*thermal*" -or ${'$'}lower -like "*58mm*" -or ${'$'}lower -like "*80mm*") {
+                                    ${'$'}match = ${'$'}true
+                                }
+                            }
+                            if (${'$'}match) {
+                                ${'$'}guid = [BtHelper]::SPP_UUID
+                                ${'$'}res = [BtHelper]::BluetoothSetServiceState(${'$'}hRadio, [ref]${'$'}devInfo, [ref]${'$'}guid, 1)
+                                if (${'$'}res -eq 0 -or ${'$'}res -eq 87) { ${'$'}anyEnabled = ${'$'}true }
+                            }
+                        } while ([BtHelper]::BluetoothFindNextDevice(${'$'}hFind, [ref]${'$'}devInfo))
+                        [BtHelper]::BluetoothFindDeviceClose(${'$'}hFind)
+                    }
+                    [BtHelper]::CloseHandle(${'$'}hRadio)
+                    [BtHelper]::BluetoothFindRadioClose(${'$'}hFindRadio)
+                    Write-Output (${'$'}anyEnabled.ToString())
+                }
+            """.trimIndent()
+
+            val process = ProcessBuilder("powershell.exe", "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-Command", psScript)
+                .redirectErrorStream(true)
+                .start()
+
+            val future = CompletableFuture.supplyAsync {
+                process.inputStream.bufferedReader().use { it.readText().trim() }
+            }
+            val output = future.get(10, TimeUnit.SECONDS)
+            process.waitFor(2, TimeUnit.SECONDS)
+            val success = output.contains("True", ignoreCase = true)
+            if (success) {
+                Thread.sleep(1000)
+                getDeviceSummary(forceRefresh = true)
+            }
+            success
+        }.getOrElse { error ->
+            logger.warn("Error al habilitar puerto SPP Bluetooth: {}", error.message)
+            false
+        }
     }
 }

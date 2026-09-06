@@ -81,6 +81,19 @@ data class TerminalConfigResponse(
     val terminalId: String,
 )
 
+@Serializable
+data class EnableBluetoothSppRequest(
+    val target: String? = null,
+)
+
+@Serializable
+data class EnableBluetoothSppResponse(
+    val status: String,
+    val success: Boolean,
+    val message: String,
+    val devices: DeviceSummary,
+)
+
 private object EscPos {
     private val init = byteArrayOf(0x1B.toByte(), 0x40.toByte())
     private val lineFeed = byteArrayOf(0x0A.toByte(), 0x0A.toByte(), 0x0A.toByte())
@@ -149,6 +162,24 @@ fun Application.agentModule(config: AgentConfig, printerService: LocalPrinterSer
             if (!call.enforce(security)) return@get
             call.respond(printerService.listDevices())
         }
+        post("/api/devices/bluetooth/enable-spp") {
+            if (!call.enforce(security)) return@post
+            val request = try {
+                call.receive<EnableBluetoothSppRequest>()
+            } catch (_: Exception) {
+                EnableBluetoothSppRequest(null)
+            }
+            val ok = printerService.enableBluetoothSerialPort(request.target)
+            val updatedDevices = printerService.getDeviceSummary(forceRefresh = true)
+            call.respond(
+                EnableBluetoothSppResponse(
+                    status = if (ok) "ok" else "failed",
+                    success = ok,
+                    message = if (ok) "Servicio SPP Bluetooth verificado/habilitado correctamente." else "No se pudo habilitar el servicio SPP o no se encontró el dispositivo Bluetooth.",
+                    devices = updatedDevices,
+                ),
+            )
+        }
         post("/api/test") {
             if (!call.enforce(security)) return@post
 
@@ -189,7 +220,7 @@ fun Application.agentModule(config: AgentConfig, printerService: LocalPrinterSer
                         logger.error("Error al imprimir prueba local: {}", error.message)
                         call.respond(
                             HttpStatusCode.ServiceUnavailable,
-                            PrinterTestResponse("printer_error", printer.orEmpty(), "La impresora no está disponible."),
+                            PrinterTestResponse("printer_error", printer.orEmpty(), error.message ?: "La impresora no está disponible."),
                         )
                     }
                 },
@@ -235,7 +266,7 @@ fun Application.agentModule(config: AgentConfig, printerService: LocalPrinterSer
                         logger.error("Error al imprimir ticket: {}", error.message)
                         call.respond(
                             HttpStatusCode.ServiceUnavailable,
-                            PrintTicketResponse("printer_error", printer.orEmpty(), "La impresora no está disponible."),
+                            PrintTicketResponse("printer_error", printer.orEmpty(), error.message ?: "La impresora no está disponible."),
                         )
                     }
                 },
