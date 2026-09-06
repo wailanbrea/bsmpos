@@ -1,0 +1,18 @@
+﻿<service>
+  <id>BSMPOSWindowsAgent</id>
+  <name>BSM-POS Windows Agent</name>
+  <description>Servicio local de hardware para BSM-POS SaaS (impresoras termicas ESC/POS, Bluetooth, COM y gaveta de dinero).</description>
+  <executable>%BASE%\jre\bin\java.exe</executable>
+  <arguments>-Dfile.encoding=UTF-8 -cp "%BASE%\lib\*" io.ktor.server.netty.EngineMain</arguments>
+  <workingdirectory>%BASE%</workingdirectory>
+  <logpath>%BASE%\logs</logpath>
+  <log mode="roll-by-size">
+    <sizeThreshold>10240</sizeThreshold>
+    <keepFiles>5</keepFiles>
+  </log>
+  <startmode>Automatic</startmode>
+  <onfailure action="restart" delay="5 sec"/>
+  <onfailure action="restart" delay="10 sec"/>
+  <onfailure action="restart" delay="20 sec"/>
+  <resetfailure>1 hour</resetfailure>
+</service>

@@ -163,9 +163,6 @@ final class AgentTerminalController
     public function download(): BinaryFileResponse
     {
         $zipPath = public_path('downloads/bsm-pos-agent.zip');
-        if (! file_exists($zipPath)) {
-            $zipPath = public_path('downloads/omnipos-windows-agent.zip');
-        }
 
         if (! file_exists($zipPath)) {
             throw new ApiException(ErrorCode::NotFound, 'El instalador del agente no se encuentra disponible.', 404);

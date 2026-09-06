@@ -7,7 +7,7 @@ const phpServerCommand =
         : `${phpBinary()} -S ${HOST}:${PORT} -t public`;
 
 /**
- * Suite E2E de OmniPOS. Levanta un servidor Laravel real contra una base
+ * Suite E2E de BSM-POS. Levanta un servidor Laravel real contra una base
  * SQLite aislada (ver global-setup) y ejecuta los flujos críticos en Chromium.
  *
  * Comandos:

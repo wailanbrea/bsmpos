@@ -1822,7 +1822,7 @@ const filteredProducts = computed(() => {
                                         class="inline-flex items-center gap-1.5 bg-[#4648d4] hover:bg-[#393bb3] text-white px-3.5 py-1.5 rounded-lg text-xs font-bold shadow-xs transition cursor-pointer"
                                     >
                                         <span class="material-symbols-outlined text-[16px]">download</span>
-                                        <span>Descargar BSM-POS-Agent.zip (21 MB)</span>
+                                        <span>Descargar BSM-POS-Agent.zip (40 MB · Java Embebido)</span>
                                     </a>
                                 </div>
                             </div>
@@ -1837,11 +1837,11 @@ const filteredProducts = computed(() => {
                             <div class="text-xs">
                                 <div class="font-semibold text-[#0b1c30]">Descomprime y ejecuta como Administrador</div>
                                 <p class="text-[#5f5e61] mt-0.5">
-                                    Abre la carpeta extraída, haz clic derecho sobre
+                                    Abre la carpeta extraída, haz doble clic sobre
                                     <code class="bg-gray-200 px-1 py-0.5 rounded font-mono font-bold text-[#0b1c30]"
-                                        >instalar-servicio.bat</code
+                                        >INSTALAR-AGENTE.bat</code
                                     >
-                                    y selecciona <strong>"Ejecutar como Administrador"</strong>.
+                                    (se solicitarán permisos de Administrador automáticamente).
                                 </p>
                             </div>
                         </div>

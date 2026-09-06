@@ -47,6 +47,7 @@
 *.local
 Thumbs.db
 /COM[0-9]*
+**/COM[0-9]*
 
 # Graphify cache and intermediate extraction batches
 /graphify-out/cache/
@@ -57,3 +58,4 @@ Thumbs.db
 /agent/.gradle/
 /agent/.kotlin/
 /agent/build/
+/agent/dist-bsmpos/

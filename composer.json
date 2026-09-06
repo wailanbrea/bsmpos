@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "omnipos/modular-saas",
+    "name": "bsmpos/modular-saas",
     "type": "project",
     "description": "Plataforma SaaS modular de POS, facturación e inventario para República Dominicana.",
     "keywords": [

@@ -359,7 +359,7 @@ onMounted(async () => {
                             class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg hover:bg-emerald-100 transition"
                         >
                             <span class="material-symbols-outlined text-[16px]">download</span>
-                            <span>Descargar instalador (.zip 21 MB)</span>
+                            <span>Descargar instalador (.zip 40 MB · Java Embebido)</span>
                         </a>
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import org.gradle.api.tasks.testing.logging.TestLogEvent
+﻿import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.api.tasks.JavaExec
 
@@ -8,7 +8,7 @@ plugins {
     application
 }
 
-group = "com.omnipos"
+group = "com.bsmpos"
 version = "0.1.0"
 
 val ktorVersion = "3.1.3"
@@ -29,7 +29,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("com.omnipos.agent.ApplicationKt")
+    mainClass.set("com.bsmpos.agent.ApplicationKt")
 }
 
 kotlin {

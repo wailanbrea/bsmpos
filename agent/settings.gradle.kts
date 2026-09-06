@@ -1,4 +1,4 @@
-pluginManagement {
+﻿pluginManagement {
     repositories {
         gradlePluginPortal()
         mavenCentral()
@@ -12,4 +12,4 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "omnipos-windows-agent"
+rootProject.name = "bsmpos-windows-agent"
