@@ -18,15 +18,15 @@ const companyName = computed(() => session.company?.name ?? 'BSM-POS');
 const currentPeriod = ref<'today' | 'week' | 'month'>('today');
 
 const verticalTitle = computed(() => {
-    if (modules.isRestaurant) return 'Restaurante & Gastronomía';
     if (modules.isWorkshop) return 'Taller Mecánico & Servicios';
+    if (modules.isRestaurant) return 'Restaurante & Gastronomía';
     if (modules.isBarbershop) return 'Barbería & Salón de Belleza';
     return 'Retail & Comercio General';
 });
 
 const verticalIcon = computed(() => {
-    if (modules.isRestaurant) return 'restaurant';
     if (modules.isWorkshop) return 'car_repair';
+    if (modules.isRestaurant) return 'restaurant';
     if (modules.isBarbershop) return 'content_cut';
     return 'storefront';
 });
@@ -99,8 +99,8 @@ onMounted(() => {
 
         <!-- DYNAMIC DEDICATED VERTICAL CONTENT -->
         <div class="px-6">
-            <RestaurantDashboard v-if="modules.isRestaurant" />
-            <WorkshopDashboard v-else-if="modules.isWorkshop" />
+            <WorkshopDashboard v-if="modules.isWorkshop" />
+            <RestaurantDashboard v-else-if="modules.isRestaurant" />
             <BarbershopDashboard v-else-if="modules.isBarbershop" />
             <RetailDashboard v-else />
         </div>

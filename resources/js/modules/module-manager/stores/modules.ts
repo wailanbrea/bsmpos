@@ -2,6 +2,7 @@ import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 import { fetchModules } from '../services';
 import type { SystemModule } from '../types';
+import { useSessionStore } from '../../auth/stores/session';
 
 export const useModuleStore = defineStore('modules', () => {
     const modules = ref<SystemModule[]>([]);
@@ -22,29 +23,41 @@ export const useModuleStore = defineStore('modules', () => {
         return modules.value.find((module) => module.code === code)?.is_core ?? false;
     }
 
-    const isRestaurant = computed(() => {
+    const activeVertical = computed<string>(() => {
+        const session = useSessionStore();
         return (
-            businessTypeCode.value === 'restaurant' ||
-            businessTypeCode.value === 'cafeteria' ||
-            businessTypeCode.value === 'food_truck' ||
-            canUse('restaurant')
-        );
+            businessTypeCode.value ||
+            session.company?.business_type ||
+            ''
+        ).toLowerCase();
+    });
+
+    const isRestaurant = computed(() => {
+        if (activeVertical.value) {
+            return (
+                activeVertical.value === 'restaurant' ||
+                activeVertical.value === 'cafeteria' ||
+                activeVertical.value === 'food_truck'
+            );
+        }
+        return canUse('restaurant');
     });
 
     const isWorkshop = computed(() => {
-        return (
-            businessTypeCode.value === 'mechanic' ||
-            businessTypeCode.value === 'auto_parts' ||
-            canUse('work_order') ||
-            canUse('vehicle')
-        );
+        if (activeVertical.value) {
+            return (
+                activeVertical.value === 'mechanic' ||
+                activeVertical.value === 'auto_parts'
+            );
+        }
+        return canUse('work_order') || canUse('vehicle');
     });
 
     const isBarbershop = computed(() => {
-        return (
-            businessTypeCode.value === 'barbershop' ||
-            (canUse('appointment') && canUse('employee') && !isWorkshop.value)
-        );
+        if (activeVertical.value) {
+            return activeVertical.value === 'barbershop';
+        }
+        return canUse('appointment') && canUse('employee');
     });
 
     const isRetail = computed(() => {
