@@ -146,22 +146,56 @@ class DemoVerticalsSeeder extends Seeder
         $tax = $this->itbis($company);
 
         foreach ([
-            ['Pizza Margarita', 'REST-PIZZA-001', 450.00, 180.00],
-            ['Hamburguesa Clásica', 'REST-BURGER-001', 350.00, 140.00],
-            ['Pollo Guisado (plato)', 'REST-POLLO-001', 300.00, 120.00],
-            ['Jugo Natural 16 oz', 'REST-JUGO-001', 120.00, 40.00],
+            // Entradas & Picaderas
+            ['Tostones Rellenos de Mariscos', 'REST-ENT-001', 450.00, 190.00],
+            ['Chicharrón de Pollo Criollo', 'REST-ENT-002', 380.00, 150.00],
+            ['Croquetas de Jamón Serrano (6 uds)', 'REST-ENT-003', 320.00, 120.00],
+            ['Empanaditas Criollas Variadas (6 uds)', 'REST-ENT-004', 290.00, 110.00],
+            ['Yuca Frita con Mojo de Ajo', 'REST-ENT-005', 220.00, 70.00],
+            // Platos Criollos & Carnes
+            ['Mofongo Especial de Chicharrón', 'REST-MOF-001', 550.00, 220.00],
+            ['Chivo Liniero Guisado con Arroz y Habichuelas', 'REST-CHV-001', 620.00, 260.00],
+            ['Pollo Guisado a la Leña con Moro de Guandules', 'REST-POLLO-001', 380.00, 140.00],
+            ['Churrasco a la Parrilla 10 oz con Papas Salteadas', 'REST-CRN-001', 890.00, 420.00],
+            ['Costillas BBQ al Fogón', 'REST-CRN-002', 680.00, 290.00],
+            ['Hamburguesa Clásica El Fogón', 'REST-BURGER-001', 390.00, 160.00],
+            // Pescados & Mariscos
+            ['Chillo Boca Chica Frito con Tostones', 'REST-MAR-001', 750.00, 340.00],
+            ['Salmón a la Plancha en Salsa de Maracuyá', 'REST-MAR-002', 820.00, 390.00],
+            ['Camarones al Ajillo con Tostones', 'REST-MAR-003', 690.00, 310.00],
+            // Pizzas & Pastas
+            ['Pizza Margarita Tradicional', 'REST-PIZZA-001', 480.00, 190.00],
+            ['Pizza Cuatro Quesos', 'REST-PIZZA-002', 550.00, 220.00],
+            ['Fettuccine Alfredo con Pollo', 'REST-PAS-001', 460.00, 180.00],
+            // Bebidas & Cocteles
+            ['Cerveza Presidente Regular', 'REST-BEB-001', 220.00, 125.00],
+            ['Cerveza Presidente Light', 'REST-BEB-002', 220.00, 125.00],
+            ['Jugo Natural de Chinola 16 oz', 'REST-BEB-003', 150.00, 50.00],
+            ['Jugo Natural de Fresa 16 oz', 'REST-BEB-004', 160.00, 55.00],
+            ['Limonada con Menta Fresca', 'REST-BEB-005', 140.00, 40.00],
+            ['Refresco Coca-Cola 20 oz', 'REST-BEB-006', 85.00, 45.00],
+            ['Agua Mineral con Gas 500 ml', 'REST-BEB-007', 95.00, 40.00],
+            ['Mojito Clásico Dominicano', 'REST-BEB-008', 350.00, 130.00],
+            // Postres
+            ['Tres Leches Casero', 'REST-POS-001', 220.00, 80.00],
+            ['Flan de Caramelo Tradicional', 'REST-POS-002', 180.00, 60.00],
+            ['Dulce de Leche Cortada', 'REST-POS-003', 160.00, 50.00],
         ] as [$name, $sku, $price, $cost]) {
-            Product::query()->create([
-                'company_id' => $company->getKey(),
-                'tax_id' => $tax->getKey(),
-                'name' => $name,
-                'sku' => $sku,
-                'price' => $price,
-                'cost' => $cost,
-                'track_inventory' => false,
-                'is_active' => true,
-                'available_pos' => true,
-            ]);
+            Product::query()->firstOrCreate(
+                [
+                    'company_id' => $company->getKey(),
+                    'sku' => $sku,
+                ],
+                [
+                    'tax_id' => $tax->getKey(),
+                    'name' => $name,
+                    'price' => $price,
+                    'cost' => $cost,
+                    'track_inventory' => false,
+                    'is_active' => true,
+                    'available_pos' => true,
+                ],
+            );
         }
 
         foreach (['Salón' => 4, 'Terraza' => 2] as $areaName => $tableCount) {
