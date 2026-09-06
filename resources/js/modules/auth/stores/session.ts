@@ -35,6 +35,21 @@ export const useSessionStore = defineStore('session', () => {
     );
     const hasContext = computed(() => company.value !== null && branch.value !== null);
 
+    const isOwner = computed(() => {
+        if (user.value?.is_super_admin) return true;
+        return company.value?.is_owner ?? false;
+    });
+
+    const permissions = computed<string[]>(() => {
+        return company.value?.permissions ?? [];
+    });
+
+    function hasPermission(permissionCode: string): boolean {
+        if (isOwner.value) return true;
+        if (permissions.value.includes('*')) return true;
+        return permissions.value.includes(permissionCode);
+    }
+
     function persistUser(value: AuthUser | null): void {
         user.value = value;
 
@@ -121,7 +136,10 @@ export const useSessionStore = defineStore('session', () => {
         company,
         hasContext,
         isAuthenticated,
+        isOwner,
+        permissions,
         user,
+        hasPermission,
         login,
         logout,
         refreshUser,

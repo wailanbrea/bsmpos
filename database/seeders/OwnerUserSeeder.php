@@ -72,11 +72,13 @@ class OwnerUserSeeder extends Seeder
 
                 app(ProvisionCompanyOwnerAccess::class)->execute($comp, $owner);
 
-                foreach ($allModules as $mod) {
+                // Si la compañía aún no tiene módulos configurados, aplicar el preset de su vertical
+                $typeCode = $comp->businessType?->code ?? 'minimarket';
+                if ($comp->modules()->count() === 0) {
                     try {
-                        $moduleService->enableModule($comp, $mod['code'], $owner);
+                        $moduleService->applyBusinessTypePreset($comp, $typeCode, $owner);
                     } catch (Throwable) {
-                        // Si ya está activo o tiene alguna dependencia ya satisfecha
+                        // Preset ya aplicado o dependencias resueltas
                     }
                 }
             }

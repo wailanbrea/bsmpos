@@ -56,79 +56,79 @@ const router = createRouter({
             path: '/auditoria',
             name: 'audit-log',
             component: AuditLogPage,
-            meta: { requiresAuth: true, requiresContext: true },
+            meta: { requiresAuth: true, requiresContext: true, requiresPermission: 'audit.view' },
         },
         {
             path: '/roles',
             name: 'roles',
             component: RoleManagementPage,
-            meta: { requiresAuth: true, requiresContext: true },
+            meta: { requiresAuth: true, requiresContext: true, requiresPermission: 'access.roles.view' },
         },
         {
             path: '/usuarios',
             name: 'users',
             component: UserManagementPage,
-            meta: { requiresAuth: true, requiresContext: true },
+            meta: { requiresAuth: true, requiresContext: true, requiresPermission: 'access.users.manage' },
         },
         {
             path: '/sucursales',
             name: 'branches',
             component: BranchManagementPage,
-            meta: { requiresAuth: true, requiresContext: true },
+            meta: { requiresAuth: true, requiresContext: true, requiresPermission: 'company.manage' },
         },
         {
             path: '/configuracion/inicial',
             name: 'onboarding',
             component: OnboardingPage,
-            meta: { requiresAuth: true, requiresContext: true },
+            meta: { requiresAuth: true, requiresContext: true, requiresPermission: 'modules.manage' },
         },
         {
             path: '/configuracion/modulos',
             name: 'modules',
             component: ModuleManagementPage,
-            meta: { requiresAuth: true, requiresContext: true },
+            meta: { requiresAuth: true, requiresContext: true, requiresPermission: 'modules.view' },
         },
         {
             path: '/configuracion',
             name: 'settings',
             component: ConfigurationPage,
-            meta: { requiresAuth: true, requiresContext: true },
+            meta: { requiresAuth: true, requiresContext: true, requiresPermission: 'settings.view' },
         },
         {
             path: '/configuracion/fiscal',
             name: 'settings-fiscal',
             component: ConfigurationPage,
-            meta: { requiresAuth: true, requiresContext: true },
+            meta: { requiresAuth: true, requiresContext: true, requiresPermission: 'settings.view' },
         },
         {
             path: '/configuracion/terminales',
             name: 'settings-terminals',
             component: AgentTerminalsPage,
-            meta: { requiresAuth: true, requiresContext: true },
+            meta: { requiresAuth: true, requiresContext: true, requiresPermission: 'settings.view' },
         },
         {
             path: '/clientes',
             name: 'customers',
             component: CustomerListPage,
-            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'customer' },
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'customer', requiresPermission: 'customers.view' },
         },
         {
             path: '/productos',
             name: 'products',
             component: ProductListPage,
-            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'product' },
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'product', requiresPermission: 'products.view' },
         },
         {
             path: '/inventario',
             name: 'inventory',
             component: InventoryPage,
-            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'inventory' },
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'inventory', requiresPermission: 'inventory.view' },
         },
         {
             path: '/pos',
             name: 'pos',
             component: PosPage,
-            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'pos' },
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'pos', requiresPermission: 'pos.view' },
         },
         {
             path: '/restaurant/layout',
@@ -146,13 +146,13 @@ const router = createRouter({
             path: '/facturacion-electronica',
             name: 'electronic-invoices',
             component: ElectronicInvoicePage,
-            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'electronic_invoice' },
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'electronic_invoice', requiresPermission: 'einvoice.view' },
         },
         {
             path: '/reportes',
             name: 'reports',
             component: ReportsPage,
-            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'report' },
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'report', requiresPermission: 'reports.view' },
         },
         {
             path: '/seguridad',
@@ -164,25 +164,25 @@ const router = createRouter({
             path: '/agenda',
             name: 'agenda',
             component: AgendaPage,
-            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'appointment' },
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'appointment', requiresPermission: 'appointments.view' },
         },
         {
             path: '/empleados',
             name: 'employees',
             component: EmployeeListPage,
-            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'employee' },
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'employee', requiresPermission: 'employees.view' },
         },
         {
             path: '/vehiculos',
             name: 'vehicles',
             component: VehicleListPage,
-            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'vehicle' },
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'vehicle', requiresPermission: 'vehicles.view' },
         },
         {
             path: '/ordenes-trabajo',
             name: 'work-orders',
             component: WorkOrderListPage,
-            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'work_order' },
+            meta: { requiresAuth: true, requiresContext: true, requiresModule: 'work_order', requiresPermission: 'work_orders.view' },
         },
     ],
 });
@@ -217,6 +217,10 @@ router.beforeEach(async (to) => {
         }
 
         if (typeof to.meta.requiresModule === 'string' && !modules.canUse(to.meta.requiresModule)) {
+            return { name: 'dashboard' };
+        }
+
+        if (typeof to.meta.requiresPermission === 'string' && !session.hasPermission(to.meta.requiresPermission)) {
             return { name: 'dashboard' };
         }
     }

@@ -12,6 +12,7 @@ interface NavItem {
     to: string;
     icon: string;
     module?: string;
+    permission?: string;
     badge?: string;
 }
 
@@ -40,40 +41,40 @@ const sections: NavSection[] = [
     {
         titleKey: 'nav.dailyOperations',
         items: [
-            { labelKey: 'nav.pos', to: '/pos', icon: 'point_of_sale', module: 'pos' },
+            { labelKey: 'nav.pos', to: '/pos', icon: 'point_of_sale', module: 'pos', permission: 'pos.view' },
             { labelKey: 'nav.tables', to: '/restaurant/layout', icon: 'table_restaurant', module: 'restaurant' },
             { labelKey: 'nav.kds', to: '/kitchen/kds', icon: 'skillet', module: 'restaurant' },
-            { labelKey: 'nav.agenda', to: '/agenda', icon: 'calendar_month', module: 'appointment' },
-            { labelKey: 'nav.workOrders', to: '/ordenes-trabajo', icon: 'build', module: 'work_order' },
+            { labelKey: 'nav.agenda', to: '/agenda', icon: 'calendar_month', module: 'appointment', permission: 'appointments.view' },
+            { labelKey: 'nav.workOrders', to: '/ordenes-trabajo', icon: 'build', module: 'work_order', permission: 'work_orders.view' },
         ],
     },
     {
         titleKey: 'nav.inventory',
         items: [
-            { labelKey: 'nav.products', to: '/productos', icon: 'inventory_2', module: 'product' },
-            { labelKey: 'nav.inventoryStock', to: '/inventario', icon: 'local_shipping', module: 'inventory' },
-            { labelKey: 'nav.customers', to: '/clientes', icon: 'group', module: 'customer' },
-            { labelKey: 'nav.vehicles', to: '/vehiculos', icon: 'directions_car', module: 'vehicle' },
-            { labelKey: 'nav.employees', to: '/empleados', icon: 'badge', module: 'employee' },
+            { labelKey: 'nav.products', to: '/productos', icon: 'inventory_2', module: 'product', permission: 'products.view' },
+            { labelKey: 'nav.inventoryStock', to: '/inventario', icon: 'local_shipping', module: 'inventory', permission: 'inventory.view' },
+            { labelKey: 'nav.customers', to: '/clientes', icon: 'group', module: 'customer', permission: 'customers.view' },
+            { labelKey: 'nav.vehicles', to: '/vehiculos', icon: 'directions_car', module: 'vehicle', permission: 'vehicles.view' },
+            { labelKey: 'nav.employees', to: '/empleados', icon: 'badge', module: 'employee', permission: 'employees.view' },
         ],
     },
     {
         titleKey: 'nav.fiscalReports',
         items: [
-            { labelKey: 'nav.reports', to: '/reportes', icon: 'description', module: 'report' },
-            { labelKey: 'nav.electronicInvoice', to: '/facturacion-electronica', icon: 'verified', module: 'electronic_invoice' },
-            { labelKey: 'nav.fiscalSettings', to: '/configuracion/fiscal', icon: 'receipt_long', module: 'setting' },
+            { labelKey: 'nav.reports', to: '/reportes', icon: 'description', module: 'report', permission: 'reports.view' },
+            { labelKey: 'nav.electronicInvoice', to: '/facturacion-electronica', icon: 'verified', module: 'electronic_invoice', permission: 'einvoice.view' },
+            { labelKey: 'nav.fiscalSettings', to: '/configuracion/fiscal', icon: 'receipt_long', module: 'setting', permission: 'settings.view' },
         ],
     },
     {
         titleKey: 'nav.saasAdmin',
         items: [
-            { labelKey: 'nav.modules', to: '/configuracion/modulos', icon: 'extension', module: 'module_manager' },
-            { labelKey: 'nav.roles', to: '/roles', icon: 'shield_person', module: 'user_access' },
-            { labelKey: 'nav.users', to: '/usuarios', icon: 'manage_accounts', module: 'user_access' },
-            { labelKey: 'nav.branches', to: '/sucursales', icon: 'business', module: 'company' },
+            { labelKey: 'nav.modules', to: '/configuracion/modulos', icon: 'extension', module: 'module_manager', permission: 'modules.view' },
+            { labelKey: 'nav.roles', to: '/roles', icon: 'shield_person', module: 'user_access', permission: 'access.roles.view' },
+            { labelKey: 'nav.users', to: '/usuarios', icon: 'manage_accounts', module: 'user_access', permission: 'access.users.manage' },
+            { labelKey: 'nav.branches', to: '/sucursales', icon: 'business', module: 'company', permission: 'company.manage' },
             { labelKey: 'nav.terminals', to: '/configuracion/terminales', icon: 'devices' },
-            { labelKey: 'nav.audit', to: '/auditoria', icon: 'list_alt', module: 'audit' },
+            { labelKey: 'nav.audit', to: '/auditoria', icon: 'list_alt', module: 'audit', permission: 'audit.view' },
             { labelKey: 'nav.security', to: '/seguridad', icon: 'security' },
         ],
     },
@@ -83,7 +84,11 @@ const filteredSections = computed(() => {
     return sections
         .map((section) => ({
             ...section,
-            items: section.items.filter((item) => !item.module || modules.canUse(item.module)),
+            items: section.items.filter((item) => {
+                const moduleOk = !item.module || modules.canUse(item.module);
+                const permissionOk = !item.permission || session.hasPermission(item.permission);
+                return moduleOk && permissionOk;
+            }),
         }))
         .filter((section) => section.items.length > 0);
 });

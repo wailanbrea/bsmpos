@@ -11,6 +11,8 @@ export interface Company {
     name: string;
     currency_code: string;
     is_active: boolean;
+    is_owner?: boolean;
+    permissions?: string[];
     business_type?: string | null;
     business_type_name?: string | null;
     branches: Branch[];
