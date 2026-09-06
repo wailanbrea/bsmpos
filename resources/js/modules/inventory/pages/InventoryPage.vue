@@ -27,6 +27,17 @@ const showKardexModal = ref(false);
 const kardexMovements = ref<KardexMovement[]>([]);
 const kardexProductName = ref('');
 
+// Modal y formulario de Ajuste Rápido de Stock
+const showAdjustModal = ref(false);
+const adjustForm = ref({
+    warehouse_id: '',
+    product_id: '',
+    quantity: 10,
+    type: 'adjustment_in' as 'adjustment_in' | 'adjustment_out' | 'initial_stock',
+    cost: 0,
+    notes: 'Inventario inicial / Entrada rápida',
+});
+
 // Formularios
 const newSupplier = ref({
     name: '',
@@ -142,6 +153,51 @@ async function viewKardex(productPublicId: string, productName: string) {
         showKardexModal.value = true;
     } catch (err: unknown) {
         errorMsg.value = getErrorMessage(err, 'Error al obtener movimientos del producto.');
+    } finally {
+        loading.value = false;
+    }
+}
+
+// Abrir Modal de Ajuste Rápido / Entrada de Stock
+function openAdjustModal(productId?: string, warehouseId?: string) {
+    const defaultWarehouse = warehouses.value.find((w) => w.is_default) || warehouses.value[0];
+    const defaultProduct = availableProducts.value[0];
+    const prod = availableProducts.value.find((p) => p.id === productId);
+
+    adjustForm.value = {
+        warehouse_id: warehouseId || (defaultWarehouse ? defaultWarehouse.id : ''),
+        product_id: productId || (defaultProduct ? defaultProduct.id : ''),
+        quantity: 10,
+        type: 'adjustment_in',
+        cost: prod ? Number(prod.cost) || 0 : 0,
+        notes: 'Inventario inicial / Entrada rápida',
+    };
+    showAdjustModal.value = true;
+}
+
+// Guardar Ajuste de Stock
+async function handleQuickAdjust() {
+    if (!adjustForm.value.product_id || !adjustForm.value.warehouse_id || adjustForm.value.quantity <= 0) {
+        errorMsg.value = 'Completa el producto, almacén y una cantidad mayor a 0.';
+        return;
+    }
+    loading.value = true;
+    errorMsg.value = '';
+    successMsg.value = '';
+    try {
+        await InventoryService.adjustStock({
+            product_id: adjustForm.value.product_id,
+            warehouse_id: adjustForm.value.warehouse_id,
+            quantity: Number(adjustForm.value.quantity),
+            type: adjustForm.value.type,
+            cost: Number(adjustForm.value.cost) || 0,
+            notes: adjustForm.value.notes,
+        });
+        showAdjustModal.value = false;
+        successMsg.value = 'Existencias actualizadas correctamente.';
+        stocks.value = await InventoryService.getStock(selectedWarehouseFilter.value || undefined);
+    } catch (err: unknown) {
+        errorMsg.value = getErrorMessage(err, 'Error al aplicar el ajuste de existencias.');
     } finally {
         loading.value = false;
     }
@@ -327,6 +383,14 @@ const filteredProductsDropdown = computed(() => {
                             </option>
                         </select>
                     </div>
+
+                    <button
+                        type="button"
+                        class="flex min-h-12 items-center gap-2 rounded-lg bg-[#3525cd] px-5 text-sm font-bold text-white shadow-sm hover:bg-[#2b1ea7] transition"
+                        @click="openAdjustModal()"
+                    >
+                        <span>+ Entrada Rápida / Ajustar Stock</span>
+                    </button>
                 </div>
 
                 <!-- Tabla de Stock -->
@@ -341,7 +405,7 @@ const filteredProductsDropdown = computed(() => {
                                 <th class="p-4 text-right">Existencia</th>
                                 <th class="p-4 text-right">Costo Promedio</th>
                                 <th class="p-4 text-right">Último Costo</th>
-                                <th class="p-4 text-center">Historial</th>
+                                <th class="p-4 text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-[#e4e1ee]">
@@ -363,12 +427,20 @@ const filteredProductsDropdown = computed(() => {
                                     RD$ {{ Number(item.last_cost).toFixed(2) }}
                                 </td>
                                 <td class="p-4 text-center">
-                                    <button
-                                        class="min-h-9 px-3 rounded bg-[#f5f2ff] hover:bg-[#e4dfff] text-[#3525cd] font-semibold text-xs transition"
-                                        @click="viewKardex(item.product_id, item.product_name)"
-                                    >
-                                        Ver Kardex
-                                    </button>
+                                    <div class="flex items-center justify-center gap-2">
+                                        <button
+                                            class="min-h-9 px-3 rounded bg-[#f5f2ff] hover:bg-[#e4dfff] text-[#3525cd] font-semibold text-xs transition"
+                                            @click="viewKardex(item.product_id, item.product_name)"
+                                        >
+                                            Kardex
+                                        </button>
+                                        <button
+                                            class="min-h-9 px-3 rounded bg-[#e8f5e9] hover:bg-[#c8e6c9] text-[#1b5e20] font-semibold text-xs transition"
+                                            @click="openAdjustModal(item.product_id, item.warehouse_id)"
+                                        >
+                                            + Ajustar
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr v-if="stocks.length === 0">
@@ -846,6 +918,139 @@ const filteredProductsDropdown = computed(() => {
                         Cerrar
                     </button>
                 </footer>
+            </div>
+        </div>
+
+        <!-- Modal: Ajuste Rápido / Entrada de Stock -->
+        <div
+            v-if="showAdjustModal"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+            @click.self="showAdjustModal = false"
+        >
+            <div class="w-full max-w-lg rounded-2xl bg-white shadow-2xl overflow-hidden border border-[#c7c4d8]">
+                <!-- Header Modal -->
+                <header class="p-6 border-b border-[#e4e1ee] flex justify-between items-center bg-[#fcfbfe]">
+                    <div>
+                        <h2 class="text-xl font-bold text-[#1b1b21]">Entrada / Ajuste de Existencias</h2>
+                        <p class="text-xs text-[#464555] mt-1">Carga stock inicial o ajusta existencias para venta en POS.</p>
+                    </div>
+                    <button
+                        class="text-gray-400 hover:text-gray-700 font-bold text-lg p-2"
+                        @click="showAdjustModal = false"
+                    >
+                        ✕
+                    </button>
+                </header>
+
+                <form @submit.prevent="handleQuickAdjust" class="p-6 space-y-4">
+                    <!-- Almacén -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-[#464555] mb-1">
+                            Almacén de Destino *
+                        </label>
+                        <select
+                            v-model="adjustForm.warehouse_id"
+                            required
+                            class="min-h-12 w-full rounded-lg border border-[#c7c4d8] px-3 text-sm focus:border-[#3525cd] focus:ring-1 focus:ring-[#3525cd]"
+                        >
+                            <option value="" disabled>Selecciona un almacén</option>
+                            <option v-for="w in warehouses" :key="w.id" :value="w.id">
+                                {{ w.name }} ({{ w.code }})
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- Producto -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-[#464555] mb-1">
+                            Producto *
+                        </label>
+                        <select
+                            v-model="adjustForm.product_id"
+                            required
+                            class="min-h-12 w-full rounded-lg border border-[#c7c4d8] px-3 text-sm focus:border-[#3525cd] focus:ring-1 focus:ring-[#3525cd]"
+                        >
+                            <option value="" disabled>Selecciona un producto</option>
+                            <option v-for="p in availableProducts" :key="p.id" :value="p.id">
+                                {{ p.name }} ({{ p.sku || 'Sin SKU' }})
+                            </option>
+                        </select>
+                    </div>
+
+                    <!-- Tipo y Cantidad -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-[#464555] mb-1">
+                                Tipo de Operación
+                            </label>
+                            <select
+                                v-model="adjustForm.type"
+                                class="min-h-12 w-full rounded-lg border border-[#c7c4d8] px-3 text-sm"
+                            >
+                                <option value="adjustment_in">➕ Entrada / Stock Inicial</option>
+                                <option value="adjustment_out">➖ Salida / Merma</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-[#464555] mb-1">
+                                Cantidad *
+                            </label>
+                            <input
+                                v-model.number="adjustForm.quantity"
+                                type="number"
+                                min="0.01"
+                                step="any"
+                                required
+                                class="min-h-12 w-full rounded-lg border border-[#c7c4d8] px-3 text-sm font-bold"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Costo unitario y Notas -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-[#464555] mb-1">
+                                Costo Unitario RD$
+                            </label>
+                            <input
+                                v-model.number="adjustForm.cost"
+                                type="number"
+                                min="0"
+                                step="0.01"
+                                class="min-h-12 w-full rounded-lg border border-[#c7c4d8] px-3 text-sm"
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-[#464555] mb-1">
+                                Motivo / Referencia
+                            </label>
+                            <input
+                                v-model="adjustForm.notes"
+                                type="text"
+                                placeholder="Ej: Inventario inicial"
+                                class="min-h-12 w-full rounded-lg border border-[#c7c4d8] px-3 text-sm"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Footer Formulario -->
+                    <footer class="pt-4 border-t border-[#e4e1ee] flex justify-end gap-3">
+                        <button
+                            type="button"
+                            class="min-h-12 rounded-lg border border-[#c7c4d8] px-4 font-semibold text-[#464555] hover:bg-gray-100 transition"
+                            @click="showAdjustModal = false"
+                        >
+                            Cancelar
+                        </button>
+                        <button
+                            type="submit"
+                            :disabled="loading"
+                            class="min-h-12 rounded-lg bg-[#3525cd] px-6 font-bold text-white shadow-sm hover:bg-[#2b1ea7] transition disabled:opacity-50"
+                        >
+                            {{ loading ? 'Guardando...' : 'Aplicar Ajuste' }}
+                        </button>
+                    </footer>
+                </form>
             </div>
         </div>
     </main>

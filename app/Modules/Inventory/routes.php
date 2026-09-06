@@ -16,6 +16,7 @@ Route::middleware(['auth:sanctum', 'company', 'branch', 'module:inventory'])->gr
     Route::post('warehouses', [WarehouseController::class, 'store']);
 
     Route::get('stock', [StockController::class, 'stock']);
+    Route::post('stock/adjust', [StockController::class, 'adjust']);
     Route::get('kardex/{productPublicId}', [StockController::class, 'kardex']);
 
     Route::get('purchases', [PurchaseController::class, 'index']);

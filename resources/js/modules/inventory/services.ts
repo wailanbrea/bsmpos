@@ -125,4 +125,17 @@ export const InventoryService = {
         const response = await api.post(`/purchases/${publicId}/confirm`, {});
         return response.data.data;
     },
+
+    // Ajuste directo / Entrada rápida de existencias
+    async adjustStock(data: {
+        product_id: string;
+        warehouse_id: string;
+        quantity: number;
+        type: 'adjustment_in' | 'adjustment_out' | 'initial_stock';
+        cost?: number;
+        notes?: string;
+    }): Promise<{ message: string }> {
+        const response = await api.post('/stock/adjust', data);
+        return response.data.data;
+    },
 };

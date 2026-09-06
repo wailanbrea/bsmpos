@@ -82,4 +82,73 @@ final class StockController
             'created_at' => $m->created_at->toDateTimeString(),
         ]));
     }
+
+    public function adjust(
+        Request $request,
+        CurrentCompany $currentCompany,
+        \App\Modules\Inventory\Services\InventoryService $inventoryService
+    ): JsonResponse {
+        /** @var User $user */
+        $user = $request->user();
+        if (! $user->hasCompanyPermission($currentCompany->company()->getKey(), 'inventory.manage') &&
+            ! $user->hasCompanyPermission($currentCompany->company()->getKey(), 'inventory.view')
+        ) {
+            throw new ApiException(ErrorCode::PermissionDenied, 'No tiene permiso para ajustar inventario.', 403);
+        }
+
+        $validated = $request->validate([
+            'product_id' => ['required', 'string'],
+            'warehouse_id' => ['required', 'string'],
+            'quantity' => ['required', 'numeric', 'min:0.01'],
+            'type' => ['required', 'string', 'in:adjustment_in,adjustment_out,initial_stock'],
+            'cost' => ['nullable', 'numeric', 'min:0'],
+            'notes' => ['nullable', 'string', 'max:255'],
+        ]);
+
+        $product = Product::query()
+            ->where('company_id', $currentCompany->company()->getKey())
+            ->where('public_id', $validated['product_id'])
+            ->first();
+
+        if ($product === null) {
+            throw new ApiException(ErrorCode::NotFound, 'El producto no existe.', 404);
+        }
+
+        $warehouse = \App\Modules\Inventory\Models\Warehouse::query()
+            ->where('company_id', $currentCompany->company()->getKey())
+            ->where('public_id', $validated['warehouse_id'])
+            ->first();
+
+        if ($warehouse === null) {
+            throw new ApiException(ErrorCode::NotFound, 'El almacén no existe.', 404);
+        }
+
+        $quantity = (float) $validated['quantity'];
+        $cost = isset($validated['cost']) ? (float) $validated['cost'] : (float) $product->cost;
+
+        if ($validated['type'] === 'adjustment_out') {
+            $inventoryService->removeStock(
+                warehouse: $warehouse,
+                product: $product,
+                quantity: $quantity,
+                type: 'adjustment_out',
+                refType: 'adjustment',
+                user: $user
+            );
+        } else {
+            $inventoryService->addStock(
+                warehouse: $warehouse,
+                product: $product,
+                quantity: $quantity,
+                cost: $cost,
+                type: $validated['type'],
+                refType: 'adjustment',
+                user: $user
+            );
+        }
+
+        return ApiResponse::success([
+            'message' => 'Ajuste de inventario aplicado correctamente.',
+        ]);
+    }
 }

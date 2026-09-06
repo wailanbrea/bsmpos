@@ -406,10 +406,20 @@ onMounted(() => {
                                 />
                             </label>
                         </div>
-                        <label class="flex min-h-11 items-center gap-3 text-sm font-semibold">
-                            <input v-model="form.track_inventory" type="checkbox" class="h-5 w-5" />
-                            Controlar inventario
-                        </label>
+                        <div class="rounded-lg bg-[#fcfbfe] border border-[#e4e1ee] p-3">
+                            <label class="flex min-h-11 items-center gap-3 text-sm font-semibold cursor-pointer">
+                                <input v-model="form.track_inventory" type="checkbox" class="h-5 w-5 rounded text-[#3525cd]" />
+                                <span>Controlar inventario (descontar existencias físicas)</span>
+                            </label>
+                            <p class="text-xs text-[#5c5b6b] mt-1 pl-8">
+                                <span v-if="form.track_inventory" class="text-[#3525cd] font-medium">
+                                    ⚠️ El POS exigirá existencias registradas en el almacén para permitir la venta. Puedes cargar o ajustar existencias en <RouterLink to="/inventario" class="underline font-bold">Inventario</RouterLink>.
+                                </span>
+                                <span v-else class="text-[#006c49]">
+                                    ✓ Libre venta sin límite de stock (ideal para servicios o productos sin control de almacén).
+                                </span>
+                            </p>
+                        </div>
                         <label class="flex min-h-11 items-center gap-3 text-sm font-semibold">
                             <input v-model="form.available_pos" type="checkbox" class="h-5 w-5" />
                             Disponible en POS
