@@ -708,7 +708,7 @@ const filteredProducts = computed(() => {
 </script>
 
 <template>
-    <main class="min-h-screen bg-kinetic-surface text-kinetic-ink">
+    <div class="h-full flex-1 flex flex-col min-h-0 bg-kinetic-surface text-kinetic-ink overflow-hidden">
         <!-- 1. FORMULARIO DE APERTURA DE CAJA (Si no hay turno activo) -->
         <div v-if="!activeSession" class="flex flex-col items-center justify-center min-h-screen p-4 bg-[#f2eff9]">
             <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-lg border border-[#c7c4d8] space-y-6">
@@ -1728,5 +1728,5 @@ const filteredProducts = computed(() => {
                 </footer>
             </div>
         </div>
-    </main>
+    </div>
 </template>
