@@ -2,6 +2,7 @@ package com.omnipos.agent
 
 import java.io.File
 import java.io.FileOutputStream
+import java.util.Base64
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.TimeoutException
@@ -167,14 +168,40 @@ open class LocalPrinterService {
     open fun printRaw(printerName: String?, payload: ByteArray): Result<String> = runCatching {
         val target = printerName?.trim().orEmpty()
 
-        // 1. Detectar si apunta a un puerto serial / Bluetooth COM
+        // 1. Verificar si corresponde a una impresora Bluetooth emparejada con MAC conocida
+        val summary = getDeviceSummary(forceRefresh = false)
+        val btDevice = summary.bluetoothDevices.firstOrNull { dev ->
+            dev.isPrinter && (
+                dev.name.equals(target, ignoreCase = true) ||
+                dev.name.contains(target, ignoreCase = true) ||
+                target.contains(dev.name, ignoreCase = true) ||
+                (dev.port != null && target.contains(dev.port, ignoreCase = true))
+            )
+        }
+
+        val btMac = btDevice?.let { dev ->
+            Regex("""(?:DEV_|_)?([0-9A-F]{12})\b""", RegexOption.IGNORE_CASE)
+                .find(dev.instanceId)?.groupValues?.getOrNull(1)?.uppercase()
+        }
+
+        // Si tenemos la MAC de la impresora Bluetooth, imprimir directamente por radio RFCOMM SPP
+        if (btMac != null) {
+            val directResult = printDirectBluetooth(btMac, payload)
+            if (directResult.isSuccess) {
+                logger.info("Impresión enviada exitosamente vía Bluetooth RFCOMM a {} ({})", btDevice.name, btMac)
+                return@runCatching btDevice.name
+            }
+            logger.warn("Fallo en Bluetooth directo ({}), intentando fallback a puerto serial...", directResult.exceptionOrNull()?.message)
+        }
+
+        // 2. Detectar si apunta a un puerto serial / Bluetooth COM
         val comMatch = Regex("""\b(COM\d+)\b""", RegexOption.IGNORE_CASE).find(target)
         if (comMatch != null) {
             val port = comMatch.value.uppercase()
             return@runCatching printToSerialPort(port, payload).getOrThrow()
         }
 
-        // 2. Si no es COM, imprimir mediante Java Print Service (Spooler)
+        // 3. Si no es COM, imprimir mediante Java Print Service (Spooler)
         val services = PrintServiceLookup.lookupPrintServices(null, null).toList()
         val service = if (target.isBlank()) {
             PrintServiceLookup.lookupDefaultPrintService()
@@ -184,7 +211,7 @@ open class LocalPrinterService {
         }
 
         if (service == null) {
-            val dev = getDeviceSummary(forceRefresh = false).printers.firstOrNull {
+            val dev = summary.printers.firstOrNull {
                 it.name.contains(target, ignoreCase = true)
             }
             if (dev?.port != null) {
@@ -197,6 +224,113 @@ open class LocalPrinterService {
         val doc = SimpleDoc(payload, flavor, null)
         service.createPrintJob().print(doc, null)
         service.name
+    }
+
+    /**
+     * Imprime directamente a una impresora Bluetooth vía socket RFCOMM nativo de Windows (WinRT StreamSocket).
+     * Se comunica directamente por radio Bluetooth al canal SPP, evitando problemas de puertos COM virtuales.
+     */
+    open fun printDirectBluetooth(macAddress: String, payload: ByteArray): Result<String> = runCatching {
+        val cleanMac = macAddress.replace(":", "").replace("-", "").trim().uppercase()
+        val base64Payload = Base64.getEncoder().encodeToString(payload)
+
+        val psScript = """
+            & {
+                ${'$'}Mac = '$cleanMac'
+                ${'$'}Base64Payload = '$base64Payload'
+                Add-Type -AssemblyName System.Runtime.WindowsRuntime -ErrorAction SilentlyContinue
+
+                ${'$'}asTaskGeneric = [System.WindowsRuntimeSystemExtensions].GetMethods() | Where-Object { 
+                    ${'$'}_.Name -eq 'AsTask' -and ${'$'}_.GetParameters().Count -eq 1 -and ${'$'}_.GetParameters()[0].ParameterType.Name -eq 'IAsyncOperation`1' 
+                }[0]
+
+                ${'$'}asActionGeneric = [System.WindowsRuntimeSystemExtensions].GetMethods() | Where-Object { 
+                    ${'$'}_.Name -eq 'AsTask' -and ${'$'}_.GetParameters().Count -eq 1 -and ${'$'}_.GetParameters()[0].ParameterType.Name -eq 'IAsyncAction' 
+                }[0]
+
+                [Windows.Devices.Bluetooth.BluetoothDevice, Windows.Foundation, ContentType = WindowsRuntime] | Out-Null
+                [Windows.Networking.Sockets.StreamSocket, Windows.Foundation, ContentType = WindowsRuntime] | Out-Null
+                [Windows.Storage.Streams.DataWriter, Windows.Foundation, ContentType = WindowsRuntime] | Out-Null
+
+                try {
+                    ${'$'}macInt = [Convert]::ToUInt64(${'$'}Mac, 16)
+                    ${'$'}asyncOp = [Windows.Devices.Bluetooth.BluetoothDevice]::FromBluetoothAddressAsync(${'$'}macInt)
+                    ${'$'}asTask = ${'$'}asTaskGeneric.MakeGenericMethod([Windows.Devices.Bluetooth.BluetoothDevice])
+                    ${'$'}netTask = ${'$'}asTask.Invoke(${'$'}null, @(${'$'}asyncOp))
+                    ${'$'}netTask.Wait(6000) | Out-Null
+                    ${'$'}device = ${'$'}netTask.Result
+
+                    if (${'$'}null -eq ${'$'}device) {
+                        Write-Output "ERROR: Dispositivo Bluetooth no encontrado para MAC ${'$'}Mac"
+                        exit 1
+                    }
+
+                    ${'$'}rfcommAsync = ${'$'}device.GetRfcommServicesAsync()
+                    ${'$'}asTask2 = ${'$'}asTaskGeneric.MakeGenericMethod([Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult])
+                    ${'$'}rfcommTask = ${'$'}asTask2.Invoke(${'$'}null, @(${'$'}rfcommAsync))
+                    ${'$'}rfcommTask.Wait(6000) | Out-Null
+
+                    if (${'$'}null -eq ${'$'}rfcommTask.Result -or ${'$'}rfcommTask.Result.Services.Count -eq 0) {
+                        Write-Output "ERROR: Servicio RFCOMM no disponible en la impresora."
+                        exit 2
+                    }
+
+                    ${'$'}service = ${'$'}rfcommTask.Result.Services[0]
+                    ${'$'}socket = [Windows.Networking.Sockets.StreamSocket]::new()
+
+                    ${'$'}connectAsync = ${'$'}socket.ConnectAsync(${'$'}service.ConnectionHostName, ${'$'}service.ConnectionServiceName)
+                    ${'$'}connectTask = ${'$'}asActionGeneric.Invoke(${'$'}null, @(${'$'}connectAsync))
+                    ${'$'}connectTask.Wait(8000) | Out-Null
+
+                    if (${'$'}connectTask.IsFaulted -or -not ${'$'}connectTask.IsCompleted) {
+                        ${'$'}exMsg = if (${'$'}connectTask.Exception) { ${'$'}connectTask.Exception.InnerException.Message } else { "Timeout" }
+                        Write-Output "ERROR: No se pudo conectar con la impresora Bluetooth (${'$'}exMsg)"
+                        exit 3
+                    }
+
+                    ${'$'}rawBytes = [System.Convert]::FromBase64String(${'$'}Base64Payload)
+                    ${'$'}ctor = [Windows.Storage.Streams.DataWriter].GetConstructors()[0]
+                    ${'$'}writer = ${'$'}ctor.Invoke(@(${'$'}socket.OutputStream))
+                    ${'$'}writer.WriteBytes(${'$'}rawBytes)
+
+                    ${'$'}storeAsync = ${'$'}writer.StoreAsync()
+                    ${'$'}asTaskStore = ${'$'}asTaskGeneric.MakeGenericMethod([uint32])
+                    ${'$'}storeTask = ${'$'}asTaskStore.Invoke(${'$'}null, @(${'$'}storeAsync))
+                    ${'$'}storeTask.Wait(5000) | Out-Null
+
+                    ${'$'}writer.DetachStream() | Out-Null
+                    ${'$'}socket.Dispose()
+                    Write-Output "SUCCESS"
+                    exit 0
+                } catch {
+                    Write-Output "ERROR: ${'$'}(${'$'}_.Exception.Message)"
+                    exit 4
+                }
+            }
+        """.trimIndent()
+
+        val process = ProcessBuilder(
+            "powershell.exe",
+            "-NoLogo",
+            "-NoProfile",
+            "-NonInteractive",
+            "-ExecutionPolicy", "Bypass",
+            "-Command", psScript,
+        )
+            .redirectErrorStream(true)
+            .start()
+
+        val future = CompletableFuture.supplyAsync {
+            process.inputStream.bufferedReader().use { it.readText().trim() }
+        }
+
+        val output = future.get(20, TimeUnit.SECONDS)
+        process.waitFor(2, TimeUnit.SECONDS)
+
+        if (!output.contains("SUCCESS")) {
+            throw IllegalStateException("Fallo en impresion Bluetooth directa: $output")
+        }
+        cleanMac
     }
 
     /**
