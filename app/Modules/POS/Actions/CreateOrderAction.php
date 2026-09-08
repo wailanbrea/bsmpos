@@ -12,7 +12,9 @@ use App\Modules\Company\Models\Company;
 use App\Modules\Customer\Models\Customer;
 use App\Modules\Inventory\Models\Warehouse;
 use App\Modules\Inventory\Services\InventoryService;
+use App\Modules\Inventory\Services\ProductSerialService;
 use App\Modules\POS\Models\Order;
+use App\Modules\POS\Models\OrderItem;
 use App\Modules\POS\Models\Payment;
 use App\Modules\POS\Services\CashSessionService;
 use App\Modules\Product\Models\Product;
@@ -25,7 +27,8 @@ final class CreateOrderAction
 {
     public function __construct(
         private readonly InventoryService $inventoryService,
-        private readonly CashSessionService $cashSessionService
+        private readonly CashSessionService $cashSessionService,
+        private readonly ProductSerialService $productSerialService
     ) {}
 
     /**
@@ -317,7 +320,8 @@ final class CreateOrderAction
                 $productModel = $itemData['product_model'];
                 unset($itemData['product_model']);
 
-                $order->items()->create($itemData);
+                /** @var OrderItem $createdItem */
+                $createdItem = $order->items()->create($itemData);
 
                 if ($status === 'completed' && $productModel->track_inventory) {
                     $this->inventoryService->removeStock(
@@ -329,6 +333,19 @@ final class CreateOrderAction
                         refId: $order->getKey(),
                         user: $user,
                         specificBatchNumber: $itemData['batch_number']
+                    );
+                }
+
+                if ($status === 'completed' && ! empty($itemData['serial_number'])) {
+                    $this->productSerialService->processSaleSerial(
+                        company: $company,
+                        branch: $branch,
+                        warehouse: $warehouse,
+                        product: $productModel,
+                        serialNumber: (string) $itemData['serial_number'],
+                        order: $order,
+                        orderItem: $createdItem,
+                        customer: $customer
                     );
                 }
             }

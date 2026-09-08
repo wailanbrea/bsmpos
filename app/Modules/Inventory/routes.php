@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Modules\Inventory\Http\Controllers\ProductSerialController;
 use App\Modules\Inventory\Http\Controllers\PurchaseController;
 use App\Modules\Inventory\Http\Controllers\StockController;
 use App\Modules\Inventory\Http\Controllers\SupplierController;
@@ -24,4 +25,9 @@ Route::middleware(['auth:sanctum', 'company', 'branch', 'module:inventory'])->gr
     Route::get('purchases/{publicId}', [PurchaseController::class, 'show']);
     Route::post('purchases/{publicId}/confirm', [PurchaseController::class, 'confirm']);
     Route::put('purchases/{publicId}/fiscal-data', [PurchaseController::class, 'saveFiscalData']);
+
+    Route::get('serials', [ProductSerialController::class, 'index']);
+    Route::get('serials/available', [ProductSerialController::class, 'available']);
+    Route::post('serials/batch', [ProductSerialController::class, 'storeBatch']);
+    Route::get('serials/lookup', [ProductSerialController::class, 'lookup']);
 });

@@ -4,6 +4,29 @@ Formato: [Keep a Changelog](https://keepachangelog.com/es/) adaptado. Cada entra
 
 ## [No publicado]
 
+### 2026-09-08 — Ciclo de Vida Híbrido de Números de Serie (S/N / IMEI), Inventario y Trazabilidad de Garantías
+- **Inventario de Números de Serie Pre-cargados y Captura Flexible en POS:**
+  - Migración `2026_09_07_020000_create_product_serials_table.php`: tabla `product_serials` con aislamiento multi-tenant estricto (`company_id`, `branch_id`, `warehouse_id`, `product_id`, `serial_number`, `status`, `cost`, `order_id`, `order_item_id`, `invoice_id`, `customer_id`, `sold_at`, `warranty_months`, `warranty_terms`, `warranty_expires_at`, `notes`).
+  - Estados soportados: `available`, `reserved`, `sold`, `returned`, `defective` (RMA).
+  - Modelo `ProductSerial.php` y servicio de dominio `ProductSerialService.php`:
+    - Bloqueo de concurrencia pesimista (`lockForUpdate()`) para evitar venta simultánea del mismo número de serie.
+    - Prevención estricta contra venta de series ya vendidas (HTTP 422 Conflict).
+    - Carga masiva de series por lote (`registerSerialsBatch`).
+    - Flujo híbrido: venta de series pre-cargadas en almacén o captura libre al momento del cobro (auto-registro inmediato en inventario).
+    - Reversión automática a `available` en caso de anulación de factura fiscal (`annulInvoice`).
+    - Cálculo dinámico del vencimiento de garantía (`warranty_expires_at`) al momento de la venta y acceso a estados `active`, `expired`, `pending_sale`.
+- **Integración con Punto de Venta (POS) y Facturación:**
+  - `CreateOrderAction.php`: invocación síncrona a `processSaleSerial(...)` en la confirmación de la orden.
+  - `InvoiceService.php`: asociación bidireccional entre la factura emitida (`invoice_id`) y el serial vendido; reversión en anulación.
+  - `PosPage.vue`: selector predictivo con autocompletado en tiempo real de números de serie disponibles en el almacén de la caja activa, badges de estado (`✓ Stock`, `⚡ Nueva`, `N disp.`) y modal de consulta rápida de garantías en el carrito.
+- **Módulo de Inventario Avanzado — Gestión de Series y Garantías:**
+  - `InventoryPage.vue`: nueva pestaña "Series y Garantías" con listado paginado, filtros reactivos (almacén, producto, estado), modal de carga masiva de lotes y modal de consulta / trazabilidad de garantías por serie o IMEI.
+  - Endpoints REST en `ProductSerialController.php`: `/api/v1/inventory/serials`, `/serials/available`, `/serials/batch`, `/serials/lookup`.
+- **Seeders y Datos de Prueba:**
+  - `DemoVerticalsSeeder.php`: pre-cargadas 90 series auténticas para la empresa demo "ElectroHogar Dominicana" distribuidas entre Sala de Exhibición (Showroom) y Depósito Central.
+- **Pruebas Automatizadas:**
+  - `tests/Feature/ProductSerialTrackingTest.php`: 5 pruebas automatizadas (22 aserciones) cubriendo registro por lote, venta de serie pre-cargada con garantía, bloqueo de serie duplicada, registro al vuelo con reversión en anulación y búsqueda / trazabilidad de garantías. Todas pasan al 100%.
+
 ### 2026-09-06 — Vertical Electrodomésticos y Tecnología: Números de Serie, Pólizas de Garantía y Demo ElectroHogar
 - **Trazabilidad de Números de Serie (S/N / IMEI):**
   - Migración `2026_09_06_230000_add_warranty_and_serial_fields.php`: campos `serial_number` (string 100, nullable) en `order_items` e `invoice_items`.

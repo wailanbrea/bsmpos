@@ -1,16 +1,126 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, watch } from 'vue';
 import { InventoryService } from '../services';
-import type { Supplier, Warehouse, StockItem, KardexMovement, Purchase, PurchaseItem } from '../services';
+import type { Supplier, Warehouse, StockItem, KardexMovement, Purchase, PurchaseItem, ProductSerial } from '../services';
 import { fetchProducts } from '../../products/services';
 import type { Product } from '../../products/types';
 
-type Tab = 'stock' | 'warehouses' | 'suppliers' | 'purchases';
+type Tab = 'stock' | 'serials' | 'purchases' | 'warehouses' | 'suppliers';
 
 const activeTab = ref<Tab>('stock');
 const loading = ref(false);
 const errorMsg = ref('');
 const successMsg = ref('');
+
+// Pestaña de Series y Garantías
+const serials = ref<ProductSerial[]>([]);
+const serialsMeta = ref({ current_page: 1, last_page: 1, total: 0 });
+const serialWarehouseFilter = ref('');
+const serialProductFilter = ref('');
+const serialStatusFilter = ref('');
+const serialSearchQuery = ref('');
+const loadingSerials = ref(false);
+
+const showBatchSerialModal = ref(false);
+const batchSerialForm = ref({
+    product_id: '',
+    warehouse_id: '',
+    raw_serials: '',
+    cost: 0,
+    notes: '',
+});
+const isSavingBatch = ref(false);
+
+const showWarrantyLookupModal = ref(false);
+const warrantyLookupQuery = ref('');
+const warrantyLookupResults = ref<ProductSerial[]>([]);
+const isSearchingWarranty = ref(false);
+const warrantyLookupError = ref('');
+
+async function loadSerials(page = 1) {
+    loadingSerials.value = true;
+    try {
+        const res = await InventoryService.getSerials({
+            warehouse_id: serialWarehouseFilter.value || undefined,
+            product_id: serialProductFilter.value || undefined,
+            status: serialStatusFilter.value || undefined,
+            search: serialSearchQuery.value.trim() || undefined,
+            page,
+        });
+        serials.value = res.data;
+        if (res.meta) {
+            serialsMeta.value = res.meta;
+        }
+    } catch (err: unknown) {
+        errorMsg.value = getErrorMessage(err, 'Error al cargar los números de serie.');
+    } finally {
+        loadingSerials.value = false;
+    }
+}
+
+async function handleSaveBatchSerials() {
+    if (!batchSerialForm.value.product_id || !batchSerialForm.value.warehouse_id || !batchSerialForm.value.raw_serials.trim()) {
+        errorMsg.value = 'Completa el producto, almacén y al menos un número de serie.';
+        return;
+    }
+
+    const lines = batchSerialForm.value.raw_serials
+        .split(/[\n,]+/)
+        .map((s) => s.trim())
+        .filter((s) => s.length > 0);
+
+    if (lines.length === 0) {
+        errorMsg.value = 'No se detectaron series válidas.';
+        return;
+    }
+
+    isSavingBatch.value = true;
+    errorMsg.value = '';
+    successMsg.value = '';
+    try {
+        const res = await InventoryService.registerSerialsBatch({
+            product_id: batchSerialForm.value.product_id,
+            warehouse_id: batchSerialForm.value.warehouse_id,
+            serials: lines,
+            cost: Number(batchSerialForm.value.cost) || undefined,
+            notes: batchSerialForm.value.notes || undefined,
+        });
+        showBatchSerialModal.value = false;
+        successMsg.value = `Se registraron ${res.registered_count} números de serie exitosamente.`;
+        batchSerialForm.value = { product_id: '', warehouse_id: '', raw_serials: '', cost: 0, notes: '' };
+        await loadSerials();
+    } catch (err: unknown) {
+        errorMsg.value = getErrorMessage(err, 'Error al registrar el lote de series.');
+    } finally {
+        isSavingBatch.value = false;
+    }
+}
+
+async function handleSearchWarrantyLookup() {
+    const q = warrantyLookupQuery.value.trim();
+    if (q.length < 2) {
+        warrantyLookupError.value = 'Ingresa al menos 2 caracteres.';
+        return;
+    }
+    isSearchingWarranty.value = true;
+    warrantyLookupError.value = '';
+    try {
+        warrantyLookupResults.value = await InventoryService.lookupSerial(q);
+        if (warrantyLookupResults.value.length === 0) {
+            warrantyLookupError.value = 'No se encontraron registros para la serie o IMEI ingresado.';
+        }
+    } catch (err: unknown) {
+        warrantyLookupError.value = getErrorMessage(err, 'Error al consultar la garantía.');
+    } finally {
+        isSearchingWarranty.value = false;
+    }
+}
+
+watch(activeTab, (tab) => {
+    if (tab === 'serials') {
+        void loadSerials();
+    }
+});
 
 // Listados reactivos
 const suppliers = ref<Supplier[]>([]);
@@ -344,6 +454,7 @@ const filteredProductsDropdown = computed(() => {
                 <button
                     v-for="tab in [
                         { id: 'stock', label: 'Existencias y Kardex' },
+                        { id: 'serials', label: 'Series y Garantías' },
                         { id: 'purchases', label: 'Compras a Proveedores' },
                         { id: 'warehouses', label: 'Almacenes' },
                         { id: 'suppliers', label: 'Proveedores' },
@@ -834,6 +945,199 @@ const filteredProductsDropdown = computed(() => {
                     </table>
                 </div>
             </div>
+
+            <!-- Tab Content: SERIES Y GARANTÍAS -->
+            <div v-if="activeTab === 'serials'" class="grid gap-6">
+                <!-- Barra de Acciones y Filtros -->
+                <div class="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-[#c7c4d8] bg-white p-4 shadow-sm">
+                    <div class="flex flex-wrap items-center gap-3">
+                        <!-- Búsqueda rápida por serie o IMEI -->
+                        <div class="relative min-w-[220px]">
+                            <input
+                                v-model="serialSearchQuery"
+                                type="text"
+                                placeholder="Buscar por serie / IMEI..."
+                                class="min-h-11 w-full rounded-lg border border-[#c7c4d8] px-3 text-sm focus:border-[#3525cd] focus:ring-1 focus:ring-[#3525cd]"
+                                @keydown.enter.prevent="loadSerials(1)"
+                            />
+                        </div>
+
+                        <!-- Filtro Estado -->
+                        <select
+                            v-model="serialStatusFilter"
+                            class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm"
+                            @change="loadSerials(1)"
+                        >
+                            <option value="">Todos los Estados</option>
+                            <option value="available">Disponible</option>
+                            <option value="sold">Vendido</option>
+                            <option value="reserved">Reservado</option>
+                            <option value="defective">Defectuoso / RMA</option>
+                            <option value="returned">Devuelto</option>
+                        </select>
+
+                        <!-- Filtro Almacén -->
+                        <select
+                            v-model="serialWarehouseFilter"
+                            class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm"
+                            @change="loadSerials(1)"
+                        >
+                            <option value="">Todos los Almacenes</option>
+                            <option v-for="w in warehouses" :key="w.id" :value="w.id">
+                                {{ w.name }}
+                            </option>
+                        </select>
+
+                        <!-- Filtro Producto -->
+                        <select
+                            v-model="serialProductFilter"
+                            class="min-h-11 rounded-lg border border-[#c7c4d8] px-3 text-sm max-w-xs truncate"
+                            @change="loadSerials(1)"
+                        >
+                            <option value="">Todos los Productos</option>
+                            <option v-for="p in availableProducts" :key="p.id" :value="p.id">
+                                {{ p.name }}
+                            </option>
+                        </select>
+
+                        <button
+                            type="button"
+                            class="min-h-11 rounded-lg bg-gray-100 border border-[#c7c4d8] px-4 text-xs font-semibold text-gray-700 hover:bg-gray-200 transition"
+                            @click="loadSerials(1)"
+                        >
+                            Filtrar
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button
+                            type="button"
+                            class="flex min-h-11 items-center gap-2 rounded-lg border border-[#3525cd] bg-white px-4 text-xs font-bold text-[#3525cd] hover:bg-[#f5f2ff] transition"
+                            @click="showWarrantyLookupModal = true; warrantyLookupQuery = ''; warrantyLookupResults = []; warrantyLookupError = ''"
+                        >
+                            🔍 Consultar Garantía
+                        </button>
+                        <button
+                            type="button"
+                            class="flex min-h-11 items-center gap-2 rounded-lg bg-[#3525cd] px-4 text-xs font-bold text-white shadow-sm hover:bg-[#2b1ea7] transition"
+                            @click="showBatchSerialModal = true"
+                        >
+                            ➕ Carga Masiva de Series
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tabla de Series -->
+                <div class="overflow-x-auto rounded-xl border border-[#c7c4d8] bg-white shadow-sm">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-[#e4e1ee] bg-[#fcfbfe] text-xs font-semibold uppercase tracking-wider text-[#464555]">
+                                <th class="p-4">N° de Serie / IMEI</th>
+                                <th class="p-4">Producto</th>
+                                <th class="p-4">Almacén</th>
+                                <th class="p-4">Estado</th>
+                                <th class="p-4">Venta / Cliente</th>
+                                <th class="p-4">Garantía</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#e4e1ee]">
+                            <tr v-if="loadingSerials">
+                                <td colspan="6" class="p-8 text-center text-sm text-[#464555]">
+                                    Cargando números de serie...
+                                </td>
+                            </tr>
+                            <tr v-else-if="serials.length === 0">
+                                <td colspan="6" class="p-8 text-center text-sm text-[#464555]">
+                                    No se encontraron números de serie registrados con los filtros aplicados.
+                                </td>
+                            </tr>
+                            <tr v-for="s in serials" :key="s.id" class="text-sm hover:bg-[#fcfbfe]">
+                                <td class="p-4 font-mono font-bold text-[#3525cd]">
+                                    {{ s.serial_number }}
+                                </td>
+                                <td class="p-4">
+                                    <p class="font-medium text-gray-900">{{ s.product?.name || 'Producto #' + s.product_id }}</p>
+                                    <p class="text-xs font-mono text-gray-500">{{ s.product?.sku || '' }}</p>
+                                </td>
+                                <td class="p-4 text-xs text-gray-700">
+                                    {{ s.warehouse?.name || 'Almacén #' + s.warehouse_id }}
+                                </td>
+                                <td class="p-4">
+                                    <span
+                                        class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold"
+                                        :class="{
+                                            'bg-green-100 text-green-800': s.status === 'available',
+                                            'bg-blue-100 text-blue-800': s.status === 'sold',
+                                            'bg-amber-100 text-amber-800': s.status === 'reserved',
+                                            'bg-red-100 text-red-800': s.status === 'defective',
+                                            'bg-purple-100 text-purple-800': s.status === 'returned',
+                                        }"
+                                    >
+                                        {{ s.status === 'available' ? 'Disponible' : s.status === 'sold' ? 'Vendido' : s.status === 'reserved' ? 'Reservado' : s.status === 'defective' ? 'Defectuoso' : 'Devuelto' }}
+                                    </span>
+                                </td>
+                                <td class="p-4 text-xs">
+                                    <div v-if="s.sold_at">
+                                        <p class="font-semibold text-gray-800">{{ s.customer?.name || 'Cliente de paso' }}</p>
+                                        <p class="text-gray-500">{{ s.invoice ? 'NCF: ' + (s.invoice.ncf || s.invoice.invoice_number) : (s.order ? 'Orden: ' + s.order.order_number : '') }}</p>
+                                        <p class="text-[11px] text-gray-400">Fecha: {{ s.sold_at.split('T')[0] }}</p>
+                                    </div>
+                                    <div v-else class="text-gray-400 italic">
+                                        Sin vender
+                                    </div>
+                                </td>
+                                <td class="p-4 text-xs">
+                                    <div v-if="s.warranty_months">
+                                        <span
+                                            class="inline-flex items-center rounded px-2 py-0.5 text-[11px] font-bold"
+                                            :class="{
+                                                'bg-green-50 text-green-700 border border-green-200': s.warranty_status === 'active',
+                                                'bg-red-50 text-red-700 border border-red-200': s.warranty_status === 'expired',
+                                                'bg-gray-100 text-gray-600': s.warranty_status === 'pending_sale',
+                                            }"
+                                        >
+                                            {{ s.warranty_status === 'active' ? 'Vigente' : s.warranty_status === 'expired' ? 'Expirada' : 'Pendiente Venta' }}
+                                        </span>
+                                        <p class="text-gray-500 mt-0.5">{{ s.warranty_months }} meses</p>
+                                        <p v-if="s.warranty_expires_at" class="text-[11px] text-gray-400">Vence: {{ s.warranty_expires_at.split('T')[0] }}</p>
+                                    </div>
+                                    <div v-else class="text-gray-400 italic">
+                                        Sin garantía
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Paginación -->
+                    <div v-if="serialsMeta.last_page > 1" class="flex items-center justify-between border-t border-[#e4e1ee] px-4 py-3 bg-[#fcfbfe]">
+                        <p class="text-xs text-gray-600">
+                            Total: <span class="font-bold">{{ serialsMeta.total }}</span> series registradas
+                        </p>
+                        <div class="flex items-center gap-2">
+                            <button
+                                type="button"
+                                :disabled="serialsMeta.current_page <= 1"
+                                class="rounded border border-[#c7c4d8] px-3 py-1 text-xs font-semibold disabled:opacity-40 hover:bg-gray-100"
+                                @click="loadSerials(serialsMeta.current_page - 1)"
+                            >
+                                Anterior
+                            </button>
+                            <span class="text-xs font-medium text-gray-700">
+                                Pág. {{ serialsMeta.current_page }} de {{ serialsMeta.last_page }}
+                            </span>
+                            <button
+                                type="button"
+                                :disabled="serialsMeta.current_page >= serialsMeta.last_page"
+                                class="rounded border border-[#c7c4d8] px-3 py-1 text-xs font-semibold disabled:opacity-40 hover:bg-gray-100"
+                                @click="loadSerials(serialsMeta.current_page + 1)"
+                            >
+                                Siguiente
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- MODAL KARDEX MOVIMIENTOS -->
@@ -1051,6 +1355,203 @@ const filteredProductsDropdown = computed(() => {
                         </button>
                     </footer>
                 </form>
+            </div>
+        </div>
+
+        <!-- MODAL: CARGA MASIVA DE SERIES -->
+        <div
+            v-if="showBatchSerialModal"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+            @click.self="showBatchSerialModal = false"
+        >
+            <div class="w-full max-w-lg rounded-2xl bg-white shadow-2xl overflow-hidden border border-[#c7c4d8]">
+                <header class="p-5 border-b border-[#e4e1ee] flex justify-between items-center bg-[#fcfbfe]">
+                    <div>
+                        <h2 class="text-lg font-bold text-[#1b1b21]">Carga Masiva de Números de Serie / IMEI</h2>
+                        <p class="text-xs text-[#464555] mt-0.5">Ingresa múltiples seriales (uno por línea o separados por coma).</p>
+                    </div>
+                    <button class="text-gray-400 hover:text-gray-700 font-bold text-lg p-2" @click="showBatchSerialModal = false">
+                        ✕
+                    </button>
+                </header>
+
+                <form @submit.prevent="handleSaveBatchSerials" class="p-5 space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-[#464555] mb-1">
+                            Almacén de Destino *
+                        </label>
+                        <select
+                            v-model="batchSerialForm.warehouse_id"
+                            required
+                            class="min-h-11 w-full rounded-lg border border-[#c7c4d8] px-3 text-sm focus:border-[#3525cd] focus:ring-1 focus:ring-[#3525cd]"
+                        >
+                            <option value="" disabled>Selecciona un almacén</option>
+                            <option v-for="w in warehouses" :key="w.id" :value="w.id">
+                                {{ w.name }} ({{ w.code }})
+                            </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-[#464555] mb-1">
+                            Producto *
+                        </label>
+                        <select
+                            v-model="batchSerialForm.product_id"
+                            required
+                            class="min-h-11 w-full rounded-lg border border-[#c7c4d8] px-3 text-sm focus:border-[#3525cd] focus:ring-1 focus:ring-[#3525cd]"
+                        >
+                            <option value="" disabled>Selecciona el producto</option>
+                            <option v-for="p in availableProducts" :key="p.id" :value="p.id">
+                                {{ p.name }} ({{ p.sku || 'Sin SKU' }})
+                            </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-[#464555] mb-1">
+                            Números de Serie / IMEI (un número por línea) *
+                        </label>
+                        <textarea
+                            v-model="batchSerialForm.raw_serials"
+                            required
+                            rows="5"
+                            placeholder="SN-LG-982341&#10;SN-LG-982342&#10;SN-LG-982343"
+                            class="w-full rounded-lg border border-[#c7c4d8] p-3 text-sm font-mono focus:border-[#3525cd] focus:ring-1 focus:ring-[#3525cd]"
+                        ></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-[#464555] mb-1">
+                                Costo Unitario RD$ (Opcional)
+                            </label>
+                            <input
+                                v-model.number="batchSerialForm.cost"
+                                type="number"
+                                min="0"
+                                step="0.01"
+                                class="min-h-11 w-full rounded-lg border border-[#c7c4d8] px-3 text-sm"
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-[#464555] mb-1">
+                                Notas / Lote
+                            </label>
+                            <input
+                                v-model="batchSerialForm.notes"
+                                type="text"
+                                placeholder="Ej: Contenedor Sep-2026"
+                                class="min-h-11 w-full rounded-lg border border-[#c7c4d8] px-3 text-sm"
+                            />
+                        </div>
+                    </div>
+
+                    <footer class="pt-4 border-t border-[#e4e1ee] flex justify-end gap-3">
+                        <button
+                            type="button"
+                            class="min-h-11 rounded-lg border border-[#c7c4d8] px-4 font-semibold text-[#464555] hover:bg-gray-100 transition"
+                            @click="showBatchSerialModal = false"
+                        >
+                            Cancelar
+                        </button>
+                        <button
+                            type="submit"
+                            :disabled="isSavingBatch"
+                            class="min-h-11 rounded-lg bg-[#3525cd] px-6 font-bold text-white shadow-sm hover:bg-[#2b1ea7] transition disabled:opacity-50"
+                        >
+                            {{ isSavingBatch ? 'Registrando...' : 'Registrar Lote' }}
+                        </button>
+                    </footer>
+                </form>
+            </div>
+        </div>
+
+        <!-- MODAL: CONSULTA DE GARANTÍAS -->
+        <div
+            v-if="showWarrantyLookupModal"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+            @click.self="showWarrantyLookupModal = false"
+        >
+            <div class="w-full max-w-2xl rounded-2xl bg-white shadow-2xl overflow-hidden border border-[#c7c4d8] max-h-[90vh] flex flex-col">
+                <header class="p-5 border-b border-[#e4e1ee] flex justify-between items-center bg-[#fcfbfe]">
+                    <div>
+                        <h2 class="text-lg font-bold text-[#1b1b21]">Consulta de Garantía y Trazabilidad de Serie</h2>
+                        <p class="text-xs text-[#464555] mt-0.5">Ingresa el N° de Serie o IMEI para verificar estado y vencimiento.</p>
+                    </div>
+                    <button class="text-gray-400 hover:text-gray-700 font-bold text-lg p-2" @click="showWarrantyLookupModal = false">
+                        ✕
+                    </button>
+                </header>
+
+                <div class="p-5 space-y-4 overflow-y-auto flex-1">
+                    <div class="flex gap-2">
+                        <input
+                            v-model="warrantyLookupQuery"
+                            type="text"
+                            placeholder="Ej: SN-SAMS-99881..."
+                            class="min-h-11 flex-1 rounded-lg border border-[#c7c4d8] px-3 text-sm focus:border-[#3525cd] focus:ring-1 focus:ring-[#3525cd]"
+                            @keydown.enter.prevent="handleSearchWarrantyLookup"
+                        />
+                        <button
+                            type="button"
+                            :disabled="isSearchingWarranty"
+                            class="min-h-11 rounded-lg bg-[#3525cd] px-5 text-sm font-bold text-white shadow-sm hover:bg-[#2b1ea7] transition disabled:opacity-50"
+                            @click="handleSearchWarrantyLookup"
+                        >
+                            {{ isSearchingWarranty ? 'Buscando...' : 'Buscar' }}
+                        </button>
+                    </div>
+
+                    <p v-if="warrantyLookupError" class="text-sm font-semibold text-red-600">
+                        {{ warrantyLookupError }}
+                    </p>
+
+                    <div v-if="warrantyLookupResults.length > 0" class="space-y-3 pt-2">
+                        <div
+                            v-for="res in warrantyLookupResults"
+                            :key="res.id"
+                            class="rounded-xl border border-[#c7c4d8] p-4 bg-gray-50 space-y-2"
+                        >
+                            <div class="flex items-center justify-between">
+                                <span class="font-mono text-base font-bold text-[#3525cd]">{{ res.serial_number }}</span>
+                                <span
+                                    class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold"
+                                    :class="{
+                                        'bg-green-100 text-green-800': res.warranty_status === 'active',
+                                        'bg-red-100 text-red-800': res.warranty_status === 'expired',
+                                        'bg-gray-100 text-gray-700': res.warranty_status === 'pending_sale',
+                                    }"
+                                >
+                                    {{ res.warranty_status === 'active' ? 'Garantía Vigente' : res.warranty_status === 'expired' ? 'Garantía Expirada' : 'Pendiente de Venta' }}
+                                </span>
+                            </div>
+
+                            <p class="text-sm font-bold text-gray-900">{{ res.product?.name }}</p>
+                            <div class="grid grid-cols-2 gap-2 text-xs text-gray-600 pt-1">
+                                <div><span class="font-semibold">Almacén:</span> {{ res.warehouse?.name }}</div>
+                                <div><span class="font-semibold">Estado:</span> {{ res.status }}</div>
+                                <div><span class="font-semibold">Cliente:</span> {{ res.customer?.name || 'No registrado' }}</div>
+                                <div><span class="font-semibold">Factura / NCF:</span> {{ res.invoice?.ncf || res.invoice?.invoice_number || 'N/A' }}</div>
+                                <div><span class="font-semibold">Fecha Venta:</span> {{ res.sold_at ? res.sold_at.split('T')[0] : 'N/A' }}</div>
+                                <div><span class="font-semibold">Vencimiento:</span> {{ res.warranty_expires_at ? res.warranty_expires_at.split('T')[0] : 'N/A' }}</div>
+                            </div>
+                            <div v-if="res.warranty_terms" class="text-xs text-gray-500 pt-1 border-t border-gray-200">
+                                <span class="font-semibold">Términos:</span> {{ res.warranty_terms }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="p-4 border-t border-[#e4e1ee] flex justify-end bg-gray-50">
+                    <button
+                        type="button"
+                        class="min-h-11 rounded-lg bg-[#302f39] px-5 font-semibold text-white transition hover:bg-[#201f26]"
+                        @click="showWarrantyLookupModal = false"
+                    >
+                        Cerrar
+                    </button>
+                </footer>
             </div>
         </div>
     </main>

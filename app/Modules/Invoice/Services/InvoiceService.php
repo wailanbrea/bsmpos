@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Modules\Company\Models\Company;
 use App\Modules\Inventory\Models\Warehouse;
 use App\Modules\Inventory\Services\InventoryService;
+use App\Modules\Inventory\Services\ProductSerialService;
 use App\Modules\Invoice\Events\InvoiceIssued;
 use App\Modules\Invoice\Models\Invoice;
 use App\Modules\POS\Models\Order;
@@ -21,7 +22,8 @@ final class InvoiceService
 {
     public function __construct(
         private readonly NcfSequenceService $ncfSequenceService,
-        private readonly InventoryService $inventoryService
+        private readonly InventoryService $inventoryService,
+        private readonly ProductSerialService $productSerialService
     ) {}
 
     /**
@@ -102,6 +104,10 @@ final class InvoiceService
                     'serial_number' => $item->serial_number,
                     'warranty_terms' => $item->warranty_terms,
                 ]);
+
+                if (! empty($item->serial_number)) {
+                    $this->productSerialService->attachInvoiceToSerial($item, $invoice);
+                }
             }
 
             $invoice = $invoice->load(['items.product', 'customer', 'branch']);
@@ -158,6 +164,12 @@ final class InvoiceService
                                 batchNumber: $item->batch_number
                             );
                         }
+                    }
+                }
+
+                foreach ($order->items as $orderItem) {
+                    if (! empty($orderItem->serial_number)) {
+                        $this->productSerialService->revertSaleSerial($orderItem);
                     }
                 }
             }

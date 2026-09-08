@@ -12,6 +12,8 @@ import { useAgentStatus } from '../../../composables/useAgentStatus';
 import { printWithAgent, openDrawerWithAgent, getAgentPrinters } from '../../../composables/useAgentPrinter';
 import type { AgentPrinterInfo } from '../../../composables/useAgentPrinter';
 import { useModuleStore } from '../../module-manager/stores/modules';
+import { InventoryService } from '../../inventory/services';
+import type { AvailableSerial, ProductSerial } from '../../inventory/services';
 
 const route = useRoute();
 const moduleStore = useModuleStore();
@@ -553,10 +555,67 @@ watch(
     { deep: true },
 );
 
+// Series disponibles para autocompletado en el POS
+const availableSerialsMap = ref<Record<string, AvailableSerial[]>>({});
+const loadingSerialsMap = ref<Record<string, boolean>>({});
+
+async function loadAvailableSerialsForProduct(productId: string) {
+    if (availableSerialsMap.value[productId] || loadingSerialsMap.value[productId]) {
+        return;
+    }
+    loadingSerialsMap.value[productId] = true;
+    try {
+        const list = await InventoryService.getAvailableSerials(productId, selectedWarehouseId.value || undefined);
+        availableSerialsMap.value[productId] = list;
+    } catch {
+        availableSerialsMap.value[productId] = [];
+    } finally {
+        loadingSerialsMap.value[productId] = false;
+    }
+}
+
+// Modal de consulta y trazabilidad de garantías
+const showWarrantyModal = ref(false);
+const warrantySearchQuery = ref('');
+const warrantyResults = ref<ProductSerial[]>([]);
+const isSearchingWarranty = ref(false);
+const warrantySearchError = ref('');
+
+function openWarrantyModal() {
+    showWarrantyModal.value = true;
+    warrantySearchError.value = '';
+    warrantyResults.value = [];
+    warrantySearchQuery.value = '';
+}
+
+async function handleSearchWarranty() {
+    const q = warrantySearchQuery.value.trim();
+    if (q.length < 2) {
+        warrantySearchError.value = 'Ingresa al menos 2 caracteres de la serie o IMEI.';
+        return;
+    }
+    isSearchingWarranty.value = true;
+    warrantySearchError.value = '';
+    try {
+        warrantyResults.value = await InventoryService.lookupSerial(q);
+        if (warrantyResults.value.length === 0) {
+            warrantySearchError.value = 'No se encontraron registros para la serie ingresada.';
+        }
+    } catch (err: unknown) {
+        const error = err as { response?: { data?: { error?: { message?: string } } } };
+        warrantySearchError.value = error.response?.data?.error?.message || 'Error al consultar la garantía.';
+    } finally {
+        isSearchingWarranty.value = false;
+    }
+}
+
 // Agregar item al carrito
 function addToCart(prod: Product) {
     const tax = taxes.value.find((t) => t.id === prod.tax_id) || null;
     const requiresSerial = Boolean(prod.requires_serial_number);
+    if (requiresSerial) {
+        void loadAvailableSerialsForProduct(prod.id);
+    }
     const existing = !requiresSerial ? cart.value.find((item) => item.product_id === prod.id) : null;
 
     if (existing) {
@@ -1038,16 +1097,28 @@ const filteredProducts = computed(() => {
                                 {{ cart.reduce((sum, item) => sum + item.quantity, 0) }}
                             </span>
                         </div>
-                        <button
-                            v-if="cart.length > 0"
-                            type="button"
-                            class="text-xs font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-lg flex items-center gap-1 transition cursor-pointer"
-                            title="Vaciar todo el carrito"
-                            @click="clearCart"
-                        >
-                            <span class="material-symbols-outlined text-[16px]">delete_sweep</span>
-                            <span>Vaciar</span>
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <button
+                                v-if="moduleStore.canUse('serial_numbers') || moduleStore.canUse('warranty')"
+                                type="button"
+                                class="text-xs font-semibold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2.5 py-1 rounded-lg flex items-center gap-1 transition cursor-pointer"
+                                title="Consultar estado de garantía por número de serie o IMEI"
+                                @click="openWarrantyModal"
+                            >
+                                <span class="material-symbols-outlined text-[16px]">verified_user</span>
+                                <span>Garantías</span>
+                            </button>
+                            <button
+                                v-if="cart.length > 0"
+                                type="button"
+                                class="text-xs font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 px-2.5 py-1 rounded-lg flex items-center gap-1 transition cursor-pointer"
+                                title="Vaciar todo el carrito"
+                                @click="clearCart"
+                            >
+                                <span class="material-symbols-outlined text-[16px]">delete_sweep</span>
+                                <span>Vaciar</span>
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Listado de items del carrito -->
@@ -1142,12 +1213,45 @@ const filteredProducts = computed(() => {
                                         <span class="material-symbols-outlined text-[14px]">barcode_scanner</span>
                                         S/N:
                                     </span>
-                                    <input
-                                        type="text"
-                                        v-model="item.serial_number"
-                                        placeholder="Escanear o digitar serial..."
-                                        class="flex-1 text-xs border border-indigo-200 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-400 rounded-md px-2 py-1 bg-white font-mono uppercase"
-                                    />
+                                    <div class="relative flex-1">
+                                        <input
+                                            type="text"
+                                            v-model="item.serial_number"
+                                            :list="'serials-' + item.product_id"
+                                            placeholder="Escanear o seleccionar serie..."
+                                            class="w-full text-xs border border-indigo-200 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-400 rounded-md px-2 py-1.5 bg-white font-mono uppercase pr-16"
+                                        />
+                                        <datalist :id="'serials-' + item.product_id">
+                                            <option
+                                                v-for="s in (availableSerialsMap[item.product_id] || [])"
+                                                :key="s.id"
+                                                :value="s.serial_number"
+                                            >
+                                                {{ s.serial_number }} (En stock)
+                                            </option>
+                                        </datalist>
+                                        <div class="absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none flex items-center gap-1">
+                                            <span
+                                                v-if="item.serial_number && (availableSerialsMap[item.product_id] || []).some(s => s.serial_number.toUpperCase() === item.serial_number?.trim().toUpperCase())"
+                                                class="text-[9px] font-bold text-emerald-700 bg-emerald-100 px-1 py-0.5 rounded"
+                                            >
+                                                ✓ Stock
+                                            </span>
+                                            <span
+                                                v-else-if="item.serial_number && item.serial_number.trim().length > 0"
+                                                class="text-[9px] font-bold text-amber-700 bg-amber-100 px-1 py-0.5 rounded"
+                                                title="Serie no precargada, se registrará al vuelo"
+                                            >
+                                                ⚡ Nueva
+                                            </span>
+                                            <span
+                                                v-else-if="(availableSerialsMap[item.product_id] || []).length > 0"
+                                                class="text-[9px] font-medium text-indigo-600 bg-indigo-50 px-1 py-0.5 rounded"
+                                            >
+                                                {{ (availableSerialsMap[item.product_id] || []).length }} disp.
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1958,6 +2062,149 @@ const filteredProducts = computed(() => {
                         type="button"
                         class="min-h-10 rounded-lg border border-[#c7c4d8] bg-white px-5 text-xs font-semibold text-[#302f39] hover:bg-gray-50 cursor-pointer"
                         @click="showAgentModal = false"
+                    >
+                        Cerrar
+                    </button>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Modal: Consulta y Trazabilidad de Garantías -->
+        <div
+            v-if="showWarrantyModal"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-xs"
+            role="dialog"
+            aria-modal="true"
+        >
+            <div class="w-full max-w-2xl rounded-2xl bg-white shadow-2xl flex flex-col max-h-[90vh] overflow-hidden">
+                <header class="p-4 border-b border-[#e4e1ee] flex items-center justify-between bg-[#fcfbfe]">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[22px]">verified_user</span>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold font-geist text-[#0b1c30]">Consulta de Garantías</h3>
+                            <p class="text-xs text-[#5f5e61]">Trazabilidad por Número de Serie (S/N) o IMEI</p>
+                        </div>
+                    </div>
+                    <button
+                        class="min-h-10 min-w-10 rounded-lg hover:bg-gray-100 flex items-center justify-center text-lg text-[#464555] cursor-pointer"
+                        aria-label="Cerrar"
+                        @click="showWarrantyModal = false"
+                    >
+                        ✕
+                    </button>
+                </header>
+
+                <div class="p-5 overflow-y-auto space-y-4">
+                    <!-- Buscador -->
+                    <form @submit.prevent="handleSearchWarranty" class="flex gap-2">
+                        <div class="relative flex-1">
+                            <span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-gray-400 text-[20px]">
+                                search
+                            </span>
+                            <input
+                                v-model="warrantySearchQuery"
+                                type="text"
+                                placeholder="Escanear o digitar serie (ej. SN-SAM-100)..."
+                                class="w-full min-h-12 pl-10 pr-4 rounded-xl border border-gray-300 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 font-mono text-sm uppercase"
+                                autofocus
+                            />
+                        </div>
+                        <button
+                            type="submit"
+                            class="min-h-12 px-5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-sm flex items-center gap-1.5 transition cursor-pointer disabled:opacity-50"
+                            :disabled="isSearchingWarranty || warrantySearchQuery.trim().length < 2"
+                        >
+                            <span v-if="isSearchingWarranty" class="animate-spin text-sm">⏳</span>
+                            <span v-else class="material-symbols-outlined text-[18px]">search</span>
+                            <span>Buscar</span>
+                        </button>
+                    </form>
+
+                    <!-- Mensaje de error / no encontrado -->
+                    <div v-if="warrantySearchError" class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-800 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">info</span>
+                        <span>{{ warrantySearchError }}</span>
+                    </div>
+
+                    <!-- Resultados -->
+                    <div v-if="warrantyResults.length > 0" class="space-y-3">
+                        <div
+                            v-for="res in warrantyResults"
+                            :key="res.id"
+                            class="border border-gray-200 rounded-xl p-4 bg-white hover:border-indigo-300 transition shadow-xs flex flex-col gap-2.5"
+                        >
+                            <div class="flex items-start justify-between gap-2 flex-wrap">
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-mono text-sm font-bold text-indigo-900 bg-indigo-50 px-2 py-0.5 rounded">
+                                            S/N: {{ res.serial_number }}
+                                        </span>
+                                        <span
+                                            class="text-xs font-bold px-2 py-0.5 rounded-full"
+                                            :class="{
+                                                'bg-emerald-100 text-emerald-800': res.status === 'sold' && res.is_warranty_active,
+                                                'bg-red-100 text-red-800': res.status === 'sold' && !res.is_warranty_active,
+                                                'bg-blue-100 text-blue-800': res.status === 'available',
+                                                'bg-gray-100 text-gray-800': res.status === 'returned' || res.status === 'defective',
+                                            }"
+                                        >
+                                            {{ res.status === 'sold' ? (res.is_warranty_active ? '🛡️ Garantía Vigente' : '⚠️ Garantía Vencida') : res.status_label }}
+                                        </span>
+                                    </div>
+                                    <h4 class="font-bold text-base text-gray-900 mt-1">{{ res.product?.name }}</h4>
+                                    <span class="text-xs text-gray-500 font-mono">SKU: {{ res.product?.sku }}</span>
+                                </div>
+                                <div class="text-right text-xs">
+                                    <span class="text-gray-500 block">Almacén</span>
+                                    <span class="font-semibold text-gray-800">{{ res.warehouse?.name }}</span>
+                                </div>
+                            </div>
+
+                            <!-- Datos de la venta y cliente -->
+                            <div v-if="res.status === 'sold'" class="grid grid-cols-2 md:grid-cols-3 gap-2 pt-2 border-t border-gray-100 text-xs bg-gray-50 p-2.5 rounded-lg">
+                                <div>
+                                    <span class="text-gray-500 block">Cliente</span>
+                                    <span class="font-semibold text-gray-800">{{ res.customer?.name || 'Consumidor Final' }}</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block">Factura / NCF</span>
+                                    <span class="font-semibold text-indigo-700 font-mono">{{ res.invoice?.ncf || res.invoice?.invoice_number || 'N/A' }}</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block">Fecha de Compra</span>
+                                    <span class="font-semibold text-gray-800">{{ res.sold_at_formatted || 'N/A' }}</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block">Póliza / Términos</span>
+                                    <span class="font-semibold text-gray-800">{{ res.warranty_terms || `${res.warranty_months} meses` }}</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500 block">Vencimiento</span>
+                                    <span
+                                        class="font-bold"
+                                        :class="res.is_warranty_active ? 'text-emerald-700' : 'text-red-700'"
+                                    >
+                                        {{ res.warranty_expires_formatted || 'N/A' }}
+                                    </span>
+                                </div>
+                                <div v-if="res.warranty_days_remaining !== null">
+                                    <span class="text-gray-500 block">Tiempo Restante</span>
+                                    <span class="font-semibold text-emerald-700">
+                                        {{ res.warranty_days_remaining > 0 ? `${res.warranty_days_remaining} días restantes` : 'Vence hoy' }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="p-4 border-t border-[#e4e1ee] bg-[#fcfbfe] flex justify-end">
+                    <button
+                        type="button"
+                        class="min-h-10 rounded-lg border border-[#c7c4d8] bg-white px-5 text-xs font-semibold text-[#302f39] hover:bg-gray-50 cursor-pointer"
+                        @click="showWarrantyModal = false"
                     >
                         Cerrar
                     </button>

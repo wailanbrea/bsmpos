@@ -629,6 +629,10 @@ class DemoVerticalsSeeder extends Seeder
         );
 
         if ($bootstrap === null) {
+            $company = Company::withoutGlobalScopes()->where('name', 'ElectroHogar Dominicana')->first();
+            if ($company !== null) {
+                $this->seedElectroHogarSerialsIfMissing($company);
+            }
             return;
         }
 
@@ -814,6 +818,38 @@ class DemoVerticalsSeeder extends Seeder
             // Stock en Showroom y en Depósito
             $inventory->addStock($showroom, $prod, $data['showroom_stock'], $data['cost'], user: $owner);
             $inventory->addStock($deposito, $prod, $data['deposito_stock'], $data['cost'], user: $owner);
+
+            // Precargar números de serie físicos para trazabilidad en Showroom y Depósito
+            if ($data['requires_serial']) {
+                $skuPrefix = str_replace('-', '', (string) $data['sku']);
+                $showroomSerials = [];
+                for ($i = 1; $i <= (int) $data['showroom_stock']; $i++) {
+                    $showroomSerials[] = "SN-{$skuPrefix}-SHW-" . str_pad((string) $i, 3, '0', STR_PAD_LEFT);
+                }
+                app(\App\Modules\Inventory\Services\ProductSerialService::class)->registerSerialsBatch(
+                    company: $company,
+                    branch: $branch,
+                    warehouse: $showroom,
+                    product: $prod,
+                    serials: $showroomSerials,
+                    cost: (float) $data['cost'],
+                    notes: 'Serie física en Sala de Exhibición (Showroom)'
+                );
+
+                $depositoSerials = [];
+                for ($i = 1; $i <= (int) $data['deposito_stock']; $i++) {
+                    $depositoSerials[] = "SN-{$skuPrefix}-DEP-" . str_pad((string) $i, 3, '0', STR_PAD_LEFT);
+                }
+                app(\App\Modules\Inventory\Services\ProductSerialService::class)->registerSerialsBatch(
+                    company: $company,
+                    branch: $branch,
+                    warehouse: $deposito,
+                    product: $prod,
+                    serials: $depositoSerials,
+                    cost: (float) $data['cost'],
+                    notes: 'Serie física en Almacén Central (Depósito)'
+                );
+            }
         }
 
         // Cliente empresa con RNC para compras con Crédito Fiscal (B01)
@@ -826,7 +862,83 @@ class DemoVerticalsSeeder extends Seeder
             'phone' => '809-555-4422',
             'email' => 'compras@constructorasd.do',
             'address' => 'Av. 27 de Febrero #204, Santo Domingo',
-            'is_active' => true,
         ]);
+    }
+
+    private function seedElectroHogarSerialsIfMissing(Company $company): void
+    {
+        $branch = \App\Modules\Company\Models\Branch::withoutGlobalScopes()->where('company_id', $company->getKey())->first();
+        if ($branch === null) {
+            return;
+        }
+
+        app(\App\Core\Tenancy\CurrentCompany::class)->setCompany($company);
+        app(\App\Core\Tenancy\CurrentCompany::class)->setBranch($branch);
+
+        $showroom = Warehouse::withoutGlobalScopes()
+            ->where('company_id', $company->getKey())
+            ->where('code', 'SHOWROOM')
+            ->first() ?? Warehouse::withoutGlobalScopes()->where('company_id', $company->getKey())->first();
+
+        $deposito = Warehouse::withoutGlobalScopes()
+            ->where('company_id', $company->getKey())
+            ->where('code', 'DEP-CENTRAL')
+            ->first() ?? Warehouse::withoutGlobalScopes()->where('company_id', $company->getKey())->skip(1)->first();
+
+        if ($showroom === null) {
+            return;
+        }
+
+        $serialService = app(\App\Modules\Inventory\Services\ProductSerialService::class);
+        $products = Product::withoutGlobalScopes()
+            ->with('inventorySetting')
+            ->where('company_id', $company->getKey())
+            ->get();
+
+        foreach ($products as $prod) {
+            if (! $prod->inventorySetting?->requires_serial_number) {
+                continue;
+            }
+
+            $hasSerials = \App\Modules\Inventory\Models\ProductSerial::query()
+                ->where('company_id', $company->getKey())
+                ->where('product_id', $prod->getKey())
+                ->exists();
+
+            if ($hasSerials) {
+                continue;
+            }
+
+            $skuPrefix = str_replace('-', '', (string) $prod->sku);
+            $showroomSerials = [];
+            for ($i = 1; $i <= 5; $i++) {
+                $showroomSerials[] = "SN-{$skuPrefix}-SHW-" . str_pad((string) $i, 3, '0', STR_PAD_LEFT);
+            }
+            $serialService->registerSerialsBatch(
+                company: $company,
+                branch: $branch,
+                warehouse: $showroom,
+                product: $prod,
+                serials: $showroomSerials,
+                cost: (float) $prod->cost,
+                notes: 'Serie física en Sala de Exhibición (Showroom)'
+            );
+
+            if ($deposito !== null) {
+                $depositoSerials = [];
+                for ($i = 1; $i <= 10; $i++) {
+                    $depositoSerials[] = "SN-{$skuPrefix}-DEP-" . str_pad((string) $i, 3, '0', STR_PAD_LEFT);
+                }
+                $serialService->registerSerialsBatch(
+                    company: $company,
+                    branch: $branch,
+                    warehouse: $deposito,
+                    product: $prod,
+                    serials: $depositoSerials,
+                    cost: (float) $prod->cost,
+                    notes: 'Serie física en Almacén Central (Depósito)'
+                );
+            }
+        }
     }
 }

@@ -138,4 +138,92 @@ export const InventoryService = {
         const response = await api.post('/stock/adjust', data);
         return response.data.data;
     },
+
+    // Números de Serie y Garantías
+    async getSerials(params?: {
+        warehouse_id?: string;
+        product_id?: string;
+        status?: string;
+        search?: string;
+        page?: number;
+    }): Promise<{ data: ProductSerial[]; meta?: { current_page: number; last_page: number; total: number } }> {
+        const response = await api.get('/serials', { params });
+        return {
+            data: response.data.data || [],
+            meta: response.data.meta,
+        };
+    },
+
+    async getAvailableSerials(productId: string, warehouseId?: string): Promise<AvailableSerial[]> {
+        const response = await api.get('/serials/available', {
+            params: {
+                product_id: productId,
+                warehouse_id: warehouseId,
+            },
+        });
+        return response.data.data || [];
+    },
+
+    async registerSerialsBatch(data: {
+        product_id: string;
+        warehouse_id: string;
+        serials: string[];
+        cost?: number;
+        notes?: string;
+    }): Promise<{ registered_count: number }> {
+        const response = await api.post('/serials/batch', data);
+        return response.data.data;
+    },
+
+    async lookupSerial(query: string): Promise<ProductSerial[]> {
+        const response = await api.get('/serials/lookup', {
+            params: { query },
+        });
+        return response.data.data || [];
+    },
 };
+
+export interface ProductSerial {
+    id: string;
+    serial_number: string;
+    status: 'available' | 'reserved' | 'sold' | 'returned' | 'defective';
+    status_label: string;
+    product: {
+        id: string;
+        name: string;
+        sku: string;
+    } | null;
+    warehouse: {
+        id: string;
+        name: string;
+        code: string;
+    } | null;
+    customer: {
+        id: string;
+        name: string;
+        tax_id: string | null;
+    } | null;
+    invoice: {
+        id: string;
+        invoice_number: string;
+        ncf: string | null;
+    } | null;
+    sold_at: string | null;
+    sold_at_formatted: string | null;
+    warranty_months: number | null;
+    warranty_terms: string | null;
+    warranty_expires_at: string | null;
+    warranty_expires_formatted: string | null;
+    warranty_status: 'valid' | 'expired' | 'none';
+    is_warranty_active: boolean;
+    warranty_days_remaining: number | null;
+    notes: string | null;
+    created_at: string;
+}
+
+export interface AvailableSerial {
+    id: string;
+    serial_number: string;
+    warranty_terms: string | null;
+    warranty_months: number | null;
+}
